@@ -28,7 +28,7 @@
 
 ## Get started 👩‍🏫
 
-Alex Reardon have created [a free course on `egghead.io` 🥚](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) (using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)) to help you get started with `react-forked-dnd` as quickly as possible.
+Alex Reardon has created [a free course on `egghead.io` 🥚](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) (using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)) to help you get started with `react-forked-dnd` as quickly as possible.
 
 [![course-logo](https://user-images.githubusercontent.com/2182637/43372837-8c72d3f8-93e8-11e8-9d92-a82adde7718f.png)](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd)
 
