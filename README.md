@@ -149,7 +149,7 @@ Alex Reardon [@alexandereardon](https://twitter.com/alexandereardon)
 
 ## Maintainer 🛠️
 
-- Gabriel Santerre [@100terres]
+- Gabriel Santerre [@100terres](https://github.com/100terres)
 
 ## Collaborators 🤝
 
