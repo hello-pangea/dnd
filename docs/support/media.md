@@ -75,7 +75,7 @@ This page contains a list of articles, blogs and newsletters that `react-beautif
 
 - [Here Are 5 Useful React Components](https://medium.com/javascript-in-plain-english/here-are-5-useful-react-components-fb3927e7d790)
 - [Build a beautiful, draggable kanban board with react-beautiful-dnd](https://www.youtube.com/watch?v=uHO3mQgs-e8)
-- [Drag and Drop Tables with React-beautiful-dnd (Part I)](https://dev.to/milandhar/drag-and-drop-table-with-react-beautiful-dnd-54ad)
+- [Drag and Drop Tables with React-Beautiful-DND (Part I)](https://dev.to/milandhar/drag-and-drop-table-with-react-beautiful-dnd-54ad)
 - [Scripted natural motion with react-beautiful-dnd](https://dev.to/raathigesh/scripted-natural-motion-with-react-beautiful-dnd-4ifj)
 - [Drag n’Drop with react-beautiful-dnd](https://medium.com/@reireynoso/drag-ndrop-with-react-beautiful-dnd-73014e5937f2)
 - [How to add Drag and Drop features to your React app](https://medium.com/javascript-in-plain-english/how-to-add-drag-and-drop-feature-to-your-react-app-20cb22fb180)
