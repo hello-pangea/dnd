@@ -147,6 +147,10 @@ There are a lot of libraries out there that allow for drag and drop interactions
 
 Alex Reardon [@alexandereardon](https://twitter.com/alexandereardon)
 
+## Maintainer 🛠️
+
+- Gabriel Santerre [@100terres]
+
 ## Collaborators 🤝
 
 - Bogdan Chadkin [@IAmTrySound](https://twitter.com/IAmTrySound)
