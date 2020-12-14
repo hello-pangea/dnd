@@ -25,7 +25,7 @@ function getForceChange(force: number): Event {
 }
 
 // Note: this behaviour is a bit strange as we are working around a safari issue
-// https://github.com/atlassian/react-beautiful-dnd/issues/1401
+// https://github.com/100terres/react-forked-dnd/issues/1401
 describe('force press not respected (default)', () => {
   it('should not abort presses that do not have enought pressure', () => {
     const { getByText } = render(<App />);

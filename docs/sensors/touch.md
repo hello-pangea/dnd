@@ -1,6 +1,6 @@
 # Touch dragging
 
-`react-beautiful-dnd` supports dragging on touch devices such as mobiles and tablets.
+`react-forked-dnd` supports dragging on touch devices such as mobiles and tablets.
 
 ![Mobile landscape](https://github.com/alexreardon/files/blob/master/resources/iphone-landscape.gif?raw=true)
 
@@ -8,7 +8,7 @@
 
 ## Understanding intention: tap, force press, scroll and drag
 
-When a user presses their finger (or other input) on a `<Draggable />` we are not sure if they where intending to _tap_, _force press_, _scroll the container_ or _drag_. **As much as possible `react-beautiful-dnd` aims to ensure that a users default interaction experience remains unaffected**.
+When a user presses their finger (or other input) on a `<Draggable />` we are not sure if they where intending to _tap_, _force press_, _scroll the container_ or _drag_. **As much as possible `react-forked-dnd` aims to ensure that a users default interaction experience remains unaffected**.
 
 > To see more indepth information about how we impact standard browser events see our [how we use DOM events guide](/docs/guides/how-we-use-dom-events.md)
 

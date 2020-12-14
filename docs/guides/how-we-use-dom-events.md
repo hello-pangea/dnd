@@ -1,7 +1,7 @@
 # How we use DOM events
 
 > This page details how we use DOM input events, what we do with them, and how you can build things on top of our usage. **Generally you will not need to know this information** but it can be helpful if you are also binding your own event handlers to the window or to a _drag handle_.
-> ⚠️ Note: due to a [bug in webkit](https://bugs.webkit.org/show_bug.cgi?id=184250), particular events such as `mousemove` will not correctly set `event.defaultPrevented` to `true` when `event.preventDefault()` is called. You can follow progress on this issue [here](https://github.com/atlassian/react-beautiful-dnd/issues/413).
+> ⚠️ Note: due to a [bug in webkit](https://bugs.webkit.org/show_bug.cgi?id=184250), particular events such as `mousemove` will not correctly set `event.defaultPrevented` to `true` when `event.preventDefault()` is called. You can follow progress on this issue [here](https://github.com/100terres/react-forked-dnd/issues/413).
 
 ## Prior knowledge
 
@@ -12,7 +12,7 @@ This page assumes a working knowledge of DOM events. For a good introduction to 
 
 ## Safe event bindings
 
-Without needing going into all the details below, here are the safest event handlers to build on top of `react-beautiful-dnd`:
+Without needing going into all the details below, here are the safest event handlers to build on top of `react-forked-dnd`:
 
 > These can be added on the _drag handle_, anywhere else higher on the tree or to the window directly.
 

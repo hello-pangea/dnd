@@ -5,7 +5,7 @@ The `resetServerContext` function should be used when server side rendering (SSR
 Use it before calling the server side render method:
 
 ```js
-import { resetServerContext } from 'react-beautiful-dnd';
+import { resetServerContext } from 'react-forked-dnd';
 import { renderToString } from 'react-dom/server';
 
 // ...
