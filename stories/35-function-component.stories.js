@@ -6,4 +6,4 @@ import QuoteApp from './src/function-component/quote-app';
 storiesOf(
   'Function component usage',
   module,
-).add('using rbd with function components and hooks', () => <QuoteApp />);
+).add('using rfd with function components and hooks', () => <QuoteApp />);

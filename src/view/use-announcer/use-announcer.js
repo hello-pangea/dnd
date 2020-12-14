@@ -7,7 +7,7 @@ import getBodyElement from '../get-body-element';
 import visuallyHidden from '../visually-hidden-style';
 
 export const getId = (contextId: ContextId): string =>
-  `rbd-announcement-${contextId}`;
+  `rfd-announcement-${contextId}`;
 
 export default function useAnnouncer(contextId: ContextId): Announce {
   const id: string = useMemo(() => getId(contextId), [contextId]);

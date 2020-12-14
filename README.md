@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/2182637/53611918-54c1ff80-3c24-11e9-9917-66ac3cef513d.png" alt="react beautiful dnd logo" />
 </p>
-<h1 align="center">react-forked-dnd <small><sup>(rbd)</sup></small></h1>
+<h1 align="center">react-forked-dnd <small><sup>(rfd)</sup></small></h1>
 
 <div align="center">
 
@@ -28,9 +28,9 @@
 
 ## Get started 👩‍🏫
 
-We have created [a free course on `egghead.io` 🥚](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-forked-dnd) to help you get started with `react-forked-dnd` as quickly as possible.
+Alex Reardon have created [a free course on `egghead.io` 🥚](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) (using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)) to help you get started with `react-forked-dnd` as quickly as possible.
 
-[![course-logo](https://user-images.githubusercontent.com/2182637/43372837-8c72d3f8-93e8-11e8-9d92-a82adde7718f.png)](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-forked-dnd)
+[![course-logo](https://user-images.githubusercontent.com/2182637/43372837-8c72d3f8-93e8-11e8-9d92-a82adde7718f.png)](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd)
 
 ## Currently supported feature set ✅
 
@@ -75,7 +75,7 @@ There are a lot of libraries out there that allow for drag and drop interactions
 
 - [Installation](/docs/about/installation.md)
 - [Examples and samples](/docs/about/examples.md)
-- [Get started](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-forked-dnd)
+- [Get started](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) (This is using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))
 - [Design principles](/docs/about/design-principles.md)
 - [Animations](/docs/about/animations.md)
 - [Accessibility](/docs/about/accessibility.md)
@@ -139,9 +139,11 @@ There are a lot of libraries out there that allow for drag and drop interactions
 
 ## Read this in other languages 🌎
 
-- [![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **한글/Korean**](https://github.com/LeeHyungGeun/react-forked-dnd-kr)
-- [![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **На русском/Russian**](https://github.com/vtereshyn/react-forked-dnd-ru)
-- [![pt](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Português/Portuguese**](https://github.com/dudestein/react-forked-dnd-pt)
+⚠️ These following translations are based on [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
+
+- [![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **한글/Korean**](https://github.com/LeeHyungGeun/react-beautiful-dnd-kr)
+- [![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **На русском/Russian**](https://github.com/vtereshyn/react-beautiful-dnd-ru)
+- [![pt](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Português/Portuguese**](https://github.com/dudestein/react-beautiful-dnd-pt)
 
 ## Author ✍️
 

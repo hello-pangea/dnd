@@ -54,19 +54,19 @@ export type DraggableProps = {|
   // inline style
   style: ?DraggableStyle,
   // used for shared global styles
-  'data-rbd-draggable-context-id': ContextId,
+  'data-rfd-draggable-context-id': ContextId,
   // used for lookups
-  'data-rbd-draggable-id': DraggableId,
+  'data-rfd-draggable-id': DraggableId,
   // used to know when a transition ends
   onTransitionEnd: ?(event: TransitionEvent) => void,
 |};
 
 export type DragHandleProps = {|
   // what draggable the handle belongs to
-  'data-rbd-drag-handle-draggable-id': DraggableId,
+  'data-rfd-drag-handle-draggable-id': DraggableId,
 
   // What DragDropContext the drag handle is in
-  'data-rbd-drag-handle-context-id': ContextId,
+  'data-rfd-drag-handle-context-id': ContextId,
 
   // We need a drag handle to be a widget in order to correctly set accessibility properties
   // Note: JAWS and VoiceOver don't need the element to be a 'widget' to read the accessibility properties, but NVDA does

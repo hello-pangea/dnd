@@ -122,9 +122,9 @@ type DroppableProvided = {|
 |};
 type DroppableProps = {|
   // used for shared global styles
-  'data-rbd-droppable-context-id': ContextId,
+  'data-rfd-droppable-context-id': ContextId,
   // Used to lookup. Currently not used for drag and drop lifecycle
-  'data-rbd-droppable-id': DroppableId,
+  'data-rfd-droppable-id': DroppableId,
 |};
 type DroppableStateSnapshot = {|
   isDraggingOver: boolean,
@@ -155,8 +155,8 @@ type DraggableStateSnapshot = {|
 
 type DraggableProps = {|
   style: ?DraggableStyle,
-  'data-rbd-draggable-context-id': string,
-  'data-rbd-draggable-id': string,
+  'data-rfd-draggable-context-id': string,
+  'data-rfd-draggable-id': string,
   onTransitionEnd: ?(event: TransitionEvent) => void,
 |};
 type DraggableChildrenFn = (
@@ -191,8 +191,8 @@ type DragHandleProps = {|
   onKeyDown: (event: KeyboardEvent) => void,
   onTouchStart: (event: TouchEvent) => void,
   tabIndex: number,
-  'data-rbd-drag-handle-draggable-id': string,
-  'data-rbd-drag-handle-context-id': string,
+  'data-rfd-drag-handle-draggable-id': string,
+  'data-rfd-drag-handle-context-id': string,
   role: string,
   'aria-describedby': string,
   draggable: boolean,

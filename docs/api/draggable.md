@@ -144,8 +144,8 @@ export type DraggableProps = {|
   // inline style
   style: ?DraggableStyle,
   // used for shared global styles
-  'data-rbd-draggable-context-id': string,
-  'data-rbd-draggable-id': string,
+  'data-rfd-draggable-context-id': string,
+  'data-rfd-draggable-id': string,
   // used to know when a transition ends
   onTransitionEnd: ?(event: TransitionEvent) => void,
 |};
@@ -327,10 +327,10 @@ It is an assumption that `<Draggable />`s are _visible siblings_ of one another.
 ```js
 type DragHandleProps = {|
   // what draggable the handle belongs to
-  'data-rbd-drag-handle-draggable-id': DraggableId,
+  'data-rfd-drag-handle-draggable-id': DraggableId,
 
   // What DragDropContext the drag handle is in
-  'data-rbd-drag-handle-context-id': ContextId,
+  'data-rfd-drag-handle-context-id': ContextId,
 
   // Id of hidden element that contains the lift instruction (nicer screen reader text)
   'aria-labelledby': ElementId,

@@ -33,7 +33,7 @@ const getPortal = memoizeOne((): HTMLElement => {
   const body: ?HTMLBodyElement = document.body;
   invariant(body);
   const el: HTMLElement = document.createElement('div');
-  el.className = 'rbd-portal';
+  el.className = 'rfd-portal';
   body.appendChild(el);
   return el;
 });

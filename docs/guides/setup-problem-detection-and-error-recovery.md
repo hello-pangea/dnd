@@ -52,35 +52,35 @@ Note: this will not strip the messages from your production builds. See above fo
 
 An error can occur when:
 
-1. A `Error` is explicitly `throw`n by `react-forked-dnd` (an **rbd error**)
-2. A `Error` is `throw`n by something else (a **non-rbd error**)
+1. A `Error` is explicitly `throw`n by `react-forked-dnd` (an **rfd error**)
+2. A `Error` is `throw`n by something else (a **non-rfd error**)
 3. A **runtime error** occurs (eg `SyntaxError`, `TypeError`)
 
-React [error boundaries](https://reactjs.org/docs/error-boundaries.html) do not catch all errors that can occur in `rbd`. So `rbd` uses a React error boundary as well as a `window` `error` event listener.
+React [error boundaries](https://reactjs.org/docs/error-boundaries.html) do not catch all errors that can occur in `rfd`. So `rfd` uses a React error boundary as well as a `window` `error` event listener.
 
-### Error is caught by a `rbd` error boundary
+### Error is caught by a `rfd` error boundary
 
-#### rbd error
+#### rfd error
 
 - cancel any active drag (no choice about this really, [an error unmounts everything under the error boundary](https://codesandbox.io/s/react-error-boundaries-rfyds))
 - log the error (non-production builds; will respect disabled logging)
 - recover the React tree
 
-#### non-rbd error or runtime error
+#### non-rfd error or runtime error
 
 - can any active drag
-- **`throw` the error** for your own error boundary. We will not recover from errors that are not caused explicitly by `rbd`. A run time error (such as a `TypeError`) that is caused by `rbd` will not be recovered. `rbd` will only recover from explicitly thrown `rbd` errors.
+- **`throw` the error** for your own error boundary. We will not recover from errors that are not caused explicitly by `rfd`. A run time error (such as a `TypeError`) that is caused by `rfd` will not be recovered. `rfd` will only recover from explicitly thrown `rfd` errors.
 
 ### Error is caught by `window` `error` listener
 
-#### rbd error
+#### rfd error
 
 - Cancel any active drag.
 - Log a warning stating that the drag has been cancelled (non-production builds; will respect disabled logging)
 - Log the error
 - Call `event.preventDefault()` on the event. This marks the event as consumed. See [how we use DOM events](/docs/guides/how-we-use-dom-events.md). It will also prevent any 'uncaught error' warnings in your `console`.
 
-#### non-rbd error or runtime error
+#### non-rfd error or runtime error
 
 - Cancel any active drag.
 - Log a warning stating that the drag has been cancelled (non-production builds; will respect disabled logging)

@@ -11,7 +11,7 @@ type GetIdArgs = {|
 |};
 
 export function getElementId({ contextId, uniqueId }: GetIdArgs): ElementId {
-  return `rbd-hidden-text-${contextId}-${uniqueId}`;
+  return `rfd-hidden-text-${contextId}-${uniqueId}`;
 }
 
 type Args = {|

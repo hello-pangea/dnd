@@ -87,9 +87,9 @@ type DroppableProvided = {|
 
 type DroppableProps = {|
   // used for shared global styles
-  'data-rbd-droppable-context-id': ContextId,
+  'data-rfd-droppable-context-id': ContextId,
   // Used to lookup. Currently not used for drag and drop lifecycle
-  'data-rbd-droppable-id': DroppableId,
+  'data-rfd-droppable-id': DroppableId,
 |};
 ```
 
@@ -213,7 +213,7 @@ const getBackgroundColor = (snapshot: DroppableStateSnapshot): string => {
 
 ## Recommended `<Droppable />` performance optimisation
 
-> 📺 This optimisation is covered in a [free lesson of our getting started course](https://egghead.io/lessons/react-optimize-performance-in-react-forked-dnd-with-shouldcomponentupdate-and-purecomponent)
+> 📺 This optimisation is covered in a [free lesson of our getting started course](https://egghead.io/lessons/react-optimize-performance-in-react-beautiful-dnd-with-shouldcomponentupdate-and-purecomponent) (This is using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))
 
 When a user drags over, or stops dragging over, a `<Droppable />` we re-render the `<Droppable />` with an updated `DroppableStateSnapshot > isDraggingOver` value. This is useful for styling the `<Droppable />`. However, by default this will cause a render of all of the children of the `<Droppable />` - which might be 100's of `<Draggable />`s! This can result in a noticeable frame rate drop. To avoid this problem we recommend that you create a component that is the child of a `<Droppable />` whose responsibility it is to avoid rendering children if it is not required.
 

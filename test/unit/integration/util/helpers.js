@@ -87,7 +87,7 @@ export const getCallsFor = (
 ): Call[] => {
   return mock.mock.calls.filter((call) => {
     const provided: DraggableProvided = call[0];
-    return provided.draggableProps['data-rbd-draggable-id'] === id;
+    return provided.draggableProps['data-rfd-draggable-id'] === id;
   });
 };
 
