@@ -106,8 +106,8 @@ export default function Draggable(props: Props) {
             tabIndex: 0,
             role: 'button',
             'aria-describedby': dragHandleUsageInstructionsId,
-            'data-rbd-drag-handle-draggable-id': draggableId,
-            'data-rbd-drag-handle-context-id': contextId,
+            'data-rfd-drag-handle-draggable-id': draggableId,
+            'data-rfd-drag-handle-context-id': contextId,
             draggable: false,
             onDragStart: preventHtml5Dnd,
           }
@@ -144,8 +144,8 @@ export default function Draggable(props: Props) {
     const result: Provided = {
       innerRef: setRef,
       draggableProps: {
-        'data-rbd-draggable-context-id': contextId,
-        'data-rbd-draggable-id': draggableId,
+        'data-rfd-draggable-context-id': contextId,
+        'data-rfd-draggable-id': draggableId,
         style,
         onTransitionEnd,
       },

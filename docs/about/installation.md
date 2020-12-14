@@ -27,7 +27,7 @@ import { DragDropContext } from 'react-forked-dnd';
 In order to use `react-forked-dnd` you will probably want to have a `React` environment set up.
 
 - [Add react to a website](https://reactjs.org/docs/add-react-to-a-website.html) - official `React` docs
-- [Setup a react environment with `create-react-app`](https://egghead.io/lessons/react-set-up-a-react-environment-with-create-react-app) - from our [free getting started course](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-forked-dnd)
+- [Setup a react environment with `create-react-app`](https://egghead.io/lessons/react-set-up-a-react-environment-with-create-react-app) - from our [free getting started course](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) (This is using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))
 
 ## Distribution bundle
 

@@ -15,7 +15,7 @@ function getRbdErrorEvent(): Event {
   });
 }
 
-it('should abort any active drag (rbd error)', () => {
+it('should abort any active drag (rfd error)', () => {
   const { getByTestId } = render(<App />);
 
   simpleLift(keyboard, getByTestId('0'));
@@ -34,7 +34,7 @@ it('should abort any active drag (rbd error)', () => {
   expect(event.defaultPrevented).toBe(true);
 });
 
-it('should abort any active drag (non-rbd error)', () => {
+it('should abort any active drag (non-rfd error)', () => {
   const { getByTestId } = render(<App />);
   simpleLift(keyboard, getByTestId('0'));
   expect(isDragging(getByTestId('0'))).toBe(true);

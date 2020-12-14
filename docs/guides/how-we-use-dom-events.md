@@ -159,6 +159,6 @@ Unlike mouse dragging a keyboard drag starts as soon as the user presses the **s
 
 > Background: please see [Setup problem detection and error recovery](/docs/guides/setup-problem-detection-and-error-recovery.md).
 
-If an `rbd` error is thrown and is caught by our `window` `error` listener, we will call `event.preventDefault()` on the error event to mark it as consumed. We do this as well as aborting the existing drag and logging warnings in development mode.
+If an `rfd` error is thrown and is caught by our `window` `error` listener, we will call `event.preventDefault()` on the error event to mark it as consumed. We do this as well as aborting the existing drag and logging warnings in development mode.
 
 [← Back to documentation](/README.md#documentation-)

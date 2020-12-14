@@ -48,11 +48,11 @@ Please raise a pull request if you would like to add examples for other virtuali
 
 Most virtual list libraries support the concept of **overscanning**. Overscanning is where a small about of non-visible items are rendered near the boundary of the window. When a scroll occurs the overscanned item can be immediately moved into view and does not need to be created. Overscanning generally leads to a more fluid experience.
 
-It is required that overscanning be enabled for `react-forked-dnd` to work correctly. If overscanning is not enabled, `rbd` cannot tell if there are more items in the list when an item is in the last visual position. We require an overscanning value of one or more.
+It is required that overscanning be enabled for `react-forked-dnd` to work correctly. If overscanning is not enabled, `rfd` cannot tell if there are more items in the list when an item is in the last visual position. We require an overscanning value of one or more.
 
 ### Set `<Droppable /> | mode` to `virtual`
 
-Virtual lists behave differently to regular lists. You will need to tell `rbd` that your list is a virtual one.
+Virtual lists behave differently to regular lists. You will need to tell `rfd` that your list is a virtual one.
 
 ```js
 <Droppable droppableId="droppable" mode="virtual">

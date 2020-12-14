@@ -11,6 +11,8 @@ The public Sensor API is the same API that our [mouse](/docs/sensors/mouse.md), 
 
 ## Examples
 
+⚠️ These following examples are based on [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) and might not work with future version of [react-forked-dnd](https://github.com/100terres/react-forked-dnd).
+
 These are some examples to show off what is possible with the Sensor API. They are currently not built to be production ready. Feel free to reach out if you would like to help improve them or add your own!
 
 (Please be sure to use prefix `rbd-`)

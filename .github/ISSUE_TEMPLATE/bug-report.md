@@ -15,8 +15,8 @@ https://github.com/100terres/react-forked-dnd/blob/master/docs/guides/common-set
 
 In development builds we log warnings to the console for common setup issues. Please have a look to see if it can give you information in overcoming your issue
 
-## Are you new to rbd?
-If you are new to `react-forked-dnd` we recommend taking at look at our getting started course: https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-forked-dnd
+## Are you new to rfd?
+If you are new to `react-forked-dnd` we recommend taking at look at our getting started course: https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd (This is using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))
 
 It will give you a good base understanding of how everything fits together. This can often be the best help in overcoming your issue.
 

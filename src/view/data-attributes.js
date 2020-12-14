@@ -1,5 +1,5 @@
 // @flow
-export const prefix: string = 'data-rbd';
+export const prefix: string = 'data-rfd';
 export const dragHandle = (() => {
   const base = `${prefix}-drag-handle`;
 
