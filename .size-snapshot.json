@@ -1,15 +1,15 @@
 {
-  "dist/react-beautiful-dnd.js": {
+  "dist/react-forked-dnd.js": {
     "bundled": 364998,
     "minified": 133574,
     "gzipped": 39437
   },
-  "dist/react-beautiful-dnd.min.js": {
+  "dist/react-forked-dnd.min.js": {
     "bundled": 306810,
     "minified": 108365,
     "gzipped": 31340
   },
-  "dist/react-beautiful-dnd.esm.js": {
+  "dist/react-forked-dnd.esm.js": {
     "bundled": 240910,
     "minified": 125371,
     "gzipped": 32650,

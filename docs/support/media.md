@@ -1,8 +1,8 @@
 # Media
 
-This page contains a list of articles, blogs and newsletters that `react-beautiful-dnd` has appeared in.
+This page contains a list of articles, blogs and newsletters that `react-forked-dnd` has appeared in.
 
-## Blogs by the `react-beautiful-dnd` team
+## Blogs by the `react-forked-dnd` team
 
 ### Project related
 
@@ -12,7 +12,7 @@ This page contains a list of articles, blogs and newsletters that `react-beautif
 - [Beautiful interactions: Crafting elegant and robust drag and drop animations](https://medium.com/@alexandereardon/beautiful-interactions-8f67502ccf73)
 - [Design process for our new logo](https://www.maryannemade.com/reactbeautifuldnd-logo)
 - [Overhauling our collision engine](https://dev.to/alexandereardon/overhauling-our-collision-engine-962)
-- [react-beautiful-dnd: behind the magic](https://www.youtube.com/watch?v=Kz50msV-zq0)
+- [react-forked-dnd: behind the magic](https://www.youtube.com/watch?v=Kz50msV-zq0)
 
 ### Performance related
 
@@ -23,7 +23,7 @@ This page contains a list of articles, blogs and newsletters that `react-beautif
 
 ## Other
 
-- [What does react-beautiful-dnd cost to maintain?](https://dev.to/alexandereardon/what-does-react-beautiful-dnd-cost-to-maintain-52e8)
+- [What does react-forked-dnd cost to maintain?](https://dev.to/alexandereardon/what-does-react-forked-dnd-cost-to-maintain-52e8)
 - [Deep Sea Fishing with React Hooks](https://www.youtube.com/watch?v=MVi17tk3VsI)
 
 ## Podcasts
@@ -72,18 +72,18 @@ This page contains a list of articles, blogs and newsletters that `react-beautif
 ## Articles, tutorials and blogs
 
 - [Here Are 5 Useful React Components](https://medium.com/javascript-in-plain-english/here-are-5-useful-react-components-fb3927e7d790)
-- [Build a beautiful, draggable kanban board with react-beautiful-dnd](https://www.youtube.com/watch?v=uHO3mQgs-e8)
-- [Drag and Drop Tables with React-Beautiful-DND (Part I)](https://dev.to/milandhar/drag-and-drop-table-with-react-beautiful-dnd-54ad)
-- [Scripted natural motion with react-beautiful-dnd](https://dev.to/raathigesh/scripted-natural-motion-with-react-beautiful-dnd-4ifj)
-- [Drag n’Drop with react-beautiful-dnd](https://medium.com/@reireynoso/drag-ndrop-with-react-beautiful-dnd-73014e5937f2)
+- [Build a beautiful, draggable kanban board with react-forked-dnd](https://www.youtube.com/watch?v=uHO3mQgs-e8)
+- [Drag and Drop Tables with React-forked-dnd (Part I)](https://dev.to/milandhar/drag-and-drop-table-with-react-forked-dnd-54ad)
+- [Scripted natural motion with react-forked-dnd](https://dev.to/raathigesh/scripted-natural-motion-with-react-forked-dnd-4ifj)
+- [Drag n’Drop with react-forked-dnd](https://medium.com/@reireynoso/drag-ndrop-with-react-forked-dnd-73014e5937f2)
 - [How to add Drag and Drop features to your React app](https://medium.com/javascript-in-plain-english/how-to-add-drag-and-drop-feature-to-your-react-app-20cb22fb180)
 - [`awesome-react-components`](https://github.com/brillout/awesome-react-components)
 - CSS-Tricks [tweet](https://twitter.com/css/status/1138866065965010945)
 - dev.to 7 most popular DEV posts [May 27th, 2019](https://dev.to/devteam/the-7-most-popular-dev-posts-from-the-past-week-2ice)
 - [React Drag and Drop - Multiple Horizontal Lists](https://www.youtube.com/watch?v=RI9kA09Egas)
-- [Building a Drag-and-Drop Game with react-beautiful-dnd](https://able.bio/drenther/building-a-drag-and-drop-game-with-react-beautiful-dnd--094r3g8)
+- [Building a Drag-and-Drop Game with react-forked-dnd](https://able.bio/drenther/building-a-drag-and-drop-game-with-react-forked-dnd--094r3g8)
 - [Let's Create a Trello Clone with React + Redux](https://www.youtube.com/watch?v=RDQGPs7StNA)
-- [Dynamically Update Positions During Drag Using react-beautiful-dnd](https://itnext.io/dynamically-update-positions-during-drag-using-react-beautiful-dnd-4a986d704c2e)
+- [Dynamically Update Positions During Drag Using react-forked-dnd](https://itnext.io/dynamically-update-positions-during-drag-using-react-forked-dnd-4a986d704c2e)
 - [Want To Recruit Better Engineers? Open Source Your Code](https://angel.co/blog/want-to-recruit-better-engineers-open-source-your-code)
 - [How To Implement Better Drag and Drop in your React App](https://blog.bitsrc.io/implement-better-drag-and-drop-in-your-react-app-beafc4451599)
 - [Beautiful drag and drop with React — The beginner’s guide](https://medium.com/@AlejandroSobko/7798e3928290)

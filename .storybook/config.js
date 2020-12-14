@@ -11,8 +11,8 @@ import { version } from '../package.json';
 
 const theme = create({
   brandImage: logo,
-  brandName: 'react-beautiful-dnd',
-  brandUrl: 'https://github.com/atlassian/react-beautiful-dnd',
+  brandName: 'react-forked-dnd',
+  brandUrl: 'https://github.com/100terres/react-forked-dnd',
 });
 
 addParameters({
@@ -58,7 +58,7 @@ console.log(
 );
 
 table([
-  ['react-beautiful-dnd version', version],
+  ['react-forked-dnd version', version],
   ['react version', React.version],
   ['process.env.NODE_ENV', process.env.NODE_ENV],
 ]);

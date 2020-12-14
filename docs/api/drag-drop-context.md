@@ -44,7 +44,7 @@ type Props = {|
 
 ```js
 import React from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-forked-dnd';
 
 class App extends React.Component {
   onBeforeCapture = () => {
@@ -85,7 +85,7 @@ class App extends React.Component {
 
 ```js
 import React from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-forked-dnd';
 
 function App() {
   // using useCallback is optional

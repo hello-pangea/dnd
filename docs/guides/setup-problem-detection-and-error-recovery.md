@@ -7,7 +7,7 @@
 
 ## Setup problem detection
 
-For detectable setup problems `react-beautiful-dnd` will log some information `console` for development builds (`process.env.NODE_ENV !== 'production'`). These logs are stripped from productions builds to save kbs and to keep the `console` clean. Keep in mind, that any setup errors that are logged will cause things to **break** in fun and interesting ways - so it is worth ensuring that there are none.
+For detectable setup problems `react-forked-dnd` will log some information `console` for development builds (`process.env.NODE_ENV !== 'production'`). These logs are stripped from productions builds to save kbs and to keep the `console` clean. Keep in mind, that any setup errors that are logged will cause things to **break** in fun and interesting ways - so it is worth ensuring that there are none.
 
 ![dev only warnings](https://user-images.githubusercontent.com/2182637/46385261-98a8eb00-c6fe-11e8-9b46-0699bf3e6043.png)
 
@@ -42,8 +42,8 @@ Here are a few guides on how to drop development only code from your production 
 If you want to disable the warnings in _development_, you just need to update a flag on the `window`:
 
 ```js
-// disable all react-beautiful-dnd development warnings
-window['__react-beautiful-dnd-disable-dev-warnings'] = true;
+// disable all react-forked-dnd development warnings
+window['__react-forked-dnd-disable-dev-warnings'] = true;
 ```
 
 Note: this will not strip the messages from your production builds. See above for how to do that
@@ -52,7 +52,7 @@ Note: this will not strip the messages from your production builds. See above fo
 
 An error can occur when:
 
-1. A `Error` is explicitly `throw`n by `react-beautiful-dnd` (an **rbd error**)
+1. A `Error` is explicitly `throw`n by `react-forked-dnd` (an **rbd error**)
 2. A `Error` is `throw`n by something else (a **non-rbd error**)
 3. A **runtime error** occurs (eg `SyntaxError`, `TypeError`)
 

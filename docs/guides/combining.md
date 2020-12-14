@@ -2,7 +2,7 @@
 
 > 👶 This feature is still quite young. We wanted to get it out there for people to play with
 
-`react-beautiful-dnd` supports the combining of `<Draggable />`s 🤩
+`react-forked-dnd` supports the combining of `<Draggable />`s 🤩
 
 ![combining](https://user-images.githubusercontent.com/2182637/48045145-318dc300-e1e3-11e8-83bd-22c9bd44c442.gif)
 
@@ -20,7 +20,7 @@ In order to enable combining you need to set `isCombineEnabled` to `true` on a `
 
 ## Behaviour
 
-When `isCombineEnabled` is set on a list _any_ item in the list can be combine with. You can toggle `isCombineEnabled` during a drag. `react-beautiful-dnd` works hard to ensure that users are able to combine and reorder within the same list in a way that feels intuitive and natural.
+When `isCombineEnabled` is set on a list _any_ item in the list can be combine with. You can toggle `isCombineEnabled` during a drag. `react-forked-dnd` works hard to ensure that users are able to combine and reorder within the same list in a way that feels intuitive and natural.
 
 ## Current limitations
 
@@ -72,7 +72,7 @@ function onDragEnd(result) {
 
 ## Drop animation
 
-One of the goals of `react-beautiful-dnd` is to create a drag and drop experience that feels physical. This is a bit tricky to achieve in a generic way when it comes to combining two things.
+One of the goals of `react-forked-dnd` is to create a drag and drop experience that feels physical. This is a bit tricky to achieve in a generic way when it comes to combining two things.
 
 What we have gone for out of the box in the following animation:
 

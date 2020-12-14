@@ -3,7 +3,7 @@
 `<Droppable />` components can be **dropped on by a `<Draggable />`**. They also **contain** `<Draggable />`s. A `<Draggable />` must be contained within a `<Droppable />`.
 
 ```js
-import { Droppable } from 'react-beautiful-dnd';
+import { Droppable } from 'react-forked-dnd';
 
 <Droppable droppableId="droppable-1" type="PERSON">
   {(provided, snapshot) => (
@@ -45,7 +45,7 @@ type Direction = 'horizontal' | 'vertical';
 
 ### Required props
 
-> `react-beautiful-dnd` will throw an error if a required prop is not provided
+> `react-forked-dnd` will throw an error if a required prop is not provided
 
 - `droppableId`: A _required_ `DroppableId(string)`. See our [identifiers guide](/docs/guides/identifiers.md) for more information.
 
@@ -148,7 +148,7 @@ The `children` function is also provided with a small amount of state relating t
 
 ## Combining
 
-`react-beautiful-dnd` supports the combining of `<Draggable />`s 🤩
+`react-forked-dnd` supports the combining of `<Draggable />`s 🤩
 
 ![combining](https://user-images.githubusercontent.com/2182637/48045145-318dc300-e1e3-11e8-83bd-22c9bd44c442.gif)
 
@@ -176,7 +176,7 @@ where a _scrollable parent_ refers to a scroll container that is not the window 
 
 For more information see [how we detect scroll containers guide](/docs/guides/how-we-detect-scroll-containers.md)
 
-> We currently only support a single scroll parent. We plan on adding support for [nested scroll containers](https://github.com/atlassian/react-beautiful-dnd/issues/131)
+> We currently only support a single scroll parent. We plan on adding support for [nested scroll containers](https://github.com/100terres/react-forked-dnd/issues/131)
 
 ## Empty `<Droppable />`s
 
@@ -184,7 +184,7 @@ It is recommended that you put a `min-height` on a vertical `<Droppable />` or a
 
 ## Fixed `<Droppable />`s
 
-`react-beautiful-dnd` has partial support for `<Droppable />` lists that use `position: fixed`. When you start a drag and _any_ list of the same type is `position:fixed` then auto window scrolling will be disabled. This is because our virtual model assumes that when the page scroll changes the position of a `<Droppable />` will shift too. If a manual window scroll is detected then the scroll will be aborted. Scroll container scroll is still allowed. We could improve this support, but it would just be a big effort. Please raise an issue if you would be keen to be a part of this effort ❤️
+`react-forked-dnd` has partial support for `<Droppable />` lists that use `position: fixed`. When you start a drag and _any_ list of the same type is `position:fixed` then auto window scrolling will be disabled. This is because our virtual model assumes that when the page scroll changes the position of a `<Droppable />` will shift too. If a manual window scroll is detected then the scroll will be aborted. Scroll container scroll is still allowed. We could improve this support, but it would just be a big effort. Please raise an issue if you would be keen to be a part of this effort ❤️
 
 ## Recommended 🏠 home list styling
 
@@ -213,7 +213,7 @@ const getBackgroundColor = (snapshot: DroppableStateSnapshot): string => {
 
 ## Recommended `<Droppable />` performance optimisation
 
-> 📺 This optimisation is covered in a [free lesson of our getting started course](https://egghead.io/lessons/react-optimize-performance-in-react-beautiful-dnd-with-shouldcomponentupdate-and-purecomponent)
+> 📺 This optimisation is covered in a [free lesson of our getting started course](https://egghead.io/lessons/react-optimize-performance-in-react-forked-dnd-with-shouldcomponentupdate-and-purecomponent)
 
 When a user drags over, or stops dragging over, a `<Droppable />` we re-render the `<Droppable />` with an updated `DroppableStateSnapshot > isDraggingOver` value. This is useful for styling the `<Droppable />`. However, by default this will cause a render of all of the children of the `<Droppable />` - which might be 100's of `<Draggable />`s! This can result in a noticeable frame rate drop. To avoid this problem we recommend that you create a component that is the child of a `<Droppable />` whose responsibility it is to avoid rendering children if it is not required.
 
