@@ -220,6 +220,8 @@ import type { DroppableProvided } from 'react-beautiful-dnd';
 
 ## Typescript
 
+⚠️ We plan to add typescript declaration to this project ([#3](https://github.com/react-forked/dnd/issues/3))
+
 If you are using [TypeScript](https://www.typescriptlang.org/) you can use the community maintained [DefinitelyTyped type definitions](https://www.npmjs.com/package/@types/react-beautiful-dnd). [Installation instructions](http://definitelytyped.org/).
 
 Here is an [example written in typescript](https://github.com/abeaudoin2013/react-beautiful-dnd-multi-list-typescript-example).
