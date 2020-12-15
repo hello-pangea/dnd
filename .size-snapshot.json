@@ -1,25 +1,25 @@
 {
   "dist/dnd.js": {
-    "bundled": 362533,
-    "minified": 133130,
-    "gzipped": 39488
+    "bundled": 364949,
+    "minified": 133514,
+    "gzipped": 39479
   },
   "dist/dnd.min.js": {
-    "bundled": 308741,
-    "minified": 110528,
-    "gzipped": 32414
+    "bundled": 306810,
+    "minified": 108365,
+    "gzipped": 31339
   },
   "dist/dnd.esm.js": {
-    "bundled": 231823,
-    "minified": 118924,
-    "gzipped": 32421,
+    "bundled": 240861,
+    "minified": 125322,
+    "gzipped": 32669,
     "treeshaked": {
       "rollup": {
-        "code": 21314,
+        "code": 21121,
         "import_statements": 503
       },
       "webpack": {
-        "code": 24197
+        "code": 24005
       }
     }
   }
