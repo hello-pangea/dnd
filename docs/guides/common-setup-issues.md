@@ -68,7 +68,7 @@ return items.map((item, index) => (
 
 We recommend you set a `min-height` or `min-width` on a `<Droppable />` to ensure that there is a visible drop target when a list is empty
 
-We go over this in our [Get started with `react-forked-dnd` course](https://egghead.io/lessons/react-move-items-between-columns-with-react-forked-dnd-using-ondragend)
+We go over this in our [Get started with `react-forked-dnd` course](https://egghead.io/lessons/react-move-items-between-columns-with-react-beautiful-dnd-using-ondragend) (This is using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))
 
 ## Image flickering in a `<Draggable />`
 
