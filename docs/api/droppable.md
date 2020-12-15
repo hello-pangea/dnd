@@ -176,7 +176,7 @@ where a _scrollable parent_ refers to a scroll container that is not the window 
 
 For more information see [how we detect scroll containers guide](/docs/guides/how-we-detect-scroll-containers.md)
 
-> We currently only support a single scroll parent. We plan on adding support for [nested scroll containers](https://github.com/100terres/react-forked-dnd/issues/131)
+> We currently only support a single scroll parent. We plan on adding support for [nested scroll containers](https://github.com/atlassian/react-beautiful-dnd/issues/131)
 
 ## Empty `<Droppable />`s
 

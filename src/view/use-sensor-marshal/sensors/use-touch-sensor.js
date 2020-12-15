@@ -44,7 +44,7 @@ type Phase = Idle | Pending | Dragging;
 
 const idle: Idle = { type: 'IDLE' };
 // Decreased from 150 as a work around for an issue for forcepress on iOS
-// https://github.com/100terres/react-forked-dnd/issues/1401
+// https://github.com/atlassian/react-beautiful-dnd/issues/1401
 export const timeForLongPress: number = 120;
 export const forcePressThreshold: number = 0.15;
 
@@ -190,7 +190,7 @@ function getHandleBindings({
         // This is not fantastic logic, but it is done to account for
         // and issue with forcepress on iOS
         // Calling event.preventDefault() will currently opt out of scrolling and clicking
-        // https://github.com/100terres/react-forked-dnd/issues/1401
+        // https://github.com/atlassian/react-beautiful-dnd/issues/1401
 
         const touch: ?TouchWithForce = (event.touches[0]: any);
 
@@ -443,7 +443,7 @@ export default function useMouseSensor(api: SensorAPI) {
   // Simply adding a non capture, non passive 'touchmove' listener.
   // This forces event.preventDefault() in dynamically added
   // touchmove event handlers to actually work
-  // https://github.com/100terres/react-forked-dnd/issues/1374
+  // https://github.com/atlassian/react-beautiful-dnd/issues/1374
   useLayoutEffect(function webkitHack() {
     const unbind = bindEvents(window, [
       {

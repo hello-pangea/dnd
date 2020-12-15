@@ -75,7 +75,7 @@ export type DragHandleProps = {|
 
   // Overriding default role to have a more descriptive text ("Draggable item")
   // Sadly we cannot use this right now due an issue with lighthouse
-  // https://github.com/100terres/react-forked-dnd/issues/1742
+  // https://github.com/atlassian/react-beautiful-dnd/issues/1742
   // 'aria-roledescription': string,
 
   // Using the description property of the drag handle to provide usage instructions
