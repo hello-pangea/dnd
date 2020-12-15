@@ -1,6 +1,8 @@
 # Types
 
-`react-forked-dnd` is typed using [`flowtype`](https://flow.org). This greatly improves internal consistency within the codebase. We also expose a number of public types which will allow you to type your javascript if you would like to. If you are not using `flowtype` this will not inhibit you from using the library. It is just extra safety for those who want it.
+⚠️ These following information are related to [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
+
+`react-beautiful-dnd` is typed using [`flowtype`](https://flow.org). This greatly improves internal consistency within the codebase. We also expose a number of public types which will allow you to type your javascript if you would like to. If you are not using `flowtype` this will not inhibit you from using the library. It is just extra safety for those who want it.
 
 ## Public flow types
 
@@ -122,9 +124,9 @@ type DroppableProvided = {|
 |};
 type DroppableProps = {|
   // used for shared global styles
-  'data-rfd-droppable-context-id': ContextId,
+  'data-rbd-droppable-context-id': ContextId,
   // Used to lookup. Currently not used for drag and drop lifecycle
-  'data-rfd-droppable-id': DroppableId,
+  'data-rbd-droppable-id': DroppableId,
 |};
 type DroppableStateSnapshot = {|
   isDraggingOver: boolean,
@@ -155,8 +157,8 @@ type DraggableStateSnapshot = {|
 
 type DraggableProps = {|
   style: ?DraggableStyle,
-  'data-rfd-draggable-context-id': string,
-  'data-rfd-draggable-id': string,
+  'data-rbd-draggable-context-id': string,
+  'data-rbd-draggable-id': string,
   onTransitionEnd: ?(event: TransitionEvent) => void,
 |};
 type DraggableChildrenFn = (
@@ -191,8 +193,8 @@ type DragHandleProps = {|
   onKeyDown: (event: KeyboardEvent) => void,
   onTouchStart: (event: TouchEvent) => void,
   tabIndex: number,
-  'data-rfd-drag-handle-draggable-id': string,
-  'data-rfd-drag-handle-context-id': string,
+  'data-rbd-drag-handle-draggable-id': string,
+  'data-rbd-drag-handle-context-id': string,
   role: string,
   'aria-describedby': string,
   draggable: boolean,
@@ -213,17 +215,17 @@ type DropAnimation = {|
 The types are exported as part of the module so using them is as simple as:
 
 ```js
-import type { DroppableProvided } from 'react-forked-dnd';
+import type { DroppableProvided } from 'react-beautiful-dnd';
 ```
 
 ## Typescript
 
-If you are using [TypeScript](https://www.typescriptlang.org/) you can use the community maintained [DefinitelyTyped type definitions](https://www.npmjs.com/package/@types/react-forked-dnd). [Installation instructions](http://definitelytyped.org/).
+If you are using [TypeScript](https://www.typescriptlang.org/) you can use the community maintained [DefinitelyTyped type definitions](https://www.npmjs.com/package/@types/react-beautiful-dnd). [Installation instructions](http://definitelytyped.org/).
 
-Here is an [example written in typescript](https://github.com/abeaudoin2013/react-forked-dnd-multi-list-typescript-example).
+Here is an [example written in typescript](https://github.com/abeaudoin2013/react-beautiful-dnd-multi-list-typescript-example).
 
 ## Sample application with flow types
 
-We have created a [sample application](https://github.com/alexreardon/react-forked-dnd-flow-example) which exercises the flowtypes. It is a super simple `React` project based on [`react-create-app`](https://github.com/facebookincubator/create-react-app). You can use this as a reference to see how to set things up correctly.
+We have created a [sample application](https://github.com/alexreardon/react-beautiful-dnd-flow-example) which exercises the flowtypes. It is a super simple `React` project based on [`react-create-app`](https://github.com/facebookincubator/create-react-app). You can use this as a reference to see how to set things up correctly.
 
 [← Back to documentation](/README.md#documentation-)
