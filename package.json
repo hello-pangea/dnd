@@ -25,8 +25,8 @@
   "bugs": {
     "url": "https://github.com/react-forked/dnd/issues"
   },
-  "main": "dist/react-forked-dnd.cjs.js",
-  "module": "dist/react-forked-dnd.esm.js",
+  "main": "dist/dnd.cjs.js",
+  "module": "dist/dnd.esm.js",
   "sideEffects": false,
   "files": [
     "/dist",
@@ -53,7 +53,7 @@
     "build": "yarn build:clean && yarn build:dist && yarn build:flow",
     "build:clean": "rimraf dist",
     "build:dist": "rollup -c",
-    "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/react-forked-dnd.cjs.js.flow",
+    "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/dnd.cjs.js.flow",
     "storybook": "start-storybook -p 9002",
     "build-storybook": "build-storybook -c .storybook -o site",
     "prepublishOnly": "yarn build"

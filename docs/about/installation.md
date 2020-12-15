@@ -33,8 +33,8 @@ In order to use `@react-forked/dnd` you will probably want to have a `React` env
 
 A [universal module definition](https://github.com/umdjs/umd) bundle is published on `npm` under the `/dist` folder for consumption . We publish the following files:
 
-- `dist/react-forked-dnd.js`
-- `dist/react-forked-dnd.min.js` (minified bundle)
+- `dist/dnd.js`
+- `dist/dnd.min.js` (minified bundle)
 
 These bundles list `react` as an external which needs to be provided. This is done to reduce the size of the bundle and prevent consumers from loading `react` multiple times. You can provide `react` through your module system or simply by having `react` on the `window`.
 
@@ -44,7 +44,7 @@ You can use the UMD to run `@react-forked/dnd` directly in the browser.
 <!-- peer dependency -->
 <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
 <!-- lib (change x.x.x for the version you would like) -->
-<script src="https://unpkg.com/@react-forked/dnd@x.x.x/dist/react-forked-dnd.js"></script>
+<script src="https://unpkg.com/@react-forked/dnd@x.x.x/dist/dnd.js"></script>
 <!-- needed to mount your react app -->
 <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
 

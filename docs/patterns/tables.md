@@ -68,7 +68,7 @@ It seems like the only way to get things working is to:
 This gets a little complicated - so we created some examples to show you how this technique works:
 
 - [With our cloning API](https://react-forked-dnd.netlify.com/?path=/story/tables--with-clone)
-- [With your own portal](https://@react-forked/dnd.netlify.com/?path=/story/tables--with-portal)
+- [With your own portal](https://react-forked-dnd.netlify.com/?path=/story/tables--with-portal)
 
 You're welcome!
 
