@@ -18,9 +18,9 @@ export type DraggableChildrenFn = ChildrenFn;
 
 export type DroppableProps = {|
   // used for shared global styles
-  'data-rbd-droppable-context-id': ContextId,
+  'data-rfd-droppable-context-id': ContextId,
   // Used to lookup. Currently not used for drag and drop lifecycle
-  'data-rbd-droppable-id': DroppableId,
+  'data-rfd-droppable-id': DroppableId,
 |};
 
 export type Provided = {|

@@ -2,7 +2,7 @@
 
 > "You got to focus on what's real, man" - [Jake from Adventure time](https://www.youtube.com/watch?v=TFGz6Qvg1CE)
 
-`react-beautiful-dnd` includes logic to maintain browser focus for _drag handles_. This especially important for [keyboard dragging](/docs/sensors/keyboard.md) which requires the dragging item to be focused.
+`@react-forked/dnd` includes logic to maintain browser focus for _drag handles_. This especially important for [keyboard dragging](/docs/sensors/keyboard.md) which requires the dragging item to be focused.
 
 ## Terminology reminder 📖
 
@@ -14,7 +14,7 @@ If the _drag handle_ is not focused when a drag starts then **focus is not given
 
 ## Drag handle is focused at drag start
 
-If a _drag handle_ has browser focus when a drag starts then `rbd` will try to give focus to the _drag handle_ during a drag and just after a drag ends.
+If a _drag handle_ has browser focus when a drag starts then `rfd` will try to give focus to the _drag handle_ during a drag and just after a drag ends.
 
 Here is what is done:
 

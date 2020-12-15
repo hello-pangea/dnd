@@ -5,7 +5,7 @@ const suffix: string = `
   We expect a html5 doctype: <!doctype html>
   This is to ensure consistent browser layout and measurement
 
-  More information: https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/guides/doctype.md
+  More information: https://github.com/react-forked/dnd/blob/master/docs/guides/doctype.md
 `;
 
 export default (doc: Document) => {

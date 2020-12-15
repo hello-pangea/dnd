@@ -2,6 +2,8 @@
 
 This page contains a list of articles, blogs and newsletters that `react-beautiful-dnd` has appeared in.
 
+⚠️ These following articles are related to [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
+
 ## Blogs by the `react-beautiful-dnd` team
 
 ### Project related

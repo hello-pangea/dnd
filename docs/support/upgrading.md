@@ -1,5 +1,7 @@
 # Upgrading
 
+⚠️ These following upgrade instructions related to [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
+
 We have created upgrade instructions in our [Github release notes](https://github.com/atlassian/react-beautiful-dnd/releases) to help you upgrade to the latest version!
 
 - [Upgrading from `9.x` to `10.x`](https://github.com/atlassian/react-beautiful-dnd/releases/tag/v10.0.0)

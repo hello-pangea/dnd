@@ -1,5 +1,5 @@
 {
-  "name": "react-beautiful-dnd",
+  "name": "@react-forked/dnd",
   "version": "13.0.0",
   "description": "Beautiful and accessible drag and drop for lists with React",
   "author": "Alex Reardon <areardon@atlassian.com>",
@@ -20,13 +20,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/atlassian/react-beautiful-dnd.git"
+    "url": "https://github.com/react-forked/dnd.git"
   },
   "bugs": {
-    "url": "https://github.com/atlassian/react-beautiful-dnd/issues"
+    "url": "https://github.com/react-forked/dnd/issues"
   },
-  "main": "dist/react-beautiful-dnd.cjs.js",
-  "module": "dist/react-beautiful-dnd.esm.js",
+  "main": "dist/dnd.cjs.js",
+  "module": "dist/dnd.esm.js",
   "sideEffects": false,
   "files": [
     "/dist",
@@ -53,7 +53,7 @@
     "build": "yarn build:clean && yarn build:dist && yarn build:flow",
     "build:clean": "rimraf dist",
     "build:dist": "rollup -c",
-    "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/react-beautiful-dnd.cjs.js.flow",
+    "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/dnd.cjs.js.flow",
     "storybook": "start-storybook -p 9002",
     "build-storybook": "build-storybook -c .storybook -o site",
     "prepublishOnly": "yarn build"

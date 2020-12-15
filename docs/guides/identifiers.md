@@ -24,7 +24,7 @@ The id must also be unique even if the `type` argument on the `<Droppable />` is
 
 ## Ids must be a string
 
-Right now it is important that all `Id`'s be strings. `rbd` will throw an error if an `Id` is not a string.
+Right now it is important that all `Id`'s be strings. `rfd` will throw an error if an `Id` is not a string.
 
 ## Avoid reusing ids
 

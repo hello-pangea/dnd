@@ -187,7 +187,7 @@ function Placeholder(props: Props): Node {
 
   return React.createElement(props.placeholder.tagName, {
     style,
-    'data-rbd-placeholder-context-id': contextId,
+    'data-rfd-placeholder-context-id': contextId,
     onTransitionEnd: onSizeChangeEnd,
     ref: props.innerRef,
   });

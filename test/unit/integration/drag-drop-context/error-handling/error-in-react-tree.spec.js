@@ -7,7 +7,7 @@ import { simpleLift, keyboard } from '../../util/controls';
 import { isDragging } from '../../util/helpers';
 import { withError } from '../../../../util/console';
 
-it('should recover from rbd errors', () => {
+it('should recover from rfd errors', () => {
   let hasThrown: boolean = false;
   function CanThrow(props: { shouldThrow: boolean }) {
     if (!hasThrown && props.shouldThrow) {
@@ -31,7 +31,7 @@ it('should recover from rbd errors', () => {
   expect(isDragging(getByTestId('0'))).toBe(false);
 });
 
-it('should not recover from non-rbd errors', () => {
+it('should not recover from non-rfd errors', () => {
   let hasThrown: boolean = false;
   function CanThrow(props: { shouldThrow: boolean }) {
     if (!hasThrown && props.shouldThrow) {

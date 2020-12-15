@@ -5,7 +5,7 @@
 Every `<Draggable />` has a _drag handle_. A _drag handle_ is the element that the user interacts with in order to drag a `<Draggable />`. A _drag handle_ can be the `<Draggable />` element itself, or a child of the `<Draggable />`. Note that by default a _drag handle_ cannot be an interactive element, since [event handlers are blocked on nested interactive elements](#interactive-child-elements-within-a-draggable-). Proper semantics for accessibility are added to the _drag handle_ element. If you wish to use an interactive element, `disableInteractiveElementBlocking` must be set.
 
 ```js
-import { Draggable } from 'react-beautiful-dnd';
+import { Draggable } from '@react-forked/dnd';
 
 <Draggable draggableId="draggable-1" index={0}>
   {(provided, snapshot) => (
@@ -39,7 +39,7 @@ type Props = {|
 
 ### Required props
 
-> `react-beautiful-dnd` will throw an error if a required prop is not provided
+> `@react-forked/dnd` will throw an error if a required prop is not provided
 
 - `draggableId`: A _required_ `DraggableId(string)`. See our [identifiers guide](/docs/guides/identifiers.md) for more information.
 - `index`: A _required_ `number` that matches the order of the `<Draggable />` in the `<Droppable />`. It is simply the index of the `<Draggable />` in the list.
@@ -144,8 +144,8 @@ export type DraggableProps = {|
   // inline style
   style: ?DraggableStyle,
   // used for shared global styles
-  'data-rbd-draggable-context-id': string,
-  'data-rbd-draggable-id': string,
+  'data-rfd-draggable-context-id': string,
+  'data-rfd-draggable-id': string,
   // used to know when a transition ends
   onTransitionEnd: ?(event: TransitionEvent) => void,
 |};
@@ -211,7 +211,7 @@ It is a contract of this library that it owns the positioning logic of the dragg
 
 #### Warning: `position: fixed`
 
-`react-beautiful-dnd` uses `position: fixed` to position the dragging element. This is quite robust and allows for you to have `position: relative | absolute | fixed` parents. However, unfortunately `position:fixed` is [impacted by `transform`](http://meyerweb.com/eric/thoughts/2011/09/12/un-fixing-fixed-elements-with-css-transforms/) (such as `transform: rotate(10deg);`). This means that if you have a `transform: *` on one of the parents of a `<Draggable />` then the positioning logic will be incorrect while dragging. Lame! For most consumers this will not be an issue.
+`@react-forked/dnd` uses `position: fixed` to position the dragging element. This is quite robust and allows for you to have `position: relative | absolute | fixed` parents. However, unfortunately `position:fixed` is [impacted by `transform`](http://meyerweb.com/eric/thoughts/2011/09/12/un-fixing-fixed-elements-with-css-transforms/) (such as `transform: rotate(10deg);`). This means that if you have a `transform: *` on one of the parents of a `<Draggable />` then the positioning logic will be incorrect while dragging. Lame! For most consumers this will not be an issue.
 
 To get around this you can [reparent your <Draggable />](/docs/guides/reparenting.md). We do not enable this functionality by default as it has performance problems.
 
@@ -221,7 +221,7 @@ To get around this you can [reparent your <Draggable />](/docs/guides/reparentin
 
 In Safari, it is possible for a user to perform a force press action. This is possible with a touch device (`touchforcechange`) and with a mouse (`webkitmouseforcechanged`).
 
-We have found that in order to give the most consistent drag and drop experience we need to _opt out_ of force press interactions on a _drag handle_. However, it is possible to have `react-beautiful-dnd` work while also respecting force press interactions. The trade off is that if we register a force press interaction a drag will be cancelled.
+We have found that in order to give the most consistent drag and drop experience we need to _opt out_ of force press interactions on a _drag handle_. However, it is possible to have `@react-forked/dnd` work while also respecting force press interactions. The trade off is that if we register a force press interaction a drag will be cancelled.
 
 In order to control this behaviour you set the `shouldRespectForcePress` prop on a `<Draggable />`. By default we set this value to `false` to prevent heavy presses from cancelling a drag.
 
@@ -327,10 +327,10 @@ It is an assumption that `<Draggable />`s are _visible siblings_ of one another.
 ```js
 type DragHandleProps = {|
   // what draggable the handle belongs to
-  'data-rbd-drag-handle-draggable-id': DraggableId,
+  'data-rfd-drag-handle-draggable-id': DraggableId,
 
   // What DragDropContext the drag handle is in
-  'data-rbd-drag-handle-context-id': ContextId,
+  'data-rfd-drag-handle-context-id': ContextId,
 
   // Id of hidden element that contains the lift instruction (nicer screen reader text)
   'aria-labelledby': ElementId,

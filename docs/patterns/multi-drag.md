@@ -1,10 +1,10 @@
 # Multi drag
 
-> This page is designed to guide you through adding your own multi drag experience to your `react-beautiful-dnd` lists.
+> This page is designed to guide you through adding your own multi drag experience to your `@react-forked/dnd` lists.
 
-Dragging multiple `<Draggable />`s at once (multi drag) is currently a pattern that needs to be built on top of `react-beautiful-dnd`. We have not included the interaction into the library itself. This is done because a multi drag experience introduces a lot of concepts, decisions and opinions. We have done a lot of work to ensure there is a standard base of [dom event management](/docs/guides/how-we-use-dom-events.md) to build on.
+Dragging multiple `<Draggable />`s at once (multi drag) is currently a pattern that needs to be built on top of `@react-forked/dnd`. We have not included the interaction into the library itself. This is done because a multi drag experience introduces a lot of concepts, decisions and opinions. We have done a lot of work to ensure there is a standard base of [dom event management](/docs/guides/how-we-use-dom-events.md) to build on.
 
-We have created a [reference application](https://react-beautiful-dnd.netlify.com/?path=/story/multi-drag--pattern) ([source](/stories/src/multi-drag)) which implements this multi drag pattern. The application is fairly basic and does not handle performance in large lists well. As such, there is are [a few performance recommendations](#performance) that we suggest you also add on to our reference application if you want to support lists greater than 50 in size.
+We have created a [reference application](https://react-forked-dnd.netlify.com/?path=/story/multi-drag--pattern) ([source](/stories/src/multi-drag)) which implements this multi drag pattern. The application is fairly basic and does not handle performance in large lists well. As such, there is are [a few performance recommendations](#performance) that we suggest you also add on to our reference application if you want to support lists greater than 50 in size.
 
 ![multi drag demo](https://user-images.githubusercontent.com/2182637/37322724-7843a218-26d3-11e8-9ebb-8d5853387bb3.gif)
 
@@ -22,7 +22,7 @@ We can break the user experience down in three phases.
 
 ## Announcements
 
-Keep in mind that internally `react-beautiful-dnd` is not aware of multi drag. Therefore it is advised that you use the `ResponderProvided > Announce` to announce meaningful screen reader messages for a multi drag. See our [screen reader guide](/docs/guides/screen-reader.md) for details on how to control screen reader messaging.
+Keep in mind that internally `@react-forked/dnd` is not aware of multi drag. Therefore it is advised that you use the `ResponderProvided > Announce` to announce meaningful screen reader messages for a multi drag. See our [screen reader guide](/docs/guides/screen-reader.md) for details on how to control screen reader messaging.
 
 ## Selection
 

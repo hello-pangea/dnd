@@ -7,7 +7,7 @@
 
 ## Setup problem detection
 
-For detectable setup problems `react-beautiful-dnd` will log some information `console` for development builds (`process.env.NODE_ENV !== 'production'`). These logs are stripped from productions builds to save kbs and to keep the `console` clean. Keep in mind, that any setup errors that are logged will cause things to **break** in fun and interesting ways - so it is worth ensuring that there are none.
+For detectable setup problems `@react-forked/dnd` will log some information `console` for development builds (`process.env.NODE_ENV !== 'production'`). These logs are stripped from productions builds to save kbs and to keep the `console` clean. Keep in mind, that any setup errors that are logged will cause things to **break** in fun and interesting ways - so it is worth ensuring that there are none.
 
 ![dev only warnings](https://user-images.githubusercontent.com/2182637/46385261-98a8eb00-c6fe-11e8-9b46-0699bf3e6043.png)
 
@@ -42,8 +42,8 @@ Here are a few guides on how to drop development only code from your production 
 If you want to disable the warnings in _development_, you just need to update a flag on the `window`:
 
 ```js
-// disable all react-beautiful-dnd development warnings
-window['__react-beautiful-dnd-disable-dev-warnings'] = true;
+// disable all @react-forked/dnd development warnings
+window['__@react-forked/dnd-disable-dev-warnings'] = true;
 ```
 
 Note: this will not strip the messages from your production builds. See above for how to do that
@@ -52,35 +52,35 @@ Note: this will not strip the messages from your production builds. See above fo
 
 An error can occur when:
 
-1. A `Error` is explicitly `throw`n by `react-beautiful-dnd` (an **rbd error**)
-2. A `Error` is `throw`n by something else (a **non-rbd error**)
+1. A `Error` is explicitly `throw`n by `@react-forked/dnd` (an **rfd error**)
+2. A `Error` is `throw`n by something else (a **non-rfd error**)
 3. A **runtime error** occurs (eg `SyntaxError`, `TypeError`)
 
-React [error boundaries](https://reactjs.org/docs/error-boundaries.html) do not catch all errors that can occur in `rbd`. So `rbd` uses a React error boundary as well as a `window` `error` event listener.
+React [error boundaries](https://reactjs.org/docs/error-boundaries.html) do not catch all errors that can occur in `rfd`. So `rfd` uses a React error boundary as well as a `window` `error` event listener.
 
-### Error is caught by a `rbd` error boundary
+### Error is caught by a `rfd` error boundary
 
-#### rbd error
+#### rfd error
 
 - cancel any active drag (no choice about this really, [an error unmounts everything under the error boundary](https://codesandbox.io/s/react-error-boundaries-rfyds))
 - log the error (non-production builds; will respect disabled logging)
 - recover the React tree
 
-#### non-rbd error or runtime error
+#### non-rfd error or runtime error
 
 - can any active drag
-- **`throw` the error** for your own error boundary. We will not recover from errors that are not caused explicitly by `rbd`. A run time error (such as a `TypeError`) that is caused by `rbd` will not be recovered. `rbd` will only recover from explicitly thrown `rbd` errors.
+- **`throw` the error** for your own error boundary. We will not recover from errors that are not caused explicitly by `rfd`. A run time error (such as a `TypeError`) that is caused by `rfd` will not be recovered. `rfd` will only recover from explicitly thrown `rfd` errors.
 
 ### Error is caught by `window` `error` listener
 
-#### rbd error
+#### rfd error
 
 - Cancel any active drag.
 - Log a warning stating that the drag has been cancelled (non-production builds; will respect disabled logging)
 - Log the error
 - Call `event.preventDefault()` on the event. This marks the event as consumed. See [how we use DOM events](/docs/guides/how-we-use-dom-events.md). It will also prevent any 'uncaught error' warnings in your `console`.
 
-#### non-rbd error or runtime error
+#### non-rfd error or runtime error
 
 - Cancel any active drag.
 - Log a warning stating that the drag has been cancelled (non-production builds; will respect disabled logging)

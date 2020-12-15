@@ -24,14 +24,14 @@ beforeAll(async () => {
 afterAll(clean);
 
 it('should contain warnings in development', async () => {
-  const filePath: string = './dist/react-beautiful-dnd.js';
+  const filePath: string = './dist/dnd.js';
   const contents: string = await readFile(filePath, 'utf-8');
 
   expect(contents.includes('This is a development only message')).toBe(true);
 });
 
 it('should not contain warnings in production', async () => {
-  const filePath: string = './dist/react-beautiful-dnd.min.js';
+  const filePath: string = './dist/dnd.min.js';
   const contents: string = await readFile(filePath, 'utf-8');
 
   expect(contents.includes('This is a development only message')).toBe(false);
