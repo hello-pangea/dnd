@@ -1,14 +1,14 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/2182637/53611918-54c1ff80-3c24-11e9-9917-66ac3cef513d.png" alt="react beautiful dnd logo" />
 </p>
-<h1 align="center">react-forked-dnd <small><sup>(rfd)</sup></small></h1>
+<h1 align="center">@react-forked/dnd <small><sup>(rfd)</sup></small></h1>
 
 <div align="center">
 
 **Beautiful** and **accessible** drag and drop for lists with [`React`](https://facebook.github.io/react/)
 
-[![CircleCI branch](https://img.shields.io/circleci/project/github/100terres/react-forked-dnd/master.svg)](https://circleci.com/gh/100terres/react-forked-dnd/tree/master)
-[![npm](https://img.shields.io/npm/v/react-forked-dnd.svg)](https://www.npmjs.com/package/react-forked-dnd)
+[![CircleCI branch](https://img.shields.io/circleci/project/github/react-forked/dnd/master.svg)](https://circleci.com/gh/react-forked/dnd/tree/master)
+[![npm](https://img.shields.io/npm/v/@react-forked/dnd.svg)](https://www.npmjs.com/package/@react-forked/dnd)
 
 ![quote application example](https://user-images.githubusercontent.com/2182637/53614150-efbed780-3c2c-11e9-9204-a5d2e746faca.gif)
 
@@ -28,7 +28,7 @@
 
 ## Get started 👩‍🏫
 
-Alex Reardon has created [a free course on `egghead.io` 🥚](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) (using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)) to help you get started with `react-forked-dnd` as quickly as possible.
+Alex Reardon has created [a free course on `egghead.io` 🥚](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) (using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)) to help you get started with `@react-forked/dnd` as quickly as possible.
 
 [![course-logo](https://user-images.githubusercontent.com/2182637/43372837-8c72d3f8-93e8-11e8-9d92-a82adde7718f.png)](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd)
 
@@ -60,14 +60,14 @@ Alex Reardon has created [a free course on `egghead.io` 🥚](https://egghead.io
 
 ## Motivation 🤔
 
-`react-forked-dnd` exists to create beautiful drag and drop for lists that anyone can use - even people who cannot see. For a good overview of the history and motivations of the project you can take a look at these external resources:
+`@react-forked/dnd` exists to create beautiful drag and drop for lists that anyone can use - even people who cannot see. For a good overview of the history and motivations of the project you can take a look at these external resources:
 
 - 📖 [Rethinking drag and drop](https://medium.com/@alexandereardon/rethinking-drag-and-drop-d9f5770b4e6b)
 - 🎧 [React podcast: fast, accessible and beautiful drag and drop](https://reactpodcast.simplecast.fm/17)
 
 ## Not for everyone ✌️
 
-There are a lot of libraries out there that allow for drag and drop interactions within React. Most notable of these is the amazing [`react-dnd`](https://github.com/react-dnd/react-dnd). It does an incredible job at providing a great set of drag and drop primitives which work especially well with the [wildly inconsistent](https://www.quirksmode.org/blog/archives/2009/09/the_html5_drag.html) html5 drag and drop feature. `react-forked-dnd` is a higher level abstraction specifically built for lists (vertical, horizontal, movement between lists, nested lists and so on). Within that subset of functionality `react-forked-dnd` offers a powerful, natural and beautiful drag and drop experience. However, it does not provide the breadth of functionality offered by `react-dnd`. So `react-forked-dnd` might not be for you depending on what your use case is.
+There are a lot of libraries out there that allow for drag and drop interactions within React. Most notable of these is the amazing [`react-dnd`](https://github.com/react-dnd/react-dnd). It does an incredible job at providing a great set of drag and drop primitives which work especially well with the [wildly inconsistent](https://www.quirksmode.org/blog/archives/2009/09/the_html5_drag.html) html5 drag and drop feature. `@react-forked/dnd` is a higher level abstraction specifically built for lists (vertical, horizontal, movement between lists, nested lists and so on). Within that subset of functionality `@react-forked/dnd` offers a powerful, natural and beautiful drag and drop experience. However, it does not provide the breadth of functionality offered by `react-dnd`. So `@react-forked/dnd` might not be for you depending on what your use case is.
 
 ## Documentation 📖
 
@@ -117,7 +117,7 @@ There are a lot of libraries out there that allow for drag and drop interactions
 - [Avoiding image flickering](/docs/guides/avoiding-image-flickering.md)
 - [Non-visible preset styles](/docs/guides/preset-styles.md)
 - [How we detect scroll containers](/docs/guides/how-we-detect-scroll-containers.md)
-- [How we use dom events](/docs/guides/how-we-use-dom-events.md) - _Useful if you need to build on top of `react-forked-dnd`_
+- [How we use dom events](/docs/guides/how-we-use-dom-events.md) - _Useful if you need to build on top of `@react-forked/dnd`_
 - [Adding `<Draggable />`s during a drag (11.x behaviour)](/docs/guides/changes-while-dragging.md) - _⚠️ Advanced_
 - [Setting up Content Security Policy](/docs/guides/content-security-policy.md)
 
@@ -132,9 +132,9 @@ There are a lot of libraries out there that allow for drag and drop interactions
 
 - [Engineering health](/docs/support/engineering-health.md)
 - [Community and addons](/docs/support/community-and-addons.md)
-- [Release notes and changelog](https://github.com/100terres/react-forked-dnd/releases)
+- [Release notes and changelog](https://github.com/react-forked/dnd/releases)
 - [Upgrading](/docs/support/upgrading.md)
-- [Road map](https://github.com/100terres/react-forked-dnd/issues)
+- [Road map](https://github.com/react-forked/dnd/issues)
 - [Media](/docs/support/media.md)
 
 ## Read this in other languages 🌎

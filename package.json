@@ -1,5 +1,5 @@
 {
-  "name": "react-forked-dnd",
+  "name": "@react-forked/dnd",
   "version": "13.0.0",
   "description": "Beautiful and accessible drag and drop for lists with React",
   "author": "Alex Reardon <areardon@atlassian.com>",
@@ -20,10 +20,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/100terres/react-forked-dnd.git"
+    "url": "https://github.com/react-forked/dnd.git"
   },
   "bugs": {
-    "url": "https://github.com/100terres/react-forked-dnd/issues"
+    "url": "https://github.com/react-forked/dnd/issues"
   },
   "main": "dist/react-forked-dnd.cjs.js",
   "module": "dist/react-forked-dnd.esm.js",

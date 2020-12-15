@@ -108,7 +108,7 @@ Take a look at this example:
 
 While it looks correct, it **will cause your application to explode 💥!**
 
-This is because `react-forked-dnd` expects the `provided.innerRef` function for a `<Draggable />` and a `<Droppable />` to be called with the DOM node of the component, and not the _instance_ of the class. In this example we are calling `provided.innerRef` with an _instance_ of `Person` and not the underlying DOM node.
+This is because `@react-forked/dnd` expects the `provided.innerRef` function for a `<Draggable />` and a `<Droppable />` to be called with the DOM node of the component, and not the _instance_ of the class. In this example we are calling `provided.innerRef` with an _instance_ of `Person` and not the underlying DOM node.
 
 ## Exposing a DOM ref from your Component 🤩
 
@@ -193,7 +193,7 @@ class Person extends React.Component {
   setRef = (ref) => {
     // keep a reference to the dom ref as an instance property
     this.ref = ref;
-    // give the dom ref to react-forked-dnd
+    // give the dom ref to @react-forked/dnd
     this.props.innerRef(ref);
   };
   render() {
@@ -217,6 +217,6 @@ Here is an example that shows off the learnings presented in this guide: https:/
 
 ## A note on SVG's
 
-`react-forked-dnd` does not support the dragging of `<svg>` elements. Wrap your `<svg>` in a `HTMLElement` such as `<span>` or `<div>` for great accessibility and cross browser support. See our [using SVGs guide](https://github.com/100terres/react-forked-dnd/tree/master/docs/guides/using-svgs.md) for more information.
+`@react-forked/dnd` does not support the dragging of `<svg>` elements. Wrap your `<svg>` in a `HTMLElement` such as `<span>` or `<div>` for great accessibility and cross browser support. See our [using SVGs guide](https://github.com/react-forked/dnd/tree/master/docs/guides/using-svgs.md) for more information.
 
 [← Back to documentation](/README.md#documentation-)

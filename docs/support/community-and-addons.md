@@ -2,7 +2,7 @@
 
 ## Community ❤️👋
 
-⚠️ These following community repository are based on [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) and might not work with future version of [react-forked-dnd](https://github.com/100terres/react-forked-dnd).
+⚠️ These following community repository are based on [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) and might not work with future version of [@react-forked/dnd](https://github.com/react-forked/dnd).
 
 - [kanban-dnd](https://kanban-dnd.glitch.me) - A Kanban style to-do list, with the ability to create custom lanes and reorder them on the fly.
 - [react-beautiful-dnd-test-utils](https://github.com/colinrcummings/react-beautiful-dnd-test-utils) - 🧤 Test utils for `react-beautiful-dnd` built with `react-testing-library`.
@@ -16,7 +16,7 @@
 
 ## Addons
 
-⚠️ This following addon is based on [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) and might not work with future version of [react-forked-dnd](https://github.com/100terres/react-forked-dnd).
+⚠️ This following addon is based on [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) and might not work with future version of [@react-forked/dnd](https://github.com/react-forked/dnd).
 
 - [natural-drag-animation-rbdnd](https://github.com/rokborf/natural-drag-animation-rbdnd) adds natural dragging animation
 

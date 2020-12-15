@@ -12,7 +12,7 @@ const clean = (value: string): string =>
 
 const getDevMessage = (message: string): string =>
   clean(`
-  %creact-forked-dnd
+  %c@react-forked/dnd
 
   %c${clean(message)}
 
@@ -29,7 +29,7 @@ export const getFormattedMessage = (message: string): string[] => [
   'color: #723874;',
 ];
 
-const isDisabledFlag: string = '__react-forked-dnd-disable-dev-warnings';
+const isDisabledFlag: string = '__@react-forked/dnd-disable-dev-warnings';
 
 export function log(type: 'error' | 'warn', message: string) {
   // no warnings in production

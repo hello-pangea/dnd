@@ -2,9 +2,9 @@
 
 > Generally you will not need to read this guide 😊. Detection of scroll containers "should just work". However, if you are having issues with it you can dig more deeply into this guide 🕵️‍
 
-`react-forked-dnd` will automatically detect the scroll containers for your application when a drag is starting. It does this by looking at the _computed_ `overflowX` and `overflowY` values of an element.
+`@react-forked/dnd` will automatically detect the scroll containers for your application when a drag is starting. It does this by looking at the _computed_ `overflowX` and `overflowY` values of an element.
 
-If `react-forked-dnd` finds an element that has a _computed_ `overflowX` or `overflowY` set to `scroll` or `auto` then that element is marked as a scroll container.
+If `@react-forked/dnd` finds an element that has a _computed_ `overflowX` or `overflowY` set to `scroll` or `auto` then that element is marked as a scroll container.
 
 ## Background information about `overflow`
 

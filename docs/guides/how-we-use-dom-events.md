@@ -12,7 +12,7 @@ This page assumes a working knowledge of DOM events. For a good introduction to 
 
 ## Safe event bindings
 
-Without needing going into all the details below, here are the safest event handlers to build on top of `react-forked-dnd`:
+Without needing going into all the details below, here are the safest event handlers to build on top of `@react-forked/dnd`:
 
 > These can be added on the _drag handle_, anywhere else higher on the tree or to the window directly.
 

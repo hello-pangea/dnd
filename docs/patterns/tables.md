@@ -5,9 +5,9 @@
 | Clean way of displaying tabular data             | Browser                  |
 | Great browser support                            | Browser                  |
 | Can copy paste the table into other applications | Browser                  |
-| Can reorder items in the table!                  | `react-forked-dnd` 😎 |
+| Can reorder items in the table!                  | `@react-forked/dnd` 😎 |
 
-`react-forked-dnd` requires no additional wrapping elements to create `<Draggable />` and `<Droppable />` components. Therefore it is possible to have a `<table>` that has valid HTML as well as supporting drag and drop.
+`@react-forked/dnd` requires no additional wrapping elements to create `<Draggable />` and `<Droppable />` components. Therefore it is possible to have a `<table>` that has valid HTML as well as supporting drag and drop.
 
 > We have not found a way to achieve semantic reordering of table columns at this stage. This is because there is no one element that represents a table column - rather, a column is a result of cell placements within repeating rows. As such as cannot wrap a `<Draggable />` around a 'column' in order to make it draggable. PR's to this guide are welcome if you find a working approach!
 
@@ -68,7 +68,7 @@ It seems like the only way to get things working is to:
 This gets a little complicated - so we created some examples to show you how this technique works:
 
 - [With our cloning API](https://react-forked-dnd.netlify.com/?path=/story/tables--with-clone)
-- [With your own portal](https://react-forked-dnd.netlify.com/?path=/story/tables--with-portal)
+- [With your own portal](https://@react-forked/dnd.netlify.com/?path=/story/tables--with-portal)
 
 You're welcome!
 

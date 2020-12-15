@@ -1,6 +1,6 @@
 # Dragging `<svg>`s
 
-> Summary: `react-forked-dnd` does not support the usage of `<svg>` (`SVGElement`) for a `<Draggable />` or it's _drag handle_. You are still able to drag SVG's around using a number of different strategies listed below
+> Summary: `@react-forked/dnd` does not support the usage of `<svg>` (`SVGElement`) for a `<Draggable />` or it's _drag handle_. You are still able to drag SVG's around using a number of different strategies listed below
 
 ## Background: [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
 
@@ -23,7 +23,7 @@ An `SVGElement` does not implement `HTMLElement`, and directly extends `Element`
 - Applying `aria-*` to a `<svg>` has unknown screen reader implications.
 - Inconsistent `tabindex` behaviour in older browsers
 
-One of the core values of `react-forked-dnd` is accessibility
+One of the core values of `@react-forked/dnd` is accessibility
 
 > Beautiful and **accessible** drag and drop for lists with `React`
 

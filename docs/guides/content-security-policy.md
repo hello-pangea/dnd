@@ -11,7 +11,7 @@ Background reading on CSP
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 - [Helmetjs guide](https://helmetjs.github.io/docs/csp/)
 
-`react-forked-dnd` creates a `<style>` element in the `<head>` and dynamically updates it's value (see [/docs/guides/preset-styles.md] and [Dragging React performance forward](https://medium.com/@alexandereardon/dragging-react-performance-forward-688b30d40a33)). This is considered a _unsafe inline_ and will violate the strict CSP policy: `Content-Security-Policy: style-src 'self'`
+`@react-forked/dnd` creates a `<style>` element in the `<head>` and dynamically updates it's value (see [/docs/guides/preset-styles.md] and [Dragging React performance forward](https://medium.com/@alexandereardon/dragging-react-performance-forward-688b30d40a33)). This is considered a _unsafe inline_ and will violate the strict CSP policy: `Content-Security-Policy: style-src 'self'`
 
 ## Option 1: use `unsafe-inline`
 
@@ -26,7 +26,7 @@ Simple solution number one, use a looser `style-src 'unsafe-inline'`. ⚠️ Thi
 
 You can use the stricter directive `Content-Security-Policy: style-src 'self'` as long as you provide a `nonce` (number used once).
 
-The [JSS](https://cssinjs.org/?v=v10.0.0) project has a great [CSP guide](https://cssinjs.org/csp) which goes through how you can setup a a `nonce`. Once you have a `nonce` value in the browser you can pass it into a `<DragDropContext />` to tell `react-forked-dnd` to use the `nonce`.
+The [JSS](https://cssinjs.org/?v=v10.0.0) project has a great [CSP guide](https://cssinjs.org/csp) which goes through how you can setup a a `nonce`. Once you have a `nonce` value in the browser you can pass it into a `<DragDropContext />` to tell `@react-forked/dnd` to use the `nonce`.
 
 ```js
 <DragDropContext nonce={getNonce()}>{/*...*/}</DragDropContext>
