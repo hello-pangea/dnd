@@ -3,6 +3,9 @@
   "version": "13.0.0",
   "description": "Beautiful and accessible drag and drop for lists with React",
   "author": "Alex Reardon <areardon@atlassian.com>",
+  "maintainers": [
+    "Gabriel Santerre <react-forked-dnd@100terres.com>"
+  ],
   "keywords": [
     "drag and drop",
     "dnd",
@@ -144,8 +147,8 @@
     "webpack": "^4.42.1"
   },
   "peerDependencies": {
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react": "^16.8.5 || ^17.0.0",
+    "react-dom": "^16.8.5 || ^17.0.0"
   },
   "license": "Apache-2.0",
   "jest-junit": {
