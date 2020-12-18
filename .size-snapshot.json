@@ -22,5 +22,10 @@
         "code": 24005
       }
     }
+  },
+  "dist/dnd.d.ts": {
+    "bundled": 15,
+    "minified": 13,
+    "gzipped": 33
   }
 }
