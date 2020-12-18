@@ -27,6 +27,7 @@
   },
   "main": "dist/dnd.cjs.js",
   "module": "dist/dnd.esm.js",
+  "types": "dist/dnd.d.ts",
   "sideEffects": false,
   "files": [
     "/dist",
