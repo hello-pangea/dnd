@@ -235,5 +235,41 @@ module.exports = {
         ],
       },
     },
+
+    // Typescript files
+    {
+      parser: '@typescript-eslint/parser',
+      extends: [
+        'plugin:import/typescript',
+        'plugin:@typescript-eslint/recommended',
+        'prettier/@typescript-eslint',
+      ],
+      plugins: [
+        '@typescript-eslint',
+      ],
+      files: [
+        'src/index.d.ts',
+        'test/test-typescript-types.tsx',
+      ],
+      rules: {
+        'flowtype/no-types-missing-file-annotation': 'off',
+        'flowtype/require-valid-file-annotation': 'off',
+
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ],
+
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-use-before-define': ['error'],
+
+      },
+    },
   ],
 };

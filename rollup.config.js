@@ -1,5 +1,7 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
+import fs from 'fs';
+import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
@@ -43,6 +45,22 @@ const commonjsArgs = {
   },
 };
 
+// Simple copy plugin
+// https://dev.to/lukap/creating-a-rollup-plugin-to-copy-and-watch-a-file-3hi2
+const copyTypesciptDeclarationFile = () => ({
+  name: 'copy-typescript-declaration-file',
+  async buildStart() {
+    this.addWatchFile(path.resolve('src/index.d.ts'));
+  },
+  async generateBundle() {
+    this.emitFile({
+      type: 'asset',
+      fileName: 'dnd.d.ts',
+      source: fs.readFileSync('src/index.d.ts'),
+    });
+  },
+});
+
 export default [
   // Universal module definition (UMD) build
   // - including console.* statements
@@ -63,6 +81,7 @@ export default [
       resolve({ extensions }),
       commonjs(commonjsArgs),
       replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+      copyTypesciptDeclarationFile(),
       sizeSnapshot(snapshotArgs),
     ],
   },

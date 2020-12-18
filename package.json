@@ -27,13 +27,14 @@
   },
   "main": "dist/dnd.cjs.js",
   "module": "dist/dnd.esm.js",
+  "types": "dist/dnd.d.ts",
   "sideEffects": false,
   "files": [
     "/dist",
     "/src"
   ],
   "config": {
-    "prettier_target": "*.{js,jsx,md,json} src/**/*.{js,jsx,md,json} test/**/*.{js,jsx,md,json} docs/**/*.{js,jsx,md,json} stories/**/*.{js,jsx,md,json} cypress/**/*.{js,jsx,md,json} csp-server/**/*.{js,jsx,md,json}"
+    "prettier_target": "*.{js,jsx,ts,tsx,md,json} src/**/*.{js,jsx,ts,tsx,md,json} test/**/*.{js,jsx,ts,tsx,md,json} docs/**/*.{js,jsx,ts,tsx,md,json} stories/**/*.{js,jsx,ts,tsx,md,json} cypress/**/*.{js,jsx,ts,tsx,md,json} csp-server/**/*.{js,jsx,ts,tsx,md,json}"
   },
   "scripts": {
     "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=single-vertical-list--basic --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
@@ -45,9 +46,11 @@
     "validate": "yarn prettier:check && yarn lint:eslint && yarn lint:css && yarn typecheck",
     "prettier:check": "yarn prettier --debug-check $npm_package_config_prettier_target",
     "prettier:write": "yarn prettier --write $npm_package_config_prettier_target",
-    "lint:eslint": "yarn eslint \"./**/*.{js,jsx}\"",
-    "lint:css": "stylelint \"stories/**/*.{js,jsx}\"",
-    "typecheck": "flow check --max-warnings=0",
+    "lint:eslint": "yarn eslint \"./**/*.{js,jsx,ts,tsx}\"",
+    "lint:css": "stylelint \"stories/**/*.{js,jsx,ts,tsx}\"",
+    "typecheck": "yarn typecheck:flow && yarn typecheck:flow",
+    "typecheck:flow": "flow check --max-warnings=0",
+    "typecheck:typescript": "yarn tsc --project ./tsconfig.json",
     "bundle-size:check": "cross-env SNAPSHOT=match yarn bundle-size:update",
     "bundle-size:update": "yarn build:clean && yarn build:dist && yarn build:clean",
     "build": "yarn build:clean && yarn build:dist && yarn build:flow",
@@ -84,6 +87,8 @@
     "@storybook/react": "^5.3.18",
     "@storybook/theming": "^5.3.18",
     "@testing-library/react": "^10.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.3.0",
@@ -143,6 +148,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
+    "typescript": "^4.1.3",
     "wait-port": "^0.2.7",
     "webpack": "^4.42.1"
   },
