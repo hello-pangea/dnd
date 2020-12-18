@@ -1,10 +1,16 @@
 # Types
 
+## Typescript
+
+If you are using [TypeScript](https://www.typescriptlang.org/) you are covered! We are maintaining [the definitions](https://github.com/react-forked/dnd/blob/master/src/index.d.ts).
+
+Here is an [example written in typescript](https://github.com/react-forked/dnd/blob/master/test/test-typescript-types.tsx) from our typecheck test.
+
+## Public flow types
+
 ⚠️ These following information are related to [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
 
 `react-beautiful-dnd` is typed using [`flowtype`](https://flow.org). This greatly improves internal consistency within the codebase. We also expose a number of public types which will allow you to type your javascript if you would like to. If you are not using `flowtype` this will not inhibit you from using the library. It is just extra safety for those who want it.
-
-## Public flow types
 
 ### Ids
 
@@ -217,14 +223,6 @@ The types are exported as part of the module so using them is as simple as:
 ```js
 import type { DroppableProvided } from 'react-beautiful-dnd';
 ```
-
-## Typescript
-
-⚠️ We plan to add typescript declaration to this project ([#3](https://github.com/react-forked/dnd/issues/3))
-
-If you are using [TypeScript](https://www.typescriptlang.org/) you can use the community maintained [DefinitelyTyped type definitions](https://www.npmjs.com/package/@types/react-beautiful-dnd). [Installation instructions](http://definitelytyped.org/).
-
-Here is an [example written in typescript](https://github.com/abeaudoin2013/react-beautiful-dnd-multi-list-typescript-example).
 
 ## Sample application with flow types
 
