@@ -1887,6 +1887,26 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@storybook/addon-storysource@^6.4.18":
+  version "6.4.18"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storysource/-/addon-storysource-6.4.18.tgz#00f0fb919b6224bfa8379b7c4c66e0b32b443921"
+  integrity sha512-02hs9dnfJs5lihQ0c/Cv4+lQNmkR0Fd+isEL+oVNcWTE9g0LVSLzC3evzeQCJv0SDzei7T0N+G7pF1P2dmc5PQ==
+  dependencies:
+    "@storybook/addons" "6.4.18"
+    "@storybook/api" "6.4.18"
+    "@storybook/client-logger" "6.4.18"
+    "@storybook/components" "6.4.18"
+    "@storybook/router" "6.4.18"
+    "@storybook/source-loader" "6.4.18"
+    "@storybook/theming" "6.4.18"
+    core-js "^3.8.2"
+    estraverse "^5.2.0"
+    loader-utils "^2.0.0"
+    prettier ">=2.2.1 <=2.3.0"
+    prop-types "^15.7.2"
+    react-syntax-highlighter "^13.5.3"
+    regenerator-runtime "^0.13.7"
+
 "@storybook/addons@6.4.18", "@storybook/addons@^6.4.18":
   version "6.4.18"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.4.18.tgz#fc92a4a608680f2e182a5e896ed382792f6b774e"
@@ -2524,6 +2544,22 @@
   dependencies:
     core-js "^3.6.5"
     find-up "^4.1.0"
+
+"@storybook/source-loader@6.4.18":
+  version "6.4.18"
+  resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.4.18.tgz#205423e56f7da752d64a0695f2b22ed94378e5d0"
+  integrity sha512-sjKvngCCYDbBwjjFTjAXO6VsAzKkjy+UctseeULXxEN3cKIsz/R3y7MrrN9yBrwyYcn0k3pqa9d9e3gE+Jv2Tw==
+  dependencies:
+    "@storybook/addons" "6.4.18"
+    "@storybook/client-logger" "6.4.18"
+    "@storybook/csf" "0.0.2--canary.87bc651.0"
+    core-js "^3.8.2"
+    estraverse "^5.2.0"
+    global "^4.4.0"
+    loader-utils "^2.0.0"
+    lodash "^4.17.21"
+    prettier ">=2.2.1 <=2.3.0"
+    regenerator-runtime "^0.13.7"
 
 "@storybook/store@6.4.18":
   version "6.4.18"
