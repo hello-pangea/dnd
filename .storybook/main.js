@@ -1,25 +1,9 @@
 require('dotenv').config();
 
-const path = require('path');
-
 module.exports = {
   addons: [
     'storybook-addon-performance/register',
-    {
-      name: '@storybook/addon-storysource',
-      options: {
-        rule: {
-          test: [/\.stories\.tsx?$/],
-          include: [path.resolve(__dirname, '../stories')],
-        },
-        sourceLoaderOptions: {
-          injectStoryParameters: false,
-        },
-        loaderOptions: {
-          prettierConfig: { printWidth: 80, singleQuote: false },
-        },
-      },
-    },
+    '@storybook/addon-storysource',
   ],
   check: true,
   checkOptions: {
