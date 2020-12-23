@@ -84,6 +84,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@storybook/addons": "^6.1.11",
     "@storybook/react": "^6.1.11",
     "@storybook/theming": "^6.1.11",
     "@testing-library/react": "^10.0.2",
