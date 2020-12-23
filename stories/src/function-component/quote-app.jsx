@@ -45,12 +45,14 @@ type QuoteListProps = {|
   quotes: QuoteType[],
 |};
 
-// Ensuring the whole list does not re-render when the droppable re-renders
-const QuoteList = React.memo(function QuoteList({ quotes }: QuoteListProps) {
+function QuoteList({ quotes }: QuoteListProps) {
   return quotes.map((quote: QuoteType, index: number) => (
     <Quote quote={quote} index={index} key={quote.id} />
   ));
-});
+}
+
+// Ensuring the whole list does not re-render when the droppable re-renders
+const QuoteListMemo = React.memo<QuoteListProps>(QuoteList);
 
 function QuoteApp() {
   const [quotes, setQuotes] = useState(initial);
@@ -78,7 +80,7 @@ function QuoteApp() {
       <Droppable droppableId="list">
         {(provided: DroppableProvided) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
-            <QuoteList quotes={quotes} />
+            <QuoteListMemo quotes={quotes} />
             {provided.placeholder}
           </div>
         )}

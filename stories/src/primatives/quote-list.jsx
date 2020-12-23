@@ -84,9 +84,7 @@ type QuoteListProps = {|
   quotes: Quote[],
 |};
 
-const InnerQuoteList = React.memo(function InnerQuoteList(
-  props: QuoteListProps,
-) {
+function InnerQuoteList(props: QuoteListProps) {
   return props.quotes.map((quote: Quote, index: number) => (
     <Draggable key={quote.id} draggableId={quote.id} index={index}>
       {(
@@ -103,7 +101,9 @@ const InnerQuoteList = React.memo(function InnerQuoteList(
       )}
     </Draggable>
   ));
-});
+}
+
+const InnerQuoteListMemo = React.memo<QuoteListProps>(InnerQuoteList);
 
 type InnerListProps = {|
   dropProvided: DroppableProvided,
@@ -119,7 +119,7 @@ function InnerList(props: InnerListProps) {
     <Container>
       {title}
       <DropZone ref={dropProvided.innerRef}>
-        <InnerQuoteList quotes={quotes} />
+        <InnerQuoteListMemo quotes={quotes} />
         {dropProvided.placeholder}
       </DropZone>
     </Container>
