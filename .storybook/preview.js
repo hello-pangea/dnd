@@ -37,3 +37,7 @@ export const decorators = [
   (Story) => <GlobalStyles><Story/></GlobalStyles>,
   withPerformance,
 ];
+
+export const parameters = {
+  layout: 'fullscreen',
+};
