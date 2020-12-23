@@ -1,15 +1,15 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
+import resolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+import strip from '@rollup/plugin-strip';
 import fs from 'fs';
 import path from 'path';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
-import replace from 'rollup-plugin-replace';
-import strip from 'rollup-plugin-strip';
 import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
-import json from 'rollup-plugin-json';
 import pkg from './package.json';
 
 const input = './src/index.js';
@@ -21,8 +21,8 @@ const excludeAllExternals = (id) => !id.startsWith('.') && !id.startsWith('/');
 
 const getBabelOptions = ({ useESModules }) => ({
   exclude: 'node_modules/**',
-  runtimeHelpers: true,
-  plugins: [['@babel/transform-runtime', { useESModules }]],
+  babelHelpers: 'runtime',
+  plugins: [['@babel/plugin-transform-runtime', { useESModules }]],
 });
 
 const snapshotArgs =
@@ -35,14 +35,6 @@ const snapshotArgs =
 
 const commonjsArgs = {
   include: 'node_modules/**',
-  // needed for react-is via react-redux
-  // https://stackoverflow.com/questions/50080893/rollup-error-isvalidelementtype-is-not-exported-by-node-modules-react-is-inde/50098540
-  namedExports: {
-    'node_modules/react-is/index.js': [
-      'isValidElementType',
-      'isContextConsumer',
-    ],
-  },
 };
 
 // Simple copy plugin

@@ -1,15 +1,15 @@
 {
-  "dist/dnd.js": {
-    "bundled": 358624,
-    "minified": 130464,
-    "gzipped": 38832
+  "dnd.js": {
+    "bundled": 357463,
+    "minified": 130336,
+    "gzipped": 38863
   },
-  "dist/dnd.min.js": {
-    "bundled": 305655,
-    "minified": 108217,
-    "gzipped": 31381
+  "dnd.min.js": {
+    "bundled": 304479,
+    "minified": 107790,
+    "gzipped": 31263
   },
-  "dist/dnd.esm.js": {
+  "dnd.esm.js": {
     "bundled": 240848,
     "minified": 125301,
     "gzipped": 32661,
@@ -22,10 +22,5 @@
         "code": 23992
       }
     }
-  },
-  "dist/dnd.d.ts": {
-    "bundled": 15,
-    "minified": 13,
-    "gzipped": 33
   }
 }
