@@ -142,7 +142,7 @@
     "rollup-plugin-size-snapshot": "^0.12.0",
     "rollup-plugin-terser": "^7.0.2",
     "storybook-addon-performance": "^0.13.0",
-    "styled-components": "5.1.0",
+    "styled-components": "5.2.1",
     "stylelint": "^13.3.2",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-recommended": "^3.0.0",
