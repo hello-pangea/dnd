@@ -83,7 +83,7 @@ export const touch: Control = {
   },
   lift: () => {
     act(() => {
-      jest.runTimersToTime(timeForLongPress);
+      jest.advanceTimersByTime(timeForLongPress);
     });
   },
   move: (handle: HTMLElement) => {

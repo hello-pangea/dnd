@@ -93,7 +93,7 @@ it('should not block any clicks after a timeout', () => {
   const drag: SnapDragActions = preDrag.snapLift();
   act(() => drag.drop({ shouldBlockNextClick: true }));
 
-  jest.runTimersToTime(1);
+  jest.advanceTimersByTime(1);
 
   // fire click
   const first: MouseEvent = createEvent.click(handle);

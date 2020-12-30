@@ -74,7 +74,7 @@ import {
       const combineStart: Position = add(startOfInHome3, inHome3Threshold);
       const combineEnd: Position = subtract(endOfInHome3, inHome3Threshold);
 
-      it('should move onto a target once it hits (1/5) of the targets size ', () => {
+      it('should move onto a target once it hits (1/5) of the targets size', () => {
         const offset: Position = getOffsetForEndEdge({
           endEdgeOn: combineStart,
           dragging: preset.inHome2.page.borderBox,
