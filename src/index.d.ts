@@ -595,7 +595,7 @@ export interface DroppableProps {
   direction?: Direction;
   ignoreContainerClipping?: boolean;
   renderClone?: DraggableChildrenFn;
-  getContainerForClone?: () => React.ReactElement<HTMLElement>;
+  getContainerForClone?: () => HTMLElement;
   children(
     provided: DroppableProvided,
     snapshot: DroppableStateSnapshot,
