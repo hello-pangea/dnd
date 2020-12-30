@@ -91,6 +91,7 @@
     "@rollup/plugin-replace": "^2.3.4",
     "@rollup/plugin-strip": "^2.0.0",
     "@storybook/addons": "^6.1.11",
+    "@storybook/core": "^6.1.11",
     "@storybook/react": "^6.1.11",
     "@storybook/theming": "^6.1.11",
     "@testing-library/react": "^11.2.2",
