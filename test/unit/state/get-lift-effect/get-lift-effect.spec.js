@@ -17,7 +17,7 @@ import {
 
 const preset = getPreset();
 
-it('should mark everything after the critical ', () => {
+it('should mark everything after the critical', () => {
   const { impact, afterCritical } = getLiftEffect({
     draggable: preset.inHome2,
     home: preset.home,

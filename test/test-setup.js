@@ -1,7 +1,9 @@
 // @flow
 
 // ensuring that each test has at least one assertion
-beforeEach(expect.hasAssertions);
+beforeEach(() => {
+  expect.hasAssertions();
+});
 
 if (typeof document !== 'undefined') {
   // Simply importing this package will throw an error if document is not defined

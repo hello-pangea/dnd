@@ -18,6 +18,7 @@ it('should end all nested docs with a link back to the documentation root', asyn
     const endsWithBacklink: boolean = contents.trim().endsWith(backLink);
 
     if (!endsWithBacklink) {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(`
         File: "${file}"
         Did not end with back link

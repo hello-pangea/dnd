@@ -141,6 +141,7 @@ cases.forEach((current: Case) => {
     it('should announce with the default message if no responder is provided', () => {
       // This test is not relevant for onDragEnd as it must always be provided
       if (current.responder === 'onDragEnd') {
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(true).toBe(true);
         return;
       }
