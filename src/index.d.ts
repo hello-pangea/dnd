@@ -305,6 +305,7 @@ export interface DraggableRubric {
   draggableId: DraggableId;
   mode: MovementMode;
   source: DraggableLocation;
+  type: TypeId;
 }
 
 // Published in onBeforeCapture
@@ -594,7 +595,7 @@ export interface DroppableProps {
   direction?: Direction;
   ignoreContainerClipping?: boolean;
   renderClone?: DraggableChildrenFn;
-  getContainerForClone?: () => React.ReactElement<HTMLElement>;
+  getContainerForClone?: () => HTMLElement;
   children(
     provided: DroppableProvided,
     snapshot: DroppableStateSnapshot,

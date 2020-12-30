@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react",
@@ -24,6 +24,8 @@
   ],
   "files": [
     "src/index.d.ts",
+    "src/invariant.d.ts",
+    "src/view/event-bindings/bind-events.d.ts",
     "test/test-typescript-types.tsx"
   ]
 }

@@ -244,13 +244,8 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'prettier/@typescript-eslint',
       ],
-      plugins: [
-        '@typescript-eslint',
-      ],
-      files: [
-        'src/index.d.ts',
-        'test/test-typescript-types.tsx',
-      ],
+      plugins: ['@typescript-eslint'],
+      files: ['**/*.ts?(x)'],
       rules: {
         'flowtype/no-types-missing-file-annotation': 'off',
         'flowtype/require-valid-file-annotation': 'off',
@@ -269,6 +264,11 @@ module.exports = {
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['error'],
 
+        'no-unused-expressions': 'off',
+        '@typescript-eslint/no-unused-expressions': ['error'],
+
+        'no-useless-constructor': 'off',
+        '@typescript-eslint/no-useless-constructor': ['error'],
       },
     },
   ],

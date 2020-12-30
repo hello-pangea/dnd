@@ -1,12 +1,9 @@
-// disabling flowtype to keep this example super simple
-// It matches
-/* eslint-disable flowtype/require-valid-file-annotation */
-
 import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from '../../../src';
 
 // fake data generator
 const getItems = (count) =>
+  // eslint-disable-next-line no-restricted-syntax
   Array.from({ length: count }, (v, k) => k).map((k) => ({
     id: `item-${k}`,
     content: `item ${k}`,
@@ -14,7 +11,7 @@ const getItems = (count) =>
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
-  const result = Array.from(list);
+  const result = [...list];
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
 
