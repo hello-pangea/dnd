@@ -305,6 +305,7 @@ export interface DraggableRubric {
   draggableId: DraggableId;
   mode: MovementMode;
   source: DraggableLocation;
+  type: TypeId;
 }
 
 // Published in onBeforeCapture
