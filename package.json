@@ -48,7 +48,7 @@
     "prettier:write": "yarn prettier --write $npm_package_config_prettier_target",
     "lint:eslint": "yarn eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:css": "stylelint \"stories/**/*.{js,jsx,ts,tsx}\"",
-    "typecheck": "yarn typecheck:flow && yarn typecheck:flow",
+    "typecheck": "yarn typecheck:flow && yarn typecheck:typescript",
     "typecheck:flow": "flow check --max-warnings=0",
     "typecheck:typescript": "yarn tsc --project tsconfig.json && yarn tsc --project stories/tsconfig.json && yarn tsc --project .storybook/tsconfig.json",
     "bundle-size:check": "cross-env SNAPSHOT=match yarn bundle-size:update",
