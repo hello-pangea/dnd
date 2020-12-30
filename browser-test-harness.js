@@ -5,7 +5,10 @@ const waitPort = require('wait-port');
 const ports = require('./server-ports');
 
 const storybook = childProcess.spawn(process.execPath, [
+  path.join('node_modules', '.bin', 'cross-env-shell'),
+  'DISABLE_HMR=true',
   path.join('node_modules', '.bin', 'start-storybook'),
+  '--ci',
   '-p',
   `${ports.storybook}`,
 ]);
