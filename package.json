@@ -118,7 +118,7 @@
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-cypress": "^2.10.3",
-    "eslint-plugin-emotion": "^10.0.27",
+    "eslint-plugin-emotion": "^11.0.0",
     "eslint-plugin-es5": "^1.5.0",
     "eslint-plugin-flowtype": "^4.7.0",
     "eslint-plugin-import": "^2.20.2",
