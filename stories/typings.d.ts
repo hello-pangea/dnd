@@ -18,6 +18,7 @@ declare module 'use-memo-one' {
     inputs: DependencyList | undefined,
   ): T;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   declare function useCallbackOne<T extends (...args: any[]) => any>(
     // getResult changes on every call,
     callback: T,
