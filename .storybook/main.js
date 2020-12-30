@@ -4,5 +4,5 @@ module.exports = {
   checkOptions: {
     tsconfig: '../stories/tsconfig.json',
   },
-  stories: ['../stories/**/*.stories.@(js|jsx)'],
+  stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
 };
