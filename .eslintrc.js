@@ -117,7 +117,7 @@ module.exports = {
 
     // Allowing Math.pow rather than forcing `**`
     'no-restricted-properties': [
-      'error',
+      'off',
       {
         object: 'Math',
         property: 'pow',
