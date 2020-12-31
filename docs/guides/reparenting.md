@@ -96,7 +96,7 @@ function List(props) {
 }
 ```
 
-### `<Droppable /> | \renderClone`
+### `<Droppable /> | renderClone`
 
 This function is called to get a clone to be rendered while dragging.
 
