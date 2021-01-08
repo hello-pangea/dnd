@@ -89,22 +89,31 @@ export default function Droppable(props: Props) {
     getDroppableRef,
   });
 
-  const placeholder: Node = (
-    <AnimateInOut
-      on={props.placeholder}
-      shouldAnimate={props.shouldAnimatePlaceholder}
-    >
-      {({ onClose, data, animate }: AnimateProvided) => (
-        <Placeholder
-          placeholder={(data: any)}
-          onClose={onClose}
-          innerRef={setPlaceholderRef}
-          animate={animate}
-          contextId={contextId}
-          onTransitionEnd={onPlaceholderTransitionEnd}
-        />
-      )}
-    </AnimateInOut>
+  const placeholder: Node = useMemo(
+    () => (
+      <AnimateInOut
+        on={props.placeholder}
+        shouldAnimate={props.shouldAnimatePlaceholder}
+      >
+        {({ onClose, data, animate }: AnimateProvided) => (
+          <Placeholder
+            placeholder={(data: any)}
+            onClose={onClose}
+            innerRef={setPlaceholderRef}
+            animate={animate}
+            contextId={contextId}
+            onTransitionEnd={onPlaceholderTransitionEnd}
+          />
+        )}
+      </AnimateInOut>
+    ),
+    [
+      contextId,
+      onPlaceholderTransitionEnd,
+      props.placeholder,
+      props.shouldAnimatePlaceholder,
+      setPlaceholderRef,
+    ],
   );
 
   const provided: Provided = useMemo(

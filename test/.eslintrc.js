@@ -1,4 +1,12 @@
 module.exports = {
+  extends: ['plugin:jest/recommended'],
+
+  plugins: ['jest'],
+
+  env: {
+    'jest/globals': true,
+  },
+
   rules: {
     // allowing console.warn / console.error
     // this is because we often mock console.warn and console.error and adding this rul
@@ -10,5 +18,19 @@ module.exports = {
 
     // Allowing Array.from
     'no-restricted-syntax': 'off',
+
+    'jest/expect-expect': [
+      'error',
+      {
+        assertFunctionNames: [
+          'expect',
+          // these functions will run expect internally
+          'withWarn',
+          'withError',
+          'withoutError',
+          'withoutWarn',
+        ],
+      },
+    ],
   },
 };

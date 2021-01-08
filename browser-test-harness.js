@@ -1,4 +1,3 @@
-// @flow
 const childProcess = require('child_process');
 const path = require('path');
 const waitPort = require('wait-port');
@@ -37,27 +36,29 @@ Promise.all([
 ])
   .then(() => {
     if (!process.argv[2]) {
-      // eslint-disable-next-line no-console
-      console.warn('Started servers but no command supplied to run after');
-      process.exit();
+      // eslint-disable-next-line no-restricted-syntax
+      throw new Error('Started servers but no command supplied to run after');
     }
 
     const child = childProcess.spawn(process.argv[2], process.argv.slice(3), {
       stdio: 'inherit',
     });
+
     process.on('exit', () => {
       child.kill();
     });
+
     child.on('exit', (code) => {
+      // eslint-disable-next-line no-process-exit
       process.exit(code);
     });
   })
   .catch((error) => {
-    // eslint-disable-next-line no-console
-    console.error('Unable to spin up standalone servers');
-    // eslint-disable-next-line no-console
-    console.error(error);
     storybook.kill();
     cspServer.kill();
-    process.exit(1);
+
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-restricted-syntax
+    throw new Error('Unable to spin up standalone servers');
   });
