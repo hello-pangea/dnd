@@ -82,7 +82,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-flow": "^7.12.1",
     "@babel/preset-react": "^7.12.10",
-    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@emotion/babel-preset-css-prop": "^11.0.0",
     "@emotion/core": "^10.0.28",
     "@emotion/eslint-plugin": "^11.0.0",
     "@emotion/styled": "^10.0.27",
