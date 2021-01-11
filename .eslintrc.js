@@ -232,7 +232,10 @@ module.exports = {
         'lighthouse.config.js',
         'rollup.config.js',
         'server-ports.js',
+        'test/**/*.js?(x)',
+        'tsc-silent.config.js',
       ],
+      excludedFiles: ['test/test-flow-types.js'],
       rules: {
         'flowtype/require-valid-file-annotation': 'off',
       },
