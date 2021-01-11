@@ -5,25 +5,22 @@ module.exports = {
     'plugin:flowtype/recommended',
     'prettier/react',
     'prettier/flowtype',
-    'plugin:jest/recommended',
     'plugin:prettier/recommended',
   ],
-  parser: 'babel-eslint',
   plugins: [
     'prettier',
     'flowtype',
-    'emotion',
+    '@emotion',
     'react',
     'react-hooks',
     'import',
-    'jest',
     'es5',
   ],
+  parser: '@babel/eslint-parser',
   env: {
     es6: true,
     browser: true,
     node: true,
-    'jest/globals': true,
   },
   globals: {
     // flow globals
@@ -208,21 +205,8 @@ module.exports = {
 
     // don't need to initialize state in a constructor
     'react/state-in-constructor': 'off',
-
-    'jest/expect-expect': [
-      'error',
-      {
-        assertFunctionNames: [
-          'expect',
-          // these functions will run expect internally
-          'withWarn',
-          'withError',
-          'withoutError',
-          'withoutWarn',
-        ],
-      },
-    ],
   },
+
   overrides: [
     // Forbid using not es5 methods
     {
@@ -236,29 +220,70 @@ module.exports = {
       },
     },
 
+    // NodeJS files
+    {
+      extends: ['plugin:node/recommended'],
+      files: [
+        '**/*.eslintrc.js',
+        'a11y-audit-parse.js',
+        'browser-test-harness.js',
+        'babel.config.js',
+        'jest.config.js',
+        'lighthouse.config.js',
+        'rollup.config.js',
+        'server-ports.js',
+      ],
+      rules: {
+        'flowtype/require-valid-file-annotation': 'off',
+      },
+    },
+
+    {
+      extends: ['plugin:node/recommended-module'],
+      parserOptions: {
+        project: './tsconfig.json',
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+      env: {
+        browser: false,
+        es6: false,
+      },
+      files: ['rollup.config.js'],
+      rules: {
+        'flowtype/require-valid-file-annotation': 'off',
+        'node/no-unsupported-features/es-syntax': [
+          'error',
+          {
+            ignores: ['modules'],
+          },
+        ],
+      },
+    },
+
     // Typescript files
     {
-      parser: '@typescript-eslint/parser',
       extends: [
-        'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
+        'plugin:import/typescript',
         'prettier/@typescript-eslint',
       ],
       plugins: ['@typescript-eslint'],
+      parser: '@typescript-eslint/parser',
       files: ['**/*.ts?(x)'],
       rules: {
         'flowtype/no-types-missing-file-annotation': 'off',
         'flowtype/require-valid-file-annotation': 'off',
 
-        "import/extensions": [
-          "error",
-          "ignorePackages",
+        'import/extensions': [
+          'error',
+          'ignorePackages',
           {
-            "js": "never",
-            "jsx": "never",
-            "ts": "never",
-            "tsx": "never"
-          }
+            js: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never',
+          },
         ],
 
         'no-use-before-define': 'off',

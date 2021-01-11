@@ -29,6 +29,7 @@ export default function useStyleMarshal(contextId: ContextId, nonce?: string) {
   const alwaysRef = useRef<?HTMLStyleElement>(null);
   const dynamicRef = useRef<?HTMLStyleElement>(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setDynamicStyle = useCallback(
     // Using memoizeOne to prevent frequent updates to textContext
     memoizeOne((proposed: string) => {

@@ -2,9 +2,9 @@
 
 # https://github.com/eslint/eslint/issues/8429#issuecomment-355967308
 !.storybook
+!**/*.eslintrc.js
 
 dist/
 flow-typed/
 site/
 coverage/
-babel.config.js

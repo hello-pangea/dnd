@@ -465,7 +465,7 @@ export default function useSensorMarshal({
     },
     [lockAPI, store],
   );
-  const isLockClaimed = useCallback(lockAPI.isClaimed, [lockAPI]);
+  const isLockClaimed = useCallback(() => lockAPI.isClaimed(), [lockAPI]);
 
   const api: SensorAPI = useMemo(
     () => ({
