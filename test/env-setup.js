@@ -1,10 +1,8 @@
-/* eslint-disable global-require */
-/* eslint-disable flowtype/require-valid-file-annotation */
-
 // Replacing requestAnimationFrame
 // Adding window check because some tests do not
 // run with browser globals enabled
 if (typeof window !== 'undefined') {
+  // eslint-disable-next-line global-require
   require('raf-stub').replaceRaf([global, window]);
 
   // overriding these properties in jsdom to allow them to be controlled
