@@ -1,8 +1,8 @@
 const isProduction: boolean = process.env.NODE_ENV === 'production';
 
 // not replacing newlines (which \s does)
-const spacesAndTabs: RegExp = /[ \t]{2,}/g;
-const lineStartWithSpaces: RegExp = /^[ \t]*/gm;
+const spacesAndTabs = /[ \t]{2,}/g;
+const lineStartWithSpaces = /^[ \t]*/gm;
 
 // using .trim() to clear the any newlines before the first text and after last text
 const clean = (value: string): string =>
@@ -10,11 +10,11 @@ const clean = (value: string): string =>
 
 const getDevMessage = (message: string): string =>
   clean(`
-%c@react-forked/dnd
+  %c@react-forked/dnd
 
-%c${clean(message)}
+  %c${clean(message)}
 
-%c👷‍ This is a development only message. It will be removed in production builds.
+  %c👷‍ This is a development only message. It will be removed in production builds.
 `);
 
 export const getFormattedMessage = (message: string): string[] => [
@@ -27,9 +27,9 @@ export const getFormattedMessage = (message: string): string[] => [
   'color: #723874;',
 ];
 
-const isDisabledFlag: string = '__@react-forked/dnd-disable-dev-warnings';
+const isDisabledFlag = '__@react-forked/dnd-disable-dev-warnings';
 
-export function log(type: 'error' | 'warn', message: string) {
+export function log(type: 'error' | 'warn', message: string): void {
   // no warnings in production
   if (isProduction) {
     return;
