@@ -84,10 +84,8 @@ export default ({
     draggables,
   };
 
-  const wasOverId: DroppableId | undefined | null = whatIsDraggedOver(
-    state.impact,
-  );
-  const wasOver: DroppableDimension | undefined | null = wasOverId
+  const wasOverId: DroppableId | null = whatIsDraggedOver(state.impact);
+  const wasOver: DroppableDimension | null = wasOverId
     ? dimensions.droppables[wasOverId]
     : null;
 

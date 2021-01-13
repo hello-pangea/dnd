@@ -34,24 +34,17 @@ import StoreContext from '../context/store-context';
 import whatIsDraggedOverFromResult from '../../state/droppable/what-is-dragged-over-from-result';
 import { tryGetCombine } from '../../state/get-impact-location';
 
-const getCombineWithFromResult = (
-  result: DropResult,
-): DraggableId | undefined | null => {
+const getCombineWithFromResult = (result: DropResult): DraggableId | null => {
   return result.combine ? result.combine.draggableId : null;
 };
 
-const getCombineWithFromImpact = (
-  impact: DragImpact,
-): DraggableId | undefined | null => {
+const getCombineWithFromImpact = (impact: DragImpact): DraggableId | null => {
   return impact.at && impact.at.type === 'COMBINE'
     ? impact.at.combine.draggableId
     : null;
 };
 
-type TrySelect = (
-  state: State,
-  ownProps: OwnProps,
-) => MapProps | undefined | null;
+type TrySelect = (state: State, ownProps: OwnProps) => MapProps | null;
 
 function getDraggableSelector(): TrySelect {
   const memoizedOffset = memoizeOne(
@@ -115,7 +108,7 @@ function getDraggableSelector(): TrySelect {
   const selector: TrySelect = (
     state: State,
     ownProps: OwnProps,
-  ): MapProps | undefined | null => {
+  ): MapProps | null => {
     // Dragging
     if (state.isDragging) {
       // not the dragging item
@@ -127,15 +120,11 @@ function getDraggableSelector(): TrySelect {
       const dimension: DraggableDimension =
         state.dimensions.draggables[ownProps.draggableId];
       // const shouldAnimateDragMovement: boolean = state.shouldAnimate;
-      const draggingOver: DroppableId | undefined | null = whatIsDraggedOver(
+      const draggingOver: DroppableId | null = whatIsDraggedOver(state.impact);
+      const combineWith: DraggableId | null = getCombineWithFromImpact(
         state.impact,
       );
-      const combineWith:
-        | DraggableId
-        | undefined
-        | null = getCombineWithFromImpact(state.impact);
-      const forceShouldAnimate: boolean | undefined | null =
-        state.forceShouldAnimate;
+      const forceShouldAnimate: boolean | null = state.forceShouldAnimate;
 
       return getMemoizedProps(
         memoizedOffset(offset.x, offset.y),
@@ -161,14 +150,10 @@ function getDraggableSelector(): TrySelect {
       const result: DropResult = completed.result;
       const mode: MovementMode = result.mode;
       // these need to be pulled from the result as they can be different to the final impact
-      const draggingOver:
-        | DroppableId
-        | undefined
-        | null = whatIsDraggedOverFromResult(result);
-      const combineWith:
-        | DraggableId
-        | undefined
-        | null = getCombineWithFromResult(result);
+      const draggingOver: DroppableId | null = whatIsDraggedOverFromResult(
+        result,
+      );
+      const combineWith: DraggableId | null = getCombineWithFromResult(result);
       const duration: number = state.dropDuration;
 
       // not memoized as it is the only execution
@@ -245,7 +230,7 @@ function getSecondarySelector(): TrySelect {
   const getMemoizedProps = memoizeOne(
     (
       offset: Position,
-      combineTargetFor: DraggableId | undefined | null = null,
+      combineTargetFor: DraggableId | null = null,
       shouldAnimateDisplacement: boolean,
     ): MapProps => ({
       mapped: {
@@ -262,7 +247,7 @@ function getSecondarySelector(): TrySelect {
   // otherwise we will return null to get the default props
   const getFallback = (
     combineTargetFor?: DraggableId | null,
-  ): MapProps | undefined | null => {
+  ): MapProps | null => {
     return combineTargetFor
       ? getMemoizedProps(origin, combineTargetFor, true)
       : null;
@@ -273,15 +258,15 @@ function getSecondarySelector(): TrySelect {
     draggingId: DraggableId,
     impact: DragImpact,
     afterCritical: LiftEffect,
-  ): MapProps | undefined | null => {
-    const visualDisplacement: Displacement | undefined | null =
+  ): MapProps | null => {
+    const visualDisplacement: Displacement | null =
       impact.displaced.visible[ownId];
     const isAfterCriticalInVirtualList = Boolean(
       afterCritical.inVirtualList && afterCritical.effected[ownId],
     );
 
-    const combine: Combine | undefined | null = tryGetCombine(impact);
-    const combineTargetFor: DraggableId | undefined | null =
+    const combine: Combine | null = tryGetCombine(impact);
+    const combineTargetFor: DraggableId | null =
       combine && combine.draggableId === ownId ? draggingId : null;
 
     if (!visualDisplacement) {
@@ -325,7 +310,7 @@ function getSecondarySelector(): TrySelect {
   const selector: TrySelect = (
     state: State,
     ownProps: OwnProps,
-  ): MapProps | undefined | null => {
+  ): MapProps | null => {
     // Dragging
     if (state.isDragging) {
       // we do not care about the dragging item

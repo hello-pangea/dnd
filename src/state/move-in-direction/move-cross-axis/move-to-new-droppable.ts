@@ -18,7 +18,7 @@ import calculateReorderImpact from '../../calculate-drag-impact/calculate-reorde
 
 type Args = {
   previousPageBorderBoxCenter: Position;
-  moveRelativeTo: DraggableDimension | undefined | null;
+  moveRelativeTo: DraggableDimension | null;
   insideDestination: DraggableDimension[];
   draggable: DraggableDimension;
   draggables: DraggableDimensionMap;
@@ -36,7 +36,7 @@ export default ({
   destination,
   viewport,
   afterCritical,
-}: Args): DragImpact | undefined | null => {
+}: Args): DragImpact | null => {
   if (!moveRelativeTo) {
     // Draggables available, but none are candidates for movement
     if (insideDestination.length) {

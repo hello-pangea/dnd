@@ -42,7 +42,7 @@ type Props = {
   isDropDisabled: boolean;
   isCombineEnabled: boolean;
   ignoreContainerClipping: boolean;
-  getDroppableRef: () => HTMLElement | undefined | null;
+  getDroppableRef: () => HTMLElement | null;
 };
 
 type WhileDragging = {
@@ -54,11 +54,10 @@ type WhileDragging = {
 
 const getClosestScrollableFromDrag = (
   dragging?: WhileDragging | null,
-): Element | undefined | null =>
-  (dragging && dragging.env.closestScrollable) || null;
+): Element | null => (dragging && dragging.env.closestScrollable) || null;
 
 export default function useDroppablePublisher(args: Props) {
-  const whileDraggingRef = useRef<WhileDragging | undefined | null>(null);
+  const whileDraggingRef = useRef<WhileDragging | null>(null);
   const appContext: AppContextValue = useRequiredContext(AppContext);
   const uniqueId: Id = useUniqueId('droppable');
   const { registry, marshal } = appContext;
@@ -88,7 +87,7 @@ export default function useDroppablePublisher(args: Props) {
   );
 
   const getClosestScroll = useCallback((): Position => {
-    const dragging: WhileDragging | undefined | null = whileDraggingRef.current;
+    const dragging: WhileDragging | null = whileDraggingRef.current;
     if (!dragging || !dragging.env.closestScrollable) {
       return origin;
     }
@@ -107,10 +106,8 @@ export default function useDroppablePublisher(args: Props) {
   ]);
 
   const onClosestScroll = useCallback(() => {
-    const dragging: WhileDragging | undefined | null = whileDraggingRef.current;
-    const closest: Element | undefined | null = getClosestScrollableFromDrag(
-      dragging,
-    );
+    const dragging: WhileDragging | null = whileDraggingRef.current;
+    const closest: Element | null = getClosestScrollableFromDrag(dragging);
 
     invariant(
       dragging && closest,
@@ -131,7 +128,7 @@ export default function useDroppablePublisher(args: Props) {
         'Cannot collect a droppable while a drag is occurring',
       );
       const previous: Props = previousRef.current;
-      const ref: HTMLElement | undefined | null = previous.getDroppableRef();
+      const ref: HTMLElement | null = previous.getDroppableRef();
       invariant(ref, 'Cannot collect without a droppable ref');
       const env: Env = getEnv(ref);
 
@@ -155,7 +152,7 @@ export default function useDroppablePublisher(args: Props) {
         shouldClipSubject: !previous.ignoreContainerClipping,
       });
 
-      const scrollable: Element | undefined | null = env.closestScrollable;
+      const scrollable: Element | null = env.closestScrollable;
 
       if (scrollable) {
         scrollable.setAttribute(
@@ -181,10 +178,8 @@ export default function useDroppablePublisher(args: Props) {
   );
 
   const getScrollWhileDragging = useCallback((): Position => {
-    const dragging: WhileDragging | undefined | null = whileDraggingRef.current;
-    const closest: Element | undefined | null = getClosestScrollableFromDrag(
-      dragging,
-    );
+    const dragging: WhileDragging | null = whileDraggingRef.current;
+    const closest: Element | null = getClosestScrollableFromDrag(dragging);
     invariant(
       dragging && closest,
       'Can only recollect Droppable client for Droppables that have a scroll container',
@@ -194,11 +189,9 @@ export default function useDroppablePublisher(args: Props) {
   }, []);
 
   const dragStopped = useCallback(() => {
-    const dragging: WhileDragging | undefined | null = whileDraggingRef.current;
+    const dragging: WhileDragging | null = whileDraggingRef.current;
     invariant(dragging, 'Cannot stop drag when no active drag');
-    const closest: Element | undefined | null = getClosestScrollableFromDrag(
-      dragging,
-    );
+    const closest: Element | null = getClosestScrollableFromDrag(dragging);
 
     // goodbye old friend
     whileDraggingRef.current = null;
@@ -219,11 +212,9 @@ export default function useDroppablePublisher(args: Props) {
 
   const scroll = useCallback((change: Position) => {
     // arrange
-    const dragging: WhileDragging | undefined | null = whileDraggingRef.current;
+    const dragging: WhileDragging | null = whileDraggingRef.current;
     invariant(dragging, 'Cannot scroll when there is no drag');
-    const closest: Element | undefined | null = getClosestScrollableFromDrag(
-      dragging,
-    );
+    const closest: Element | null = getClosestScrollableFromDrag(dragging);
     invariant(closest, 'Cannot scroll a droppable with no closest scrollable');
 
     // act

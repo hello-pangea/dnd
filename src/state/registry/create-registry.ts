@@ -47,14 +47,12 @@ export default function createRegistry(): Registry {
     }
   }
 
-  function findDraggableById(
-    id: DraggableId,
-  ): DraggableEntry | undefined | null {
+  function findDraggableById(id: DraggableId): DraggableEntry | null {
     return entries.draggables[id] || null;
   }
 
   function getDraggableById(id: DraggableId): DraggableEntry {
-    const entry: DraggableEntry | undefined | null = findDraggableById(id);
+    const entry: DraggableEntry | null = findDraggableById(id);
     invariant(entry, `Cannot find draggable entry with id [${id}]`);
     return entry;
   }
@@ -65,7 +63,7 @@ export default function createRegistry(): Registry {
       notify({ type: 'ADDITION', value: entry });
     },
     update: (entry: DraggableEntry, last: DraggableEntry) => {
-      const current: DraggableEntry | undefined | null =
+      const current: DraggableEntry | null =
         entries.draggables[last.descriptor.id];
 
       // item already removed
@@ -84,9 +82,7 @@ export default function createRegistry(): Registry {
     },
     unregister: (entry: DraggableEntry) => {
       const draggableId: DraggableId = entry.descriptor.id;
-      const current: DraggableEntry | undefined | null = findDraggableById(
-        draggableId,
-      );
+      const current: DraggableEntry | null = findDraggableById(draggableId);
 
       // can occur if cleaned before unregistration
       if (!current) {
@@ -110,14 +106,12 @@ export default function createRegistry(): Registry {
       ),
   };
 
-  function findDroppableById(
-    id: DroppableId,
-  ): DroppableEntry | undefined | null {
+  function findDroppableById(id: DroppableId): DroppableEntry | null {
     return entries.droppables[id] || null;
   }
 
   function getDroppableById(id: DroppableId): DroppableEntry {
-    const entry: DroppableEntry | undefined | null = findDroppableById(id);
+    const entry: DroppableEntry | null = findDroppableById(id);
     invariant(entry, `Cannot find droppable entry with id [${id}]`);
     return entry;
   }
@@ -127,7 +121,7 @@ export default function createRegistry(): Registry {
       entries.droppables[entry.descriptor.id] = entry;
     },
     unregister: (entry: DroppableEntry) => {
-      const current: DroppableEntry | undefined | null = findDroppableById(
+      const current: DroppableEntry | null = findDroppableById(
         entry.descriptor.id,
       );
 

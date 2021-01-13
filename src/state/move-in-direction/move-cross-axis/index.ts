@@ -42,13 +42,10 @@ export default ({
   droppables,
   viewport,
   afterCritical,
-}: Args): PublicResult | undefined | null => {
+}: Args): PublicResult | null => {
   // not considering the container scroll changes as container scrolling cancels a keyboard drag
 
-  const destination:
-    | DroppableDimension
-    | undefined
-    | null = getBestCrossAxisDroppable({
+  const destination: DroppableDimension | null = getBestCrossAxisDroppable({
     isMovingForward,
     pageBorderBoxCenter: previousPageBorderBoxCenter,
     source: isOver,
@@ -66,10 +63,7 @@ export default ({
     draggables,
   );
 
-  const moveRelativeTo:
-    | DraggableDimension
-    | undefined
-    | null = getClosestDraggable({
+  const moveRelativeTo: DraggableDimension | null = getClosestDraggable({
     pageBorderBoxCenter: previousPageBorderBoxCenter,
     viewport,
     destination,
@@ -77,7 +71,7 @@ export default ({
     afterCritical,
   });
 
-  const impact: DragImpact | undefined | null = moveToNewDroppable({
+  const impact: DragImpact | null = moveToNewDroppable({
     previousPageBorderBoxCenter,
     destination,
     draggable,

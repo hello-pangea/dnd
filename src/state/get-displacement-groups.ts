@@ -14,7 +14,7 @@ type Args = {
   afterDragging: DraggableDimension[];
   destination: DroppableDimension;
   displacedBy: DisplacedBy;
-  last: DisplacementGroups | undefined | null;
+  last: DisplacementGroups | null;
   viewport: Rect;
   forceShouldAnimate?: boolean;
 };
@@ -41,7 +41,7 @@ const getShouldAnimate = (
     return false;
   }
 
-  const previous: Displacement | undefined | null = visible[id];
+  const previous: Displacement | null = visible[id];
 
   return previous ? previous.shouldAnimate : true;
 };

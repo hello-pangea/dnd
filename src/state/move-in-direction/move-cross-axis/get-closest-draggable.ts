@@ -29,7 +29,7 @@ export default ({
   destination,
   insideDestination,
   afterCritical,
-}: Args): DraggableDimension | undefined | null => {
+}: Args): DraggableDimension | null => {
   const sorted: DraggableDimension[] = insideDestination
     .filter((draggable: DraggableDimension): boolean => // Allowing movement to draggables that are not visible in the viewport
       // but must be visible in the droppable

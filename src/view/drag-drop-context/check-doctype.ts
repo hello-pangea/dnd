@@ -8,7 +8,7 @@ const suffix = `
 `;
 
 export default (doc: Document) => {
-  const doctype: DocumentType | undefined | null = doc.doctype;
+  const doctype: DocumentType | null = doc.doctype;
 
   if (!doctype) {
     warning(`

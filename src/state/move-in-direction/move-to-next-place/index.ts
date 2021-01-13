@@ -40,7 +40,7 @@ export default ({
   previousPageBorderBoxCenter,
   previousClientSelection,
   afterCritical,
-}: Args): PublicResult | undefined | null => {
+}: Args): PublicResult | null => {
   if (!destination.isEnabled) {
     return null;
   }
@@ -51,7 +51,7 @@ export default ({
   );
   const isInHomeList: boolean = isHomeOf(draggable, destination);
 
-  const impact: DragImpact | undefined | null =
+  const impact: DragImpact | null =
     moveToNextCombine({
       isMovingForward,
       draggable,

@@ -62,7 +62,7 @@ function shouldPublishUpdate(
 }
 
 export default (registry: Registry, callbacks: Callbacks) => {
-  let collection: Collection | undefined | null = null;
+  let collection: Collection | null = null;
 
   const publisher: WhileDraggingPublisher = createPublisher({
     callbacks: {

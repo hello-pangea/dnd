@@ -49,7 +49,7 @@ export default ({
   }
 
   const { displaced, displacedBy } = impact;
-  const closestAfter: DraggableId | undefined | null = displaced.all[0];
+  const closestAfter: DraggableId | null = displaced.all[0];
 
   // go before the first displaced item
   // items can only be displaced forwards

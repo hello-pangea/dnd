@@ -17,10 +17,8 @@ type EntryMap = {
 
 export default function useFocusMarshal(contextId: ContextId): FocusMarshal {
   const entriesRef = useRef<EntryMap>({});
-  const recordRef = useRef<DraggableId | undefined | null>(null);
-  const restoreFocusFrameRef = useRef<AnimationFrameID | undefined | null>(
-    null,
-  );
+  const recordRef = useRef<DraggableId | null>(null);
+  const restoreFocusFrameRef = useRef<AnimationFrameID | null>(null);
   const isMountedRef = useRef<boolean>(false);
 
   const register = useCallback(function register(
@@ -43,7 +41,7 @@ export default function useFocusMarshal(contextId: ContextId): FocusMarshal {
 
   const tryGiveFocus = useCallback(
     function tryGiveFocus(tryGiveFocusTo: DraggableId) {
-      const handle: HTMLElement | undefined | null = findDragHandle(
+      const handle: HTMLElement | null = findDragHandle(
         contextId,
         tryGiveFocusTo,
       );
@@ -80,7 +78,7 @@ export default function useFocusMarshal(contextId: ContextId): FocusMarshal {
 
       restoreFocusFrameRef.current = requestAnimationFrame(() => {
         restoreFocusFrameRef.current = null;
-        const record: DraggableId | undefined | null = recordRef.current;
+        const record: DraggableId | null = recordRef.current;
         if (record) {
           tryGiveFocus(record);
         }
@@ -93,7 +91,7 @@ export default function useFocusMarshal(contextId: ContextId): FocusMarshal {
     // clear any existing record
     recordRef.current = null;
 
-    const focused: Element | undefined | null = document.activeElement;
+    const focused: Element | null = document.activeElement;
 
     // no item focused so it cannot be our item
     if (!focused) {
@@ -112,8 +110,7 @@ export default function useFocusMarshal(contextId: ContextId): FocusMarshal {
     isMountedRef.current = true;
     return function clearFrameOnUnmount() {
       isMountedRef.current = false;
-      const frameId: AnimationFrameID | undefined | null =
-        restoreFocusFrameRef.current;
+      const frameId: AnimationFrameID | null = restoreFocusFrameRef.current;
       if (frameId) {
         cancelAnimationFrame(frameId);
       }

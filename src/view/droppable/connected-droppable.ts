@@ -86,7 +86,7 @@ export const makeMapStateToProps = (): Selector => {
       const isHome: boolean = dragging.descriptor.droppableId === id;
 
       if (isHome) {
-        const useClone: UseClone | undefined | null = renderClone
+        const useClone: UseClone | null = renderClone
           ? {
               render: renderClone,
               dragging: getDraggableRubric(dragging.descriptor),
@@ -140,8 +140,7 @@ export const makeMapStateToProps = (): Selector => {
     const id: DroppableId = ownProps.droppableId;
     const type: TypeId = ownProps.type;
     const isEnabled = !ownProps.isDropDisabled;
-    const renderClone: DraggableChildrenFn | undefined | null =
-      ownProps.renderClone;
+    const renderClone: DraggableChildrenFn | null = ownProps.renderClone;
 
     if (state.isDragging) {
       const critical: Critical = state.critical;

@@ -21,7 +21,7 @@ type Args = {
 // Returns the client offset required to move an item from its
 // original client position to its final resting position
 export default ({ afterCritical, impact, draggables }: Args): Position => {
-  const combine: Combine | undefined | null = tryGetCombine(impact);
+  const combine: Combine | null = tryGetCombine(impact);
   invariant(combine);
 
   const combineWith: DraggableId = combine.draggableId;

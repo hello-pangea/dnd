@@ -28,8 +28,8 @@ export default ({
   afterCritical,
 }: Args): Position => {
   const { draggables, droppables } = dimensions;
-  const droppableId: DroppableId | undefined | null = whatIsDraggedOver(impact);
-  const destination: DroppableDimension | undefined | null = droppableId
+  const droppableId: DroppableId | null = whatIsDraggedOver(impact);
+  const destination: DroppableDimension | null = droppableId
     ? droppables[droppableId]
     : null;
   const home: DroppableDimension = droppables[draggable.descriptor.droppableId];

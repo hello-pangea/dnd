@@ -18,7 +18,7 @@ const supportedMatchesName: string = ((): string => {
   return value || base;
 })();
 
-function closestPonyfill(el: Element | undefined | null, selector: string) {
+function closestPonyfill(el: Element | null, selector: string) {
   if (el == null) {
     return null;
   }
@@ -33,10 +33,7 @@ function closestPonyfill(el: Element | undefined | null, selector: string) {
   return closestPonyfill(el.parentElement, selector);
 }
 
-export default function closest(
-  el: Element,
-  selector: string,
-): Element | undefined | null {
+export default function closest(el: Element, selector: string): Element | null {
   // Using native closest for maximum speed where we can
   if (el.closest) {
     return el.closest(selector);

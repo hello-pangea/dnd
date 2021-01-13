@@ -154,16 +154,15 @@ export default function useKeyboardSensor(api: SensorAPI) {
           return;
         }
 
-        const draggableId:
-          | DraggableId
-          | undefined
-          | null = api.findClosestDraggableId(event);
+        const draggableId: DraggableId | null = api.findClosestDraggableId(
+          event,
+        );
 
         if (!draggableId) {
           return;
         }
 
-        const preDrag: PreDragActions | undefined | null = api.tryGetLock(
+        const preDrag: PreDragActions | null = api.tryGetLock(
           draggableId,
           // abort function not defined yet
           // eslint-disable-next-line no-use-before-define

@@ -12,7 +12,7 @@ export default ({
   isInHomeList,
   insideDestination,
   location,
-}: Args): number | undefined | null => {
+}: Args): number | null => {
   // cannot move in the list
   if (!insideDestination.length) {
     return null;

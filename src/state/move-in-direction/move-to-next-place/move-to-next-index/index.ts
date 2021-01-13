@@ -34,12 +34,12 @@ export default ({
   previousImpact,
   viewport,
   afterCritical,
-}: Args): DragImpact | undefined | null => {
-  const wasAt: ImpactLocation | undefined | null = previousImpact.at;
+}: Args): DragImpact | null => {
+  const wasAt: ImpactLocation | null = previousImpact.at;
   invariant(wasAt, 'Cannot move in direction without previous impact location');
 
   if (wasAt.type === 'REORDER') {
-    const newIndex: number | undefined | null = fromReorder({
+    const newIndex: number | null = fromReorder({
       isMovingForward,
       isInHomeList,
       location: wasAt.destination,
@@ -61,7 +61,7 @@ export default ({
   }
 
   // COMBINE
-  const newIndex: number | undefined | null = fromCombine({
+  const newIndex: number | null = fromCombine({
     isMovingForward,
     destination,
     displaced: previousImpact.displaced,

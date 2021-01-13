@@ -39,16 +39,13 @@ export default ({
   const scrollDroppableAsMuchAsItCan = (
     droppable: DroppableDimension,
     change: Position,
-  ): Remainder | undefined | null => {
+  ): Remainder | null => {
     // Droppable cannot absorb any of the scroll
     if (!canScrollDroppable(droppable, change)) {
       return change;
     }
 
-    const overlap: Position | undefined | null = getDroppableOverlap(
-      droppable,
-      change,
-    );
+    const overlap: Position | null = getDroppableOverlap(droppable, change);
 
     // Droppable can absorb the entire change
     if (!overlap) {
@@ -68,7 +65,7 @@ export default ({
     isWindowScrollAllowed: boolean,
     viewport: Viewport,
     change: Position,
-  ): Position | undefined | null => {
+  ): Position | null => {
     if (!isWindowScrollAllowed) {
       return change;
     }
@@ -78,10 +75,7 @@ export default ({
       return change;
     }
 
-    const overlap: Position | undefined | null = getWindowOverlap(
-      viewport,
-      change,
-    );
+    const overlap: Position | null = getWindowOverlap(viewport, change);
 
     // window can absorb entire scroll
     if (!overlap) {
@@ -98,15 +92,13 @@ export default ({
   };
 
   const jumpScroller: JumpScroller = (state: DraggingState) => {
-    const request: Position | undefined | null = state.scrollJumpRequest;
+    const request: Position | null = state.scrollJumpRequest;
 
     if (!request) {
       return;
     }
 
-    const destination: DroppableId | undefined | null = whatIsDraggedOver(
-      state.impact,
-    );
+    const destination: DroppableId | null = whatIsDraggedOver(state.impact);
     invariant(
       destination,
       'Cannot perform a jump scroll when there is no destination',
@@ -115,10 +107,7 @@ export default ({
     // 1. We scroll the droppable first if we can to avoid the draggable
     // leaving the list
 
-    const droppableRemainder:
-      | Position
-      | undefined
-      | null = scrollDroppableAsMuchAsItCan(
+    const droppableRemainder: Position | null = scrollDroppableAsMuchAsItCan(
       state.dimensions.droppables[destination],
       request,
     );
@@ -129,10 +118,7 @@ export default ({
     }
 
     const viewport: Viewport = state.viewport;
-    const windowRemainder:
-      | Position
-      | undefined
-      | null = scrollWindowAsMuchAsItCan(
+    const windowRemainder: Position | null = scrollWindowAsMuchAsItCan(
       state.isWindowScrollAllowed,
       viewport,
       droppableRemainder,

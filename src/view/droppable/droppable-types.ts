@@ -24,7 +24,7 @@ export type DroppableProps = {
 
 export type Provided = {
   innerRef: (a?: HTMLElement | null) => void;
-  placeholder: ReactNode | undefined | null;
+  placeholder: ReactNode | null;
   droppableProps: DroppableProps;
 };
 
@@ -37,10 +37,10 @@ export type StateSnapshot = {
   // Is the Droppable being dragged over?
   isDraggingOver: boolean;
   // What is the id of the draggable that is dragging over the Droppable?
-  draggingOverWith: DraggableId | undefined | null;
+  draggingOverWith: DraggableId | null;
   // What is the id of the draggable that is dragging from this list?
   // Useful for styling the home list when not being dragged over
-  draggingFromThisWith: DraggableId | undefined | null;
+  draggingFromThisWith: DraggableId | null;
   // Whether or not the placeholder is actively being used.
   // This is useful information when working with virtual lists
   isUsingPlaceholder: boolean;
@@ -50,11 +50,11 @@ export type MapProps = {
   // placeholder:
   // - used to keep space in the home list during the whole drag and drop
   // - used to make space in foreign lists during a drag
-  placeholder: Placeholder | undefined | null;
+  placeholder: Placeholder | null;
   shouldAnimatePlaceholder: boolean;
   // snapshot based on redux state to be provided to consumers
   snapshot: StateSnapshot;
-  useClone: UseClone | undefined | null;
+  useClone: UseClone | null;
 };
 
 export type DefaultProps = {
@@ -63,7 +63,7 @@ export type DefaultProps = {
   isDropDisabled: boolean;
   isCombineEnabled: boolean;
   direction: Direction;
-  renderClone: DraggableChildrenFn | undefined | null;
+  renderClone: DraggableChildrenFn | null;
   ignoreContainerClipping: boolean;
   getContainerForClone: () => HTMLElement;
 };
@@ -75,7 +75,7 @@ export type DispatchProps = {
 export type OwnProps = {
   children: (b: Provided, a: StateSnapshot) => ReactNode;
   droppableId: DroppableId;
-  renderClone: DraggableChildrenFn | undefined | null;
+  renderClone: DraggableChildrenFn | null;
 } & DefaultProps;
 
 export type Props = {} & MapProps & DispatchProps & OwnProps;

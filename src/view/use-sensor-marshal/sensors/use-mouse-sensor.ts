@@ -228,16 +228,15 @@ export default function useMouseSensor(api: SensorAPI) {
           return;
         }
 
-        const draggableId:
-          | DraggableId
-          | undefined
-          | null = api.findClosestDraggableId(event);
+        const draggableId: DraggableId | null = api.findClosestDraggableId(
+          event,
+        );
 
         if (!draggableId) {
           return;
         }
 
-        const actions: PreDragActions | undefined | null = api.tryGetLock(
+        const actions: PreDragActions | null = api.tryGetLock(
           draggableId,
           // stop is defined later
           // eslint-disable-next-line no-use-before-define
@@ -277,18 +276,15 @@ export default function useMouseSensor(api: SensorAPI) {
           return;
         }
 
-        const id: DraggableId | undefined | null = api.findClosestDraggableId(
-          event,
-        );
+        const id: DraggableId | null = api.findClosestDraggableId(event);
 
         if (!id) {
           return;
         }
 
-        const options:
-          | DraggableOptions
-          | undefined
-          | null = api.findOptionsForDraggable(id);
+        const options: DraggableOptions | null = api.findOptionsForDraggable(
+          id,
+        );
 
         if (!options) {
           return;

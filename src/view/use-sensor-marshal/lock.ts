@@ -13,7 +13,7 @@ export type LockAPI = {
 };
 
 export default function create(): LockAPI {
-  let lock: Lock | undefined | null = null;
+  let lock: Lock | null = null;
 
   function isClaimed(): boolean {
     return Boolean(lock);

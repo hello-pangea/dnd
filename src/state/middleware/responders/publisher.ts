@@ -53,7 +53,7 @@ type AnyPrimaryResponderFn =
 type AnyResponderData = DragStart | DragUpdate | DropResult;
 
 const execute = (
-  responder: AnyPrimaryResponderFn | undefined | null,
+  responder: AnyPrimaryResponderFn | null,
   data: AnyResponderData,
   announce: Announce,
   getDefaultMessage: (data: any) => string,
@@ -79,13 +79,13 @@ const execute = (
 type WhileDragging = {
   mode: MovementMode;
   lastCritical: Critical;
-  lastCombine: Combine | undefined | null;
-  lastLocation: DraggableLocation | undefined | null;
+  lastCombine: Combine | null;
+  lastLocation: DraggableLocation | null;
 };
 
 export default (getResponders: () => Responders, announce: Announce) => {
   const asyncMarshal: AsyncMarshal = getAsyncMarshal();
-  let dragging: WhileDragging | undefined | null = null;
+  let dragging: WhileDragging | null = null;
 
   const beforeCapture = (draggableId: DraggableId, mode: MovementMode) => {
     invariant(
@@ -94,7 +94,7 @@ export default (getResponders: () => Responders, announce: Announce) => {
     );
     withTimings('onBeforeCapture', () => {
       // No use of screen reader for this responder
-      const fn: OnBeforeCaptureResponder | undefined | null = getResponders()
+      const fn: OnBeforeCaptureResponder | null = getResponders()
         .onBeforeCapture;
       if (fn) {
         const before: BeforeCapture = {
@@ -113,7 +113,7 @@ export default (getResponders: () => Responders, announce: Announce) => {
     );
     withTimings('onBeforeDragStart', () => {
       // No use of screen reader for this responder
-      const fn: OnBeforeDragStartResponder | undefined | null = getResponders()
+      const fn: OnBeforeDragStartResponder | null = getResponders()
         .onBeforeDragStart;
       if (fn) {
         fn(getDragStart(critical, mode));
@@ -149,10 +149,8 @@ export default (getResponders: () => Responders, announce: Announce) => {
 
   // Passing in the critical location again as it can change during a drag
   const update = (critical: Critical, impact: DragImpact) => {
-    const location: DraggableLocation | undefined | null = tryGetDestination(
-      impact,
-    );
-    const combine: Combine | undefined | null = tryGetCombine(impact);
+    const location: DraggableLocation | null = tryGetDestination(impact);
+    const combine: Combine | null = tryGetCombine(impact);
 
     invariant(
       dragging,

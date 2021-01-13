@@ -3,7 +3,7 @@ import type { Scrollable, DroppableDimension } from '../../types';
 import { offsetRectByPosition } from '../rect';
 
 export default (droppable: DroppableDimension, area: Rect): Rect => {
-  const frame: Scrollable | undefined | null = droppable.frame;
+  const frame: Scrollable | null = droppable.frame;
   if (!frame) {
     return area;
   }

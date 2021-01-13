@@ -34,11 +34,7 @@ export const getOverlap = (() => {
     return 0;
   };
 
-  return ({
-    current,
-    max,
-    change,
-  }: GetRemainderArgs): Position | undefined | null => {
+  return ({ current, max, change }: GetRemainderArgs): Position | null => {
     const targetScroll: Position = add(current, change);
 
     const overlap: Position = {
@@ -71,7 +67,7 @@ export const canPartiallyScroll = ({
   // Only need to be able to move the smallest amount in the desired direction
   const smallestChange: Position = smallestSigned(change);
 
-  const overlap: Position | undefined | null = getOverlap({
+  const overlap: Position | null = getOverlap({
     max,
     current,
     change: smallestChange,
@@ -108,7 +104,7 @@ export const canScrollWindow = (
 export const getWindowOverlap = (
   viewport: Viewport,
   change: Position,
-): Position | undefined | null => {
+): Position | null => {
   if (!canScrollWindow(viewport, change)) {
     return null;
   }
@@ -127,7 +123,7 @@ export const canScrollDroppable = (
   droppable: DroppableDimension,
   change: Position,
 ): boolean => {
-  const frame: Scrollable | undefined | null = droppable.frame;
+  const frame: Scrollable | null = droppable.frame;
 
   // Cannot scroll when there is no scrollable
   if (!frame) {
@@ -144,8 +140,8 @@ export const canScrollDroppable = (
 export const getDroppableOverlap = (
   droppable: DroppableDimension,
   change: Position,
-): Position | undefined | null => {
-  const frame: Scrollable | undefined | null = droppable.frame;
+): Position | null => {
+  const frame: Scrollable | null = droppable.frame;
 
   if (!frame) {
     return null;

@@ -10,7 +10,7 @@ import useDev from '../use-dev';
 export function useValidation(
   props: Props,
   contextId: ContextId,
-  getRef: () => HTMLElement | undefined | null,
+  getRef: () => HTMLElement | null,
 ) {
   // running after every update in development
   useDevSetupWarning(() => {
@@ -19,7 +19,7 @@ export function useValidation(
     }
 
     // wrapping entire block for better minification
-    const id: DraggableId | undefined | null = props.draggableId;
+    const id: DraggableId | null = props.draggableId;
     invariant(id, 'Draggable requires a draggableId');
     invariant(
       typeof id === 'string',

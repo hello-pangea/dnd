@@ -91,11 +91,11 @@ export default ({
   isCombineEnabled,
   shouldClipSubject,
 }: Args): DroppableDimension => {
-  const closestScrollable: Element | undefined | null = env.closestScrollable;
+  const closestScrollable: Element | null = env.closestScrollable;
   const client: BoxModel = getClient(ref, closestScrollable);
   const page: BoxModel = withScroll(client, windowScroll);
 
-  const closest: Closest | undefined | null = (() => {
+  const closest: Closest | null = (() => {
     if (!closestScrollable) {
       return null;
     }

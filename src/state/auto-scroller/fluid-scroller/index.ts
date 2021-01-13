@@ -27,7 +27,7 @@ export default ({
 }: PublicArgs): FluidScroller => {
   const scheduleWindowScroll = rafSchd(scrollWindow);
   const scheduleDroppableScroll = rafSchd(scrollDroppable);
-  let dragging: WhileDragging | undefined | null = null;
+  let dragging: WhileDragging | null = null;
 
   const tryScroll = (state: DraggingState): void => {
     invariant(dragging, 'Cannot fluid scroll if not dragging');

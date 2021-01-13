@@ -27,7 +27,7 @@ const makeGetSelector = (context: string) => (attribute: string) =>
 const getStyles = (rules: Rule[], property: string): string =>
   rules
     .map((rule: Rule): string => {
-      const value: string | undefined | null = rule.styles[property];
+      const value: string | null = rule.styles[property];
       if (!value) {
         return '';
       }

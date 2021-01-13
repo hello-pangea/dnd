@@ -5,8 +5,8 @@ import type { EventBinding } from '../../../view/event-bindings/event-types';
 import bindEvents from '../../../view/event-bindings/bind-events';
 
 export default (store: MiddlewareStore) => {
-  let unbind: (() => void) | undefined | null = null;
-  let frameId: AnimationFrameID | undefined | null = null;
+  let unbind: (() => void) | null = null;
+  let frameId: AnimationFrameID | null = null;
 
   function clear() {
     if (frameId) {

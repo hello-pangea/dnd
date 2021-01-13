@@ -32,7 +32,7 @@ export default ({
   destination,
   insideDestination,
   afterCritical,
-}: Args): DragImpact | undefined | null => {
+}: Args): DragImpact | null => {
   if (!destination.isCombineEnabled) {
     return null;
   }

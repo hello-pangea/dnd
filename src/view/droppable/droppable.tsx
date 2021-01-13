@@ -23,13 +23,13 @@ import type { AnimateProvided } from '../animate-in-out/animate-in-out';
 import { PrivateDraggable } from '../draggable/draggable-api';
 
 export default function Droppable(props: Props) {
-  const appContext: AppContextValue | undefined | null = useContext<
-    AppContextValue | undefined | null
-  >(AppContext);
+  const appContext: AppContextValue | null = useContext<AppContextValue | null>(
+    AppContext,
+  );
   invariant(appContext, 'Could not find app context');
   const { contextId, isMovementAllowed } = appContext;
-  const droppableRef = useRef<HTMLElement | undefined | null>(null);
-  const placeholderRef = useRef<HTMLElement | undefined | null>(null);
+  const droppableRef = useRef<HTMLElement | null>(null);
+  const placeholderRef = useRef<HTMLElement | null>(null);
 
   const {
     // own props
@@ -52,14 +52,14 @@ export default function Droppable(props: Props) {
   } = props;
 
   const getDroppableRef = useCallback(
-    (): HTMLElement | undefined | null => droppableRef.current,
+    (): HTMLElement | null => droppableRef.current,
     [],
   );
   const setDroppableRef = useCallback((value?: HTMLElement | null) => {
     droppableRef.current = value;
   }, []);
   const getPlaceholderRef = useCallback(
-    (): HTMLElement | undefined | null => placeholderRef.current,
+    (): HTMLElement | null => placeholderRef.current,
     [],
   );
   const setPlaceholderRef = useCallback((value?: HTMLElement | null) => {
@@ -130,11 +130,11 @@ export default function Droppable(props: Props) {
     [contextId, droppableId, placeholder, setDroppableRef],
   );
 
-  const isUsingCloneFor: DraggableId | undefined | null = useClone
+  const isUsingCloneFor: DraggableId | null = useClone
     ? useClone.dragging.draggableId
     : null;
 
-  const droppableContext: DroppableContextValue | undefined | null = useMemo(
+  const droppableContext: DroppableContextValue | null = useMemo(
     () => ({
       droppableId,
       type,
@@ -143,7 +143,7 @@ export default function Droppable(props: Props) {
     [droppableId, isUsingCloneFor, type],
   );
 
-  function getClone(): ReactNode | undefined | null {
+  function getClone(): ReactNode | null {
     if (!useClone) {
       return null;
     }

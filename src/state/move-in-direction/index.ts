@@ -21,16 +21,16 @@ type Args = {
 const getDroppableOver = (
   impact: DragImpact,
   droppables: DroppableDimensionMap,
-): DroppableDimension | undefined | null => {
-  const id: DroppableId | undefined | null = whatIsDraggedOver(impact);
+): DroppableDimension | null => {
+  const id: DroppableId | null = whatIsDraggedOver(impact);
   return id ? droppables[id] : null;
 };
 
-export default ({ state, type }: Args): PublicResult | undefined | null => {
-  const isActuallyOver:
-    | DroppableDimension
-    | undefined
-    | null = getDroppableOver(state.impact, state.dimensions.droppables);
+export default ({ state, type }: Args): PublicResult | null => {
+  const isActuallyOver: DroppableDimension | null = getDroppableOver(
+    state.impact,
+    state.dimensions.droppables,
+  );
   const isMainAxisMovementAllowed = Boolean(isActuallyOver);
   const home: DroppableDimension =
     state.dimensions.droppables[state.critical.droppable.id];

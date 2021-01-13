@@ -218,8 +218,7 @@ export default (state: State = idle, action: Action): State => {
     );
 
     const { id, newScroll } = action.payload;
-    const target: DroppableDimension | undefined | null =
-      state.dimensions.droppables[id];
+    const target: DroppableDimension | null = state.dimensions.droppables[id];
 
     // This is possible if a droppable has been asked to watch scroll but
     // the dimension has not been published yet
@@ -243,8 +242,7 @@ export default (state: State = idle, action: Action): State => {
     );
 
     const { id, isEnabled } = action.payload;
-    const target: DroppableDimension | undefined | null =
-      state.dimensions.droppables[id];
+    const target: DroppableDimension | null = state.dimensions.droppables[id];
 
     invariant(
       target,
@@ -277,8 +275,7 @@ export default (state: State = idle, action: Action): State => {
     );
 
     const { id, isCombineEnabled } = action.payload;
-    const target: DroppableDimension | undefined | null =
-      state.dimensions.droppables[id];
+    const target: DroppableDimension | null = state.dimensions.droppables[id];
 
     invariant(
       target,
@@ -379,7 +376,7 @@ export default (state: State = idle, action: Action): State => {
       `${action.type} received while not in DRAGGING phase`,
     );
 
-    const result: MoveInDirectionResult | undefined | null = moveInDirection({
+    const result: MoveInDirectionResult | null = moveInDirection({
       state,
       type: action.type,
     });

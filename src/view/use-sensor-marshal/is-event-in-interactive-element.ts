@@ -37,9 +37,7 @@ function isAnInteractiveElement(parent: Element, current?: Element | null) {
   // contenteditable="true" or contenteditable="" are valid ways
   // of creating a contenteditable container
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable
-  const attribute: string | undefined | null = current.getAttribute(
-    'contenteditable',
-  );
+  const attribute: string | null = current.getAttribute('contenteditable');
   if (attribute === 'true' || attribute === '') {
     return true;
   }

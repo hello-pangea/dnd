@@ -14,4 +14,4 @@ export type AppContextValue = {
   registry: Registry;
 };
 
-export default React.createContext<AppContextValue | undefined | null>(null);
+export default React.createContext<AppContextValue | null>(null);

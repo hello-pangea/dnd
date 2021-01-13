@@ -12,8 +12,8 @@ function getSelector(contextId: ContextId): string {
 function findClosestDragHandleFromEvent(
   contextId: ContextId,
   event: Event,
-): HTMLElement | undefined | null {
-  const target: EventTarget | undefined | null = event.target;
+): HTMLElement | null {
+  const target: EventTarget | null = event.target;
 
   if (!isElement(target)) {
     warning('event.target must be a Element');
@@ -21,7 +21,7 @@ function findClosestDragHandleFromEvent(
   }
 
   const selector: string = getSelector(contextId);
-  const handle: Element | undefined | null = closest(target, selector);
+  const handle: Element | null = closest(target, selector);
 
   if (!handle) {
     return null;
@@ -38,8 +38,8 @@ function findClosestDragHandleFromEvent(
 export default function tryGetClosestDraggableIdFromEvent(
   contextId: ContextId,
   event: Event,
-): DraggableId | undefined | null {
-  const handle: HTMLElement | undefined | null = findClosestDragHandleFromEvent(
+): DraggableId | null {
+  const handle: HTMLElement | null = findClosestDragHandleFromEvent(
     contextId,
     event,
   );

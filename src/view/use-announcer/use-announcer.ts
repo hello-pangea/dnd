@@ -10,7 +10,7 @@ export const getId = (contextId: ContextId): string =>
 
 export default function useAnnouncer(contextId: ContextId): Announce {
   const id: string = useMemo(() => getId(contextId), [contextId]);
-  const ref = useRef<HTMLElement | undefined | null>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(
     function setup() {
@@ -57,7 +57,7 @@ export default function useAnnouncer(contextId: ContextId): Announce {
   );
 
   const announce: Announce = useCallback((message: string): void => {
-    const el: HTMLElement | undefined | null = ref.current;
+    const el: HTMLElement | null = ref.current;
     if (el) {
       el.textContent = message;
       return;

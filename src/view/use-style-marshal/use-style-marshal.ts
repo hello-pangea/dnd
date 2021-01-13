@@ -10,9 +10,7 @@ import { prefix } from '../data-attributes';
 import useLayoutEffect from '../use-isomorphic-layout-effect';
 
 const getHead = (): HTMLHeadElement => {
-  const head: HTMLHeadElement | undefined | null = document.querySelector(
-    'head',
-  );
+  const head: HTMLHeadElement | null = document.querySelector('head');
   invariant(head, 'Cannot find the head to append a style to');
   return head;
 };
@@ -28,14 +26,14 @@ const createStyleEl = (nonce?: string): HTMLStyleElement => {
 
 export default function useStyleMarshal(contextId: ContextId, nonce?: string) {
   const styles: Styles = useMemo(() => getStyles(contextId), [contextId]);
-  const alwaysRef = useRef<HTMLStyleElement | undefined | null>(null);
-  const dynamicRef = useRef<HTMLStyleElement | undefined | null>(null);
+  const alwaysRef = useRef<HTMLStyleElement | null>(null);
+  const dynamicRef = useRef<HTMLStyleElement | null>(null);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const setDynamicStyle = useCallback(
     // Using memoizeOne to prevent frequent updates to textContext
     memoizeOne((proposed: string) => {
-      const el: HTMLStyleElement | undefined | null = dynamicRef.current;
+      const el: HTMLStyleElement | null = dynamicRef.current;
       invariant(el, 'Cannot set dynamic style element if it is not set');
       el.textContent = proposed;
     }),
@@ -43,7 +41,7 @@ export default function useStyleMarshal(contextId: ContextId, nonce?: string) {
   );
 
   const setAlwaysStyle = useCallback((proposed: string) => {
-    const el: HTMLStyleElement | undefined | null = alwaysRef.current;
+    const el: HTMLStyleElement | null = alwaysRef.current;
     invariant(el, 'Cannot set dynamic style element if it is not set');
     el.textContent = proposed;
   }, []);
@@ -76,7 +74,7 @@ export default function useStyleMarshal(contextId: ContextId, nonce?: string) {
 
     return () => {
       const remove = (ref) => {
-        const current: HTMLStyleElement | undefined | null = ref.current;
+        const current: HTMLStyleElement | null = ref.current;
         invariant(current, 'Cannot unmount ref as it is not set');
         getHead().removeChild(current);
         ref.current = null;

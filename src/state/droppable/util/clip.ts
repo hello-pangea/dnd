@@ -2,7 +2,7 @@ import { getRect } from 'css-box-model';
 
 import type { Rect, Spacing } from 'css-box-model';
 
-export default (frame: Spacing, subject: Spacing): Rect | undefined | null => {
+export default (frame: Spacing, subject: Spacing): Rect | null => {
   const result: Rect = getRect({
     top: Math.max(subject.top, frame.top),
     right: Math.min(subject.right, frame.right),

@@ -31,7 +31,7 @@ const getScrollableDroppables = memoizeOne(
 const getScrollableDroppableOver = (
   target: Position,
   droppables: DroppableDimensionMap,
-): DroppableDimension | undefined | null => {
+): DroppableDimension | null => {
   const maybe = getScrollableDroppables(droppables).find(
     (droppable: DroppableDimension): boolean => {
       invariant(droppable.frame, 'Invalid result');
@@ -45,7 +45,7 @@ const getScrollableDroppableOver = (
 
 type Api = {
   center: Position;
-  destination: DroppableId | undefined | null;
+  destination: DroppableId | null;
   droppables: DroppableDimensionMap;
 };
 
@@ -53,7 +53,7 @@ export default ({
   center,
   destination,
   droppables,
-}: Api): DroppableDimension | undefined | null => {
+}: Api): DroppableDimension | null => {
   // We need to scroll the best droppable frame we can so that the
   // placeholder buffer logic works correctly
 
@@ -66,10 +66,10 @@ export default ({
   }
 
   // 2. If we are not over a droppable - are we over a droppable frame?
-  const dimension:
-    | DroppableDimension
-    | undefined
-    | null = getScrollableDroppableOver(center, droppables);
+  const dimension: DroppableDimension | null = getScrollableDroppableOver(
+    center,
+    droppables,
+  );
 
   return dimension;
 };

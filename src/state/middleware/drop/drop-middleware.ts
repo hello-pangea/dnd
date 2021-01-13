@@ -76,11 +76,10 @@ export default ({ getState, dispatch }: MiddlewareStore) => (
   });
 
   // only populating destination / combine if 'didDropInsideDroppable' is true
-  const destination:
-    | DraggableLocation
-    | undefined
-    | null = didDropInsideDroppable ? tryGetDestination(impact) : null;
-  const combine: Combine | undefined | null = didDropInsideDroppable
+  const destination: DraggableLocation | null = didDropInsideDroppable
+    ? tryGetDestination(impact)
+    : null;
+  const combine: Combine | null = didDropInsideDroppable
     ? tryGetCombine(impact)
     : null;
 

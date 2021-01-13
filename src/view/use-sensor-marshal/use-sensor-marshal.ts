@@ -121,9 +121,7 @@ function canStart({
     return false;
   }
 
-  const entry: DraggableEntry | undefined | null = registry.draggable.findById(
-    draggableId,
-  );
+  const entry: DraggableEntry | null = registry.draggable.findById(draggableId);
 
   if (!entry) {
     warning(`Unable to find draggable with id: ${draggableId}`);
@@ -149,8 +147,8 @@ type TryStartArgs = {
   registry: Registry;
   store: Store;
   draggableId: DraggableId;
-  forceSensorStop: (() => void) | undefined | null;
-  sourceEvent: Event | undefined | null;
+  forceSensorStop: (() => void) | null;
+  sourceEvent: Event | null;
 };
 
 function tryStart({
@@ -161,7 +159,7 @@ function tryStart({
   draggableId,
   forceSensorStop,
   sourceEvent,
-}: TryStartArgs): PreDragActions | undefined | null {
+}: TryStartArgs): PreDragActions | null {
   const shouldStart: boolean = canStart({
     lockAPI,
     store,
@@ -174,10 +172,7 @@ function tryStart({
   }
 
   const entry: DraggableEntry = registry.draggable.getById(draggableId);
-  const el: HTMLElement | undefined | null = findDraggable(
-    contextId,
-    entry.descriptor.id,
-  );
+  const el: HTMLElement | null = findDraggable(contextId, entry.descriptor.id);
 
   if (!el) {
     warning(`Unable to find draggable element with id: ${draggableId}`);
@@ -358,7 +353,7 @@ type SensorMarshalArgs = {
   contextId: ContextId;
   registry: Registry;
   store: Store;
-  customSensors: Sensor[] | undefined | null;
+  customSensors: Sensor[] | null;
   enableDefaultSensors: boolean;
 };
 
@@ -428,7 +423,7 @@ export default function useSensorMarshal({
       draggableId: DraggableId,
       forceStop?: () => void,
       options?: TryGetLockOptions,
-    ): PreDragActions | undefined | null =>
+    ): PreDragActions | null =>
       tryStart({
         lockAPI,
         registry,
@@ -443,17 +438,14 @@ export default function useSensorMarshal({
   );
 
   const findClosestDraggableId = useCallback(
-    (event: Event): DraggableId | undefined | null =>
+    (event: Event): DraggableId | null =>
       findClosestDraggableIdFromEvent(contextId, event),
     [contextId],
   );
 
   const findOptionsForDraggable = useCallback(
-    (id: DraggableId): DraggableOptions | undefined | null => {
-      const entry:
-        | DraggableEntry
-        | undefined
-        | null = registry.draggable.findById(id);
+    (id: DraggableId): DraggableOptions | null => {
+      const entry: DraggableEntry | null = registry.draggable.findById(id);
       return entry ? entry.options : null;
     },
     [registry.draggable],

@@ -24,14 +24,12 @@ export default ({
   destination,
   insideDestination,
   previousImpact,
-}: Args): DragImpact | undefined | null => {
+}: Args): DragImpact | null => {
   if (!destination.isCombineEnabled) {
     return null;
   }
 
-  const location: DraggableLocation | undefined | null = tryGetDestination(
-    previousImpact,
-  );
+  const location: DraggableLocation | null = tryGetDestination(previousImpact);
 
   if (!location) {
     return null;
@@ -52,7 +50,7 @@ export default ({
   }
 
   const all: DraggableId[] = previousImpact.displaced.all;
-  const closestId: DraggableId | undefined | null = all.length ? all[0] : null;
+  const closestId: DraggableId | null = all.length ? all[0] : null;
 
   if (isMovingForward) {
     return closestId ? getImpact(closestId) : null;

@@ -33,7 +33,7 @@ const getDraggingTransition = (
 const getDraggingOpacity = (
   isCombining: boolean,
   isDropAnimating: boolean,
-): number | undefined | null => {
+): number | null => {
   // if not combining: no not impact opacity
   if (!isCombining) {
     return null;
@@ -59,7 +59,7 @@ function getDraggingStyle(dragging: DraggingMapProps): DraggingStyle {
   const shouldAnimate: boolean = getShouldDraggingAnimate(dragging);
   const isDropAnimating = Boolean(dropping);
 
-  const transform: string | undefined | null = isDropAnimating
+  const transform: string | null = isDropAnimating
     ? transforms.drop(offset, isCombining)
     : transforms.moveTo(offset);
 

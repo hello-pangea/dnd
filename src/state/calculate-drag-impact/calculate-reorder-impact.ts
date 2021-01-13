@@ -18,7 +18,7 @@ type Args = {
   viewport: Viewport;
   displacedBy: DisplacedBy;
   last: DisplacementGroups;
-  index: number | undefined | null;
+  index: number | null;
   forceShouldAnimate?: boolean;
 };
 

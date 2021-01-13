@@ -17,8 +17,8 @@ export default ({
   center,
   dragStartTime,
   shouldUseTimeDampening,
-}: Args): Position | undefined | null => {
-  const scroll: Position | undefined | null = getScroll({
+}: Args): Position | null => {
+  const scroll: Position | null = getScroll({
     dragStartTime,
     container: viewport.frame,
     subject,

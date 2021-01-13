@@ -112,24 +112,24 @@ export type Scrollable = {
 export type PlaceholderInSubject = {
   // might not actually be increased by
   // placeholder if there is no required space
-  increasedBy: Position | undefined | null;
+  increasedBy: Position | null;
   placeholderSize: Position;
   // max scroll before placeholder added
   // will be null if there was no frame
-  oldFrameMaxScroll: Position | undefined | null;
+  oldFrameMaxScroll: Position | null;
 };
 
 export type DroppableSubject = {
   // raw, unchanging
   page: BoxModel;
-  withPlaceholder: PlaceholderInSubject | undefined | null;
+  withPlaceholder: PlaceholderInSubject | null;
   // The hitbox for a droppable
   // - page margin box
   // - with scroll changes
   // - with any additional droppable placeholder
   // - clipped by frame
   // The subject will be null if the hit area is completely empty
-  active: Rect | undefined | null;
+  active: Rect | null;
 };
 
 export type DroppableDimension = {
@@ -144,7 +144,7 @@ export type DroppableDimension = {
   // relative to the page
   page: BoxModel;
   // The container of the droppable
-  frame: Scrollable | undefined | null;
+  frame: Scrollable | null;
   // what is visible through the frame
   subject: DroppableSubject;
 };
@@ -212,7 +212,7 @@ export type Displaced = {
 export type DragImpact = {
   displaced: DisplacementGroups;
   displacedBy: DisplacedBy;
-  at: ImpactLocation | undefined | null;
+  at: ImpactLocation | null;
 };
 
 export type ClientPositions = {
@@ -264,9 +264,9 @@ export type DragStart = {
 
 export type DragUpdate = {
   // may not have any destination (drag to nowhere)
-  destination: DraggableLocation | undefined | null;
+  destination: DraggableLocation | null;
   // populated when a draggable is dragging over another in combine mode
-  combine: Combine | undefined | null;
+  combine: Combine | null;
 } & DragStart;
 
 export type DropReason = 'DROP' | 'CANCEL';
@@ -332,7 +332,7 @@ export type CompletedDrag = {
 
 export type IdleState = {
   phase: 'IDLE';
-  completed: CompletedDrag | undefined | null;
+  completed: CompletedDrag | null;
   shouldFlush: boolean;
 };
 
@@ -351,9 +351,9 @@ export type DraggingState = {
   // when there is a fixed list we want to opt out of this behaviour
   isWindowScrollAllowed: boolean;
   // if we need to jump the scroll (keyboard dragging)
-  scrollJumpRequest: Position | undefined | null;
+  scrollJumpRequest: Position | null;
   // whether or not draggable movements should be animated
-  forceShouldAnimate: boolean | undefined | null;
+  forceShouldAnimate: boolean | null;
 };
 
 // While dragging we can enter into a bulk collection phase
@@ -469,17 +469,15 @@ export type TryGetLock = (
   draggableId: DraggableId,
   forceStop?: () => void,
   options?: TryGetLockOptions,
-) => PreDragActions | undefined | null;
+) => PreDragActions | null;
 
 export type SensorAPI = {
   tryGetLock: TryGetLock;
   canGetLock: (id: DraggableId) => boolean;
   isLockClaimed: () => boolean;
   tryReleaseLock: () => void;
-  findClosestDraggableId: (event: Event) => DraggableId | undefined | null;
-  findOptionsForDraggable: (
-    id: DraggableId,
-  ) => DraggableOptions | undefined | null;
+  findClosestDraggableId: (event: Event) => DraggableId | null;
+  findOptionsForDraggable: (id: DraggableId) => DraggableOptions | null;
 };
 
 export type Sensor = (api: SensorAPI) => void;

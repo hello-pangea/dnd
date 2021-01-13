@@ -42,7 +42,7 @@ export default ({
   page,
   closest,
 }: Args): DroppableDimension => {
-  const frame: Scrollable | undefined | null = (() => {
+  const frame: Scrollable | null = (() => {
     if (!closest) {
       return null;
     }

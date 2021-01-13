@@ -17,16 +17,16 @@ export default ({
   center,
   dragStartTime,
   shouldUseTimeDampening,
-}: Args): Position | undefined | null => {
+}: Args): Position | null => {
   // We know this has a closestScrollable
-  const frame: Scrollable | undefined | null = droppable.frame;
+  const frame: Scrollable | null = droppable.frame;
 
   // this should never happen - just being safe
   if (!frame) {
     return null;
   }
 
-  const scroll: Position | undefined | null = getScroll({
+  const scroll: Position | null = getScroll({
     dragStartTime,
     container: frame.pageMarginBox,
     subject,

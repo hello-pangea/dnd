@@ -42,7 +42,7 @@ export default ({
     pageOffset,
   );
 
-  const destinationId: DroppableId | undefined | null = getDroppableOver({
+  const destinationId: DroppableId | null = getDroppableOver({
     pageBorderBox,
     draggable,
     droppables,

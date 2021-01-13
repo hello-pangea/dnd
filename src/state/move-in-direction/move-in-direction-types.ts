@@ -4,5 +4,5 @@ import type { DragImpact } from '../../types';
 export type PublicResult = {
   clientSelection: Position;
   impact: DragImpact;
-  scrollJumpRequest: Position | undefined | null;
+  scrollJumpRequest: Position | null;
 };

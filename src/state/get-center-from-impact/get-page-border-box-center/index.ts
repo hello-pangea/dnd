@@ -15,7 +15,7 @@ type Args = {
   impact: DragImpact;
   afterCritical: LiftEffect;
   draggable: DraggableDimension;
-  droppable: DroppableDimension | undefined | null;
+  droppable: DroppableDimension | null;
   draggables: DraggableDimensionMap;
 };
 
@@ -27,7 +27,7 @@ const getResultWithoutDroppableDisplacement = ({
   afterCritical,
 }: Args): Position => {
   const original: Position = draggable.page.borderBox.center;
-  const at: ImpactLocation | undefined | null = impact.at;
+  const at: ImpactLocation | null = impact.at;
 
   if (!droppable) {
     return original;
@@ -59,7 +59,7 @@ export default (args: Args): Position => {
     args,
   );
 
-  const droppable: DroppableDimension | undefined | null = args.droppable;
+  const droppable: DroppableDimension | null = args.droppable;
 
   const withDisplacement: Position = droppable
     ? withDroppableDisplacement(droppable, withoutDisplacement)

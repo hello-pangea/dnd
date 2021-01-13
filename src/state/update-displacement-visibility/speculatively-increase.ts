@@ -34,9 +34,9 @@ function getDraggables(
 function tryGetVisible(
   id: DraggableId,
   groups: DisplacementGroups[],
-): Displacement | undefined | null {
+): Displacement | null {
   for (let i = 0; i < groups.length; i++) {
-    const displacement: Displacement | undefined | null = groups[i].visible[id];
+    const displacement: Displacement | null = groups[i].visible[id];
     if (displacement) {
       return displacement;
     }
@@ -92,10 +92,7 @@ export default ({
   ];
 
   last.all.forEach((id: DraggableId) => {
-    const displacement: Displacement | undefined | null = tryGetVisible(
-      id,
-      groups,
-    );
+    const displacement: Displacement | null = tryGetVisible(id, groups);
 
     if (displacement) {
       visible[id] = displacement;

@@ -29,7 +29,7 @@ type Args = {
 
 type AtIndexArgs = {
   draggable: DraggableDimension;
-  closest: DraggableDimension | undefined | null;
+  closest: DraggableDimension | null;
   inHomeList: boolean;
 };
 
@@ -37,7 +37,7 @@ function atIndex({
   draggable,
   closest,
   inHomeList,
-}: AtIndexArgs): number | undefined | null {
+}: AtIndexArgs): number | null {
   if (!closest) {
     return null;
   }
@@ -121,7 +121,7 @@ export default ({
     return targetStart < childCenter;
   });
 
-  const newIndex: number | undefined | null = atIndex({
+  const newIndex: number | null = atIndex({
     draggable,
     closest,
     inHomeList: isHomeOf(draggable, destination),

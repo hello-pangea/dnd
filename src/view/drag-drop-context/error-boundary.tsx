@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default class ErrorBoundary extends React.Component<Props> {
-  callbacks: AppCallbacks | undefined | null = null;
+  callbacks: AppCallbacks | null = null;
   unbind: () => void = noop;
 
   componentDidMount() {
@@ -53,7 +53,7 @@ export default class ErrorBoundary extends React.Component<Props> {
       `);
     }
 
-    const err: Error | undefined | null = event.error;
+    const err: Error | null = event.error;
 
     if (err instanceof RbdInvariant) {
       // Marking the event as dealt with.

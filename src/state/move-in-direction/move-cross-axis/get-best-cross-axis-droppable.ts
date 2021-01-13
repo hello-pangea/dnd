@@ -24,7 +24,7 @@ type GetBestDroppableArgs = {
 };
 
 const getKnownActive = (droppable: DroppableDimension): Rect => {
-  const rect: Rect | undefined | null = droppable.subject.active;
+  const rect: Rect | null = droppable.subject.active;
 
   invariant(rect, 'Cannot get clipped area from droppable');
 
@@ -37,8 +37,8 @@ export default ({
   source,
   droppables,
   viewport,
-}: GetBestDroppableArgs): DroppableDimension | undefined | null => {
-  const active: Rect | undefined | null = source.subject.active;
+}: GetBestDroppableArgs): DroppableDimension | null => {
+  const active: Rect | null = source.subject.active;
 
   if (!active) {
     return null;

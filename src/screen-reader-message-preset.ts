@@ -74,12 +74,12 @@ const withCombine = (
 };
 
 const onDragUpdate = (update: DragUpdate): string => {
-  const location: DraggableLocation | undefined | null = update.destination;
+  const location: DraggableLocation | null = update.destination;
   if (location) {
     return withLocation(update.source, location);
   }
 
-  const combine: Combine | undefined | null = update.combine;
+  const combine: Combine | null = update.combine;
   if (combine) {
     return withCombine(update.draggableId, update.source, combine);
   }
@@ -100,8 +100,8 @@ const onDragEnd = (result: DropResult): string => {
     `;
   }
 
-  const location: DraggableLocation | undefined | null = result.destination;
-  const combine: Combine | undefined | null = result.combine;
+  const location: DraggableLocation | null = result.destination;
+  const combine: Combine | null = result.combine;
 
   if (location) {
     return `

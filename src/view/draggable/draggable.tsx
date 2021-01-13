@@ -21,14 +21,11 @@ function preventHtml5Dnd(event: DragEvent) {
 
 export default function Draggable(props: Props) {
   // reference to DOM node
-  const ref = useRef<HTMLElement | undefined | null>(null);
+  const ref = useRef<HTMLElement | null>(null);
   const setRef = useCallback((el?: HTMLElement | null) => {
     ref.current = el;
   }, []);
-  const getRef = useCallback(
-    (): HTMLElement | undefined | null => ref.current,
-    [],
-  );
+  const getRef = useCallback((): HTMLElement | null => ref.current, []);
 
   // context
   const {
@@ -99,7 +96,7 @@ export default function Draggable(props: Props) {
   }
   /* eslint-enable react-hooks/rules-of-hooks */
 
-  const dragHandleProps: DragHandleProps | undefined | null = useMemo(
+  const dragHandleProps: DragHandleProps | null = useMemo(
     () =>
       isEnabled
         ? {

@@ -20,10 +20,10 @@ export type DraggingStyle = {
   width: number;
   height: number;
   transition: string;
-  transform: string | undefined | null;
+  transform: string | null;
   zIndex: number;
   // for combining
-  opacity: number | undefined | null;
+  opacity: number | null;
   // Avoiding any processing of mouse events.
   // This is already applied by the shared styles during a drag.
   // During a drop it prevents a draggable from being dragged.
@@ -33,7 +33,7 @@ export type DraggingStyle = {
 };
 
 export type NotDraggingStyle = {
-  transform: string | undefined | null;
+  transform: string | null;
   // null: use the global animation style
   // none: skip animation (used in certain displacement situations)
   transition: null | 'none';
@@ -49,13 +49,13 @@ export type ZIndexOptions = {
 // Props that can be spread onto the element directly
 export type DraggableProps = {
   // inline style
-  style: DraggableStyle | undefined | null;
+  style: DraggableStyle | null;
   // used for shared global styles
   'data-rfd-draggable-context-id': ContextId;
   // used for lookups
   'data-rfd-draggable-id': DraggableId;
   // used to know when a transition ends
-  onTransitionEnd: ((event: TransitionEvent) => void) | undefined | null;
+  onTransitionEnd: ((event: TransitionEvent) => void) | null;
 };
 
 export type DragHandleProps = {
@@ -85,7 +85,7 @@ export type DragHandleProps = {
 export type Provided = {
   draggableProps: DraggableProps;
   // will be null if the draggable is disabled
-  dragHandleProps: DragHandleProps | undefined | null;
+  dragHandleProps: DragHandleProps | null;
   // The following props will be removed once we move to react 16
   innerRef: (a?: HTMLElement | null) => void;
 };
@@ -95,19 +95,19 @@ export type DropAnimation = {
   duration: number;
   curve: string;
   moveTo: Position;
-  opacity: number | undefined | null;
-  scale: number | undefined | null;
+  opacity: number | null;
+  scale: number | null;
 };
 
 export type StateSnapshot = {
   isDragging: boolean;
   isDropAnimating: boolean;
   isClone: boolean;
-  dropAnimation: DropAnimation | undefined | null;
-  draggingOver: DroppableId | undefined | null;
-  combineWith: DraggableId | undefined | null;
-  combineTargetFor: DraggableId | undefined | null;
-  mode: MovementMode | undefined | null;
+  dropAnimation: DropAnimation | null;
+  draggingOver: DroppableId | null;
+  combineWith: DraggableId | null;
+  combineTargetFor: DraggableId | null;
+  mode: MovementMode | null;
 };
 
 export type DispatchProps = {
@@ -118,18 +118,18 @@ export type DraggingMapProps = {
   type: 'DRAGGING';
   offset: Position;
   mode: MovementMode;
-  dropping: DropAnimation | undefined | null;
-  draggingOver: DraggableId | undefined | null;
-  combineWith: DraggableId | undefined | null;
+  dropping: DropAnimation | null;
+  draggingOver: DraggableId | null;
+  combineWith: DraggableId | null;
   dimension: DraggableDimension;
-  forceShouldAnimate: boolean | undefined | null;
+  forceShouldAnimate: boolean | null;
   snapshot: StateSnapshot;
 };
 
 export type SecondaryMapProps = {
   type: 'SECONDARY';
   offset: Position;
-  combineTargetFor: DraggableId | undefined | null;
+  combineTargetFor: DraggableId | null;
   shouldAnimateDisplacement: boolean;
   snapshot: StateSnapshot;
 };

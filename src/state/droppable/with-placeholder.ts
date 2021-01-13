@@ -19,7 +19,7 @@ const getRequiredGrowthForPlaceholder = (
   droppable: DroppableDimension,
   placeholderSize: Position,
   draggables: DraggableDimensionMap,
-): Position | undefined | null => {
+): Position | null => {
   const axis: Axis = droppable.axis;
 
   // A virtual list will most likely not contain all of the Draggables
@@ -65,7 +65,7 @@ export const addPlaceholder = (
   draggable: DraggableDimension,
   draggables: DraggableDimensionMap,
 ): DroppableDimension => {
-  const frame: Scrollable | undefined | null = droppable.frame;
+  const frame: Scrollable | null = droppable.frame;
 
   invariant(
     !isHomeOf(draggable, droppable),
@@ -82,10 +82,7 @@ export const addPlaceholder = (
     draggable.displaceBy,
   ).point;
 
-  const requiredGrowth:
-    | Position
-    | undefined
-    | null = getRequiredGrowthForPlaceholder(
+  const requiredGrowth: Position | null = getRequiredGrowthForPlaceholder(
     droppable,
     placeholderSize,
     draggables,
@@ -132,14 +129,13 @@ export const addPlaceholder = (
 export const removePlaceholder = (
   droppable: DroppableDimension,
 ): DroppableDimension => {
-  const added: PlaceholderInSubject | undefined | null =
-    droppable.subject.withPlaceholder;
+  const added: PlaceholderInSubject | null = droppable.subject.withPlaceholder;
   invariant(
     added,
     'Cannot remove placeholder form subject when there was none',
   );
 
-  const frame: Scrollable | undefined | null = droppable.frame;
+  const frame: Scrollable | null = droppable.frame;
 
   if (!frame) {
     const subject: DroppableSubject = getSubject({
@@ -155,7 +151,7 @@ export const removePlaceholder = (
     };
   }
 
-  const oldMaxScroll: Position | undefined | null = added.oldFrameMaxScroll;
+  const oldMaxScroll: Position | null = added.oldFrameMaxScroll;
   invariant(
     oldMaxScroll,
     'Expected droppable with frame to have old max frame scroll when removing placeholder',

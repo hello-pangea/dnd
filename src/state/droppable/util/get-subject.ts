@@ -31,10 +31,7 @@ const increase = (
   return target;
 };
 
-const clip = (
-  target: Spacing,
-  frame?: Scrollable | null,
-): Rect | undefined | null => {
+const clip = (target: Spacing, frame?: Scrollable | null): Rect | null => {
   if (frame && frame.shouldClipSubject) {
     return executeClip(frame.pageMarginBox, target);
   }
@@ -43,9 +40,9 @@ const clip = (
 
 type Args = {
   page: BoxModel;
-  withPlaceholder: PlaceholderInSubject | undefined | null;
+  withPlaceholder: PlaceholderInSubject | null;
   axis: Axis;
-  frame: Scrollable | undefined | null;
+  frame: Scrollable | null;
 };
 
 export default ({
@@ -56,7 +53,7 @@ export default ({
 }: Args): DroppableSubject => {
   const scrolled: Spacing = scroll(page.marginBox, frame);
   const increased: Spacing = increase(scrolled, axis, withPlaceholder);
-  const clipped: Rect | undefined | null = clip(increased, frame);
+  const clipped: Rect | null = clip(increased, frame);
 
   return {
     page,

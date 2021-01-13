@@ -33,7 +33,7 @@ export default ({
   // 1. Can we scroll the viewport?
   if (state.isWindowScrollAllowed) {
     const viewport: Viewport = state.viewport;
-    const change: Position | undefined | null = getWindowScrollChange({
+    const change: Position | null = getWindowScrollChange({
       dragStartTime,
       viewport,
       subject,
@@ -47,10 +47,7 @@ export default ({
     }
   }
 
-  const droppable:
-    | DroppableDimension
-    | undefined
-    | null = getBestScrollableDroppable({
+  const droppable: DroppableDimension | null = getBestScrollableDroppable({
     center,
     destination: whatIsDraggedOver(state.impact),
     droppables: state.dimensions.droppables,
@@ -60,7 +57,7 @@ export default ({
     return;
   }
 
-  const change: Position | undefined | null = getDroppableScrollChange({
+  const change: Position | null = getDroppableScrollChange({
     dragStartTime,
     droppable,
     subject,

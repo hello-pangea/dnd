@@ -39,7 +39,7 @@ export const finish = (key: string) => {
     }
     const now: number = performance.now();
 
-    const previous: number | undefined | null = records[key];
+    const previous: number | null = records[key];
 
     if (!previous) {
       // eslint-disable-next-line no-console

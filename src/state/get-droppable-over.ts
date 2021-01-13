@@ -43,7 +43,7 @@ function getFurthestAway({
   pageBorderBox,
   draggable,
   candidates,
-}: GetFurthestArgs): DroppableId | undefined | null {
+}: GetFurthestArgs): DroppableId | null {
   // We are not comparing the center of the home list with the target list as it would
   // give preference to giant lists
 
@@ -81,7 +81,7 @@ export default function getDroppableOver({
   pageBorderBox,
   draggable,
   droppables,
-}: Args): DroppableId | undefined | null {
+}: Args): DroppableId | null {
   // We know at this point that some overlap has to exist
   const candidates: DroppableDimension[] = toDroppableList(droppables).filter(
     (item: DroppableDimension): boolean => {
@@ -91,7 +91,7 @@ export default function getDroppableOver({
       }
 
       // Cannot be a candidate when there is no visible area
-      const active: Rect | undefined | null = item.subject.active;
+      const active: Rect | null = item.subject.active;
       if (!active) {
         return false;
       }

@@ -18,7 +18,7 @@ import useUniqueId from '../use-unique-id';
 
 export type Args = {
   descriptor: DraggableDescriptor;
-  getDraggableRef: () => HTMLElement | undefined | null;
+  getDraggableRef: () => HTMLElement | null;
   registry: Registry;
 } & DraggableOptions;
 
@@ -45,7 +45,7 @@ export default function useDraggablePublisher(args: Args) {
 
   const getDimension = useCallback(
     (windowScroll?: Position): DraggableDimension => {
-      const el: HTMLElement | undefined | null = getDraggableRef();
+      const el: HTMLElement | null = getDraggableRef();
       invariant(el, 'Cannot get dimension when no ref is set');
       return makeDimension(descriptor, el, windowScroll);
     },

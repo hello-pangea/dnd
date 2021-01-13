@@ -15,8 +15,7 @@ export function PrivateDraggable(props: PrivateOwnProps) {
   );
   // The droppable can render a clone of the draggable item.
   // In that case we unmount the existing dragging item
-  const isUsingCloneFor: DraggableId | undefined | null =
-    droppableContext.isUsingCloneFor;
+  const isUsingCloneFor: DraggableId | null = droppableContext.isUsingCloneFor;
   if (isUsingCloneFor === props.draggableId && !props.isClone) {
     return null;
   }

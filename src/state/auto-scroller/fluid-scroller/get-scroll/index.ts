@@ -21,7 +21,7 @@ export default ({
   subject,
   center,
   shouldUseTimeDampening,
-}: Args): Position | undefined | null => {
+}: Args): Position | null => {
   // get distance to each edge
   const distanceToEdges: Spacing = {
     top: center.y - container.top,
@@ -61,7 +61,7 @@ export default ({
   }
 
   // need to not scroll in a direction that we are too big to scroll in
-  const limited: Position | undefined | null = adjustForSizeLimits({
+  const limited: Position | null = adjustForSizeLimits({
     container,
     subject,
     proposedScroll: required,

@@ -191,8 +191,7 @@ function getHandleBindings({
         // Calling event.preventDefault() will currently opt out of scrolling and clicking
         // https://github.com/atlassian/react-beautiful-dnd/issues/1401
 
-        const touch: TouchWithForce | undefined | null = event
-          .touches[0] as any;
+        const touch: TouchWithForce | null = event.touches[0] as any;
 
         if (!touch) {
           return;
@@ -268,16 +267,15 @@ export default function useMouseSensor(api: SensorAPI) {
         // browser interactions as possible.
         // This includes navigation on anchors which we want to preserve
 
-        const draggableId:
-          | DraggableId
-          | undefined
-          | null = api.findClosestDraggableId(event);
+        const draggableId: DraggableId | null = api.findClosestDraggableId(
+          event,
+        );
 
         if (!draggableId) {
           return;
         }
 
-        const actions: PreDragActions | undefined | null = api.tryGetLock(
+        const actions: PreDragActions | null = api.tryGetLock(
           draggableId,
           // eslint-disable-next-line no-use-before-define
           stop,

@@ -1,6 +1,6 @@
 import type { DroppableId, DropResult } from '../../types';
 
-export default (result: DropResult): DroppableId | undefined | null => {
+export default (result: DropResult): DroppableId | null => {
   const { combine, destination } = result;
 
   if (destination) {

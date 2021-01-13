@@ -29,7 +29,7 @@ export type DraggableAPI = {
   unregister: (entry: DraggableEntry) => void;
   exists: (id: DraggableId) => boolean;
   getById: (id: DraggableId) => DraggableEntry;
-  findById: (id: DraggableId) => DraggableEntry | undefined | null;
+  findById: (id: DraggableId) => DraggableEntry | null;
   getAllByType: (type: TypeId) => DraggableEntry[];
 };
 
@@ -72,7 +72,7 @@ export type DroppableAPI = {
   unregister: (entry: DroppableEntry) => void;
   exists: (id: DraggableId) => boolean;
   getById: (id: DroppableId) => DroppableEntry;
-  findById: (id: DroppableId) => DroppableEntry | undefined | null;
+  findById: (id: DroppableId) => DroppableEntry | null;
   getAllByType: (type: TypeId) => DroppableEntry[];
 };
 

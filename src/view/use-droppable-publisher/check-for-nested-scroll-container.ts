@@ -8,7 +8,7 @@ export default (scrollable?: Element | null) => {
     return;
   }
 
-  const anotherScrollParent: Element | undefined | null = getClosestScrollable(
+  const anotherScrollParent: Element | null = getClosestScrollable(
     scrollable.parentElement,
   );
 

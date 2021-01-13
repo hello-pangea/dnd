@@ -13,7 +13,7 @@ type Version = {
 // - our peer dependency version is to a full version (eg ^16.3.1)
 const semver = /(\d+)\.(\d+)\.(\d+)/;
 const getVersion = (value: string): Version => {
-  const result: string[] | undefined | null = semver.exec(value);
+  const result: string[] | null = semver.exec(value);
 
   invariant(result != null, `Unable to parse React version ${value}`);
 

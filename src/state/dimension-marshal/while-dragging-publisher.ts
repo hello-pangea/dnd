@@ -53,7 +53,7 @@ export default function createPublisher({
   callbacks,
 }: Args): WhileDraggingPublisher {
   let staging: Staging = clean();
-  let frameId: AnimationFrameID | undefined | null = null;
+  let frameId: AnimationFrameID | null = null;
 
   const collect = () => {
     if (frameId) {

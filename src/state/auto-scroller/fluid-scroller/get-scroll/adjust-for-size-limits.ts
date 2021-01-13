@@ -10,7 +10,7 @@ export default ({
   container,
   subject,
   proposedScroll,
-}: Args): Position | undefined | null => {
+}: Args): Position | null => {
   const isTooBigVertically: boolean = subject.height > container.height;
   const isTooBigHorizontally: boolean = subject.width > container.width;
 

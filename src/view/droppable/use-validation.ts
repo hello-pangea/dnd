@@ -6,8 +6,8 @@ import useDevSetupWarning from '../use-dev-setup-warning';
 
 type Args = {
   props: Props;
-  getDroppableRef: () => HTMLElement | undefined | null;
-  getPlaceholderRef: () => HTMLElement | undefined | null;
+  getDroppableRef: () => HTMLElement | null;
+  getPlaceholderRef: () => HTMLElement | null;
 };
 
 type CheckFn = (args: Args) => void;
@@ -53,7 +53,7 @@ const standard: CheckFn[] = [
       return;
     }
 
-    const ref: HTMLElement | undefined | null = getPlaceholderRef();
+    const ref: HTMLElement | null = getPlaceholderRef();
 
     if (ref) {
       return;

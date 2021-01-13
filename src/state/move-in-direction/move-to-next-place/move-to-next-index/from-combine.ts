@@ -24,7 +24,7 @@ export default ({
   draggables,
   combine,
   afterCritical,
-}: Args): number | undefined | null => {
+}: Args): number | null => {
   if (!destination.isCombineEnabled) {
     return null;
   }

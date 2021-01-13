@@ -24,13 +24,13 @@ export type PlaceholderStyle = {
   flexShrink: '0';
   flexGrow: '0';
   pointerEvents: 'none';
-  transition: string | undefined | null;
+  transition: string | null;
 };
 export type Props = {
   placeholder: PlaceholderType;
   animate: InOutAnimationMode;
   onClose: () => void;
-  innerRef?: () => HTMLElement | undefined | null;
+  innerRef?: () => HTMLElement | null;
   onTransitionEnd: () => void;
   contextId: ContextId;
 };
@@ -115,7 +115,7 @@ const getStyle = ({
 };
 
 function Placeholder(props: Props): ReactNode {
-  const animateOpenTimerRef = useRef<TimeoutID | undefined | null>(null);
+  const animateOpenTimerRef = useRef<TimeoutID | null>(null);
 
   const tryClearAnimateOpenTimer = useCallback(() => {
     if (!animateOpenTimerRef.current) {

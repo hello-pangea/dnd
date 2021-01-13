@@ -25,10 +25,8 @@ const clearUnusedPlaceholder = ({
   impact,
   droppables,
 }: ClearArgs): DroppableDimensionMap => {
-  const last: DroppableId | undefined | null = whatIsDraggedOver(
-    previousImpact,
-  );
-  const now: DroppableId | undefined | null = whatIsDraggedOver(impact);
+  const last: DroppableId | null = whatIsDraggedOver(previousImpact);
+  const now: DroppableId | null = whatIsDraggedOver(impact);
 
   if (!last) {
     return droppables;
@@ -71,7 +69,7 @@ export default ({
     droppables,
   });
 
-  const isOver: DroppableId | undefined | null = whatIsDraggedOver(impact);
+  const isOver: DroppableId | null = whatIsDraggedOver(impact);
 
   if (!isOver) {
     return cleaned;

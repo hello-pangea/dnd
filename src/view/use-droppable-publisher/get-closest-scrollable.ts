@@ -35,7 +35,7 @@ const isBodyScrollable = (): boolean => {
   }
 
   const body: HTMLBodyElement = getBodyElement();
-  const html: HTMLElement | undefined | null = document.documentElement;
+  const html: HTMLElement | null = document.documentElement;
   invariant(html);
 
   // 1. The `body` has `overflow-[x|y]: auto | scroll`
@@ -66,9 +66,7 @@ const isBodyScrollable = (): boolean => {
   return false;
 };
 
-const getClosestScrollable = (
-  el?: Element | null,
-): Element | undefined | null => {
+const getClosestScrollable = (el?: Element | null): Element | null => {
   // cannot do anything else!
   if (el == null) {
     return null;
