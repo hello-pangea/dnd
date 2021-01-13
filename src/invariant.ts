@@ -9,7 +9,7 @@ const prefix: string = 'Invariant failed';
 export function RbdInvariant(message: string) {
   this.message = message;
 }
-// $FlowFixMe
+
 RbdInvariant.prototype.toString = function toString() {
   return this.message;
 };

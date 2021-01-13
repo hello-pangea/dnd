@@ -25,7 +25,6 @@ function closestPonyfill(el: Element | undefined | null, selector: string) {
 
   // Element.prototype.matches is supported in ie11 with a different name
   // https://caniuse.com/#feat=matchesselector
-  // $FlowFixMe - dynamic property
   if (el[supportedMatchesName](selector)) {
     return el;
   }

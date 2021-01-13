@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import type { ReactNode } from 'react';
+import type { ReactNode, MutableRefObject } from 'react';
 import { bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 import { useMemo, useCallback } from 'use-memo-one';
@@ -71,11 +71,7 @@ const createResponders = (props: Props): Responders => ({
   onDragUpdate: props.onDragUpdate,
 });
 
-// flow does not support MutableRefObject
-// type LazyStoreRef = MutableRefObject<?Store>;
-type LazyStoreRef = {
-  current: Store | undefined | null;
-};
+type LazyStoreRef = MutableRefObject<Store | null>;
 
 function getStore(lazyRef: LazyStoreRef): Store {
   invariant(lazyRef.current, 'Could not find store from lazy ref');
@@ -90,7 +86,7 @@ export default function App(props: Props) {
     nonce,
     dragHandleUsageInstructions,
   } = props;
-  const lazyStoreRef: LazyStoreRef = useRef<Store | undefined | null>(null);
+  const lazyStoreRef: LazyStoreRef = useRef<Store | null>(null);
 
   useStartupValidation();
 
@@ -126,7 +122,6 @@ export default function App(props: Props) {
           updateDroppableIsCombineEnabled,
           collectionStarting,
         },
-        // $FlowFixMe - not sure why this is wrong
         lazyDispatch,
       ),
     [lazyDispatch],
@@ -147,7 +142,6 @@ export default function App(props: Props) {
           {
             move,
           },
-          // $FlowFixMe - not sure why this is wrong
           lazyDispatch,
         ),
       }),

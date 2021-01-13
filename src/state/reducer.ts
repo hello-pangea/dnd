@@ -57,9 +57,6 @@ const postDroppableChange = (
 function removeScrollJumpRequest(state: State): State {
   if (state.isDragging && state.movementMode === 'SNAP') {
     return {
-      // will be overwritten by spread
-      // needed for flow
-      phase: 'DRAGGING',
       ...state,
       scrollJumpRequest: null,
     };
@@ -155,10 +152,7 @@ export default (state: State = idle, action: Action): State => {
     );
 
     const result: CollectingState = {
-      // putting phase first to appease flow
-      phase: 'COLLECTING',
       ...state,
-      // eslint-disable-next-line
       phase: 'COLLECTING',
     };
 
@@ -365,8 +359,6 @@ export default (state: State = idle, action: Action): State => {
 
     // don't need to recalc any updates
     return {
-      // phase will be overridden - appeasing flow
-      phase: 'DRAGGING',
       ...state,
       viewport: withMaxScroll,
     };
@@ -413,10 +405,7 @@ export default (state: State = idle, action: Action): State => {
     );
 
     const newState: DropPendingState = {
-      // appeasing flow
-      phase: 'DROP_PENDING',
       ...state,
-      // eslint-disable-next-line
       phase: 'DROP_PENDING',
       isWaiting: true,
       reason,

@@ -8,7 +8,7 @@ export { default as Draggable } from './view/draggable';
 
 export { resetServerContext } from './view/drag-drop-context';
 
-// Public flow types
+// Public types
 
 export type {
   Id,

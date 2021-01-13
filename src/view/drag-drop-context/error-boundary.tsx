@@ -10,11 +10,6 @@ type Props = {
   children: (setCallbacks: (callbacks: AppCallbacks) => void) => ReactNode;
 };
 
-// Lame that this is not in flow
-type ErrorEvent = Event & {
-  error: Error | undefined | null;
-};
-
 export default class ErrorBoundary extends React.Component<Props> {
   callbacks: AppCallbacks | undefined | null = null;
   unbind: () => void = noop;

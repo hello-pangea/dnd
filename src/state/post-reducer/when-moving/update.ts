@@ -67,8 +67,6 @@ export default ({
   // Not updating impact while bulk collecting
   if (state.phase === 'COLLECTING') {
     return {
-      // adding phase to appease flow (even though it will be overwritten by spread)
-      phase: 'COLLECTING',
       ...state,
       dimensions,
       viewport,

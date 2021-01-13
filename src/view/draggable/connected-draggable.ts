@@ -391,7 +391,6 @@ const ConnectedDraggable = connect(
   // mergeProps: use default
   null,
   // options
-  // $FlowFixMe: current react-redux type does not know about context property
   {
     // Using our own context for the store to avoid clashing with consumers
     context: StoreContext,
