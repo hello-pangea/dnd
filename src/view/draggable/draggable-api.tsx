@@ -29,12 +29,10 @@ export function PublicDraggable(props: PublicOwnProps) {
   // default values for props
   const isEnabled: boolean =
     typeof props.isDragDisabled === 'boolean' ? !props.isDragDisabled : true;
-  const canDragInteractiveElements: boolean = Boolean(
+  const canDragInteractiveElements = Boolean(
     props.disableInteractiveElementBlocking,
   );
-  const shouldRespectForcePress: boolean = Boolean(
-    props.shouldRespectForcePress,
-  );
+  const shouldRespectForcePress = Boolean(props.shouldRespectForcePress);
 
   return (
     <PrivateDraggable

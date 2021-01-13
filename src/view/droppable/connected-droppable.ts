@@ -139,7 +139,7 @@ export const makeMapStateToProps = (): Selector => {
 
     const id: DroppableId = ownProps.droppableId;
     const type: TypeId = ownProps.type;
-    const isEnabled: boolean = !ownProps.isDropDisabled;
+    const isEnabled = !ownProps.isDropDisabled;
     const renderClone: DraggableChildrenFn | undefined | null =
       ownProps.renderClone;
 
@@ -197,7 +197,7 @@ export const makeMapStateToProps = (): Selector => {
 
       // Looking at impact as this controls the placeholder
       const wasOver: boolean = whatIsDraggedOver(completed.impact) === id;
-      const wasCombining: boolean = Boolean(
+      const wasCombining = Boolean(
         completed.impact.at && completed.impact.at.type === 'COMBINE',
       );
       const isHome: boolean = completed.critical.droppable.id === id;

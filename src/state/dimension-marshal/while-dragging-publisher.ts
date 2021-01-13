@@ -46,7 +46,7 @@ const clean = (): Staging => ({
   modified: {},
 });
 
-const timingKey: string = 'Publish collection from DOM';
+const timingKey = 'Publish collection from DOM';
 
 export default function createPublisher({
   registry,

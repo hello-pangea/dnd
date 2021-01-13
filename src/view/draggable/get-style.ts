@@ -54,10 +54,10 @@ function getDraggingStyle(dragging: DraggingMapProps): DraggingStyle {
   const box: BoxModel = dimension.client;
   const { offset, combineWith, dropping } = dragging;
 
-  const isCombining: boolean = Boolean(combineWith);
+  const isCombining = Boolean(combineWith);
 
   const shouldAnimate: boolean = getShouldDraggingAnimate(dragging);
-  const isDropAnimating: boolean = Boolean(dropping);
+  const isDropAnimating = Boolean(dropping);
 
   const transform: string | undefined | null = isDropAnimating
     ? transforms.drop(offset, isCombining)

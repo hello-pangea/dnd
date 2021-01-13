@@ -3,7 +3,7 @@ import type { Action, Dispatch } from '../store-types';
 import type { FocusMarshal } from '../../view/use-focus-marshal/focus-marshal-types';
 
 export default (marshal: FocusMarshal) => {
-  let isWatching: boolean = false;
+  let isWatching = false;
 
   return () => (next: Dispatch) => (action: Action): any => {
     if (action.type === 'INITIAL_PUBLISH') {

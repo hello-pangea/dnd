@@ -31,7 +31,7 @@ export default ({ state, type }: Args): PublicResult | undefined | null => {
     | DroppableDimension
     | undefined
     | null = getDroppableOver(state.impact, state.dimensions.droppables);
-  const isMainAxisMovementAllowed: boolean = Boolean(isActuallyOver);
+  const isMainAxisMovementAllowed = Boolean(isActuallyOver);
   const home: DroppableDimension =
     state.dimensions.droppables[state.critical.droppable.id];
   // use home when not actually over a droppable (can happen when move is disabled)

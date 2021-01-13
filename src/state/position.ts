@@ -29,7 +29,7 @@ export const negate = (point: Position): Position => ({
 export const patch = (
   line: 'x' | 'y',
   value: number,
-  otherValue: number = 0,
+  otherValue = 0,
 ): Position => ({
   // set the value of 'x', or 'y'
   [line]: value,

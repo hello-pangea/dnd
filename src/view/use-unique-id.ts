@@ -1,7 +1,7 @@
 import { useMemo } from 'use-memo-one';
 import type { Id } from '../types';
 
-let count: number = 0;
+let count = 0;
 
 type Options = {
   separator: string;

@@ -6,8 +6,8 @@ export type ExpiringAnnounce = Announce & {
 };
 
 export default (announce: Announce): ExpiringAnnounce => {
-  let wasCalled: boolean = false;
-  let isExpired: boolean = false;
+  let wasCalled = false;
+  let isExpired = false;
 
   // not allowing async announcements
   const timeoutId: TimeoutID = setTimeout(() => {

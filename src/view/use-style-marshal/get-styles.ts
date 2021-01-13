@@ -36,7 +36,7 @@ const getStyles = (rules: Rule[], property: string): string =>
     })
     .join(' ');
 
-const noPointerEvents: string = 'pointer-events: none;';
+const noPointerEvents = 'pointer-events: none;';
 
 export default (contextId: ContextId): Styles => {
   const getSelector = makeGetSelector(contextId);
@@ -100,7 +100,7 @@ export default (contextId: ContextId): Styles => {
   // The main draggable is controlled by react-motion.
 
   const draggable: Rule = (() => {
-    const transition: string = `
+    const transition = `
       transition: ${transitions.outOfTheWay};
     `;
     return {

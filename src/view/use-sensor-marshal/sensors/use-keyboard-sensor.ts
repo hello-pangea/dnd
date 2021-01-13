@@ -178,7 +178,7 @@ export default function useKeyboardSensor(api: SensorAPI) {
 
         // we are consuming the event
         event.preventDefault();
-        let isCapturing: boolean = true;
+        let isCapturing = true;
 
         // There is no pending period for a keyboard drag
         // We can lift immediately

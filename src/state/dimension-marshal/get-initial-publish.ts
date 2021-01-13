@@ -29,7 +29,7 @@ export default ({
   scrollOptions,
   registry,
 }: Args): StartPublishingResult => {
-  const timingKey: string = 'Initial collection from DOM';
+  const timingKey = 'Initial collection from DOM';
   timings.start(timingKey);
   const viewport: Viewport = getViewport();
   const windowScroll: Position = viewport.scroll.current;

@@ -26,7 +26,7 @@ function isAnInteractiveElement(parent: Element, current?: Element | null) {
   // function to keep things simple.
   // There is no harm checking if the parent has an interactive tag name even if it cannot have
   // any children. We need to perform this loop anyway to check for the contenteditable attribute
-  const hasAnInteractiveTag: boolean = Boolean(
+  const hasAnInteractiveTag = Boolean(
     interactiveTagNames[current.tagName.toLowerCase()],
   );
 

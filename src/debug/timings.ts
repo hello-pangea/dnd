@@ -3,7 +3,7 @@ type Records = {
 };
 
 const records: Records = {};
-let isEnabled: boolean = false;
+let isEnabled = false;
 
 const isTimingsEnabled = (): boolean => isEnabled;
 

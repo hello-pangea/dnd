@@ -160,7 +160,7 @@ export default (getResponders: () => Responders, announce: Announce) => {
     );
 
     // Has the critical changed? Will result in a source change
-    const hasCriticalChanged: boolean = !isCriticalEqual(
+    const hasCriticalChanged = !isCriticalEqual(
       critical,
       dragging.lastCritical,
     );
@@ -169,17 +169,14 @@ export default (getResponders: () => Responders, announce: Announce) => {
     }
 
     // Has the location changed? Will result in a destination change
-    const hasLocationChanged: boolean = !areLocationsEqual(
+    const hasLocationChanged = !areLocationsEqual(
       dragging.lastLocation,
       location,
     );
     if (hasLocationChanged) {
       dragging.lastLocation = location;
     }
-    const hasGroupingChanged: boolean = !isCombineEqual(
-      dragging.lastCombine,
-      combine,
-    );
+    const hasGroupingChanged = !isCombineEqual(dragging.lastCombine, combine);
     if (hasGroupingChanged) {
       dragging.lastCombine = combine;
     }

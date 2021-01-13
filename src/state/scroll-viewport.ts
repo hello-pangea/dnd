@@ -1,6 +1,6 @@
 import { getRect } from 'css-box-model';
-import type { Rect } from 'css-box-model';
-import type { Position } from 'css-box-model';
+import type { Rect, Position } from 'css-box-model';
+
 import { subtract, negate } from './position';
 import type { Viewport } from '../types';
 

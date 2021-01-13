@@ -26,7 +26,7 @@ type Args = {
   published: Published;
 };
 
-const timingsKey: string = 'Processing dynamic changes';
+const timingsKey = 'Processing dynamic changes';
 
 export default ({
   state,

@@ -276,7 +276,7 @@ function getSecondarySelector(): TrySelect {
   ): MapProps | undefined | null => {
     const visualDisplacement: Displacement | undefined | null =
       impact.displaced.visible[ownId];
-    const isAfterCriticalInVirtualList: boolean = Boolean(
+    const isAfterCriticalInVirtualList = Boolean(
       afterCritical.inVirtualList && afterCritical.effected[ownId],
     );
 

@@ -38,14 +38,14 @@ export const timings = {
 //   maxDropTime: 4,
 // };
 
-const outOfTheWayTiming: string = `${timings.outOfTheWay}s ${curves.outOfTheWay}`;
-export const placeholderTransitionDelayTime: number = 0.1;
+const outOfTheWayTiming = `${timings.outOfTheWay}s ${curves.outOfTheWay}`;
+export const placeholderTransitionDelayTime = 0.1;
 
 export const transitions = {
   fluid: `opacity ${outOfTheWayTiming}`,
   snap: `transform ${outOfTheWayTiming}, opacity ${outOfTheWayTiming}`,
   drop: (duration: number): string => {
-    const timing: string = `${duration}s ${curves.drop}`;
+    const timing = `${duration}s ${curves.drop}`;
     return `transform ${timing}, opacity ${timing}`;
   },
   outOfTheWay: `transform ${outOfTheWayTiming}`,

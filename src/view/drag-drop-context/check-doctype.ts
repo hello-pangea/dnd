@@ -1,6 +1,6 @@
 import { warning } from '../../dev-warning';
 
-const suffix: string = `
+const suffix = `
   We expect a html5 doctype: <!doctype html>
   This is to ensure consistent browser layout and measurement
 

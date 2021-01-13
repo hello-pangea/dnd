@@ -81,7 +81,7 @@ export default ({
     return isVisibleInNewLocation ? proposed : null;
   }
 
-  const isGoingBeforeTarget: boolean = Boolean(
+  const isGoingBeforeTarget = Boolean(
     // Using <= as we optimise slightly for moving before items in a new list
     // This is nicer in lists with fixed height items
     previousPageBorderBoxCenter[destination.axis.line] <=

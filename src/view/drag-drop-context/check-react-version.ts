@@ -11,15 +11,15 @@ type Version = {
 // We can use a simple regex here given that:
 // - the version that react supplies is always full: eg 16.5.2
 // - our peer dependency version is to a full version (eg ^16.3.1)
-const semver: RegExp = /(\d+)\.(\d+)\.(\d+)/;
+const semver = /(\d+)\.(\d+)\.(\d+)/;
 const getVersion = (value: string): Version => {
   const result: string[] | undefined | null = semver.exec(value);
 
   invariant(result != null, `Unable to parse React version ${value}`);
 
-  const major: number = Number(result[1]);
-  const minor: number = Number(result[2]);
-  const patch: number = Number(result[3]);
+  const major = Number(result[1]);
+  const minor = Number(result[2]);
+  const patch = Number(result[3]);
 
   return {
     major,

@@ -21,7 +21,7 @@ export default ({
   combineWith,
   displacedBy,
 }: Args): Position => {
-  const isDisplaced: boolean = Boolean(
+  const isDisplaced = Boolean(
     displaced.visible[combineWith] || displaced.invisible[combineWith],
   );
 

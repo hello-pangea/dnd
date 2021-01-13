@@ -40,7 +40,7 @@ function checkIndexes(insideDestination: DraggableDimension[]) {
 
   const formatted: string = indexes
     .map((index: number): string => {
-      const hasError: boolean = Boolean(errors[index]);
+      const hasError = Boolean(errors[index]);
 
       return hasError ? `[🔥${index}]` : `${index}`;
     })

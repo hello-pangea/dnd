@@ -11,9 +11,9 @@ type GetDropDurationArgs = {
 
 const { minDropTime, maxDropTime } = timings;
 const dropTimeRange: number = maxDropTime - minDropTime;
-const maxDropTimeAtDistance: number = 1500;
+const maxDropTimeAtDistance = 1500;
 // will bring a time lower - which makes it faster
-const cancelDropModifier: number = 0.6;
+const cancelDropModifier = 0.6;
 
 export default ({
   current,

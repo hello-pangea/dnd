@@ -21,8 +21,8 @@ import useLayoutEffect from '../../use-isomorphic-layout-effect';
 import { noop } from '../../../empty';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
-export const primaryButton: number = 0;
-export const sloppyClickThreshold: number = 5;
+export const primaryButton = 0;
+export const sloppyClickThreshold = 5;
 
 function isSloppyClickThresholdExceeded(
   original: Position,

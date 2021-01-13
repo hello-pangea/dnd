@@ -14,7 +14,7 @@ export type MessagePreset = {
   onDragEnd: (result: DropResult) => string;
 };
 
-const dragHandleUsageInstructions: string = `
+const dragHandleUsageInstructions = `
   Press space bar to start a drag.
   When dragging you can use the arrow keys to move the item around and escape to cancel.
   Some screen readers may require you to be in focus mode or to use your pass through key

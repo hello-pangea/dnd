@@ -47,7 +47,7 @@ export default ({
     invariant(!dragging, 'Cannot start auto scrolling when already started');
     const dragStartTime: number = Date.now();
 
-    let wasScrollNeeded: boolean = false;
+    let wasScrollNeeded = false;
     const fakeScrollCallback = () => {
       wasScrollNeeded = true;
     };

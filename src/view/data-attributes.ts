@@ -1,4 +1,4 @@
-export const prefix: string = 'data-rfd';
+export const prefix = 'data-rfd';
 export const dragHandle = (() => {
   const base = `${prefix}-drag-handle`;
 
@@ -10,7 +10,7 @@ export const dragHandle = (() => {
 })();
 
 export const draggable = (() => {
-  const base: string = `${prefix}-draggable`;
+  const base = `${prefix}-draggable`;
   return {
     base,
     contextId: `${base}-context-id`,
@@ -19,7 +19,7 @@ export const draggable = (() => {
 })();
 
 export const droppable = (() => {
-  const base: string = `${prefix}-droppable`;
+  const base = `${prefix}-droppable`;
   return {
     base,
     contextId: `${base}-context-id`,
