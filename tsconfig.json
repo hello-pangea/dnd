@@ -9,7 +9,6 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "noEmit": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
@@ -24,5 +23,8 @@
   ],
   "files": [
     "test/test-typescript-types.tsx"
+  ],
+  "include": [
+    "src/**/*"
   ]
 }
