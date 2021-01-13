@@ -1,23 +1,20 @@
 import type { DraggableId, ContextId } from '../../types';
 import * as attributes from '../data-attributes';
-import { find, toArray } from '../../native-with-fallback';
+import { querySelectorAll } from '../../query-selector-all';
 import { warning } from '../../dev-warning';
 import isHtmlElement from '../is-type-of-element/is-html-element';
 
 export default function findDraggable(
   contextId: ContextId,
   draggableId: DraggableId,
-): HTMLElement | undefined | null {
+): HTMLElement | null {
   // cannot create a selector with the draggable id as it might not be a valid attribute selector
-  const selector: string = `[${attributes.draggable.contextId}="${contextId}"]`;
-  const possible: Element[] = toArray(document.querySelectorAll(selector));
+  const selector = `[${attributes.draggable.contextId}="${contextId}"]`;
+  const possible = querySelectorAll(document, selector);
 
-  const draggable: Element | undefined | null = find(
-    possible,
-    (el: Element): boolean => {
-      return el.getAttribute(attributes.draggable.id) === draggableId;
-    },
-  );
+  const draggable = possible.find((el): boolean => {
+    return el.getAttribute(attributes.draggable.id) === draggableId;
+  });
 
   if (!draggable) {
     return null;

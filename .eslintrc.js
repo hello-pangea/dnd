@@ -90,13 +90,6 @@ module.exports = {
           'Must use `useLayoutEffect` as the name of the import from `*use-isomorphic-layout-effect` to leverage `eslint-plugin-react-hooks`',
       },
 
-      // No Array.from as it pulls in a large amount of babel helpers
-      {
-        selector: 'MemberExpression[object.name="Array"][property.name="from"]',
-        message:
-          'Not allowing using of Array.from to save kbs. Please use native-with-fallback/from',
-      },
-
       // No usage of `tiny-invariant`. Must use our own invariant for error flow
       {
         selector: 'ImportDeclaration[source.value="tiny-invariant"]',

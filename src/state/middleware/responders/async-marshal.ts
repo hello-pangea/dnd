@@ -1,5 +1,4 @@
 import { invariant } from '../../../invariant';
-import { findIndex } from '../../../native-with-fallback';
 
 type Entry = {
   timerId: TimeoutID;
@@ -15,9 +14,8 @@ export default () => {
   const entries: Entry[] = [];
 
   const execute = (timerId: TimeoutID) => {
-    const index: number = findIndex(
-      entries,
-      (item: Entry): boolean => item.timerId === timerId,
+    const index: number = entries.findIndex(
+      (item): boolean => item.timerId === timerId,
     );
     invariant(index !== -1, 'Could not find timer');
     // delete in place

@@ -8,7 +8,6 @@ import type {
 import { invariant } from '../../../invariant';
 import isPositionInFrame from '../../visibility/is-position-in-frame';
 import { toDroppableList } from '../../dimension-structures';
-import { find } from '../../../native-with-fallback';
 
 const getScrollableDroppables = memoizeOne(
   (droppables: DroppableDimensionMap): DroppableDimension[] =>
@@ -33,10 +32,10 @@ const getScrollableDroppableOver = (
   target: Position,
   droppables: DroppableDimensionMap,
 ): DroppableDimension | undefined | null => {
-  const maybe: DroppableDimension | undefined | null = find(
-    getScrollableDroppables(droppables),
+  const maybe = getScrollableDroppables(droppables).find(
     (droppable: DroppableDimension): boolean => {
       invariant(droppable.frame, 'Invalid result');
+
       return isPositionInFrame(droppable.frame.pageMarginBox)(target);
     },
   );

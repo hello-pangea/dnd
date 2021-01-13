@@ -1,5 +1,4 @@
 import memoizeOne from 'memoize-one';
-import { values } from '../native-with-fallback';
 import type {
   DroppableDimension,
   DroppableDimensionMap,
@@ -25,10 +24,10 @@ export const toDraggableMap = memoizeOne(
 
 export const toDroppableList = memoizeOne(
   (droppables: DroppableDimensionMap): DroppableDimension[] =>
-    values(droppables),
+    Object.values(droppables),
 );
 
 export const toDraggableList = memoizeOne(
   (draggables: DraggableDimensionMap): DraggableDimension[] =>
-    values(draggables),
+    Object.values(draggables),
 );

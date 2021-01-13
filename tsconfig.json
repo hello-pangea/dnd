@@ -15,7 +15,7 @@
     "types": [],
     "lib": [
       "dom",
-      "es6"
+      "esnext"
     ]
   },
   "exclude": [

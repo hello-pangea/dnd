@@ -1,7 +1,5 @@
-import { find } from '../../native-with-fallback';
-
 const supportedMatchesName: string = ((): string => {
-  const base: string = 'matches';
+  const base = 'matches';
 
   // Server side rendering
   if (typeof document === 'undefined') {
@@ -15,10 +13,7 @@ const supportedMatchesName: string = ((): string => {
     'webkitMatchesSelector',
   ];
 
-  const value: string | undefined | null = find(
-    candidates,
-    (name: string): boolean => name in Element.prototype,
-  );
+  const value = candidates.find((name): boolean => name in Element.prototype);
 
   return value || base;
 })();

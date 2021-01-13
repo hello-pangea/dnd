@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { invariant } from '../../invariant';
-import { isInteger } from '../../native-with-fallback';
 import type { DraggableId, ContextId } from '../../types';
 import type { Props } from './draggable-types';
 import checkIsValidInnerRef from '../check-is-valid-inner-ref';
@@ -29,7 +28,7 @@ export function useValidation(
     );
 
     invariant(
-      isInteger(props.index),
+      Number.isInteger(props.index),
       `${prefix(id)} requires an integer index prop`,
     );
 

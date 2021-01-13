@@ -1,7 +1,5 @@
-import { find } from '../../../../native-with-fallback';
-
 const supportedEventName: string = ((): string => {
-  const base: string = 'visibilitychange';
+  const base = 'visibilitychange';
 
   // Server side rendering
   if (typeof document === 'undefined') {
@@ -17,8 +15,7 @@ const supportedEventName: string = ((): string => {
     `o${base}`,
   ];
 
-  const supported: string | undefined | null = find(
-    candidates,
+  const supported = candidates.find(
     (eventName: string): boolean => `on${eventName}` in document,
   );
 

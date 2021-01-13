@@ -8,7 +8,6 @@ import type {
   DraggableId,
 } from '../../../../types';
 import { tryGetDestination } from '../../../get-impact-location';
-import { findIndex } from '../../../../native-with-fallback';
 import removeDraggableFromList from '../../../remove-draggable-from-list';
 
 export type Args = {
@@ -80,8 +79,7 @@ export default ({
   // backwards onto the first one
 
   // need to find the first item before the closest
-  const indexOfClosest: number = findIndex(
-    withoutDraggable,
+  const indexOfClosest: number = withoutDraggable.findIndex(
     (d) => d.descriptor.id === closestId,
   );
   invariant(indexOfClosest !== -1, 'Could not find displaced item in set');

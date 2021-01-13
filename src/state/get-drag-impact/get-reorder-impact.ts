@@ -13,7 +13,6 @@ import type {
 import getDisplacedBy from '../get-displaced-by';
 import removeDraggableFromList from '../remove-draggable-from-list';
 import isHomeOf from '../droppable/is-home-of';
-import { find } from '../../native-with-fallback';
 import getDidStartAfterCritical from '../did-start-after-critical';
 import calculateReorderImpact from '../calculate-drag-impact/calculate-reorder-impact';
 import getIsDisplaced from '../get-is-displaced';
@@ -78,20 +77,18 @@ export default ({
     insideDestination,
   );
 
-  const closest: DraggableDimension | undefined | null = find(
-    withoutDragging,
-    (child: DraggableDimension): boolean => {
-      const id: DraggableId = child.descriptor.id;
-      const childCenter: number = child.page.borderBox.center[axis.line];
+  const closest = withoutDragging.find((child): boolean => {
+    const id: DraggableId = child.descriptor.id;
+    const childCenter: number = child.page.borderBox.center[axis.line];
 
-      const didStartAfterCritical: boolean = getDidStartAfterCritical(
-        id,
-        afterCritical,
-      );
+    const didStartAfterCritical: boolean = getDidStartAfterCritical(
+      id,
+      afterCritical,
+    );
 
-      const isDisplaced: boolean = getIsDisplaced({ displaced: last, id });
+    const isDisplaced: boolean = getIsDisplaced({ displaced: last, id });
 
-      /*
+    /*
       Note: we change things when moving *past* the child center - not when it hits the center
       If we make it when we *hit* the child center then there can be
       a hit on the next update causing a flicker.
@@ -101,29 +98,28 @@ export default ({
       - Update 3: goto 1 (boom)
     */
 
-      if (didStartAfterCritical) {
-        // Continue to displace while targetEnd before the childCenter
-        // Move once we *move forward past* the childCenter
-        if (isDisplaced) {
-          return targetEnd <= childCenter;
-        }
-
-        // Has been moved backwards from where it started
-        // Displace forwards when targetStart *moves backwards past* the displaced childCenter
-        return targetStart < childCenter - displacement;
-      }
-
-      // Item has been shifted forward.
-      // Remove displacement when targetEnd moves forward past the displaced center
+    if (didStartAfterCritical) {
+      // Continue to displace while targetEnd before the childCenter
+      // Move once we *move forward past* the childCenter
       if (isDisplaced) {
-        return targetEnd <= childCenter + displacement;
+        return targetEnd <= childCenter;
       }
 
-      // Item is behind the dragging item
-      // We want to displace it if the targetStart goes *backwards past* the childCenter
-      return targetStart < childCenter;
-    },
-  );
+      // Has been moved backwards from where it started
+      // Displace forwards when targetStart *moves backwards past* the displaced childCenter
+      return targetStart < childCenter - displacement;
+    }
+
+    // Item has been shifted forward.
+    // Remove displacement when targetEnd moves forward past the displaced center
+    if (isDisplaced) {
+      return targetEnd <= childCenter + displacement;
+    }
+
+    // Item is behind the dragging item
+    // We want to displace it if the targetStart goes *backwards past* the childCenter
+    return targetStart < childCenter;
+  });
 
   const newIndex: number | undefined | null = atIndex({
     draggable,

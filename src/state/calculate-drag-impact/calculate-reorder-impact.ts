@@ -9,7 +9,6 @@ import type {
 import removeDraggableFromList from '../remove-draggable-from-list';
 import isHomeOf from '../droppable/is-home-of';
 import { emptyGroups } from '../no-impact';
-import { find } from '../../native-with-fallback';
 import getDisplacementGroups from '../get-displacement-groups';
 
 type Args = {
@@ -93,8 +92,7 @@ export default function calculateReorderImpact({
   }
 
   // this might be the dragging item
-  const match: DraggableDimension | undefined | null = find(
-    insideDestination,
+  const match = insideDestination.find(
     (item: DraggableDimension) => item.descriptor.index === index,
   );
 
