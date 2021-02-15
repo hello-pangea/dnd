@@ -97,7 +97,7 @@
     "@storybook/react": "^6.1.11",
     "@storybook/theming": "^6.1.11",
     "@testing-library/react": "^11.2.2",
-    "@types/react": "^16.14.2",
+    "@types/react": "^17.0.2",
     "@types/react-dom": "^16.9.10",
     "@types/react-virtualized": "^9.21.10",
     "@types/react-window": "^1.8.2",
