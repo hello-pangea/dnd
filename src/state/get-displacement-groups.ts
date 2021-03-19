@@ -20,7 +20,7 @@ type Args = {
 };
 
 const getShouldAnimate = (
-  id,
+  id: DraggableId,
   last?: DisplacementGroups | null,
   forceShouldAnimate?: boolean | null,
 ) => {
