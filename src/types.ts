@@ -336,8 +336,14 @@ export type IdleState = {
   shouldFlush: boolean;
 };
 
-export type DraggingState = {
-  phase: 'DRAGGING';
+export type DraggingState<
+  TPhase extends
+    | 'DRAGGING'
+    | 'COLLECTING'
+    | 'DROP_PENDING'
+    | 'DROP_ANIMATING' = 'DRAGGING'
+> = {
+  phase: TPhase;
   isDragging: true;
   critical: Critical;
   movementMode: MovementMode;
@@ -361,23 +367,19 @@ export type DraggingState = {
 // If a drop occurs during this phase, it must wait until it is
 // completed before continuing with the drop
 // TODO: rename to BulkCollectingState
-export type CollectingState = {
-  phase: 'COLLECTING';
-} & DraggingState;
+export type CollectingState = DraggingState<'COLLECTING'>;
 
 // If a drop action occurs during a bulk collection we need to
 // wait for the collection to finish before performing the drop.
 // This is to ensure that everything has the correct index after
 // a drop
-export type DropPendingState = {
-  phase: 'DROP_PENDING';
+export interface DropPendingState extends DraggingState<'DROP_PENDING'> {
   isWaiting: boolean;
   reason: DropReason;
-} & DraggingState;
+}
 
 // An optional phase for animating the drop / cancel if it is needed
-export type DropAnimatingState = {
-  phase: 'DROP_ANIMATING';
+export interface DropAnimatingState extends DraggingState<'DROP_ANIMATING'> {
   completed: CompletedDrag;
   newHomeClientOffset: Position;
   dropDuration: number;
