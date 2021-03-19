@@ -7,6 +7,10 @@ interface Process {
 }
 
 declare global {
+  type AnimationFrameID = number;
+  type TimeoutID = number;
+  type IntervalID = number;
+
   const process: Process;
 
   interface Window {
