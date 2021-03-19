@@ -69,6 +69,7 @@
     "raf-schd": "^4.0.2",
     "react-redux": "^7.2.0",
     "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.9",
     "use-memo-one": "^1.1.1"
   },
   "devDependencies": {

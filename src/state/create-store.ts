@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { applyMiddleware, createStore, compose } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from './reducer';
 import lift from './middleware/lift';
 import style from './middleware/style';
@@ -19,14 +20,10 @@ import type { AutoScroller } from './auto-scroller/auto-scroller-types';
 import type { Responders, Announce } from '../types';
 import type { Store } from './store-types';
 
-// We are checking if window is available before using it.
-// This is needed for universal apps that render the component server side.
-// Details: https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
 const composeEnhancers =
-  process.env.NODE_ENV !== 'production' &&
-  typeof window !== 'undefined' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+  process.env.NODE_ENV !== 'production'
+    ? // Details: https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/Recipes.md#using-in-a-typescript-project
+      composeWithDevTools({
         name: '@react-forked/dnd',
       })
     : compose;
