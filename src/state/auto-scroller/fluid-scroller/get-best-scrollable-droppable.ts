@@ -32,13 +32,14 @@ const getScrollableDroppableOver = (
   target: Position,
   droppables: DroppableDimensionMap,
 ): DroppableDimension | null => {
-  const maybe = getScrollableDroppables(droppables).find(
-    (droppable: DroppableDimension): boolean => {
-      invariant(droppable.frame, 'Invalid result');
+  const maybe =
+    getScrollableDroppables(droppables).find(
+      (droppable: DroppableDimension): boolean => {
+        invariant(droppable.frame, 'Invalid result');
 
-      return isPositionInFrame(droppable.frame.pageMarginBox)(target);
-    },
-  );
+        return isPositionInFrame(droppable.frame.pageMarginBox)(target);
+      },
+    ) || null;
 
   return maybe;
 };
