@@ -385,7 +385,7 @@ export interface DropAnimatingState extends DraggingState<'DROP_ANIMATING'> {
   dropDuration: number;
   // We still need to render placeholders and fix the dimensions of the dragging item
   dimensions: DimensionMap;
-};
+}
 
 export type State =
   | IdleState

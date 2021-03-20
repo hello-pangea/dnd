@@ -21,9 +21,6 @@ import type {
   DraggableId,
   OnBeforeCaptureResponder,
   OnBeforeDragStartResponder,
-  OnDragStartResponder,
-  OnDragUpdateResponder,
-  OnDragEndResponder,
 } from '../../../types';
 import { isCombineEqual, isCriticalEqual, areLocationsEqual } from './is-equal';
 import { tryGetDestination, tryGetCombine } from '../../get-impact-location';
@@ -46,18 +43,24 @@ const getDragStart = (critical: Critical, mode: MovementMode): DragStart => ({
   mode,
 });
 
-type AnyPrimaryResponderFn =
-  | OnDragStartResponder
-  | OnDragUpdateResponder
-  | OnDragEndResponder;
 type AnyResponderData = DragStart | DragUpdate | DropResult;
 
-const execute = (
-  responder: AnyPrimaryResponderFn | null,
-  data: AnyResponderData,
+type PrimaryResponderFn<TData extends AnyResponderData> = (
+  data: TData,
+  provided: ResponderProvided,
+) => unknown;
+
+type GetDefaultMessage<TData extends AnyResponderData> = (
+  data: TData,
+) => string;
+
+function execute<TData extends AnyResponderData>(
+  responder: PrimaryResponderFn<TData> | undefined,
+  data: TData,
   announce: Announce,
-  getDefaultMessage: (data: any) => string,
-) => {
+  // eslint-disable-next-line no-shadow
+  getDefaultMessage: GetDefaultMessage<TData>,
+) {
   if (!responder) {
     announce(getDefaultMessage(data));
     return;
@@ -69,7 +72,7 @@ const execute = (
   };
 
   // Casting because we are not validating which data type is going into which responder
-  responder(data as any, provided);
+  responder(data, provided);
 
   if (!willExpire.wasCalled()) {
     announce(getDefaultMessage(data));
@@ -94,7 +97,7 @@ export default (getResponders: () => Responders, announce: Announce) => {
     );
     withTimings('onBeforeCapture', () => {
       // No use of screen reader for this responder
-      const fn: OnBeforeCaptureResponder | null = getResponders()
+      const fn: OnBeforeCaptureResponder | undefined = getResponders()
         .onBeforeCapture;
       if (fn) {
         const before: BeforeCapture = {
@@ -113,7 +116,7 @@ export default (getResponders: () => Responders, announce: Announce) => {
     );
     withTimings('onBeforeDragStart', () => {
       // No use of screen reader for this responder
-      const fn: OnBeforeDragStartResponder | null = getResponders()
+      const fn: OnBeforeDragStartResponder | undefined = getResponders()
         .onBeforeDragStart;
       if (fn) {
         fn(getDragStart(critical, mode));
