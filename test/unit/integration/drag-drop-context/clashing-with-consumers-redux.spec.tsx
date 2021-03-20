@@ -9,7 +9,6 @@ import type { DraggableProvided, DroppableProvided } from '../../../../src';
 type AppState = {
   foo: string;
   // Needed to appease react-redux connect type
-  // eslint-disable-next-line react/no-unused-prop-types
   dispatch?: () => void;
 };
 

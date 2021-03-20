@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { DragDropContext, Droppable, Draggable } from '../../../src';
 
 // fake data generator
@@ -46,9 +45,6 @@ const getListStyle = (isDraggingOver, overflow) => ({
 });
 
 export default class App extends Component {
-  static propTypes = {
-    overflow: PropTypes.string,
-  };
   static defaultProps = {
     overflow: 'auto',
   };

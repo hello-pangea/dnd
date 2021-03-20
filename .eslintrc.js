@@ -170,6 +170,9 @@ module.exports = {
     // Having issues with this rule not working correctly
     'react/default-props-match-prop-types': 'off',
 
+    // We do not need PropTypes validation
+    'react/prop-types': 'off',
+
     // Allowing functions to be passed as props
     'react/jsx-no-bind': 'off',
 

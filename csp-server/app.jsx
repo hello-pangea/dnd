@@ -3,7 +3,6 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { DragDropContext, Droppable, Draggable } from '../src';
 
 // fake data generator
@@ -90,7 +89,3 @@ export default class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  nonce: PropTypes.string,
-};
