@@ -54,7 +54,9 @@ const postDroppableChange = (
   });
 };
 
-function removeScrollJumpRequest(state: State): State {
+function removeScrollJumpRequest(
+  state: DraggingState | CollectingState | DropPendingState,
+): DraggingState | CollectingState | DropPendingState {
   if (state.isDragging && state.movementMode === 'SNAP') {
     return {
       ...state,

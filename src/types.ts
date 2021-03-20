@@ -330,20 +330,14 @@ export type CompletedDrag = {
   afterCritical: LiftEffect;
 };
 
-export type IdleState = {
+export interface IdleState {
   phase: 'IDLE';
   completed: CompletedDrag | null;
   shouldFlush: boolean;
-};
+}
 
-export type DraggingState<
-  TPhase extends
-    | 'DRAGGING'
-    | 'COLLECTING'
-    | 'DROP_PENDING'
-    | 'DROP_ANIMATING' = 'DRAGGING'
-> = {
-  phase: TPhase;
+interface BaseState {
+  phase: unknown;
   isDragging: true;
   critical: Critical;
   movementMode: MovementMode;
@@ -361,25 +355,32 @@ export type DraggingState<
   // whether or not draggable movements should be animated
   forceShouldAnimate: boolean | null;
 };
+export interface DraggingState extends BaseState {
+  phase: 'DRAGGING';
+}
 
 // While dragging we can enter into a bulk collection phase
 // During this phase no drag updates are permitted.
 // If a drop occurs during this phase, it must wait until it is
 // completed before continuing with the drop
 // TODO: rename to BulkCollectingState
-export type CollectingState = DraggingState<'COLLECTING'>;
+export interface CollectingState extends BaseState {
+  phase: 'COLLECTING';
+}
 
 // If a drop action occurs during a bulk collection we need to
 // wait for the collection to finish before performing the drop.
 // This is to ensure that everything has the correct index after
 // a drop
-export interface DropPendingState extends DraggingState<'DROP_PENDING'> {
+export interface DropPendingState extends BaseState {
+  phase: 'DROP_PENDING';
   isWaiting: boolean;
   reason: DropReason;
 }
 
 // An optional phase for animating the drop / cancel if it is needed
-export interface DropAnimatingState extends DraggingState<'DROP_ANIMATING'> {
+export interface DropAnimatingState {
+  phase: 'DROP_ANIMATING';
   completed: CompletedDrag;
   newHomeClientOffset: Position;
   dropDuration: number;
