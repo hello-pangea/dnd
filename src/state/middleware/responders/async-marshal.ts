@@ -2,11 +2,11 @@ import { invariant } from '../../../invariant';
 
 type Entry = {
   timerId: TimeoutID;
-  callback: Function;
+  callback: () => void;
 };
 
 export type AsyncMarshal = {
-  add: (fn: Function) => void;
+  add: (fn: () => void) => void;
   flush: () => void;
 };
 
@@ -23,7 +23,7 @@ export default () => {
     entry.callback();
   };
 
-  const add = (fn: Function) => {
+  const add = (fn: () => void) => {
     const timerId: TimeoutID = setTimeout(() => execute(timerId));
     const entry: Entry = {
       timerId,

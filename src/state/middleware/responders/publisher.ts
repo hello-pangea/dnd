@@ -28,7 +28,7 @@ import type {
 import { isCombineEqual, isCriticalEqual, areLocationsEqual } from './is-equal';
 import { tryGetDestination, tryGetCombine } from '../../get-impact-location';
 
-const withTimings = (key: string, fn: Function) => {
+const withTimings = (key: string, fn: () => void) => {
   timings.start(key);
   fn();
   timings.finish(key);
