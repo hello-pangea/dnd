@@ -1,5 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import { Component } from 'react';
 import { connect } from 'react-redux';
 import memoizeOne from 'memoize-one';
 import { invariant } from '../../invariant';
@@ -29,6 +27,7 @@ import Droppable from './droppable';
 import isStrictEqual from '../is-strict-equal';
 import whatIsDraggedOver from '../../state/droppable/what-is-dragged-over';
 import { updateViewportMaxScroll as updateViewportMaxScrollAction } from '../../state/action-creators';
+import isDragging from '../../state/is-dragging';
 import StoreContext from '../context/store-context';
 import whatIsDraggedOverFromResult from '../../state/droppable/what-is-dragged-over-from-result';
 
@@ -142,7 +141,7 @@ export const makeMapStateToProps = (): Selector => {
     const isEnabled = !ownProps.isDropDisabled;
     const renderClone: DraggableChildrenFn | null = ownProps.renderClone;
 
-    if (state.isDragging) {
+    if (isDragging(state)) {
       const critical: Critical = state.critical;
       if (!isMatchingType(type, critical)) {
         return idleWithoutAnimation;

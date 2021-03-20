@@ -190,7 +190,16 @@ export default function App(props: Props) {
 
   const isDragging = useCallback((): boolean => {
     const state: State = getStore(lazyStoreRef).getState();
-    return state.isDragging || state.phase === 'DROP_ANIMATING';
+
+    if (state.phase === 'DROP_ANIMATING') {
+      return true;
+    }
+
+    if (state.phase === 'IDLE') {
+      return false;
+    }
+
+    return state.isDragging;
   }, []);
 
   const appCallbacks: AppCallbacks = useMemo(
@@ -240,7 +249,7 @@ export default function App(props: Props) {
     contextId,
     store,
     registry,
-    customSensors: sensors,
+    customSensors: sensors || null,
     // default to 'true' unless 'false' is explicitly passed
     enableDefaultSensors: props.enableDefaultSensors !== false,
   });

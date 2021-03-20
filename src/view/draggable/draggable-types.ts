@@ -168,8 +168,8 @@ export type PrivateOwnProps = {
   shouldRespectForcePress: boolean;
 } & PublicOwnProps;
 
-export type OwnProps = {} & PrivateOwnProps;
+export type OwnProps = PrivateOwnProps;
 
-export type Props = {} & MapProps & DispatchProps & OwnProps;
+export type Props = MapProps & DispatchProps & OwnProps;
 
 export type Selector = (state: State, ownProps: OwnProps) => MapProps;

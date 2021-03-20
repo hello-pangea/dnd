@@ -32,6 +32,7 @@ import {
   flush,
 } from '../../state/action-creators';
 import type { LiftArgs as LiftActionArgs } from '../../state/action-creators';
+import isDragging from '../../state/is-dragging';
 import type {
   Registry,
   DraggableEntry,
@@ -223,7 +224,7 @@ function tryStart({
     // Double lift = bad
     if (phase !== 'PRE_DRAG') {
       completed();
-      invariant(phase === 'PRE_DRAG', `Cannot lift in phase ${phase}`);
+      invariant(false, `Cannot lift in phase ${phase}`);
     }
 
     store.dispatch(liftAction(args.liftActionArgs));
@@ -310,7 +311,7 @@ function tryStart({
     return lift({
       liftActionArgs: {
         id: draggableId,
-        clientSelection: getBorderBoxCenterPosition(el),
+        clientSelection: getBorderBoxCenterPosition(el as HTMLElement),
         movementMode: 'SNAP',
       },
       cleanup: noop,
@@ -369,7 +370,7 @@ export default function useSensorMarshal({
   registry,
   customSensors,
   enableDefaultSensors,
-}: SensorMarshalArgs) {
+}: SensorMarshalArgs): void {
   const useSensors: Sensor[] = [
     ...(enableDefaultSensors ? defaultSensors : []),
     ...(customSensors || []),
@@ -378,7 +379,7 @@ export default function useSensorMarshal({
 
   const tryAbandonLock = useCallback(
     function tryAbandonLock(previous: State, current: State) {
-      if (previous.isDragging && !current.isDragging) {
+      if (isDragging(previous) && !isDragging(current)) {
         lockAPI.tryAbandon();
       }
     },
@@ -430,7 +431,7 @@ export default function useSensorMarshal({
         contextId,
         store,
         draggableId,
-        forceSensorStop: forceStop,
+        forceSensorStop: forceStop || null,
         sourceEvent:
           options && options.sourceEvent ? options.sourceEvent : null,
       }),

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { useMemo, useCallback } from 'use-memo-one';
 import type { DraggableRubric, DraggableDescriptor } from '../../types';
 import getStyle from './get-style';
@@ -19,10 +19,10 @@ function preventHtml5Dnd(event: DragEvent) {
   event.preventDefault();
 }
 
-export default function Draggable(props: Props) {
+const Draggable: React.FunctionComponent<Props> = (props) => {
   // reference to DOM node
   const ref = useRef<HTMLElement | null>(null);
-  const setRef = useCallback((el?: HTMLElement | null) => {
+  const setRef = useCallback((el: HTMLElement | null = null) => {
     ref.current = el;
   }, []);
   const getRef = useCallback((): HTMLElement | null => ref.current, []);
@@ -165,5 +165,7 @@ export default function Draggable(props: Props) {
     [descriptor.droppableId, descriptor.id, descriptor.index, descriptor.type],
   );
 
-  return children(provided, mapped.snapshot, rubric);
-}
+  return <>{children(provided, mapped.snapshot, rubric)}</>;
+};
+
+export default Draggable;

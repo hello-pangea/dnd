@@ -1,9 +1,8 @@
 import type { Position } from 'css-box-model';
-// eslint-disable-next-line
-import { Component } from 'react';
 import memoizeOne from 'memoize-one';
 import { connect } from 'react-redux';
 import Draggable from './draggable';
+import isDragging from '../../state/is-dragging';
 import { origin, negate } from '../../state/position';
 import isStrictEqual from '../is-strict-equal';
 import * as animation from '../../animation';
@@ -58,9 +57,9 @@ function getDraggableSelector(): TrySelect {
     (
       mode: MovementMode,
       isClone: boolean,
-      draggingOver?: DroppableId | null,
-      combineWith?: DraggableId | null,
-      dropping?: DropAnimation | null,
+      draggingOver: DroppableId | null = null,
+      combineWith: DraggableId | null = null,
+      dropping: DropAnimation | null = null,
     ): StateSnapshot => ({
       isDragging: true,
       isClone,
@@ -80,10 +79,10 @@ function getDraggableSelector(): TrySelect {
       dimension: DraggableDimension,
       isClone: boolean,
       // the id of the droppable you are over
-      draggingOver?: DroppableId | null,
+      draggingOver: DroppableId | null = null,
       // the id of a draggable you are grouping with
-      combineWith?: DraggableId | null,
-      forceShouldAnimate?: boolean | null,
+      combineWith: DraggableId | null = null,
+      forceShouldAnimate: boolean | null = null,
     ): MapProps => ({
       mapped: {
         type: 'DRAGGING',
@@ -110,7 +109,7 @@ function getDraggableSelector(): TrySelect {
     ownProps: OwnProps,
   ): MapProps | null => {
     // Dragging
-    if (state.isDragging) {
+    if (isDragging(state)) {
       // not the dragging item
       if (state.critical.draggable.id !== ownProps.draggableId) {
         return null;
@@ -193,7 +192,7 @@ function getDraggableSelector(): TrySelect {
 }
 
 function getSecondarySnapshot(
-  combineTargetFor?: DraggableId | null,
+  combineTargetFor: DraggableId | null = null,
 ): StateSnapshot {
   return {
     isDragging: false,
@@ -312,7 +311,7 @@ function getSecondarySelector(): TrySelect {
     ownProps: OwnProps,
   ): MapProps | null => {
     // Dragging
-    if (state.isDragging) {
+    if (isDragging(state)) {
       // we do not care about the dragging item
       if (state.critical.draggable.id === ownProps.draggableId) {
         return null;
