@@ -9,8 +9,9 @@ import type {
   FluidDragActions,
 } from '../../../types';
 import type {
-  EventBinding,
+  AnyEventBinding,
   EventOptions,
+  TouchEventBinding,
 } from '../../event-bindings/event-types';
 import bindEvents from '../../event-bindings/bind-events';
 import * as keyCodes from '../../key-codes';
@@ -56,7 +57,7 @@ type GetBindingArgs = {
 function getWindowBindings({
   cancel,
   getPhase,
-}: GetBindingArgs): EventBinding[] {
+}: GetBindingArgs): AnyEventBinding[] {
   return [
     // If the orientation of the device changes - kill the drag
     // https://davidwalsh.name/orientation-change
@@ -112,7 +113,7 @@ function getHandleBindings({
   cancel,
   completed,
   getPhase,
-}: GetBindingArgs): EventBinding[] {
+}: GetBindingArgs): AnyEventBinding[] {
   return [
     {
       eventName: 'touchmove',
@@ -254,7 +255,7 @@ export default function useMouseSensor(api: SensorAPI) {
     phaseRef.current = phase;
   }, []);
 
-  const startCaptureBinding: EventBinding = useMemo(
+  const startCaptureBinding: TouchEventBinding = useMemo(
     () => ({
       eventName: 'touchstart',
       fn: function onTouchStart(event: TouchEvent) {
@@ -452,6 +453,7 @@ export default function useMouseSensor(api: SensorAPI) {
         // using a new noop function for each usage as a single `removeEventListener()`
         // call will remove all handlers with the same reference
         // https://codesandbox.io/s/removing-multiple-handlers-with-same-reference-fxe15
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         fn: () => {},
         options: { capture: false, passive: false },
       },

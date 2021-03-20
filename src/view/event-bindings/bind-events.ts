@@ -1,4 +1,8 @@
-import type { EventBinding, EventOptions } from './event-types';
+import type {
+  AnyEventBinding,
+  EventBinding,
+  EventOptions,
+} from './event-types';
 
 type UnbindFn = () => void;
 
@@ -13,13 +17,13 @@ function getOptions(
 }
 
 export default function bindEvents(
-  el: HTMLElement,
-  bindings: EventBinding[],
+  el: HTMLElement | Window,
+  bindings: AnyEventBinding[],
   sharedOptions?: EventOptions,
-): Function {
-  const unbindings: UnbindFn[] = bindings.map(
-    (binding: EventBinding): UnbindFn => {
-      const options: any = getOptions(sharedOptions, binding.options);
+): () => void {
+  const unbindings: UnbindFn[] = (bindings as EventBinding[]).map(
+    (binding): UnbindFn => {
+      const options = getOptions(sharedOptions, binding.options);
 
       el.addEventListener(binding.eventName, binding.fn, options);
 

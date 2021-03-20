@@ -8,7 +8,8 @@ import type {
   DraggableId,
 } from '../../../types';
 import type {
-  EventBinding,
+  KeyboardEventBinding,
+  AnyEventBinding,
   EventOptions,
 } from '../../event-bindings/event-types';
 import * as keyCodes from '../../key-codes';
@@ -33,7 +34,7 @@ const scrollJumpKeys: KeyMap = {
 function getDraggingBindings(
   actions: SnapDragActions,
   stop: () => void,
-): EventBinding[] {
+): AnyEventBinding[] {
   function cancel() {
     stop();
     actions.cancel();
@@ -140,7 +141,7 @@ function getDraggingBindings(
 export default function useKeyboardSensor(api: SensorAPI) {
   const unbindEventsRef = useRef<() => void>(noop);
 
-  const startCaptureBinding: EventBinding = useMemo(
+  const startCaptureBinding: KeyboardEventBinding = useMemo(
     () => ({
       eventName: 'keydown',
       fn: function onKeyDown(event: KeyboardEvent) {

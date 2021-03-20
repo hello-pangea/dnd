@@ -10,8 +10,10 @@ import type {
   DraggableOptions,
 } from '../../../types';
 import type {
+  AnyEventBinding,
   EventBinding,
   EventOptions,
+  MouseEventBinding,
 } from '../../event-bindings/event-types';
 import bindEvents from '../../event-bindings/bind-events';
 import * as keyCodes from '../../key-codes';
@@ -65,7 +67,7 @@ function getCaptureBindings({
   completed,
   getPhase,
   setPhase,
-}: GetCaptureArgs): EventBinding[] {
+}: GetCaptureArgs): AnyEventBinding[] {
   return [
     {
       eventName: 'mousemove',
@@ -210,7 +212,7 @@ export default function useMouseSensor(api: SensorAPI) {
   const phaseRef = useRef<Phase>(idle);
   const unbindEventsRef = useRef<() => void>(noop);
 
-  const startCaptureBinding: EventBinding = useMemo(
+  const startCaptureBinding: MouseEventBinding = useMemo(
     () => ({
       eventName: 'mousedown',
       fn: function onMouseDown(event: MouseEvent) {
@@ -346,7 +348,7 @@ export default function useMouseSensor(api: SensorAPI) {
   const bindCapturingEvents = useCallback(
     function bindCapturingEvents() {
       const options = { capture: true, passive: false };
-      const bindings: EventBinding[] = getCaptureBindings({
+      const bindings: AnyEventBinding[] = getCaptureBindings({
         cancel,
         completed: stop,
         getPhase: () => phaseRef.current,

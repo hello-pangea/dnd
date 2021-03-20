@@ -2,7 +2,7 @@ import type { Position } from 'css-box-model';
 import rafSchd from 'raf-schd';
 import { invariant } from '../invariant';
 import bindEvents from './event-bindings/bind-events';
-import type { EventBinding } from './event-bindings/event-types';
+import type { UIEventBinding } from './event-bindings/event-types';
 import getWindowScroll from './window/get-window-scroll';
 import { noop } from '../empty';
 
@@ -18,7 +18,7 @@ type Result = {
   isActive: () => boolean;
 };
 
-function getWindowScrollBinding(update: () => void): EventBinding {
+function getWindowScrollBinding(update: () => void): UIEventBinding {
   return {
     eventName: 'scroll',
     // ## Passive: true
@@ -49,7 +49,7 @@ export default function getScrollListener({ onWindowScroll }: Args): Result {
   }
 
   const scheduled = rafSchd(updateScroll);
-  const binding: EventBinding = getWindowScrollBinding(scheduled);
+  const binding: UIEventBinding = getWindowScrollBinding(scheduled);
   let unbind: () => void = noop;
 
   function isActive(): boolean {
