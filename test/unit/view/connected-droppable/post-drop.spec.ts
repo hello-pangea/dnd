@@ -5,7 +5,7 @@ import type {
   IdleState,
 } from '../../../../src/types';
 import type {
-  OwnProps,
+  PublicOwnProps,
   Selector,
   MapProps,
 } from '../../../../src/view/droppable/droppable-types';
@@ -31,7 +31,7 @@ const isOverHomeMapProps: MapProps = {
 
 describe('was over - reordering', () => {
   it('should immediately remove a placeholder', () => {
-    const ownProps: OwnProps = getOwnProps(preset.home);
+    const ownProps: PublicOwnProps = getOwnProps(preset.home);
     const selector: Selector = makeMapStateToProps();
     // initial value: not animated
     const atRest: MapProps = selector(state.idle, ownProps);
@@ -57,7 +57,7 @@ describe('was over - reordering', () => {
 
 describe('was over - merging', () => {
   it('should animate a placeholder closed', () => {
-    const ownProps: OwnProps = getOwnProps(preset.home);
+    const ownProps: PublicOwnProps = getOwnProps(preset.home);
     const selector: Selector = makeMapStateToProps();
     const atRest: MapProps = selector(state.idle, ownProps);
 
@@ -107,7 +107,7 @@ describe('was over - merging', () => {
 
 describe('was not over', () => {
   it('should animate a placeholder closed', () => {
-    const ownProps: OwnProps = getOwnProps(preset.foreign);
+    const ownProps: PublicOwnProps = getOwnProps(preset.foreign);
     const selector: Selector = makeMapStateToProps();
     const atRest: MapProps = selector(state.idle, ownProps);
 
@@ -133,7 +133,7 @@ describe('was not over', () => {
 
 describe('flushed', () => {
   it('should cut an animation', () => {
-    const ownProps: OwnProps = getOwnProps(preset.home);
+    const ownProps: PublicOwnProps = getOwnProps(preset.home);
     const selector: Selector = makeMapStateToProps();
     const atRest: MapProps = selector(state.idle, ownProps);
 
@@ -179,7 +179,7 @@ describe('flushed', () => {
   });
 
   it('should cut animation in a list that was not animating', () => {
-    const ownProps: OwnProps = getOwnProps(preset.foreign);
+    const ownProps: PublicOwnProps = getOwnProps(preset.foreign);
     const selector: Selector = makeMapStateToProps();
     const atRest: MapProps = selector(state.idle, ownProps);
 

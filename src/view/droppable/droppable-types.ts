@@ -72,14 +72,19 @@ export type DispatchProps = {
   updateViewportMaxScroll: typeof updateViewportMaxScroll;
 };
 
-export type OwnProps = {
+export type PublicOwnProps = {
   children: (b: Provided, a: StateSnapshot) => ReactNode;
   droppableId: DroppableId;
-  renderClone: DraggableChildrenFn | null;
-} & DefaultProps;
+  renderClone?: DraggableChildrenFn | null;
+} & Partial<DefaultProps>;
 
-export type Props = {} & MapProps & DispatchProps & OwnProps;
+export type InternalOwnProps = PublicOwnProps &
+  DefaultProps & {
+    renderClone: DraggableChildrenFn | null;
+  };
+
+export type Props = MapProps & DispatchProps & InternalOwnProps;
 
 // Having issues getting the correct type
 // export type Selector = OutputSelector<State, OwnProps, MapProps>;
-export type Selector = (state: State, ownProps: OwnProps) => MapProps;
+export type Selector = (state: State, ownProps: InternalOwnProps) => MapProps;

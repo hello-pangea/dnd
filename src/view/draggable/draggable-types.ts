@@ -1,5 +1,9 @@
 import type { Position } from 'css-box-model';
-import type { ReactNode } from 'react';
+import type {
+  ReactNode,
+  DragEventHandler,
+  TransitionEventHandler,
+} from 'react';
 import type {
   DraggableId,
   DroppableId,
@@ -20,10 +24,10 @@ export type DraggingStyle = {
   width: number;
   height: number;
   transition: string;
-  transform: string | null;
+  transform?: string;
   zIndex: number;
   // for combining
-  opacity: number | null;
+  opacity?: number;
   // Avoiding any processing of mouse events.
   // This is already applied by the shared styles during a drag.
   // During a drop it prevents a draggable from being dragged.
@@ -33,10 +37,10 @@ export type DraggingStyle = {
 };
 
 export type NotDraggingStyle = {
-  transform: string | null;
+  transform?: string;
   // null: use the global animation style
   // none: skip animation (used in certain displacement situations)
-  transition: null | 'none';
+  transition?: 'none';
 };
 
 export type DraggableStyle = DraggingStyle | NotDraggingStyle;
@@ -49,13 +53,13 @@ export type ZIndexOptions = {
 // Props that can be spread onto the element directly
 export type DraggableProps = {
   // inline style
-  style: DraggableStyle | null;
+  style?: DraggableStyle;
   // used for shared global styles
   'data-rfd-draggable-context-id': ContextId;
   // used for lookups
   'data-rfd-draggable-id': DraggableId;
   // used to know when a transition ends
-  onTransitionEnd: ((event: TransitionEvent) => void) | null;
+  onTransitionEnd?: TransitionEventHandler;
 };
 
 export type DragHandleProps = {
@@ -79,7 +83,7 @@ export type DragHandleProps = {
   tabIndex: number;
   // Opting out of html5 drag and drop
   draggable: boolean;
-  onDragStart: (event: DragEvent) => void;
+  onDragStart: DragEventHandler;
 };
 
 export type Provided = {

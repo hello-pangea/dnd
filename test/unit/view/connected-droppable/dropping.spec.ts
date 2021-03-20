@@ -4,7 +4,7 @@ import type {
   DropAnimatingState,
 } from '../../../../src/types';
 import type {
-  OwnProps,
+  PublicOwnProps,
   Selector,
   MapProps,
 } from '../../../../src/view/droppable/droppable-types';
@@ -34,7 +34,7 @@ describe('home list', () => {
     };
 
     it('should not break memoization from a reorder', () => {
-      const ownProps: OwnProps = getOwnProps(preset.home);
+      const ownProps: PublicOwnProps = getOwnProps(preset.home);
       const selector: Selector = makeMapStateToProps();
 
       const whileDragging: MapProps = selector(state.dragging(), ownProps);
@@ -46,7 +46,7 @@ describe('home list', () => {
     });
 
     it('should not break memoization from a combine', () => {
-      const ownProps: OwnProps = getOwnProps(preset.home);
+      const ownProps: PublicOwnProps = getOwnProps(preset.home);
       const selector: Selector = makeMapStateToProps();
       const combine: DragImpact = {
         ...state.dragging().impact,
@@ -79,7 +79,7 @@ describe('home list', () => {
     });
 
     it('should use the completed.result and not the completed.impact for determining if over', () => {
-      const ownProps: OwnProps = getOwnProps(preset.home);
+      const ownProps: PublicOwnProps = getOwnProps(preset.home);
       const selector: Selector = makeMapStateToProps();
 
       const stateWhenDropping: DropAnimatingState = state.userCancel();
@@ -112,7 +112,7 @@ describe('home list', () => {
 
   describe('was not being dragged over', () => {
     it('should maintain a placeholder and not break memoization', () => {
-      const ownProps: OwnProps = getOwnProps(preset.home);
+      const ownProps: PublicOwnProps = getOwnProps(preset.home);
       const selector: Selector = makeMapStateToProps();
       const isHomeButNotOver: MapProps = {
         placeholder: preset.inHome1.placeholder,
@@ -155,7 +155,7 @@ describe('home list', () => {
 });
 
 it('should return the dragging props for every dragging phase for a foreign list', () => {
-  const ownProps: OwnProps = getOwnProps(preset.foreign);
+  const ownProps: PublicOwnProps = getOwnProps(preset.foreign);
   const selector: Selector = makeMapStateToProps();
   const defaultProps: MapProps = selector(state.idle, ownProps);
 

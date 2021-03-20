@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, DragEvent, TransitionEvent } from 'react';
 import { useMemo, useCallback } from 'use-memo-one';
 import type { DraggableRubric, DraggableDescriptor } from '../../types';
 import getStyle from './get-style';
@@ -137,7 +137,7 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
   const provided: Provided = useMemo(() => {
     const style: DraggableStyle = getStyle(mapped);
     const onTransitionEnd =
-      mapped.type === 'DRAGGING' && mapped.dropping ? onMoveEnd : null;
+      mapped.type === 'DRAGGING' && mapped.dropping ? onMoveEnd : undefined;
 
     const result: Provided = {
       innerRef: setRef,

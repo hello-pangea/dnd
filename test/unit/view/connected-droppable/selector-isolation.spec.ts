@@ -2,7 +2,7 @@ import getStatePreset from '../../../util/get-simple-state-preset';
 import { makeMapStateToProps } from '../../../../src/view/droppable/connected-droppable';
 import type { State } from '../../../../src/types';
 import type {
-  OwnProps,
+  PublicOwnProps,
   Selector,
 } from '../../../../src/view/droppable/droppable-types';
 import getOwnProps from './util/get-own-props';
@@ -13,9 +13,9 @@ const state = getStatePreset();
 
 it('should not break memoization across selectors', () => {
   const homeSelector: Selector = makeMapStateToProps();
-  const homeOwnProps: OwnProps = getOwnProps(preset.home);
+  const homeOwnProps: PublicOwnProps = getOwnProps(preset.home);
   const foreignSelector: Selector = makeMapStateToProps();
-  const foreignOwnProps: OwnProps = getOwnProps(preset.foreign);
+  const foreignOwnProps: PublicOwnProps = getOwnProps(preset.foreign);
 
   state.allPhases(preset.inHome1.descriptor.id).forEach((current: State) => {
     const home1 = homeSelector(current, homeOwnProps);

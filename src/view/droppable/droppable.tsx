@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import { useMemo, useCallback } from 'use-memo-one';
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, FunctionComponent } from 'react';
 import type { ReactNode } from 'react';
 import { invariant } from '../../invariant';
 import type { DraggableId } from '../../types';
@@ -22,7 +22,7 @@ import AnimateInOut from '../animate-in-out/animate-in-out';
 import type { AnimateProvided } from '../animate-in-out/animate-in-out';
 import { PrivateDraggable } from '../draggable/draggable-api';
 
-export default function Droppable(props: Props) {
+const Droppable: FunctionComponent<Props> = (props) => {
   const appContext: AppContextValue | null = useContext<AppContextValue | null>(
     AppContext,
   );
@@ -55,14 +55,14 @@ export default function Droppable(props: Props) {
     (): HTMLElement | null => droppableRef.current,
     [],
   );
-  const setDroppableRef = useCallback((value?: HTMLElement | null) => {
+  const setDroppableRef = useCallback((value: HTMLElement | null = null) => {
     droppableRef.current = value;
   }, []);
   const getPlaceholderRef = useCallback(
     (): HTMLElement | null => placeholderRef.current,
     [],
   );
-  const setPlaceholderRef = useCallback((value?: HTMLElement | null) => {
+  const setPlaceholderRef = useCallback((value: HTMLElement | null = null) => {
     placeholderRef.current = value;
   }, []);
 
@@ -175,4 +175,6 @@ export default function Droppable(props: Props) {
       {getClone()}
     </DroppableContext.Provider>
   );
-}
+};
+
+export default Droppable;

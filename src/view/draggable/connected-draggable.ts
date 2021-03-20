@@ -1,5 +1,6 @@
 import type { Position } from 'css-box-model';
 import memoizeOne from 'memoize-one';
+import type { FunctionComponent } from 'react';
 import { connect } from 'react-redux';
 import Draggable from './draggable';
 import isDragging from '../../state/is-dragging';
@@ -21,6 +22,7 @@ import type {
   Combine,
 } from '../../types';
 import type {
+  PublicOwnProps,
   MapProps,
   OwnProps,
   DispatchProps,
@@ -368,16 +370,16 @@ const mapDispatchToProps: DispatchProps = {
 // Leaning heavily on the default shallow equality checking
 // that `connect` provides.
 // It avoids needing to do it own within `<Draggable />`
-const ConnectedDraggable = connect(
+const ConnectedDraggable = (connect(
   // returning a function so each component can do its own memoization
   makeMapStateToProps,
   mapDispatchToProps,
   // mergeProps: use default
-  null,
+  null as any,
   // options
   {
     // Using our own context for the store to avoid clashing with consumers
-    context: StoreContext,
+    context: StoreContext as any,
     // Default value, but being really clear
     pure: true,
     // When pure, compares the result of mapStateToProps to its previous value.
@@ -385,6 +387,7 @@ const ConnectedDraggable = connect(
     // Switching to a strictEqual as we return a memoized object on changes
     areStatePropsEqual: isStrictEqual,
   },
-)(Draggable);
+  // FIXME: Typings are really complexe
+)(Draggable) as unknown) as FunctionComponent<PublicOwnProps>;
 
 export default ConnectedDraggable;

@@ -52,15 +52,17 @@ export const transitions = {
   placeholder: `height ${outOfTheWayTiming}, width ${outOfTheWayTiming}, margin ${outOfTheWayTiming}`,
 };
 
-const moveTo = (offset: Position): string | null =>
-  isEqual(offset, origin) ? null : `translate(${offset.x}px, ${offset.y}px)`;
+const moveTo = (offset: Position): string | undefined =>
+  isEqual(offset, origin)
+    ? undefined
+    : `translate(${offset.x}px, ${offset.y}px)`;
 
 export const transforms = {
   moveTo,
-  drop: (offset: Position, isCombining: boolean) => {
-    const translate: string | null = moveTo(offset);
+  drop: (offset: Position, isCombining: boolean): string | undefined => {
+    const translate: string | undefined = moveTo(offset);
     if (!translate) {
-      return null;
+      return undefined;
     }
 
     // only transforming the translate

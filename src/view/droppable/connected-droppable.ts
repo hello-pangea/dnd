@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import memoizeOne from 'memoize-one';
+import { FunctionComponent } from 'react';
 import { invariant } from '../../invariant';
 import type {
   State,
@@ -15,7 +16,8 @@ import type {
 } from '../../types';
 import type {
   MapProps,
-  OwnProps,
+  InternalOwnProps,
+  PublicOwnProps,
   DefaultProps,
   Selector,
   DispatchProps,
@@ -133,7 +135,7 @@ export const makeMapStateToProps = (): Selector => {
     },
   );
 
-  const selector = (state: State, ownProps: OwnProps): MapProps => {
+  const selector = (state: State, ownProps: InternalOwnProps): MapProps => {
     // not checking if item is disabled as we need the home list to display a placeholder
 
     const id: DroppableId = ownProps.droppableId;
@@ -231,7 +233,7 @@ function getBody(): HTMLElement {
   return document.body;
 }
 
-const defaultProps = {
+const defaultProps: DefaultProps = {
   mode: 'standard',
   type: 'DEFAULT',
   direction: 'vertical',
@@ -240,7 +242,7 @@ const defaultProps = {
   ignoreContainerClipping: false,
   renderClone: null,
   getContainerForClone: getBody,
-} as DefaultProps;
+};
 
 // Abstract class allows to specify props and defaults to component.
 // All other ways give any or do not let add default props.
@@ -254,16 +256,16 @@ class DroppableType extends Component<OwnProps> {
 // Leaning heavily on the default shallow equality checking
 // that `connect` provides.
 // It avoids needing to do it own within `Droppable`
-const ConnectedDroppable: typeof DroppableType = connect(
+const ConnectedDroppable = (connect(
   // returning a function so each component can do its own memoization
   makeMapStateToProps,
   // no dispatch props for droppable
   mapDispatchToProps,
   // mergeProps - using default
-  null,
+  null as any,
   {
     // Ensuring our context does not clash with consumers
-    context: StoreContext,
+    context: StoreContext as any,
     // pure: true is default value, but being really clear
     pure: true,
     // When pure, compares the result of mapStateToProps to its previous value.
@@ -271,7 +273,8 @@ const ConnectedDroppable: typeof DroppableType = connect(
     // Switching to a strictEqual as we return a memoized object on changes
     areStatePropsEqual: isStrictEqual,
   },
-)(Droppable);
+  // FIXME: Typings are really complexe
+)(Droppable) as unknown) as FunctionComponent<PublicOwnProps>;
 
 ConnectedDroppable.defaultProps = defaultProps;
 

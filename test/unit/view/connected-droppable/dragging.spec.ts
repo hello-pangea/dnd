@@ -7,7 +7,7 @@ import type {
   Combine,
 } from '../../../../src/types';
 import type {
-  OwnProps,
+  PublicOwnProps,
   Selector,
   MapProps,
 } from '../../../../src/view/droppable/droppable-types';
@@ -24,7 +24,7 @@ const preset = getPreset();
 const state = getStatePreset();
 
 describe('home list', () => {
-  const ownProps: OwnProps = getOwnProps(preset.home);
+  const ownProps: PublicOwnProps = getOwnProps(preset.home);
   const isOverMapProps: MapProps = {
     placeholder: preset.inHome1.placeholder,
     shouldAnimatePlaceholder: false,
@@ -148,7 +148,7 @@ describe('home list', () => {
 });
 
 describe('foreign list', () => {
-  const ownProps: OwnProps = getOwnProps(preset.foreign);
+  const ownProps: PublicOwnProps = getOwnProps(preset.foreign);
 
   describe('is dragging over', () => {
     const displacedBy: DisplacedBy = getDisplacedBy(

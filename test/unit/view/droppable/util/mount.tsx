@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { mount } from 'enzyme';
 import type {
   MapProps,
-  OwnProps,
+  PublicOwnProps,
   Provided,
   DispatchProps,
   StateSnapshot,
@@ -22,7 +22,7 @@ import useFocusMarshal from '../../../../../src/view/use-focus-marshal';
 
 type MountArgs = {
   WrappedComponent?: any;
-  ownProps?: OwnProps;
+  ownProps?: PublicOwnProps;
   mapProps?: MapProps;
   dispatchProps?: DispatchProps;
   isMovementAllowed?: () => boolean;
@@ -31,7 +31,7 @@ type MountArgs = {
 type AppProps = {
   isMovementAllowed: () => boolean;
   WrappedComponent: any;
-} & OwnProps &
+} & PublicOwnProps &
   MapProps &
   DispatchProps;
 

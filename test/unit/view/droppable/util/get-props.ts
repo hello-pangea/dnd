@@ -1,14 +1,14 @@
 import { getPreset } from '../../../../util/dimension';
 import type {
   MapProps,
-  OwnProps,
+  PublicOwnProps,
   DispatchProps,
 } from '../../../../../src/view/droppable/droppable-types';
 import getBodyElement from '../../../../../src/view/get-body-element';
 
 export const preset = getPreset();
 
-export const homeOwnProps: OwnProps = {
+export const homeOwnProps: PublicOwnProps = {
   droppableId: preset.home.descriptor.id,
   type: preset.home.descriptor.type,
   mode: preset.home.descriptor.mode,
@@ -21,7 +21,7 @@ export const homeOwnProps: OwnProps = {
   renderClone: null,
 };
 
-export const foreignOwnProps: OwnProps = {
+export const foreignOwnProps: PublicOwnProps = {
   ...homeOwnProps,
   droppableId: preset.foreign.descriptor.id,
   type: preset.foreign.descriptor.type,

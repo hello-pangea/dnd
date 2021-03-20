@@ -1,4 +1,4 @@
-import type { OwnProps } from '../../../../src/view/droppable/droppable-types';
+import type { PublicOwnProps } from '../../../../src/view/droppable/droppable-types';
 import mount from './util/mount';
 import { homeOwnProps as defaultOwnProps } from './util/get-props';
 import { withError } from '../../../util/console';
@@ -13,7 +13,7 @@ afterAll(() => {
 });
 
 it('should throw if no droppableId is provided', () => {
-  const ownProps: OwnProps = {
+  const ownProps: PublicOwnProps = {
     ...defaultOwnProps,
   };
 
@@ -37,7 +37,7 @@ it('should throw if no droppableId is provided', () => {
 });
 
 it('should throw if isDropDisabled is set to null', () => {
-  const ownProps: OwnProps = {
+  const ownProps: PublicOwnProps = {
     ...defaultOwnProps,
   };
   withError(() => {
@@ -48,7 +48,7 @@ it('should throw if isDropDisabled is set to null', () => {
 });
 
 it('should throw if isCombineEnabled is set to null', () => {
-  const ownProps: OwnProps = {
+  const ownProps: PublicOwnProps = {
     ...defaultOwnProps,
   };
   withError(() => {
@@ -59,7 +59,7 @@ it('should throw if isCombineEnabled is set to null', () => {
 });
 
 it('should throw if ignoreContainerClipping is set to null', () => {
-  const ownProps: OwnProps = {
+  const ownProps: PublicOwnProps = {
     ...defaultOwnProps,
   };
   withError(() => {
