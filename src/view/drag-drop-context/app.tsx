@@ -252,7 +252,12 @@ export default function App(props: Props) {
 
   return (
     <AppContext.Provider value={appContext}>
-      <Provider context={StoreContext} store={store}>
+      {/*
+        There are typings issues which prevent us from properly type the store context
+        see: https://github.com/DefinitelyTyped/DefinitelyTyped/blob/dfec9e88385b279a94076c46a1cc4527ae657532/types/react-redux/index.d.ts#L482
+       */}
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      <Provider context={StoreContext as any} store={store}>
         {props.children}
       </Provider>
     </AppContext.Provider>

@@ -1,4 +1,8 @@
 import React from 'react';
-import type { Store } from '../../state/store-types';
+import type { ReactReduxContextValue } from 'react-redux';
+import type { Action } from '../../state/store-types';
+import type { State } from '../../types';
 
-export default React.createContext<Store | null>(null);
+type StoreContextValue = ReactReduxContextValue<State, Action>;
+
+export default React.createContext<StoreContextValue | null>(null);
