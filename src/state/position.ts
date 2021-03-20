@@ -30,13 +30,19 @@ export const patch = (
   line: 'x' | 'y',
   value: number,
   otherValue = 0,
-): Position => ({
-  // set the value of 'x', or 'y'
-  [line]: value,
+): Position => {
+  if (line === 'x') {
+    return {
+      x: value,
+      y: otherValue,
+    };
+  }
 
-  // set the value of the other line
-  [line === 'x' ? 'y' : 'x']: otherValue,
-});
+  return {
+    x: otherValue,
+    y: value,
+  };
+};
 
 // Returns the distance between two points
 // https://www.mathsisfun.com/algebra/distance-2-points.html
