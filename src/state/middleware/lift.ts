@@ -1,7 +1,7 @@
 import { invariant } from '../../invariant';
 import type { DimensionMarshal } from '../dimension-marshal/dimension-marshal-types';
 import type { State, ScrollOptions, LiftRequest } from '../../types';
-import type { MiddlewareStore, Action, Dispatch } from '../store-types';
+import type { Middleware } from '../store-types';
 import {
   completeDrop,
   initialPublish,
@@ -10,10 +10,10 @@ import {
 } from '../action-creators';
 import validateDimensions from './util/validate-dimensions';
 
-export default (marshal: DimensionMarshal) => ({
+export default (marshal: DimensionMarshal): Middleware => ({
   getState,
   dispatch,
-}: MiddlewareStore) => (next: Dispatch) => (action: Action): any => {
+}) => (next) => (action) => {
   if (action.type !== 'LIFT') {
     next(action);
     return;

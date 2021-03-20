@@ -6,12 +6,7 @@ import type {
   Critical,
   Announce,
 } from '../../../types';
-import type {
-  Action,
-  Middleware,
-  MiddlewareStore,
-  Dispatch,
-} from '../../store-types';
+import type { Middleware } from '../../store-types';
 
 export default (
   getResponders: () => Responders,
@@ -22,9 +17,7 @@ export default (
     announce as Announce,
   );
 
-  return (store: MiddlewareStore) => (next: Dispatch) => (
-    action: Action,
-  ): any => {
+  return (store) => (next) => (action) => {
     if (action.type === 'BEFORE_INITIAL_CAPTURE') {
       publisher.beforeCapture(
         action.payload.draggableId,

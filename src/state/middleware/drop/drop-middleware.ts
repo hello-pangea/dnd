@@ -11,7 +11,7 @@ import type {
   DimensionMap,
   DraggableDimension,
 } from '../../../types';
-import type { MiddlewareStore, Dispatch, Action } from '../../store-types';
+import type { Middleware } from '../../store-types';
 import { animateDrop, completeDrop, dropPending } from '../../action-creators';
 import type { AnimateDropArgs } from '../../action-creators';
 import { isEqual } from '../../position';
@@ -21,9 +21,9 @@ import getDropImpact from './get-drop-impact';
 import type { Result } from './get-drop-impact';
 import { tryGetCombine, tryGetDestination } from '../../get-impact-location';
 
-export default ({ getState, dispatch }: MiddlewareStore) => (
-  next: Dispatch,
-) => (action: Action): any => {
+const dropMiddleware: Middleware = ({ getState, dispatch }) => (next) => (
+  action,
+) => {
   if (action.type !== 'DROP') {
     next(action);
     return;
@@ -140,3 +140,5 @@ export default ({ getState, dispatch }: MiddlewareStore) => (
 
   dispatch(animateDrop(args));
 };
+
+export default dropMiddleware;

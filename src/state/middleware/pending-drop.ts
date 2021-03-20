@@ -1,10 +1,8 @@
 import { drop } from '../action-creators';
 import type { State } from '../../types';
-import type { MiddlewareStore, Dispatch, Action } from '../store-types';
+import type { Middleware } from '../store-types';
 
-export default (store: MiddlewareStore) => (next: Dispatch) => (
-  action: Action,
-): any => {
+const pendingDrop: Middleware = (store) => (next) => (action) => {
   // Always let the action go through first
   next(action);
 
@@ -34,3 +32,5 @@ export default (store: MiddlewareStore) => (next: Dispatch) => (
     }),
   );
 };
+
+export default pendingDrop;

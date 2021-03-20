@@ -1,11 +1,11 @@
 import { invariant } from '../../../invariant';
 import { completeDrop } from '../../action-creators';
 import type { State } from '../../../types';
-import type { MiddlewareStore, Action, Dispatch } from '../../store-types';
+import type { Middleware } from '../../store-types';
 
-export default (store: MiddlewareStore) => (next: Dispatch) => (
-  action: Action,
-): any => {
+const dropAnimationFinishMiddleware: Middleware = (store) => (next) => (
+  action,
+) => {
   if (action.type !== 'DROP_ANIMATION_FINISHED') {
     next(action);
     return;
@@ -18,3 +18,5 @@ export default (store: MiddlewareStore) => (next: Dispatch) => (
   );
   store.dispatch(completeDrop({ completed: state.completed }));
 };
+
+export default dropAnimationFinishMiddleware;

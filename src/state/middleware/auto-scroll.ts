@@ -1,16 +1,24 @@
 import { invariant } from '../../invariant';
 import type { AutoScroller } from '../auto-scroller/auto-scroller-types';
-import type { Action, Dispatch, MiddlewareStore } from '../store-types';
+import type {
+  Action,
+  Middleware,
+  DropCompleteAction,
+  DropAnimateAction,
+  FlushAction,
+} from '../store-types';
 import type { State } from '../../types';
 
-const shouldStop = (action: Action): boolean =>
+const shouldStop = (
+  action: Action,
+): action is DropCompleteAction | DropAnimateAction | FlushAction =>
   action.type === 'DROP_COMPLETE' ||
   action.type === 'DROP_ANIMATE' ||
   action.type === 'FLUSH';
 
-export default (autoScroller: AutoScroller) => (store: MiddlewareStore) => (
-  next: Dispatch,
-) => (action: Action): any => {
+export default (autoScroller: AutoScroller): Middleware => (store) => (
+  next,
+) => (action: Action) => {
   if (shouldStop(action)) {
     autoScroller.stop();
     next(action);

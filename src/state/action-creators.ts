@@ -173,7 +173,7 @@ export type UpdateViewportMaxScrollArgs = {
   maxScroll: Position;
 };
 
-type UpdateViewportMaxScrollAction = {
+export type UpdateViewportMaxScrollAction = {
   type: 'UPDATE_VIEWPORT_MAX_SCROLL';
   payload: UpdateViewportMaxScrollArgs;
 };
@@ -225,7 +225,7 @@ export const moveLeft = (): MoveLeftAction => ({
   payload: null,
 });
 
-type FlushAction = {
+export type FlushAction = {
   type: 'FLUSH';
   payload: null;
 };
@@ -274,7 +274,7 @@ export type DropAction = {
   payload: DropArgs;
 };
 
-export const drop = (args: DropArgs) => ({
+export const drop = (args: DropArgs): DropAction => ({
   type: 'DROP',
   payload: args,
 });

@@ -1,10 +1,10 @@
 import { dropAnimationFinished } from '../../action-creators';
 import type { State } from '../../../types';
-import type { MiddlewareStore, Action, Dispatch } from '../../store-types';
+import type { Middleware } from '../../store-types';
 import type { EventBinding } from '../../../view/event-bindings/event-types';
 import bindEvents from '../../../view/event-bindings/bind-events';
 
-export default (store: MiddlewareStore) => {
+const dropAnimationFlushOnScrollMiddleware: Middleware = (store) => {
   let unbind: (() => void) | null = null;
   let frameId: AnimationFrameID | null = null;
 
@@ -20,7 +20,7 @@ export default (store: MiddlewareStore) => {
     }
   }
 
-  return (next: Dispatch) => (action: Action): any => {
+  return (next) => (action) => {
     if (
       action.type === 'FLUSH' ||
       action.type === 'DROP_COMPLETE' ||
@@ -60,3 +60,5 @@ export default (store: MiddlewareStore) => {
     });
   };
 };
+
+export default dropAnimationFlushOnScrollMiddleware;
