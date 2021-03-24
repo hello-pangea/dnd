@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
-import type { ReactNode } from 'react';
+import React, { useState, useRef, useEffect, FunctionComponent } from 'react';
 import { useCallback } from 'use-memo-one';
 import type { Spacing } from 'css-box-model';
 import type {
@@ -30,7 +29,7 @@ export type Props = {
   placeholder: PlaceholderType;
   animate: InOutAnimationMode;
   onClose: () => void;
-  innerRef?: () => HTMLElement | null;
+  innerRef?: (instance: HTMLElement | null) => void;
   onTransitionEnd: () => void;
   contextId: ContextId;
 };
@@ -114,7 +113,7 @@ const getStyle = ({
   };
 };
 
-function Placeholder(props: Props): ReactNode {
+const Placeholder: FunctionComponent<Props> = (props) => {
   const animateOpenTimerRef = useRef<TimeoutID | null>(null);
 
   const tryClearAnimateOpenTimer = useCallback(() => {
