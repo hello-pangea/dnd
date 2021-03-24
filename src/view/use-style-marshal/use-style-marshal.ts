@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, MutableRefObject } from 'react';
 import memoizeOne from 'memoize-one';
 import { useMemo, useCallback } from 'use-memo-one';
 import { invariant } from '../../invariant';
@@ -73,7 +73,7 @@ export default function useStyleMarshal(contextId: ContextId, nonce?: string) {
     setDynamicStyle(styles.resting);
 
     return () => {
-      const remove = (ref) => {
+      const remove = (ref: MutableRefObject<HTMLStyleElement | null>) => {
         const current: HTMLStyleElement | null = ref.current;
         invariant(current, 'Cannot unmount ref as it is not set');
         getHead().removeChild(current);
