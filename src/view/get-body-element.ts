@@ -1,7 +1,7 @@
 import { invariant } from '../invariant';
 
 export default (): HTMLBodyElement => {
-  const body: HTMLBodyElement | null = document.body;
+  const body = document.body;
   invariant(body, 'Cannot find document.body');
-  return body;
+  return body as HTMLBodyElement;
 };
