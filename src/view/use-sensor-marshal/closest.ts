@@ -1,5 +1,8 @@
-const supportedMatchesName: string = ((): string => {
-  const base = 'matches';
+const supportedMatchesName:
+  | 'matches'
+  | 'msMatchesSelector'
+  | 'webkitMatchesSelector' = (() => {
+  const base = 'matches' as const;
 
   // Server side rendering
   if (typeof document === 'undefined') {
@@ -7,10 +10,10 @@ const supportedMatchesName: string = ((): string => {
   }
 
   // See https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
-  const candidates: string[] = [
+  const candidates = [
     base,
-    'msMatchesSelector',
-    'webkitMatchesSelector',
+    'msMatchesSelector' as const,
+    'webkitMatchesSelector' as const,
   ];
 
   const value = candidates.find((name): boolean => name in Element.prototype);
@@ -18,14 +21,14 @@ const supportedMatchesName: string = ((): string => {
   return value || base;
 })();
 
-function closestPonyfill(el: Element | null, selector: string) {
+function closestPonyfill(el: Element | null, selector: string): null | Element {
   if (el == null) {
     return null;
   }
 
   // Element.prototype.matches is supported in ie11 with a different name
   // https://caniuse.com/#feat=matchesselector
-  if (el[supportedMatchesName](selector)) {
+  if (el[supportedMatchesName as 'matches'](selector)) {
     return el;
   }
 
