@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import type { ReactNode, MutableRefObject } from 'react';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { Provider } from 'react-redux';
 import { useMemo, useCallback } from 'use-memo-one';
 import { invariant } from '../../invariant';
@@ -122,7 +122,7 @@ export default function App(props: Props) {
           updateDroppableIsCombineEnabled,
           collectionStarting,
         },
-        lazyDispatch,
+        lazyDispatch as Dispatch,
       ),
     [lazyDispatch],
   );
@@ -141,8 +141,8 @@ export default function App(props: Props) {
         ...bindActionCreators(
           {
             move,
-          },
-          lazyDispatch,
+          } as const,
+          lazyDispatch as Dispatch,
         ),
       }),
     [dimensionMarshal.scrollDroppable, lazyDispatch],
