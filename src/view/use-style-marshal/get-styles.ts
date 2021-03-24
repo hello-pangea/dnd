@@ -24,10 +24,10 @@ type Rule = {
 const makeGetSelector = (context: string) => (attribute: string) =>
   `[${attribute}="${context}"]`;
 
-const getStyles = (rules: Rule[], property: string): string =>
+const getStyles = (rules: Rule[], property: keyof Rule['styles']): string =>
   rules
     .map((rule: Rule): string => {
-      const value: string | null = rule.styles[property];
+      const value = rule.styles[property];
       if (!value) {
         return '';
       }
