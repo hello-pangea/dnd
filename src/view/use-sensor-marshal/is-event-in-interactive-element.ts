@@ -15,7 +15,10 @@ export const interactiveTagNames: TagNameMap = {
   audio: true,
 };
 
-function isAnInteractiveElement(parent: Element, current?: Element | null) {
+function isAnInteractiveElement(
+  parent: Element,
+  current?: Element | null,
+): boolean {
   if (current == null) {
     return false;
   }
@@ -55,7 +58,7 @@ export default function isEventInInteractiveElement(
   draggable: Element,
   event: Event,
 ): boolean {
-  const target: EventTarget = event.target;
+  const target = event.target;
 
   if (!isHtmlElement(target)) {
     return false;
