@@ -1,2 +1,2 @@
 export default (el?: Element | null): typeof window =>
-  el && el.ownerDocument ? el.ownerDocument.defaultView : window;
+  el?.ownerDocument?.defaultView || window;
