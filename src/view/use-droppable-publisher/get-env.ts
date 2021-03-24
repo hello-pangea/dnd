@@ -1,14 +1,14 @@
 import getClosestScrollable from './get-closest-scrollable';
 
 export type Env = {
-  closestScrollable: Element | null;
+  closestScrollable: HTMLElement | null;
   isFixedOnPage: boolean;
 };
 
 // TODO: do this check at the same time as the closest scrollable
 // in order to avoid double calling getComputedStyle
 // Do this when we move to multiple scroll containers
-const getIsFixed = (el?: Element | null): boolean => {
+const getIsFixed = (el?: HTMLElement | null): boolean => {
   if (!el) {
     return false;
   }
@@ -19,8 +19,8 @@ const getIsFixed = (el?: Element | null): boolean => {
   return getIsFixed(el.parentElement);
 };
 
-export default (start: Element): Env => {
-  const closestScrollable: Element | null = getClosestScrollable(start);
+export default (start: HTMLElement): Env => {
+  const closestScrollable: HTMLElement | null = getClosestScrollable(start);
   const isFixedOnPage: boolean = getIsFixed(start);
 
   return {

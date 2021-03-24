@@ -54,7 +54,7 @@ type WhileDragging = {
 
 const getClosestScrollableFromDrag = (
   dragging?: WhileDragging | null,
-): Element | null => (dragging && dragging.env.closestScrollable) || null;
+): HTMLElement | null => (dragging && dragging.env.closestScrollable) || null;
 
 export default function useDroppablePublisher(args: Props) {
   const whileDraggingRef = useRef<WhileDragging | null>(null);
@@ -191,7 +191,7 @@ export default function useDroppablePublisher(args: Props) {
   const dragStopped = useCallback(() => {
     const dragging: WhileDragging | null = whileDraggingRef.current;
     invariant(dragging, 'Cannot stop drag when no active drag');
-    const closest: Element | null = getClosestScrollableFromDrag(dragging);
+    const closest = getClosestScrollableFromDrag(dragging);
 
     // goodbye old friend
     whileDraggingRef.current = null;
@@ -206,7 +206,9 @@ export default function useDroppablePublisher(args: Props) {
     closest.removeEventListener(
       'scroll',
       onClosestScroll,
-      getListenerOptions(dragging.scrollOptions),
+      // See: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      getListenerOptions(dragging.scrollOptions) as any,
     );
   }, [onClosestScroll, scheduleScrollUpdate]);
 

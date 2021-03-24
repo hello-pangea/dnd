@@ -66,7 +66,7 @@ const isBodyScrollable = (): boolean => {
   return false;
 };
 
-const getClosestScrollable = (el?: Element | null): Element | null => {
+const getClosestScrollable = (el?: HTMLElement | null): HTMLElement | null => {
   // cannot do anything else!
   if (el == null) {
     return null;
