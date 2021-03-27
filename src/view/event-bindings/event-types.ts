@@ -1,3 +1,6 @@
+import type { Position } from 'css-box-model';
+import { BeforeCapture } from '../../types';
+
 export type EventOptions = {
   passive?: boolean;
   capture?: boolean;
@@ -11,7 +14,13 @@ export type EventBinding<TEvent = Event> = {
   options?: EventOptions;
 };
 
+interface BeforeEventDetail {
+  before: BeforeCapture;
+  clientSelection: Position;
+}
+
 export type AnimationEventBinding = EventBinding<AnimationEvent>;
+export type BeforeCaptureEvent = EventBinding<CustomEvent<BeforeEventDetail>>;
 export type ClipboardEventBinding = EventBinding<ClipboardEvent>;
 export type CompositionEventBinding = EventBinding<CompositionEvent>;
 export type DragEventBinding = EventBinding<DragEvent>;
@@ -28,6 +37,7 @@ export type WheelEventBinding = EventBinding<WheelEvent>;
 export type AnyEventBinding =
   | EventBinding
   | AnimationEventBinding
+  | BeforeCaptureEvent
   | ClipboardEventBinding
   | CompositionEventBinding
   | DragEventBinding

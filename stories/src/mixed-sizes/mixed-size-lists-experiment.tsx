@@ -14,6 +14,7 @@ import type { Quote } from '../types';
 import { DragDropContext, Droppable, Draggable } from '../../../src';
 import type { BeforeCapture, DropResult } from '../../../src';
 import bindEvents from '../../../src/view/event-bindings/bind-events';
+import { BeforeCaptureEvent } from '../../../src/view/event-bindings/event-types';
 import { grid } from '../constants';
 import reorder, { moveBetween } from '../reorder';
 
@@ -48,7 +49,7 @@ function Item(props: ItemProps) {
     const unsubscribe = bindEvents(window, [
       {
         eventName: 'onBeforeCapture',
-        fn: (event: CustomEvent) => {
+        fn: (event) => {
           if (!useTrimming) {
             return;
           }
@@ -110,7 +111,7 @@ function Item(props: ItemProps) {
           el.style.position = 'relative';
           el.style.left = `${leftOffset}px`;
         },
-      },
+      } as BeforeCaptureEvent,
     ]);
 
     return unsubscribe;
