@@ -30,8 +30,10 @@ export type {
   OnDragStartResponder,
   OnDragUpdateResponder,
   OnDragEndResponder,
+  PreDragActions,
   SensorAPI,
   Sensor,
+  SnapDragActions,
   TryGetLock,
   TryGetLockOptions,
 } from './types';
