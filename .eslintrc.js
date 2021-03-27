@@ -229,7 +229,6 @@ module.exports = {
         'rollup.config.js',
         'server-ports.js',
         'test/**/*.js?(x)',
-        'tsc-silent.config.js',
       ],
       excludedFiles: ['test/test-flow-types.js'],
       rules: {
