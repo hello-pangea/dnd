@@ -146,17 +146,17 @@ There are a lot of libraries out there that allow for drag and drop interactions
 - [![pt](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Português/Portuguese**](https://github.com/dudestein/react-beautiful-dnd-pt)
 - [![gr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Greece.png) **Ελληνικά/Greek**](https://github.com/hdks55l/react-beautiful-dnd-gr)
 
-## Author ✍️
+## Creator ✍️
 
 Alex Reardon [@alexandereardon](https://twitter.com/alexandereardon)
+
+> Alex is longer personally maintaing this project. The other wonderful maintainers are carrying this project forward
 
 ## Maintainer 🛠️
 
 - Gabriel Santerre [@100terres](https://github.com/100terres)
+- Many other [@Atlassian](https://twitter.com/Atlassian)'s!
 
 ## Collaborators 🤝
 
 - Bogdan Chadkin [@IAmTrySound](https://twitter.com/IAmTrySound)
-- Luke Batchelor [@alukebatchelor](https://twitter.com/alukebatchelor)
-- Jared Crowe [@jaredjcrowe](https://twitter.com/jaredjcrowe)
-- Many other [@Atlassian](https://twitter.com/Atlassian)'s!
