@@ -5,7 +5,7 @@ beforeEach(() => {
 
 if (typeof document !== 'undefined') {
   // Simply importing this package will throw an error if document is not defined
-  // eslint-disable-next-line global-require
+  // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
   const { cleanup, fireEvent } = require('@testing-library/react');
 
   // unmount any components mounted with react-testing-library
@@ -18,12 +18,16 @@ if (typeof document !== 'undefined') {
 
     // Cleaning up any mocks
 
-    if (window.getComputedStyle.mockRestore) {
+    if (jest.isMockFunction(window.getComputedStyle)) {
       window.getComputedStyle.mockRestore();
     }
 
-    if (Element.prototype.getBoundingClientRect.mockRestore) {
-      Element.prototype.getBoundingClientRect.mockRestore();
+    if (jest.isMockFunction(Element.prototype.getBoundingClientRect)) {
+      // FIXME
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (Element.prototype.getBoundingClientRect as any).mockRestore();
     }
   });
 }
+
+export default {};
