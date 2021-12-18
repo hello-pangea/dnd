@@ -3,10 +3,11 @@ import type { Viewport } from '../../src/types';
 import getViewport from '../../src/view/window/get-viewport';
 import getMaxScroll from '../../src/state/get-max-scroll';
 import getDocumentElement from '../../src/view/get-document-element';
+import writable from './writable';
 
 export const setWindowScroll = (newScroll: Position) => {
-  window.pageYOffset = newScroll.y;
-  window.pageXOffset = newScroll.x;
+  writable(window).pageYOffset = newScroll.y;
+  writable(window).pageXOffset = newScroll.x;
 };
 
 export const setViewport = (viewport: Viewport) => {
@@ -20,15 +21,15 @@ export const setViewport = (viewport: Viewport) => {
   setWindowScroll(viewport.scroll.current);
 
   const doc: HTMLElement = getDocumentElement();
-  doc.clientWidth = viewport.frame.width;
-  doc.clientHeight = viewport.frame.height;
+  writable(doc).clientWidth = viewport.frame.width;
+  writable(doc).clientHeight = viewport.frame.height;
 
   // reverse engineering these values
   const scrollHeight: number = viewport.scroll.max.y + viewport.frame.height;
   const scrollWidth: number = viewport.scroll.max.x + viewport.frame.width;
 
-  doc.scrollHeight = scrollHeight;
-  doc.scrollWidth = scrollWidth;
+  writable(doc).scrollHeight = scrollHeight;
+  writable(doc).scrollWidth = scrollWidth;
 };
 
 export const getCurrent = (): Viewport => getViewport();

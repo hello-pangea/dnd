@@ -1,3 +1,5 @@
+import writable from './writable';
+
 type Args = {
   scrollHeight: number;
   scrollWidth: number;
@@ -10,8 +12,8 @@ const setWindowScrollSize = ({ scrollHeight, scrollWidth }: Args): void => {
     throw new Error('Unable to find document element');
   }
 
-  el.scrollHeight = scrollHeight;
-  el.scrollWidth = scrollWidth;
+  writable(el).scrollHeight = scrollHeight;
+  writable(el).scrollWidth = scrollWidth;
 };
 
 const original: Args = (() => {
