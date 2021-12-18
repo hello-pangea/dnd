@@ -11,7 +11,6 @@ import {
   getComputedSpacing,
 } from '../../util/dimension';
 import forceUpdate from '../../util/force-update';
-import tryCleanPrototypeStubs from '../../util/try-clean-prototype-stubs';
 import type {
   DraggableId,
   DraggableDimension,
@@ -75,15 +74,12 @@ function Item(props: ItemProps) {
 }
 
 beforeEach(() => {
-  // having issues on CI
-  tryCleanPrototypeStubs();
   jest.spyOn(console, 'error').mockImplementation(() => {});
 });
 
 afterEach(() => {
   // $FlowFixMe
   console.error.mockRestore();
-  tryCleanPrototypeStubs();
 });
 
 describe('dimension registration', () => {

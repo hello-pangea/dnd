@@ -14,7 +14,6 @@ import {
   ScrollableItem,
   WithAppContext,
 } from './util/shared';
-import tryCleanPrototypeStubs from '../../../util/try-clean-prototype-stubs';
 import type {
   Registry,
   DroppableCallbacks,
@@ -22,10 +21,6 @@ import type {
 import createRegistry from '../../../../src/state/registry/create-registry';
 
 setViewport(preset.viewport);
-
-afterEach(() => {
-  tryCleanPrototypeStubs();
-});
 
 it('should throw if the droppable has no closest scrollable', () => {
   const marshal: DimensionMarshal = getMarshalStub();

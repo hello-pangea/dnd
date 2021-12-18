@@ -23,7 +23,6 @@ import {
   smallFrameClient,
 } from './util/shared';
 import { setViewport } from '../../../util/viewport';
-import tryCleanPrototypeStubs from '../../../util/try-clean-prototype-stubs';
 import type {
   Registry,
   DroppableCallbacks,
@@ -32,10 +31,6 @@ import createRegistry from '../../../../src/state/registry/create-registry';
 
 beforeEach(() => {
   setViewport(preset.viewport);
-});
-
-afterEach(() => {
-  tryCleanPrototypeStubs();
 });
 
 it('should publish the dimensions of the target', () => {

@@ -18,7 +18,6 @@ import type {
 import type { Provided as DraggableProvided } from '../../../src/view/draggable/draggable-types';
 import type { Provided as DroppableProvided } from '../../../src/view/droppable/droppable-types';
 import { getComputedSpacing } from '../../util/dimension';
-import tryCleanPrototypeStubs from '../../util/try-clean-prototype-stubs';
 import { simpleLift, mouse } from './util/controls';
 
 const draggableId: DraggableId = 'drag-1';
@@ -112,9 +111,6 @@ describe('responders integration', () => {
     // clean up any loose events
     wrapper.unmount();
     jest.useRealTimers();
-
-    // clean up any stubs
-    tryCleanPrototypeStubs();
 
     // eslint-disable-next-line no-console
     // $ExpectError - mock

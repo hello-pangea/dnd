@@ -6,7 +6,6 @@ import type { DimensionMarshal } from '../../../../src/state/dimension-marshal/d
 import type { DroppableDimension } from '../../../../src/types';
 import { getDroppableDimension } from '../../../util/dimension';
 import { getMarshalStub } from '../../../util/dimension-marshal';
-import tryCleanPrototypeStubs from '../../../util/try-clean-prototype-stubs';
 import { setViewport } from '../../../util/viewport';
 import {
   App,
@@ -28,10 +27,6 @@ import createRegistry from '../../../../src/state/registry/create-registry';
 
 beforeEach(() => {
   setViewport(preset.viewport);
-});
-
-afterEach(() => {
-  tryCleanPrototypeStubs();
 });
 
 const expected: DroppableDimension = getDroppableDimension({
