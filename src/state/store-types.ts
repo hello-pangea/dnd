@@ -8,7 +8,7 @@ export type {
   BeforeInitialCaptureAction,
   LiftAction,
   InitialPublishAction,
-  WhileDraggingPublishAction,
+  PublishWhileDraggingAction,
   CollectionStartingAction,
   UpdateDroppableScrollAction,
   UpdateDroppableIsEnabledAction,

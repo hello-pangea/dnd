@@ -1,12 +1,23 @@
 import { bindActionCreators, Dispatch as ReduxDispatch } from 'redux';
 import type { Action, Dispatch } from '../../src/state/store-types';
 import create from '../../src/state/dimension-marshal/dimension-marshal';
+import type {
+  CollectionStartingAction,
+  PublishWhileDraggingAction,
+  PublishWhileDraggingArgs,
+  UpdateDroppableScrollAction,
+  UpdateDroppableScrollArgs,
+  UpdateDroppableIsEnabledAction,
+  UpdateDroppableIsEnabledArgs,
+  UpdateDroppableIsCombineEnabledAction,
+  UpdateDroppableIsCombineEnabledArgs,
+} from '../../src/state/action-creators';
 import {
+  collectionStarting,
   publishWhileDragging,
   updateDroppableScroll,
   updateDroppableIsEnabled,
   updateDroppableIsCombineEnabled,
-  collectionStarting,
 } from '../../src/state/action-creators';
 import type {
   DimensionMarshal,
@@ -54,10 +65,22 @@ export const getMarshalStub = (): DimensionMarshal => ({
   stopPublishing: jest.fn(),
 });
 
-export const getCallbacksStub = (): Callbacks => ({
-  publishWhileDragging: jest.fn(),
-  updateDroppableScroll: jest.fn(),
-  updateDroppableIsEnabled: jest.fn(),
-  updateDroppableIsCombineEnabled: jest.fn(),
-  collectionStarting: jest.fn(),
+export const getCallbacksStub = () => ({
+  publishWhileDragging: jest.fn<
+    PublishWhileDraggingAction,
+    [PublishWhileDraggingArgs]
+  >(publishWhileDragging),
+  updateDroppableScroll: jest.fn<
+    UpdateDroppableScrollAction,
+    [UpdateDroppableScrollArgs]
+  >(updateDroppableScroll),
+  updateDroppableIsEnabled: jest.fn<
+    UpdateDroppableIsEnabledAction,
+    [UpdateDroppableIsEnabledArgs]
+  >(updateDroppableIsEnabled),
+  updateDroppableIsCombineEnabled: jest.fn<
+    UpdateDroppableIsCombineEnabledAction,
+    [UpdateDroppableIsCombineEnabledArgs]
+  >(updateDroppableIsCombineEnabled),
+  collectionStarting: jest.fn<CollectionStartingAction, []>(collectionStarting),
 });

@@ -1,9 +1,6 @@
 import createDimensionMarshal from '../../../../src/state/dimension-marshal/dimension-marshal';
 import { getPreset } from '../../../util/dimension';
-import type {
-  Callbacks,
-  DimensionMarshal,
-} from '../../../../src/state/dimension-marshal/dimension-marshal-types';
+import type { DimensionMarshal } from '../../../../src/state/dimension-marshal/dimension-marshal-types';
 import { getCallbacksStub } from '../../../util/dimension-marshal';
 import { critical, defaultRequest, justCritical } from './util';
 import createRegistry from '../../../../src/state/registry/create-registry';
@@ -17,7 +14,7 @@ const preset = getPreset();
 describe('force scrolling a droppable', () => {
   it('should scroll the droppable', () => {
     const registry: Registry = createRegistry();
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
       callbacks,
@@ -37,7 +34,7 @@ describe('force scrolling a droppable', () => {
   });
 
   it('should throw if the droppable cannot be found', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -55,7 +52,7 @@ describe('force scrolling a droppable', () => {
   });
 
   it('should not scroll the droppable if no collection is occurring', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -70,7 +67,7 @@ describe('force scrolling a droppable', () => {
 
 describe('responding to scroll changes', () => {
   it('should let consumers know', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -90,7 +87,7 @@ describe('responding to scroll changes', () => {
   });
 
   it('should throw if the droppable cannot be found', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -113,7 +110,7 @@ describe('responding to scroll changes', () => {
   });
 
   it('should not let consumers know if know drag is occurring', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -128,7 +125,7 @@ describe('responding to scroll changes', () => {
 
 describe('is enabled changes', () => {
   it('should let consumers know', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -148,7 +145,7 @@ describe('is enabled changes', () => {
   });
 
   it('should throw if the droppable cannot be found', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -168,7 +165,7 @@ describe('is enabled changes', () => {
   });
 
   it('should not let consumers know if no collection is occurring', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,

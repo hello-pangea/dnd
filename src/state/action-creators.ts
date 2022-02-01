@@ -72,16 +72,18 @@ export const initialPublish = (
   payload: args,
 });
 
-export type WhileDraggingPublishAction = {
+export type PublishWhileDraggingAction = {
   type: 'PUBLISH_WHILE_DRAGGING';
   payload: Published;
 };
 
+export type PublishWhileDraggingArgs = Published;
+
 export type PublishWhileDraggingActionCreator = typeof publishWhileDragging;
 
 export const publishWhileDragging = (
-  args: Published,
-): WhileDraggingPublishAction => ({
+  args: PublishWhileDraggingArgs,
+): PublishWhileDraggingAction => ({
   type: 'PUBLISH_WHILE_DRAGGING',
   payload: args,
 });
@@ -349,7 +351,7 @@ export type Action =
   | BeforeInitialCaptureAction
   | LiftAction
   | InitialPublishAction
-  | WhileDraggingPublishAction
+  | PublishWhileDraggingAction
   | CollectionStartingAction
   | UpdateDroppableScrollAction
   | UpdateDroppableIsEnabledAction

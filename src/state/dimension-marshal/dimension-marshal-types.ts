@@ -1,15 +1,16 @@
 import type { Position } from 'css-box-model';
 import type {
-  UpdateDroppableScrollArgs,
-  UpdateDroppableIsEnabledArgs,
-  UpdateDroppableIsCombineEnabledArgs,
+  CollectionStartingActionCreator,
+  PublishWhileDraggingActionCreator,
+  UpdateDroppableScrollActionCreator,
+  UpdateDroppableIsEnabledActionCreator,
+  UpdateDroppableIsCombineEnabledActionCreator,
 } from '../action-creators';
 import type {
   DroppableId,
   Critical,
   DimensionMap,
   LiftRequest,
-  Published,
   Viewport,
 } from '../../types';
 
@@ -35,11 +36,9 @@ export type DimensionMarshal = {
 };
 
 export type Callbacks = {
-  collectionStarting: () => unknown;
-  publishWhileDragging: (args: Published) => unknown;
-  updateDroppableScroll: (args: UpdateDroppableScrollArgs) => unknown;
-  updateDroppableIsEnabled: (args: UpdateDroppableIsEnabledArgs) => unknown;
-  updateDroppableIsCombineEnabled: (
-    args: UpdateDroppableIsCombineEnabledArgs,
-  ) => unknown;
+  collectionStarting: CollectionStartingActionCreator;
+  publishWhileDragging: PublishWhileDraggingActionCreator;
+  updateDroppableScroll: UpdateDroppableScrollActionCreator;
+  updateDroppableIsEnabled: UpdateDroppableIsEnabledActionCreator;
+  updateDroppableIsCombineEnabled: UpdateDroppableIsCombineEnabledActionCreator;
 };
