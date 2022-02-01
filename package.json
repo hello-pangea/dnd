@@ -56,7 +56,7 @@
     "typecheck:typescript:test": "yarn tsc --project test/tsconfig.json",
     "bundle-size:check": "cross-env SNAPSHOT=match yarn bundle-size:update",
     "bundle-size:update": "yarn build:clean && yarn build:dist && yarn build:clean",
-    "build": "yarn build:clean && yarn build:dist && build:typescript:declaration && yarn build:flow",
+    "build": "yarn build:clean && yarn build:dist && yarn build:typescript:declaration && yarn build:flow",
     "build:clean": "rimraf dist",
     "build:dist": "rollup -c",
     "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/dnd.cjs.js.flow",
@@ -170,7 +170,7 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
     "ts-jest": "^26.4.4",
-    "typescript": "^4.1.3",
+    "typescript": "^4.5.5",
     "wait-port": "^0.2.7",
     "webpack": "^5.11.0"
   },
