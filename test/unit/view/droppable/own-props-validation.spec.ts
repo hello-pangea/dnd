@@ -8,8 +8,11 @@ beforeAll(() => {
 });
 
 afterAll(() => {
-  // $FlowFixMe
-  console.error.mockReset();
+  if (jest.isMockFunction(console.error)) {
+    // FIXME
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (console.error as any).mockReset();
+  }
 });
 
 it('should throw if no droppableId is provided', () => {

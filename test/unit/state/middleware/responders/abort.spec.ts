@@ -25,7 +25,7 @@ import { tryGetDestination } from '../../../../../src/state/get-impact-location'
 jest.useFakeTimers();
 
 it('should call onDragEnd with the last published critical descriptor', () => {
-  const responders: Responders = createResponders();
+  const responders = createResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   store.dispatch(flush());
@@ -47,7 +47,7 @@ it('should call onDragEnd with the last published critical descriptor', () => {
 });
 
 it('should publish an onDragEnd with no destination even if there is a current destination', () => {
-  const responders: Responders = createResponders();
+  const responders = createResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   store.dispatch(flush());
@@ -78,7 +78,7 @@ it('should publish an onDragEnd with no destination even if there is a current d
 });
 
 it('should not publish an onDragEnd if aborted after a drop', () => {
-  const responders: Responders = createResponders();
+  const responders = createResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   // lift
@@ -100,7 +100,7 @@ it('should not publish an onDragEnd if aborted after a drop', () => {
     }),
   );
   expect(responders.onDragEnd).toHaveBeenCalledTimes(1);
-  // $ExpectError - mock
+
   responders.onDragEnd.mockReset();
 
   // abort
@@ -109,7 +109,7 @@ it('should not publish an onDragEnd if aborted after a drop', () => {
 });
 
 it('should publish an on drag end if aborted before the publish of an onDragStart', () => {
-  const responders: Responders = createResponders();
+  const responders = createResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   // lift

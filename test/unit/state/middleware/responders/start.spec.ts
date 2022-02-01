@@ -7,7 +7,6 @@ import {
 } from '../../../../util/preset-action-args';
 import createStore from '../util/create-store';
 import passThrough from '../util/pass-through-middleware';
-import type { Responders } from '../../../../../src/types';
 import type { Store } from '../../../../../src/state/store-types';
 import getRespondersStub from './util/get-responders-stub';
 import getAnnounce from './util/get-announce-stub';
@@ -15,7 +14,7 @@ import getAnnounce from './util/get-announce-stub';
 jest.useFakeTimers();
 
 it('should call the onDragStart responder when a initial publish occurs', () => {
-  const responders: Responders = getRespondersStub();
+  const responders = getRespondersStub();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   // prepare step should not trigger responder
@@ -40,14 +39,14 @@ it('should call the onBeforeDragState and onDragStart in the correct order', () 
   const mock = jest.fn().mockImplementation(() => {
     mockCalled = performance.now();
   });
-  const responders: Responders = getRespondersStub();
-  // $FlowFixMe - no property mockImplementation
+  const responders = getRespondersStub();
   responders.onBeforeDragStart.mockImplementation(() => {
     onBeforeDragStartCalled = performance.now();
+    return undefined;
   });
-  // $FlowFixMe - no property mockImplementation
   responders.onDragStart.mockImplementation(() => {
     onDragStartCalled = performance.now();
+    return undefined;
   });
   const store: Store = createStore(
     middleware(() => responders, getAnnounce()),
@@ -70,7 +69,7 @@ it('should call the onBeforeDragState and onDragStart in the correct order', () 
 });
 
 it('should throw an exception if an initial publish is called before a drag ends', () => {
-  const responders: Responders = getRespondersStub();
+  const responders = getRespondersStub();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   const start = () => {

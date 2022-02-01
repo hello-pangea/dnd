@@ -1,6 +1,6 @@
 import middleware from '../../../../../src/state/middleware/responders';
 import createStore from '../util/create-store';
-import type { Responders, DropResult } from '../../../../../src/types';
+import type { DropResult } from '../../../../../src/types';
 import {
   initialPublishArgs,
   getDragStart,
@@ -29,7 +29,7 @@ const result: DropResult = {
 jest.useFakeTimers();
 
 it('should trigger an on drag start after in the next cycle', () => {
-  const responders: Responders = getResponders();
+  const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   store.dispatch(initialPublish(initialPublishArgs));
@@ -40,7 +40,7 @@ it('should trigger an on drag start after in the next cycle', () => {
 });
 
 it('should queue a drag start if an action comes in while the timeout is pending', () => {
-  const responders: Responders = getResponders();
+  const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   store.dispatch(initialPublish(initialPublishArgs));
@@ -56,7 +56,7 @@ it('should queue a drag start if an action comes in while the timeout is pending
 });
 
 it('should flush any pending responders if a drop occurs', () => {
-  const responders: Responders = getResponders();
+  const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   store.dispatch(initialPublish(initialPublishArgs));
@@ -82,7 +82,7 @@ it('should flush any pending responders if a drop occurs', () => {
 });
 
 it('should work across multiple drags', () => {
-  const responders: Responders = getResponders();
+  const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
   Array.from({ length: 4 }).forEach(() => {
     store.dispatch(initialPublish(initialPublishArgs));
@@ -105,11 +105,8 @@ it('should work across multiple drags', () => {
       expect.any(Object),
     );
 
-    // $FlowFixMe - responder does not have mockReset property
     responders.onDragStart.mockReset();
-    // $FlowFixMe - responder does not have mockReset property
     responders.onDragUpdate.mockReset();
-    // $FlowFixMe - responder does not have mockReset property
     responders.onDragEnd.mockReset();
   });
 });

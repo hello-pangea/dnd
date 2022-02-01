@@ -14,7 +14,7 @@ import {
 import createStore from '../util/create-store';
 import getAnnounce from './util/get-announce-stub';
 import createResponders from './util/get-responders-stub';
-import type { Responders, State, DragUpdate } from '../../../../../src/types';
+import type { State, DragUpdate } from '../../../../../src/types';
 import type { Store, Dispatch } from '../../../../../src/state/store-types';
 
 jest.useFakeTimers();
@@ -25,7 +25,7 @@ const start = (dispatch: Dispatch) => {
 };
 
 it('should call onDragUpdate if the position has changed on move', () => {
-  const responders: Responders = createResponders();
+  const responders = createResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   start(store.dispatch);
@@ -53,7 +53,7 @@ it('should call onDragUpdate if the position has changed on move', () => {
 });
 
 it('should not call onDragUpdate if there is no movement from the last update', () => {
-  const responders: Responders = createResponders();
+  const responders = createResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   start(store.dispatch);

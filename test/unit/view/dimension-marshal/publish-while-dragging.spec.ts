@@ -1,6 +1,5 @@
 import createDimensionMarshal from '../../../../src/state/dimension-marshal/dimension-marshal';
 import type {
-  Callbacks,
   DimensionMarshal,
   StartPublishingResult,
 } from '../../../../src/state/dimension-marshal/dimension-marshal-types';
@@ -126,7 +125,7 @@ describe('draggable additions', () => {
       },
     };
     const registry: Registry = createRegistry();
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
       callbacks,
@@ -157,7 +156,7 @@ describe('draggable additions', () => {
   });
 
   it('should not do anything if trying to add a draggable that does not have the same type as the dragging item', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -195,7 +194,7 @@ describe('draggable additions', () => {
         index: 1,
       },
     };
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -229,7 +228,7 @@ describe('draggable additions', () => {
   });
 
   it('should log a warning if trying to add or remove a draggable from a non-virtual list', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -277,7 +276,7 @@ describe('draggable additions', () => {
 
 describe('draggable removals', () => {
   it('should publish a removal', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -318,7 +317,7 @@ describe('draggable removals', () => {
   });
 
   it('should do nothing if tying to remove a draggable of a different type', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -347,7 +346,7 @@ describe('draggable removals', () => {
   });
 
   it('should do nothing if removing the critical draggable', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -368,7 +367,7 @@ describe('draggable removals', () => {
 describe('droppables', () => {
   it('should not do anything if a droppable is added', () => {
     const registry: Registry = createRegistry();
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
       callbacks,
@@ -388,7 +387,7 @@ describe('droppables', () => {
 
   it('should not do anything if a droppable is removed', () => {
     const registry: Registry = createRegistry();
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
       callbacks,
@@ -415,7 +414,7 @@ describe('droppables', () => {
         index: 1,
       },
     };
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -453,7 +452,7 @@ describe('droppables', () => {
   });
 
   it('should recollect the scroll from droppables that had draggable removals', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -493,7 +492,7 @@ describe('droppables', () => {
 
 describe('cancelling mid publish', () => {
   it('should cancel any pending collections', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -530,7 +529,7 @@ describe('cancelling mid publish', () => {
 
 describe('subsequent', () => {
   it('should allow subsequent publishes in the same drag', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,
@@ -556,7 +555,7 @@ describe('subsequent', () => {
   });
 
   it('should allow subsequent publishes between drags', () => {
-    const callbacks: Callbacks = getCallbacksStub();
+    const callbacks = getCallbacksStub();
     const registry: Registry = createRegistry();
     const marshal: DimensionMarshal = createDimensionMarshal(
       registry,

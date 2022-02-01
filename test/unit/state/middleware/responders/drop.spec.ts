@@ -1,5 +1,4 @@
 import type {
-  Responders,
   DropResult,
   CompletedDrag,
   State,
@@ -36,7 +35,7 @@ const result: DropResult = {
 jest.useFakeTimers();
 
 it('should call the onDragEnd responder when a DROP_COMPLETE action occurs', () => {
-  const responders: Responders = getResponders();
+  const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   store.dispatch(initialPublish(initialPublishArgs));
@@ -52,7 +51,7 @@ it('should call the onDragEnd responder when a DROP_COMPLETE action occurs', () 
 });
 
 it('should throw an exception if there was no drag start published', () => {
-  const responders: Responders = getResponders();
+  const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   const borrowed: CompletedDrag = getSimpleStatePreset().dropAnimating()
@@ -69,7 +68,7 @@ it('should throw an exception if there was no drag start published', () => {
 });
 
 it('should use the drop result and not the final impact', () => {
-  const responders: Responders = getResponders();
+  const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
   store.dispatch(initialPublish(initialPublishArgs));

@@ -10,11 +10,7 @@ import {
   initialPublishArgs,
 } from '../../../../util/preset-action-args';
 import createStore from '../util/create-store';
-import type {
-  Responders,
-  DragUpdate,
-  DropResult,
-} from '../../../../../src/types';
+import type { DragUpdate, DropResult } from '../../../../../src/types';
 import createResponders from './util/get-responders-stub';
 import getAnnounce from './util/get-announce-stub';
 import getCompletedWithResult from './util/get-completed-with-result';
@@ -22,7 +18,7 @@ import getCompletedWithResult from './util/get-completed-with-result';
 jest.useFakeTimers();
 
 it('should behave correctly across multiple drags', () => {
-  const responders: Responders = createResponders();
+  const responders = createResponders();
   const store = createStore(middleware(() => responders, getAnnounce()));
   Array.from({ length: 4 }).forEach(() => {
     // start
@@ -70,11 +66,8 @@ it('should behave correctly across multiple drags', () => {
 
     // cleanup
     store.dispatch(flush());
-    // $ExpectError - unknown mock reset property
     responders.onDragStart.mockReset();
-    // $ExpectError - unknown mock reset property
     responders.onDragUpdate.mockReset();
-    // $ExpectError - unknown mock reset property
     responders.onDragEnd.mockReset();
   });
 });
