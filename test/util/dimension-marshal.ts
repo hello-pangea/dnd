@@ -1,3 +1,4 @@
+import type { Position } from 'css-box-model';
 import { bindActionCreators, Dispatch as ReduxDispatch } from 'redux';
 import type { Action, Dispatch } from '../../src/state/store-types';
 import create from '../../src/state/dimension-marshal/dimension-marshal';
@@ -12,6 +13,7 @@ import type {
   UpdateDroppableIsCombineEnabledAction,
   UpdateDroppableIsCombineEnabledArgs,
 } from '../../src/state/action-creators';
+import type { DroppableId, LiftRequest } from '../../src/types';
 import {
   collectionStarting,
   publishWhileDragging,
@@ -20,10 +22,12 @@ import {
   updateDroppableIsCombineEnabled,
 } from '../../src/state/action-creators';
 import type {
-  DimensionMarshal,
   Callbacks,
+  DimensionMarshal,
+  StartPublishingResult,
 } from '../../src/state/dimension-marshal/dimension-marshal-types';
 import type { Registry } from '../../src/state/registry/registry-types';
+import { critical, preset } from './preset-action-args';
 
 export const createMarshal = (
   registry: Registry,
@@ -56,13 +60,31 @@ export const createMarshal = (
   return create(registry, callbacks);
 };
 
-export const getMarshalStub = (): DimensionMarshal => ({
-  updateDroppableScroll: jest.fn(),
-  updateDroppableIsEnabled: jest.fn(),
-  updateDroppableIsCombineEnabled: jest.fn(),
-  scrollDroppable: jest.fn(),
-  startPublishing: jest.fn(),
-  stopPublishing: jest.fn(),
+export const getMarshalStub = () => ({
+  updateDroppableScroll: jest.fn<void, [id: string, newScroll: Position]>(),
+  updateDroppableIsEnabled: jest.fn<
+    void,
+    [id: DroppableId, isEnabled: boolean]
+  >(),
+  updateDroppableIsCombineEnabled: jest.fn<
+    void,
+    [id: DroppableId, isEnabled: boolean]
+  >(),
+  scrollDroppable: jest.fn<void, [id: DroppableId, change: Position]>(),
+  startPublishing: jest.fn<StartPublishingResult, [LiftRequest]>(() => ({
+    critical,
+    viewport: preset.viewport,
+    dimensions: {
+      draggables: {
+        [preset.inHome1.descriptor.id]: preset.inHome1,
+        [preset.inHome2.descriptor.id]: preset.inHome2,
+      },
+      droppables: {
+        [preset.home.descriptor.id]: preset.home,
+      },
+    },
+  })),
+  stopPublishing: jest.fn<void, []>(),
 });
 
 export const getCallbacksStub = () => ({

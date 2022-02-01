@@ -2,7 +2,6 @@ import type { Position } from 'css-box-model';
 import { mount } from 'enzyme';
 import React from 'react';
 import { invariant } from '../../../../src/invariant';
-import type { DimensionMarshal } from '../../../../src/state/dimension-marshal/dimension-marshal-types';
 import type { DroppableDimension } from '../../../../src/types';
 import { getDroppableDimension } from '../../../util/dimension';
 import { getMarshalStub } from '../../../util/dimension-marshal';
@@ -55,7 +54,7 @@ const expected: DroppableDimension = getDroppableDimension({
 });
 
 it('should recollect scroll if requested', () => {
-  const marshal: DimensionMarshal = getMarshalStub();
+  const marshal = getMarshalStub();
   // both the droppable and the parent are scrollable
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
@@ -98,7 +97,7 @@ it('should recollect scroll if requested', () => {
 });
 
 it('should throw if there is no drag occurring when a recollection is requested', () => {
-  const marshal: DimensionMarshal = getMarshalStub();
+  const marshal = getMarshalStub();
   // both the droppable and the parent are scrollable
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
@@ -114,7 +113,7 @@ it('should throw if there is no drag occurring when a recollection is requested'
 });
 
 it('should throw if there if recollecting from droppable that is not a scroll container', () => {
-  const marshal: DimensionMarshal = getMarshalStub();
+  const marshal = getMarshalStub();
   // both the droppable and the parent are scrollable
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');

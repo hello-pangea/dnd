@@ -1,7 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { invariant } from '../../../../src/invariant';
-import type { DimensionMarshal } from '../../../../src/state/dimension-marshal/dimension-marshal-types';
 import { getMarshalStub } from '../../../util/dimension-marshal';
 import { setViewport } from '../../../util/viewport';
 import {
@@ -23,7 +22,7 @@ import createRegistry from '../../../../src/state/registry/create-registry';
 setViewport(preset.viewport);
 
 it('should throw if the droppable has no closest scrollable', () => {
-  const marshal: DimensionMarshal = getMarshalStub();
+  const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   // no scroll parent
@@ -69,7 +68,7 @@ it('should throw if the droppable has no closest scrollable', () => {
 
 describe('there is a closest scrollable', () => {
   it('should update the scroll of the closest scrollable', () => {
-    const marshal: DimensionMarshal = getMarshalStub();
+    const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     const wrapper = mount(
@@ -98,7 +97,7 @@ describe('there is a closest scrollable', () => {
   });
 
   it('should throw if asked to scoll while scroll is not currently being watched', () => {
-    const marshal: DimensionMarshal = getMarshalStub();
+    const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     const wrapper = mount(

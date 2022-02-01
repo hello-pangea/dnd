@@ -2,7 +2,6 @@ import { mount } from 'enzyme';
 import React from 'react';
 import type { Position } from 'css-box-model';
 import { invariant } from '../../../../src/invariant';
-import type { DimensionMarshal } from '../../../../src/state/dimension-marshal/dimension-marshal-types';
 import { getMarshalStub } from '../../../util/dimension-marshal';
 import { setViewport } from '../../../util/viewport';
 import {
@@ -28,7 +27,7 @@ setViewport(preset.viewport);
 
 describe('should immediately publish updates', () => {
   it('should immediately publish the scroll offset of the closest scrollable', () => {
-    const marshal: DimensionMarshal = getMarshalStub();
+    const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     const wrapper = mount(
@@ -57,7 +56,7 @@ describe('should immediately publish updates', () => {
 
   it('should not fire a scroll if the value has not changed since the previous call', () => {
     // this can happen if you scroll backward and forward super quick
-    const marshal: DimensionMarshal = getMarshalStub();
+    const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     const wrapper = mount(
@@ -101,7 +100,7 @@ describe('should immediately publish updates', () => {
 
 describe('should schedule publish updates', () => {
   it('should publish the scroll offset of the closest scrollable', () => {
-    const marshal: DimensionMarshal = getMarshalStub();
+    const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     const wrapper = mount(
@@ -131,7 +130,7 @@ describe('should schedule publish updates', () => {
   });
 
   it('should throttle multiple scrolls into a animation frame', () => {
-    const marshal: DimensionMarshal = getMarshalStub();
+    const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     const wrapper = mount(
@@ -171,7 +170,7 @@ describe('should schedule publish updates', () => {
 
   it('should not fire a scroll if the value has not changed since the previous frame', () => {
     // this can happen if you scroll backward and forward super quick
-    const marshal: DimensionMarshal = getMarshalStub();
+    const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     const wrapper = mount(
@@ -214,7 +213,7 @@ describe('should schedule publish updates', () => {
   });
 
   it('should not publish a scroll update after requested not to update while an animation frame is occurring', () => {
-    const marshal: DimensionMarshal = getMarshalStub();
+    const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     const wrapper = mount(
@@ -255,7 +254,7 @@ describe('should schedule publish updates', () => {
 
 it('should stop watching scroll when no longer required to publish', () => {
   // this can happen if you scroll backward and forward super quick
-  const marshal: DimensionMarshal = getMarshalStub();
+  const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   const wrapper = mount(
@@ -288,7 +287,7 @@ it('should stop watching scroll when no longer required to publish', () => {
 
 it('should stop watching for scroll events when the component is unmounted', () => {
   jest.spyOn(console, 'warn').mockImplementation(() => {});
-  const marshal: DimensionMarshal = getMarshalStub();
+  const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   const wrapper = mount(
@@ -320,7 +319,7 @@ it('should stop watching for scroll events when the component is unmounted', () 
 });
 
 it('should throw an error if asked to watch a scroll when already listening for scroll changes', () => {
-  const marshal: DimensionMarshal = getMarshalStub();
+  const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   const wrapper = mount(
@@ -344,7 +343,7 @@ it('should throw an error if asked to watch a scroll when already listening for 
 
 // if this is not the case then it will break in IE11
 it('should add and remove events with the same event options', () => {
-  const marshal: DimensionMarshal = getMarshalStub();
+  const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   const wrapper = mount(
