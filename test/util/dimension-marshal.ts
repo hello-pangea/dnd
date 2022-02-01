@@ -1,4 +1,5 @@
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, Dispatch as ReduxDispatch } from 'redux';
+import type { Action, Dispatch } from '../../src/state/store-types';
 import create from '../../src/state/dimension-marshal/dimension-marshal';
 import {
   publishWhileDragging,
@@ -15,9 +16,9 @@ import type { Registry } from '../../src/state/registry/registry-types';
 
 export const createMarshal = (
   registry: Registry,
-  dispatch: Function,
+  dispatch: Dispatch,
 ): DimensionMarshal => {
-  const callbacks: Callbacks = bindActionCreators(
+  const callbacks = bindActionCreators<Action, Callbacks>(
     {
       publishWhileDragging,
       collectionStarting,
@@ -25,7 +26,20 @@ export const createMarshal = (
       updateDroppableIsEnabled,
       updateDroppableIsCombineEnabled,
     },
-    dispatch,
+    // Redux types are not optimal. They should pass the Action to the Dispatch, but
+    // instead they directly use the Dispatch which end up to be Dispatch<AnyAction>.
+    // The type should be like this instead.
+    // TODO: Open a PR to fix the issue.
+    //
+    // ```ts
+    // export function bindActionCreators<A, C extends ActionCreator<A>>(
+    //   actionCreator: C,
+    //   dispatch: Dispatch<A>
+    // ): C
+    // ```
+    //
+    // See: https://github.com/reduxjs/redux/blob/83af794b06ca253c03235f28d1d3a33d8eba2b6f/index.d.ts#L568
+    dispatch as ReduxDispatch,
   );
 
   return create(registry, callbacks);

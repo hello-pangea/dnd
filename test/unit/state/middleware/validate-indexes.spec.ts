@@ -1,6 +1,5 @@
 import type { DraggableDimension, DimensionMap } from '../../../../src/types';
 import type { Store } from '../../../../src/state/store-types';
-import type { DimensionMarshal } from '../../../../src/state/dimension-marshal/dimension-marshal-types';
 import {
   flush,
   initialPublish,
@@ -55,14 +54,16 @@ it('should log a warning if items are added that do not have consecutive indexes
   const copied: DimensionMap = copy(preset.dimensions);
   copied.draggables[preset.inHome2.descriptor.id] = customInHome2;
 
-  const marshal: DimensionMarshal = createMarshal(
-    getPopulatedRegistry(copied),
-    // lazy use of store.dispatch
-    (action) =>
-      // eslint-disable-next-line no-use-before-define
-      store.dispatch(action),
+  const store: Store = createStore(
+    passThrough(mock),
+    middleware(
+      createMarshal(
+        getPopulatedRegistry(copied),
+        // lazy use of store.dispatch
+        (action) => store.dispatch(action),
+      ),
+    ),
   );
-  const store: Store = createStore(passThrough(mock), middleware(marshal));
   const initial: InitialPublishArgs = {
     ...initialPublishArgs,
     dimensions: copied,
@@ -106,14 +107,16 @@ it('should log a warning if items are added have duplicate indexes', () => {
   const dimensions: DimensionMap = copy(preset.dimensions);
   dimensions.draggables[preset.inHome4.descriptor.id] = customInHome4;
 
-  const marshal: DimensionMarshal = createMarshal(
-    getPopulatedRegistry(dimensions),
-    // lazy use of store.dispatch
-    (action) =>
-      // eslint-disable-next-line no-use-before-define
-      store.dispatch(action),
+  const store: Store = createStore(
+    passThrough(mock),
+    middleware(
+      createMarshal(
+        getPopulatedRegistry(dimensions),
+        // lazy use of store.dispatch
+        (action) => store.dispatch(action),
+      ),
+    ),
   );
-  const store: Store = createStore(passThrough(mock), middleware(marshal));
   const initial: InitialPublishArgs = {
     ...initialPublishArgs,
     dimensions,

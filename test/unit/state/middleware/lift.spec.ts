@@ -1,5 +1,5 @@
 import type { CompletedDrag, DimensionMap } from '../../../../src/types';
-import type { Action, Store } from '../../../../src/state/store-types';
+import type { Store, Dispatch } from '../../../../src/state/store-types';
 import type { DimensionMarshal } from '../../../../src/state/dimension-marshal/dimension-marshal-types';
 import middleware from '../../../../src/state/middleware/lift';
 import createStore from './util/create-store';
@@ -32,7 +32,7 @@ const getPopulatedRegistry = (dimensions?: DimensionMap): Registry => {
   return registry;
 };
 
-const getBasicMarshal = (dispatch: (a: Action) => void): DimensionMarshal => {
+const getBasicMarshal = (dispatch: Dispatch): DimensionMarshal => {
   return createMarshal(getPopulatedRegistry(), dispatch);
 };
 
@@ -51,11 +51,7 @@ it('should throw if a drag cannot be started when a lift action occurs', () => {
   const mock = jest.fn();
   const store: Store = createStore(
     passThrough(mock),
-    middleware(
-      getBasicMarshal((action: Action) => {
-        store.dispatch(action);
-      }),
-    ),
+    middleware(getBasicMarshal((action) => store.dispatch(action))),
   );
 
   // first lift is all good
@@ -71,11 +67,7 @@ it('should flush any animating drops', () => {
   const mock = jest.fn();
   const store: Store = createStore(
     passThrough(mock),
-    middleware(
-      getBasicMarshal((action: Action) => {
-        store.dispatch(action);
-      }),
-    ),
+    middleware(getBasicMarshal((action) => store.dispatch(action))),
   );
 
   // start a drag
@@ -111,11 +103,7 @@ it('should publish the initial dimensions when lifting', () => {
   const mock = jest.fn();
   const store: Store = createStore(
     passThrough(mock),
-    middleware(
-      getBasicMarshal((action: Action) => {
-        store.dispatch(action);
-      }),
-    ),
+    middleware(getBasicMarshal((action) => store.dispatch(action))),
   );
 
   // first lift is preparing
