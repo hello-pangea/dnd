@@ -1,17 +1,9 @@
 import globby from 'globby';
 import * as fs from 'fs-extra';
+import type Token from 'markdown-it/lib/token';
 import getProcessor from 'markdown-it';
-// Disabling eslint design to prevent using regeneratorRuntime in distributions
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-await-in-loop */
 
 const markdown = getProcessor();
-
-type Token = {
-  type: string;
-  attrs: [string[]];
-  children?: Token[];
-};
 
 // adding a forward slash to start of path
 const withLeadingSlash = (file: string): string => {
@@ -22,7 +14,8 @@ const withLeadingSlash = (file: string): string => {
 };
 
 const validate = (token: Token, currentFile: string, files: string[]) => {
-  const href: string = token.attrs[0][1];
+  const href: string = token.attrs?.[0][1] || '';
+
   // Not validating external links
   if (href.startsWith('http')) {
     return;
@@ -49,7 +42,7 @@ const validate = (token: Token, currentFile: string, files: string[]) => {
     return;
   }
 
-  const message: string = `
+  const message = `
     Dead link: ${withoutFragment}
     Found in:  ${withLeadingSlash(currentFile)}
   `;
@@ -62,7 +55,7 @@ const parse = (token: Token, file: string, files: string[]) => {
     validate(token, file, files);
   }
   if (token.children) {
-    token.children.forEach((child: Token) => parse(child, file, files));
+    token.children.forEach((child) => parse(child, file, files));
   }
 };
 
@@ -71,11 +64,13 @@ it('should use have no dead links', async () => {
   expect(files.length).toBeGreaterThan(0);
 
   for (const file of files) {
+    // Disabling eslint design to prevent using regeneratorRuntime in distributions
+    // eslint-disable-next-line no-await-in-loop
     const contents: string = await fs.readFile(file, 'utf8');
 
-    const tokens: Token[] = markdown.parse(contents, {});
+    const tokens = markdown.parse(contents, {});
     expect(tokens.length).toBeGreaterThan(0);
-    tokens.forEach((token: Token) => parse(token, file, files));
+    tokens.forEach((token) => parse(token, file, files));
   }
 
   // need at least one assertion
