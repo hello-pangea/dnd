@@ -1,29 +1,22 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { invariant } from '../../../../../src/invariant';
-import type {
-  SensorAPI,
-  Sensor,
-  PreDragActions,
-} from '../../../../../src/types';
+import type { SensorAPI, PreDragActions } from '../../../../../src/types';
 import App from '../../util/app';
 
 it('should correctly state whether a lock is claimed', () => {
-  let first: SensorAPI;
-  let second: SensorAPI;
-  const a: Sensor = (value: SensorAPI) => {
-    first = value;
-  };
-  const b: Sensor = (value: SensorAPI) => {
-    second = value;
-  };
+  const a = jest.fn<void, [SensorAPI]>();
+  const b = jest.fn<void, [SensorAPI]>();
 
   render(
     <React.Fragment>
       <App sensors={[a, b]} />
     </React.Fragment>,
   );
-  invariant(first && second);
+  const first: SensorAPI | undefined = a.mock.calls[0]?.[0];
+  const second: SensorAPI | undefined = b.mock.calls[0]?.[0];
+  invariant(first, 'expected first to be set');
+  invariant(second, 'expected second to be set');
 
   // both sensors know that the lock is not claimed
   expect(first.isLockClaimed()).toBe(false);

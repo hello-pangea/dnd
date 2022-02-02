@@ -6,7 +6,6 @@ import type {
   SensorAPI,
   PreDragActions,
   SnapDragActions,
-  Sensor,
 } from '../../../../../src/types';
 import App from '../../util/app';
 
@@ -19,11 +18,9 @@ afterEach(() => {
 });
 
 it('should not allow pre drag actions when in a dragging phase', () => {
-  let api: SensorAPI;
-  const a: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
-  render(<App sensors={[a]} />);
+  const sensor = jest.fn<void, [SensorAPI]>();
+  render(<App sensors={[sensor]} />);
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api, 'expected api to be set');
 
   const preDrag: PreDragActions | undefined | null = api.tryGetLock('0');
@@ -56,11 +53,8 @@ it('should not allow pre drag actions when in a dragging phase', () => {
 });
 
 it('should not allow drag actions after a drop', () => {
-  let api: SensorAPI;
-  const sensor: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
-  render(<App sensors={[sensor]} />);
+  const sensor = jest.fn<void, [SensorAPI]>();
+  render(<App sensors={[sensor]} />);const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api, 'expected api to be set');
 
   const preDrag: PreDragActions | undefined | null = api.tryGetLock('0');
@@ -83,12 +77,10 @@ it('should not allow drag actions after a drop', () => {
 });
 
 it('should not allow drag actions after lock lost', () => {
-  let api: SensorAPI;
-  const sensor: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
+  const sensor = jest.fn<void, [SensorAPI]>();
   const { unmount } = render(<App sensors={[sensor]} />);
-  invariant(api, 'expected first to be set');
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
+  invariant(api, 'expected api to be set');
 
   const preDrag: PreDragActions | undefined | null = api.tryGetLock('0');
   invariant(preDrag);

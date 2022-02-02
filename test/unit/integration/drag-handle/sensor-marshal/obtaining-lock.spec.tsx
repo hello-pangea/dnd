@@ -6,7 +6,6 @@ import type {
   PreDragActions,
   FluidDragActions,
   SnapDragActions,
-  Sensor,
 } from '../../../../../src/types';
 import App from '../../util/app';
 import { isDragging, isDropAnimating } from '../../util/helpers';
@@ -14,17 +13,12 @@ import { isDragging, isDropAnimating } from '../../util/helpers';
 function noop() {}
 
 it('should allow an exclusive lock for drag actions', () => {
-  let first: SensorAPI;
-  let second: SensorAPI;
-
-  const a: Sensor = (value: SensorAPI) => {
-    first = value;
-  };
-  const b: Sensor = (value: SensorAPI) => {
-    second = value;
-  };
+  const a = jest.fn<void, [SensorAPI]>();
+  const b = jest.fn<void, [SensorAPI]>();
 
   render(<App sensors={[a, b]} />);
+  const first: SensorAPI | undefined = a.mock.calls[0]?.[0];
+  const second: SensorAPI | undefined = b.mock.calls[0]?.[0];
   invariant(first, 'expected first to be set');
   invariant(second, 'expected second to be set');
 
@@ -43,13 +37,11 @@ it('should allow an exclusive lock for drag actions', () => {
 });
 
 it('should allow a lock to be released', () => {
-  let api: SensorAPI;
-  const sensor: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
+  const sensor = jest.fn<void, [SensorAPI]>();
 
   render(<App sensors={[sensor]} />);
-  invariant(api, 'expected getter to be set');
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
+  invariant(api, 'expected api to be set');
 
   Array.from({ length: 4 }).forEach(() => {
     // get the lock
@@ -66,12 +58,10 @@ it('should allow a lock to be released', () => {
 });
 
 it('should not allow a sensor to obtain a on a dropping item, but can claim one on something else while dragging', () => {
-  let api: SensorAPI;
-  const sensor: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
+  const sensor = jest.fn<void, [SensorAPI]>();
   const { getByText } = render(<App sensors={[sensor]} />);
-  invariant(api, 'expected getter to be set');
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
+  invariant(api, 'expected api to be set');
   const handle: HTMLElement = getByText('item: 0');
 
   const preDrag: PreDragActions | undefined | null = api.tryGetLock('0', noop);
@@ -102,12 +92,10 @@ it('should not allow a sensor to obtain a on a dropping item, but can claim one 
 });
 
 it('should release a lock when aborting a pre drag', () => {
-  let api: SensorAPI;
-  const sensor: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
+  const sensor = jest.fn<void, [SensorAPI]>();
   render(<App sensors={[sensor]} />);
-  invariant(api, 'expected getter to be set');
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
+  invariant(api, 'expected api to be set');
 
   const preDrag: PreDragActions | undefined | null = api.tryGetLock('0', noop);
   invariant(preDrag, 'Expected to get lock');
@@ -126,12 +114,10 @@ it('should release a lock when aborting a pre drag', () => {
 });
 
 it('should release a lock when cancelling or dropping a drag', () => {
-  let api: SensorAPI;
-  const sensor: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
+  const sensor = jest.fn<void, [SensorAPI]>();
   render(<App sensors={[sensor]} />);
-  invariant(api, 'expected getter to be set');
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
+  invariant(api, 'expected api to be set');
 
   ['cancel', 'drop'].forEach((property: string) => {
     const preDrag: PreDragActions | undefined | null = api.tryGetLock(

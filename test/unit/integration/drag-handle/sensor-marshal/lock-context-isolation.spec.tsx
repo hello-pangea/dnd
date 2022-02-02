@@ -1,19 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { invariant } from '../../../../../src/invariant';
-import type { SensorAPI, Sensor } from '../../../../../src/types';
+import type { SensorAPI } from '../../../../../src/types';
 import App from '../../util/app';
 
 it('should allow different locks in different DragDropContexts', () => {
-  let first: SensorAPI;
-  let second: SensorAPI;
-
-  const a: Sensor = (value: SensorAPI) => {
-    first = value;
-  };
-  const b: Sensor = (value: SensorAPI) => {
-    second = value;
-  };
+  const a = jest.fn<void, [SensorAPI]>();
+  const b = jest.fn<void, [SensorAPI]>();
 
   const { getAllByText } = render(
     <React.Fragment>
@@ -28,6 +21,8 @@ it('should allow different locks in different DragDropContexts', () => {
   expect(inFirst).not.toBe(inSecond);
 
   // each sensor can get a different lock
+  const first: SensorAPI | undefined = a.mock.calls[0]?.[0];
+  const second: SensorAPI | undefined = b.mock.calls[0]?.[0];
   invariant(first, 'expected first to be set');
   invariant(second, 'expected second to be set');
   expect(first.tryGetLock('0')).toBeTruthy();

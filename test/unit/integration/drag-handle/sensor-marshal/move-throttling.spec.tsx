@@ -6,7 +6,6 @@ import type {
   SensorAPI,
   PreDragActions,
   FluidDragActions,
-  Sensor,
 } from '../../../../../src/types';
 import App from '../../util/app';
 import { getOffset } from '../../util/helpers';
@@ -15,12 +14,10 @@ import { add } from '../../../../../src/state/position';
 function noop() {}
 
 it('should throttle move events by request animation frame', () => {
-  let api: SensorAPI;
-  const sensor: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
+  const sensor = jest.fn<void, [SensorAPI]>();
   const { getByText } = render(<App sensors={[sensor]} />);
-  invariant(api, 'expected getter to be set');
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
+  invariant(api, 'expected api to be set');
   const handle: HTMLElement = getByText('item: 0');
 
   const preDrag: PreDragActions | undefined | null = api.tryGetLock('0', noop);
@@ -45,11 +42,9 @@ it('should throttle move events by request animation frame', () => {
 });
 
 it('should cancel any pending moves after a lock is released', () => {
-  let api: SensorAPI;
-  const a: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
-  const { getByText } = render(<App sensors={[a]} />);
+  const sensor = jest.fn<void, [SensorAPI]>();
+  const { getByText } = render(<App sensors={[sensor]} />);
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api, 'expected api to be set');
   const handle: HTMLElement = getByText('item: 0');
 

@@ -5,17 +5,14 @@ import type {
   SensorAPI,
   PreDragActions,
   SnapDragActions,
-  Sensor,
 } from '../../../../../src/types';
 import App from '../../util/app';
 
 it('should not allow double lifting', () => {
-  let api: SensorAPI;
-  const a: Sensor = (value: SensorAPI) => {
-    api = value;
-  };
-  render(<App sensors={[a]} />);
-  invariant(api, 'expected first to be set');
+  const sensor = jest.fn<void, [SensorAPI]>();
+  render(<App sensors={[sensor]} />);
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
+  invariant(api, 'expected api to be set');
 
   const preDrag: PreDragActions | undefined | null = api.tryGetLock('0');
   invariant(preDrag);
