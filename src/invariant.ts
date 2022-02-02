@@ -10,6 +10,9 @@ RbdInvariant.prototype.toString = function toString() {
 
 // A copy-paste of tiny-invariant but with a custom error type
 // Throw an error if the condition fails
+export function invariant(condition: false, message?: string): never;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function invariant(condition: any, message?: string): asserts condition;
 export function invariant(
   condition: unknown,
   message?: string,
