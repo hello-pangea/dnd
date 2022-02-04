@@ -1,12 +1,16 @@
 // Replacing requestAnimationFrame
 // Adding window check because some tests do not
 // run with browser globals enabled
+// setting up global enzyme
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { replaceRaf } from 'raf-stub';
+
 if (typeof window !== 'undefined') {
   // eslint-disable-next-line global-require
-  require('raf-stub').replaceRaf([global, window]);
+  replaceRaf([global, window]);
 
   // overriding these properties in jsdom to allow them to be controlled
-
   Object.defineProperties(document.documentElement, {
     clientWidth: {
       writable: true,
@@ -33,9 +37,5 @@ if (typeof document !== 'undefined' && typeof window !== 'undefined') {
   document.documentElement.clientWidth = window.innerWidth;
   document.documentElement.clientHeight = window.innerHeight;
 }
-// setting up global enzyme
-const Enzyme = require('enzyme');
-
-const Adapter = require('enzyme-adapter-react-16');
 
 Enzyme.configure({ adapter: new Adapter() });

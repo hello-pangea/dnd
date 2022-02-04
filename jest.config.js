@@ -2,8 +2,8 @@ module.exports = {
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
   },
-  setupFiles: ['./test/env-setup.js'],
-  setupFilesAfterEnv: ['./test/test-setup.ts'],
+  setupFiles: ['./test/setup/env-setup.ts'],
+  setupFilesAfterEnv: ['./test/setup/test-setup.ts'],
   // node_modules is default.
   testPathIgnorePatterns: ['/node_modules/', '/cypress/'],
   modulePathIgnorePatterns: ['/dist/'],
