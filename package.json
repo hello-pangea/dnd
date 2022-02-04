@@ -105,6 +105,7 @@
     "@testing-library/dom": "^8.11.3",
     "@testing-library/react": "^12.1.2",
     "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^26.0.19",
     "@types/jest-axe": "^3.5.3",
