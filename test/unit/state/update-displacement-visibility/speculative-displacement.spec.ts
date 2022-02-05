@@ -1,4 +1,4 @@
-import { getRect } from 'css-box-model';
+import { getRect, Spacing } from 'css-box-model';
 import type {
   Axis,
   DragImpact,
@@ -76,7 +76,7 @@ import { getForcedDisplacement } from '../../../util/impact';
         [axis.crossAxisEnd]: homeCrossAxisEnd,
         [axis.start]: 0,
         [axis.end]: 10000,
-      },
+      } as Spacing,
     });
     const inHome1: DraggableDimension = getDraggableDimension({
       descriptor: {
@@ -90,7 +90,7 @@ import { getForcedDisplacement } from '../../../util/impact';
         [axis.crossAxisEnd]: homeCrossAxisEnd,
         [axis.start]: 0,
         [axis.end]: itemSize,
-      },
+      } as Spacing,
     });
     const inForeign1: DraggableDimension = getDraggableDimension({
       descriptor: {
@@ -104,7 +104,7 @@ import { getForcedDisplacement } from '../../../util/impact';
         [axis.crossAxisEnd]: foreignCrossAxisEnd,
         [axis.start]: 0,
         [axis.end]: itemSize,
-      },
+      } as Spacing,
     });
     const inForeign2: DraggableDimension = getDraggableDimension({
       descriptor: {
@@ -118,7 +118,7 @@ import { getForcedDisplacement } from '../../../util/impact';
         [axis.crossAxisEnd]: foreignCrossAxisEnd,
         [axis.start]: inForeign1.page.borderBox[axis.end],
         [axis.end]: inForeign1.page.borderBox[axis.end] + itemSize,
-      },
+      } as Spacing,
     });
     const inForeign3: DraggableDimension = getDraggableDimension({
       descriptor: {
@@ -132,7 +132,7 @@ import { getForcedDisplacement } from '../../../util/impact';
         [axis.crossAxisEnd]: foreignCrossAxisEnd,
         [axis.start]: inForeign2.page.borderBox[axis.end],
         [axis.end]: inForeign2.page.borderBox[axis.end] + itemSize,
-      },
+      } as Spacing,
     });
     const inForeign4: DraggableDimension = getDraggableDimension({
       descriptor: {
@@ -146,7 +146,7 @@ import { getForcedDisplacement } from '../../../util/impact';
         [axis.crossAxisEnd]: foreignCrossAxisEnd,
         [axis.start]: inForeign3.page.borderBox[axis.end],
         [axis.end]: inForeign3.page.borderBox[axis.end] + itemSize,
-      },
+      } as Spacing,
     });
     const inForeign5: DraggableDimension = getDraggableDimension({
       descriptor: {
@@ -160,7 +160,7 @@ import { getForcedDisplacement } from '../../../util/impact';
         [axis.crossAxisEnd]: foreignCrossAxisEnd,
         [axis.start]: inForeign4.page.borderBox[axis.end],
         [axis.end]: inForeign4.page.borderBox[axis.end] + itemSize,
-      },
+      } as Spacing,
     });
     const draggables: DraggableDimensionMap = toDraggableMap([
       inHome1,
@@ -184,7 +184,7 @@ import { getForcedDisplacement } from '../../../util/impact';
           [axis.crossAxisEnd]: foreignCrossAxisEnd,
           [axis.start]: 0,
           [axis.end]: 10000,
-        },
+        } as Spacing,
       });
       // Viewport is big enough to fit inForeign1 and inForeign2
       const sizeOfViewport: number = itemSize + itemSize - 1;
@@ -195,7 +195,7 @@ import { getForcedDisplacement } from '../../../util/impact';
           [axis.crossAxisEnd]: 10000,
           [axis.start]: 0,
           [axis.end]: sizeOfViewport,
-        }),
+        } as Spacing),
         scroll: origin,
         // some massive number
         scrollHeight: 20000,
@@ -309,7 +309,7 @@ import { getForcedDisplacement } from '../../../util/impact';
           [axis.crossAxisEnd]: foreignCrossAxisEnd,
           [axis.start]: 0,
           [axis.end]: 10000,
-        },
+        } as Spacing,
         // small frame (will clip subject)
         closest: {
           borderBox: {
@@ -317,7 +317,7 @@ import { getForcedDisplacement } from '../../../util/impact';
             [axis.crossAxisEnd]: foreignCrossAxisEnd,
             [axis.start]: 0,
             [axis.end]: sizeOfDroppable,
-          },
+          } as Spacing,
           shouldClipSubject: true,
           scroll: origin,
           scrollSize: {
@@ -333,7 +333,7 @@ import { getForcedDisplacement } from '../../../util/impact';
           [axis.crossAxisEnd]: 10000,
           [axis.start]: 0,
           [axis.end]: 10000,
-        }),
+        } as Spacing),
         scroll: origin,
         scrollHeight: 10000,
         scrollWidth: 10000,

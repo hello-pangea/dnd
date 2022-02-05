@@ -1,4 +1,4 @@
-import { getRect } from 'css-box-model';
+import { getRect, Spacing } from 'css-box-model';
 import type {
   Axis,
   Viewport,
@@ -53,7 +53,7 @@ import scrollViewport from '../../../../src/state/scroll-viewport';
         [axis.end]: viewport.frame[axis.end] + 2000,
         [axis.crossAxisStart]: viewport.frame[axis.crossAxisStart],
         [axis.crossAxisEnd]: homeCrossAxisEnd,
-      },
+      } as Spacing,
     });
 
     const foreign: DroppableDimension = getDroppableDimension({
@@ -68,7 +68,7 @@ import scrollViewport from '../../../../src/state/scroll-viewport';
         [axis.end]: viewport.frame[axis.end] + 2000,
         [axis.crossAxisStart]: homeCrossAxisEnd + 1,
         [axis.crossAxisEnd]: viewport.frame[axis.crossAxisEnd],
-      },
+      } as Spacing,
     });
 
     const dragging: DraggableDimension = getDraggableDimension({

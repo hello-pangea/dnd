@@ -257,7 +257,7 @@ import {
               [axis.crossAxisEnd]: crossAxisStart,
               [axis.start]: 0,
               [axis.end]: 0,
-            },
+            } as Spacing,
             direction: axis.direction,
             windowScroll: preset.windowScroll,
           });

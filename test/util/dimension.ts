@@ -30,8 +30,6 @@ import type {
 import isTotallyVisibleThroughFrame from '../../src/state/visibility/is-totally-visible-through-frame';
 import patchDimensionMap from '../../src/state/patch-dimension-map';
 
-export type { Rect, BoxModel, Spacing, Position } from 'css-box-model';
-
 type GetComputedSpacingArgs = {
   margin?: Spacing;
   padding?: Spacing;
@@ -98,7 +96,7 @@ export const makeScrollable = (droppable: DroppableDimension, amount = 20) => {
     margin: droppable.client.margin,
   });
 
-  // eslint-disable-next-line no-use-before-define
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   const preset = getPreset();
   const newPage: BoxModel = withScroll(newClient, preset.windowScroll);
 
@@ -386,7 +384,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisStart]: borderBoxCrossAxisStart,
       [axis.crossAxisEnd]: borderBoxCrossAxisEnd,
       [axis.end]: borderBoxStart + borderBoxSize,
-    };
+    } as Spacing;
   };
 
   const home: DroppableDimension = getDroppableDimension({
@@ -400,7 +398,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisStart]: homeBorderBoxCrossAxisStart,
       [axis.crossAxisEnd]: homeBorderBoxCrossAxisEnd,
       [axis.end]: droppableBorderBoxEnd,
-    },
+    } as Spacing,
     ...assortedSpacing,
     windowScroll,
     direction: axis.direction,
@@ -417,7 +415,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisStart]: foreignCrossAxisStart,
       [axis.crossAxisEnd]: foreignCrossAxisEnd,
       [axis.end]: droppableBorderBoxEnd,
-    },
+    } as Spacing,
     ...assortedSpacing,
     windowScroll,
     direction: axis.direction,
@@ -434,7 +432,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisStart]: emptyForeignCrossAxisStart,
       [axis.crossAxisEnd]: emptyForeignCrossAxisEnd,
       [axis.end]: droppableBorderBoxEnd,
-    },
+    } as Spacing,
     ...assortedSpacing,
     windowScroll,
     direction: axis.direction,
@@ -459,7 +457,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisEnd]:
         homeBorderBoxCrossAxisEnd - assortedSpacing.margin[axis.crossAxisEnd],
       [axis.end]: droppableBorderBoxStart + inHome1Size,
-    },
+    } as Spacing,
     windowScroll,
     ...assortedSpacing,
   });
@@ -531,7 +529,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisStart]: foreignCrossAxisStart,
       [axis.crossAxisEnd]: foreignCrossAxisEnd,
       [axis.end]: 20,
-    },
+    } as Spacing,
     ...assortedSpacing,
     windowScroll,
   });
@@ -548,7 +546,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisStart]: foreignCrossAxisStart,
       [axis.crossAxisEnd]: foreignCrossAxisEnd,
       [axis.end]: 50,
-    },
+    } as Spacing,
     ...assortedSpacing,
     windowScroll,
   });
@@ -565,7 +563,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisStart]: foreignCrossAxisStart,
       [axis.crossAxisEnd]: foreignCrossAxisEnd,
       [axis.end]: 90,
-    },
+    } as Spacing,
     ...assortedSpacing,
     windowScroll,
   });
@@ -582,7 +580,7 @@ export const getPreset = (axis: Axis = vertical) => {
       [axis.crossAxisStart]: foreignCrossAxisStart,
       [axis.crossAxisEnd]: foreignCrossAxisEnd,
       [axis.end]: 140,
-    },
+    } as Spacing,
     ...assortedSpacing,
     windowScroll,
   });

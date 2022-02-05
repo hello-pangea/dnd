@@ -1,5 +1,5 @@
 import { getRect } from 'css-box-model';
-import type { Position, Rect } from 'css-box-model';
+import type { Position, Rect, Spacing } from 'css-box-model';
 import { invariant } from '../../../../src/invariant';
 import type {
   Axis,
@@ -45,7 +45,7 @@ const gap = 10;
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 0,
         [axis.end]: droppableSize,
-      },
+      } as Spacing,
     });
     const inForeign1: DraggableDimension = getDraggableDimension({
       descriptor: {
@@ -59,7 +59,7 @@ const gap = 10;
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 0,
         [axis.end]: droppableSize / 2,
-      },
+      } as Spacing,
     });
 
     const inForeign2: DraggableDimension = getDraggableDimension({
@@ -75,7 +75,7 @@ const gap = 10;
         [axis.start]: droppableSize / 2,
         // leave a little gap before the end
         [axis.end]: droppableSize - gap,
-      },
+      } as Spacing,
     });
 
     const getHomeDraggable = (borderBoxSize: number): DraggableDimension =>
@@ -91,7 +91,7 @@ const gap = 10;
           [axis.crossAxisEnd]: crossAxisEnd,
           [axis.start]: inForeign2.client.borderBox[axis.end],
           [axis.end]: inForeign2.client.borderBox[axis.end] + borderBoxSize,
-        },
+        } as Spacing,
       });
 
     const withHomeDraggable = (

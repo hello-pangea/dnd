@@ -36,7 +36,7 @@ const viewport: Viewport = getViewport();
       [axis.end]: end,
       [axis.crossAxisStart]: crossAxisStart,
       [axis.crossAxisEnd]: crossAxisEnd,
-    });
+    } as Spacing);
 
     const home: DroppableDimension = getDroppableDimension({
       descriptor: {
@@ -61,7 +61,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 0,
         [axis.end]: 20,
-      },
+      } as Spacing,
     });
 
     const inHome2: DraggableDimension = getDraggableDimension({
@@ -76,7 +76,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 20,
         [axis.end]: 40,
-      },
+      } as Spacing,
     });
 
     const inHome3: DraggableDimension = getDraggableDimension({
@@ -91,7 +91,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 40,
         [axis.end]: 60,
-      },
+      } as Spacing,
     });
 
     const insideDestination: DraggableDimension[] = [inHome1, inHome2, inHome3];

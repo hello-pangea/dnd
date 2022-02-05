@@ -1,5 +1,5 @@
 import { getRect } from 'css-box-model';
-import type { Rect, Position } from 'css-box-model';
+import type { Rect, Position, Spacing } from 'css-box-model';
 import type {
   Axis,
   DraggableDimension,
@@ -33,7 +33,7 @@ const viewport: Viewport = getViewport();
       [axis.end]: end,
       [axis.crossAxisStart]: crossAxisStart,
       [axis.crossAxisEnd]: crossAxisEnd,
-    });
+    } as Spacing);
 
     const droppable: DroppableDimension = getDroppableDimension({
       descriptor: {
@@ -58,7 +58,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: -30, // -10
         [axis.end]: -10,
-      },
+      } as Spacing,
       ...withAssortedSpacing(),
     });
 
@@ -75,7 +75,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: -10, // -10
         [axis.end]: 20,
-      },
+      } as Spacing,
       ...withAssortedSpacing(),
     });
 
@@ -91,7 +91,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 20,
         [axis.end]: 40,
-      },
+      } as Spacing,
       ...withAssortedSpacing(),
     });
 
@@ -107,7 +107,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 40,
         [axis.end]: 60,
-      },
+      } as Spacing,
       ...withAssortedSpacing(),
     });
 
@@ -124,7 +124,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 60,
         [axis.end]: 120,
-      },
+      } as Spacing,
       ...withAssortedSpacing(),
     });
 
@@ -141,7 +141,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: 120,
         [axis.end]: 140,
-      },
+      } as Spacing,
       ...withAssortedSpacing(),
     });
 
@@ -157,7 +157,7 @@ const viewport: Viewport = getViewport();
         [axis.crossAxisEnd]: crossAxisEnd,
         [axis.start]: viewport.frame[axis.end] + 1,
         [axis.end]: viewport.frame[axis.end] + 10,
-      },
+      } as Spacing,
       ...withAssortedSpacing(),
     });
 

@@ -1,4 +1,4 @@
-import type { Position } from 'css-box-model';
+import type { Position, Spacing } from 'css-box-model';
 import getDragImpact from '../../../../../../src/state/get-drag-impact';
 import noImpact from '../../../../../../src/state/no-impact';
 import { vertical, horizontal } from '../../../../../../src/state/axis';
@@ -46,7 +46,7 @@ const viewport: Viewport = getViewport();
           [axis.start]: 0,
           // will be cut by the frame
           [axis.end]: 200,
-        },
+        } as Spacing,
         closest: {
           borderBox: {
             [axis.crossAxisStart]: crossAxisStart,
@@ -54,7 +54,7 @@ const viewport: Viewport = getViewport();
             [axis.start]: 0,
             // will cut the subject,
             [axis.end]: 100,
-          },
+          } as Spacing,
           scrollSize: {
             scrollWidth: 100,
             scrollHeight: 100,
@@ -75,7 +75,7 @@ const viewport: Viewport = getViewport();
           [axis.crossAxisEnd]: crossAxisEnd,
           [axis.start]: 0,
           [axis.end]: 90,
-        },
+        } as Spacing,
       });
       const partialVisible: DraggableDimension = getDraggableDimension({
         descriptor: {
@@ -90,7 +90,7 @@ const viewport: Viewport = getViewport();
           // partially in frame
           [axis.start]: 90,
           [axis.end]: 120,
-        },
+        } as Spacing,
       });
       const notVisible1: DraggableDimension = getDraggableDimension({
         descriptor: {
@@ -105,7 +105,7 @@ const viewport: Viewport = getViewport();
           // inside the frame, but not in the visible area
           [axis.start]: 130,
           [axis.end]: 140,
-        },
+        } as Spacing,
       });
       const notVisible2: DraggableDimension = getDraggableDimension({
         descriptor: {
@@ -120,7 +120,7 @@ const viewport: Viewport = getViewport();
           // inside the frame, but not in the visible area
           [axis.start]: 150,
           [axis.end]: 170,
-        },
+        } as Spacing,
       });
       const customDraggables: DraggableDimensionMap = {
         [visible.descriptor.id]: visible,
@@ -198,7 +198,7 @@ const viewport: Viewport = getViewport();
           [axis.crossAxisEnd]: crossAxisEnd,
           [axis.start]: 0,
           [axis.end]: viewport.frame[axis.end] + 100,
-        },
+        } as Spacing,
       });
       const visible: DraggableDimension = getDraggableDimension({
         descriptor: {
@@ -212,7 +212,7 @@ const viewport: Viewport = getViewport();
           [axis.crossAxisEnd]: crossAxisEnd,
           [axis.start]: 0,
           [axis.end]: viewport.frame[axis.end] - 20,
-        },
+        } as Spacing,
       });
       const partialVisible: DraggableDimension = getDraggableDimension({
         descriptor: {
@@ -226,7 +226,7 @@ const viewport: Viewport = getViewport();
           [axis.crossAxisEnd]: crossAxisEnd,
           [axis.start]: viewport.frame[axis.end] - 20,
           [axis.end]: viewport.frame[axis.end] + 10,
-        },
+        } as Spacing,
       });
       const notVisible1: DraggableDimension = getDraggableDimension({
         descriptor: {
@@ -243,7 +243,7 @@ const viewport: Viewport = getViewport();
           [axis.end]:
             viewport.frame[axis.end] +
             visible.page.marginBox[axis.crossAxisSize],
-        },
+        } as Spacing,
       });
       const notVisible2: DraggableDimension = getDraggableDimension({
         descriptor: {
@@ -262,7 +262,7 @@ const viewport: Viewport = getViewport();
             viewport.frame[axis.end] +
             visible.page.marginBox[axis.crossAxisSize] +
             1,
-        },
+        } as Spacing,
       });
       const customDraggables: DraggableDimensionMap = {
         [visible.descriptor.id]: visible,
