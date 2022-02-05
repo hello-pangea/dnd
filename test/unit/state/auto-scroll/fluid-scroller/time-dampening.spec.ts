@@ -34,17 +34,17 @@ forEach(({ state, axis }: BlockFnArgs) => {
   );
 
   const originalNow = Date.now;
-  let mockNow;
+  let mockNow: jest.Mock<number>;
 
   beforeEach(() => {
     mockNow = jest.fn().mockReturnValue(0);
-    // $FlowFixMe - overriding global
+    // overriding global
     Date.now = mockNow;
   });
 
   afterEach(() => {
     mockNow.mockClear();
-    // $FlowFixMe - overriding global
+    // overriding global
     Date.now = originalNow;
   });
 
