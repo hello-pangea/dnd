@@ -2,7 +2,6 @@ import getStatePreset from '../../../util/get-simple-state-preset';
 import { makeMapStateToProps } from '../../../../src/view/droppable/connected-droppable';
 import type { State, DraggingState } from '../../../../src/types';
 import type {
-  PublicOwnProps,
   Selector,
   MapProps,
 } from '../../../../src/view/droppable/droppable-types';
@@ -17,7 +16,7 @@ const preset = getPreset();
 const state = getStatePreset();
 
 describe('home list', () => {
-  const ownProps: PublicOwnProps = getOwnProps(preset.home);
+  const ownProps = getOwnProps(preset.home);
   ownProps.isDropDisabled = true;
   const selector: Selector = makeMapStateToProps();
 
@@ -60,7 +59,7 @@ describe('home list', () => {
 });
 
 describe('in foreign list', () => {
-  const ownProps: PublicOwnProps = getOwnProps(preset.foreign);
+  const ownProps = getOwnProps(preset.foreign);
   ownProps.isDropDisabled = true;
   const selector: Selector = makeMapStateToProps();
   const defaultDisabledProps: MapProps = selector(state.idle, ownProps);

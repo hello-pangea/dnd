@@ -1,4 +1,4 @@
-import type { PublicOwnProps } from '../../../../src/view/droppable/droppable-types';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import mount from './util/mount';
 import { homeOwnProps as defaultOwnProps } from './util/get-props';
 import { withError } from '../../../util/console';
@@ -16,57 +16,57 @@ afterAll(() => {
 });
 
 it('should throw if no droppableId is provided', () => {
-  const ownProps: PublicOwnProps = {
+  const ownProps = {
     ...defaultOwnProps,
   };
 
   withError(() => {
-    // $ExpectError - not provided
+    // @ts-ignore: expect error - not provided
     ownProps.droppableId = undefined;
     mount({ ownProps });
   });
 
   withError(() => {
-    // $ExpectError - not a string
+    // @ts-ignore: expect error - not a string
     ownProps.droppableId = null;
     mount({ ownProps });
   });
 
   withError(() => {
-    // $ExpectError - using number
+    // @ts-ignore: expect error - using number
     ownProps.droppableId = 3;
     mount({ ownProps });
   });
 });
 
 it('should throw if isDropDisabled is set to null', () => {
-  const ownProps: PublicOwnProps = {
+  const ownProps = {
     ...defaultOwnProps,
   };
   withError(() => {
-    // $ExpectError - null
+    // @ts-ignore: expect error - null
     ownProps.isDropDisabled = null;
     mount({ ownProps });
   });
 });
 
 it('should throw if isCombineEnabled is set to null', () => {
-  const ownProps: PublicOwnProps = {
+  const ownProps = {
     ...defaultOwnProps,
   };
   withError(() => {
-    // $ExpectError - null
+    // @ts-ignore: expect error - null
     ownProps.isCombineEnabled = null;
     mount({ ownProps });
   });
 });
 
 it('should throw if ignoreContainerClipping is set to null', () => {
-  const ownProps: PublicOwnProps = {
+  const ownProps = {
     ...defaultOwnProps,
   };
   withError(() => {
-    // $ExpectError - null
+    // @ts-ignore: expect error - null
     ownProps.ignoreContainerClipping = null;
     mount({ ownProps });
   });

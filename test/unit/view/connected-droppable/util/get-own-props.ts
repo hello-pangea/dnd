@@ -1,8 +1,8 @@
 import type { DroppableDimension } from '../../../../../src/types';
-import type { PublicOwnProps } from '../../../../../src/view/droppable/droppable-types';
+import type { InternalOwnProps } from '../../../../../src/view/droppable/droppable-types';
 import getBodyElement from '../../../../../src/view/get-body-element';
 
-export default (dimension: DroppableDimension): PublicOwnProps => ({
+export default (dimension: DroppableDimension): InternalOwnProps => ({
   droppableId: dimension.descriptor.id,
   type: dimension.descriptor.type,
   isDropDisabled: false,
