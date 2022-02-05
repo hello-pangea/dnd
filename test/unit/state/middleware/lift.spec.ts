@@ -3,7 +3,7 @@ import type { Store, Dispatch } from '../../../../src/state/store-types';
 import type { DimensionMarshal } from '../../../../src/state/dimension-marshal/dimension-marshal-types';
 import middleware from '../../../../src/state/middleware/lift';
 import createStore from './util/create-store';
-import passThrough from './util/pass-through-middleware';
+import passThroughMiddleware from './util/pass-through-middleware';
 import { setViewport, resetViewport } from '../../../util/viewport';
 import {
   lift,
@@ -50,7 +50,7 @@ afterEach(() => {
 it('should throw if a drag cannot be started when a lift action occurs', () => {
   const mock = jest.fn();
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     middleware(getBasicMarshal((action) => store.dispatch(action))),
   );
 
@@ -66,7 +66,7 @@ it('should throw if a drag cannot be started when a lift action occurs', () => {
 it('should flush any animating drops', () => {
   const mock = jest.fn();
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     middleware(getBasicMarshal((action) => store.dispatch(action))),
   );
 
@@ -102,7 +102,7 @@ it('should flush any animating drops', () => {
 it('should publish the initial dimensions when lifting', () => {
   const mock = jest.fn();
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     middleware(getBasicMarshal((action) => store.dispatch(action))),
   );
 

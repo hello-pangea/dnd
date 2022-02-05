@@ -11,7 +11,7 @@ import middleware from '../../../../../src/state/middleware/drop';
 import { add } from '../../../../../src/state/position';
 import { initialPublishArgs } from '../../../../util/preset-action-args';
 import createStore from '../util/create-store';
-import passThrough from '../util/pass-through-middleware';
+import passThroughMiddleware from '../util/pass-through-middleware';
 import type { State } from '../../../../../src/types';
 import type { Store } from '../../../../../src/state/store-types';
 
@@ -44,7 +44,7 @@ it('should throw an error if a drop action occurs while not in a phase where you
 
 it('should dispatch a DROP_PENDING action if COLLECTING', () => {
   const mock = jest.fn();
-  const store: Store = createStore(passThrough(mock), middleware);
+  const store: Store = createStore(passThroughMiddleware(mock), middleware);
 
   store.dispatch(initialPublish(initialPublishArgs));
   expect(store.getState().phase).toBe('DRAGGING');
@@ -65,7 +65,7 @@ it('should dispatch a DROP_PENDING action if COLLECTING', () => {
 
 it('should throw if a drop action is fired and there is DROP_PENDING and it is waiting for a publish', () => {
   const mock = jest.fn();
-  const store: Store = createStore(passThrough(mock), middleware);
+  const store: Store = createStore(passThroughMiddleware(mock), middleware);
 
   store.dispatch(initialPublish(initialPublishArgs));
   store.dispatch(collectionStarting());

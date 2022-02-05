@@ -20,7 +20,7 @@ import {
 import { populate } from '../../../util/registry';
 import { resetViewport, setViewport } from '../../../util/viewport';
 import createStore from './util/create-store';
-import passThrough from './util/pass-through-middleware';
+import passThroughMiddleware from './util/pass-through-middleware';
 import type { Registry } from '../../../../src/state/registry/registry-types';
 
 const getPopulatedRegistry = (dimensions?: DimensionMap): Registry => {
@@ -55,7 +55,7 @@ it('should log a warning if items are added that do not have consecutive indexes
   copied.draggables[preset.inHome2.descriptor.id] = customInHome2;
 
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     middleware(
       createMarshal(
         getPopulatedRegistry(copied),
@@ -108,7 +108,7 @@ it('should log a warning if items are added have duplicate indexes', () => {
   dimensions.draggables[preset.inHome4.descriptor.id] = customInHome4;
 
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     middleware(
       createMarshal(
         getPopulatedRegistry(dimensions),

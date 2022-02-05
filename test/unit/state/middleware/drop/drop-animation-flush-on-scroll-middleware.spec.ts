@@ -4,7 +4,7 @@ import { invariant } from '../../../../../src/invariant';
 import middleware from '../../../../../src/state/middleware/drop/drop-animation-flush-on-scroll-middleware';
 import dropMiddleware from '../../../../../src/state/middleware/drop/drop-middleware';
 import createStore from '../util/create-store';
-import passThrough from '../util/pass-through-middleware';
+import passThroughMiddleware from '../util/pass-through-middleware';
 import { add } from '../../../../../src/state/position';
 import {
   initialPublish,
@@ -20,9 +20,9 @@ import {
   getCompletedArgs,
 } from '../../../../util/preset-action-args';
 
-function getToDropAnimation(mock: JestMockFn<any, any>): Store {
+function getToDropAnimation(mock: jest.Mock<unknown, [Action]>): Store {
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     // will convert the drop into a drop animate
     dropMiddleware,
     middleware,

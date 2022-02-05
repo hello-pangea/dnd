@@ -1,9 +1,13 @@
-import type { Action, Middleware } from '../../../../../src/state/store-types';
+import type {
+  Action,
+  Dispatch,
+  Middleware,
+} from '../../../../../src/state/store-types';
 
-const passThrough = (mock: Function): Middleware => {
-  const result: Middleware = () => (next: Function) => (
-    action: Action,
-  ): any => {
+const passThroughMiddleware = (
+  mock: jest.Mock<unknown, [Action]>,
+): Middleware => {
+  const result: Middleware = () => (next: Dispatch) => (action: Action) => {
     mock(action);
     next(action);
   };
@@ -11,4 +15,4 @@ const passThrough = (mock: Function): Middleware => {
   return result;
 };
 
-export default passThrough;
+export default passThroughMiddleware;

@@ -15,12 +15,12 @@ import {
   publishAdditionArgs,
 } from '../../../util/preset-action-args';
 import createStore from './util/create-store';
-import passThrough from './util/pass-through-middleware';
+import passThroughMiddleware from './util/pass-through-middleware';
 
 it('should trigger a drop on a dynamic publish if a drop pending is waiting', () => {
   const mock = jest.fn();
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     // will fire the pending drop action
     dropMiddleware,
     middleware,
@@ -56,7 +56,7 @@ it('should trigger a drop on a dynamic publish if a drop pending is waiting', ()
 it('should not trigger a drop on a publish if a drop is not pending', () => {
   const mock = jest.fn();
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     // will fire the pending drop action
     dropMiddleware,
     middleware,

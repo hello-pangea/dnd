@@ -10,7 +10,7 @@ import middleware from '../../../../../src/state/middleware/drop';
 import { enableCombining } from '../../../../util/dimension';
 import { initialPublishArgs } from '../../../../util/preset-action-args';
 import createStore from '../util/create-store';
-import passThrough from '../util/pass-through-middleware';
+import passThroughMiddleware from '../util/pass-through-middleware';
 import type { State, CompletedDrag } from '../../../../../src/types';
 import type { Store } from '../../../../../src/state/store-types';
 import {
@@ -20,7 +20,7 @@ import {
 
 it('should clear any destination from a final impact if not dropping on a droppable', () => {
   const mock = jest.fn();
-  const store: Store = createStore(passThrough(mock), middleware);
+  const store: Store = createStore(passThroughMiddleware(mock), middleware);
 
   store.dispatch(initialPublish(initialPublishArgs));
   expect(store.getState().phase).toBe('DRAGGING');
@@ -53,7 +53,7 @@ it('should clear any destination from a final impact if not dropping on a droppa
 
 it('should clear any destination from a final impact canceling', () => {
   const mock = jest.fn();
-  const store: Store = createStore(passThrough(mock), middleware);
+  const store: Store = createStore(passThroughMiddleware(mock), middleware);
 
   store.dispatch(initialPublish(initialPublishArgs));
   expect(store.getState().phase).toBe('DRAGGING');
@@ -78,7 +78,7 @@ it('should clear any destination from a final impact canceling', () => {
 
 it('should clear any combine from a final impact if cancelling', () => {
   const mock = jest.fn();
-  const store: Store = createStore(passThrough(mock), middleware);
+  const store: Store = createStore(passThroughMiddleware(mock), middleware);
 
   store.dispatch(
     initialPublish({

@@ -1,3 +1,3 @@
 import type { Announce } from '../../../../../../src/types';
 
-export default (): Announce => jest.fn();
+export default (): jest.MockedFunction<Announce> => jest.fn();

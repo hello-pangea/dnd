@@ -30,7 +30,7 @@ import {
   getDropImpactForReason,
 } from '../../../../util/preset-action-args';
 import createStore from '../util/create-store';
-import passThrough from '../util/pass-through-middleware';
+import passThroughMiddleware from '../util/pass-through-middleware';
 import type {
   DropResult,
   CompletedDrag,
@@ -48,7 +48,7 @@ import { tryGetCombine } from '../../../../../src/state/get-impact-location';
   describe(`with drop reason: ${reason}`, () => {
     it('should fire a complete drop action is no drop animation is required', () => {
       const mock = jest.fn();
-      const store: Store = createStore(passThrough(mock), middleware);
+      const store: Store = createStore(passThroughMiddleware(mock), middleware);
 
       store.dispatch(flush());
       store.dispatch(initialPublish(initialPublishArgs));
@@ -68,7 +68,7 @@ import { tryGetCombine } from '../../../../../src/state/get-impact-location';
 
     it('should fire an animate drop action if a drop animation movement is required', () => {
       const mock = jest.fn();
-      const store: Store = createStore(passThrough(mock), middleware);
+      const store: Store = createStore(passThroughMiddleware(mock), middleware);
 
       store.dispatch(initialPublish(initialPublishArgs));
       expect(store.getState().phase).toBe('DRAGGING');
@@ -118,7 +118,7 @@ import { tryGetCombine } from '../../../../../src/state/get-impact-location';
 
     it('should fire an animate drop action if combining', () => {
       const mock = jest.fn();
-      const store: Store = createStore(passThrough(mock), middleware);
+      const store: Store = createStore(passThroughMiddleware(mock), middleware);
 
       const inSnapMode: InitialPublishArgs = {
         ...initialPublishArgs,

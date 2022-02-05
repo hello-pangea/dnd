@@ -6,7 +6,7 @@ import {
   initialPublishArgs,
 } from '../../../../util/preset-action-args';
 import createStore from '../util/create-store';
-import passThrough from '../util/pass-through-middleware';
+import passThroughMiddleware from '../util/pass-through-middleware';
 import type { Store } from '../../../../../src/state/store-types';
 import getRespondersStub from './util/get-responders-stub';
 import getAnnounce from './util/get-announce-stub';
@@ -50,7 +50,7 @@ it('should call the onBeforeDragState and onDragStart in the correct order', () 
   });
   const store: Store = createStore(
     middleware(() => responders, getAnnounce()),
-    passThrough(mock),
+    passThroughMiddleware(mock),
   );
 
   // first initial publish

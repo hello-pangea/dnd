@@ -4,7 +4,7 @@ import { invariant } from '../../../../../src/invariant';
 import middleware from '../../../../../src/state/middleware/drop/drop-animation-finish-middleware';
 import dropMiddleware from '../../../../../src/state/middleware/drop/drop-middleware';
 import createStore from '../util/create-store';
-import passThrough from '../util/pass-through-middleware';
+import passThroughMiddleware from '../util/pass-through-middleware';
 import { add } from '../../../../../src/state/position';
 import {
   initialPublish,
@@ -22,7 +22,7 @@ it('should fire a complete drop action when a drop animation finish action is fi
   const mock = jest.fn();
 
   const store: Store = createStore(
-    passThrough(mock),
+    passThroughMiddleware(mock),
     // will convert the drop into a drop animate
     dropMiddleware,
     middleware,

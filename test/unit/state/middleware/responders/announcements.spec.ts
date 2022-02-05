@@ -14,6 +14,7 @@ import {
 } from '../../../../util/preset-action-args';
 import createStore from '../util/create-store';
 import type {
+  Announce,
   Responders,
   DragUpdate,
   DropResult,
@@ -128,7 +129,7 @@ cases.forEach((current: Case) => {
     current.description ? `: ${current.description}` : ''
   }`, () => {
     let responders: Responders;
-    let announce: JestMockFn<string[], void>;
+    let announce: jest.MockedFunction<Announce>;
     let store: Store;
 
     beforeEach(() => {

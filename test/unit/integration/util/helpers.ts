@@ -9,6 +9,7 @@ import type {
   DraggableStateSnapshot,
   DraggableRubric,
   DraggableId,
+  OnDragEndResponder,
 } from '../../../../src';
 import { getComputedSpacing, getPreset } from '../../../util/dimension';
 
@@ -31,7 +32,9 @@ export function getOffset(el: HTMLElement): Position {
   };
 }
 
-export function getDropReason(onDragEnd: JestMockFn<any, any>): DropReason {
+export function getDropReason(
+  onDragEnd: jest.MockedFunction<OnDragEndResponder>,
+): DropReason {
   const calls = onDragEnd.mock.calls;
 
   invariant(calls.length, 'There has been no calls to onDragEnd');
@@ -65,9 +68,12 @@ export function isOver(el: HTMLElement): string | undefined | null {
 
 const preset = getPreset();
 
-export const renderItemAndSpy = (mock: JestMockFn<any, any>): RenderItem => (
-  item: Item,
-) => {
+export const renderItemAndSpy = (
+  mock: jest.Mock<
+    unknown,
+    [DraggableProvided, DraggableStateSnapshot, DraggableRubric]
+  >,
+): RenderItem => (item: Item) => {
   const render = defaultItemRender(item);
   return (
     provided: DraggableProvided,
@@ -83,7 +89,7 @@ export type Call = [DraggableProvided, DraggableStateSnapshot, DraggableRubric];
 
 export const getCallsFor = (
   id: DraggableId,
-  mock: JestMockFn<any, any>,
+  mock: jest.Mock<unknown, Call>,
 ): Call[] => {
   return mock.mock.calls.filter((call) => {
     const provided: DraggableProvided = call[0];
@@ -93,7 +99,7 @@ export const getCallsFor = (
 
 export const getProvidedFor = (
   id: DraggableId,
-  mock: JestMockFn<any, any>,
+  mock: jest.Mock<unknown, Call>,
 ): DraggableProvided[] => {
   return getCallsFor(id, mock).map((call) => {
     return call[0];
@@ -102,7 +108,7 @@ export const getProvidedFor = (
 
 export const getSnapshotsFor = (
   id: DraggableId,
-  mock: JestMockFn<any, any>,
+  mock: jest.Mock<unknown, Call>,
 ): DraggableStateSnapshot[] => {
   return getCallsFor(id, mock).map((call) => {
     return call[1];
@@ -111,7 +117,7 @@ export const getSnapshotsFor = (
 
 export const getRubricsFor = (
   id: DraggableId,
-  mock: JestMockFn<any, any>,
+  mock: jest.Mock<unknown, Call>,
 ): DraggableRubric[] => {
   return getCallsFor(id, mock).map((call) => {
     return call[2];
@@ -136,19 +142,17 @@ export const withPoorDimensionMocks = (
   // This is so that when we move we are combining
   const protoSpy = jest
     .spyOn(Element.prototype, 'getBoundingClientRect')
-    .mockImplementation(function fake() {
+    .mockImplementation(function fake(this: Element) {
       invariant(
         this instanceof HTMLElement,
         'Expected "this" to be a HTMLElement',
       );
 
-      const el: HTMLElement = (this as any) as HTMLElement;
-
-      if (el.getAttribute(attributes.droppable.id)) {
+      if (this.getAttribute(attributes.droppable.id)) {
         return preset.home.client.borderBox;
       }
 
-      const id: DraggableId | undefined | null = el.getAttribute(
+      const id: DraggableId | undefined | null = this.getAttribute(
         attributes.draggable.id,
       );
       invariant(id, 'Expected element to be a draggable');
@@ -159,7 +163,7 @@ export const withPoorDimensionMocks = (
   // Stubbing out totally - not including margins in this
   const styleSpy = jest
     .spyOn(window, 'getComputedStyle')
-    .mockImplementation(function fake(el: HTMLElement) {
+    .mockImplementation(function fake(el: Element) {
       function getSpacing(box: BoxModel) {
         return getComputedSpacing({
           margin: box.margin,
