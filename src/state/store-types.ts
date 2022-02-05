@@ -4,6 +4,7 @@ import type { Action } from './action-creators';
 import type { State } from '../types';
 
 export type {
+  // Actions
   Action,
   BeforeInitialCaptureAction,
   LiftAction,
@@ -26,6 +27,30 @@ export type {
   DropAnimationFinishedAction,
   DropCompleteAction,
   FlushAction,
+  // Action creators
+  ActionCreator,
+  BeforeInitialCaptureActionCreator,
+  LiftActionCreator,
+  InitialPublishActionCreator,
+  PublishWhileDraggingActionCreator,
+  CollectionStartingActionCreator,
+  UpdateDroppableScrollActionCreator,
+  UpdateDroppableIsEnabledActionCreator,
+  UpdateDroppableIsCombineEnabledActionCreator,
+  MoveActionCreator,
+  MoveByWindowScrollActionCreator,
+  UpdateViewportMaxScrollActionCreator,
+  MoveUpActionCreator,
+  MoveDownActionCreator,
+  MoveRightActionCreator,
+  MoveLeftActionCreator,
+  FlushActionCreator,
+  AnimateDropActionCreator,
+  CompleteDropActionCreator,
+  DropActionCreator,
+  CancelActionCreator,
+  DropPendingActionCreator,
+  DropAnimationFinishedActionCreator,
 } from './action-creators';
 
 export type Dispatch = ReduxDispatch<Action>;

@@ -370,3 +370,27 @@ export type Action =
   | DropAnimationFinishedAction
   | DropCompleteAction
   | FlushAction;
+
+export type ActionCreator =
+  | BeforeInitialCaptureActionCreator
+  | LiftActionCreator
+  | InitialPublishActionCreator
+  | PublishWhileDraggingActionCreator
+  | CollectionStartingActionCreator
+  | UpdateDroppableScrollActionCreator
+  | UpdateDroppableIsEnabledActionCreator
+  | UpdateDroppableIsCombineEnabledActionCreator
+  | MoveActionCreator
+  | MoveByWindowScrollActionCreator
+  | UpdateViewportMaxScrollActionCreator
+  | MoveUpActionCreator
+  | MoveDownActionCreator
+  | MoveRightActionCreator
+  | MoveLeftActionCreator
+  | FlushActionCreator
+  | AnimateDropActionCreator
+  | CompleteDropActionCreator
+  | DropActionCreator
+  | CancelActionCreator
+  | DropPendingActionCreator
+  | DropAnimationFinishedActionCreator;
