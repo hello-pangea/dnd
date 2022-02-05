@@ -32,8 +32,8 @@ it('should only fire a single transitionend event a single time when transitioni
 
   // first event: a 'height' event will trigger the handler
 
-  // $ExpectError - not a complete event
-  const height: TransitionEvent = {
+  // not a complete event
+  const height: Partial<TransitionEvent> = {
     propertyName: 'height',
   };
   wrapper.simulate('transitionend', height);
@@ -42,12 +42,12 @@ it('should only fire a single transitionend event a single time when transitioni
 
   // subsequent transition events will not trigger
 
-  // $ExpectError - not a complete event
-  const margin: TransitionEvent = {
+  // not a complete event
+  const margin: Partial<TransitionEvent> = {
     propertyName: 'margin',
   };
-  // $ExpectError - not a complete event
-  const width: TransitionEvent = {
+  // not a complete event
+  const width: Partial<TransitionEvent> = {
     propertyName: 'width',
   };
   wrapper.simulate('transitionend', margin);
