@@ -20,7 +20,7 @@ it('should not let other types through', () => {
 it('should not allow svg elements from another window', () => {
   const other = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
   const anchor: HTMLElement = other.window.document.createElement('a');
-  const svg: HTMLElement = getSvg(other.window.document);
+  const svg: SVGElement = getSvg(other.window.document);
 
   expect(isElement(anchor)).toBe(true);
   expect(isElement(svg)).toBe(true);

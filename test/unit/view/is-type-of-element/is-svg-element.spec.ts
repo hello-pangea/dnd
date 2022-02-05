@@ -18,7 +18,7 @@ it('should not allow html elements through', () => {
 
 it('should allow svg elements from another window', () => {
   const other = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
-  const svg: HTMLElement = getSvg(other.window.document);
+  const svg: SVGElement = getSvg(other.window.document);
 
   expect(isSvgElement(svg)).toBe(true);
   // validation
