@@ -1,10 +1,13 @@
-import type { ReactNode } from 'react';
+type Props<T extends unknown = unknown> = {
+  [K in keyof T]: T[K];
+} & {
+  children: (value: Omit<T, 'children'>) => JSX.Element;
+};
 
-type Props<T> = {
-  children: (value: T) => ReactNode;
-} & T;
-
-export default function PassThroughProps(props: Props<any>) {
+export default function PassThroughProps<T extends unknown = unknown>(
+  props: Props<T>,
+): JSX.Element {
   const { children, ...rest } = props;
+
   return children(rest);
 }
