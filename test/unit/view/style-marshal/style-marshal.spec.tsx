@@ -1,7 +1,6 @@
 import React from 'react';
 import type { ReactNode } from 'react';
 import { mount } from 'enzyme';
-import type { ReactWrapper } from 'enzyme';
 import type { ContextId } from '../../../../src/types';
 import useStyleMarshal from '../../../../src/view/use-style-marshal';
 import getStyles from '../../../../src/view/use-style-marshal/get-styles';
@@ -9,7 +8,8 @@ import type { Styles } from '../../../../src/view/use-style-marshal/get-styles';
 import type { StyleMarshal } from '../../../../src/view/use-style-marshal/style-marshal-types';
 import { prefix } from '../../../../src/view/data-attributes';
 
-const getMarshal = (myMock): StyleMarshal => myMock.mock.calls[0][0];
+const getMarshal = (myMock: jest.Mock<null>): StyleMarshal =>
+  myMock.mock.calls[0][0];
 const getMock = () => jest.fn().mockImplementation(() => null);
 
 type Props = {
@@ -20,7 +20,7 @@ type Props = {
 
 function WithMarshal(props: Props) {
   const marshal: StyleMarshal = useStyleMarshal(props.contextId, props.nonce);
-  return props.children(marshal);
+  return <>{props.children(marshal)}</>;
 }
 
 const getDynamicStyleTagSelector = (contextId: ContextId) =>
@@ -59,7 +59,7 @@ it('should not mount style tags until mounted', () => {
   expect(document.querySelector(alwaysSelector)).toBeFalsy();
 
   // now mounting
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId}>{getMock()}</WithMarshal>,
   );
 
@@ -76,7 +76,7 @@ it('should not mount style tags until mounted', () => {
 
 it('should apply the resting dyanmic styles by default', () => {
   const contextId: ContextId = '2';
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId}>{getMock()}</WithMarshal>,
   );
 
@@ -88,7 +88,7 @@ it('should apply the resting dyanmic styles by default', () => {
 
 it('should apply the resting always styles by default', () => {
   const contextId: ContextId = '2';
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId}>{getMock()}</WithMarshal>,
   );
 
@@ -101,7 +101,7 @@ it('should apply the resting always styles by default', () => {
 it('should apply the dragging styles when asked', () => {
   const contextId: ContextId = '2';
   const mock = getMock();
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId}>{mock}</WithMarshal>,
   );
   const marshal: StyleMarshal = getMarshal(mock);
@@ -117,7 +117,7 @@ it('should apply the dragging styles when asked', () => {
 it('should apply the drop animating styles when asked', () => {
   const contextId: ContextId = '2';
   const mock = getMock();
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId}>{mock}</WithMarshal>,
   );
   const marshal: StyleMarshal = getMarshal(mock);
@@ -132,7 +132,7 @@ it('should apply the drop animating styles when asked', () => {
 it('should apply the user cancel styles when asked', () => {
   const contextId: ContextId = '2';
   const mock = getMock();
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId}>{mock}</WithMarshal>,
   );
   const marshal: StyleMarshal = getMarshal(mock);
@@ -146,7 +146,7 @@ it('should apply the user cancel styles when asked', () => {
 
 it('should remove the style tag from the head when unmounting', () => {
   const contextId: ContextId = '2';
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId}>{getMock()}</WithMarshal>,
   );
   const selector1: string = getDynamicStyleTagSelector(contextId);
@@ -167,7 +167,7 @@ it('should allow subsequent updates', () => {
   const contextId: ContextId = '10';
   const styles: Styles = getStyles(`${contextId}`);
   const mock = getMock();
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId}>{mock}</WithMarshal>,
   );
   const marshal: StyleMarshal = getMarshal(mock);
@@ -190,7 +190,7 @@ it('should insert nonce into tag attribute', () => {
   const contextId: ContextId = '2';
   const nonce = 'ThisShouldBeACryptographicallySecurePseudoRandomNumber';
   const mock = getMock();
-  const wrapper: ReactWrapper<any> = mount(
+  const wrapper = mount(
     <WithMarshal contextId={contextId} nonce={nonce}>
       {mock}
     </WithMarshal>,
