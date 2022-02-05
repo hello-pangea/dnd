@@ -49,7 +49,11 @@ const unscrollableViewport: Viewport = createViewport({
 });
 
 let jumpScroll: JumpScroller;
-let mocks;
+let mocks: {
+  scrollWindow: jest.MockedFunction<() => void>;
+  scrollDroppable: jest.MockedFunction<() => void>;
+  move: jest.MockedFunction<() => void>;
+};
 
 beforeEach(() => {
   mocks = {
