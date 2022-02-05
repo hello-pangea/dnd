@@ -47,7 +47,6 @@ it('should not prevent the default behaviour for an indirect cancel', () => {
     const event: Event = new Event(eventName, {
       bubbles: true,
       cancelable: true,
-      target: handle,
     });
 
     fireEvent(handle, event);

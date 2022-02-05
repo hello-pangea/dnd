@@ -42,7 +42,6 @@ it('should abort when there is a window scroll', () => {
 
   // abort
   const event: Event = new Event('scroll', {
-    target: window,
     bubbles: true,
     cancelable: true,
   });
