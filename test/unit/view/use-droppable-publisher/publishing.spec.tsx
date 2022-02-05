@@ -58,7 +58,7 @@ it('should publish the dimensions of the target', () => {
       />
     </WithAppContext>,
   );
-  const el: HTMLElement | undefined | null = wrapper.getDOMNode();
+  const el = wrapper.getDOMNode<HTMLElement>();
   invariant(el);
   jest
     .spyOn(el, 'getBoundingClientRect')
@@ -109,7 +109,7 @@ it('should consider the window scroll when calculating dimensions', () => {
       />
     </WithAppContext>,
   );
-  const el: HTMLElement | undefined | null = wrapper.getDOMNode();
+  const el = wrapper.getDOMNode<HTMLElement>();
   invariant(el);
   jest
     .spyOn(el, 'getBoundingClientRect')
@@ -143,9 +143,7 @@ describe('no closest scrollable', () => {
         <App parentIsScrollable={false} />
       </WithAppContext>,
     );
-    const el: HTMLElement | undefined | null = wrapper
-      .find('.droppable')
-      .getDOMNode();
+    const el = wrapper.find('.droppable').getDOMNode<HTMLElement>();
     invariant(el);
     jest
       .spyOn(el, 'getBoundingClientRect')
@@ -203,9 +201,7 @@ describe('droppable is scrollable', () => {
         <App droppableIsScrollable />
       </WithAppContext>,
     );
-    const el: HTMLElement | undefined | null = wrapper
-      .find('.droppable')
-      .getDOMNode();
+    const el = wrapper.find('.droppable').getDOMNode<HTMLElement>();
     invariant(el);
     // returning smaller border box as this is what occurs when the element is scrollable
     jest
@@ -270,9 +266,7 @@ describe('droppable is scrollable', () => {
         <App droppableIsScrollable />
       </WithAppContext>,
     );
-    const el: HTMLElement | undefined | null = wrapper
-      .find('.droppable')
-      .getDOMNode();
+    const el = wrapper.find('.droppable').getDOMNode<HTMLElement>();
     invariant(el);
     // returning smaller border box as this is what occurs when the element is scrollable
     jest
@@ -331,9 +325,7 @@ describe('parent of droppable is scrollable', () => {
         <App parentIsScrollable droppableIsScrollable={false} />
       </WithAppContext>,
     );
-    const droppable: HTMLElement | undefined | null = wrapper
-      .find('.droppable')
-      .getDOMNode();
+    const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
     invariant(droppable);
     jest
       .spyOn(droppable, 'getBoundingClientRect')
@@ -391,9 +383,7 @@ describe('both droppable and parent is scrollable', () => {
         <App parentIsScrollable droppableIsScrollable />,
       </WithAppContext>,
     );
-    const droppable: HTMLElement | undefined | null = wrapper
-      .find('.droppable')
-      .getDOMNode();
+    const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
     invariant(droppable);
     const parent: HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
     jest
@@ -439,9 +429,7 @@ it('should capture the initial scroll of the closest scrollable', () => {
       <App parentIsScrollable droppableIsScrollable={false} />,
     </WithAppContext>,
   );
-  const droppable: HTMLElement | undefined | null = wrapper
-    .find('.droppable')
-    .getDOMNode();
+  const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
   invariant(droppable);
   const parent: HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
   invariant(parent);
@@ -505,9 +493,7 @@ it('should indicate if subject clipping is permitted based on the ignoreContaine
       />
     </WithAppContext>,
   );
-  const droppable: HTMLElement | undefined | null = wrapper
-    .find('.droppable')
-    .getDOMNode();
+  const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
   invariant(droppable);
   const parent: HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
   const scrollSize: ScrollSize = {

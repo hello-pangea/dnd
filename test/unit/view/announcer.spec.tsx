@@ -22,13 +22,13 @@ const getAnnounce = (myMock): Announce => myMock.mock.calls[0][0];
 const getMock = () => jest.fn().mockImplementation(() => null);
 
 // A little helper as react-testing-library does not have a getById function
-const getElement = (contextId: ContextId): HTMLElement | undefined | null =>
+const getElement = (contextId: ContextId) =>
   document.getElementById(getId(contextId));
 
 it('should create a new element when mounting', () => {
   render(<WithAnnouncer contextId="5">{getMock()}</WithAnnouncer>);
 
-  const el: HTMLElement | undefined | null = getElement('5');
+  const el = getElement('5');
 
   expect(el).toBeTruthy();
 });
@@ -36,7 +36,7 @@ it('should create a new element when mounting', () => {
 it('should apply the appropriate aria attributes and non visibility styles', () => {
   render(<WithAnnouncer contextId="5">{getMock()}</WithAnnouncer>);
 
-  const el: HTMLElement | undefined | null = getElement('5');
+  const el = getElement('5');
   invariant(el, 'Cannot find node');
 
   expect(el.getAttribute('aria-live')).toBe('assertive');
@@ -63,7 +63,7 @@ it('should set the text content of the announcement element', () => {
   // arrange
   const mock = getMock();
   render(<WithAnnouncer contextId="6">{mock}</WithAnnouncer>);
-  const el: HTMLElement | undefined | null = getElement('6');
+  const el = getElement('6');
   invariant(el, 'Could not find announcer');
 
   // act

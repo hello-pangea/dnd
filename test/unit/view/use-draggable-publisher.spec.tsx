@@ -45,14 +45,11 @@ function Item(props: ItemProps) {
     draggableId = preset.inHome1.descriptor.id,
     index = preset.inHome1.descriptor.index,
   } = props;
-  const ref = useRef<HTMLElement | undefined | null>(null);
-  const setRef = useCallback((value?: HTMLElement | null) => {
+  const ref = useRef<HTMLElement | null>(null);
+  const setRef = useCallback((value: HTMLElement | null = null) => {
     ref.current = value;
   }, []);
-  const getRef = useCallback(
-    (): HTMLElement | undefined | null => ref.current,
-    [],
-  );
+  const getRef = useCallback((): HTMLElement | null => ref.current, []);
   const descriptor: DraggableDescriptor = useMemo(
     () => ({
       id: draggableId,
@@ -200,7 +197,7 @@ describe('dimension publishing', () => {
     wrapper: ReactWrapper<any>,
     borderBox: Rect,
   ) => {
-    const ref: HTMLElement | undefined | null = wrapper.getDOMNode();
+    const ref = wrapper.getDOMNode();
     invariant(ref);
 
     // $FlowFixMe - normally a read only thing. Muhaha
@@ -342,11 +339,8 @@ describe('dimension publishing', () => {
         draggableId = preset.inHome1.descriptor.id,
         index = preset.inHome1.descriptor.index,
       } = props;
-      const ref = useRef<HTMLElement | undefined | null>(null);
-      const getRef = useCallback(
-        (): HTMLElement | undefined | null => ref.current,
-        [],
-      );
+      const ref = useRef<HTMLElement | null>(null);
+      const getRef = useCallback((): HTMLElement | null => ref.current, []);
       const descriptor: DraggableDescriptor = useMemo(
         () => ({
           id: draggableId,

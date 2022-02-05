@@ -10,11 +10,8 @@ import { toDroppableList } from '../../../../src/state/dimension-structures';
 import { getTransitionEnd } from '../util/controls';
 import { withWarn } from '../../../util/console';
 
-function findPlaceholder(
-  droppableId: DroppableId,
-  container: HTMLElement,
-): HTMLElement | undefined | null {
-  return container.querySelector(
+function findPlaceholder(droppableId: DroppableId, container: HTMLElement) {
+  return container.querySelector<HTMLElement>(
     `[${attributes.droppable.id}="${droppableId}"] [${attributes.placeholder.contextId}]`,
   );
 }
@@ -23,10 +20,7 @@ function getPlaceholder(
   droppableId: DroppableId,
   container: HTMLElement,
 ): HTMLElement {
-  const droppable: HTMLElement | undefined | null = findPlaceholder(
-    droppableId,
-    container,
-  );
+  const droppable = findPlaceholder(droppableId, container);
   invariant(droppable, 'Unable to find placeholder');
   return droppable;
 }

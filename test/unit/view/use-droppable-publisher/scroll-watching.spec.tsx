@@ -35,9 +35,9 @@ describe('should immediately publish updates', () => {
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container: HTMLElement | undefined | null = wrapper
+    const container = wrapper
       .find('.scroll-container')
-      .getDOMNode();
+      .getDOMNode<HTMLElement>();
     invariant(container);
 
     // tell the droppable to watch for scrolling
@@ -64,9 +64,9 @@ describe('should immediately publish updates', () => {
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container: HTMLElement | undefined | null = wrapper
+    const container = wrapper
       .find('.scroll-container')
-      .getDOMNode();
+      .getDOMNode<HTMLElement>();
     invariant(container);
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
@@ -108,9 +108,9 @@ describe('should schedule publish updates', () => {
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container: HTMLElement | undefined | null = wrapper
+    const container = wrapper
       .find('.scroll-container')
-      .getDOMNode();
+      .getDOMNode<HTMLElement>();
     invariant(container);
 
     // tell the droppable to watch for scrolling
@@ -138,9 +138,9 @@ describe('should schedule publish updates', () => {
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container: HTMLElement | undefined | null = wrapper
+    const container = wrapper
       .find('.scroll-container')
-      .getDOMNode();
+      .getDOMNode<HTMLElement>();
     invariant(container);
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
@@ -178,9 +178,9 @@ describe('should schedule publish updates', () => {
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container: HTMLElement | undefined | null = wrapper
+    const container = wrapper
       .find('.scroll-container')
-      .getDOMNode();
+      .getDOMNode<HTMLElement>();
     invariant(container);
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
@@ -221,9 +221,9 @@ describe('should schedule publish updates', () => {
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container: HTMLElement | undefined | null = wrapper
+    const container = wrapper
       .find('.scroll-container')
-      .getDOMNode();
+      .getDOMNode<HTMLElement>();
     invariant(container);
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
@@ -262,9 +262,7 @@ it('should stop watching scroll when no longer required to publish', () => {
       <ScrollableItem />
     </WithAppContext>,
   );
-  const container: HTMLElement | undefined | null = wrapper
-    .find('.scroll-container')
-    .getDOMNode();
+  const container = wrapper.find('.scroll-container').getDOMNode<HTMLElement>();
   invariant(container);
   // tell the droppable to watch for scrolling
   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
@@ -295,9 +293,7 @@ it('should stop watching for scroll events when the component is unmounted', () 
       <ScrollableItem />
     </WithAppContext>,
   );
-  const container: HTMLElement | undefined | null = wrapper
-    .find('.scroll-container')
-    .getDOMNode();
+  const container = wrapper.find('.scroll-container').getDOMNode<HTMLElement>();
   invariant(container);
   // tell the droppable to watch for scrolling
   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
@@ -351,9 +347,7 @@ it('should add and remove events with the same event options', () => {
       <ScrollableItem />
     </WithAppContext>,
   );
-  const container: HTMLElement | undefined | null = wrapper
-    .find('.scroll-container')
-    .getDOMNode();
+  const container = wrapper.find('.scroll-container').getDOMNode<HTMLElement>();
   invariant(container);
   jest.spyOn(container, 'addEventListener');
   jest.spyOn(container, 'removeEventListener');

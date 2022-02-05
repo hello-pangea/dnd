@@ -32,13 +32,9 @@ it('should throw if the droppable has no closest scrollable', () => {
       <App parentIsScrollable={false} droppableIsScrollable={false} />,
     </WithAppContext>,
   );
-  const droppable: HTMLElement | undefined | null = wrapper
-    .find('.droppable')
-    .getDOMNode();
+  const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
   invariant(droppable);
-  const parent: HTMLElement | undefined | null = wrapper
-    .find('.scroll-parent')
-    .getDOMNode();
+  const parent = wrapper.find('.scroll-parent').getDOMNode<HTMLElement>();
   invariant(parent);
   jest
     .spyOn(droppable, 'getBoundingClientRect')
@@ -77,9 +73,9 @@ describe('there is a closest scrollable', () => {
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container: HTMLElement | undefined | null = wrapper
+    const container = wrapper
       .find('.scroll-container')
-      .getDOMNode();
+      .getDOMNode<HTMLElement>();
     invariant(container);
 
     expect(container.scrollTop).toBe(0);
@@ -107,9 +103,9 @@ describe('there is a closest scrollable', () => {
       </WithAppContext>,
     );
 
-    const container: HTMLElement | undefined | null = wrapper
+    const container = wrapper
       .find('.scroll-container')
-      .getDOMNode();
+      .getDOMNode<HTMLElement>();
     invariant(container);
     expect(container.scrollTop).toBe(0);
     expect(container.scrollLeft).toBe(0);

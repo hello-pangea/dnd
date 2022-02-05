@@ -1,11 +1,11 @@
 export default function createRef() {
-  let ref: HTMLElement | undefined | null = null;
+  let ref: HTMLElement | null = null;
 
-  const setRef = (supplied?: HTMLElement | null) => {
+  const setRef = (supplied: HTMLElement | null = null) => {
     ref = supplied;
   };
 
-  const getRef = (): HTMLElement | undefined | null => ref;
+  const getRef = (): HTMLElement | null => ref;
 
   return { ref, setRef, getRef };
 }

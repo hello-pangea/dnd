@@ -64,9 +64,7 @@ it('should recollect scroll if requested', () => {
       <App droppableIsScrollable />
     </WithAppContext>,
   );
-  const el: HTMLElement | undefined | null = wrapper
-    .find('.droppable')
-    .getDOMNode();
+  const el = wrapper.find('.droppable').getDOMNode<HTMLElement>();
   invariant(el);
   // returning smaller border box as this is what occurs when the element is scrollable
   jest
