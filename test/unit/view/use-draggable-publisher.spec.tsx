@@ -23,6 +23,7 @@ import type {
   GetDraggableDimensionFn,
 } from '../../../src/state/registry/registry-types';
 import createRegistry from '../../../src/state/registry/create-registry';
+import setDOMRect from '../../util/set-dom-rect';
 
 const preset = getPreset();
 const noComputedSpacing = getComputedSpacing({});
@@ -201,7 +202,7 @@ describe('dimension publishing', () => {
     invariant(ref);
 
     // $FlowFixMe - normally a read only thing. Muhaha
-    ref.getBoundingClientRect = () => borderBox;
+    ref.getBoundingClientRect = () => setDOMRect(borderBox);
   };
 
   it('should publish the dimensions of the target when requested', () => {

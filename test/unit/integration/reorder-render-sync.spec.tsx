@@ -9,6 +9,7 @@ import * as keyCodes from '../../../src/view/key-codes';
 import { simpleLift, keyboard } from './util/controls';
 import type { Provided as DraggableProvided } from '../../../src/view/draggable/draggable-types';
 import type { Provided as DroppableProvided } from '../../../src/view/droppable/droppable-types';
+import setDOMRect from '../../util/set-dom-rect';
 
 const reorder = (list: any[], startIndex: number, endIndex: number): any[] => {
   // eslint-disable-next-line no-restricted-syntax
@@ -84,12 +85,14 @@ const setDroppableBounds = (ref?: HTMLElement | null) => {
   }
   // $FlowFixMe - only reliable way to do this
   ref.getBoundingClientRect = () =>
-    getRect({
-      top: 0,
-      left: 0,
-      right: 100,
-      bottom: 300,
-    });
+    setDOMRect(
+      getRect({
+        top: 0,
+        left: 0,
+        right: 100,
+        bottom: 300,
+      }),
+    );
 };
 
 type State = {
@@ -105,12 +108,14 @@ const first: Task = {
     }
     // $FlowFixMe - only reliable way to do this
     ref.getBoundingClientRect = () =>
-      getRect({
-        top: 0,
-        left: 0,
-        right: 100,
-        bottom: 20,
-      });
+      setDOMRect(
+        getRect({
+          top: 0,
+          left: 0,
+          right: 100,
+          bottom: 20,
+        }),
+      );
   },
 };
 
@@ -123,12 +128,14 @@ const second: Task = {
     }
     // $FlowFixMe - only reliable way to do this
     ref.getBoundingClientRect = () =>
-      getRect({
-        top: 30,
-        left: 0,
-        right: 100,
-        bottom: 50,
-      });
+      setDOMRect(
+        getRect({
+          top: 30,
+          left: 0,
+          right: 100,
+          bottom: 50,
+        }),
+      );
   },
 };
 
