@@ -24,11 +24,11 @@ import { vertical, horizontal } from '../../../../src/state/axis';
 import { add, patch, origin, isEqual } from '../../../../src/state/position';
 import getDisplacedBy from '../../../../src/state/get-displaced-by';
 
-const crossAxisStart: number = 0;
-const crossAxisEnd: number = 100;
+const crossAxisStart = 0;
+const crossAxisEnd = 100;
 const crossAxisSize: number = crossAxisEnd - crossAxisStart;
-const droppableSize: number = 200;
-const gap: number = 10;
+const droppableSize = 200;
+const gap = 10;
 
 [vertical, horizontal].forEach((axis: Axis) => {
   describe(`on ${axis.direction} axis`, () => {
@@ -138,7 +138,7 @@ const gap: number = 10;
         });
 
         it('should grow the subject if required', () => {
-          const excess: number = 20;
+          const excess = 20;
           const inHome: DraggableDimension = getHomeDraggable(gap + excess);
 
           const result: DroppableDimension = addPlaceholder(
@@ -169,7 +169,7 @@ const gap: number = 10;
       });
 
       it('should restore the subject to its original size when placeholder is no longer needed', () => {
-        const excess: number = 20;
+        const excess = 20;
         const inHome: DraggableDimension = getHomeDraggable(gap + excess);
 
         const added: DroppableDimension = addPlaceholder(
@@ -234,7 +234,7 @@ const gap: number = 10;
       });
 
       it('should grow the subject if required', () => {
-        const excess: number = 20;
+        const excess = 20;
         const inHome: DraggableDimension = getHomeDraggable(gap + excess);
 
         const result: DroppableDimension = addPlaceholder(
@@ -274,7 +274,7 @@ const gap: number = 10;
       });
 
       it('should restore the original frame when placeholder is no longer needed', () => {
-        const excess: number = 20;
+        const excess = 20;
         const inHome: DraggableDimension = getHomeDraggable(gap + excess);
 
         const added: DroppableDimension = addPlaceholder(
@@ -359,7 +359,7 @@ const gap: number = 10;
       });
 
       it('should restore the original frame when placeholder is no longer needed', () => {
-        const excess: number = 20;
+        const excess = 20;
         const inHome: DraggableDimension = getHomeDraggable(gap + excess);
 
         const added: DroppableDimension = addPlaceholder(

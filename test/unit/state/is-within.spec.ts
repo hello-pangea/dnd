@@ -1,8 +1,8 @@
 import isWithin from '../../../src/state/is-within';
 
 describe('is within', () => {
-  const lowerBound: number = 5;
-  const upperBound: number = 10;
+  const lowerBound = 5;
+  const upperBound = 10;
   const execute = isWithin(5, 10);
 
   it('should return true when the value is between the bounds', () => {

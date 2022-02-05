@@ -10,7 +10,7 @@ import getPlaceholderStyle from './util/get-placeholder-style';
 import * as attributes from '../../../../src/view/data-attributes';
 
 jest.useFakeTimers();
-const contextId: string = 'hello-there';
+const contextId = 'hello-there';
 
 let spy;
 

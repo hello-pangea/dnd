@@ -1,7 +1,7 @@
 import type { ReactWrapper } from 'enzyme';
 import type { Position } from 'css-box-model';
 
-const primaryButton: number = 0;
+const primaryButton = 0;
 const origin: Position = { x: 0, y: 0 };
 
 const getTouch = (client: Position, force: number): any => {
@@ -74,7 +74,7 @@ export const dispatchWindowEvent = (
 export const dispatchWindowTouchEvent = (
   eventName: string,
   client: Position = { x: 0, y: 0 },
-  force: number = 0,
+  force = 0,
   options: any = {},
 ): Event => {
   const touch = getTouch(client, force);
@@ -120,7 +120,7 @@ export const touchEvent = (
   eventName: string,
   wrapper: ReactWrapper<any>,
   client: Position = { x: 0, y: 0 },
-  force: number = 0,
+  force = 0,
   options: any = {},
 ): void => {
   const touches: any[] = [getTouch(client, force)];

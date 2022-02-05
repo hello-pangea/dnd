@@ -9,7 +9,7 @@ afterEach(() => {
 });
 
 it('should pass if the react peer dep version is met', () => {
-  const version: string = '1.3.4';
+  const version = '1.3.4';
 
   checkReactVersion(version, version);
 
@@ -19,8 +19,8 @@ it('should pass if the react peer dep version is met', () => {
 it('should pass if the react peer dep version is passed', () => {
   // patch
   {
-    const peerDep: string = '1.3.4';
-    const actual: string = '1.3.5';
+    const peerDep = '1.3.4';
+    const actual = '1.3.5';
 
     checkReactVersion(peerDep, actual);
 
@@ -28,8 +28,8 @@ it('should pass if the react peer dep version is passed', () => {
   }
   // minor
   {
-    const peerDep: string = '1.3.4';
-    const actual: string = '1.4.0';
+    const peerDep = '1.3.4';
+    const actual = '1.4.0';
 
     checkReactVersion(peerDep, actual);
 
@@ -37,8 +37,8 @@ it('should pass if the react peer dep version is passed', () => {
   }
   // major
   {
-    const peerDep: string = '1.3.4';
-    const actual: string = '2.0.0';
+    const peerDep = '1.3.4';
+    const actual = '2.0.0';
 
     checkReactVersion(peerDep, actual);
 
@@ -49,8 +49,8 @@ it('should pass if the react peer dep version is passed', () => {
 it('should fail if the react peer dep version is not met', () => {
   // patch not met
   {
-    const peerDep: string = '1.3.4';
-    const actual: string = '1.3.3';
+    const peerDep = '1.3.4';
+    const actual = '1.3.3';
 
     checkReactVersion(peerDep, actual);
 
@@ -59,8 +59,8 @@ it('should fail if the react peer dep version is not met', () => {
   }
   // minor not met
   {
-    const peerDep: string = '1.3.4';
-    const actual: string = '1.2.4';
+    const peerDep = '1.3.4';
+    const actual = '1.2.4';
 
     checkReactVersion(peerDep, actual);
 
@@ -69,8 +69,8 @@ it('should fail if the react peer dep version is not met', () => {
   }
   // major not met
   {
-    const peerDep: string = '1.3.4';
-    const actual: string = '0.3.4';
+    const peerDep = '1.3.4';
+    const actual = '0.3.4';
 
     checkReactVersion(peerDep, actual);
 
@@ -80,23 +80,23 @@ it('should fail if the react peer dep version is not met', () => {
 });
 
 it('should throw if unable to parse the react version', () => {
-  const peerDep: string = '1.3.4';
-  const actual: string = '1.x';
+  const peerDep = '1.3.4';
+  const actual = '1.x';
 
   expect(() => checkReactVersion(peerDep, actual)).toThrow();
 });
 
 it('should throw if unable to parse the peer dep version', () => {
-  const peerDep: string = '1.x';
-  const actual: string = '1.2.3';
+  const peerDep = '1.x';
+  const actual = '1.2.3';
 
   expect(() => checkReactVersion(peerDep, actual)).toThrow();
 });
 
 it('should allow pre release provided versions', () => {
-  const peerDep: string = '1.0.0';
-  const alpha: string = '1.2.3-alpha';
-  const beta: string = '1.2.3-beta';
+  const peerDep = '1.0.0';
+  const alpha = '1.2.3-alpha';
+  const beta = '1.2.3-beta';
 
   checkReactVersion(peerDep, alpha);
   checkReactVersion(peerDep, beta);

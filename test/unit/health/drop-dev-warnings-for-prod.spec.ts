@@ -23,14 +23,14 @@ beforeAll(async () => {
 afterAll(clean);
 
 it('should contain warnings in development', async () => {
-  const filePath: string = './dist/dnd.js';
+  const filePath = './dist/dnd.js';
   const contents: string = await readFile(filePath, 'utf-8');
 
   expect(contents.includes('This is a development only message')).toBe(true);
 });
 
 it('should not contain warnings in production', async () => {
-  const filePath: string = './dist/dnd.min.js';
+  const filePath = './dist/dnd.min.js';
   const contents: string = await readFile(filePath, 'utf-8');
 
   expect(contents.includes('This is a development only message')).toBe(false);
@@ -40,7 +40,7 @@ it('should not contain warnings in production', async () => {
 
   // https://regexr.com/40pno
   // .*? is a lazy match - will grab as little as possible
-  const regex: RegExp = /console\.\w+\(.*?\)/g;
+  const regex = /console\.\w+\(.*?\)/g;
 
   const matches: string[] | undefined | null = contents.match(regex);
   expect(matches).toEqual(null);

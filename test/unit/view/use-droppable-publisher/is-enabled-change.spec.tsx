@@ -37,7 +37,7 @@ it('should publish updates to the enabled state when dragging', () => {
   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
   callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
 
-  const isDropDisabled: boolean = true;
+  const isDropDisabled = true;
   wrapper.setProps({
     isDropDisabled,
   });

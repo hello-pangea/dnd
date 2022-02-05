@@ -58,11 +58,11 @@ import { getForcedDisplacement } from '../../../util/impact';
 
     const foreignId: DroppableId = 'foreign';
     const typeId: TypeId = 'our-type';
-    const homeCrossAxisStart: number = 0;
-    const homeCrossAxisEnd: number = 100;
-    const foreignCrossAxisStart: number = 100;
-    const foreignCrossAxisEnd: number = 200;
-    const itemSize: number = 50;
+    const homeCrossAxisStart = 0;
+    const homeCrossAxisEnd = 100;
+    const foreignCrossAxisStart = 100;
+    const foreignCrossAxisEnd = 200;
+    const itemSize = 50;
 
     const home: DroppableDimension = getDroppableDimension({
       descriptor: {

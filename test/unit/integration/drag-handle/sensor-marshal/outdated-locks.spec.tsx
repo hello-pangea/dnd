@@ -54,7 +54,8 @@ it('should not allow pre drag actions when in a dragging phase', () => {
 
 it('should not allow drag actions after a drop', () => {
   const sensor = jest.fn<void, [SensorAPI]>();
-  render(<App sensors={[sensor]} />);const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
+  render(<App sensors={[sensor]} />);
+  const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api, 'expected api to be set');
 
   const preDrag: PreDragActions | undefined | null = api.tryGetLock('0');

@@ -75,7 +75,7 @@ it('should correctly update scroll across multiple movements (forwards)', () => 
   };
 
   let lastScroll: Position = origin;
-  let runCount: number = 0;
+  let runCount = 0;
 
   while (lastScroll.y < max.y && lastScroll.x < max.x) {
     const newScroll: Position = add(lastScroll, { x: 10, y: 20 });
@@ -130,7 +130,7 @@ it('should correctly update scroll across multiple movements (backwards)', () =>
   };
 
   let lastScroll: Position = max;
-  let runCount: number = 0;
+  let runCount = 0;
   while (lastScroll.y > 0 && lastScroll.x > 0) {
     const newScroll: Position = subtract(lastScroll, { x: 10, y: 20 });
     const updated: Viewport = scrollViewport(lastViewport, newScroll);

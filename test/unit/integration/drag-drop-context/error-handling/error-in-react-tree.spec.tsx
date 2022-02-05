@@ -7,7 +7,7 @@ import { isDragging } from '../../util/helpers';
 import { withError } from '../../../../util/console';
 
 it('should recover from rfd errors', () => {
-  let hasThrown: boolean = false;
+  let hasThrown = false;
   function CanThrow(props: { shouldThrow: boolean }) {
     if (!hasThrown && props.shouldThrow) {
       hasThrown = true;
@@ -31,7 +31,7 @@ it('should recover from rfd errors', () => {
 });
 
 it('should not recover from non-rfd errors', () => {
-  let hasThrown: boolean = false;
+  let hasThrown = false;
   function CanThrow(props: { shouldThrow: boolean }) {
     if (!hasThrown && props.shouldThrow) {
       hasThrown = true;
@@ -55,7 +55,7 @@ it('should not recover from non-rfd errors', () => {
 });
 
 it('should not recover from runtime errors', () => {
-  let hasThrown: boolean = false;
+  let hasThrown = false;
   function CanThrow(props: { shouldThrow: boolean }) {
     if (!hasThrown && props.shouldThrow) {
       hasThrown = true;

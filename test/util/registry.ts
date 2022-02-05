@@ -29,7 +29,7 @@ const defaultOptions: DraggableOptions = {
 };
 
 const getUniqueId = (() => {
-  let count: number = 0;
+  let count = 0;
   return function create(): Id {
     return `unique-id-${count++}`;
   };

@@ -30,6 +30,8 @@ import type {
 import isTotallyVisibleThroughFrame from '../../src/state/visibility/is-totally-visible-through-frame';
 import patchDimensionMap from '../../src/state/patch-dimension-map';
 
+export type { Rect, BoxModel, Spacing, Position } from 'css-box-model';
+
 type GetComputedSpacingArgs = {
   margin?: Spacing;
   padding?: Spacing;
@@ -65,10 +67,7 @@ export const getComputedSpacing = ({
   display,
 });
 
-export const makeScrollable = (
-  droppable: DroppableDimension,
-  amount: number = 20,
-) => {
+export const makeScrollable = (droppable: DroppableDimension, amount = 20) => {
   const axis: Axis = droppable.axis;
   const borderBox: Rect = droppable.client.borderBox;
 
@@ -349,12 +348,12 @@ export const getPreset = (axis: Axis = vertical) => {
     assortedSpacing.margin[axis.crossAxisStart];
   const homeBorderBoxCrossAxisEnd: number = homeBorderBoxCrossAxisStart + 100;
 
-  const foreignCrossAxisStart: number = 150;
-  const foreignCrossAxisEnd: number = 250;
-  const emptyForeignCrossAxisStart: number = 250;
-  const emptyForeignCrossAxisEnd: number = 350;
+  const foreignCrossAxisStart = 150;
+  const foreignCrossAxisEnd = 250;
+  const emptyForeignCrossAxisStart = 250;
+  const emptyForeignCrossAxisEnd = 350;
 
-  const droppableBorderBoxSize: number = 200;
+  const droppableBorderBoxSize = 200;
   const droppableBorderBoxStart: number = assortedSpacing.margin[axis.start];
   const droppableBorderBoxEnd: number =
     droppableBorderBoxStart + droppableBorderBoxSize;
@@ -441,7 +440,7 @@ export const getPreset = (axis: Axis = vertical) => {
     direction: axis.direction,
   });
 
-  const inHome1Size: number = 20;
+  const inHome1Size = 20;
   const inHome1: DraggableDimension = getDraggableDimension({
     descriptor: {
       id: 'inhome1',

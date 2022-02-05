@@ -9,7 +9,7 @@ import {
 import { vertical, horizontal } from '../../../../src/state/axis';
 import { patch } from '../../../../src/state/position';
 
-let spacing: number = 1;
+let spacing = 1;
 
 const getAssortedSpacing = (): Spacing => ({
   top: spacing++,

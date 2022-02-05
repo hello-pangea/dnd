@@ -29,8 +29,8 @@ const viewport: Viewport = getViewport();
 
 [vertical, horizontal].forEach((axis: Axis) => {
   describe(`on ${axis.direction} axis`, () => {
-    const crossAxisStart: number = 0;
-    const crossAxisEnd: number = 100;
+    const crossAxisStart = 0;
+    const crossAxisEnd = 100;
 
     it('should indicate when a displacement is not visible due to being outside of the droppable frame', () => {
       const droppable: DroppableDimension = getDroppableDimension({

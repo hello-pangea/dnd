@@ -3,7 +3,7 @@ import { invariant } from '../../../src/invariant';
 import pkg from '../../../package.json';
 
 // Regex playground: https://regexr.com/40fin
-const convention: RegExp = /^[a-z0-9\-./]+$/;
+const convention = /^[a-z0-9\-./]+$/;
 const isSnakeCase = (filePath: string): boolean => convention.test(filePath);
 
 const exceptions: string[] = [

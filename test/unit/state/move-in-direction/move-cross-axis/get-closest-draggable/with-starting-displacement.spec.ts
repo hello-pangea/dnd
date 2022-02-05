@@ -26,10 +26,10 @@ const viewport: Viewport = getViewport();
 // Not covering all cases. Full coverage in without-starting-displacement.spec
 [vertical, horizontal].forEach((axis: Axis) => {
   describe(`on the ${axis.direction} axis`, () => {
-    const start: number = 0;
-    const end: number = 100;
-    const crossAxisStart: number = 0;
-    const crossAxisEnd: number = 20;
+    const start = 0;
+    const end = 100;
+    const crossAxisStart = 0;
+    const crossAxisEnd = 20;
 
     const borderBox: Rect = getRect({
       [axis.start]: start,

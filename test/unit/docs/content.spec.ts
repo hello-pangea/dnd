@@ -7,8 +7,7 @@ import * as fs from 'fs-extra';
 it('should end all nested docs with a link back to the documentation root', async () => {
   const files: string[] = await globby('docs/**/*.md');
   expect(files.length).toBeGreaterThan(0);
-  const backLink: string =
-    '[← Back to documentation](/README.md#documentation-)';
+  const backLink = '[← Back to documentation](/README.md#documentation-)';
 
   for (const file of files) {
     const contents: string = await fs.readFile(file, 'utf8');
