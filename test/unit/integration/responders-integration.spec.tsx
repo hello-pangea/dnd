@@ -1,6 +1,6 @@
 /* eslint-disable jest/expect-expect */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, RenderResult } from '@testing-library/react';
 import { getRect } from 'css-box-model';
 import type { Rect } from 'css-box-model';
 import { invariant } from '../../../src/invariant';
@@ -91,7 +91,7 @@ function App({ responders }: Props) {
 
 describe('responders integration', () => {
   let responders: Responders;
-  let wrapper;
+  let wrapper: RenderResult;
 
   beforeEach(() => {
     jest.useFakeTimers();
