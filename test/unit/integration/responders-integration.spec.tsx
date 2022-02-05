@@ -14,6 +14,11 @@ import type {
   DragStart,
   DropResult,
   BeforeCapture,
+  OnBeforeCaptureResponder,
+  OnBeforeDragStartResponder,
+  OnDragStartResponder,
+  OnDragUpdateResponder,
+  OnDragEndResponder,
 } from '../../../src/types';
 import type { Provided as DraggableProvided } from '../../../src/view/draggable/draggable-types';
 import type { Provided as DroppableProvided } from '../../../src/view/droppable/droppable-types';
@@ -36,7 +41,12 @@ const setRefDimensions = (ref?: HTMLElement | null) => {
     return;
   }
 
-  jest.spyOn(ref, 'getBoundingClientRect').mockImplementation(() => borderBox);
+  jest.spyOn(ref, 'getBoundingClientRect').mockImplementation(() => ({
+    ...borderBox,
+    toJSON() {
+      return JSON.stringify(borderBox);
+    },
+  }));
 
   // Stubbing out totally - not including margins in this
   jest
@@ -47,6 +57,14 @@ const setRefDimensions = (ref?: HTMLElement | null) => {
 type Props = {
   responders: Responders;
 };
+
+interface MockedResponders {
+  onBeforeCapture: jest.MockedFunction<OnBeforeCaptureResponder>;
+  onBeforeDragStart: jest.MockedFunction<OnBeforeDragStartResponder>;
+  onDragStart: jest.MockedFunction<OnDragStartResponder>;
+  onDragUpdate: jest.MockedFunction<OnDragUpdateResponder>;
+  onDragEnd: jest.MockedFunction<OnDragEndResponder>;
+}
 
 function App({ responders }: Props) {
   return (
@@ -90,7 +108,7 @@ function App({ responders }: Props) {
 }
 
 describe('responders integration', () => {
-  let responders: Responders;
+  let responders: MockedResponders;
   let wrapper: RenderResult;
 
   beforeEach(() => {
@@ -199,8 +217,8 @@ describe('responders integration', () => {
   })();
 
   const wasOnBeforeCaptureCalled = (
-    amountOfDrags: number = 1,
-    provided: Responders = responders,
+    amountOfDrags = 1,
+    provided = responders,
   ) => {
     invariant(provided.onBeforeCapture);
     expect(provided.onBeforeCapture).toHaveBeenCalledTimes(amountOfDrags);
@@ -210,10 +228,7 @@ describe('responders integration', () => {
     );
   };
 
-  const wasOnBeforeDragCalled = (
-    amountOfDrags: number = 1,
-    provided: Responders = responders,
-  ) => {
+  const wasOnBeforeDragCalled = (amountOfDrags = 1, provided = responders) => {
     invariant(provided.onBeforeDragStart);
     expect(provided.onBeforeDragStart).toHaveBeenCalledTimes(amountOfDrags);
     // $ExpectError - mock property
@@ -222,10 +237,7 @@ describe('responders integration', () => {
     );
   };
 
-  const wasDragStarted = (
-    amountOfDrags: number = 1,
-    provided: Responders = responders,
-  ) => {
+  const wasDragStarted = (amountOfDrags = 1, provided = responders) => {
     invariant(
       provided.onDragStart,
       'cannot validate if drag was started without onDragStart responder',
@@ -237,10 +249,7 @@ describe('responders integration', () => {
     );
   };
 
-  const wasDragCompleted = (
-    amountOfDrags: number = 1,
-    provided: Responders = responders,
-  ) => {
+  const wasDragCompleted = (amountOfDrags = 1, provided = responders) => {
     expect(provided.onDragEnd).toHaveBeenCalledTimes(amountOfDrags);
     // $ExpectError - mock
     expect(provided.onDragEnd.mock.calls[amountOfDrags - 1][0]).toEqual(
@@ -248,7 +257,7 @@ describe('responders integration', () => {
     );
   };
 
-  const wasDragCancelled = (amountOfDrags: number = 1) => {
+  const wasDragCancelled = (amountOfDrags = 1) => {
     expect(responders.onDragEnd).toHaveBeenCalledTimes(amountOfDrags);
     // $ExpectError - mock
     expect(responders.onDragEnd.mock.calls[amountOfDrags - 1][0]).toEqual(
@@ -390,7 +399,8 @@ describe('responders integration', () => {
     };
 
     it('should allow you to change responders before a drag started', () => {
-      const newResponders: Responders = {
+      const newResponders: MockedResponders = {
+        ...responders,
         onDragStart: jest.fn(),
         onDragEnd: jest.fn(),
       };
@@ -407,7 +417,8 @@ describe('responders integration', () => {
     });
 
     it('should allow you to change onDragEnd during a drag', () => {
-      const newResponders: Responders = {
+      const newResponders: MockedResponders = {
+        ...responders,
         onDragEnd: jest.fn(),
       };
 
@@ -424,7 +435,8 @@ describe('responders integration', () => {
     });
 
     it('should allow you to change responders between drags', () => {
-      const newResponders: Responders = {
+      const newResponders: MockedResponders = {
+        ...responders,
         onDragStart: jest.fn(),
         onDragEnd: jest.fn(),
       };
