@@ -119,7 +119,7 @@ it('should release a lock when cancelling or dropping a drag', () => {
   const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api, 'expected api to be set');
 
-  ['cancel', 'drop'].forEach((property: string) => {
+  (['cancel', 'drop'] as const).forEach((property) => {
     const preDrag: PreDragActions | undefined | null = api.tryGetLock(
       '0',
       noop,
