@@ -60,6 +60,8 @@ it('should not recover from runtime errors', () => {
     if (!hasThrown && props.shouldThrow) {
       hasThrown = true;
       // Boom: TypeError
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       window.foo();
     }
     return null;
