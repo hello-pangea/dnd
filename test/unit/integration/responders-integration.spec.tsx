@@ -24,6 +24,7 @@ import type { Provided as DraggableProvided } from '../../../src/view/draggable/
 import type { Provided as DroppableProvided } from '../../../src/view/droppable/droppable-types';
 import { getComputedSpacing } from '../../util/dimension';
 import { simpleLift, mouse } from './util/controls';
+import setDOMRect from '../../util/set-dom-rect';
 
 const draggableId: DraggableId = 'drag-1';
 const droppableId: DroppableId = 'drop-1';
@@ -41,12 +42,9 @@ const setRefDimensions = (ref?: HTMLElement | null) => {
     return;
   }
 
-  jest.spyOn(ref, 'getBoundingClientRect').mockImplementation(() => ({
-    ...borderBox,
-    toJSON() {
-      return JSON.stringify(borderBox);
-    },
-  }));
+  jest
+    .spyOn(ref, 'getBoundingClientRect')
+    .mockImplementation(() => setDOMRect(borderBox));
 
   // Stubbing out totally - not including margins in this
   jest

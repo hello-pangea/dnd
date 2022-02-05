@@ -12,15 +12,18 @@ import type { Responders } from '../../../src/types';
 import { DragDropContext, Droppable, Draggable } from '../../../src';
 import { getComputedSpacing } from '../../util/dimension';
 import { simpleLift, keyboard } from './util/controls';
+import setDOMRect from '../../util/set-dom-rect';
 
 // Both list and item will have the same dimensions
 jest.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(() =>
-  getRect({
-    top: 0,
-    left: 0,
-    right: 100,
-    bottom: 100,
-  }),
+  setDOMRect(
+    getRect({
+      top: 0,
+      left: 0,
+      right: 100,
+      bottom: 100,
+    }),
+  ),
 );
 
 // Stubbing out totally - not including margins in this

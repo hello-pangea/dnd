@@ -23,6 +23,7 @@ import type {
   DroppableCallbacks,
 } from '../../../../src/state/registry/registry-types';
 import createRegistry from '../../../../src/state/registry/create-registry';
+import setDOMRect from '../../../util/set-dom-rect';
 
 beforeEach(() => {
   setViewport(preset.viewport);
@@ -70,7 +71,7 @@ it('should recollect scroll if requested', () => {
   // returning smaller border box as this is what occurs when the element is scrollable
   jest
     .spyOn(el, 'getBoundingClientRect')
-    .mockImplementation(() => smallFrameClient.borderBox);
+    .mockImplementation(() => setDOMRect(smallFrameClient.borderBox));
   // scrollWidth / scrollHeight are based on the paddingBox of an element
   Object.defineProperty(el, 'scrollWidth', {
     value: bigClient.paddingBox.width,

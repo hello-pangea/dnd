@@ -18,6 +18,7 @@ import { noop } from '../../../../src/empty';
 import { getComputedSpacing, getPreset } from '../../../util/dimension';
 import { toDroppableList } from '../../../../src/state/dimension-structures';
 import getDraggablesInsideDroppable from '../../../../src/state/get-draggables-inside-droppable';
+import setDOMRect from '../../../util/set-dom-rect';
 
 const preset = getPreset();
 
@@ -112,33 +113,31 @@ export default function Board() {
 export function withPoorBoardDimensions(fn: (a: typeof preset) => void): void {
   const protoSpy = jest
     .spyOn(Element.prototype, 'getBoundingClientRect')
-    .mockImplementation(function fake() {
+    .mockImplementation(function fake(this: HTMLElement) {
       invariant(
         this instanceof HTMLElement,
         'Expected "this" to be a HTMLElement',
       );
 
-      const el: HTMLElement = (this as any) as HTMLElement;
-
-      const droppableId: DroppableId | undefined | null = el.getAttribute(
+      const droppableId: DroppableId | undefined | null = this.getAttribute(
         attributes.droppable.id,
       );
       if (droppableId) {
-        return preset.droppables[droppableId].client.borderBox;
+        return setDOMRect(preset.droppables[droppableId].client.borderBox);
       }
 
-      const draggableId: DraggableId | undefined | null = el.getAttribute(
+      const draggableId: DraggableId | undefined | null = this.getAttribute(
         attributes.draggable.id,
       );
       invariant(draggableId, 'Expected element to be a draggable');
 
-      return preset.draggables[draggableId].client.borderBox;
+      return setDOMRect(preset.draggables[draggableId].client.borderBox);
     });
 
   // Stubbing out totally - not including margins in this
   const styleSpy = jest
     .spyOn(window, 'getComputedStyle')
-    .mockImplementation(function fake(el: HTMLElement) {
+    .mockImplementation(function fake(el: Element) {
       function getSpacing(box: BoxModel) {
         return getComputedSpacing({
           margin: box.margin,
@@ -153,10 +152,12 @@ export function withPoorBoardDimensions(fn: (a: typeof preset) => void): void {
 
       if (droppableId) {
         if (droppableId === 'BOARD') {
-          return getComputedSpacing({});
+          return getComputedSpacing({}) as CSSStyleDeclaration;
         }
 
-        return getSpacing(preset.droppables[droppableId].client);
+        return getSpacing(
+          preset.droppables[droppableId].client,
+        ) as CSSStyleDeclaration;
       }
 
       const draggableId: DraggableId | undefined | null = el.getAttribute(
@@ -165,16 +166,20 @@ export function withPoorBoardDimensions(fn: (a: typeof preset) => void): void {
 
       // this can be the case when looking up the tree for a scroll container
       if (!draggableId) {
-        return getComputedSpacing({});
+        return getComputedSpacing({}) as CSSStyleDeclaration;
       }
 
       if (preset.draggables[draggableId]) {
-        return getSpacing(preset.draggables[draggableId].client);
+        return getSpacing(
+          preset.draggables[draggableId].client,
+        ) as CSSStyleDeclaration;
       }
 
       // columns are also draggables for our example
       if (preset.droppables[draggableId]) {
-        return getSpacing(preset.droppables[draggableId].client);
+        return getSpacing(
+          preset.droppables[draggableId].client,
+        ) as CSSStyleDeclaration;
       }
 
       throw new Error(`Unable to find spacing for draggable: ${draggableId}`);

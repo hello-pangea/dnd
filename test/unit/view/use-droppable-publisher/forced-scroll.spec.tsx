@@ -18,6 +18,7 @@ import type {
   DroppableCallbacks,
 } from '../../../../src/state/registry/registry-types';
 import createRegistry from '../../../../src/state/registry/create-registry';
+import setDOMRect from '../../../util/set-dom-rect';
 
 setViewport(preset.viewport);
 
@@ -41,10 +42,10 @@ it('should throw if the droppable has no closest scrollable', () => {
   invariant(parent);
   jest
     .spyOn(droppable, 'getBoundingClientRect')
-    .mockImplementation(() => smallFrameClient.borderBox);
+    .mockImplementation(() => setDOMRect(smallFrameClient.borderBox));
   jest
     .spyOn(parent, 'getBoundingClientRect')
-    .mockImplementation(() => bigClient.borderBox);
+    .mockImplementation(() => setDOMRect(bigClient.borderBox));
 
   // validating no initial scroll
   expect(parent.scrollTop).toBe(0);

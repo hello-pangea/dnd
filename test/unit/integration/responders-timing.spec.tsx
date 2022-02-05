@@ -4,6 +4,7 @@ import { render } from '@testing-library/react';
 import { invariant } from '../../../src/invariant';
 import { DragDropContext, Draggable, Droppable } from '../../../src';
 import { getComputedSpacing } from '../../util/dimension';
+import setDOMRect from '../../util/set-dom-rect';
 import type { Provided as DraggableProvided } from '../../../src/view/draggable/draggable-types';
 import type { Provided as DroppableProvided } from '../../../src/view/droppable/droppable-types';
 import type { Responders } from '../../../src/types';
@@ -61,12 +62,14 @@ it('should call the onBeforeDragStart before connected components are updated, a
   jest
     .spyOn(Element.prototype, 'getBoundingClientRect')
     .mockImplementation(() =>
-      getRect({
-        top: 0,
-        left: 0,
-        right: 100,
-        bottom: 100,
-      }),
+      setDOMRect(
+        getRect({
+          top: 0,
+          left: 0,
+          right: 100,
+          bottom: 100,
+        }),
+      ),
     );
 
   // Stubbing out totally - not including margins in this
