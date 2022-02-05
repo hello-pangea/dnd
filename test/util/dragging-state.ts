@@ -51,10 +51,7 @@ export const move = (
   };
 
   return {
-    // appeasing flow
-    phase: 'DRAGGING',
     ...previous,
-    // eslint-disable-next-line
     phase: previous.phase,
     current: {
       client,

@@ -106,10 +106,7 @@ export default (axis: Axis = vertical) => {
     selection?: Position,
     viewport?: Viewport,
   ): CollectingState => ({
-    phase: 'COLLECTING',
     ...dragging(id, selection, viewport),
-
-    // eslint-disable-next-line
     phase: 'COLLECTING',
   });
 
@@ -126,12 +123,8 @@ export default (axis: Axis = vertical) => {
   const dropPending = (
     args: DropPendingArgs | undefined | null = defaultDropPending,
   ): DropPendingState => ({
-    phase: 'DROP_PENDING',
     ...dragging(),
-
-    // eslint-disable-next-line
     phase: 'DROP_PENDING',
-
     ...args,
   });
 

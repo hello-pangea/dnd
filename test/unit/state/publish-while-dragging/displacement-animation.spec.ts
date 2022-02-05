@@ -78,10 +78,7 @@ it('should not animate any displacement', () => {
     },
   };
   const collectingState: CollectingState = {
-    phase: 'COLLECTING',
     ...inForeignState,
-    // appeasing flow
-    // eslint-disable-next-line
     phase: 'COLLECTING',
   };
   const published: Published = {

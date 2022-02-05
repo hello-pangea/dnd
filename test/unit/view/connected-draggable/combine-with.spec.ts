@@ -80,9 +80,7 @@ draggingStates.forEach((withoutMerge: IsDraggingState) => {
         ownProps,
       );
       const newReference: IsDraggingState = {
-        phase: 'DRAGGING',
         ...withMerge,
-        // eslint-disable-next-line
         phase: withMerge.phase,
       };
       const result2: MapProps = selector(
