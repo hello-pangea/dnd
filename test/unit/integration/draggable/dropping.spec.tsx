@@ -179,9 +179,7 @@ it('should not trigger a drop animation finished if a transitionend occurs that 
   fireEvent.mouseUp(handle);
   expect(isDropAnimating(handle)).toBe(true);
 
-  const event: Event = getTransitionEnd();
-  // $FlowFixMe - unknown property
-  event.propertyName = 'background';
+  const event = getTransitionEnd('background');
   fireEvent(handle, event);
 
   // still drop animating!
