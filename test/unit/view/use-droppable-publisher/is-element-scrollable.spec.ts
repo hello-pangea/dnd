@@ -3,10 +3,9 @@ import getClosestScrollable from '../../../../src/view/use-droppable-publisher/g
 import { disableWarn } from '../../../util/console';
 
 it('should return true if an element has overflow:auto or overflow:scroll', () => {
-  ['overflowY', 'overflowX'].forEach((overflow: string) => {
+  (['overflowY', 'overflowX'] as const).forEach((overflow) => {
     ['auto', 'scroll'].forEach((value: string) => {
       const el: HTMLElement = document.createElement('div');
-      // $ExpectError - flow being mean
       el.style[overflow] = value;
       expect(getClosestScrollable(el)).toBe(el);
     });
@@ -14,9 +13,8 @@ it('should return true if an element has overflow:auto or overflow:scroll', () =
 });
 
 it('should return false if an element has overflow:visible', () => {
-  ['overflowY', 'overflowX'].forEach((overflow: string) => {
+  (['overflowY', 'overflowX'] as const).forEach((overflow) => {
     const el: HTMLElement = document.createElement('div');
-    // $ExpectError - flow being mean
     el.style[overflow] = 'visible';
     expect(getClosestScrollable(el)).toBe(null);
   });
