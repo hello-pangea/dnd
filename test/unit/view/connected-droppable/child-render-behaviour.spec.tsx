@@ -35,18 +35,20 @@ class App extends Component<{
   }
 }
 
+let personRenderSpy: jest.SpyInstance;
+
 beforeEach(() => {
-  jest.spyOn(Person.prototype, 'render');
+  personRenderSpy = jest.spyOn(Person.prototype, 'render');
 });
 
 afterEach(() => {
-  Person.prototype.render.mockRestore();
+  personRenderSpy.mockRestore();
 });
 
 it('should render the child function when the parent renders', () => {
   const wrapper = mount(<App currentUser="Jake" />);
 
-  expect(Person.prototype.render).toHaveBeenCalledTimes(1);
+  expect(personRenderSpy).toHaveBeenCalledTimes(1);
   expect(wrapper.find(Person).props().name).toBe('Jake');
 
   wrapper.unmount();
@@ -57,7 +59,7 @@ it('should render the child function when the parent re-renders', () => {
 
   forceUpdate(wrapper);
 
-  expect(Person.prototype.render).toHaveBeenCalledTimes(2);
+  expect(personRenderSpy).toHaveBeenCalledTimes(2);
   expect(wrapper.find(Person).props().name).toBe('Jake');
 
   wrapper.unmount();
@@ -70,7 +72,7 @@ it('should render the child function when the parents props changes that cause a
     currentUser: 'Finn',
   });
 
-  expect(Person.prototype.render).toHaveBeenCalledTimes(2);
+  expect(personRenderSpy).toHaveBeenCalledTimes(2);
   expect(wrapper.find(Person).props().name).toBe('Finn');
 
   wrapper.unmount();

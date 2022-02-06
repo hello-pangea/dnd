@@ -8,6 +8,7 @@ import {
   isNotOverForeign,
 } from './util/get-props';
 import mount from './util/mount';
+import { disableWarn } from '../../../util/console';
 
 class WithNoPlaceholder extends React.Component<{
   provided: Provided;
@@ -24,13 +25,7 @@ class WithNoPlaceholder extends React.Component<{
   }
 }
 
-beforeEach(() => {
-  jest.spyOn(console, 'warn').mockImplementation(() => {});
-});
-afterEach(() => {
-  // $FlowFixMe
-  console.warn.mockRestore();
-});
+disableWarn();
 
 describe('is over foreign', () => {
   it('should log a warning when mounting', () => {

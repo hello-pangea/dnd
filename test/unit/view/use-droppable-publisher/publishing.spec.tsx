@@ -355,7 +355,9 @@ describe('parent of droppable is scrollable', () => {
 
 describe('both droppable and parent is scrollable', () => {
   it('should log a warning as the use case is not supported', () => {
-    jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const consoleWarnSpy = jest
+      .spyOn(console, 'warn')
+      .mockImplementation(() => {});
     const expected: DroppableDimension = getDroppableDimension({
       descriptor,
       borderBox: bigClient.borderBox,
@@ -406,16 +408,15 @@ describe('both droppable and parent is scrollable', () => {
     const callbacks: DroppableCallbacks =
       registerSpy.mock.calls[0][0].callbacks;
     // execute it to get the dimension
-    expect(console.warn).not.toHaveBeenCalled();
+    expect(consoleWarnSpy).not.toHaveBeenCalled();
     const result: DroppableDimension = callbacks.getDimensionAndWatchScroll(
       preset.windowScroll,
       immediate,
     );
-    expect(console.warn).toHaveBeenCalled();
+    expect(consoleWarnSpy).toHaveBeenCalled();
 
     expect(result).toEqual(expected);
-    // $FlowFixMe
-    console.warn.mockRestore();
+    consoleWarnSpy.mockRestore();
   });
 });
 

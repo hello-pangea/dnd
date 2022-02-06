@@ -25,6 +25,7 @@ import type { Provided as DroppableProvided } from '../../../src/view/droppable/
 import { getComputedSpacing } from '../../util/dimension';
 import { simpleLift, mouse } from './util/controls';
 import setDOMRect from '../../util/set-dom-rect';
+import { disableWarn } from '../../util/console';
 
 const draggableId: DraggableId = 'drag-1';
 const droppableId: DroppableId = 'drop-1';
@@ -109,6 +110,9 @@ describe('responders integration', () => {
   let responders: MockedResponders;
   let wrapper: RenderResult;
 
+  // unmounting during a drag can cause a warning
+  disableWarn();
+
   beforeEach(() => {
     jest.useFakeTimers();
     responders = {
@@ -119,18 +123,12 @@ describe('responders integration', () => {
       onDragEnd: jest.fn(),
     };
     wrapper = render(<App responders={responders} />);
-    // unmounting during a drag can cause a warning
-    jest.spyOn(console, 'warn').mockImplementation(() => {});
   });
 
   afterEach(() => {
     // clean up any loose events
     wrapper.unmount();
     jest.useRealTimers();
-
-    // eslint-disable-next-line no-console
-    // $ExpectError - mock
-    console.warn.mockRestore();
   });
 
   const drag = (() => {

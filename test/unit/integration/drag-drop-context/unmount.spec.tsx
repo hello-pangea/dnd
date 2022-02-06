@@ -11,8 +11,8 @@ it('should not throw when unmounting', () => {
 });
 
 it('should clean up any window event handlers', () => {
-  jest.spyOn(window, 'addEventListener');
-  jest.spyOn(window, 'removeEventListener');
+  const addEventListenerSpy = jest.spyOn(window, 'addEventListener');
+  const removeEventListenerSpy = jest.spyOn(window, 'removeEventListener');
 
   const { unmount } = render(
     <DragDropContext onDragEnd={() => {}}>{null}</DragDropContext>,
@@ -20,10 +20,10 @@ it('should clean up any window event handlers', () => {
 
   unmount();
 
-  expect(window.addEventListener.mock.calls).toHaveLength(
-    window.removeEventListener.mock.calls.length,
+  expect(addEventListenerSpy.mock.calls).toHaveLength(
+    removeEventListenerSpy.mock.calls.length,
   );
   // validation
-  expect(window.addEventListener).toHaveBeenCalled();
-  expect(window.removeEventListener).toHaveBeenCalled();
+  expect(addEventListenerSpy).toHaveBeenCalled();
+  expect(removeEventListenerSpy).toHaveBeenCalled();
 });

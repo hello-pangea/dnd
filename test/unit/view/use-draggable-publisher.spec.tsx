@@ -24,6 +24,7 @@ import type {
 } from '../../../src/state/registry/registry-types';
 import createRegistry from '../../../src/state/registry/create-registry';
 import setDOMRect from '../../util/set-dom-rect';
+import { disableWarn } from '../../util/console';
 
 const preset = getPreset();
 const noComputedSpacing = getComputedSpacing({});
@@ -71,14 +72,7 @@ function Item(props: ItemProps) {
   return <div ref={setRef}>hi</div>;
 }
 
-beforeEach(() => {
-  jest.spyOn(console, 'error').mockImplementation(() => {});
-});
-
-afterEach(() => {
-  // $FlowFixMe
-  console.error.mockRestore();
-});
+disableWarn();
 
 describe('dimension registration', () => {
   it('should register itself when mounting', () => {

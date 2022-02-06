@@ -10,16 +10,11 @@ import type {
 import App from '../../util/app';
 
 import type { Item } from '../../util/app';
+import { disableError } from '../../../../util/console';
 
 forEachSensor((control: Control) => {
-  beforeEach(() => {
-    // using content editable in particular ways causes react logging
-    jest.spyOn(console, 'error').mockImplementation(() => {});
-  });
-  afterEach(() => {
-    // $ExpectError - mock
-    console.error.mockRestore();
-  });
+  // using content editable in particular ways causes react logging
+  disableError();
 
   it('should block the drag if the drag handle is itself contenteditable', () => {
     const renderItem = (item: Item) => (

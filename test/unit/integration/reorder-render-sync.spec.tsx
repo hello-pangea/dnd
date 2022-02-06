@@ -22,8 +22,8 @@ const reorder = (list: any[], startIndex: number, endIndex: number): any[] => {
 
 type Task = {
   id: string;
-  onRender: Function;
-  setRef: Function;
+  onRender: () => void;
+  setRef: (ref?: HTMLElement | null) => void;
 };
 
 type TaskItemProps = {
@@ -99,7 +99,7 @@ type State = {
   tasks: Task[];
 };
 
-const first: Task = {
+const first = {
   id: 'first',
   onRender: jest.fn(),
   setRef: (ref?: HTMLElement | null) => {
@@ -119,7 +119,7 @@ const first: Task = {
   },
 };
 
-const second: Task = {
+const second = {
   id: 'second',
   onRender: jest.fn(),
   setRef: (ref?: HTMLElement | null) => {

@@ -1,5 +1,6 @@
 import { invariant } from '../../../../src/invariant';
 import getClosestScrollable from '../../../../src/view/use-droppable-publisher/get-closest-scrollable';
+import { disableWarn } from '../../../util/console';
 
 it('should return true if an element has overflow:auto or overflow:scroll', () => {
   ['overflowY', 'overflowX'].forEach((overflow: string) => {
@@ -40,15 +41,11 @@ describe('body detection', () => {
     el.style.overflowY = 'visible';
   };
 
+  disableWarn();
+
   beforeEach(() => {
     reset(body);
     reset(html);
-    jest.spyOn(console, 'warn').mockImplementation(() => {});
-  });
-
-  afterEach(() => {
-    // $ExpectError
-    console.warn.mockReset();
   });
 
   afterAll(() => {

@@ -18,7 +18,8 @@ function WithAnnouncer(props: Props) {
   return props.children(announce);
 }
 
-const getAnnounce = (myMock): Announce => myMock.mock.calls[0][0];
+const getAnnounce = (myMock: jest.Mock<unknown, [Announce]>) =>
+  myMock.mock.calls[0][0];
 const getMock = () => jest.fn().mockImplementation(() => null);
 
 // A little helper as react-testing-library does not have a getById function
@@ -67,7 +68,7 @@ it('should set the text content of the announcement element', () => {
   invariant(el, 'Could not find announcer');
 
   // act
-  const announce: Announce = getAnnounce(mock);
+  const announce = getAnnounce(mock);
   announce('test');
 
   // assert

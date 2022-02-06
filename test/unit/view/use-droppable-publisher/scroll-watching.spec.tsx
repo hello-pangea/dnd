@@ -284,7 +284,9 @@ it('should stop watching scroll when no longer required to publish', () => {
 });
 
 it('should stop watching for scroll events when the component is unmounted', () => {
-  jest.spyOn(console, 'warn').mockImplementation(() => {});
+  const consoleWarnSpy = jest
+    .spyOn(console, 'warn')
+    .mockImplementation(() => {});
   const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
@@ -307,11 +309,8 @@ it('should stop watching for scroll events when the component is unmounted', () 
   scroll(container, { x: 100, y: 300 });
   expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
   // also logs a warning
-  expect(console.warn).toHaveBeenCalled();
-
-  // cleanup
-  // $ExpectError
-  console.warn.mockRestore();
+  expect(consoleWarnSpy).toHaveBeenCalled();
+  consoleWarnSpy.mockRestore();
 });
 
 it('should throw an error if asked to watch a scroll when already listening for scroll changes', () => {
@@ -349,8 +348,8 @@ it('should add and remove events with the same event options', () => {
   );
   const container = wrapper.find('.scroll-container').getDOMNode<HTMLElement>();
   invariant(container);
-  jest.spyOn(container, 'addEventListener');
-  jest.spyOn(container, 'removeEventListener');
+  const addEventListenerSpy = jest.spyOn(container, 'addEventListener');
+  const removeEventListenerSpy = jest.spyOn(container, 'removeEventListener');
 
   // tell the droppable to watch for scrolling
   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
@@ -362,27 +361,27 @@ it('should add and remove events with the same event options', () => {
   const expectedOptions = {
     passive: true,
   };
-  expect(container.addEventListener).toHaveBeenCalledWith(
+  expect(addEventListenerSpy).toHaveBeenCalledWith(
     'scroll',
     expect.any(Function),
     expectedOptions,
   );
-  expect(container.removeEventListener).not.toHaveBeenCalled();
-  container.addEventListener.mockReset();
+  expect(removeEventListenerSpy).not.toHaveBeenCalled();
+  addEventListenerSpy.mockReset();
 
   // unwatching scroll
   callbacks.dragStopped();
 
   // assertion
-  expect(container.removeEventListener).toHaveBeenCalledWith(
+  expect(removeEventListenerSpy).toHaveBeenCalledWith(
     'scroll',
     expect.any(Function),
     expectedOptions,
   );
-  expect(container.removeEventListener).toHaveBeenCalledTimes(1);
-  expect(container.addEventListener).not.toHaveBeenCalled();
+  expect(removeEventListenerSpy).toHaveBeenCalledTimes(1);
+  expect(addEventListenerSpy).not.toHaveBeenCalled();
 
   // cleanup
-  container.addEventListener.mockRestore();
-  container.removeEventListener.mockRestore();
+  addEventListenerSpy.mockRestore();
+  removeEventListenerSpy.mockRestore();
 });

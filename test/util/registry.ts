@@ -74,13 +74,13 @@ export function getDroppableEntry({
 
 export type DimensionWatcher = {
   draggable: {
-    getDimension: Function;
+    getDimension: jest.Mock;
   };
   droppable: {
-    getDimensionAndWatchScroll: Function;
-    scroll: Function;
-    getScrollWhileDragging: Function;
-    dragStopped: Function;
+    getDimensionAndWatchScroll: jest.Mock;
+    scroll: jest.Mock;
+    getScrollWhileDragging: jest.Mock;
+    dragStopped: jest.Mock;
   };
 };
 
@@ -155,9 +155,11 @@ export const populate = (
   return watcher;
 };
 
-export const resetWatcher = (watcher: DimensionWatcher) => {
+export const resetWatcher = (watcher: DimensionWatcher): void => {
   watcher.draggable.getDimension.mockReset();
-  Object.keys(watcher.droppable).forEach((key: string) => {
+  (Object.keys(watcher.droppable) as Array<
+    keyof typeof watcher.droppable
+  >).forEach((key) => {
     watcher.droppable[key].mockReset();
   });
 };

@@ -28,3 +28,18 @@ function withoutConsole(type: string, fn: () => void) {
 
 export const withoutError = withoutConsole.bind(null, 'error');
 export const withoutWarn = withoutConsole.bind(null, 'warn');
+
+function disableConsole(type: string) {
+  let mock: jest.SpyInstance;
+
+  beforeEach(() => {
+    mock = jest.spyOn(console, type).mockImplementation(noop);
+  });
+
+  afterEach(() => {
+    mock.mockRestore();
+  });
+}
+
+export const disableError = disableConsole.bind(null, 'error');
+export const disableWarn = disableConsole.bind(null, 'warn');

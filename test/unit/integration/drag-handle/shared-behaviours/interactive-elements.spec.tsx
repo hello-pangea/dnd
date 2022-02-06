@@ -10,6 +10,7 @@ import type {
 import App from '../../util/app';
 import type { Item } from '../../util/app';
 import { interactiveTagNames } from '../../../../../src/view/use-sensor-marshal/is-event-in-interactive-element';
+import { disableError } from '../../../../util/console';
 
 const mixedCase = (obj: any): string[] => [
   ...Object.keys(obj).map((s) => s.toLowerCase()),
@@ -20,14 +21,8 @@ const forEachTagName = (fn: (tagName: string) => void) =>
   mixedCase(interactiveTagNames).forEach(fn);
 
 forEachSensor((control: Control) => {
-  beforeEach(() => {
-    // react will log a warning if using upper case
-    jest.spyOn(console, 'error').mockImplementation(() => {});
-  });
-  afterEach(() => {
-    // $ExpectError - mock property
-    console.error.mockRestore();
-  });
+  // react will log a warning if using upper case
+  disableError();
 
   it('should not drag if the handle is an interactive element', () => {
     forEachTagName((tagName: string) => {

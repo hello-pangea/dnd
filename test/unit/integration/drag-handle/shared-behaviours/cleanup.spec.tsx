@@ -6,27 +6,27 @@ import { forEachSensor, simpleLift } from '../../util/controls';
 
 import type { Control } from '../../util/controls';
 
-function getCallCount(myMock): number {
+function getCallCount(myMock: jest.SpyInstance): number {
   return myMock.mock.calls.length;
 }
 
 forEachSensor((control: Control) => {
   it('should remove all window listeners when unmounting', () => {
-    jest.spyOn(window, 'addEventListener');
-    jest.spyOn(window, 'removeEventListener');
+    const addEventListenerSpy = jest.spyOn(window, 'addEventListener');
+    const removeEventListenerSpy = jest.spyOn(window, 'removeEventListener');
 
     const { unmount } = render(<App />);
 
     unmount();
 
-    expect(getCallCount(window.addEventListener)).toEqual(
-      getCallCount(window.removeEventListener),
+    expect(getCallCount(addEventListenerSpy)).toEqual(
+      getCallCount(removeEventListenerSpy),
     );
   });
 
   it('should remove all window listeners when unmounting mid drag', () => {
-    jest.spyOn(window, 'addEventListener');
-    jest.spyOn(window, 'removeEventListener');
+    const addEventListenerSpy = jest.spyOn(window, 'addEventListener');
+    const removeEventListenerSpy = jest.spyOn(window, 'removeEventListener');
 
     const { unmount, getByText } = render(<App />);
     const handle: HTMLElement = getByText('item: 0');
@@ -37,8 +37,8 @@ forEachSensor((control: Control) => {
 
     unmount();
 
-    expect(getCallCount(window.addEventListener)).toEqual(
-      getCallCount(window.removeEventListener),
+    expect(getCallCount(addEventListenerSpy)).toEqual(
+      getCallCount(removeEventListenerSpy),
     );
   });
 });
