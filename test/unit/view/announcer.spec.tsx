@@ -15,7 +15,7 @@ type Props = {
 
 function WithAnnouncer(props: Props) {
   const announce: Announce = useAnnouncer(props.contextId);
-  return props.children(announce);
+  return <>{props.children(announce)}</>;
 }
 
 const getAnnounce = (myMock: jest.Mock<unknown, [Announce]>) =>
