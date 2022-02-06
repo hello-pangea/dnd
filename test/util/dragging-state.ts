@@ -52,7 +52,6 @@ export const move = (
 
   return {
     ...previous,
-    phase: previous.phase,
     current: {
       client,
       page,
