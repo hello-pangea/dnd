@@ -10,9 +10,9 @@ import type {
 
 type GetDraggingSnapshotArgs = {
   mode: MovementMode;
-  draggingOver: DroppableId | undefined | null;
-  combineWith: DraggableId | undefined | null;
-  dropping: DropAnimation | undefined | null;
+  draggingOver: DroppableId | null;
+  combineWith: DraggableId | null;
+  dropping: DropAnimation | null;
   isClone?: boolean | null;
 };
 
@@ -34,7 +34,7 @@ export const getDraggingSnapshot = ({
 });
 
 type GetSecondarySnapshotArgs = {
-  combineTargetFor: DraggableId | undefined | null;
+  combineTargetFor: DraggableId | null;
 };
 
 export const getSecondarySnapshot = ({

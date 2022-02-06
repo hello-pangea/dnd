@@ -247,7 +247,7 @@ export const getDroppableDimension = ({
   });
   const page: BoxModel = withScroll(client, windowScroll);
 
-  const closestScrollable: Closest | undefined | null = (() => {
+  const closestScrollable: Closest | null = (() => {
     if (!closest) {
       return null;
     }

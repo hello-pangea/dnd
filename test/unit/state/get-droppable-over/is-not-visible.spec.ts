@@ -67,7 +67,7 @@ it('should hit when inside subject, but outside the frame', () => {
     distance,
   );
 
-  const result: DroppableId | undefined | null = getDroppableOver({
+  const result: DroppableId | null = getDroppableOver({
     pageBorderBox,
     draggable: dragging,
     droppables: { [droppableId]: droppable },
@@ -112,7 +112,7 @@ it('should not hit when inside subject, but outside the frame', () => {
     distance,
   );
 
-  const result: DroppableId | undefined | null = getDroppableOver({
+  const result: DroppableId | null = getDroppableOver({
     pageBorderBox,
     draggable: dragging,
     droppables: { [droppableId]: droppable },
@@ -157,7 +157,7 @@ it('should not hit when outside subject and inside the frame (partially visible 
     distance,
   );
 
-  const result: DroppableId | undefined | null = getDroppableOver({
+  const result: DroppableId | null = getDroppableOver({
     pageBorderBox,
     draggable: dragging,
     droppables: { [droppableId]: droppable },
@@ -202,7 +202,7 @@ it('should not hit when outside subject and inside the frame (invisible subject)
     distance,
   );
 
-  const result: DroppableId | undefined | null = getDroppableOver({
+  const result: DroppableId | null = getDroppableOver({
     pageBorderBox,
     draggable: dragging,
     droppables: { [droppableId]: droppable },

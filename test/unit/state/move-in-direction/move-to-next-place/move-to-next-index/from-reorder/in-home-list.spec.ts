@@ -27,10 +27,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         viewport: preset.viewport,
       });
 
-      const forwardsPastInHome3:
-        | DragImpact
-        | undefined
-        | null = moveToNextIndex({
+      const forwardsPastInHome3: DragImpact | null = moveToNextIndex({
         isMovingForward: true,
         isInHomeList: true,
         draggable: preset.inHome2,
@@ -58,10 +55,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         };
         expect(forwardsPastInHome3).toEqual(expected);
       }
-      const forwardsPastInHome4:
-        | DragImpact
-        | undefined
-        | null = moveToNextIndex({
+      const forwardsPastInHome4: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: true,
         isInHomeList: true,
@@ -88,10 +82,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         expect(forwardsPastInHome4).toEqual(expected);
       }
 
-      const backwardsPastInHome4:
-        | DragImpact
-        | undefined
-        | null = moveToNextIndex({
+      const backwardsPastInHome4: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: false,
         isInHomeList: true,
@@ -120,7 +111,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         expect(backwardsPastInHome4).toEqual(expected);
       }
 
-      const backwardsToHome: DragImpact | undefined | null = moveToNextIndex({
+      const backwardsToHome: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: false,
         isInHomeList: true,
@@ -152,7 +143,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         expect(backwardsToHome).toEqual(expected);
       }
 
-      const backwardsPastHome: DragImpact | undefined | null = moveToNextIndex({
+      const backwardsPastHome: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: false,
         isInHomeList: true,
@@ -199,10 +190,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         viewport: preset.viewport,
       });
 
-      const backwardsPastInHome2:
-        | DragImpact
-        | undefined
-        | null = moveToNextIndex({
+      const backwardsPastInHome2: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: false,
         isInHomeList: true,
@@ -236,10 +224,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       }
 
       // move backwards again
-      const backwardsPastInHome1:
-        | DragImpact
-        | undefined
-        | null = moveToNextIndex({
+      const backwardsPastInHome1: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: false,
         isInHomeList: true,
@@ -284,10 +269,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       }
 
       // move forwards
-      const forwardsPastInHome1:
-        | DragImpact
-        | undefined
-        | null = moveToNextIndex({
+      const forwardsPastInHome1: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: true,
         isInHomeList: true,
@@ -326,7 +308,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         expect(forwardsPastInHome1).toEqual(expected);
       }
 
-      const forwardsToHome: DragImpact | undefined | null = moveToNextIndex({
+      const forwardsToHome: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: true,
         isInHomeList: true,
@@ -354,7 +336,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         };
         expect(forwardsToHome).toEqual(expected);
       }
-      const forwardsPastHome: DragImpact | undefined | null = moveToNextIndex({
+      const forwardsPastHome: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: true,
         isInHomeList: true,

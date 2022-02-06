@@ -65,7 +65,7 @@ it('should return null if there are draggables in a destination list but none ar
     viewport: preset.viewport,
   });
 
-  const result: PublicResult | undefined | null = moveCrossAxis({
+  const result: PublicResult | null = moveCrossAxis({
     isMovingForward: true,
     previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
     draggable: preset.inHome1,

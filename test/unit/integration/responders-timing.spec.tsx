@@ -40,9 +40,9 @@ afterEach(() => {
 });
 
 it('should call the onBeforeDragStart before connected components are updated, and onDragStart after', () => {
-  let onBeforeDragStartTime: DOMHighResTimeStamp | undefined | null = null;
-  let onDragStartTime: DOMHighResTimeStamp | undefined | null = null;
-  let renderTime: DOMHighResTimeStamp | undefined | null = null;
+  let onBeforeDragStartTime: DOMHighResTimeStamp | null = null;
+  let onDragStartTime: DOMHighResTimeStamp | null = null;
+  let renderTime: DOMHighResTimeStamp | null = null;
   const responders: Responders = {
     onBeforeDragStart: jest.fn().mockImplementation(() => {
       invariant(!onBeforeDragStartTime, 'onBeforeDragStartTime already set');

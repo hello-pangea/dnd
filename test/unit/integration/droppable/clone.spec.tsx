@@ -71,7 +71,7 @@ it('should give the clone the starting location', () => {
 
   simpleLift(keyboard, getByTestId('1'));
 
-  const last: Call | undefined | null = getLast(getCallsFor('1', spy));
+  const last: Call | null = getLast(getCallsFor('1', spy));
   invariant(last);
   const expected: DraggableStateSnapshot = {
     isClone: true,

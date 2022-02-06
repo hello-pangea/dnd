@@ -33,9 +33,9 @@ it('should call the onDragStart responder when a initial publish occurs', () => 
 });
 
 it('should call the onBeforeDragState and onDragStart in the correct order', () => {
-  let mockCalled: number | undefined | null = null;
-  let onBeforeDragStartCalled: number | undefined | null = null;
-  let onDragStartCalled: number | undefined | null = null;
+  let mockCalled: number | null = null;
+  let onBeforeDragStartCalled: number | null = null;
+  let onDragStartCalled: number | null = null;
   const mock = jest.fn().mockImplementation(() => {
     mockCalled = performance.now();
   });

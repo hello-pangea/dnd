@@ -160,7 +160,7 @@ import { emptyGroups } from '../../../../../../src/state/no-impact';
           },
         };
 
-        const result: PublicResult | undefined | null = moveToNextPlace({
+        const result: PublicResult | null = moveToNextPlace({
           isMovingForward: true,
           draggable: inHome,
           destination: foreign,
@@ -283,7 +283,7 @@ import { emptyGroups } from '../../../../../../src/state/no-impact';
 
         // figure out where we would have been if it was visible
 
-        const result: PublicResult | undefined | null = moveToNextPlace({
+        const result: PublicResult | null = moveToNextPlace({
           isMovingForward: false,
           draggable: inHome,
           destination: foreign,

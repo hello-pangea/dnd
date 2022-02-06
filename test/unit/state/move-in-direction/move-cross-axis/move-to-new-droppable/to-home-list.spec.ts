@@ -57,7 +57,7 @@ const dontCare: Position = { x: 0, y: 0 };
           preset.inHome2.displaceBy,
         );
 
-        const result: DragImpact | undefined | null = moveToNewDroppable({
+        const result: DragImpact | null = moveToNewDroppable({
           previousPageBorderBoxCenter: dontCare,
           draggable: preset.inHome2,
           draggables: preset.draggables,
@@ -104,7 +104,7 @@ const dontCare: Position = { x: 0, y: 0 };
           preset.inHome4.displaceBy,
         );
 
-        const result: DragImpact | undefined | null = moveToNewDroppable({
+        const result: DragImpact | null = moveToNewDroppable({
           previousPageBorderBoxCenter: dontCare,
           draggable: preset.inHome4,
           draggables: preset.draggables,
@@ -150,7 +150,7 @@ const dontCare: Position = { x: 0, y: 0 };
           axis,
           preset.inHome1.displaceBy,
         );
-        const result: DragImpact | undefined | null = moveToNewDroppable({
+        const result: DragImpact | null = moveToNewDroppable({
           previousPageBorderBoxCenter: dontCare,
           draggable: preset.inHome1,
           draggables: preset.draggables,

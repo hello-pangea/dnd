@@ -45,7 +45,7 @@ it('should allow a lock to be released', () => {
 
   Array.from({ length: 4 }).forEach(() => {
     // get the lock
-    const lock: PreDragActions | undefined | null = api.tryGetLock('0', noop);
+    const lock: PreDragActions | null = api.tryGetLock('0', noop);
     expect(lock).toBeTruthy();
     invariant(lock, 'Expected lock to be set');
 
@@ -64,7 +64,7 @@ it('should not allow a sensor to obtain a on a dropping item, but can claim one 
   invariant(api, 'expected api to be set');
   const handle: HTMLElement = getByText('item: 0');
 
-  const preDrag: PreDragActions | undefined | null = api.tryGetLock('0', noop);
+  const preDrag: PreDragActions | null = api.tryGetLock('0', noop);
   invariant(preDrag, 'Expected to get lock');
 
   // drag not started yet
@@ -97,7 +97,7 @@ it('should release a lock when aborting a pre drag', () => {
   const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api, 'expected api to be set');
 
-  const preDrag: PreDragActions | undefined | null = api.tryGetLock('0', noop);
+  const preDrag: PreDragActions | null = api.tryGetLock('0', noop);
   invariant(preDrag, 'Expected to get lock');
   expect(preDrag.isActive()).toBe(true);
   // should release the lock
@@ -105,7 +105,7 @@ it('should release a lock when aborting a pre drag', () => {
   expect(preDrag.isActive()).toBe(false);
 
   // can get another lock
-  const second: PreDragActions | undefined | null = api.tryGetLock('1', noop);
+  const second: PreDragActions | null = api.tryGetLock('1', noop);
   expect(second).toBeTruthy();
   invariant(second);
   // need to release this one :)
@@ -120,10 +120,7 @@ it('should release a lock when cancelling or dropping a drag', () => {
   invariant(api, 'expected api to be set');
 
   (['cancel', 'drop'] as const).forEach((property) => {
-    const preDrag: PreDragActions | undefined | null = api.tryGetLock(
-      '0',
-      noop,
-    );
+    const preDrag: PreDragActions | null = api.tryGetLock('0', noop);
     invariant(preDrag, 'Expected to get lock');
     expect(preDrag.isActive()).toBe(true);
 
@@ -131,7 +128,7 @@ it('should release a lock when cancelling or dropping a drag', () => {
     expect(drag.isActive()).toBe(true);
 
     // cannot get another lock
-    const second: PreDragActions | undefined | null = api.tryGetLock('1', noop);
+    const second: PreDragActions | null = api.tryGetLock('1', noop);
     expect(second).toBe(null);
 
     // calling cancel or drop
@@ -140,7 +137,7 @@ it('should release a lock when cancelling or dropping a drag', () => {
     });
 
     // can now get another lock
-    const third: PreDragActions | undefined | null = api.tryGetLock('1', noop);
+    const third: PreDragActions | null = api.tryGetLock('1', noop);
     expect(third).toBeTruthy();
     // need to try to release it
     invariant(third);

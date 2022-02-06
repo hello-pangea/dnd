@@ -61,8 +61,8 @@ export function isClone(el: HTMLElement): boolean {
   return el.getAttribute('data-is-clone') === 'true';
 }
 
-export function isOver(el: HTMLElement): string | undefined | null {
-  const value: string | undefined | null = el.getAttribute('data-is-over');
+export function isOver(el: HTMLElement): string | null {
+  const value: string | null = el.getAttribute('data-is-over');
   return value || null;
 }
 
@@ -124,7 +124,7 @@ export const getRubricsFor = (
   });
 };
 
-export function getLast<T>(values: T[]): T | undefined | null {
+export function getLast<T>(values: T[]): T | null {
   return values[values.length - 1] || null;
 }
 
@@ -152,9 +152,7 @@ export const withPoorDimensionMocks = (
         return preset.home.client.borderBox;
       }
 
-      const id: DraggableId | undefined | null = this.getAttribute(
-        attributes.draggable.id,
-      );
+      const id: DraggableId | null = this.getAttribute(attributes.draggable.id);
       invariant(id, 'Expected element to be a draggable');
 
       return dimensions[id].client.borderBox;
@@ -176,9 +174,7 @@ export const withPoorDimensionMocks = (
         return getSpacing(preset.home.client);
       }
 
-      const id: DraggableId | undefined | null = el.getAttribute(
-        attributes.draggable.id,
-      );
+      const id: DraggableId | null = el.getAttribute(attributes.draggable.id);
 
       // this can happen when we search up the DOM for scroll containers
       if (!id) {

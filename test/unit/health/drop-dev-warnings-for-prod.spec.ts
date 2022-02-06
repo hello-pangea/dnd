@@ -42,6 +42,6 @@ it('should not contain warnings in production', async () => {
   // .*? is a lazy match - will grab as little as possible
   const regex = /console\.\w+\(.*?\)/g;
 
-  const matches: string[] | undefined | null = contents.match(regex);
+  const matches: string[] | null = contents.match(regex);
   expect(matches).toEqual(null);
 });

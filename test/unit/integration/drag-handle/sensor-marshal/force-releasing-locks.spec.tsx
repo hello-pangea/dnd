@@ -19,10 +19,7 @@ it('should correctly state whether a lock is claimed', () => {
   invariant(first, 'expected first to be set');
   invariant(second, 'expected second to be set');
 
-  const preDrag: PreDragActions | undefined | null = first.tryGetLock(
-    '0',
-    onForceStop,
-  );
+  const preDrag: PreDragActions | null = first.tryGetLock('0', onForceStop);
   expect(preDrag).toBeTruthy();
   expect(second.isLockClaimed()).toBe(true);
 

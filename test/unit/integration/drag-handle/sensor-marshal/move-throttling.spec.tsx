@@ -20,7 +20,7 @@ it('should throttle move events by request animation frame', () => {
   invariant(api, 'expected api to be set');
   const handle: HTMLElement = getByText('item: 0');
 
-  const preDrag: PreDragActions | undefined | null = api.tryGetLock('0', noop);
+  const preDrag: PreDragActions | null = api.tryGetLock('0', noop);
   invariant(preDrag);
 
   const initial: Position = { x: 2, y: 3 };
@@ -48,7 +48,7 @@ it('should cancel any pending moves after a lock is released', () => {
   invariant(api, 'expected api to be set');
   const handle: HTMLElement = getByText('item: 0');
 
-  const preDrag: PreDragActions | undefined | null = api.tryGetLock('0', noop);
+  const preDrag: PreDragActions | null = api.tryGetLock('0', noop);
   invariant(preDrag);
 
   const initial: Position = { x: 2, y: 3 };

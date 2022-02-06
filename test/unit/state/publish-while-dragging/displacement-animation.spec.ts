@@ -32,7 +32,7 @@ it('should not animate any displacement', () => {
     state.dragging(),
     virtualForeign,
   );
-  const moveToForeign: PublicResult | undefined | null = moveInDirection({
+  const moveToForeign: PublicResult | null = moveInDirection({
     state: inHomeState,
     type: 'MOVE_RIGHT',
   });

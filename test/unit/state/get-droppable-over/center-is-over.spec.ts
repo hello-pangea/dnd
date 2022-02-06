@@ -15,7 +15,7 @@ import { offsetRectByPosition } from '../../../../src/state/rect';
 [vertical, horizontal].forEach((axis: Axis) => {
   describe(`on ${axis.direction} axis`, () => {
     const preset = getPreset(axis);
-    const active: Rect | undefined | null = preset.home.subject.active;
+    const active: Rect | null = preset.home.subject.active;
     invariant(active, 'expected active');
     const draggable: DraggableDimension = preset.inHome1;
 
@@ -32,7 +32,7 @@ import { offsetRectByPosition } from '../../../../src/state/rect';
           pageOffset,
         );
 
-        const result: DroppableId | undefined | null = getDroppableOver({
+        const result: DroppableId | null = getDroppableOver({
           pageBorderBox,
           draggable,
           droppables: preset.droppables,
@@ -58,7 +58,7 @@ import { offsetRectByPosition } from '../../../../src/state/rect';
           draggable.page.borderBox,
           pageOffset,
         );
-        const result: DroppableId | undefined | null = getDroppableOver({
+        const result: DroppableId | null = getDroppableOver({
           pageBorderBox,
           draggable,
           droppables: preset.droppables,

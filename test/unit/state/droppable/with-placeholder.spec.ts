@@ -147,7 +147,7 @@ const gap = 10;
             withHomeDraggable(inHome),
           );
 
-          const active: Rect | undefined | null = withoutFrame.subject.active;
+          const active: Rect | null = withoutFrame.subject.active;
           invariant(active);
           const expected: DroppableSubject = {
             // unchanged
@@ -198,7 +198,7 @@ const gap = 10;
           shouldClipSubject: false,
         },
       });
-      const originalFrame: Scrollable | undefined | null = withFrame.frame;
+      const originalFrame: Scrollable | null = withFrame.frame;
       invariant(
         originalFrame && isEqual(originalFrame.scroll.max, origin),
         'expecting no max scroll',
@@ -227,7 +227,7 @@ const gap = 10;
         };
         expect(result.subject).toEqual(expected);
         // no change in frame or scroll
-        const newFrame: Scrollable | undefined | null = result.frame;
+        const newFrame: Scrollable | null = result.frame;
         invariant(newFrame);
         expect(originalFrame.scroll.max).toEqual(newFrame.scroll.max);
         expect(originalFrame).toEqual(newFrame);
@@ -244,7 +244,7 @@ const gap = 10;
         );
 
         const increasedBy: Position = patch(axis.line, excess);
-        const active: Rect | undefined | null = withFrame.subject.active;
+        const active: Rect | null = withFrame.subject.active;
         invariant(active);
         const expected: DroppableSubject = {
           // unchanged
@@ -263,7 +263,7 @@ const gap = 10;
         };
         expect(result.subject).toEqual(expected);
         // max scroll change
-        const newFrame: Scrollable | undefined | null = result.frame;
+        const newFrame: Scrollable | null = result.frame;
         invariant(newFrame);
         expect(originalFrame.scroll.max).not.toEqual(newFrame.scroll.max);
         expect(newFrame.scroll.max).toEqual(
@@ -306,7 +306,7 @@ const gap = 10;
           shouldClipSubject: false,
         },
       });
-      const originalFrame: Scrollable | undefined | null = virtual.frame;
+      const originalFrame: Scrollable | null = virtual.frame;
       invariant(
         originalFrame && isEqual(originalFrame.scroll.max, origin),
         'expecting no max scroll',
@@ -329,7 +329,7 @@ const gap = 10;
           withHomeDraggable(inHome),
         );
 
-        const active: Rect | undefined | null = virtual.subject.active;
+        const active: Rect | null = virtual.subject.active;
         invariant(active);
         const expected: DroppableSubject = {
           // unchanged
@@ -348,7 +348,7 @@ const gap = 10;
         };
         expect(result.subject).toEqual(expected);
         // max scroll change
-        const newFrame: Scrollable | undefined | null = result.frame;
+        const newFrame: Scrollable | null = result.frame;
         invariant(newFrame);
         expect(originalFrame.scroll.max).not.toEqual(newFrame.scroll.max);
         expect(newFrame.scroll.max).toEqual(

@@ -27,7 +27,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         viewport: preset.viewport,
       });
 
-      const result: DragImpact | undefined | null = moveToNextCombine({
+      const result: DragImpact | null = moveToNextCombine({
         isMovingForward: true,
         draggable: preset.inHome2,
         destination: enableCombine(preset.home),
@@ -65,10 +65,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
           },
         },
       };
-      const moveBackwardsOntoInHome3:
-        | DragImpact
-        | undefined
-        | null = moveToNextCombine({
+      const moveBackwardsOntoInHome3: DragImpact | null = moveToNextCombine({
         isMovingForward: false,
         draggable: preset.inHome2,
         destination: enableCombine(preset.home),
@@ -99,7 +96,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         viewport: preset.viewport,
       });
 
-      const result: DragImpact | undefined | null = moveToNextCombine({
+      const result: DragImpact | null = moveToNextCombine({
         isMovingForward: false,
         draggable: preset.inHome3,
         destination: enableCombine(preset.home),
@@ -142,10 +139,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const moveForwardsOntoInHome2:
-        | DragImpact
-        | undefined
-        | null = moveToNextCombine({
+      const moveForwardsOntoInHome2: DragImpact | null = moveToNextCombine({
         isMovingForward: true,
         draggable: preset.inHome3,
         destination: enableCombine(preset.home),
@@ -175,7 +169,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         viewport: preset.viewport,
       });
 
-      const result: DragImpact | undefined | null = moveToNextCombine({
+      const result: DragImpact | null = moveToNextCombine({
         isMovingForward: false,
         draggable: preset.inHome1,
         destination: enableCombine(preset.home),
@@ -194,7 +188,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         viewport: preset.viewport,
       });
 
-      const result: DragImpact | undefined | null = moveToNextCombine({
+      const result: DragImpact | null = moveToNextCombine({
         isMovingForward: true,
         draggable: preset.inHome1,
         destination: enableCombine(preset.home),

@@ -63,7 +63,7 @@ it('should update the frame scroll and the subject', () => {
     },
   });
 
-  const originalFrame: Scrollable | undefined | null = droppable.frame;
+  const originalFrame: Scrollable | null = droppable.frame;
   invariant(originalFrame);
   // original frame
   expect(originalFrame.pageMarginBox).toEqual(framePage.marginBox);
@@ -73,7 +73,7 @@ it('should update the frame scroll and the subject', () => {
   // scrolling down
   const newScroll: Position = { x: 0, y: 100 };
   const updated: DroppableDimension = scrollDroppable(droppable, newScroll);
-  const updatedFrame: Scrollable | undefined | null = updated.frame;
+  const updatedFrame: Scrollable | null = updated.frame;
   invariant(updatedFrame);
 
   // unchanged frame client
@@ -149,7 +149,7 @@ it('should allow scrolling beyond the max position', () => {
       shouldClipSubject: true,
     },
   });
-  const originalFrame: Scrollable | undefined | null = scrollable.frame;
+  const originalFrame: Scrollable | null = scrollable.frame;
   invariant(originalFrame);
 
   const scrolled: DroppableDimension = scrollDroppable(scrollable, {
@@ -158,7 +158,7 @@ it('should allow scrolling beyond the max position', () => {
   });
 
   // current is larger than max
-  const updatedFrame: Scrollable | undefined | null = scrolled.frame;
+  const updatedFrame: Scrollable | null = scrolled.frame;
   invariant(updatedFrame);
   expect(updatedFrame.scroll.current).toEqual({
     x: 300,

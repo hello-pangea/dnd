@@ -50,7 +50,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       };
 
       // moving forward
-      const first: DragImpact | undefined | null = moveToNextIndex({
+      const first: DragImpact | null = moveToNextIndex({
         isMovingForward: true,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -83,7 +83,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       }
 
       // moving forward again
-      const second: DragImpact | undefined | null = moveToNextIndex({
+      const second: DragImpact | null = moveToNextIndex({
         isMovingForward: true,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -115,7 +115,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       // now moving backwards towards where we started in the foreign list
 
       // moving backwards
-      const third: DragImpact | undefined | null = moveToNextIndex({
+      const third: DragImpact | null = moveToNextIndex({
         isMovingForward: false,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -147,7 +147,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
         expect(third).toEqual(expected);
       }
 
-      const fourth: DragImpact | undefined | null = moveToNextIndex({
+      const fourth: DragImpact | null = moveToNextIndex({
         isMovingForward: false,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -204,7 +204,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       };
 
       // moving backwards
-      const first: DragImpact | undefined | null = moveToNextIndex({
+      const first: DragImpact | null = moveToNextIndex({
         isMovingForward: false,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -238,7 +238,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       }
 
       // moving backwards again
-      const second: DragImpact | undefined | null = moveToNextIndex({
+      const second: DragImpact | null = moveToNextIndex({
         isMovingForward: false,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -275,7 +275,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       // now moving forwards towards where we started in the foreign list
 
       // moving forwards
-      const third: DragImpact | undefined | null = moveToNextIndex({
+      const third: DragImpact | null = moveToNextIndex({
         isMovingForward: true,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -310,7 +310,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
       }
 
       // moving forwards again
-      const fourth: DragImpact | undefined | null = moveToNextIndex({
+      const fourth: DragImpact | null = moveToNextIndex({
         isMovingForward: true,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -368,7 +368,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
 
       // cannot move backwards
 
-      const impact: DragImpact | undefined | null = moveToNextIndex({
+      const impact: DragImpact | null = moveToNextIndex({
         isMovingForward: false,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -402,7 +402,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
 
       // move forwards into spot after inForeign4
 
-      const impact: DragImpact | undefined | null = moveToNextIndex({
+      const impact: DragImpact | null = moveToNextIndex({
         isMovingForward: true,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -445,7 +445,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
     };
 
     it('should not allow displaced after it is already after the last item in a list', () => {
-      const impact: DragImpact | undefined | null = moveToNextIndex({
+      const impact: DragImpact | null = moveToNextIndex({
         isMovingForward: true,
         isInHomeList: false,
         draggable: preset.inHome1,
@@ -461,7 +461,7 @@ import { emptyGroups } from '../../../../../../../src/state/no-impact';
     });
 
     it('should allow displaced back from after the last item in a list', () => {
-      const impact: DragImpact | undefined | null = moveToNextIndex({
+      const impact: DragImpact | null = moveToNextIndex({
         isMovingForward: false,
         isInHomeList: false,
         draggable: preset.inHome1,

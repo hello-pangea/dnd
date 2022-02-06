@@ -130,7 +130,7 @@ export const getDropImpactForReason = (reason: DropReason): DragImpact =>
   }).impact;
 
 export const getCompletedArgs = (reason: DropReason): DropCompleteArgs => {
-  const destination: DraggableLocation | undefined | null =
+  const destination: DraggableLocation | null =
     reason === 'CANCEL' ? null : getDragStart().source;
 
   const customResult: DropResult = {

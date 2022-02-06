@@ -56,7 +56,7 @@ it('should allow children not to be rendered after a close animation', () => {
     ));
 
   type Props = {
-    on: unknown | undefined | null;
+    on: unknown;
     shouldAnimate: boolean;
   };
 

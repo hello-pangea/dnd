@@ -48,7 +48,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const result: DragImpact | undefined | null = moveToNextCombine({
+      const result: DragImpact | null = moveToNextCombine({
         isMovingForward: true,
         draggable: preset.inHome1,
         destination: enableCombine(preset.foreign),
@@ -91,7 +91,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const result: DragImpact | undefined | null = moveToNextCombine({
+      const result: DragImpact | null = moveToNextCombine({
         isMovingForward: false,
         draggable: preset.inHome1,
         destination: enableCombine(preset.foreign),
@@ -135,7 +135,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const result: DragImpact | undefined | null = moveToNextCombine({
+      const result: DragImpact | null = moveToNextCombine({
         isMovingForward: false,
         draggable: preset.inHome1,
         destination: enableCombine(preset.foreign),
@@ -161,7 +161,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const result: DragImpact | undefined | null = moveToNextCombine({
+      const result: DragImpact | null = moveToNextCombine({
         isMovingForward: true,
         draggable: preset.inHome1,
         destination: enableCombine(preset.foreign),

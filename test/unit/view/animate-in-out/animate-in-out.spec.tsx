@@ -90,7 +90,7 @@ it('should animate open if requested', () => {
 it('should close instantly if required', () => {
   const child = jest.fn().mockReturnValue(<div>hi</div>);
   const data = { hello: 'world' };
-  function App({ value }: { value: any | undefined | null }) {
+  function App({ value }: { value: unknown }) {
     return (
       <AnimateInOut on={value} shouldAnimate={false}>
         {child}
@@ -122,7 +122,7 @@ it('should animate closed if required', () => {
   const data = { hello: 'world' };
 
   type Props = {
-    value: any | undefined | null;
+    value: unknown;
     shouldAnimate: boolean;
   };
 

@@ -121,7 +121,7 @@ export default (axis: Axis = vertical) => {
   };
 
   const dropPending = (
-    args: DropPendingArgs | undefined | null = defaultDropPending,
+    args: DropPendingArgs = defaultDropPending,
   ): DropPendingState => ({
     ...dragging(),
     phase: 'DROP_PENDING',

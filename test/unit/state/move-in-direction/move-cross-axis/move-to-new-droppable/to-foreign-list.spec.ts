@@ -46,7 +46,7 @@ import {
       });
 
       it('should move into the first position of the list', () => {
-        const result: DragImpact | undefined | null = moveToNewDroppable({
+        const result: DragImpact | null = moveToNewDroppable({
           previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
           draggable: preset.inHome1,
           draggables: preset.draggables,
@@ -107,7 +107,7 @@ import {
 
           // validation: no scrolled droppable
           {
-            const result: DragImpact | undefined | null = moveToNewDroppable({
+            const result: DragImpact | null = moveToNewDroppable({
               previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
               draggable: preset.inHome1,
               draggables: preset.draggables,
@@ -131,7 +131,7 @@ import {
               maxAllowableScroll,
             );
 
-            const result: DragImpact | undefined | null = moveToNewDroppable({
+            const result: DragImpact | null = moveToNewDroppable({
               previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
               draggable: preset.inHome1,
               draggables: preset.draggables,
@@ -153,7 +153,7 @@ import {
               scrollable,
               pastMaxAllowableScroll,
             );
-            const result: DragImpact | undefined | null = moveToNewDroppable({
+            const result: DragImpact | null = moveToNewDroppable({
               previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
               draggable: preset.inHome1,
               draggables: preset.draggables,
@@ -187,7 +187,7 @@ import {
           );
           // validate with no scroll
           {
-            const result: DragImpact | undefined | null = moveToNewDroppable({
+            const result: DragImpact | null = moveToNewDroppable({
               previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
               draggable: preset.inHome1,
               draggables: preset.draggables,
@@ -207,7 +207,7 @@ import {
               onVisibleStartEdge,
             );
 
-            const result: DragImpact | undefined | null = moveToNewDroppable({
+            const result: DragImpact | null = moveToNewDroppable({
               previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
               draggable: preset.inHome1,
               draggables: preset.draggables,
@@ -227,7 +227,7 @@ import {
               pastVisibleStartEdge,
             );
 
-            const result: DragImpact | undefined | null = moveToNewDroppable({
+            const result: DragImpact | null = moveToNewDroppable({
               previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
               draggable: preset.inHome1,
               draggables: preset.draggables,
@@ -262,7 +262,7 @@ import {
             windowScroll: preset.windowScroll,
           });
 
-          const result: DragImpact | undefined | null = moveToNewDroppable({
+          const result: DragImpact | null = moveToNewDroppable({
             previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
             draggable: preset.inHome1,
             draggables: preset.draggables,
@@ -293,7 +293,7 @@ import {
       it('should move the target and everything below it forward', () => {
         // moving home1 into the second position of the list
 
-        const result: DragImpact | undefined | null = moveToNewDroppable({
+        const result: DragImpact | null = moveToNewDroppable({
           previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
           draggable: preset.inHome1,
           draggables: preset.draggables,
@@ -342,7 +342,7 @@ import {
           axis,
           preset.inHome3.displaceBy,
         );
-        const result: DragImpact | undefined | null = moveToNewDroppable({
+        const result: DragImpact | null = moveToNewDroppable({
           previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
           draggable: preset.inHome3,
           draggables: preset.draggables,
@@ -394,7 +394,7 @@ import {
           preset.inHome4.displaceBy,
         );
 
-        const result: DragImpact | undefined | null = moveToNewDroppable({
+        const result: DragImpact | null = moveToNewDroppable({
           previousPageBorderBoxCenter: preset.inHome1.page.borderBox.center,
           draggable: preset.inHome4,
           draggables: preset.draggables,

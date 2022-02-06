@@ -110,10 +110,7 @@ const viewport: Viewport = getViewport();
       );
 
       {
-        const result:
-          | DraggableDimension
-          | undefined
-          | null = getClosestDraggable({
+        const result: DraggableDimension | null = getClosestDraggable({
           pageBorderBoxCenter: center,
           destination: home,
           insideDestination,
@@ -124,10 +121,7 @@ const viewport: Viewport = getViewport();
       }
       // validation: without initial displacement it would have been inHome2
       {
-        const result:
-          | DraggableDimension
-          | undefined
-          | null = getClosestDraggable({
+        const result: DraggableDimension | null = getClosestDraggable({
           pageBorderBoxCenter: center,
           destination: home,
           insideDestination,
@@ -146,15 +140,13 @@ const viewport: Viewport = getViewport();
       );
       const scrolled: Viewport = scrollViewport(viewport, patch(axis.line, 1));
 
-      const result: DraggableDimension | undefined | null = getClosestDraggable(
-        {
-          pageBorderBoxCenter: center,
-          destination: home,
-          insideDestination,
-          viewport: scrolled,
-          afterCritical: noAfterCritical,
-        },
-      );
+      const result: DraggableDimension | null = getClosestDraggable({
+        pageBorderBoxCenter: center,
+        destination: home,
+        insideDestination,
+        viewport: scrolled,
+        afterCritical: noAfterCritical,
+      });
       expect(result).toEqual(inHome2);
 
       // validate visibility
@@ -195,10 +187,7 @@ const viewport: Viewport = getViewport();
 
       // validate inHome2 would have been the target expect for displacement
       {
-        const validate:
-          | DraggableDimension
-          | undefined
-          | null = getClosestDraggable({
+        const validate: DraggableDimension | null = getClosestDraggable({
           pageBorderBoxCenter: center,
           destination: home,
           insideDestination,

@@ -119,14 +119,14 @@ export function withPoorBoardDimensions(fn: (a: typeof preset) => void): void {
         'Expected "this" to be a HTMLElement',
       );
 
-      const droppableId: DroppableId | undefined | null = this.getAttribute(
+      const droppableId: DroppableId | null = this.getAttribute(
         attributes.droppable.id,
       );
       if (droppableId) {
         return setDOMRect(preset.droppables[droppableId].client.borderBox);
       }
 
-      const draggableId: DraggableId | undefined | null = this.getAttribute(
+      const draggableId: DraggableId | null = this.getAttribute(
         attributes.draggable.id,
       );
       invariant(draggableId, 'Expected element to be a draggable');
@@ -146,7 +146,7 @@ export function withPoorBoardDimensions(fn: (a: typeof preset) => void): void {
         });
       }
 
-      const droppableId: DroppableId | undefined | null = el.getAttribute(
+      const droppableId: DroppableId | null = el.getAttribute(
         attributes.droppable.id,
       );
 
@@ -160,7 +160,7 @@ export function withPoorBoardDimensions(fn: (a: typeof preset) => void): void {
         ) as CSSStyleDeclaration;
       }
 
-      const draggableId: DraggableId | undefined | null = el.getAttribute(
+      const draggableId: DraggableId | null = el.getAttribute(
         attributes.draggable.id,
       );
 

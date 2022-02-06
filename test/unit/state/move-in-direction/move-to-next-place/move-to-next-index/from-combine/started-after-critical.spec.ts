@@ -37,7 +37,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const result: DragImpact | undefined | null = moveToNextIndex({
+      const result: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: false,
         isInHomeList: true,
@@ -71,7 +71,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const result: DragImpact | undefined | null = moveToNextIndex({
+      const result: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: true,
         isInHomeList: true,
@@ -123,7 +123,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const result: DragImpact | undefined | null = moveToNextIndex({
+      const result: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: false,
         isInHomeList: true,
@@ -180,7 +180,7 @@ const enableCombine = (droppable: DroppableDimension): DroppableDimension => ({
         },
       };
 
-      const result: DragImpact | undefined | null = moveToNextIndex({
+      const result: DragImpact | null = moveToNextIndex({
         viewport: preset.viewport,
         isMovingForward: true,
         isInHomeList: true,

@@ -83,7 +83,7 @@ import { tryGetCombine } from '../../../../../src/state/get-impact-location';
       const current: State = store.getState();
       invariant(current.isDragging);
       // impact is cleared when cancelling
-      const destination: DraggableLocation | undefined | null =
+      const destination: DraggableLocation | null =
         reason === 'DROP' ? getDragStart().source : null;
 
       mock.mockReset();
@@ -152,7 +152,7 @@ import { tryGetCombine } from '../../../../../src/state/get-impact-location';
       invariant(current.isDragging);
 
       // if (reason === 'DROP') {
-      const combine: Combine | undefined | null = tryGetCombine(current.impact);
+      const combine: Combine | null = tryGetCombine(current.impact);
       invariant(combine);
       // moved forwards past in home2, and then backwards onto it
       expect(combine).toEqual({

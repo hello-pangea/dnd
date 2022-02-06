@@ -22,7 +22,7 @@ it('should correctly state whether a lock is claimed', () => {
   expect(first.isLockClaimed()).toBe(false);
   expect(second.isLockClaimed()).toBe(false);
 
-  const preDrag: PreDragActions | undefined | null = first.tryGetLock('0');
+  const preDrag: PreDragActions | null = first.tryGetLock('0');
   expect(preDrag).toBeTruthy();
 
   // both sensors can know if the lock is claimed

@@ -77,9 +77,7 @@ it('should use the drop result and not the final impact', () => {
 
   const state: State = store.getState();
   invariant(state.phase === 'DRAGGING');
-  const destination: DraggableLocation | undefined | null = tryGetDestination(
-    state.impact,
-  );
+  const destination: DraggableLocation | null = tryGetDestination(state.impact);
   invariant(destination);
   const fakeResult: DropResult = {
     ...getDragStart(),

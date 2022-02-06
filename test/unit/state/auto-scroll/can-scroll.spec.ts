@@ -317,7 +317,7 @@ describe('get overlap', () => {
       ];
 
       items.forEach((item: Item) => {
-        const result: Position | undefined | null = getOverlap({
+        const result: Position | null = getOverlap({
           current,
           max,
           change: item.change,
@@ -352,7 +352,7 @@ describe('get overlap', () => {
       ];
 
       items.forEach((item: Item) => {
-        const result: Position | undefined | null = getOverlap({
+        const result: Position | null = getOverlap({
           current,
           max,
           change: item.change,
@@ -379,7 +379,7 @@ describe('get overlap', () => {
       ];
 
       items.forEach((item: Item) => {
-        const result: Position | undefined | null = getOverlap({
+        const result: Position | null = getOverlap({
           current,
           max,
           change: item.change,
@@ -422,7 +422,7 @@ describe('get overlap', () => {
       ];
 
       items.forEach((item: Item) => {
-        const result: Position | undefined | null = getOverlap({
+        const result: Position | null = getOverlap({
           current,
           max,
           change: item.change,
@@ -488,13 +488,10 @@ describe('can scroll window', () => {
 
 describe('get droppable overlap', () => {
   it('should return null if there is no scroll container', () => {
-    const result: Position | undefined | null = getDroppableOverlap(
-      preset.home,
-      {
-        x: 1,
-        y: 1,
-      },
-    );
+    const result: Position | null = getDroppableOverlap(preset.home, {
+      x: 1,
+      y: 1,
+    });
 
     expect(result).toBe(null);
   });
@@ -506,7 +503,7 @@ describe('get droppable overlap', () => {
       y: 200,
     };
     const scrolled: DroppableDimension = scrollDroppable(scrollable, scroll);
-    const result: Position | undefined | null = getDroppableOverlap(scrolled, {
+    const result: Position | null = getDroppableOverlap(scrolled, {
       x: 0,
       y: 1,
     });
@@ -531,10 +528,7 @@ describe('get droppable overlap', () => {
     const change: Position = { x: 300, y: 300 };
     const expectedOverlap: Position = subtract(change, remainingSpace);
 
-    const result: Position | undefined | null = getDroppableOverlap(
-      scrolled,
-      change,
-    );
+    const result: Position | null = getDroppableOverlap(scrolled, change);
 
     expect(result).toEqual(expectedOverlap);
   });
@@ -542,10 +536,7 @@ describe('get droppable overlap', () => {
   it('should return null if there is no overlap', () => {
     const change: Position = { x: 0, y: 1 };
 
-    const result: Position | undefined | null = getDroppableOverlap(
-      scrollable,
-      change,
-    );
+    const result: Position | null = getDroppableOverlap(scrollable, change);
 
     expect(result).toEqual(null);
 
@@ -567,7 +558,7 @@ describe('get window overlap', () => {
       },
     });
 
-    const result: Position | undefined | null = getWindowOverlap(viewport, {
+    const result: Position | null = getWindowOverlap(viewport, {
       x: 0,
       y: 1,
     });
@@ -604,10 +595,7 @@ describe('get window overlap', () => {
     const bigChange: Position = { x: 300, y: 300 };
     const expectedOverlap: Position = subtract(bigChange, availableScrollSpace);
 
-    const result: Position | undefined | null = getWindowOverlap(
-      viewport,
-      bigChange,
-    );
+    const result: Position | null = getWindowOverlap(viewport, bigChange);
 
     expect(result).toEqual(expectedOverlap);
   });
@@ -620,7 +608,7 @@ describe('get window overlap', () => {
       scroll: origin,
     });
 
-    const result: Position | undefined | null = getWindowOverlap(viewport, {
+    const result: Position | null = getWindowOverlap(viewport, {
       x: 10,
       y: 10,
     });

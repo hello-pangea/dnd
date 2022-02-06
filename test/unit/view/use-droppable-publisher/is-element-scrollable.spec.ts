@@ -27,10 +27,10 @@ describe('body detection', () => {
   // 1. The `body` has `overflow-[x|y]: auto | scroll` AND
   // 2. The parent of `body` (`html`) has an `overflow-[x|y]` set to anything except `visible` AND
   // 3. There is a current overflow in the `body`
-  const body: Element | undefined | null = document.body;
+  const body: Element | null = document.body;
   invariant(body);
   invariant(body instanceof HTMLBodyElement);
-  const html: Element | undefined | null = body.parentElement;
+  const html: Element | null = body.parentElement;
   invariant(html);
   invariant(html === document.documentElement);
   invariant(html instanceof HTMLElement);

@@ -21,7 +21,7 @@ it('should block a single click if requested', () => {
   invariant(api);
 
   // trigger a drop
-  const preDrag: PreDragActions | undefined | null = api.tryGetLock('0');
+  const preDrag: PreDragActions | null = api.tryGetLock('0');
   invariant(preDrag);
   const drag: SnapDragActions = preDrag.snapLift();
   act(() => drag.drop({ shouldBlockNextClick: true }));
@@ -50,7 +50,7 @@ it('should not block any clicks if not requested', () => {
   invariant(api, 'expected api to be set');
 
   // trigger a drop
-  const preDrag: PreDragActions | undefined | null = api.tryGetLock('0');
+  const preDrag: PreDragActions | null = api.tryGetLock('0');
   invariant(preDrag);
   const drag: SnapDragActions = preDrag.snapLift();
   act(() => drag.drop({ shouldBlockNextClick: false }));
@@ -78,7 +78,7 @@ it('should not block any clicks after a timeout', () => {
   invariant(api);
 
   // trigger a drop
-  const preDrag: PreDragActions | undefined | null = api.tryGetLock('0');
+  const preDrag: PreDragActions | null = api.tryGetLock('0');
   invariant(preDrag);
   const drag: SnapDragActions = preDrag.snapLift();
   act(() => drag.drop({ shouldBlockNextClick: true }));

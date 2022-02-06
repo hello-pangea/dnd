@@ -10,12 +10,12 @@ it('should not consider lists that are disabled', () => {
     [preset.home.descriptor.id]: disableDroppable(preset.home),
   };
 
-  const whileEnabled: DroppableId | undefined | null = getDroppableOver({
+  const whileEnabled: DroppableId | null = getDroppableOver({
     pageBorderBox: preset.inHome1.page.borderBox,
     draggable: preset.inHome1,
     droppables: preset.droppables,
   });
-  const whileDisabled: DroppableId | undefined | null = getDroppableOver({
+  const whileDisabled: DroppableId | null = getDroppableOver({
     pageBorderBox: preset.inHome1.page.borderBox,
     draggable: preset.inHome1,
     droppables: withDisabled,

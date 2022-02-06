@@ -80,10 +80,7 @@ function getItems() {
   );
 }
 
-function withDefaultBool(
-  value: boolean | undefined | null,
-  defaultValue: boolean,
-) {
+function withDefaultBool(value: unknown, defaultValue: boolean) {
   if (typeof value === 'boolean') {
     return value;
   }
