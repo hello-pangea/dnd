@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import type { ReactWrapper } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import Placeholder from './util/placeholder-with-class';
-import type { PlaceholderStyle } from '../../../../src/view/placeholder/placeholder-types';
 import { expectIsEmpty, expectIsFull } from './util/expect';
 import { placeholder } from './util/data';
 import getPlaceholderStyle from './util/get-placeholder-style';
@@ -42,7 +41,7 @@ it('should animate a mount', () => {
   expect(getCreatePlaceholderCalls().length).toBe(1);
 
   // first call had an empty size
-  const onMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
+  const onMount = getPlaceholderStyle(wrapper);
   expectIsEmpty(onMount);
 
   // Will trigger a .setState
@@ -53,7 +52,7 @@ it('should animate a mount', () => {
   // tell enzyme that something has changed
   wrapper.update();
 
-  const postMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
+  const postMount = getPlaceholderStyle(wrapper);
   expectIsFull(postMount);
 });
 
@@ -67,7 +66,7 @@ it('should not animate a mount if interrupted', () => {
       onTransitionEnd={jest.fn()}
     />,
   );
-  const onMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
+  const onMount = getPlaceholderStyle(wrapper);
   expectIsEmpty(onMount);
 
   expect(getCreatePlaceholderCalls()).toHaveLength(1);
@@ -86,7 +85,7 @@ it('should not animate a mount if interrupted', () => {
   // let enzyme know that the react tree has changed due to the set state
   wrapper.update();
 
-  const postMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
+  const postMount = getPlaceholderStyle(wrapper);
   expectIsFull(postMount);
 
   // validation - no further updates
