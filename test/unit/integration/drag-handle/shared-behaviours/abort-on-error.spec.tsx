@@ -39,7 +39,7 @@ type Thrower = {
 
 function getThrower(): Thrower {
   let current: (() => void) | null = null;
-  function setForceThrow(fn) {
+  function setForceThrow(fn: (() => void) | null = null) {
     current = fn;
   }
 
