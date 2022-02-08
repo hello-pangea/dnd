@@ -81,6 +81,8 @@ import { tryGetCombine } from '../../../../../src/state/get-impact-location';
         }),
       );
       const current: State = store.getState();
+      invariant(current.phase !== 'IDLE');
+      invariant(current.phase !== 'DROP_ANIMATING');
       invariant(current.isDragging);
       // impact is cleared when cancelling
       const destination: DraggableLocation | null =
@@ -149,6 +151,8 @@ import { tryGetCombine } from '../../../../../src/state/get-impact-location';
       mock.mockReset();
 
       const current: State = store.getState();
+      invariant(current.phase !== 'IDLE');
+      invariant(current.phase !== 'DROP_ANIMATING');
       invariant(current.isDragging);
 
       // if (reason === 'DROP') {

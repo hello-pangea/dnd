@@ -203,14 +203,12 @@ cases.forEach((current: Case) => {
     it('should prevent multiple announcement calls from a consumer', () => {
       const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-      let provided: ResponderProvided;
-      responders[current.responder] = jest.fn(
-        (data: any, supplied: ResponderProvided) => {
+      const responderSpy = jest
+        .spyOn(responders, current.responder)
+        .mockImplementation((data: unknown, supplied: ResponderProvided) => {
           announce.mockReset();
-          provided = supplied;
-          provided.announce('hello');
-        },
-      );
+          supplied.announce('hello');
+        });
 
       current.execute(store);
 
@@ -220,6 +218,7 @@ cases.forEach((current: Case) => {
       announce.mockReset();
 
       // perform another announcement
+      const provided = responderSpy.mock.calls[0]?.[1];
       invariant(provided, 'provided is not set');
       provided.announce('another one');
 

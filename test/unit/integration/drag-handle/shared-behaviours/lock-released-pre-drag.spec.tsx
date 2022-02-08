@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import type { SensorAPI, Sensor } from '../../../../../src/types';
+import type { SensorAPI } from '../../../../../src/types';
 import { forEachSensor, simpleLift } from '../../util/controls';
 import type { Control } from '../../util/controls';
 import { isDragging } from '../../util/helpers';
@@ -14,13 +14,11 @@ forEachSensor((control: Control) => {
   }
 
   it('should cleanup a drag if a lock is forceably released mid drag', () => {
-    let api: SensorAPI;
-    const sensor: Sensor = (value: SensorAPI) => {
-      api = value;
-    };
+    const sensor = jest.fn<void, [SensorAPI]>();
 
     const { getByText } = render(<App sensors={[sensor]} />);
     const handle: HTMLElement = getByText('item: 0');
+    const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
     invariant(api);
 
     control.preLift(handle);
