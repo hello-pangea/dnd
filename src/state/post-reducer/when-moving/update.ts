@@ -1,7 +1,6 @@
 import type { Position } from 'css-box-model';
 import type {
   DraggableDimension,
-  DraggingState,
   ClientPositions,
   PagePositions,
   DragPositions,
@@ -97,7 +96,7 @@ export default <TState extends StateWhenUpdatesAllowed>({
     droppables: dimensions.droppables,
   });
   // dragging!
-  const result: DraggingState = {
+  const result = {
     ...state,
     current,
     dimensions: {
