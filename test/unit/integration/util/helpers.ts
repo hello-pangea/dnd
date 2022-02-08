@@ -12,6 +12,7 @@ import type {
   OnDragEndResponder,
 } from '../../../../src';
 import { getComputedSpacing, getPreset } from '../../../util/dimension';
+import setDOMRect from '../../../util/set-dom-rect';
 
 export function getOffset(el: HTMLElement): Position {
   const style: CSSStyleDeclaration = el.style;
@@ -149,14 +150,14 @@ export const withPoorDimensionMocks = (
       );
 
       if (this.getAttribute(attributes.droppable.id)) {
-        return preset.home.client.borderBox;
+        return setDOMRect(preset.home.client.borderBox);
       }
 
       const id = this.getAttribute(attributes.draggable.id);
       invariant(id, 'Expected element to be a draggable');
       invariant(id === '0' || id === '1' || id === '2' || id === '3');
 
-      return dimensions[id].client.borderBox;
+      return setDOMRect(dimensions[id].client.borderBox);
     });
 
   // Stubbing out totally - not including margins in this
