@@ -7,28 +7,29 @@ import { invariant } from '../../../../src/invariant';
 import { resetServerContext } from '../../../../src';
 import App from '../util/app';
 
-const consoleFunctions: string[] = ['warn', 'error', 'log'];
+let consoleWarnSpy: jest.SpiedFunction<typeof console.warn>;
+let consoleErrorSpy: jest.SpiedFunction<typeof console.error>;
+let consoleLogSpy: jest.SpiedFunction<typeof console.log>;
 
 beforeEach(() => {
   // Reset server context between tests to prevent state being shared between them
   resetServerContext();
-  consoleFunctions.forEach((name: string) => {
-    jest.spyOn(console, name);
-  });
+
+  consoleWarnSpy = jest.spyOn(console, 'warn');
+  consoleErrorSpy = jest.spyOn(console, 'error');
+  consoleLogSpy = jest.spyOn(console, 'log');
 });
 
 afterEach(() => {
-  consoleFunctions.forEach((name: string) => {
-    // eslint-disable-next-line no-console
-    console[name].mockRestore();
-  });
+  consoleWarnSpy.mockRestore();
+  consoleErrorSpy.mockRestore();
+  consoleLogSpy.mockRestore();
 });
 
 const expectConsoleNotCalled = () => {
-  consoleFunctions.forEach((name: string) => {
-    // eslint-disable-next-line no-console
-    expect(console[name]).not.toHaveBeenCalled();
-  });
+  expect(consoleWarnSpy).not.toHaveBeenCalled();
+  expect(consoleErrorSpy).not.toHaveBeenCalled();
+  expect(consoleLogSpy).not.toHaveBeenCalled();
 };
 
 // Checking that the browser globals are not available in this test file
