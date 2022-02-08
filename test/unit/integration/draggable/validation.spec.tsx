@@ -119,7 +119,9 @@ it('should log an error if innerRef is an SVG', () => {
               <Draggable draggableId="draggable" index={0}>
                 {(provided: DraggableProvided) => (
                   <svg
-                    // $ExpectError - invalid ref type
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-expect-error
+                    // TypeScript is correctly stating this is not a HTMLElement
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
