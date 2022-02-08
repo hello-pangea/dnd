@@ -10,7 +10,9 @@ import type {
   Direction,
   DraggableRubric,
   DropResult,
+  ResponderProvided,
 } from '../../../../src';
+import { Responders } from '../../../../src/types';
 
 import reorder from '../../../util/reorder';
 import { noop } from '../../../../src/empty';
@@ -54,11 +56,6 @@ export const defaultItemRender: RenderItem = (item: Item) => (
 );
 
 type Props = {
-  onBeforeCapture?: Function;
-  onBeforeDragStart?: Function;
-  onDragStart?: Function;
-  onDragUpdate?: Function;
-  onDragEnd?: Function;
   items?: Item[];
   anotherChild?: ReactNode;
   renderItem?: RenderItem;
@@ -69,7 +66,7 @@ type Props = {
   useClone?: boolean;
   sensors?: Sensor[];
   enableDefaultSensors?: boolean;
-};
+} & Partial<Responders>;
 
 function getItems() {
   return Array.from(
@@ -95,7 +92,7 @@ export default function App(props: Props) {
   const onDragUpdate = props.onDragUpdate || noop;
   const onDragEndProp = props.onDragEnd;
 
-  const onDragEnd = (result: DropResult) => {
+  const onDragEnd = (result: DropResult, provided: ResponderProvided) => {
     if (result.destination) {
       const reordered: Item[] = reorder(
         items,
@@ -106,7 +103,7 @@ export default function App(props: Props) {
     }
 
     if (onDragEndProp) {
-      onDragEndProp(result);
+      onDragEndProp(result, provided);
     }
   };
 
