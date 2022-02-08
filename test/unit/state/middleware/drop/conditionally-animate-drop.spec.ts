@@ -44,7 +44,7 @@ import getDropImpact from '../../../../../src/state/middleware/drop/get-drop-imp
 import getNewHomeClientOffset from '../../../../../src/state/middleware/drop/get-new-home-client-offset';
 import { tryGetCombine } from '../../../../../src/state/get-impact-location';
 
-['DROP', 'CANCEL'].forEach((reason: DropReason) => {
+(['DROP', 'CANCEL'] as const).forEach((reason: DropReason) => {
   describe(`with drop reason: ${reason}`, () => {
     it('should fire a complete drop action is no drop animation is required', () => {
       const mock = jest.fn();

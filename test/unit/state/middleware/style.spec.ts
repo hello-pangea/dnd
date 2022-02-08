@@ -43,7 +43,7 @@ it('should use the dropping styles when drop animating', () => {
 });
 
 it('should use the resting styles when a drop completes', () => {
-  ['DROP', 'CANCEL'].forEach((reason: DropReason) => {
+  (['DROP', 'CANCEL'] as const).forEach((reason: DropReason) => {
     const marshal: StyleMarshal = getMarshalStub();
     const store: Store = createStore(middleware(marshal));
 
