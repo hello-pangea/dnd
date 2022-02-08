@@ -1,9 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import type {
-  Registry,
-  DraggableEntry,
-} from '../../../../src/state/registry/registry-types';
+import type { DraggableEntry } from '../../../../src/state/registry/registry-types';
 import type { DraggableId } from '../../../../src/types';
 import { invariant } from '../../../../src/invariant';
 import { getPreset } from '../../../util/dimension';
@@ -13,18 +10,22 @@ import useRegistry from '../../../../src/state/registry/use-registry';
 const preset = getPreset();
 
 it('should remove any registrations', () => {
-  let registry: Registry;
+  const hook = { useRegistry };
+  const useRegistrySpy = jest.spyOn(hook, 'useRegistry');
   const entry: DraggableEntry = getDraggableEntry({
     uniqueId: '1',
     dimension: preset.inHome1,
   });
   const id: DraggableId = preset.inHome1.descriptor.id;
   function App() {
-    registry = useRegistry();
+    hook.useRegistry();
     return null;
   }
 
   const { unmount } = render(<App />);
+  const result = useRegistrySpy.mock.results[0];
+  invariant(result.type === 'return');
+  const registry = result.value;
   invariant(registry);
 
   // initial registration
