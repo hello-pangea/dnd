@@ -28,13 +28,17 @@ forEachSensor((control: Control) => {
       </div>
     );
 
-    let api;
+    const spyable = { render };
+    const renderSpy = jest.spyOn(spyable, 'render');
     // this is a setup problem: a drag handle cannot be a svg
     withWarn(() => {
       withError(() => {
-        api = render(<App renderItem={renderItem} />);
+        spyable.render(<App renderItem={renderItem} />);
       });
     });
+    const result = renderSpy.mock.results?.[0];
+    invariant(result.type === 'return');
+    const api = result.value;
     invariant(api);
     const draggable = api.getByTestId('draggable-0');
     const handle = api.getByTestId('handle-0');
