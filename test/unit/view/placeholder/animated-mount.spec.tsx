@@ -11,7 +11,7 @@ import * as attributes from '../../../../src/view/data-attributes';
 jest.useFakeTimers();
 const contextId = 'hello-there';
 
-let spy;
+let spy: jest.SpiedFunction<typeof React.createElement>;
 
 beforeEach(() => {
   spy = jest.spyOn(React, 'createElement');
@@ -23,7 +23,9 @@ afterEach(() => {
 
 const getCreatePlaceholderCalls = () => {
   return spy.mock.calls.filter((call) => {
-    return call[1] && call[1][attributes.placeholder.contextId] === contextId;
+    const props = call?.[1] as undefined | Record<string, unknown>;
+
+    return props?.[attributes.placeholder.contextId] === contextId;
   });
 };
 
