@@ -13,6 +13,7 @@ import {
 } from '../../src/state/dimension-structures';
 import type {
   Axis,
+  CollectingState,
   Placeholder,
   DraggableId,
   Viewport,
@@ -134,10 +135,10 @@ export const makeVirtual = (
     amount,
   );
 
-export const addDroppable = (
-  base: DraggingState,
+export const addDroppable = <TState extends DraggingState | CollectingState>(
+  base: TState,
   droppable: DroppableDimension,
-): DraggingState => ({
+): TState => ({
   ...base,
   dimensions: patchDimensionMap(base.dimensions, droppable),
 });

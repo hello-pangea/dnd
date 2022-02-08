@@ -61,7 +61,6 @@ it('should not animate any displacement', () => {
     };
     expect(impact).toEqual(inForeignImpact);
   }
-  // $ExpectError - casting as different state type
   const inForeignState: DraggingState = update({
     state: inHomeState,
     clientSelection: moveToForeign.clientSelection,

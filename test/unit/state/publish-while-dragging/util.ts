@@ -50,9 +50,7 @@ export const virtualHome: DroppableDimension = makeVirtual(preset.home);
 export const virtualForeign: DroppableDimension = makeVirtual(preset.foreign);
 
 export const withVirtuals = (state: CollectingState): CollectingState => {
-  // $ExpectError
   const base: CollectingState = addDroppable(
-    // $ExpectError
     addDroppable(state, virtualHome),
     virtualForeign,
   );
