@@ -1,6 +1,5 @@
 import type {
   DraggableLocation,
-  Responders,
   State,
   DropResult,
 } from '../../../../../src/types';
