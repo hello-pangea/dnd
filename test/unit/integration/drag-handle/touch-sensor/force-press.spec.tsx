@@ -9,11 +9,13 @@ import { isDragging } from '../../util/helpers';
 jest.useFakeTimers();
 
 function getForceChange(force: number): Event {
-  const event: Event = new Event('touchforcechange', {
+  const event = new Event('touchforcechange', {
     bubbles: true,
     cancelable: true,
   });
-  // $FlowFixMe - being amazing
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  // Override event
   event.touches = [
     {
       clientX: 0,
