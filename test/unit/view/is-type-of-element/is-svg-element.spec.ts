@@ -41,6 +41,8 @@ it('should not allow html elements from another window', () => {
 it('should not crash if the environment does not support SVGElement', () => {
   const other = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
   const anchor: HTMLElement = other.window.document.createElement('a');
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   anchor.ownerDocument.defaultView.SVGElement = undefined;
 
   expect(isSvgElement(anchor)).toBe(false);
