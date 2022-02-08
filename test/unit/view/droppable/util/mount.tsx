@@ -6,6 +6,7 @@ import type {
   Provided,
   DispatchProps,
   StateSnapshot,
+  Props,
 } from '../../../../../src/view/droppable/droppable-types';
 import Droppable from '../../../../../src/view/droppable/droppable';
 import {
@@ -22,7 +23,7 @@ import useFocusMarshal from '../../../../../src/view/use-focus-marshal';
 
 type MountArgs = {
   WrappedComponent?: any;
-  ownProps?: PublicOwnProps;
+  ownProps?: Required<PublicOwnProps>;
   mapProps?: MapProps;
   dispatchProps?: DispatchProps;
   isMovementAllowed?: () => boolean;
@@ -31,9 +32,7 @@ type MountArgs = {
 type AppProps = {
   isMovementAllowed: () => boolean;
   WrappedComponent: any;
-} & PublicOwnProps &
-  MapProps &
-  DispatchProps;
+} & Props;
 
 function App(props: AppProps) {
   const { WrappedComponent, isMovementAllowed, ...rest } = props;

@@ -8,7 +8,7 @@ import getBodyElement from '../../../../../src/view/get-body-element';
 
 export const preset = getPreset();
 
-export const homeOwnProps: PublicOwnProps = {
+export const homeOwnProps: Required<PublicOwnProps> = {
   droppableId: preset.home.descriptor.id,
   type: preset.home.descriptor.type,
   mode: preset.home.descriptor.mode,
@@ -21,7 +21,7 @@ export const homeOwnProps: PublicOwnProps = {
   renderClone: null,
 };
 
-export const foreignOwnProps: PublicOwnProps = {
+export const foreignOwnProps: Required<PublicOwnProps> = {
   ...homeOwnProps,
   droppableId: preset.foreign.descriptor.id,
   type: preset.foreign.descriptor.type,
