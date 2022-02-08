@@ -9,23 +9,27 @@ import type {
 } from '../../../../../src';
 import App from '../../util/app';
 import type { Item } from '../../util/app';
-import { interactiveTagNames } from '../../../../../src/view/use-sensor-marshal/is-event-in-interactive-element';
+import {
+  interactiveTagNames,
+  InteractiveTagName,
+} from '../../../../../src/view/use-sensor-marshal/is-event-in-interactive-element';
 import { disableError } from '../../../../util/console';
 
-const mixedCase = (obj: any): string[] => [
-  ...Object.keys(obj).map((s) => s.toLowerCase()),
-  ...Object.keys(obj).map((s) => s.toUpperCase()),
+const mixedCase = [
+  ...interactiveTagNames,
+  // React can render UPPER case element e.g. "INPUT"
+  // @types/react do not support createElement with upper case
+  // string, so we are lying here and do not say that the strings
+  // are uppercase using `Uppercase<keyof InteractiveTagNames>`
+  ...interactiveTagNames.map((s) => s.toUpperCase() as InteractiveTagName),
 ];
-
-const forEachTagName = (fn: (tagName: string) => void) =>
-  mixedCase(interactiveTagNames).forEach(fn);
 
 forEachSensor((control: Control) => {
   // react will log a warning if using upper case
   disableError();
 
   it('should not drag if the handle is an interactive element', () => {
-    forEachTagName((tagName: string) => {
+    mixedCase.forEach((tagName) => {
       const renderItem = (item: Item) => (
         provided: DraggableProvided,
         snapshot: DraggableStateSnapshot,
@@ -54,7 +58,7 @@ forEachSensor((control: Control) => {
   });
 
   it('should allow dragging from an interactive handle if instructed', () => {
-    mixedCase(interactiveTagNames).forEach((tagName: string) => {
+    mixedCase.forEach((tagName) => {
       const items: Item[] = [{ id: '0', canDragInteractiveElements: true }];
       const renderItem = (item: Item) => (
         provided: DraggableProvided,
@@ -86,7 +90,7 @@ forEachSensor((control: Control) => {
   });
 
   it('should not start a drag if the parent is interactive', () => {
-    forEachTagName((tagName: string) => {
+    mixedCase.forEach((tagName) => {
       const renderItem = (item: Item) => (
         provided: DraggableProvided,
         snapshot: DraggableStateSnapshot,
@@ -118,7 +122,7 @@ forEachSensor((control: Control) => {
   });
 
   it('should allow dragging from with an interactive parent if instructed', () => {
-    forEachTagName((tagName: string) => {
+    mixedCase.forEach((tagName) => {
       const items: Item[] = [{ id: '0', canDragInteractiveElements: true }];
       const renderItem = (item: Item) => (
         provided: DraggableProvided,

@@ -1,19 +1,18 @@
 import isHtmlElement from '../is-type-of-element/is-html-element';
 
-export type TagNameMap = {
-  [tagName: string]: true;
-};
+export type InteractiveTagNames = typeof interactiveTagNames;
+export type InteractiveTagName = InteractiveTagNames[number];
 
-export const interactiveTagNames: TagNameMap = {
-  input: true,
-  button: true,
-  textarea: true,
-  select: true,
-  option: true,
-  optgroup: true,
-  video: true,
-  audio: true,
-};
+export const interactiveTagNames = [
+  'input',
+  'button',
+  'textarea',
+  'select',
+  'option',
+  'optgroup',
+  'video',
+  'audio',
+] as const;
 
 function isAnInteractiveElement(
   parent: Element,
@@ -29,8 +28,8 @@ function isAnInteractiveElement(
   // function to keep things simple.
   // There is no harm checking if the parent has an interactive tag name even if it cannot have
   // any children. We need to perform this loop anyway to check for the contenteditable attribute
-  const hasAnInteractiveTag = Boolean(
-    interactiveTagNames[current.tagName.toLowerCase()],
+  const hasAnInteractiveTag = (interactiveTagNames as ReadonlyArray<string>).includes(
+    current.tagName.toLowerCase(),
   );
 
   if (hasAnInteractiveTag) {
