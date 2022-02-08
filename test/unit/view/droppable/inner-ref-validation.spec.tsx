@@ -32,7 +32,9 @@ it('should throw a consumer if they have provided an SVGElement', () => {
       const provided: Provided = this.props.provided;
 
       return (
-        // $FlowFixMe - flow is correctly stating this is not a HTMLElement
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        // TypeScript is correctly stating this is not a HTMLElement
         <svg {...provided.droppableProps} ref={provided.innerRef}>
           Hello there
           {provided.placeholder}
