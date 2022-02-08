@@ -81,7 +81,6 @@ draggingStates.forEach((withoutMerge: IsDraggingState) => {
       );
       const newReference: IsDraggingState = {
         ...withMerge,
-        phase: withMerge.phase,
       };
       const result2: MapProps = selector(
         move(newReference, { x: 1, y: 2 }),
