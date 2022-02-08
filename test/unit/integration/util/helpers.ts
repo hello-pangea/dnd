@@ -152,8 +152,9 @@ export const withPoorDimensionMocks = (
         return preset.home.client.borderBox;
       }
 
-      const id: DraggableId | null = this.getAttribute(attributes.draggable.id);
+      const id = this.getAttribute(attributes.draggable.id);
       invariant(id, 'Expected element to be a draggable');
+      invariant(id === '0' || id === '1' || id === '2' || id === '3');
 
       return dimensions[id].client.borderBox;
     });
@@ -174,12 +175,14 @@ export const withPoorDimensionMocks = (
         return getSpacing(preset.home.client);
       }
 
-      const id: DraggableId | null = el.getAttribute(attributes.draggable.id);
+      const id = el.getAttribute(attributes.draggable.id);
 
       // this can happen when we search up the DOM for scroll containers
       if (!id) {
         return getComputedSpacing({});
       }
+
+      invariant(id === '0' || id === '1' || id === '2' || id === '3');
 
       return getSpacing(dimensions[id].client);
     });
