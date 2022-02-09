@@ -7,6 +7,11 @@ module.exports = {
     tsconfig: '../stories/tsconfig.json',
   },
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
+  babel: async (options) => ({
+    ...options,
+    presets: [...options.presets, '@emotion/babel-preset-css-prop'],
+    comments: false,
+  }),
   webpackFinal: async (config) => {
     // We need to disable the hot module reloading when we run the lighthouse audit,
     // because it wait for the load to finish, but the /__webpack_hmr query never ends.
