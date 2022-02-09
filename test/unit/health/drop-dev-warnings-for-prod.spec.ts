@@ -3,6 +3,7 @@
  */
 import child from 'child_process';
 import fs from 'fs';
+import path from 'path';
 import { promisify } from 'util';
 
 const exec = promisify(child.exec);
@@ -17,20 +18,20 @@ async function clean() {
 
 beforeAll(async () => {
   await clean();
-  await exec('yarn build');
+  await exec('yarn build:dist');
 });
 
 afterAll(clean);
 
 it('should contain warnings in development', async () => {
-  const filePath = './dist/dnd.js';
+  const filePath = path.resolve(__dirname, '../../../dist/dnd.js');
   const contents: string = await readFile(filePath, 'utf-8');
 
   expect(contents.includes('This is a development only message')).toBe(true);
 });
 
 it('should not contain warnings in production', async () => {
-  const filePath = './dist/dnd.min.js';
+  const filePath = path.resolve(__dirname, '../../../dist/dnd.min.js');
   const contents: string = await readFile(filePath, 'utf-8');
 
   expect(contents.includes('This is a development only message')).toBe(false);

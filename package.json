@@ -56,7 +56,7 @@
     "bundle-size:update": "yarn build:clean && yarn build:dist && yarn build:clean",
     "build": "yarn build:clean && yarn build:dist && yarn build:typescript:declaration && yarn build:flow",
     "build:clean": "rimraf dist",
-    "build:dist": "rollup -c",
+    "build:dist": "cross-env NODE_ENV=production rollup -c",
     "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/dnd.cjs.js.flow",
     "build:typescript:declaration": "tsc --declaration --emitDeclarationOnly --declarationDir dist --project tsconfig.json",
     "storybook": "start-storybook -p 9002",
