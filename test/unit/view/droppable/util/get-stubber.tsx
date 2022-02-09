@@ -4,7 +4,7 @@ import type {
   StateSnapshot,
 } from '../../../../../src/view/droppable/droppable-types';
 
-export default (mock: Function = () => {}) =>
+export default (mock = (arg: unknown) => {}) =>
   class Stubber extends React.Component<{
     provided: Provided;
     snapshot: StateSnapshot;

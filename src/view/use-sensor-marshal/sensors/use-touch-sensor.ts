@@ -278,7 +278,7 @@ export default function useMouseSensor(api: SensorAPI) {
 
         const actions: PreDragActions | null = api.tryGetLock(
           draggableId,
-          // eslint-disable-next-line no-use-before-define
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           stop,
           { sourceEvent: event },
         );
@@ -298,7 +298,7 @@ export default function useMouseSensor(api: SensorAPI) {
         // unbind this event handler
         unbindEventsRef.current();
 
-        // eslint-disable-next-line no-use-before-define
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         startPendingDrag(actions, point);
       },
     }),

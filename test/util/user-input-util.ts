@@ -109,7 +109,7 @@ export const mouseEvent = (
   });
 };
 
-export const withKeyboard = (keyCode: number): Function => (
+export const withKeyboard = (keyCode: number) => (
   wrapper: ReactWrapper<any>,
   options: any = {},
 ): void => {

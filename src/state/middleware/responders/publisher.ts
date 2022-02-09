@@ -77,7 +77,7 @@ function execute<TData extends AnyResponderData>(
   if (!willExpire.wasCalled()) {
     announce(getDefaultMessage(data));
   }
-};
+}
 
 type WhileDragging = {
   mode: MovementMode;

@@ -190,7 +190,7 @@ const Placeholder: FunctionComponent<Props> = (props) => {
     onTransitionEnd: onSizeChangeEnd,
     ref: props.innerRef,
   });
-}
+};
 
 export default React.memo<Props>(Placeholder);
 // enzyme does not work well with memo, so exporting the non-memo version

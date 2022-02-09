@@ -166,7 +166,7 @@ export default function useKeyboardSensor(api: SensorAPI) {
         const preDrag: PreDragActions | null = api.tryGetLock(
           draggableId,
           // abort function not defined yet
-          // eslint-disable-next-line no-use-before-define
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           stop,
           { sourceEvent: event },
         );
@@ -198,7 +198,7 @@ export default function useKeyboardSensor(api: SensorAPI) {
           // unbind dragging bindings
           unbindEventsRef.current();
           // start listening for capture again
-          // eslint-disable-next-line no-use-before-define
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           listenForCapture();
         }
 

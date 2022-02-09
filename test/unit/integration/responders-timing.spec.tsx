@@ -12,7 +12,7 @@ import { simpleLift, keyboard } from './util/controls';
 
 type ItemProps = {
   provided: DraggableProvided;
-  onRender: Function;
+  onRender: () => void;
 };
 
 class Item extends React.Component<ItemProps> {

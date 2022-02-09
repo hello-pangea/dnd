@@ -354,7 +354,7 @@ interface BaseState {
   scrollJumpRequest: Position | null;
   // whether or not draggable movements should be animated
   forceShouldAnimate: boolean | null;
-};
+}
 export interface DraggingState extends BaseState {
   phase: 'DRAGGING';
 }

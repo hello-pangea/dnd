@@ -17,10 +17,10 @@ import {
   userCancelArgs,
 } from '../../../util/preset-action-args';
 
-const getMarshal = (stopPublishing: Function): DimensionMarshal => {
-  const fake: DimensionMarshal = {
+const getMarshal = (stopPublishing: jest.Mock): DimensionMarshal => {
+  const fake = ({
     stopPublishing,
-  } as any;
+  } as unknown) as DimensionMarshal;
 
   return fake;
 };
