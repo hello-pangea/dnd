@@ -1,4 +1,3 @@
-// @flow
 const path = require('path');
 
 const common = {
@@ -24,11 +23,14 @@ const common = {
         ],
       },
       {
-        test: /jsx?$/,
+        test: /(j|t)sx?$/,
         exclude: [/node_modules/],
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              configFile: path.resolve(__dirname, '..', 'babel.config.js'),
+            },
           },
         ],
       },
@@ -44,10 +46,10 @@ const common = {
 };
 
 module.exports = [
-  { ...common, entry: path.resolve(__dirname, 'client.js'), name: 'client' },
+  { ...common, entry: path.resolve(__dirname, 'client.tsx'), name: 'client' },
   {
     ...common,
-    entry: path.resolve(__dirname, 'server.js'),
+    entry: path.resolve(__dirname, 'server.tsx'),
     name: 'server',
     target: 'node',
     output: {

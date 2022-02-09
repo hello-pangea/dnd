@@ -1,29 +1,43 @@
-// disabling flowtype to keep this example super simple
-// It matches
-/* eslint-disable flowtype/require-valid-file-annotation */
-
 import React, { Component } from 'react';
-import { DragDropContext, Droppable, Draggable } from '../src';
+import { DragDropContext, Droppable, Draggable, DropResult } from '../src';
 
 // fake data generator
-const getItems = (count) =>
+const getItems = (count: number) =>
   Array.from({ length: count }, (v, k) => k).map((k) => ({
     id: `item-${k}`,
     content: `item ${k}`,
   }));
 
 // a little function to help us with reordering the result
-const reorder = (list, startIndex, endIndex) => {
-  const result = Array.from(list);
+const reorder = <TList extends unknown[]>(
+  list: TList,
+  startIndex: number,
+  endIndex: number,
+): TList => {
+  const result = Array.from(list) as TList;
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
 
   return result;
 };
 
-export default class App extends Component {
-  constructor(props, context) {
-    super(props, context);
+interface AppProps {
+  nonce?: string;
+}
+
+interface Item {
+  id: string;
+  content: string;
+}
+
+interface AppState {
+  items: Item[];
+  cspErrors: SecurityPolicyViolationEvent[];
+}
+
+export default class App extends Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
     this.state = {
       items: getItems(10),
       cspErrors: [],
@@ -34,12 +48,12 @@ export default class App extends Component {
   componentDidMount() {
     document.addEventListener('securitypolicyviolation', (e) => {
       this.setState((state) => {
-        return { cspErrors: [...state.cspErrors, e] };
+        return { ...state, cspErrors: [...state.cspErrors, e] };
       });
     });
   }
 
-  onDragEnd(result) {
+  onDragEnd(result: DropResult) {
     // dropped outside the list
     if (!result.destination) {
       return;
@@ -51,9 +65,10 @@ export default class App extends Component {
       result.destination.index,
     );
 
-    this.setState({
+    this.setState((state) => ({
+      ...state,
       items,
-    });
+    }));
   }
 
   // Normally you would want to split things out into separate components.

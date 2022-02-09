@@ -1,9 +1,8 @@
-// @flow
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { resolve } from 'path';
-import App from './app';
+import App from './App';
 import { resetServerContext } from '../src';
 
 let count = 0;
@@ -25,7 +24,7 @@ function renderHtml(policy?: string, nonce?: string) {
   )}</div><script src="/client.js"></script></body></html>`;
 }
 
-export default (port: string, outputPath: string, fs: any) => {
+export default (port: string, outputPath: string, fs: any): void => {
   const server = express();
 
   server.get('/client.js', (req, res) => {

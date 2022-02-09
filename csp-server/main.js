@@ -1,6 +1,3 @@
-/* eslint-disable id-length */
-// @flow
-
 const webpack = require('webpack');
 const requireFromString = require('require-from-string');
 const MemoryFS = require('memory-fs');
@@ -11,9 +8,8 @@ const ports = require('../server-ports');
 const fs = new MemoryFS();
 const compiler = webpack(config);
 
-// $ExpectError
 compiler.outputFileSystem = fs;
-// $ExpectError
+
 const outputPath = compiler.compilers.find((cfg) => cfg.name === 'client')
   .outputPath;
 
