@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import { DragDropContext, Droppable, Draggable } from '../../../src';
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  DraggableStyle,
+  DropResult,
+} from '../../../src';
 
 // fake data generator
-const getItems = (count) =>
-  // eslint-disable-next-line no-restricted-syntax
+const getItems = (count: number) =>
   Array.from({ length: count }, (v, k) => k).map((k) => ({
     id: `item-${k}`,
     content: `item ${k}`,
   }));
 
 // a little function to help us with reordering the result
-const reorder = (list, startIndex, endIndex) => {
-  const result = [...list];
+const reorder = <TList extends unknown[]>(
+  list: TList,
+  startIndex: number,
+  endIndex: number,
+): TList => {
+  const result = Array.from(list) as TList;
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
 
@@ -20,13 +29,14 @@ const reorder = (list, startIndex, endIndex) => {
 
 const grid = 8;
 
-const getItemStyle = (isDragging, draggableStyle) => ({
+const getItemStyle = (
+  isDragging: boolean,
+  draggableStyle: DraggableStyle = {},
+) => ({
   // some basic styles to make the items look a bit nicer
-  userSelect: 'none',
+  userSelect: 'none' as const,
   padding: grid * 2,
   margin: `0 0 ${grid}px 0`,
-  border: '5px solid yellow',
-  height: 30,
 
   // change background colour if dragging
   background: isDragging ? 'lightgreen' : 'red',
@@ -35,29 +45,33 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   ...draggableStyle,
 });
 
-const getListStyle = (isDraggingOver, overflow) => ({
+const getListStyle = (isDraggingOver: boolean) => ({
   background: isDraggingOver ? 'lightblue' : 'grey',
   padding: grid,
-  border: '5px solid pink',
   width: 250,
-  maxHeight: '50vh',
-  overflow,
 });
 
-export default class App extends Component {
-  static defaultProps = {
-    overflow: 'auto',
-  };
+interface AppProps {}
 
-  constructor(props, context) {
-    super(props, context);
+interface Item {
+  id: string;
+  content: string;
+}
+
+interface AppState {
+  items: Item[];
+}
+
+export default class App extends Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
     this.state = {
       items: getItems(10),
     };
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
-  onDragEnd(result) {
+  onDragEnd(result: DropResult) {
     // dropped outside the list
     if (!result.destination) {
       return;
@@ -83,14 +97,7 @@ export default class App extends Component {
           {(droppableProvided, droppableSnapshot) => (
             <div
               ref={droppableProvided.innerRef}
-              style={getListStyle(
-                droppableSnapshot.isDraggingOver,
-                this.props.overflow,
-              )}
-              onScroll={(e) =>
-                // eslint-disable-next-line no-console
-                console.log('current scrollTop', e.currentTarget.scrollTop)
-              }
+              style={getListStyle(droppableSnapshot.isDraggingOver)}
             >
               {this.state.items.map((item, index) => (
                 <Draggable key={item.id} draggableId={item.id} index={index}>

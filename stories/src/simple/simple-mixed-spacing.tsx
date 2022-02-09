@@ -1,55 +1,89 @@
 import React, { Component } from 'react';
-import { DragDropContext, Droppable, Draggable } from '../../../src';
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  DraggableStyle,
+  DropResult,
+} from '../../../src';
 
 // fake data generator
-const getItems = (count) =>
-  // eslint-disable-next-line no-restricted-syntax
+const getItems = (count: number) =>
   Array.from({ length: count }, (v, k) => k).map((k) => ({
     id: `item-${k}`,
     content: `item ${k}`,
   }));
 
 // a little function to help us with reordering the result
-const reorder = (list, startIndex, endIndex) => {
-  const result = [...list];
+const reorder = <TList extends unknown[]>(
+  list: TList,
+  startIndex: number,
+  endIndex: number,
+): TList => {
+  const result = Array.from(list) as TList;
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
 
   return result;
 };
 
-const grid = 8;
+const withAssortedSpacing = () => ({
+  // margin
+  marginTop: 10,
+  // not allowing margin collapsing
+  // marginBottom: 20,
+  marginLeft: 30,
+  marginRight: 40,
+  // padding
+  paddingTop: 10,
+  paddingBottom: 20,
+  paddingLeft: 30,
+  paddingRight: 40,
+  // border
+  borderStyle: 'solid',
+  borderColor: 'purple',
+  borderTopWidth: 2,
+  borderBottomWidth: 4,
+  borderLeftWidth: 6,
+  borderRightWidth: 8,
+});
 
-const getItemStyle = (isDragging, draggableStyle) => ({
+const getItemStyle = (
+  isDragging: boolean,
+  draggableStyle: DraggableStyle = {},
+) => ({
   // some basic styles to make the items look a bit nicer
-  userSelect: 'none',
-  padding: grid * 2,
-  margin: `0 0 ${grid}px 0`,
+  userSelect: 'none' as const,
+  ...withAssortedSpacing(),
 
   // change background colour if dragging
-  background: isDragging ? 'lightgreen' : 'red',
+  background: isDragging ? 'lightgreen' : 'pink',
 
   // styles we need to apply on draggables
   ...draggableStyle,
 });
 
-const getListStyle = (isDraggingOver) => ({
-  background: isDraggingOver ? 'lightblue' : 'grey',
-  padding: grid,
-  width: 250,
-});
+interface AppProps {}
 
-export default class App extends Component {
-  constructor(props, context) {
-    super(props, context);
-    // eslint-disable-next-line react/state-in-constructor
+interface Item {
+  id: string;
+  content: string;
+}
+
+interface AppState {
+  items: Item[];
+}
+
+export default class App extends Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
     this.state = {
       items: getItems(10),
     };
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
-  onDragEnd(result) {
+  onDragEnd(result: DropResult) {
     // dropped outside the list
     if (!result.destination) {
       return;
@@ -72,10 +106,17 @@ export default class App extends Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Droppable droppableId="droppable">
-          {(droppableProvided, droppableSnapshot) => (
+          {(droppableProvided) => (
             <div
               ref={droppableProvided.innerRef}
-              style={getListStyle(droppableSnapshot.isDraggingOver)}
+              style={{
+                width: 250,
+                background: 'lightblue',
+
+                ...withAssortedSpacing(),
+                // no margin collapsing
+                marginTop: 0,
+              }}
             >
               {this.state.items.map((item, index) => (
                 <Draggable key={item.id} draggableId={item.id} index={index}>
