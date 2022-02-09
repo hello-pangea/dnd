@@ -1,4 +1,3 @@
-// @flow
 import * as keyCodes from '../../src/view/key-codes';
 import { timings } from '../../src/animation';
 import { getDroppableSelector, getHandleSelector } from './util';

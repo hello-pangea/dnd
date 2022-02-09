@@ -1,4 +1,3 @@
-// @flow
 import * as keyCodes from '../../src/view/key-codes';
 import { timings } from '../../src/animation';
 import { getHandleSelector } from './util';
@@ -9,7 +8,7 @@ describe('reorder: virtual', () => {
   });
 
   it('should reorder within a list', () => {
-    const movements: number = 12;
+    const movements = 12;
 
     cy.get(getHandleSelector()).first().as('item');
 
@@ -44,7 +43,7 @@ describe('reorder: virtual', () => {
     // This is setting up a chain of commands and this test will not wait
     // for a 'promise' to resolve. Linting is getting confused by .then
     cy.get('@item-id').then((id) => {
-      cy.get(getHandleSelector(id))
+      cy.get(getHandleSelector(id as any))
         .invoke('attr', 'data-index')
         .should('equal', `${movements}`);
     });

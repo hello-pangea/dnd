@@ -1,4 +1,3 @@
-// @flow
 import * as keyCodes from '../../src/view/key-codes';
 import { getHandleSelector, getDraggableSelector } from './util';
 

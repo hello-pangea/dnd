@@ -5,10 +5,6 @@ module.exports = {
   },
   extends: ['plugin:cypress/recommended'],
   rules: {
-    // Allowing Array.from
-    'no-restricted-syntax': 'off',
-
-    // not using jest expects
-    'jest/expect-expect': 'off',
+    'flowtype/require-valid-file-annotation': 'off',
   },
 };
