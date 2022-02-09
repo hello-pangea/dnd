@@ -294,6 +294,7 @@ module.exports = {
         '@typescript-eslint/no-useless-constructor': ['error'],
 
         '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
       },
     },
   ],
