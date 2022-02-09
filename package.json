@@ -58,7 +58,7 @@
     "build:clean": "rimraf dist",
     "build:dist": "cross-env NODE_ENV=production rollup -c",
     "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/dnd.cjs.js.flow",
-    "build:typescript:declaration": "tsc --declaration --emitDeclarationOnly --declarationDir dist --project tsconfig.json",
+    "build:typescript:declaration": "tsc --project tsconfig.build.json",
     "storybook": "start-storybook -p 9002",
     "build-storybook": "build-storybook -c .storybook -o site",
     "prepublishOnly": "yarn build"
