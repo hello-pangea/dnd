@@ -6,6 +6,8 @@ import replace from '@rollup/plugin-replace';
 import strip from '@rollup/plugin-strip';
 import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+import dts from 'rollup-plugin-dts';
+
 import pkg from './package.json';
 
 const input = './src/index.ts';
@@ -115,5 +117,12 @@ export default [
       babel(getBabelOptions({ useESModules: true })),
       sizeSnapshot(snapshotArgs),
     ],
+  },
+
+  // TypeScript declaration
+  {
+    input,
+    output: [{ file: 'dist/dnd.d.ts', format: 'es' }],
+    plugins: [dts()],
   },
 ];
