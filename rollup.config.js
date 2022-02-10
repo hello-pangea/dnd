@@ -4,20 +4,21 @@ import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import strip from '@rollup/plugin-strip';
-import fs from 'fs';
-import path from 'path';
 import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+import dts from 'rollup-plugin-dts';
+
 import pkg from './package.json';
 
-const input = './src/index.js';
-const extensions = ['.js', '.jsx'];
+const input = './src/index.ts';
+const extensions = ['.ts', '.tsx'];
 
 // Treat as externals all not relative and not absolute paths
 // e.g. 'react'
 const excludeAllExternals = (id) => !id.startsWith('.') && !id.startsWith('/');
 
 const getBabelOptions = ({ useESModules }) => ({
+  extensions,
   exclude: 'node_modules/**',
   babelHelpers: 'runtime',
   plugins: [['@babel/plugin-transform-runtime', { useESModules }]],
@@ -34,22 +35,6 @@ const snapshotArgs =
 const commonjsArgs = {
   include: 'node_modules/**',
 };
-
-// Simple copy plugin
-// https://dev.to/lukap/creating-a-rollup-plugin-to-copy-and-watch-a-file-3hi2
-const copyTypesciptDeclarationFile = () => ({
-  name: 'copy-typescript-declaration-file',
-  async buildStart() {
-    this.addWatchFile(path.resolve('src/index.d.ts'));
-  },
-  async generateBundle() {
-    this.emitFile({
-      type: 'asset',
-      fileName: 'dnd.d.ts',
-      source: fs.readFileSync('src/index.d.ts'),
-    });
-  },
-});
 
 export default [
   // Universal module definition (UMD) build
@@ -71,7 +56,6 @@ export default [
       resolve({ extensions }),
       commonjs(commonjsArgs),
       replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
-      copyTypesciptDeclarationFile(),
       sizeSnapshot(snapshotArgs),
     ],
   },
@@ -133,5 +117,12 @@ export default [
       babel(getBabelOptions({ useESModules: true })),
       sizeSnapshot(snapshotArgs),
     ],
+  },
+
+  // TypeScript declaration
+  {
+    input,
+    output: [{ file: 'dist/dnd.d.ts', format: 'es' }],
+    plugins: [dts()],
   },
 ];

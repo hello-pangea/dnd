@@ -44,7 +44,7 @@ function getSensor(delay: number): Sensor {
         const unbind = bindEvents(window, [
           {
             eventName: 'resize',
-            fn: cancel,
+            fn: () => cancel(),
             options: { once: true },
           },
         ]);

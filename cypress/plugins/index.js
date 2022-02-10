@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable flowtype/require-valid-file-annotation */
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //

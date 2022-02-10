@@ -39,7 +39,7 @@ function reorder<TItem>(
 
 const getItemStyle = (
   isDragging: boolean,
-  draggableStyle?: React.CSSProperties,
+  draggableStyle: React.CSSProperties | null = null,
 ): React.CSSProperties => ({
   userSelect: 'none',
   background: isDragging ? 'lightgreen' : 'grey',

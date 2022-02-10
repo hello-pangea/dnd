@@ -90,13 +90,6 @@ module.exports = {
           'Must use `useLayoutEffect` as the name of the import from `*use-isomorphic-layout-effect` to leverage `eslint-plugin-react-hooks`',
       },
 
-      // No Array.from as it pulls in a large amount of babel helpers
-      {
-        selector: 'MemberExpression[object.name="Array"][property.name="from"]',
-        message:
-          'Not allowing using of Array.from to save kbs. Please use native-with-fallback/from',
-      },
-
       // No usage of `tiny-invariant`. Must use our own invariant for error flow
       {
         selector: 'ImportDeclaration[source.value="tiny-invariant"]',
@@ -177,6 +170,9 @@ module.exports = {
     // Having issues with this rule not working correctly
     'react/default-props-match-prop-types': 'off',
 
+    // We do not need PropTypes validation
+    'react/prop-types': 'off',
+
     // Allowing functions to be passed as props
     'react/jsx-no-bind': 'off',
 
@@ -232,7 +228,9 @@ module.exports = {
         'lighthouse.config.js',
         'rollup.config.js',
         'server-ports.js',
+        'test/**/*.js?(x)',
       ],
+      excludedFiles: ['test/test-flow-types.js'],
       rules: {
         'flowtype/require-valid-file-annotation': 'off',
       },
@@ -294,6 +292,9 @@ module.exports = {
 
         'no-useless-constructor': 'off',
         '@typescript-eslint/no-useless-constructor': ['error'],
+
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
       },
     },
   ],

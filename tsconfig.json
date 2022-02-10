@@ -1,31 +1,35 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react",
     "module": "ESNext",
     "moduleResolution": "node",
+    "noEmit": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "noEmit": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "types": [],
     "lib": [
       "dom",
-      "es6"
+      "esnext"
     ]
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "src/index.d.ts",
-    "src/invariant.d.ts",
-    "src/view/event-bindings/bind-events.d.ts",
+    "src/global.d.ts",
     "test/test-typescript-types.tsx"
+  ],
+  "include": [
+    "src/**/*"
   ]
 }

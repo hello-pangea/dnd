@@ -1,4 +1,3 @@
-// @flow
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,4 +22,4 @@
 //
 //
 // -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })// @flow
+// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
