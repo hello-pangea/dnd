@@ -56,14 +56,15 @@ This responder is called after we know a drag will start, but before any dimensi
 
 > ⚠️ Misuse of this responder can lead to some terrible user interactions. You should not change the visible position of the dragging item to change as a result of your changes here. Keep in mind that if you remove the dragging item or it's
 
-```js
-// We cannot give more information than this because things might change
-type BeforeCapture = {|
-  draggableId: DraggableId,
-  mode: MovementMode,
-|};
+```ts
+// We cannot give more information as things might change in the
+// onBeforeCapture responder!
+export type BeforeCapture = {
+  draggableId: DraggableId;
+  mode: MovementMode;
+};
 // No second 'provided' argument
-export type OnBeforeCaptureResponder = (before: BeforeCapture) => mixed;
+export type OnBeforeCaptureResponder = (before: BeforeCapture) => unknown;
 
 // Otherwise the same type information as OnDragStartResponder
 ```
@@ -78,9 +79,9 @@ Once we have all of the information we need to start a drag we call the `onBefor
 - ❌ Cannot remove or add any `<Draggable />` or `<Droppable />`
 - ❌ Cannot modify the sizes of any `<Draggable />` or `<Droppable />`
 
-```js
+```ts
 // No second 'provided' argument
-type OnBeforeDragStartResponder = (start: DragStart) => mixed;
+type OnBeforeDragStartResponder = (start: DragStart) => unknown;
 
 // Otherwise the same type information as OnDragStartResponder
 ```
@@ -89,10 +90,10 @@ type OnBeforeDragStartResponder = (start: DragStart) => mixed;
 
 `onDragStart`, `onDragUpdate` and `onDragEnd` are given a `provided: ResponderProvided` object. This object has one property: `announce`. This function is used to synchronously announce a message to screen readers. If you do not use this function we will announce a default english message. We have created a [guide for screen reader usage](/docs/guides/screen-reader.md) which we recommend using if you are interested in controlling the screen reader messages for yourself and to support internationalisation. If you are using `announce` it must be called synchronously.
 
-```js
-type ResponderProvided = {|
-  announce: Announce,
-|};
+```ts
+type ResponderProvided = {
+  announce: Announce;
+};
 
 type Announce = (message: string) => void;
 ```
@@ -101,30 +102,29 @@ type Announce = (message: string) => void;
 
 `onDragStart` will get notified when a drag starts. This responder is _optional_ and therefore does not need to be provided. It is **highly recommended** that you use this function to block updates to all `<Draggable />` and `<Droppable />` components during a drag. (See **Block updates during a drag** below)
 
-```js
+```ts
 // While the return type is `mixed`, the return value is not used.
 type OnDragStartResponder = (
   start: DragStart,
   provided: ResponderProvided,
-) => mixed;
+) => unknown;
 
 // supporting types
-type DraggableRubric = {|
-  draggableId: DraggableId,
-  type: TypeId,
-  source: DraggableLocation,
-|};
+type DraggableRubric = {
+  draggableId: DraggableId;
+  type: TypeId;
+  source: DraggableLocation;
+};
 
-type DragStart = {|
-  ...DraggableRubric,
-  mode: MovementMode,
-|};
+type DragStart = DraggableRubric & {
+  mode: MovementMode;
+};
 
-type DraggableLocation = {|
-  droppableId: DroppableId,
+type DraggableLocation = {
+  droppableId: DroppableId;
   // the position of the draggable within a droppable
-  index: number,
-|};
+  index: number;
+};
 type Id = string;
 type DraggableId = Id;
 type DroppableId = Id;
@@ -148,26 +148,24 @@ type MovementMode = 'FLUID' | 'SNAP';
 
 It is important that you not do too much work as a result of this function as it will slow down the drag.
 
-```js
+```ts
 // The return value of `mixed` is not used
 type OnDragUpdateResponder = (
   update: DragUpdate,
   provided: ResponderProvided,
-) => mixed;
+) => unknown;
 
-type DragUpdate = {|
-  // See above
-  ...DragStart,
+type DragUpdate = DragStart & {
   // may not have any destination (drag to nowhere)
-  destination: ?DraggableLocation,
+  destination: DraggableLocation | null;
   // populated when a draggable is dragging over another in combine mode
-  combine: ?Combine,
-|};
+  combine: Combine | null;
+};
 
-type Combine = {|
-  draggableId: DraggableId,
-  droppableId: DroppableId,
-|};
+type Combine = {
+  draggableId: DraggableId;
+  droppableId: DroppableId;
+};
 ```
 
 - `...DragStart`: _see above_
@@ -180,16 +178,15 @@ type Combine = {|
 
 This function is _extremely_ important and has an critical role to play in the application lifecycle. **This function must result in the _synchronous_ reordering of a list of `Draggables`**
 
-```js
-type OnDragEndResponder = (
+```ts
+type OragEndResponder = (
   result: DropResult,
   provided: ResponderProvided,
-) => mixed;
+) => unknown;
 
-type DropResult = {|
-  ...DragUpdate,
-  reason: DropReason,
-|};
+type DropResult = DragUpdate & {
+  reason: DropReason;
+};
 
 type DropReason = 'DROP' | 'CANCEL';
 ```

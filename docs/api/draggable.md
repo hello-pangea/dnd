@@ -22,19 +22,17 @@ import { Draggable } from '@react-forked/dnd';
 
 ## Draggable Props
 
-```js
-import type { Node } from 'react';
-
-type Props = {|
+```ts
+type Props = {
   // required
-  draggableId: DraggableId,
-  index: number,
-  children: DraggableChildrenFn,
+  draggableId: DraggableId;
+  index: number;
+  children: ChildrenFn;
   // optional
-  isDragDisabled: ?boolean,
-  disableInteractiveElementBlocking: ?boolean,
-  shouldRespectForcePress: ?boolean,
-|};
+  isDragDisabled?: boolean;
+  disableInteractiveElementBlocking?: boolean;
+  shouldRespectForcePress?: boolean;
+};
 ```
 
 ### Required props
@@ -95,25 +93,25 @@ The `React` children of a `<Draggable />` must be a function that returns a `Rea
 </Draggable>
 ```
 
-```js
+```ts
 type DraggableChildrenFn = (
   DraggableProvided,
   DraggableStateSnapshot,
   DraggableRubric,
-) => Node;
+) => ReactNode | null;
 ```
 
 The function is provided with three arguments:
 
 ### 1. provided: (DraggableProvided)
 
-```js
-type DraggableProvided = {|
-  innerRef: (HTMLElement) => void,
-  draggableProps: DraggableProps,
+```ts
+type DraggableProvided = {
+  draggableProps: DraggableProps;
   // will be null if the draggable is disabled
-  dragHandleProps: ?DragHandleProps,
-|};
+  dragHandleProps: DragHandleProps | null;
+  innerRef: (a?: HTMLElement | null) => void;
+};
 ```
 
 > For more type information please see [our types guide](/docs/guides/types.md).
@@ -138,17 +136,16 @@ Everything within the _provided_ object must be applied for the `<Draggable />` 
 
 #### `draggableProps` type information
 
-```js
+```ts
 // Props that can be spread onto the element directly
-export type DraggableProps = {|
+type DraggableProps = {
   // inline style
-  style: ?DraggableStyle,
+  style?: DraggableStyle;
   // used for shared global styles
-  'data-rfd-draggable-context-id': string,
-  'data-rfd-draggable-id': string,
-  // used to know when a transition ends
-  onTransitionEnd: ?(event: TransitionEvent) => void,
-|};
+  'data-rfd-draggable-context-id': ContextId;
+  'data-rfd-draggable-id': DraggableId;// used to know when a transition ends
+  onTransitionEnd?: TransitionEventHandler;
+};
 ```
 
 > For more type information please see [our types guide](/docs/guides/types.md).
@@ -324,24 +321,25 @@ It is an assumption that `<Draggable />`s are _visible siblings_ of one another.
 
 #### `dragHandleProps` Type information
 
-```js
-type DragHandleProps = {|
+```ts
+type DragHandleProps = {
   // what draggable the handle belongs to
-  'data-rfd-drag-handle-draggable-id': DraggableId,
+  'data-rfd-drag-handle-draggable-id': DraggableId;
 
   // What DragDropContext the drag handle is in
-  'data-rfd-drag-handle-context-id': ContextId,
+  'data-rfd-drag-handle-context-id': ContextId;
 
+  role: string;
   // Id of hidden element that contains the lift instruction (nicer screen reader text)
-  'aria-labelledby': ElementId,
+  'aria-labelledby': ElementId;
 
   // Allow tabbing to this element
-  tabIndex: number,
+  tabIndex: number;
 
   // Stop html5 drag and drop
-  draggable: boolean,
-  onDragStart: (event: DragEvent) => void,
-|};
+  draggable: boolean;
+  onDragStart: DragEventHandler;
+};
 ```
 
 #### `dragHandleProps` Example: standard
@@ -377,29 +375,29 @@ Controlling a whole draggable by just a part of it
 
 ### 2. Snapshot: (DraggableStateSnapshot)
 
-```js
-type DraggableStateSnapshot = {|
+```ts
+type DraggableStateSnapshot = {
   // Set to true if a Draggable is being actively dragged, or if it is drop animating
   // Both active dragging and the drop animation are considered part of the drag
   // *Generally this is the only property you will be using*
-  isDragging: boolean,
+  isDragging: boolean;
   // Set to true if a Draggable is drop animating. Not every drag and drop interaction
   // as a drop animation. There is no drop animation when a Draggable is already in its final
   // position when dropped. This is commonly the case when dragging with a keyboard
-  isDropAnimating: boolean,
+  isDropAnimating: boolean;
   // Information about a drop animation
-  dropAnimation: ?DropAnimation
+  dropAnimation: DropAnimation | null;
   // What Droppable (if any) the Draggable is currently over
-  draggingOver: ?DroppableId,
+  draggingOver: DroppableId | null;
   // the id of a draggable that you are combining with
-  combineWith: ?DraggableId,
+  combineWith: DraggableId | null;
   // if something else is dragging and you are a combine target, then this is the id of the item that is dragging
-  combineTargetFor: ?DraggableId,
+  combineTargetFor: DraggableId | null;
   // There are two modes that a drag can be in
   // 'FLUID': everything is done in response to highly granular input (eg mouse)
   // 'SNAP': items snap between positions (eg keyboard);
-  mode: ?MovementMode,
-|};
+  mode: MovementMode | null;
+};
 ```
 
 > See our [type guide](/docs/guides/types.md) for more details
@@ -430,12 +428,12 @@ The `children` function is also provided with a small amount of state relating t
 
 ### 3. rubric: (DraggableRubric)
 
-```js
-type DraggableRubric = {|
-  draggableId: DraggableId,
-  type: TypeId,
-  source: DraggableLocation,
-|};
+```ts
+type DraggableRubric = {
+  draggableId: DraggableId;
+  type: TypeId;
+  source: DraggableLocation;
+};
 ```
 
 `rubric` represents all of the information associated with a `<Draggable />`. `rubric` is helpful for looking up the data associated with your `<Draggable />` when it is not available in the current scope. This is useful when using the `<Droppable /> | renderClone` API. The `rubric` is the same lookup information that is provided to the [`Responder`s](/docs/guides/responders.md).

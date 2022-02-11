@@ -21,23 +21,23 @@ import { Droppable } from '@react-forked/dnd';
 
 ## Droppable props
 
-```js
-import type { Node } from 'react';
+```ts
+import type { ReactNode } from 'react';
 
-type Props = {|
+type Props = {
   // required
   droppableId: DroppableId,
+  children: (DroppableProvided, DroppableStateSnapshot) => ReactNode,
   // optional
-  type?: TypeId,
   mode?: DroppableMode,
+  type?: TypeId,
   isDropDisabled?: boolean,
   isCombineEnabled?: boolean,
   direction?: Direction,
+  renderClone?: DraggableChildrenFn | null,
   ignoreContainerClipping?: boolean,
-  renderClone?: DraggableChildrenFn,
   getContainerForClone?: () => HTMLElement,
-  children: (DroppableProvided, DroppableStateSnapshot) => Node,
-|};
+};
 
 type DroppableMode = 'standard' | 'virtual';
 type Direction = 'horizontal' | 'vertical';
@@ -76,21 +76,19 @@ The function is provided with two arguments:
 
 ### 1. provided: (DroppableProvided)
 
-```js
-import type { Node } from 'react';
+```ts
+type DroppableProvided = {
+  innerRef: (a?: HTMLElement | null) => void;
+  placeholder: ReactNode | null;
+  droppableProps: DroppableProps;
+};
 
-type DroppableProvided = {|
-  innerRef: (?HTMLElement) => void,
-  droppableProps: DroppableProps,
-  placeholder: ?Node,
-|};
-
-type DroppableProps = {|
+type DroppableProps = {
   // used for shared global styles
-  'data-rfd-droppable-context-id': ContextId,
+  'data-rfd-droppable-context-id': ContextId;
   // Used to lookup. Currently not used for drag and drop lifecycle
-  'data-rfd-droppable-id': DroppableId,
-|};
+  'data-rfd-droppable-id': DroppableId;
+};
 ```
 
 - `provided.innerRef`: In order for the droppable to function correctly, **you must** bind the `provided.innerRef` to the highest possible DOM node in the `ReactElement`. We do this in order to avoid needing to use `ReactDOM` to look up your DOM node.
@@ -113,20 +111,20 @@ type DroppableProps = {|
 
 ### 2. snapshot: (DroppableStateSnapshot)
 
-```js
-type DroppableStateSnapshot = {|
+```ts
+type DroppableStateSnapshot = {
   // Is the Droppable being dragged over?
-  isDraggingOver: boolean,
+  isDraggingOver: boolean;
   // What is the id of the draggable that is dragging over the Droppable?
-  draggingOverWith: ?DraggableId,
+  draggingOverWith: DraggableId | null;
   // What is the id of the draggable that is dragging from this list?
   // Useful for styling the home list when not being dragged over
-  draggingFromThisWith: ?DraggableId,
+  draggingFromThisWith: DraggableId | null;
   // Whether or not the placeholder is actively being used.
   // This is useful information when working with virtual lists
   // (See our virtual list pattern)
-  isUsingPlaceholder: boolean,
-|};
+  isUsingPlaceholder: boolean;
+};
 ```
 
 The `children` function is also provided with a small amount of state relating to the current drag state. This can be optionally used to enhance your component. A common use case is changing the appearance of a `<Droppable />` while it is being dragged over.
@@ -194,7 +192,7 @@ In this example we set the `background-color` of the home list to `pink` when we
 
 ![no-placeholder-when-over-no-list](https://user-images.githubusercontent.com/2182637/54155390-251ebd00-4498-11e9-8748-ab441795d19f.gif)
 
-```js
+```ts
 const getBackgroundColor = (snapshot: DroppableStateSnapshot): string => {
   // Giving isDraggingOver preference
   if (snapshot.isDraggingOver) {
@@ -219,7 +217,7 @@ When a user drags over, or stops dragging over, a `<Droppable />` we re-render t
 
 Here is an example of how you could do this using `class` components:
 
-```js
+```ts
 import React, { Component } from 'react';
 
 class Student extends Component<{ student: Person }> {
@@ -270,7 +268,7 @@ class Students extends Component<{ students: Person[] }> {
 
 Here is an example of how you could do this using `function` components:
 
-```js
+```ts
 import React from 'react';
 
 function Student (props: { student: Person }) {

@@ -70,12 +70,11 @@ Performance is **critical** to this project. Please get familiar with React perf
 - [React performance documentation](https://facebook.github.io/react/docs/optimizing-performance.html)
 - [React is slow, React is fast](https://marmelab.com/blog/2017/02/06/react-is-slow-react-is-fast.html)
 
-#### Flow
+#### TypeScript
 
-This codebase is typed with [`flow`](https://flow.org/). Changes will not be merged without correct flow typing. If you are not sure about a particular use case let flow break the build and it can be discussed in the pull request.
+This codebase is using [`TypeScript`](https://www.typescriptlang.org/). Changes will not be merged without correct typing. If you are not sure about a particular use case let TypeScript break the build and it can be discussed in the pull request.
 
-- [`flow`](https://flow.org/en/docs/getting-started/): the `flow` docs are great
-- [Up and Running with Facebook Flow for Typed JavaScript](https://egghead.io/lessons/javascript-up-and-running-with-facebook-flow-for-typed-javascript): a small primer for running flow
+The [`TypeScript`](https://www.typescriptlang.org/docs/handbook/intro.html) documentation is great. Have a look at it.
 
 ### Drag and drop problem space
 

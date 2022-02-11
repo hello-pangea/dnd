@@ -34,7 +34,7 @@ In order to know if we have already used the event for the purpose of drag and d
 
 So let's say you want to add a window `click` handler. You could do something like this:
 
-```js
+```ts
 window.addEventListener('click', (event: MouseEvent) => {
   // event has already been used for drag and drop
   if (event.defaultPrevented) {

@@ -12,21 +12,21 @@ In some cases you might want to add an additional `transform` or change the `tra
 
 Here is the shape of `DropAnimation`:
 
-```js
+```ts
 type DropReason = 'DROP' | 'CANCEL';
 
-type DropAnimation = {|
+type DropAnimation = {
   // how long the animation will run for
-  duration: number,
+  duration: number;
   // the animation curve that we will be using for the drop
-  curve: string,
+  curve: string;
   // the x,y position will be be animating to as a part of the drop
-  moveTo: Position,
+  moveTo: Position;
   // when combining with another item, we animate the opacity when dropping
-  opacity: ?number,
+  opacity: number | null;
   // when combining with another item, we animate the scale when dropping
-  scale: ?number,
-|};
+  scale: number | null;
+};
 ```
 
 You can use the `DraggableDroppingState` to build up your own `transform` and `transition` properties during a drop.
