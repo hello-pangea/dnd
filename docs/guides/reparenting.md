@@ -98,16 +98,16 @@ function List(props) {
 
 This function is called to get a clone to be rendered while dragging.
 
-```js
-renderClone: ?DraggableChildrenFn
+```ts
+renderClone: DraggableChildrenFn | null
 ```
 
-```js
+```ts
 type DraggableChildrenFn = (
-  Provided,
-  StateSnapshot,
-  DraggableRubric,
-) => Node | null;
+  provider: Provided,
+  stateSnapshot: StateSnapshot,
+  draggableRubric: DraggableRubric,
+) => ReactNode | null;
 ```
 
 > This is the same `type` as the child function for a `<Draggable />`. [See `<Draggable />` for more details](/docs/api/draggable.md).

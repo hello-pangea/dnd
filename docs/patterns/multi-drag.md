@@ -108,7 +108,7 @@ If the user is selecting to an item that is in a different list to the last sele
 
 Here is an example of composing the above event handling logic in a component
 
-```js
+```ts
 class Task extends Component<Props> {
   onKeyDown = (event: KeyboardEvent, snapshot: DraggableStateSnapshot) => {
     // already used

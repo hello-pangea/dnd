@@ -2,95 +2,78 @@
 
 ## Typescript
 
-If you are using [TypeScript](https://www.typescriptlang.org/) you are covered! We are maintaining [the definitions](https://github.com/react-forked/dnd/blob/master/src/index.d.ts).
-
-Here is an [example written in typescript](https://github.com/react-forked/dnd/blob/master/test/test-typescript-types.tsx) from our typecheck test.
-
-## Public flow types
-
-⚠️ These following information are related to [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).
-
-`react-beautiful-dnd` is typed using [`flowtype`](https://flow.org). This greatly improves internal consistency within the codebase. We also expose a number of public types which will allow you to type your javascript if you would like to. If you are not using `flowtype` this will not inhibit you from using the library. It is just extra safety for those who want it.
+If you are using [TypeScript](https://www.typescriptlang.org/) you are covered! Our codebase is using TypeScript. The type definitions are bundled with this package, so it should works out-of-the-box!
 
 ### Ids
 
-```js
+```ts
 type Id = string;
-type TypeId = Id;
-type DroppableId = Id;
 type DraggableId = Id;
+type DroppableId = Id;
+type TypeId = Id;
+type ContextId = Id;
+type ElementId = Id;
 ```
 
 ### Responders
 
-```js
-type Responders = {|
+```ts
+type Responders = {
   // optional
-  onBeforeCapture?: OnBeforeCaptureResponder,
-  onBeforeDragStart?: OnBeforeDragStartResponder,
-  onDragStart?: OnDragStartResponder,
-  onDragUpdate?: OnDragUpdateResponder,
+  onBeforeCapture?: OnBeforeCaptureResponder;
+  onBeforeDragStart?: OnBeforeDragStartResponder;
+  onDragStart?: OnDragStartResponder;
+  onDragUpdate?: OnDragUpdateResponder;
+
   // required
-  onDragEnd: OnDragEndResponder,
-|};
+  onDragEnd: OnDragEndResponder;
+};
 
-type OnBeforeCaptureResponder = (before: BeforeCapture) => mixed;
-type OnBeforeDragStartResponder = (start: DragStart) => mixed;
-type OnDragStartResponder = (
-  start: DragStart,
-  provided: ResponderProvided,
-) => mixed;
-type OnDragUpdateResponder = (
-  update: DragUpdate,
-  provided: ResponderProvided,
-) => mixed;
-type OnDragEndResponder = (
-  result: DropResult,
-  provided: ResponderProvided,
-) => mixed;
+type OnBeforeCaptureResponder = (before: BeforeCapture) => unknown;
 
-type BeforeCapture = {|
-  draggableId: DraggableId,
-  mode: MovementMode,
-|};
+type OnBeforeDragStartResponder = (start: DragStart) => unknown;
 
-type DraggableRubric = {|
-  draggableId: DraggableId,
-  type: TypeId,
-  source: DraggableLocation,
-|};
+type OnDragStartResponder = (start: DragStart, provided: ResponderProvided) => unknown;
 
-type DragStart = {|
-  ...DraggableRubric,
-  mode: MovementMode,
-|};
+type OnDragUpdateResponder = (update: DragUpdate, provided: ResponderProvided) => unknown;
 
-type DragUpdate = {|
-  ...DragStart,
+type OnDragEndResponder = (result: DropResult, provided: ResponderProvided) => unknown;
+
+type DraggableRubric = {
+  draggableId: DraggableId;
+  type: TypeId;
+  source: DraggableLocation;
+};
+
+type DragStart = DraggableRubric & {
+    mode: MovementMode;
+};
+
+
+type DragUpdate = DragStart & {
   // populated if in a reorder position
-  destination: ?DraggableLocation,
+  destination: DraggableLocation | null;
   // populated if combining with another draggable
-  combine: ?Combine,
-|};
+  combine: Combine | null;
+};
 
 // details about the draggable that is being combined with
-type Combine = {|
-  draggableId: DraggableId,
-  droppableId: DroppableId,
-|};
+type Combine = {
+  draggableId: DraggableId;
+  droppableId: DroppableId;
+};
 
-type DropResult = {|
-  ...DragUpdate,
-  reason: DropReason,
-|};
+type DropResult = DragUpdate & {
+    reason: DropReason;
+};
 
 type DropReason = 'DROP' | 'CANCEL';
 
-type DraggableLocation = {|
-  droppableId: DroppableId,
+type DraggableLocation = {
+  droppableId: DroppableId;
   // the position of the droppable within a droppable
-  index: number,
-|};
+  index: number;
+};
 
 // There are two modes that a drag can be in
 // FLUID: everything is done in response to highly granular input (eg mouse)
@@ -100,132 +83,124 @@ type MovementMode = 'FLUID' | 'SNAP';
 
 ### Sensors
 
-```js
+```ts
 type Sensor = (api: SensorAPI) => void;
-type SensorAPI = {|
-  tryGetLock: TryGetLock,
-  canGetLock: (id: DraggableId) => boolean,
-  isLockClaimed: () => boolean,
-  tryReleaseLock: () => void,
-  findClosestDraggableId: (event: Event) => ?DraggableId,
-  findOptionsForDraggable: (id: DraggableId) => ?DraggableOptions,
-|};
+type SensorAPI = {
+  tryGetLock: TryGetLock;
+  canGetLock: (id: DraggableId) => boolean;
+  isLockClaimed: () => boolean;
+  tryReleaseLock: () => void;
+  findClosestDraggableId: (event: Event) => DraggableId | null;
+  findOptionsForDraggable: (id: DraggableId) => DraggableOptions | null;
+};
 type TryGetLock = (
   draggableId: DraggableId,
   forceStop?: () => void,
-  options?: TryGetLockOptions,
-) => ?PreDragActions;
+  options?: TryGetLockOptions
+) => PreDragActions | null;
 type TryGetLockOptions = {
-  sourceEvent?: Event,
+  sourceEvent?: Event;
 };
 ```
 
 ### Droppable
 
-```js
-type DroppableProvided = {|
-  innerRef: (?HTMLElement) => void,
-  placeholder: ?ReactElement,
-  droppableProps: DroppableProps,
-|};
-type DroppableProps = {|
+```ts
+type DroppableProvided = {
+  innerRef: (a?: HTMLElement | null) => void;
+  placeholder: ReactNode | null;
+  droppableProps: DroppableProps;
+};
+type DroppableProps = {
   // used for shared global styles
-  'data-rbd-droppable-context-id': ContextId,
+  'data-rfd-droppable-context-id': ContextId;
   // Used to lookup. Currently not used for drag and drop lifecycle
-  'data-rbd-droppable-id': DroppableId,
-|};
-type DroppableStateSnapshot = {|
-  isDraggingOver: boolean,
-  draggingOverWith: ?DraggableId,
-  draggingFromThisWith: ?DraggableId,
-  isUsingPlaceholder: boolean,
-|};
+  'data-rfd-droppable-id': DroppableId;
+};
+type DroppableStateSnapshot = {
+  isDraggingOver: boolean;
+  draggingOverWith: DraggableId | null;
+  draggingFromThisWith: DraggableId | null;
+  isUsingPlaceholder: boolean;
+};
 ```
 
 ### Draggable
 
-```js
-type DraggableProvided = {|
-  innerRef: (?HTMLElement) => void,
-  draggableProps: DraggableProps,
-  dragHandleProps: ?DragHandleProps,
-|};
+```ts
+type DraggableProvided = {
+  draggableProps: DraggableProps;
+  dragHandleProps: DragHandleProps | null;
+  innerRef: (a?: HTMLElement | null) => void;
+};
 
-type DraggableStateSnapshot = {|
-  isDragging: boolean,
-  isDropAnimating: boolean,
-  dropAnimation: ?DropAnimation,
-  draggingOver: ?DroppableId,
-  combineWith: ?DraggableId,
-  combineTargetFor: ?DraggableId,
-  mode: ?MovementMode,
-|};
+type DraggableStateSnapshot = {
+  isDragging: boolean;
+  isDropAnimating: boolean;
+  isClone: boolean;
+  dropAnimation: DropAnimation | null;
+  draggingOver: DroppableId | null;
+  combineWith: DraggableId | null;
+  combineTargetFor: DraggableId | null;
+  mode: MovementMode | null;
+};
 
-type DraggableProps = {|
-  style: ?DraggableStyle,
-  'data-rbd-draggable-context-id': string,
-  'data-rbd-draggable-id': string,
-  onTransitionEnd: ?(event: TransitionEvent) => void,
-|};
+type DraggableProps = {
+  style?: DraggableStyle;
+  'data-rfd-draggable-context-id': ContextId;
+  'data-rfd-draggable-id': DraggableId;
+  onTransitionEnd?: TransitionEventHandler;
+};
 type DraggableChildrenFn = (
   DraggableProvided,
   DraggableStateSnapshot,
   DraggableRubric,
-) => Node | null;
-|};
+) => ReactNode | null;
+
 type DraggableStyle = DraggingStyle | NotDraggingStyle;
-type DraggingStyle = {|
-  position: 'fixed',
-  top: number,
-  left: number,
-  boxSizing: 'border-box',
-  width: number,
-  height: number,
-  transition: string,
-  transform: ?string,
-  zIndex: number,
-  opacity: ?number,
-  pointerEvents: 'none',
-|};
-type NotDraggingStyle = {|
-  transition: ?string,
-  transition: null | 'none',
-|};
+type DraggingStyle = {
+  position: 'fixed';
+  top: number;
+  left: number;
+  boxSizing: 'border-box';
+  width: number;
+  height: number;
+  transition: string;
+  transform?: string;
+  zIndex: number;
+  opacity?: number;
+  pointerEvents: 'none';
+};
+type NotDraggingStyle = {
+  transform?: string;
+  transition?: 'none';
+};
 
-type DragHandleProps = {|
-  onFocus: () => void,
-  onBlur: () => void,
-  onMouseDown: (event: MouseEvent) => void,
-  onKeyDown: (event: KeyboardEvent) => void,
-  onTouchStart: (event: TouchEvent) => void,
-  tabIndex: number,
-  'data-rbd-drag-handle-draggable-id': string,
-  'data-rbd-drag-handle-context-id': string,
-  role: string,
-  'aria-describedby': string,
-  draggable: boolean,
-  onDragStart: (event: DragEvent) => void,
-|};
+type DragHandleProps = {
+  'data-rfd-drag-handle-draggable-id': DraggableId;
+  'data-rfd-drag-handle-context-id': ContextId;
+  role: string;
+  'aria-describedby': ElementId;
+  tabIndex: number;
+  draggable: boolean;
+  onDragStart: DragEventHandler;
+};
 
-type DropAnimation = {|
-  duration: number,
-  curve: string,
-  moveTo: Position,
-  opacity: ?number,
-  scale: ?number,
-|};
+type DropAnimation = {
+  duration: number;
+  curve: string;
+  moveTo: Position;
+  opacity: number | null;
+  scale: number | null;
+};
 ```
 
-## Using the flow types
+## Using the TypeScript types
 
 The types are exported as part of the module so using them is as simple as:
 
 ```js
-import type { DroppableProvided } from 'react-beautiful-dnd';
+import type { DroppableProvided } from '@react-forked/dnd';
 ```
-
-## Sample application with flow types
-
-We have created a [sample application](https://github.com/alexreardon/react-beautiful-dnd-flow-example) which exercises the flowtypes. It is a super simple `React` project based on [`react-create-app`](https://github.com/facebookincubator/create-react-app). You can use this as a reference to see how to set things up correctly.
 
 [← Back to documentation](/README.md#documentation-)

@@ -2,13 +2,11 @@
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/react-forked/dnd/master.svg)](https://circleci.com/gh/react-forked/dnd/tree/master)
 
-## Typed
+#### TypeScript
 
-[![Typed with flow](https://img.shields.io/badge/typed%20with-flow-brightgreen.svg?style=flat)](https://flow.org/)
+This codebase is using [`TypeScript`](https://www.typescriptlang.org/). Changes will not be merged without correct typing. If you are not sure about a particular use case let TypeScript break the build and it can be discussed in the pull request.
 
-This codebase is typed with [flow](https://flow.org) to promote greater internal consistency and more resilient code.
-
-You can learn more about our `TypeScript` and `flow` support on our [types guide](/docs/guides/types.md).
+The [`TypeScript`](https://www.typescriptlang.org/docs/handbook/intro.html) documentation is great. Have a look at it.
 
 ## Tested
 

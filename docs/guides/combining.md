@@ -30,15 +30,16 @@ When `isCombineEnabled` is set on a list _any_ item in the list can be combine w
 ## `<Draggable />` > `DraggableStateSnapshot`
 
 ```diff
-type DraggableStateSnapshot = {|
-  isDragging: boolean,
-  isDropAnimating: boolean,
-  dropAnimation: ?DropAnimation,
-  draggingOver: ?DroppableId,
-+  combineWith: ?DraggableId,
-+  combineTargetFor: ?DraggableId,
-  mode: ?MovementMode,
-|};
+type DraggableStateSnapshot = {
+  isDragging: boolean;
+  isDropAnimating: boolean;
+  isClone: boolean;
+  dropAnimation: DropAnimation | null;
+  draggingOver: DroppableId | null;
++ combineWith: DraggableId | null;
++ combineTargetFor: DraggableId | null;
+  mode: MovementMode | null;
+};
 ```
 
 If you are dragging a `<Draggable />` over another `<Draggable />` in combine mode then the id of the `<Draggable />` being dragged over will be populated in `combineWith`
@@ -57,7 +58,7 @@ A `combine` result might signify different operations depending on your problem 
 
 When combining, a simple operation is to just remove the item that was dragging
 
-```js
+```ts
 function onDragEnd(result) {
   // combining item
   if (result.combine) {

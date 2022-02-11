@@ -31,9 +31,9 @@ These are some examples to show off what is possible with the Sensor API. They a
 
 You create a `sensor` that has the ability to attempt to claim a **lock**. A **lock** allows _exclusive_ control of dragging within a `<DragDropContext />`. When you are finished with your interaction, you can then release the **lock**.
 
-```js
+```ts
 function mySimpleSensor(api: SensorAPI) {
-  const preDrag: ?PreDragActions = api.tryGetLock('item-1');
+  const preDrag: PreDragActions | null = api.tryGetLock('item-1');
   // Could not get lock
   if (!preDrag) {
     return;
@@ -75,10 +75,10 @@ function App() {
 
 A `sensor` is a [React hook](https://reactjs.org/docs/hooks-intro.html). It is fine if you do not want to use any of the React hook goodness, you can treat the `sensor` just as a function. React hooks are just functions that let you use the built in React hooks if you want to 🤫. You pass your `sensor` into the `sensors` array on a `<DragDropContext />`.
 
-```js
+```ts
 function useMyCoolSensor(api: SensorAPI) {
   const start = useCallback(function start(event: MouseEvent) {
-    const preDrag: ?PreDragActions = api.tryGetLock('item-2');
+    const preDrag: PreDragActions | null = api.tryGetLock('item-2');
     if (!preDrag) {
       return;
     }
@@ -113,23 +113,23 @@ You can also disable all of the prebuilt sensors ([mouse](/docs/sensors/mouse.md
 
 A `sensor` is provided with a an object (`SensorAPI`) which is used to try to get a **lock**
 
-```js
+```ts
 type Sensor = (api: SensorAPI) => void;
 
-type SensorAPI = {|
-  tryGetLock: TryGetLock,
-  canGetLock: (id: DraggableId) => boolean,
-  isLockClaimed: () => boolean,
-  tryReleaseLock: () => void,
-  findClosestDraggableId: (event: Event) => ?DraggableId,
-  findOptionsForDraggable: (id: DraggableId) => ?DraggableOptions,
-|};
+type SensorAPI = {
+  tryGetLock: TryGetLock;
+  canGetLock: (id: DraggableId) => boolean;
+  isLockClaimed: () => boolean;
+  tryReleaseLock: () => void;
+  findClosestDraggableId: (event: Event) => DraggableId | null;
+  findOptionsForDraggable: (id: DraggableId) => DraggableOptions | null;
+};
 
-type DraggableOptions = {|
-  canDragInteractiveElements: boolean,
-  shouldRespectForcePress: boolean,
-  isEnabled: boolean,
-|};
+type DraggableOptions = {
+  canDragInteractiveElements: boolean;
+  shouldRespectForcePress: boolean;
+  isEnabled: boolean;
+};
 ```
 
 - `tryGetLock` (`TryGetLock`): a function that is used to **try** and get a **lock** for a `<Draggable />`
@@ -139,20 +139,19 @@ type DraggableOptions = {|
 - `findClosestDraggableId(event)`: a function that will try to find the closest `draggableId` based on an event. It will look upwards from the `event.target` to try and find a _drag handle_
 - `findOptionsForDraggable(id)`: tries to lookup `DraggableOptions` associated with a `<Draggable />`
 
-```js
-export type TryGetLock = (
+```ts
+type TryGetLock = (
   draggableId: DraggableId,
-  forceStop?: () => void,
-  options?: TryGetLockOptions,
-) => ?PreDragActions;
+  forceStop?: () => void, options?: TryGetLockOptions,
+) => PreDragActions | null;
 ```
 
 - `draggableId`: The `DraggableId` of the `<Draggable />` that you want to drag.
 - `forceStop` (optional): a function that is called when the lock needs to be abandoned by the application. See **force abandoning locks**.
 
-```js
+```ts
 type TryGetLockOptions = {
-  sourceEvent?: Event,
+  sourceEvent?: Event;
 };
 ```
 
@@ -162,18 +161,18 @@ type TryGetLockOptions = {
 
 The `PreDragAction` object contains a number of functions:
 
-```js
-type PreDragActions = {|
+```ts
+type PreDragActions = {
   // discover if the lock is still active
-  isActive: () => boolean,
+  isActive: () => boolean;
   // whether it has been indicated if force press should be respected
-  shouldRespectForcePress: () => boolean,
+  shouldRespectForcePress: () => boolean;
   // Lift the current item
-  fluidLift: (clientSelection: Position) => FluidDragActions,
-  snapLift: () => SnapDragActions,
+  fluidLift: (clientSelection: Position) => FluidDragActions;
+  snapLift: () => SnapDragActions;
   // Cancel the pre drag without starting a drag. Releases the lock
-  abort: () => void,
-|};
+  abort: () => void;
+};
 ```
 
 This phase allows you to conditionally start or abort a drag after obtaining an exclusive **lock**. This is useful if you are not sure if a drag should start such as when using [long press](/docs/sensors/touch.md) or [sloppy click detection](/docs/sensors/mouse.md). If you want to abort the pre drag without lifting you can call `.abort()`.
@@ -184,17 +183,17 @@ You can lift a dragging item by calling either `.fluidLift(clientSelection)` or 
 
 #### Shared
 
-```js
-type DragActions = {|
-  drop: (args?: StopDragOptions) => void,
-  cancel: (args?: StopDragOptions) => void,
-  isActive: () => boolean,
-  shouldRespectForcePress: () => boolean,
-|};
+```ts
+type DragActions = {
+  drop: (args?: StopDragOptions) => void;
+  cancel: (args?: StopDragOptions) => void;
+  isActive: () => boolean;
+  shouldRespectForcePress: () => boolean;
+};
 
-type StopDragOptions = {|
-  shouldBlockNextClick: boolean,
-|};
+type StopDragOptions = {
+  shouldBlockNextClick: boolean;
+};
 ```
 
 #### Fluid dragging
@@ -203,16 +202,15 @@ type StopDragOptions = {|
 
 `<Draggable />`s move around naturally in response a moving point. The _impact_ of the drag is controlled by a _collision engine_. (This is what our [mouse sensor](/docs/sensors/mouse.md) and [touch sensor](/docs/sensors/touch.md) use)
 
-```js
-type FluidDragActions = {|
-  ...DragActions,
-  move: (clientSelection: Position) => void,
-|};
+```ts
+type FluidDragActions = DragActions & {
+  move: (clientSelection: Position) => void;
+};
 ```
 
 Calls to `.move()` are throttled using [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). So if you make multiple `.move()` calls in the same animation frame, it will only result in a single update
 
-```js
+```ts
 const drag: SnapDragActions = preDrag.fluidLift({ x: 0, y: 0 });
 
 // will all be batched into a single update
@@ -228,21 +226,20 @@ drag.move({ x: 0, y: 3 });
 
 `<Draggable />`s are forced to move to a new position using a single command. For example, "move down". (This is what our [keyboard sensor](/docs/sensors/keyboard.md) uses)
 
-```js
-export type SnapDragActions = {|
-  ...DragActions,
-  moveUp: () => void,
-  moveDown: () => void,
-  moveRight: () => void,
-  moveLeft: () => void,
-|};
+```ts
+export type SnapDragActions = DragActions & {
+  moveUp: () => void;
+  moveDown: () => void;
+  moveRight: () => void;
+  moveLeft: () => void;
+};
 ```
 
 ## Force abandoning locks
 
 A **lock** can be aborted at any time by the application, such as when an error occurs. If you try to perform actions on an aborted **lock** then it will not do anything. The second argument to `SensorAPI.tryGetLock()` is a `forceStop` function. The `forceStop` function will be called when the **lock** needs to be abandoned by the application. If you try to use any functions on the **lock** after it has been abandoned they will have no effect and will log a warning to the console.
 
-```js
+```ts
 function useMySensor(api: SensorAPI) {
   let unbindClick;
 
@@ -252,7 +249,7 @@ function useMySensor(api: SensorAPI) {
     }
   }
 
-  const preDrag: ?PreDragActions = api.tryGetLock('item-1', forceStop);
+  const preDrag: PreDragActions | null = api.tryGetLock('item-1', forceStop);
   // Could not get lock
   if (!preDrag) {
     return;
@@ -267,7 +264,7 @@ function useMySensor(api: SensorAPI) {
 
 The `PreDragActions`, `FluidDragActions` and `SnapDragActions` all have a `isActive()` function which can be called to discover if a lock is still active. So if you do not want to provide a `forceStop()` function, it is best to defensively call api's with a `isActiveCheck`.
 
-```js
+```ts
 function useMySensor(api: SensorAPI) {
   const preDrag: ?PreDragActions = api.tryGetLock();
   // Could not get lock

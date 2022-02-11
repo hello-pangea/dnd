@@ -8,7 +8,7 @@ A `<Draggable />` and a `<Droppable />` have an id. These are `draggableId` and 
 
 We expect an id to be a `string`
 
-```js
+```ts
 type Id = string;
 type DroppableId = Id;
 type DraggableId = Id;
