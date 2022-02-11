@@ -54,10 +54,9 @@
     "typecheck:test": "yarn tsc --project test/tsconfig.json && yarn tsc --project csp-server/tsconfig.json && yarn tsc --project cypress/tsconfig.json",
     "bundle-size:check": "cross-env SNAPSHOT=match yarn bundle-size:update",
     "bundle-size:update": "yarn build:clean && yarn build:dist && yarn build:clean",
-    "build": "yarn build:clean && yarn build:dist && yarn build:typescript:declaration && yarn build:flow",
+    "build": "yarn build:clean && yarn build:dist",
     "build:clean": "rimraf dist",
     "build:dist": "cross-env NODE_ENV=production rollup -c",
-    "build:flow": "echo \"// @flow\n\nexport * from '../src';\" > dist/dnd.cjs.js.flow",
     "storybook": "start-storybook -p 9002",
     "build-storybook": "build-storybook -c .storybook -o site",
     "prepublishOnly": "yarn build"
