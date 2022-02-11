@@ -24,11 +24,11 @@ interface EnhancerOptions {
   name?: string;
 }
 
-type WindowWithDevTools = Window & {
+interface WindowWithDevTools extends Window {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (
     options: EnhancerOptions,
   ) => typeof compose;
-};
+}
 
 const isReduxDevtoolsExtenstionExist = (
   arg: Window | WindowWithDevTools,
