@@ -1,4 +1,5 @@
 module.exports = {
+  extends: ['plugin:storybook/recommended'],
   rules: {
     // allowing console.warn / console.error
     // this is because we often mock console.warn and console.error and adding this rul

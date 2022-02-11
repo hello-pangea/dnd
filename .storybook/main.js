@@ -12,7 +12,7 @@ module.exports = {
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
   babel: async (options) => ({
     ...options,
-    presets: [...options.presets, '@emotion/babel-preset-css-prop'],
+    presets: ['@emotion/babel-preset-css-prop', ...options.presets],
     comments: false,
   }),
   webpackFinal: async (config) => {
