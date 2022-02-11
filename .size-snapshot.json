@@ -1,8 +1,8 @@
 {
   "dnd.js": {
-    "bundled": 358647,
-    "minified": 130745,
-    "gzipped": 38971
+    "bundled": 358502,
+    "minified": 130741,
+    "gzipped": 38966
   },
   "dnd.min.js": {
     "bundled": 305615,
@@ -10,9 +10,9 @@
     "gzipped": 31458
   },
   "dnd.esm.js": {
-    "bundled": 241717,
-    "minified": 125554,
-    "gzipped": 32699,
+    "bundled": 241578,
+    "minified": 125466,
+    "gzipped": 32665,
     "treeshaked": {
       "rollup": {
         "code": 21058,
