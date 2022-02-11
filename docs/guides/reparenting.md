@@ -40,7 +40,7 @@ function List(props) {
     >
       {provided => (
         <div ref={provided.innerRef} {...provided.droppableProps}>
-          {items.map(item) => (
+          {items.map((item) => (
             <Draggable draggableId={item.id} index={item.index}>
               {(provided, snapshot) => (
                 <div
@@ -52,7 +52,7 @@ function List(props) {
                 </div>
               )}
             </Draggable>
-          )}
+          ))}
         </div>
       )}
     </Droppable>
@@ -82,19 +82,21 @@ function List(props) {
       droppableId="droppable"
       renderClone={renderItem}
     >
-      <div ref={provided.innerRef} {...provided.droppableProps}>
-        {items.map(item) => (
-          <Draggable draggableId={item.id} index={item.index}>
-            {renderItem}
-          </Draggable>
-        )}
-      </div>
+      {(provided, snapshot) => (
+        <div ref={provided.innerRef} {...provided.droppableProps}>
+          {items.map((item) => (
+            <Draggable draggableId={item.id} index={item.index}>
+              {renderItem}
+            </Draggable>
+          ))}
+        </div>
+      )}
     </Droppable>
   );
 }
 ```
 
-### `<Droppable /> | \renderClone`
+### `<Droppable /> | renderClone`
 
 This function is called to get a clone to be rendered while dragging.
 

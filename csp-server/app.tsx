@@ -46,11 +46,17 @@ export default class App extends Component<AppProps, AppState> {
   }
 
   componentDidMount() {
-    document.addEventListener('securitypolicyviolation', (e) => {
-      this.setState((state) => {
-        return { ...state, cspErrors: [...state.cspErrors, e] };
-      });
-    });
+    document.addEventListener(
+      'securitypolicyviolation',
+      this.onSecurityPolicyViolation,
+    );
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener(
+      'securitypolicyviolation',
+      this.onSecurityPolicyViolation,
+    );
   }
 
   onDragEnd(result: DropResult) {
@@ -70,6 +76,12 @@ export default class App extends Component<AppProps, AppState> {
       items,
     }));
   }
+
+  onSecurityPolicyViolation = (e: SecurityPolicyViolationEvent) => {
+    this.setState((state) => {
+      return { ...state, cspErrors: [...state.cspErrors, e] };
+    });
+  };
 
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity

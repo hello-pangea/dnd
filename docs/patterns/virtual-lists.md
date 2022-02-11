@@ -38,9 +38,14 @@ Please raise a pull request if you would like to add examples for other virtuali
 - [Board](https://react-forked-dnd.netlify.com/?path=/story/virtual-react-virtualized--board) ([source](/stories/src/virtual/react-virtualized/board.jsx))
 - [List](https://react-forked-dnd.netlify.com/?path=/story/virtual-react-virtualized--window-list) with [`WindowScroller`](https://github.com/bvaughn/react-virtualized/blob/master/docs/WindowScroller.md) ([source](/stories/src/virtual/react-virtualized/window-list.jsx))
 
+### [`react-virtuoso`](https://github.com/petyosi/react-virtuoso)
+React Virtuoso comes with automatic item measurement out of the box.
+- [List with source](https://virtuoso.dev/react-beautiful-dnd/)
+- [Basic list on `codesandbox.io`](https://codesandbox.io/s/react-virutoso-with-react-beautiful-dnd-e6vmq)
+
 ## Usage
 
-`@react-forked/dnd` does not provide it's own virtual list abstraction so there is a bit of wiring that you will need to do in order to get going with existing virtual list solutions 🛠
+`@react-forked/dnd` does not provide its own virtual list abstraction so there is a bit of wiring that you will need to do in order to get going with existing virtual list solutions 🛠
 
 ### Enable overscanning
 
@@ -101,7 +106,7 @@ Usually we require consumers to put a `placeholder` (`<Droppable /> | DroppableP
 
 However, a `placeholder` does not make sense in the context of a virtual list as the dimensions of the list is not based on collective size of the visual items, but rather is calculated based on things like `itemCount` and `itemSize`. (eg `height` = `itemSize` \* `itemCount`). For virtual lists, inserting our own node into it would not increase the size of the list. **So we need you do insert the space for us!**
 
-A simple way add extra space to a virtual list add a non-visible item to your list. It is important that this extra item is not a `<Draggable />`.
+A simple way to add extra space to a virtual list is to add a non-visible item to your list. It is important that this extra item is not a `<Draggable />`.
 
 ```js
 // This example uses the `react-window` API
@@ -110,7 +115,7 @@ const Row = ({ data, index, style }: RowProps) => {
   const item = data[index];
 
    // We are rendering an extra item for the placeholder
-  if (!quote) {
+  if (!item) {
     return null;
   }
 

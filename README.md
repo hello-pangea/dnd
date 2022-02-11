@@ -52,7 +52,7 @@ Alex Reardon has created [a free course on `egghead.io` 🥚](https://egghead.io
 - Able to move the dragging item to another element while dragging (clone, portal) - [Reparenting your `<Draggable />`](/docs/guides/reparenting.md)
 - [Create scripted drag and drop experiences 🎮](/docs/sensors/sensor-api.md)
 - Allows extensions to support for [any input type you like 🕹](/docs/sensors/sensor-api.md)
-- 🌲 Tree support through the [`@atlaskit/tree`](https://atlaskit.atlassian.com/packages/core/tree) package
+- 🌲 Tree support through the [`@atlaskit/tree`](https://atlaskit.atlassian.com/packages/confluence/tree) package
 - A `<Droppable />` list can be a scroll container (without a scrollable parent) or be the child of a scroll container (that also does not have a scrollable parent)
 - Independent nested lists - a list can be a child of another list, but you cannot drag items from the parent list into a child list
 - Server side rendering (SSR) compatible - see [resetServerContext()](/docs/api/reset-server-context.md)
@@ -144,18 +144,19 @@ There are a lot of libraries out there that allow for drag and drop interactions
 - [![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **한글/Korean**](https://github.com/LeeHyungGeun/react-beautiful-dnd-kr)
 - [![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **На русском/Russian**](https://github.com/vtereshyn/react-beautiful-dnd-ru)
 - [![pt](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Português/Portuguese**](https://github.com/dudestein/react-beautiful-dnd-pt)
+- [![gr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Greece.png) **Ελληνικά/Greek**](https://github.com/milvard/react-beautiful-dnd-gr)
 
-## Author ✍️
+## Creator ✍️
 
 Alex Reardon [@alexandereardon](https://twitter.com/alexandereardon)
+
+> Alex is no longer personally maintaning this project. The other wonderful maintainers are carrying this project forward.
 
 ## Maintainer 🛠️
 
 - Gabriel Santerre [@100terres](https://github.com/100terres)
+- Many other [@Atlassian](https://twitter.com/Atlassian)'s!
 
 ## Collaborators 🤝
 
 - Bogdan Chadkin [@IAmTrySound](https://twitter.com/IAmTrySound)
-- Luke Batchelor [@alukebatchelor](https://twitter.com/alukebatchelor)
-- Jared Crowe [@jaredjcrowe](https://twitter.com/jaredjcrowe)
-- Many other [@Atlassian](https://twitter.com/Atlassian)'s!

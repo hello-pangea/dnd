@@ -1,7 +1,10 @@
 require('dotenv').config();
 
 module.exports = {
-  addons: ['storybook-addon-performance/register'],
+  addons: [
+    'storybook-addon-performance/register',
+    '@storybook/addon-storysource',
+  ],
   check: true,
   checkOptions: {
     tsconfig: '../stories/tsconfig.json',

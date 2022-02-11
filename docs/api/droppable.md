@@ -252,7 +252,7 @@ class Students extends Component<{ students: Person[] }> {
           <div
             ref={provided.innerRef}
             style={{
-              backgroundColor: provided.isDragging ? 'green' : 'lightblue',
+              backgroundColor: snapshot.isDragging ? 'green' : 'lightblue',
             }}
             {...provided.droppableProps}
           >
@@ -289,7 +289,7 @@ function Students(props: { students: Person[] }) {
         <div
           ref={provided.innerRef}
           style={{
-            backgroundColor: provided.isDragging ? 'green' : 'lightblue',
+            backgroundColor: snapshot.isDragging ? 'green' : 'lightblue',
           }}
           {...provided.droppableProps}
         >
