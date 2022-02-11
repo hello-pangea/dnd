@@ -5,6 +5,5 @@
 !**/*.eslintrc.js
 
 dist/
-flow-typed/
 site/
 coverage/
