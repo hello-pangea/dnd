@@ -2,20 +2,10 @@ module.exports = {
   extends: [
     'prettier',
     'airbnb',
-    'plugin:flowtype/recommended',
     'prettier/react',
-    'prettier/flowtype',
     'plugin:prettier/recommended',
   ],
-  plugins: [
-    'prettier',
-    'flowtype',
-    '@emotion',
-    'react',
-    'react-hooks',
-    'import',
-    'es5',
-  ],
+  plugins: ['prettier', '@emotion', 'react', 'react-hooks', 'import', 'es5'],
   parser: '@babel/eslint-parser',
   env: {
     es6: true,
@@ -23,7 +13,6 @@ module.exports = {
     node: true,
   },
   globals: {
-    // flow globals
     TimeoutID: true,
     IntervalID: true,
     AnimationFrameID: true,
@@ -39,7 +28,7 @@ module.exports = {
     // use `invariant` and `warning`
     'no-console': ['error'],
 
-    // Opting out of prefer destructuring (nicer with flow in lots of cases)
+    // Opting out of prefer destructuring
     'prefer-destructuring': 'off',
 
     // Disallowing the use of variables starting with `_` unless it called on `this`.
@@ -176,13 +165,6 @@ module.exports = {
     // Allowing functions to be passed as props
     'react/jsx-no-bind': 'off',
 
-    // Require // @flow at the top of files
-    'flowtype/require-valid-file-annotation': [
-      'error',
-      'always',
-      { annotationStyle: 'line' },
-    ],
-
     // Allowing importing from dev deps (for stories and tests)
     'import/no-extraneous-dependencies': 'off',
 
@@ -230,10 +212,6 @@ module.exports = {
         'server-ports.js',
         'test/**/*.js?(x)',
       ],
-      excludedFiles: ['test/test-flow-types.js'],
-      rules: {
-        'flowtype/require-valid-file-annotation': 'off',
-      },
     },
 
     {
@@ -249,7 +227,6 @@ module.exports = {
       },
       files: ['rollup.config.js'],
       rules: {
-        'flowtype/require-valid-file-annotation': 'off',
         'node/no-unsupported-features/es-syntax': [
           'error',
           {
@@ -270,9 +247,6 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       files: ['**/*.ts?(x)'],
       rules: {
-        'flowtype/no-types-missing-file-annotation': 'off',
-        'flowtype/require-valid-file-annotation': 'off',
-
         'import/extensions': [
           'error',
           'ignorePackages',

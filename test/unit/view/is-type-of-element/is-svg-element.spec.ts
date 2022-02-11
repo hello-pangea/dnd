@@ -3,7 +3,6 @@ import isSvgElement from '../../../../src/view/is-type-of-element/is-svg-element
 import getSvg from './util/get-svg';
 
 it('should allow svg elements through', () => {
-  // $FlowFixMe - does not know what SVGElement is
   const svg: SVGElement = getSvg(document);
 
   expect(svg instanceof SVGElement).toBe(true);
@@ -22,7 +21,6 @@ it('should allow svg elements from another window', () => {
 
   expect(isSvgElement(svg)).toBe(true);
   // validation
-  // $FlowFixMe - does not know what SVGElement is
   expect(svg instanceof SVGElement).toBe(false);
   expect(svg instanceof other.window.SVGElement).toBe(true);
 });

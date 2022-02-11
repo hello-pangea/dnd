@@ -12,7 +12,6 @@ it('should allow html elements through', () => {
 });
 
 it('should not allow svg elements through', () => {
-  // $FlowFixMe - does not know what SVGElement is
   const svg: SVGElement = getSvg(document);
 
   expect(isHtmlElement(svg)).toBe(false);
@@ -39,7 +38,6 @@ it('should not allow svg elements from another window', () => {
 
   expect(isHtmlElement(svg)).toBe(false);
   // validation
-  // $FlowFixMe - does not know what SVGElement is
   expect(svg instanceof SVGElement).toBe(false);
   expect(svg instanceof other.window.SVGElement).toBe(true);
   expect(isSvgElement(svg)).toBe(true);

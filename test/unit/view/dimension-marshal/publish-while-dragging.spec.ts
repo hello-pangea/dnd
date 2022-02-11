@@ -544,7 +544,6 @@ describe('subsequent', () => {
     );
     requestAnimationFrame.step();
     expect(callbacks.publishWhileDragging).toHaveBeenCalledTimes(1);
-    // $FlowFixMe
     callbacks.publishWhileDragging.mockReset();
 
     registry.draggable.register(
@@ -570,7 +569,6 @@ describe('subsequent', () => {
     );
     requestAnimationFrame.step();
     expect(callbacks.publishWhileDragging).toHaveBeenCalledTimes(1);
-    // $FlowFixMe
     callbacks.publishWhileDragging.mockReset();
 
     marshal.stopPublishing();
