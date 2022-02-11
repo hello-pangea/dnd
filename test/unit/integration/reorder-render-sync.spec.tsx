@@ -83,7 +83,6 @@ const setDroppableBounds = (ref?: HTMLElement | null) => {
   if (!ref) {
     return;
   }
-  // $FlowFixMe - only reliable way to do this
   ref.getBoundingClientRect = () =>
     setDOMRect(
       getRect({
@@ -106,7 +105,6 @@ const first = {
     if (!ref) {
       return;
     }
-    // $FlowFixMe - only reliable way to do this
     ref.getBoundingClientRect = () =>
       setDOMRect(
         getRect({
@@ -126,7 +124,6 @@ const second = {
     if (!ref) {
       return;
     }
-    // $FlowFixMe - only reliable way to do this
     ref.getBoundingClientRect = () =>
       setDOMRect(
         getRect({

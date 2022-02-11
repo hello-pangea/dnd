@@ -68,7 +68,6 @@ it('should render the child function when the parent renders', () => {
 
 it('should render the child function when the parent re-renders', () => {
   const child = getMock();
-  // $FlowFixMe: not sure why flow is complaining about only this usage
   const { container, rerender } = render(<App currentUser="Jake">{child}</App>);
   expect(child).toHaveBeenCalledTimes(1);
 

@@ -195,7 +195,6 @@ describe('dimension publishing', () => {
     const ref = wrapper.getDOMNode();
     invariant(ref);
 
-    // $FlowFixMe - normally a read only thing. Muhaha
     ref.getBoundingClientRect = () => setDOMRect(borderBox);
   };
 

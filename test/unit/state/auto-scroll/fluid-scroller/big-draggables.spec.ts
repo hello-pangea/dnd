@@ -65,7 +65,6 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
       requestAnimationFrame.step();
 
       expect(mocks.scrollWindow).toHaveBeenCalledWith(
-        // $FlowFixMe - using expect.any
         patch(axis.crossAxisLine, expect.any(Number)),
       );
     });
@@ -94,7 +93,6 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
       requestAnimationFrame.step();
 
       expect(mocks.scrollWindow).toHaveBeenCalledWith(
-        // $FlowFixMe - using expect.any
         patch(axis.line, expect.any(Number)),
       );
     });
@@ -169,7 +167,6 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
 
       expect(mocks.scrollDroppable).toHaveBeenCalledWith(
         scrollable.descriptor.id,
-        // $FlowFixMe - using expect.any
         patch(axis.crossAxisLine, expect.any(Number)),
       );
     });
@@ -200,7 +197,6 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
 
       expect(mocks.scrollDroppable).toHaveBeenCalledWith(
         scrollable.descriptor.id,
-        // $FlowFixMe - using expect.any
         patch(axis.line, expect.any(Number)),
       );
     });

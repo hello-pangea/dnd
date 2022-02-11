@@ -46,7 +46,6 @@ it('should publish updates to the enabled state when dragging', () => {
     preset.home.descriptor.id,
     false,
   );
-  // $FlowFixMe
   marshal.updateDroppableIsCombineEnabled.mockClear();
 
   // now setting to true
@@ -110,7 +109,6 @@ it('should not publish updates when there is no change', () => {
   });
 
   expect(marshal.updateDroppableIsCombineEnabled).not.toHaveBeenCalled();
-  // $FlowFixMe
   marshal.updateDroppableIsCombineEnabled.mockReset();
 
   forceUpdate(wrapper);

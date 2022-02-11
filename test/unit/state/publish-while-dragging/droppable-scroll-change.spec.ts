@@ -38,9 +38,7 @@ it('should adjust the current droppable scroll in response to a change', () => {
     originalScroll,
   );
 
-  // $FlowFixMe - wrong type
   const original: CollectingState = addDroppable(
-    // $FlowFixMe - wrong type
     state.collecting(preset.inHome2.descriptor.id),
     beforeRemoval,
   );

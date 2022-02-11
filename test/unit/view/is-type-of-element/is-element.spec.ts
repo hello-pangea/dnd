@@ -4,7 +4,6 @@ import getSvg from './util/get-svg';
 
 it('should allow all elements through', () => {
   const anchor: HTMLElement = document.createElement('a');
-  // $FlowFixMe - does not know what SVGElement is
   const svg: SVGElement = getSvg(document);
 
   expect(isElement(anchor)).toBe(true);
