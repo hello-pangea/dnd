@@ -76,12 +76,11 @@ export default class QuoteApp extends Component<unknown, State> {
     }
 
     if (result.type === 'second-level') {
-      const nested:
-        | NestedQuoteList
-        | undefined
-        | null = (this.state.list.children.filter((item): boolean =>
-        Object.prototype.hasOwnProperty.call(item, 'children'),
-      ) as NestedQuoteList[])[0];
+      const nested: NestedQuoteList | undefined | null = (
+        this.state.list.children.filter((item): boolean =>
+          Object.prototype.hasOwnProperty.call(item, 'children'),
+        ) as NestedQuoteList[]
+      )[0];
 
       invariant(nested, 'could not find nested list');
 

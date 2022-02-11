@@ -31,15 +31,18 @@ export default ({
   afterCritical,
 }: Args): DraggableDimension | null => {
   const sorted: DraggableDimension[] = insideDestination
-    .filter((draggable: DraggableDimension): boolean => // Allowing movement to draggables that are not visible in the viewport
-      // but must be visible in the droppable
-      // We can improve this, but this limitation is easier for now
-      isTotallyVisible({
-        target: getCurrentPageBorderBox(draggable, afterCritical),
-        destination,
-        viewport: viewport.frame,
-        withDroppableDisplacement: true,
-      }),
+    .filter(
+      (
+        draggable: DraggableDimension,
+      ): boolean => // Allowing movement to draggables that are not visible in the viewport
+        // but must be visible in the droppable
+        // We can improve this, but this limitation is easier for now
+        isTotallyVisible({
+          target: getCurrentPageBorderBox(draggable, afterCritical),
+          destination,
+          viewport: viewport.frame,
+          withDroppableDisplacement: true,
+        }),
     )
     .sort((a: DraggableDimension, b: DraggableDimension): number => {
       // Need to consider the change in scroll in the destination

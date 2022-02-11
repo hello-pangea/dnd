@@ -19,6 +19,8 @@ module.exports = {
     // Allowing Array.from
     'no-restricted-syntax': 'off',
 
+    'react/function-component-definition': 'off',
+
     'jest/expect-expect': [
       'error',
       {

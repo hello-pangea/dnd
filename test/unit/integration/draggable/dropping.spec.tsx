@@ -119,10 +119,10 @@ it('should animate scale and opacity when combining', () => {
       const snapshot = getLast(getSnapshotsFor('0', spy));
       const dropping: DropAnimation = {
         // force cast to number :D
-        duration: (expect.any(Number) as any) as number,
+        duration: expect.any(Number) as any as number,
         curve: curves.drop,
         // will be moving to center
-        moveTo: (expect.any(Object) as any) as Position,
+        moveTo: expect.any(Object) as any as Position,
         opacity: 0,
         scale: combine.scale.drop,
       };

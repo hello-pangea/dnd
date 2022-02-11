@@ -54,8 +54,8 @@ it('should throw an exception if there was no drag start published', () => {
   const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
-  const borrowed: CompletedDrag = getSimpleStatePreset().dropAnimating()
-    .completed;
+  const borrowed: CompletedDrag =
+    getSimpleStatePreset().dropAnimating().completed;
 
   // throws when in idle
   expect(() =>

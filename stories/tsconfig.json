@@ -1,4 +1,9 @@
 {
   "extends": "../tsconfig.json",
+
+  "compilerOptions": {
+    "types": ["csstype"]
+  },
+
   "include": ["**/*"]
 }

@@ -79,9 +79,8 @@ import { getForcedDisplacement } from '../../../../../util/impact';
       {
         const scroll: Position = { x: 10, y: 20 };
         const displacement: Position = negate(scroll);
-        const scrollable: DroppableDimension = makeScrollable(
-          withCombineEnabled,
-        );
+        const scrollable: DroppableDimension =
+          makeScrollable(withCombineEnabled);
         const scrolled: DroppableDimension = scrollDroppable(
           scrollable,
           scroll,

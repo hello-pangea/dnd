@@ -102,8 +102,8 @@ import scrollViewport from '../../../../src/state/scroll-viewport';
       borderBox: viewport.frame,
     });
 
-    const isVisibleDueToOverScanning: DraggableDimension = getDraggableDimension(
-      {
+    const isVisibleDueToOverScanning: DraggableDimension =
+      getDraggableDimension({
         descriptor: {
           id: 'is-visible-due-to-overscanning',
           droppableId: foreign.descriptor.id,
@@ -116,8 +116,7 @@ import scrollViewport from '../../../../src/state/scroll-viewport';
           [axis.start]: viewport.frame[axis.end] + 1,
           [axis.end]: viewport.frame[axis.end] + 100,
         },
-      },
-    );
+      });
 
     const isNotVisible: DraggableDimension = getDraggableDimension({
       descriptor: {

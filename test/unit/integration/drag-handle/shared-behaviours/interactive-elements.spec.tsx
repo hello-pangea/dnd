@@ -30,21 +30,20 @@ forEachSensor((control: Control) => {
 
   it('should not drag if the handle is an interactive element', () => {
     mixedCase.forEach((tagName) => {
-      const renderItem = (item: Item) => (
-        provided: DraggableProvided,
-        snapshot: DraggableStateSnapshot,
-      ) => {
-        const TagName = tagName;
-        return (
-          <TagName
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
-            data-is-dragging={snapshot.isDragging}
-            data-testid={item.id}
-          />
-        );
-      };
+      const renderItem =
+        (item: Item) =>
+        (provided: DraggableProvided, snapshot: DraggableStateSnapshot) => {
+          const TagName = tagName;
+          return (
+            <TagName
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              ref={provided.innerRef}
+              data-is-dragging={snapshot.isDragging}
+              data-testid={item.id}
+            />
+          );
+        };
 
       const { unmount, getByTestId } = render(<App renderItem={renderItem} />);
       const handle: HTMLElement = getByTestId('0');
@@ -60,21 +59,20 @@ forEachSensor((control: Control) => {
   it('should allow dragging from an interactive handle if instructed', () => {
     mixedCase.forEach((tagName) => {
       const items: Item[] = [{ id: '0', canDragInteractiveElements: true }];
-      const renderItem = (item: Item) => (
-        provided: DraggableProvided,
-        snapshot: DraggableStateSnapshot,
-      ) => {
-        const TagName = tagName;
-        return (
-          <TagName
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
-            data-is-dragging={snapshot.isDragging}
-            data-testid={item.id}
-          />
-        );
-      };
+      const renderItem =
+        (item: Item) =>
+        (provided: DraggableProvided, snapshot: DraggableStateSnapshot) => {
+          const TagName = tagName;
+          return (
+            <TagName
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              ref={provided.innerRef}
+              data-is-dragging={snapshot.isDragging}
+              data-testid={item.id}
+            />
+          );
+        };
 
       const { unmount, getByTestId } = render(
         <App items={items} renderItem={renderItem} />,
@@ -91,23 +89,22 @@ forEachSensor((control: Control) => {
 
   it('should not start a drag if the parent is interactive', () => {
     mixedCase.forEach((tagName) => {
-      const renderItem = (item: Item) => (
-        provided: DraggableProvided,
-        snapshot: DraggableStateSnapshot,
-      ) => {
-        const TagName = tagName;
-        return (
-          <div
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
-            data-is-dragging={snapshot.isDragging}
-            data-testid={`handle-${item.id}`}
-          >
-            <TagName data-testid={`inner-${item.id}`} />
-          </div>
-        );
-      };
+      const renderItem =
+        (item: Item) =>
+        (provided: DraggableProvided, snapshot: DraggableStateSnapshot) => {
+          const TagName = tagName;
+          return (
+            <div
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              ref={provided.innerRef}
+              data-is-dragging={snapshot.isDragging}
+              data-testid={`handle-${item.id}`}
+            >
+              <TagName data-testid={`inner-${item.id}`} />
+            </div>
+          );
+        };
 
       const { unmount, getByTestId } = render(<App renderItem={renderItem} />);
       const inner: HTMLElement = getByTestId('inner-0');
@@ -124,23 +121,22 @@ forEachSensor((control: Control) => {
   it('should allow dragging from with an interactive parent if instructed', () => {
     mixedCase.forEach((tagName) => {
       const items: Item[] = [{ id: '0', canDragInteractiveElements: true }];
-      const renderItem = (item: Item) => (
-        provided: DraggableProvided,
-        snapshot: DraggableStateSnapshot,
-      ) => {
-        const TagName = tagName;
-        return (
-          <div
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
-            data-is-dragging={snapshot.isDragging}
-            data-testid={`handle-${item.id}`}
-          >
-            <TagName data-testid={`inner-${item.id}`} />
-          </div>
-        );
-      };
+      const renderItem =
+        (item: Item) =>
+        (provided: DraggableProvided, snapshot: DraggableStateSnapshot) => {
+          const TagName = tagName;
+          return (
+            <div
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              ref={provided.innerRef}
+              data-is-dragging={snapshot.isDragging}
+              data-testid={`handle-${item.id}`}
+            >
+              <TagName data-testid={`inner-${item.id}`} />
+            </div>
+          );
+        };
 
       const { unmount, getByTestId } = render(
         <App items={items} renderItem={renderItem} />,

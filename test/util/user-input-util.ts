@@ -109,12 +109,11 @@ export const mouseEvent = (
   });
 };
 
-export const withKeyboard = (keyCode: number) => (
-  wrapper: ReactWrapper<any>,
-  options: any = {},
-): void => {
-  wrapper.simulate('keydown', { keyCode, ...options });
-};
+export const withKeyboard =
+  (keyCode: number) =>
+  (wrapper: ReactWrapper<any>, options: any = {}): void => {
+    wrapper.simulate('keydown', { keyCode, ...options });
+  };
 
 export const touchEvent = (
   eventName: string,

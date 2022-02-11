@@ -27,23 +27,25 @@ type RowProps = {
 
 // Using a higher order function so that we can look up the quotes data to retrieve
 // our quote from within the rowRender function
-const getRowRender = (quotes: Quote[]) => ({ index, style }: RowProps) => {
-  const quote: Quote = quotes[index];
+const getRowRender =
+  (quotes: Quote[]) =>
+  ({ index, style }: RowProps) => {
+    const quote: Quote = quotes[index];
 
-  return (
-    <Draggable draggableId={quote.id} index={index} key={quote.id}>
-      {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
-        <QuoteItem
-          provided={provided}
-          quote={quote}
-          isDragging={snapshot.isDragging}
-          style={{ margin: 0, ...style }}
-          index={index}
-        />
-      )}
-    </Draggable>
-  );
-};
+    return (
+      <Draggable draggableId={quote.id} index={index} key={quote.id}>
+        {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
+          <QuoteItem
+            provided={provided}
+            quote={quote}
+            isDragging={snapshot.isDragging}
+            style={{ margin: 0, ...style }}
+            index={index}
+          />
+        )}
+      </Draggable>
+    );
+  };
 
 function App(props: Props): ReactElement {
   const [quotes, setQuotes] = useState(() => props.initial);

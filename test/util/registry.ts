@@ -157,9 +157,9 @@ export const populate = (
 
 export const resetWatcher = (watcher: DimensionWatcher): void => {
   watcher.draggable.getDimension.mockReset();
-  (Object.keys(watcher.droppable) as Array<
-    keyof typeof watcher.droppable
-  >).forEach((key) => {
+  (
+    Object.keys(watcher.droppable) as Array<keyof typeof watcher.droppable>
+  ).forEach((key) => {
     watcher.droppable[key].mockReset();
   });
 };

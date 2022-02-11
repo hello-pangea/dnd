@@ -10,9 +10,8 @@ import type { DroppableContextValue } from '../context/droppable-context';
 // We can use this to render a draggable with more control
 // It is used by a Droppable to render a clone
 export function PrivateDraggable(props: PrivateOwnProps) {
-  const droppableContext: DroppableContextValue = useRequiredContext(
-    DroppableContext,
-  );
+  const droppableContext: DroppableContextValue =
+    useRequiredContext(DroppableContext);
   // The droppable can render a clone of the draggable item.
   // In that case we unmount the existing dragging item
   const isUsingCloneFor: DraggableId | null = droppableContext.isUsingCloneFor;

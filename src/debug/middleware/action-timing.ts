@@ -2,16 +2,16 @@
 import * as timings from '../timings';
 import type { Action } from '../../state/store-types';
 
-export default () => (next: (a: Action) => unknown) => (
-  action: Action,
-): any => {
-  timings.forceEnable();
-  const key = `redux action: ${action.type}`;
-  timings.start(key);
+export default () =>
+  (next: (a: Action) => unknown) =>
+  (action: Action): any => {
+    timings.forceEnable();
+    const key = `redux action: ${action.type}`;
+    timings.start(key);
 
-  const result: unknown = next(action);
+    const result: unknown = next(action);
 
-  timings.finish(key);
+    timings.finish(key);
 
-  return result;
-};
+    return result;
+  };

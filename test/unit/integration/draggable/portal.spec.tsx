@@ -19,28 +19,27 @@ afterAll(() => {
   getBodyElement().removeChild(portal);
 });
 
-const renderItem = (item: Item) => (
-  provided: DraggableProvided,
-  snapshot: DraggableStateSnapshot,
-) => {
-  const child: ReactNode = (
-    <div
-      ref={provided.innerRef}
-      {...provided.draggableProps}
-      {...provided.dragHandleProps}
-      data-testid={item.id}
-      data-is-dragging={snapshot.isDragging}
-    >
-      Drag me!
-    </div>
-  );
+const renderItem =
+  (item: Item) =>
+  (provided: DraggableProvided, snapshot: DraggableStateSnapshot) => {
+    const child: ReactNode = (
+      <div
+        ref={provided.innerRef}
+        {...provided.draggableProps}
+        {...provided.dragHandleProps}
+        data-testid={item.id}
+        data-is-dragging={snapshot.isDragging}
+      >
+        Drag me!
+      </div>
+    );
 
-  if (!snapshot.isDragging) {
-    return child;
-  }
+    if (!snapshot.isDragging) {
+      return child;
+    }
 
-  return ReactDOM.createPortal(child, portal);
-};
+    return ReactDOM.createPortal(child, portal);
+  };
 
 it('should allow consumers to use their own portal', () => {
   const { getByTestId } = render(<App renderItem={renderItem} />);

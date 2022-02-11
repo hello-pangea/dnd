@@ -173,10 +173,6 @@ export default class TaskApp extends Component<unknown, State> {
     });
   };
 
-  unselect = (): void => {
-    this.unselectAll();
-  };
-
   unselectAll = (): void => {
     this.setState({
       selectedTaskIds: [],

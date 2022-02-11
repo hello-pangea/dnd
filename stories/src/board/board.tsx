@@ -54,8 +54,6 @@ export default class Board extends Component<Props, State> {
     ordered: Object.keys(this.props.initial),
   };
 
-  boardRef: HTMLElement | undefined | null;
-
   onDragEnd = (result: DropResult): void => {
     if (result.combine) {
       if (result.type === 'COLUMN') {

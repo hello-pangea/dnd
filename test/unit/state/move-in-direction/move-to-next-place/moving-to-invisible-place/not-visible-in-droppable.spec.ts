@@ -284,13 +284,12 @@ import { emptyGroups } from '../../../../../../src/state/no-impact';
           droppable: scrolled,
           draggables,
         });
-        const previousClientSelection: Position = getClientFromPageBorderBoxCenter(
-          {
+        const previousClientSelection: Position =
+          getClientFromPageBorderBoxCenter({
             pageBorderBoxCenter: previousPageBorderBoxCenter,
             draggable: inHome,
             viewport,
-          },
-        );
+          });
 
         // figure out where we would have been if it was visible
 

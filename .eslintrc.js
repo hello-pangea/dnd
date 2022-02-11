@@ -1,10 +1,5 @@
 module.exports = {
-  extends: [
-    'prettier',
-    'airbnb',
-    'prettier/react',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['airbnb', 'prettier', 'plugin:prettier/recommended'],
   plugins: ['prettier', '@emotion', 'react', 'react-hooks', 'import', 'es5'],
   parser: '@babel/eslint-parser',
   env: {
@@ -94,6 +89,14 @@ module.exports = {
       },
     ],
 
+    // https://github.com/airbnb/javascript/issues/2500
+    'no-restricted-exports': [
+      'error',
+      {
+        restrictedNamedExports: ['then'],
+      },
+    ],
+
     // Allowing Math.pow rather than forcing `**`
     'no-restricted-properties': [
       'off',
@@ -130,6 +133,11 @@ module.exports = {
           },
         ],
       },
+    ],
+
+    'react/function-component-definition': [
+      'error',
+      { namedComponents: ['arrow-function', 'function-declaration'] },
     ],
 
     // Allowing jsx in files with any file extension (old components have jsx but not the extension)
@@ -241,7 +249,7 @@ module.exports = {
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
-        'prettier/@typescript-eslint',
+        'prettier',
       ],
       plugins: ['@typescript-eslint'],
       parser: '@typescript-eslint/parser',

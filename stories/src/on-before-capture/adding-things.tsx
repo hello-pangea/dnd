@@ -10,17 +10,14 @@ import reorder, { moveBetween } from '../reorder';
 let uniqueId = 0;
 function getTasks(count: number): Task[] {
   // eslint-disable-next-line no-restricted-syntax
-  return Array.from(
-    { length: count },
-    (): Task => {
-      const id = `${uniqueId++}`;
+  return Array.from({ length: count }, (): Task => {
+    const id = `${uniqueId++}`;
 
-      return {
-        id,
-        content: `task: ${id}`,
-      };
-    },
-  );
+    return {
+      id,
+      content: `task: ${id}`,
+    };
+  });
 }
 
 interface ItemProps {

@@ -82,6 +82,7 @@ export default class QuoteApp extends Component<Props, State> {
   };
 
   // TODO
+  // eslint-disable-next-line react/no-unused-class-component-methods
   getDisabledDroppable = (sourceDroppable?: string | null): string | null => {
     if (!sourceDroppable) {
       return null;

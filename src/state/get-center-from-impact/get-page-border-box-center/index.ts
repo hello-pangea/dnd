@@ -55,9 +55,8 @@ const getResultWithoutDroppableDisplacement = ({
 };
 
 export default (args: Args): Position => {
-  const withoutDisplacement: Position = getResultWithoutDroppableDisplacement(
-    args,
-  );
+  const withoutDisplacement: Position =
+    getResultWithoutDroppableDisplacement(args);
 
   const droppable: DroppableDimension | null = args.droppable;
 

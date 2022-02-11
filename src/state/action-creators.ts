@@ -129,7 +129,8 @@ export type UpdateDroppableIsEnabledAction = {
   payload: UpdateDroppableIsEnabledArgs;
 };
 
-export type UpdateDroppableIsEnabledActionCreator = typeof updateDroppableIsEnabled;
+export type UpdateDroppableIsEnabledActionCreator =
+  typeof updateDroppableIsEnabled;
 
 export const updateDroppableIsEnabled = (
   args: UpdateDroppableIsEnabledArgs,
@@ -148,7 +149,8 @@ export type UpdateDroppableIsCombineEnabledAction = {
   payload: UpdateDroppableIsCombineEnabledArgs;
 };
 
-export type UpdateDroppableIsCombineEnabledActionCreator = typeof updateDroppableIsCombineEnabled;
+export type UpdateDroppableIsCombineEnabledActionCreator =
+  typeof updateDroppableIsCombineEnabled;
 
 export const updateDroppableIsCombineEnabled = (
   args: UpdateDroppableIsCombineEnabledArgs,
@@ -200,7 +202,8 @@ export type UpdateViewportMaxScrollAction = {
   payload: UpdateViewportMaxScrollArgs;
 };
 
-export type UpdateViewportMaxScrollActionCreator = typeof updateViewportMaxScroll;
+export type UpdateViewportMaxScrollActionCreator =
+  typeof updateViewportMaxScroll;
 
 export const updateViewportMaxScroll = (
   args: UpdateViewportMaxScrollArgs,

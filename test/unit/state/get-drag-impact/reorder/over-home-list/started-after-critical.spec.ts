@@ -120,13 +120,12 @@ import {
         displacedBy.point,
       );
 
-      const offsetForStartOnDisplacedInHome2Center: Position = getOffsetForStartEdge(
-        {
+      const offsetForStartOnDisplacedInHome2Center: Position =
+        getOffsetForStartEdge({
           startEdgeOn: displacedInHome3Center,
           dragging: preset.inHome2.page.borderBox,
           axis,
-        },
-      );
+        });
 
       // still not far enough
       {

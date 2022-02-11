@@ -28,11 +28,8 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
   const getRef = useCallback((): HTMLElement | null => ref.current, []);
 
   // context
-  const {
-    contextId,
-    dragHandleUsageInstructionsId,
-    registry,
-  } = useRequiredContext(AppContext);
+  const { contextId, dragHandleUsageInstructionsId, registry } =
+    useRequiredContext(AppContext);
   const { type, droppableId } = useRequiredContext(DroppableContext);
 
   const descriptor: DraggableDescriptor = useMemo(

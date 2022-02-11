@@ -11,11 +11,7 @@ import App from '../../util/app';
 
 it('should block a single click if requested', () => {
   const sensor = jest.fn<void, [SensorAPI]>();
-  const { getByText } = render(
-    <React.Fragment>
-      <App sensors={[sensor]} />
-    </React.Fragment>,
-  );
+  const { getByText } = render(<App sensors={[sensor]} />);
   const handle: HTMLElement = getByText('item: 0');
   const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api);
@@ -40,11 +36,7 @@ it('should block a single click if requested', () => {
 it('should not block any clicks if not requested', () => {
   const sensor = jest.fn<void, [SensorAPI]>();
 
-  const { getByText } = render(
-    <React.Fragment>
-      <App sensors={[sensor]} />
-    </React.Fragment>,
-  );
+  const { getByText } = render(<App sensors={[sensor]} />);
   const handle: HTMLElement = getByText('item: 0');
   const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api, 'expected api to be set');
@@ -68,11 +60,7 @@ it('should not block any clicks after a timeout', () => {
 
   const sensor = jest.fn<void, [SensorAPI]>();
 
-  const { getByText } = render(
-    <React.Fragment>
-      <App sensors={[sensor]} />
-    </React.Fragment>,
-  );
+  const { getByText } = render(<App sensors={[sensor]} />);
   const handle: HTMLElement = getByText('item: 0');
   const api: SensorAPI | undefined = sensor.mock.calls[0]?.[0];
   invariant(api);

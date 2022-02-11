@@ -35,25 +35,23 @@ export default ({
   const windowScrollChange: Position = viewport.scroll.diff.value;
   // These modified droppables have already had their scroll changes correctly updated
 
-  return additions.map(
-    (draggable: DraggableDimension): DraggableDimension => {
-      const droppableId: DroppableId = draggable.descriptor.droppableId;
-      const modified: DroppableDimension = updatedDroppables[droppableId];
-      const frame: Scrollable = getFrame(modified);
-      const droppableScrollChange: Position = frame.scroll.diff.value;
+  return additions.map((draggable: DraggableDimension): DraggableDimension => {
+    const droppableId: DroppableId = draggable.descriptor.droppableId;
+    const modified: DroppableDimension = updatedDroppables[droppableId];
+    const frame: Scrollable = getFrame(modified);
+    const droppableScrollChange: Position = frame.scroll.diff.value;
 
-      const totalChange: Position = add(
-        windowScrollChange,
-        droppableScrollChange,
-      );
+    const totalChange: Position = add(
+      windowScrollChange,
+      droppableScrollChange,
+    );
 
-      const moved: DraggableDimension = offsetDraggable({
-        draggable,
-        offset: totalChange,
-        initialWindowScroll: viewport.scroll.initial,
-      });
+    const moved: DraggableDimension = offsetDraggable({
+      draggable,
+      offset: totalChange,
+      initialWindowScroll: viewport.scroll.initial,
+    });
 
-      return moved;
-    },
-  );
+    return moved;
+  });
 };

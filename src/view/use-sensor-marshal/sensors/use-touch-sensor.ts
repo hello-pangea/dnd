@@ -268,9 +268,8 @@ export default function useTouchSensor(api: SensorAPI) {
         // browser interactions as possible.
         // This includes navigation on anchors which we want to preserve
 
-        const draggableId: DraggableId | null = api.findClosestDraggableId(
-          event,
-        );
+        const draggableId: DraggableId | null =
+          api.findClosestDraggableId(event);
 
         if (!draggableId) {
           return;

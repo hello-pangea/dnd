@@ -155,9 +155,8 @@ export default function useKeyboardSensor(api: SensorAPI) {
           return;
         }
 
-        const draggableId: DraggableId | null = api.findClosestDraggableId(
-          event,
-        );
+        const draggableId: DraggableId | null =
+          api.findClosestDraggableId(event);
 
         if (!draggableId) {
           return;

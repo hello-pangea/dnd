@@ -151,9 +151,8 @@ function getDraggableSelector(): TrySelect {
       const result: DropResult = completed.result;
       const mode: MovementMode = result.mode;
       // these need to be pulled from the result as they can be different to the final impact
-      const draggingOver: DroppableId | null = whatIsDraggedOverFromResult(
-        result,
-      );
+      const draggingOver: DroppableId | null =
+        whatIsDraggedOverFromResult(result);
       const combineWith: DraggableId | null = getCombineWithFromResult(result);
       const duration: number = state.dropDuration;
 
@@ -231,6 +230,7 @@ function getSecondarySelector(): TrySelect {
   const getMemoizedProps = memoizeOne(
     (
       offset: Position,
+      // eslint-disable-next-line default-param-last
       combineTargetFor: DraggableId | null = null,
       shouldAnimateDisplacement: boolean,
     ): MapProps => ({
@@ -370,7 +370,7 @@ const mapDispatchToProps: DispatchProps = {
 // Leaning heavily on the default shallow equality checking
 // that `connect` provides.
 // It avoids needing to do it own within `<Draggable />`
-const ConnectedDraggable = (connect(
+const ConnectedDraggable = connect(
   // returning a function so each component can do its own memoization
   makeMapStateToProps,
   mapDispatchToProps,
@@ -388,6 +388,6 @@ const ConnectedDraggable = (connect(
     areStatePropsEqual: isStrictEqual,
   },
   // FIXME: Typings are really complexe
-)(Draggable) as unknown) as FunctionComponent<PublicOwnProps>;
+)(Draggable) as unknown as FunctionComponent<PublicOwnProps>;
 
 export default ConnectedDraggable;

@@ -6,6 +6,8 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
 
     // Sometimes used for simple examples
+    'class-methods-use-this': 'off',
+    'react/function-component-definition': 'off',
     'react/state-in-constructor': 'off',
   },
 };
