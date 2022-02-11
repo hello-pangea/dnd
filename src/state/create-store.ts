@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { applyMiddleware, createStore, compose } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { applyMiddleware, createStore, compose, StoreEnhancer } from 'redux';
 import reducer from './reducer';
 import lift from './middleware/lift';
 import style from './middleware/style';
@@ -20,10 +19,29 @@ import type { AutoScroller } from './auto-scroller/auto-scroller-types';
 import type { Responders, Announce } from '../types';
 import type { Store } from './store-types';
 
+// For more config
+// See: https://github.com/reduxjs/redux-devtools/blob/main/packages/redux-devtools-extension/src/index.ts#L3
+interface Config {
+  name?: string;
+}
+
+export interface ReduxDevtoolsExtensionCompose {
+  (config: Config): (...funcs: StoreEnhancer[]) => StoreEnhancer;
+  (...funcs: StoreEnhancer[]): StoreEnhancer;
+}
+
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: ReduxDevtoolsExtensionCompose;
+  }
+}
+
+// See: https://github.com/reduxjs/redux-devtools/blob/main/packages/redux-devtools-extension/src/index.ts#L219-L222
 const composeEnhancers =
-  process.env.NODE_ENV !== 'production'
-    ? // Details: https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/Recipes.md#using-in-a-typescript-project
-      composeWithDevTools({
+  process.env.NODE_ENV !== 'production' &&
+  typeof window !== 'undefined' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
         name: '@react-forked/dnd',
       })
     : compose;
