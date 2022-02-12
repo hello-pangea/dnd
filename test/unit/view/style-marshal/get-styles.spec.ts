@@ -15,6 +15,11 @@ const styles: Styles = getStyles('hey');
           extends: ['stylelint-config-recommended'],
           // basic semi colin rules
           rules: {
+            // Temporaly disabled, because of an issue with this rule
+            // See: - https://github.com/stylelint/stylelint/issues/5904
+            //      - https://github.com/niksy/css-functions-list/issues/2
+            'function-no-unknown': null,
+
             'no-extra-semicolons': true,
             'declaration-block-semicolon-space-after': 'always-single-line',
           },
