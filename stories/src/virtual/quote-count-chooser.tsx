@@ -1,5 +1,5 @@
 import React, { ChangeEvent, ReactElement } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { colors } from '@atlaskit/theme';
 import { grid, borderRadius } from '../constants';
 

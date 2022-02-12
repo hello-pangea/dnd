@@ -83,7 +83,6 @@
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
     "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@emotion/core": "^11.0.0",
     "@emotion/eslint-plugin": "^11.7.0",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",

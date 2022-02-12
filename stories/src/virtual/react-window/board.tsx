@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactElement, useReducer } from 'react';
 import { FixedSizeList as List, areEqual } from 'react-window';
 import styled from '@emotion/styled';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { colors } from '@atlaskit/theme';
 import type { QuoteMap, Quote } from '../../types';
 import Title from '../../primatives/title';

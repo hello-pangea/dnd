@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'react-virtualized/styles.css';
 import { List } from 'react-virtualized';
 import styled from '@emotion/styled';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { colors } from '@atlaskit/theme';
 import type {
   DropResult,
