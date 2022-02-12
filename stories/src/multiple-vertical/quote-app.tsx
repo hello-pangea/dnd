@@ -29,7 +29,7 @@ const HorizontalScrollContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgb(0 0 0 / 10%);
   padding: ${grid}px;
   max-width: 400px;
   overflow: auto;
@@ -40,7 +40,7 @@ const VerticalScrollContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgb(0 0 0 / 10%);
   padding: ${grid}px;
   max-height: 800px;
   overflow: auto;

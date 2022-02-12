@@ -33,7 +33,7 @@ const ArrowBox = styled.div`
 `;
 
 const Button = styled.button`
-  --off-white: hsla(60, 100%, 98%, 1);
+  --off-white: hsl(60deg 100% 98% / 100%);
   --dark-off-white: #efefe3;
   --darker-off-white: #d6d6cb;
   --border-width: 4px;
