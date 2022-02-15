@@ -37,7 +37,7 @@
     "prettier_target": "*.{js,jsx,ts,tsx,md,json} src/**/*.{js,jsx,ts,tsx,md,json} test/**/*.{js,jsx,ts,tsx,md,json} docs/**/*.{js,jsx,ts,tsx,md,json} stories/**/*.{js,jsx,ts,tsx,md,json} cypress/**/*.{js,jsx,ts,tsx,md,json} csp-server/**/*.{js,jsx,ts,tsx,md,json}"
   },
   "scripts": {
-    "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=single-vertical-list--basic --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
+    "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=single-vertical-list--basic --no-enable-error-reporting --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
     "test": "jest --config ./jest.config.js",
     "test:ci": "jest test --maxWorkers=2",
     "test:browser": "cypress open",
@@ -146,7 +146,7 @@
     "jest-junit": "^13.0.0",
     "jest-watch-typeahead": "^1.0.0",
     "jsdom": "^19.0.0",
-    "lighthouse": "^7.0.0",
+    "lighthouse": "^9.3.1",
     "markdown-it": "^12.3.2",
     "prettier": "^2.5.1",
     "raf-stub": "^3.0.0",
