@@ -1,14 +1,14 @@
 /**
  * @jest-environment node
  */
-import globby from 'globby';
+import fg from 'fast-glob';
 import * as fs from 'fs-extra';
 // Disabling eslint design to prevent using regeneratorRuntime in distributions
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-await-in-loop */
 
 it('should end all nested docs with a link back to the documentation root', async () => {
-  const files: string[] = await globby('docs/**/*.md');
+  const files: string[] = await fg('docs/**/*.md');
   expect(files.length).toBeGreaterThan(0);
   const backLink = '[← Back to documentation](/README.md#documentation-)';
 
@@ -32,7 +32,7 @@ it('should end all nested docs with a link back to the documentation root', asyn
 });
 
 it('should use correct wording', async () => {
-  const files: string[] = await globby(['**/*.md', '!node_modules/']);
+  const files: string[] = await fg(['**/*.md', '!**/node_modules/**']);
   expect(files.length).toBeGreaterThan(0);
 
   for (const file of files) {

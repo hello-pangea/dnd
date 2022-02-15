@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import globby from 'globby';
+import fg from 'fast-glob';
 import * as fs from 'fs-extra';
 import type Token from 'markdown-it/lib/token';
 import getProcessor from 'markdown-it';
@@ -63,7 +63,7 @@ const parse = (token: Token, file: string, files: string[]) => {
 };
 
 it('should use have no dead links', async () => {
-  const files: string[] = await globby(['**/*.md', '!node_modules/']);
+  const files: string[] = await fg(['**/*.md', '!**/node_modules/**']);
   expect(files.length).toBeGreaterThan(0);
 
   for (const file of files) {
