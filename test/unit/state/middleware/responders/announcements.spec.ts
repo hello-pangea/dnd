@@ -25,7 +25,13 @@ import createResponders from './util/get-responders-stub';
 import getAnnounce from './util/get-announce-stub';
 import getCompletedWithResult from './util/get-completed-with-result';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers('legacy');
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 type Case = {
   responder: 'onDragStart' | 'onDragUpdate' | 'onDragEnd';

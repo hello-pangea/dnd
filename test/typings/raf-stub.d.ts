@@ -1,4 +1,11 @@
 declare module 'raf-stub' {
-  // eslint-disable-next-line no-shadow
-  function replaceRaf(globalObject: globalThis[]): void;
+  interface Stub {
+    add: (cb: () => void) => number;
+    remove: (id: number) => void;
+    flush: (duration?: number) => void;
+    reset: () => void;
+    step: (steps?: number, duration?: number) => void;
+  }
+
+  export default (a: number, b: number) => Stub;
 }

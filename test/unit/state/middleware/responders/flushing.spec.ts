@@ -26,7 +26,13 @@ const result: DropResult = {
   reason: 'DROP',
 };
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should trigger an on drag start after in the next cycle', () => {
   const responders = getResponders();

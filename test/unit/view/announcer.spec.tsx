@@ -6,7 +6,13 @@ import type { Announce, ContextId } from '../../../src/types';
 import useAnnouncer from '../../../src/view/use-announcer';
 import { getId } from '../../../src/view/use-announcer/use-announcer';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers('legacy');
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 type Props = {
   contextId: ContextId;

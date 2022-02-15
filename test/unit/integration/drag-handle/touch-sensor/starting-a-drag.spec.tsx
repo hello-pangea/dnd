@@ -4,7 +4,13 @@ import App from '../../util/app';
 import { isDragging } from '../../util/helpers';
 import { timeForLongPress } from '../../../../../src/view/use-sensor-marshal/sensors/use-touch-sensor';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 function getTouchStart(handle: HTMLElement): Event {
   return createEvent.touchStart(handle, {

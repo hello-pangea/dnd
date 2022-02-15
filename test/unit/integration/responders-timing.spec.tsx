@@ -33,8 +33,9 @@ class Item extends React.Component<ItemProps> {
 }
 
 beforeEach(() => {
-  jest.useFakeTimers();
+  jest.useFakeTimers('legacy');
 });
+
 afterEach(() => {
   jest.useRealTimers();
 });

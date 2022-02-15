@@ -1,4 +1,5 @@
 module.exports = {
+  testEnvironment: './test/setup/environment.ts',
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
   },

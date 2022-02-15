@@ -11,7 +11,14 @@ import type { Store } from '../../../../../src/state/store-types';
 import getRespondersStub from './util/get-responders-stub';
 import getAnnounce from './util/get-announce-stub';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  // Keep performance usaged
+  jest.useFakeTimers('legacy');
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should call the onDragStart responder when a initial publish occurs', () => {
   const responders = getRespondersStub();

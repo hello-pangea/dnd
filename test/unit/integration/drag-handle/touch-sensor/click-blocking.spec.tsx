@@ -4,7 +4,13 @@ import { act } from 'react-dom/test-utils';
 import App from '../../util/app';
 import { touch, simpleLift } from '../../util/controls';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should block a click after a drag', () => {
   const { getByText } = render(<App />);

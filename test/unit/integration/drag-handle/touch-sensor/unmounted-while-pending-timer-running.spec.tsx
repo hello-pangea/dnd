@@ -5,7 +5,13 @@ import { isDragging } from '../../util/helpers';
 import { touch } from '../../util/controls';
 import { noop } from '../../../../../src/empty';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should cancel a pending drag when unmounted', () => {
   const warn = jest.spyOn(console, 'warn').mockImplementation(noop);

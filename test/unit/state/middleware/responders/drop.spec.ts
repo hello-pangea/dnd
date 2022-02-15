@@ -32,7 +32,13 @@ const result: DropResult = {
   reason: 'DROP',
 };
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should call the onDragEnd responder when a DROP_COMPLETE action occurs', () => {
   const responders = getResponders();

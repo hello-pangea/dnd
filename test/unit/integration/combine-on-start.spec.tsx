@@ -86,7 +86,14 @@ class App extends React.Component<any, State> {
   }
 }
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
+
 it('should allow the changing of combining in onDragStart', () => {
   withPoorDimensionMocks(() => {
     const responders: Responders = {

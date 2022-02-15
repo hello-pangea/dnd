@@ -6,7 +6,13 @@ import * as keyCodes from '../../../../../src/view/key-codes';
 import { simpleLift, touch } from '../../util/controls';
 import supportedEventName from '../../../../../src/view/use-sensor-marshal/sensors/util/supported-page-visibility-event-name';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should prevent default on the event that causes a drop', () => {
   const onDragEnd = jest.fn();

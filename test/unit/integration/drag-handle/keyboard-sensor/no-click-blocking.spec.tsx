@@ -3,7 +3,13 @@ import { render, createEvent, fireEvent } from '@testing-library/react';
 import App from '../../util/app';
 import { simpleLift, keyboard } from '../../util/controls';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should not prevent clicks after a drag', () => {
   // clearing any pending listeners that have leaked from other tests

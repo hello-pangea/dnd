@@ -7,7 +7,13 @@ import { expectIsFull } from './util/expect';
 import getPlaceholderStyle from './util/get-placeholder-style';
 import { placeholder } from './util/data';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should only fire a single transitionend event a single time when transitioning multiple properties', () => {
   const onTransitionEnd = jest.fn();
