@@ -1,3 +1,11 @@
+/**
+ * @jest-environment node
+ *
+ * We've decided to run the stylelint in the node environment
+ * to avoid issues and conflicts with jsdom
+ * See: https://github.com/stylelint/stylelint/issues/5904#issuecomment-1040585353
+ */
+
 import stylelint from 'stylelint';
 import getStyles from '../../../../src/view/use-style-marshal/get-styles';
 
@@ -15,11 +23,6 @@ const styles: Styles = getStyles('hey');
           extends: ['stylelint-config-recommended'],
           // basic semi colin rules
           rules: {
-            // Temporaly disabled, because of an issue with this rule
-            // See: - https://github.com/stylelint/stylelint/issues/5904
-            //      - https://github.com/niksy/css-functions-list/issues/2
-            'function-no-unknown': null,
-
             'no-extra-semicolons': true,
             'declaration-block-semicolon-space-after': 'always-single-line',
           },
