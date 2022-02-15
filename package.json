@@ -122,7 +122,7 @@
     "core-js": "^3.21.0",
     "cross-env": "^7.0.2",
     "csstype": "^3.0.10",
-    "cypress": "^6.2.0",
+    "cypress": "^9.4.1",
     "dotenv": "^16.0.0",
     "emotion-theming": "^11.0.0",
     "enzyme": "^3.11.0",

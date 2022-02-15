@@ -78,6 +78,14 @@ export default class App extends Component<AppProps, AppState> {
   }
 
   onSecurityPolicyViolation = (e: SecurityPolicyViolationEvent) => {
+    // Cypress is injecting css using style tag
+    // which cause SecurityPolicyViolationEvent.
+    // Here we are not counting these error in
+    // the count.
+    if (e.sourceFile.match(/cypress/)) {
+      return;
+    }
+
     this.setState((state) => {
       return { ...state, cspErrors: [...state.cspErrors, e] };
     });
