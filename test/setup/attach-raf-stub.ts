@@ -14,7 +14,7 @@ declare global {
 }
 
 // We need to do this, because it is difficult to override the
-// requestAnimationFrame globally, because when using the 
+// requestAnimationFrame globally, because when using the
 // `jest.useFakeTimers` it change the requestAnimationFrame global
 // method withan other so some of our test do not work. Here we
 // are making sure we have the requestAnimationFrame and

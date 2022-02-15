@@ -4,7 +4,7 @@ import * as fs from 'fs-extra';
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-await-in-loop */
 
-it.only('should end all nested docs with a link back to the documentation root', () => {
+it('should end all nested docs with a link back to the documentation root', () => {
   return globby('docs/**/*.md').then((files: string[]) => {
     expect(files.length).toBeGreaterThan(0);
     const backLink = '[← Back to documentation](/README.md#documentation-)';
