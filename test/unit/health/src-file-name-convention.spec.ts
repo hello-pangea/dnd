@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 import globby from 'globby';
 import { invariant } from '../../../src/invariant';
 import pkg from '../../../package.json';

@@ -11,7 +11,8 @@ export default class MyJSDOMEnvironment extends JSDOMEnvironment {
 
     attachRafStub.call(this);
 
-    // It was missing on the global object
+    // When importing jsdom in one of the test it throws an
+    // error, because TextDecoder and TextEncoder are needed.
     this.global.TextDecoder = TextDecoder as typeof this.global.TextDecoder;
     this.global.TextEncoder = TextEncoder;
   }

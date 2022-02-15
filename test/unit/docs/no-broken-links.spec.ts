@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 import globby from 'globby';
 import * as fs from 'fs-extra';
 import type Token from 'markdown-it/lib/token';
