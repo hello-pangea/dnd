@@ -64,7 +64,7 @@
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "css-box-model": "^1.2.0",
-    "memoize-one": "^5.1.1",
+    "memoize-one": "^6.0.0",
     "raf-schd": "^4.0.3",
     "react-redux": "^7.2.0",
     "redux": "^4.0.4",
