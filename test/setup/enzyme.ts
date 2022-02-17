@@ -2,6 +2,12 @@
 // setting up global enzyme
 import Enzyme from 'enzyme';
 
+declare global {
+  interface ProcessEnv {
+    REACT_VERSION?: string;
+  }
+}
+
 function getAdapter() {
   if (process.env.REACT_VERSION === '16') {
     return require('enzyme-adapter-react-16');
