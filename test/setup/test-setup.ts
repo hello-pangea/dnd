@@ -15,18 +15,6 @@ if (typeof document !== 'undefined') {
     // lots of tests can leave a post-drop click blocker
     // this cleans it up before every test
     fireEvent.click(window);
-
-    // Cleaning up any mocks
-
-    if (jest.isMockFunction(window.getComputedStyle)) {
-      window.getComputedStyle.mockRestore();
-    }
-
-    if (jest.isMockFunction(Element.prototype.getBoundingClientRect)) {
-      // FIXME
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (Element.prototype.getBoundingClientRect as any).mockRestore();
-    }
   });
 }
 

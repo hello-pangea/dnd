@@ -6,13 +6,13 @@ import type { Announce, ContextId } from '../../../src/types';
 import useAnnouncer from '../../../src/view/use-announcer';
 import { getId } from '../../../src/view/use-announcer/use-announcer';
 
-beforeEach(() => {
-  jest.useFakeTimers('legacy');
-});
+// beforeEach(() => {
+//   jest.useFakeTimers();
+// });
 
-afterEach(() => {
-  jest.useRealTimers();
-});
+// afterEach(() => {
+//   jest.useRealTimers();
+// });
 
 type Props = {
   contextId: ContextId;
@@ -54,16 +54,21 @@ it('should apply the appropriate aria attributes and non visibility styles', () 
 });
 
 it('should remove the element when unmounting after a timeout', () => {
+  const mock = getMock();
   const { unmount } = render(
-    <WithAnnouncer contextId="5">{getMock()}</WithAnnouncer>,
+    <WithAnnouncer contextId="5">{mock}</WithAnnouncer>,
   );
 
   unmount();
-  // not unmounted straight away
+
   expect(getElement('5')).toBeTruthy();
 
-  jest.runOnlyPendingTimers();
-  expect(getElement('5')).not.toBeTruthy();
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      expect(getElement('5')).not.toBeTruthy();
+      resolve();
+    });
+  });
 });
 
 it('should set the text content of the announcement element', () => {

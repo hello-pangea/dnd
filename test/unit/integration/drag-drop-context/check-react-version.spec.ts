@@ -2,10 +2,14 @@ import React from 'react';
 import checkReactVersion from '../../../../src/view/drag-drop-context/check-react-version';
 import { peerDependencies } from '../../../../package.json';
 
-const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+let consoleWarnSpy: jest.SpyInstance;
+
+beforeEach(() => {
+  consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+});
 
 afterEach(() => {
-  warn.mockClear();
+  consoleWarnSpy.mockRestore();
 });
 
 it('should pass if the react peer dep version is met', () => {
@@ -13,7 +17,7 @@ it('should pass if the react peer dep version is met', () => {
 
   checkReactVersion(version, version);
 
-  expect(warn).not.toHaveBeenCalled();
+  expect(consoleWarnSpy).not.toHaveBeenCalled();
 });
 
 it('should pass if the react peer dep version is passed', () => {
@@ -24,7 +28,7 @@ it('should pass if the react peer dep version is passed', () => {
 
     checkReactVersion(peerDep, actual);
 
-    expect(warn).not.toHaveBeenCalled();
+    expect(consoleWarnSpy).not.toHaveBeenCalled();
   }
   // minor
   {
@@ -33,7 +37,7 @@ it('should pass if the react peer dep version is passed', () => {
 
     checkReactVersion(peerDep, actual);
 
-    expect(warn).not.toHaveBeenCalled();
+    expect(consoleWarnSpy).not.toHaveBeenCalled();
   }
   // major
   {
@@ -42,7 +46,7 @@ it('should pass if the react peer dep version is passed', () => {
 
     checkReactVersion(peerDep, actual);
 
-    expect(warn).not.toHaveBeenCalled();
+    expect(consoleWarnSpy).not.toHaveBeenCalled();
   }
 });
 
@@ -54,8 +58,8 @@ it('should fail if the react peer dep version is not met', () => {
 
     checkReactVersion(peerDep, actual);
 
-    expect(warn).toHaveBeenCalledTimes(1);
-    warn.mockClear();
+    expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
+    consoleWarnSpy.mockClear();
   }
   // minor not met
   {
@@ -64,8 +68,8 @@ it('should fail if the react peer dep version is not met', () => {
 
     checkReactVersion(peerDep, actual);
 
-    expect(warn).toHaveBeenCalledTimes(1);
-    warn.mockClear();
+    expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
+    consoleWarnSpy.mockClear();
   }
   // major not met
   {
@@ -74,8 +78,8 @@ it('should fail if the react peer dep version is not met', () => {
 
     checkReactVersion(peerDep, actual);
 
-    expect(warn).toHaveBeenCalledTimes(1);
-    warn.mockClear();
+    expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
+    consoleWarnSpy.mockClear();
   }
 });
 
@@ -101,7 +105,7 @@ it('should allow pre release provided versions', () => {
   checkReactVersion(peerDep, alpha);
   checkReactVersion(peerDep, beta);
 
-  expect(warn).not.toHaveBeenCalled();
+  expect(consoleWarnSpy).not.toHaveBeenCalled();
 });
 
 // actually an integration test, but this feels like the right place for it
@@ -111,5 +115,5 @@ it('should pass on the current repo setup', () => {
 
   checkReactVersion(peerDep, actual);
 
-  expect(warn).not.toHaveBeenCalled();
+  expect(consoleWarnSpy).not.toHaveBeenCalled();
 });
