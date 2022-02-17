@@ -4925,18 +4925,7 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist@^4.12.0:
-  version "4.16.0"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.16.0.tgz#410277627500be3cb28a1bfe037586fbedf9488b"
-  integrity sha512-/j6k8R0p3nxOC6kx5JGAxsnhc9ixaWJfYc+TNTzxg6+ARaESAvQGV7h0uNOB4t+pLQJZWzcrMxXOxjgsCj3dqQ==
-  dependencies:
-    caniuse-lite "^1.0.30001165"
-    colorette "^1.2.1"
-    electron-to-chromium "^1.3.621"
-    escalade "^3.1.1"
-    node-releases "^1.1.67"
-
-browserslist@^4.14.5, browserslist@^4.17.5, browserslist@^4.19.1:
+browserslist@^4.12.0, browserslist@^4.14.5, browserslist@^4.17.5, browserslist@^4.19.1:
   version "4.19.1"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.19.1.tgz#4ac0435b35ab655896c31d53018b6dd5e9e4c9a3"
   integrity sha512-u2tbbG5PdKRTUoctO3NBD8FQ5HdPh1ZXPHzp1rwaa5jTc+RV9/+RlWiAIKmjRPQF+xbGM9Kklj5bZQFa2s/38A==
@@ -5150,20 +5139,10 @@ camelize@^1.0.0:
   resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
   integrity sha1-FkpUg+Yw+kMh5a8HAg5TGDGyYJs=
 
-caniuse-lite@^1.0.30001109:
-  version "1.0.30001170"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001170.tgz#0088bfecc6a14694969e391cc29d7eb6362ca6a7"
-  integrity sha512-Dd4d/+0tsK0UNLrZs3CvNukqalnVTRrxb5mcQm8rHL49t7V5ZaTygwXkrq+FB+dVDf++4ri8eJnFEJAB8332PA==
-
-caniuse-lite@^1.0.30001165:
-  version "1.0.30001311"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001311.tgz#682ef3f4e617f1a177ad943de59775ed3032e511"
-  integrity sha512-mleTFtFKfykEeW34EyfhGIFjGCqzhh38Y0LhdQ9aWF+HorZTtdgKV/1hEE0NlFkG2ubvisPV6l400tlbPys98A==
-
-caniuse-lite@^1.0.30001286:
-  version "1.0.30001309"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001309.tgz#e0ee78b9bec0704f67304b00ff3c5c0c768a9f62"
-  integrity sha512-Pl8vfigmBXXq+/yUz1jUwULeq9xhMJznzdc/xwl4WclDAuebcTHVefpz8lE/bMI+UN7TOkSSe7B7RnZd6+dzjA==
+caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001286:
+  version "1.0.30001312"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001312.tgz#e11eba4b87e24d22697dae05455d5aea28550d5f"
+  integrity sha512-Wiz1Psk2MEK0pX3rUzWaunLTZzqS2JYZFzNKqAiJGiuxIjRPLgV6+VDPOg6lQOUxmDwhTlh198JsTTi8Hzw6aQ==
 
 case-sensitive-paths-webpack-plugin@^2.3.0:
   version "2.4.0"
@@ -6502,15 +6481,10 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-electron-to-chromium@^1.3.621:
-  version "1.4.68"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.68.tgz#d79447b6bd1bec9183f166bb33d4bef0d5e4e568"
-  integrity sha512-cId+QwWrV8R1UawO6b9BR1hnkJ4EJPCPAr4h315vliHUtVUJDk39Sg1PMNnaWKfj5x+93ssjeJ9LKL6r8LaMiA==
-
 electron-to-chromium@^1.4.17:
-  version "1.4.67"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.67.tgz#699e59d6959d05f87865e12b3055bbcf492bbbee"
-  integrity sha512-A6a2jEPLueEDfb7kvh7/E94RKKnIb01qL+4I7RFxtajmo+G9F5Ei7HgY5PRbQ4RDrh6DGDW66P0hD5XI2nRAcg==
+  version "1.4.71"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.71.tgz#17056914465da0890ce00351a3b946fd4cd51ff6"
+  integrity sha512-Hk61vXXKRb2cd3znPE9F+2pLWdIOmP7GjiTj45y6L3W/lO+hSnUSUhq+6lEaERWBdZOHbk2s3YV5c9xVl3boVw==
 
 elliptic@^6.5.3:
   version "6.5.3"
@@ -10803,11 +10777,6 @@ node-modules-regexp@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
-
-node-releases@^1.1.67:
-  version "1.1.77"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.77.tgz#50b0cfede855dd374e7585bf228ff34e57c1c32e"
-  integrity sha512-rB1DUFUNAN4Gn9keO2K1efO35IDK7yKHCdCaIMvFO7yUYmmZYeDjnGKle26G4rwj+LKRQpjyUUvMkPglwGCYNQ==
 
 node-releases@^2.0.1:
   version "2.0.2"
