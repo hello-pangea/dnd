@@ -81,7 +81,7 @@ jobs:
 
       - run:
           name: Jest Suite
-          command: yarn test:ci
+          command: yarn test
           environment:
             JEST_JUNIT_OUTPUT: 'test-reports/junit/js-test-results.xml'
 
