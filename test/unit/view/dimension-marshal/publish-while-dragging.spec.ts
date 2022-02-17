@@ -501,9 +501,8 @@ describe('cancelling mid publish', () => {
 
     populate(registry, justCritical);
 
-    const result: StartPublishingResult = marshal.startPublishing(
-      defaultRequest,
-    );
+    const result: StartPublishingResult =
+      marshal.startPublishing(defaultRequest);
     const expected: StartPublishingResult = {
       critical,
       dimensions: justCritical,

@@ -6,7 +6,13 @@ import { touch, simpleLift } from '../../util/controls';
 import { forcePressThreshold } from '../../../../../src/view/use-sensor-marshal/sensors/use-touch-sensor';
 import { isDragging } from '../../util/helpers';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 function getForceChange(force: number): Event {
   const event = new Event('touchforcechange', {

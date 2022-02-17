@@ -68,6 +68,7 @@ function removeScrollJumpRequest(
 
 const idle: IdleState = { phase: 'IDLE', completed: null, shouldFlush: false };
 
+// eslint-disable-next-line default-param-last
 export default (state: State = idle, action: Action): State => {
   if (action.type === 'FLUSH') {
     return {
@@ -81,13 +82,8 @@ export default (state: State = idle, action: Action): State => {
       state.phase === 'IDLE',
       'INITIAL_PUBLISH must come after a IDLE phase',
     );
-    const {
-      critical,
-      clientSelection,
-      viewport,
-      dimensions,
-      movementMode,
-    } = action.payload;
+    const { critical, clientSelection, viewport, dimensions, movementMode } =
+      action.payload;
 
     const draggable: DraggableDimension =
       dimensions.draggables[critical.draggable.id];

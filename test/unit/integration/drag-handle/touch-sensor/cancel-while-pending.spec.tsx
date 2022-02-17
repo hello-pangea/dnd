@@ -5,7 +5,13 @@ import { isDragging } from '../../util/helpers';
 import supportedEventName from '../../../../../src/view/use-sensor-marshal/sensors/util/supported-page-visibility-event-name';
 import { touch } from '../../util/controls';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 const events: string[] = [
   'orientationchange',

@@ -10,8 +10,9 @@ const compiler = webpack(config);
 
 compiler.outputFileSystem = fs;
 
-const outputPath = compiler.compilers.find((cfg) => cfg.name === 'client')
-  .outputPath;
+const outputPath = compiler.compilers.find(
+  (cfg) => cfg.name === 'client',
+).outputPath;
 
 compiler.run(() => {
   const content = fs.readFileSync(path.resolve(outputPath, 'server.js'));

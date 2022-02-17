@@ -4,7 +4,13 @@ import App from '../../util/app';
 import { touch } from '../../util/controls';
 import { isDragging } from '../../util/helpers';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should opt of a context menu', () => {
   const { getByText } = render(<App />);

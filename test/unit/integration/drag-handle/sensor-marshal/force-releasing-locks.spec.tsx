@@ -9,11 +9,7 @@ it('should correctly state whether a lock is claimed', () => {
   const b = jest.fn<void, [SensorAPI]>();
   const onForceStop = jest.fn();
 
-  render(
-    <React.Fragment>
-      <App sensors={[a, b]} />
-    </React.Fragment>,
-  );
+  render(<App sensors={[a, b]} />);
   const first: SensorAPI | undefined = a.mock.calls[0]?.[0];
   const second: SensorAPI | undefined = b.mock.calls[0]?.[0];
   invariant(first, 'expected first to be set');

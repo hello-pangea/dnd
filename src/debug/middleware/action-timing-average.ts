@@ -18,34 +18,36 @@ export default (groupSize: number) => {
   console.log(`Will take an average every ${groupSize} actions`);
   const bucket: Bucket = {};
 
-  return () => (next: (a: Action) => unknown) => (action: Action): any => {
-    const start: number = performance.now();
+  return () =>
+    (next: (a: Action) => unknown) =>
+    (action: Action): any => {
+      const start: number = performance.now();
 
-    const result: unknown = next(action);
+      const result: unknown = next(action);
 
-    const end: number = performance.now();
+      const end: number = performance.now();
 
-    const duration: number = end - start;
+      const duration: number = end - start;
 
-    if (!bucket[action.type]) {
-      bucket[action.type] = [duration];
+      if (!bucket[action.type]) {
+        bucket[action.type] = [duration];
+        return result;
+      }
+
+      bucket[action.type].push(duration);
+
+      if (bucket[action.type].length < groupSize) {
+        return result;
+      }
+
+      console.warn(
+        `Average time for ${action.type}`,
+        average(bucket[action.type]),
+      );
+
+      // reset
+      bucket[action.type] = [];
+
       return result;
-    }
-
-    bucket[action.type].push(duration);
-
-    if (bucket[action.type].length < groupSize) {
-      return result;
-    }
-
-    console.warn(
-      `Average time for ${action.type}`,
-      average(bucket[action.type]),
-    );
-
-    // reset
-    bucket[action.type] = [];
-
-    return result;
-  };
+    };
 };

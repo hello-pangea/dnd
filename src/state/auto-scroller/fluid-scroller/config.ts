@@ -10,7 +10,7 @@ const config = {
   // A simple linear function would be: (percentage) => percentage;
   // percentage is between 0 and 1
   // result must be between 0 and 1
-  ease: (percentage: number): number => Math.pow(percentage, 2),
+  ease: (percentage: number): number => percentage ** 2,
 
   durationDampening: {
     // ms: how long to dampen the speed of an auto scroll from the start of a drag

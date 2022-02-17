@@ -101,9 +101,10 @@ export default function useDroppablePublisher(args: Props) {
     memoizedUpdateScroll(scroll.x, scroll.y);
   }, [getClosestScroll, memoizedUpdateScroll]);
 
-  const scheduleScrollUpdate = useMemo(() => rafSchedule(updateScroll), [
-    updateScroll,
-  ]);
+  const scheduleScrollUpdate = useMemo(
+    () => rafSchedule(updateScroll),
+    [updateScroll],
+  );
 
   const onClosestScroll = useCallback(() => {
     const dragging: WhileDragging | null = whileDraggingRef.current;

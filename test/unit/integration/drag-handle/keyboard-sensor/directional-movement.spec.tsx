@@ -4,7 +4,13 @@ import * as keyCodes from '../../../../../src/view/key-codes';
 import App from '../../util/app';
 import { simpleLift, keyboard } from '../../util/controls';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should move up when pressing the up arrow', () => {
   const onDragUpdate = jest.fn();

@@ -22,9 +22,8 @@ import { getOffsetForEndEdge } from '../util/get-offset-for-edge';
       ...preset.home,
       isCombineEnabled: true,
     };
-    const scrollableHome: DroppableDimension = makeScrollable(
-      withCombineEnabled,
-    );
+    const scrollableHome: DroppableDimension =
+      makeScrollable(withCombineEnabled);
     const { afterCritical, impact: homeImpact } = getLiftEffect({
       draggable: preset.inHome1,
       home: scrollableHome,

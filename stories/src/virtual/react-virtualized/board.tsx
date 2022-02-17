@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'react-virtualized/styles.css';
 import { List } from 'react-virtualized';
 import styled from '@emotion/styled';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { colors } from '@atlaskit/theme';
 import type {
   DropResult,
@@ -35,39 +35,41 @@ type RowProps = {
 
 // Using a higher order function so that we can look up the quotes data to retrieve
 // our quote from within the rowRender function
-const getRowRender = (quotes: Quote[]) => ({ index, style }: RowProps) => {
-  const quote: Quote | undefined | null = quotes[index];
+const getRowRender =
+  (quotes: Quote[]) =>
+  ({ index, style }: RowProps) => {
+    const quote: Quote | undefined | null = quotes[index];
 
-  // We are rendering an extra item for the placeholder
-  // Do do this we increased our data set size to include one 'fake' item
-  if (!quote) {
-    return null;
-  }
+    // We are rendering an extra item for the placeholder
+    // Do do this we increased our data set size to include one 'fake' item
+    if (!quote) {
+      return null;
+    }
 
-  // Faking some nice spacing around the items
-  const patchedStyle = {
-    ...style,
-    // style.left and style.top should be number
-    // https://github.com/bvaughn/react-virtualized/blob/48d3566b66c30047dcfc84efdec86ee55845e790/source/Grid/defaultCellRangeRenderer.js#L67-L91
-    left: (style.left as number) + grid,
-    top: (style.top as number) + grid,
-    width: `calc(${style.width} - ${grid * 2}px)`,
-    height: `calc(${style.height}px - ${grid}px)`,
+    // Faking some nice spacing around the items
+    const patchedStyle = {
+      ...style,
+      // style.left and style.top should be number
+      // https://github.com/bvaughn/react-virtualized/blob/48d3566b66c30047dcfc84efdec86ee55845e790/source/Grid/defaultCellRangeRenderer.js#L67-L91
+      left: (style.left as number) + grid,
+      top: (style.top as number) + grid,
+      width: `calc(${style.width} - ${grid * 2}px)`,
+      height: `calc(${style.height}px - ${grid}px)`,
+    };
+
+    return (
+      <Draggable draggableId={quote.id} index={index} key={quote.id}>
+        {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
+          <QuoteItem
+            provided={provided}
+            quote={quote}
+            isDragging={snapshot.isDragging}
+            style={patchedStyle}
+          />
+        )}
+      </Draggable>
+    );
   };
-
-  return (
-    <Draggable draggableId={quote.id} index={index} key={quote.id}>
-      {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
-        <QuoteItem
-          provided={provided}
-          quote={quote}
-          isDragging={snapshot.isDragging}
-          style={patchedStyle}
-        />
-      )}
-    </Draggable>
-  );
-};
 
 type ColumnProps = {
   columnId: string;

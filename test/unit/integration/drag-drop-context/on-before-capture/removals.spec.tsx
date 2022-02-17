@@ -11,8 +11,15 @@ function getIndex(el: HTMLElement): number {
   return Number(el.getAttribute('data-index'));
 }
 
-it('should adjust captured values for any changes that impact that dragging item', () => {
+beforeEach(() => {
   jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
+
+it('should adjust captured values for any changes that impact that dragging item', () => {
   // 1. Changing the `type` of the Droppable
   // 2. Adding and item before the dragging item to impact it's index
   const onDragStart = jest.fn();
@@ -94,6 +101,4 @@ it('should adjust captured values for any changes that impact that dragging item
     },
   };
   expect(onDragStart.mock.calls[0][0]).toEqual(expected);
-
-  jest.useRealTimers();
 });

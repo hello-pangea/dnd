@@ -177,15 +177,8 @@ function getStyle(provided: DraggableProvided, style?: CSSProperties | null) {
 // things we should be doing in the selector as we do not know if consumers
 // will be using PureComponent
 function QuoteItem(props: Props) {
-  const {
-    quote,
-    isDragging,
-    isGroupedOver,
-    provided,
-    style,
-    isClone,
-    index,
-  } = props;
+  const { quote, isDragging, isGroupedOver, provided, style, isClone, index } =
+    props;
 
   return (
     <Container

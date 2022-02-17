@@ -35,25 +35,25 @@ export type RenderItem = (
   rubric: DraggableRubric,
 ) => ReactNode;
 
-export const defaultItemRender: RenderItem = (item: Item) => (
-  provided: DraggableProvided,
-  snapshot: DraggableStateSnapshot,
-) => (
-  <div
-    {...provided.draggableProps}
-    {...provided.dragHandleProps}
-    data-is-dragging={snapshot.isDragging}
-    data-is-drop-animating={snapshot.isDropAnimating}
-    data-is-combining={Boolean(snapshot.combineWith)}
-    data-is-combine-target={Boolean(snapshot.combineTargetFor)}
-    data-is-over={snapshot.draggingOver}
-    data-is-clone={snapshot.isClone}
-    data-testid={item.id}
-    ref={provided.innerRef}
-  >
-    item: {item.id}
-  </div>
-);
+export const defaultItemRender: RenderItem =
+  (item: Item) =>
+  (provided: DraggableProvided, snapshot: DraggableStateSnapshot) =>
+    (
+      <div
+        {...provided.draggableProps}
+        {...provided.dragHandleProps}
+        data-is-dragging={snapshot.isDragging}
+        data-is-drop-animating={snapshot.isDropAnimating}
+        data-is-combining={Boolean(snapshot.combineWith)}
+        data-is-combine-target={Boolean(snapshot.combineTargetFor)}
+        data-is-over={snapshot.draggingOver}
+        data-is-clone={snapshot.isClone}
+        data-testid={item.id}
+        ref={provided.innerRef}
+      >
+        item: {item.id}
+      </div>
+    );
 
 type Props = {
   items?: Item[];

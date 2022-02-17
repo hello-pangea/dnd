@@ -269,13 +269,12 @@ import { emptyGroups } from '../../../../../../src/state/no-impact';
           droppable: foreign,
           draggables,
         });
-        const previousClientSelection: Position = getClientFromPageBorderBoxCenter(
-          {
+        const previousClientSelection: Position =
+          getClientFromPageBorderBoxCenter({
             pageBorderBoxCenter: previousPageBorderBoxCenter,
             draggable: inHome,
             viewport: scrolled,
-          },
-        );
+          });
         // const previousPageBorderBoxCenter: Position =
         //   initiallyOutsideViewport.page.borderBox.center;
         // const previousClientSelection: Position =

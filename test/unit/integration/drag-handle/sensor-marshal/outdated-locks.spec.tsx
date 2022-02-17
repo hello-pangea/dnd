@@ -9,12 +9,14 @@ import type {
 } from '../../../../../src/types';
 import App from '../../util/app';
 
-function noop() {}
+let consoleWarnSpy: jest.SpyInstance;
 
-const warn = jest.spyOn(console, 'warn').mockImplementation(noop);
+beforeEach(() => {
+  consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+});
 
 afterEach(() => {
-  warn.mockClear();
+  consoleWarnSpy.mockRestore();
 });
 
 it('should not allow pre drag actions when in a dragging phase', () => {
@@ -33,7 +35,7 @@ it('should not allow pre drag actions when in a dragging phase', () => {
   // pre drag now outdated
   expect(preDrag.isActive()).toBe(false);
   preDrag.abort();
-  expect(warn.mock.calls[0][0]).toEqual(
+  expect(consoleWarnSpy.mock.calls[0][0]).toEqual(
     expect.stringContaining('Cannot perform action'),
   );
 
@@ -41,13 +43,13 @@ it('should not allow pre drag actions when in a dragging phase', () => {
   expect(drag.isActive()).toBe(true);
 
   // ending drag
-  warn.mockClear();
+  consoleWarnSpy.mockClear();
   act(() => drag.drop());
-  expect(warn).not.toHaveBeenCalled();
+  expect(consoleWarnSpy).not.toHaveBeenCalled();
 
   // preDrag is still out of date
   preDrag.abort();
-  expect(warn.mock.calls[0][0]).toEqual(
+  expect(consoleWarnSpy.mock.calls[0][0]).toEqual(
     expect.stringContaining('Cannot perform action'),
   );
 });
@@ -69,10 +71,10 @@ it('should not allow drag actions after a drop', () => {
 
   // no longer active
   expect(drag.isActive()).toBe(false);
-  expect(warn).not.toHaveBeenCalled();
+  expect(consoleWarnSpy).not.toHaveBeenCalled();
 
   drag.moveUp();
-  expect(warn.mock.calls[0][0]).toEqual(
+  expect(consoleWarnSpy.mock.calls[0][0]).toEqual(
     expect.stringContaining('Cannot perform action'),
   );
 });

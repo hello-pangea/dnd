@@ -17,7 +17,13 @@ import createResponders from './util/get-responders-stub';
 import type { State, DragUpdate } from '../../../../../src/types';
 import type { Store, Dispatch } from '../../../../../src/state/store-types';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 const start = (dispatch: Dispatch) => {
   dispatch(initialPublish(initialPublishArgs));

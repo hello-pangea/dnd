@@ -61,10 +61,11 @@ export default function validateDimensions(
 ): void {
   // wrapping entire block for better minification
   if (process.env.NODE_ENV !== 'production') {
-    const insideDestination: DraggableDimension[] = getDraggablesInsideDroppable(
-      critical.droppable.id,
-      dimensions.draggables,
-    );
+    const insideDestination: DraggableDimension[] =
+      getDraggablesInsideDroppable(
+        critical.droppable.id,
+        dimensions.draggables,
+      );
     checkIndexes(insideDestination);
   }
 }

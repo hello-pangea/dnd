@@ -32,7 +32,13 @@ const result: DropResult = {
   reason: 'DROP',
 };
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should call the onDragEnd responder when a DROP_COMPLETE action occurs', () => {
   const responders = getResponders();
@@ -54,8 +60,8 @@ it('should throw an exception if there was no drag start published', () => {
   const responders = getResponders();
   const store: Store = createStore(middleware(() => responders, getAnnounce()));
 
-  const borrowed: CompletedDrag = getSimpleStatePreset().dropAnimating()
-    .completed;
+  const borrowed: CompletedDrag =
+    getSimpleStatePreset().dropAnimating().completed;
 
   // throws when in idle
   expect(() =>

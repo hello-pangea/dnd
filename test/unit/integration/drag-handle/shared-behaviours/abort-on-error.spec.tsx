@@ -143,10 +143,16 @@ forEachSensor((control: Control) => {
     simpleLift(control, handle);
     expect(isDragging(handle)).toBe(true);
 
-    withWarn(() => {
-      thrower.execute();
-    });
+    return new Promise<void>((resolve) => {
+      withWarn(() => {
+        window.addEventListener('error', () => {
+          resolve();
+        });
 
-    expect(isDragging(getByText('item: 0'))).toBe(false);
+        thrower.execute();
+      });
+
+      expect(isDragging(getByText('item: 0'))).toBe(false);
+    });
   });
 });

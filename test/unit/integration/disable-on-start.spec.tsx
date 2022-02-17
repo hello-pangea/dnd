@@ -93,7 +93,13 @@ class App extends React.Component<any, State> {
   }
 }
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should allow the disabling of a droppable in onDragStart', () => {
   const responders: Responders = {

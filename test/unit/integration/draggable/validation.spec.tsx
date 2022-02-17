@@ -2,14 +2,18 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { DragDropContext, Droppable, Draggable } from '../../../../src';
 import type { DroppableProvided, DraggableProvided } from '../../../../src';
-import { noop } from '../../../../src/empty';
 
-const error = jest.spyOn(console, 'error').mockImplementation(noop);
-const warn = jest.spyOn(console, 'warn').mockImplementation(noop);
+let consoleErrorSpy: jest.SpyInstance;
+let consoleWarnSpy: jest.SpyInstance;
+
+beforeEach(() => {
+  consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+});
 
 afterEach(() => {
-  error.mockClear();
-  warn.mockClear();
+  consoleErrorSpy.mockRestore();
+  consoleWarnSpy.mockRestore();
 });
 
 type Props = {
@@ -51,10 +55,10 @@ it('should log an error if draggableId is not a string', () => {
       <WithCustomProps draggableId={value} index={0} />,
     );
 
-    expect(error).toHaveBeenCalled();
+    expect(consoleErrorSpy).toHaveBeenCalled();
 
     unmount();
-    error.mockClear();
+    consoleErrorSpy.mockClear();
   });
 });
 
@@ -64,10 +68,10 @@ it('should log an error if index is not an integer', () => {
       <WithCustomProps draggableId="draggable" index={value} />,
     );
 
-    expect(error).toHaveBeenCalled();
+    expect(consoleErrorSpy).toHaveBeenCalled();
 
     unmount();
-    error.mockClear();
+    consoleErrorSpy.mockClear();
   });
 });
 
@@ -103,7 +107,7 @@ it('should log an error if innerRef is not provided', () => {
 
   render(<App />);
 
-  expect(error).toHaveBeenCalled();
+  expect(consoleErrorSpy).toHaveBeenCalled();
 });
 
 it('should log an error if innerRef is an SVG', () => {
@@ -140,7 +144,7 @@ it('should log an error if innerRef is an SVG', () => {
 
   render(<App />);
 
-  expect(error).toHaveBeenCalled();
+  expect(consoleErrorSpy).toHaveBeenCalled();
 });
 
 it('should log an error if no drag handle props are applied', () => {
@@ -175,7 +179,7 @@ it('should log an error if no drag handle props are applied', () => {
 
   render(<App />);
 
-  expect(error).toHaveBeenCalled();
+  expect(consoleErrorSpy).toHaveBeenCalled();
 });
 
 it('should log an error if the draggable is disabled as there will be no drag handle', () => {
@@ -207,8 +211,8 @@ it('should log an error if the draggable is disabled as there will be no drag ha
     );
   }
 
-  error.mockRestore();
+  consoleErrorSpy.mockRestore();
   render(<App />);
 
-  expect(error).not.toHaveBeenCalled();
+  expect(consoleErrorSpy).not.toHaveBeenCalled();
 });

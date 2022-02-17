@@ -97,8 +97,8 @@ export default (getResponders: () => Responders, announce: Announce) => {
     );
     withTimings('onBeforeCapture', () => {
       // No use of screen reader for this responder
-      const fn: OnBeforeCaptureResponder | undefined = getResponders()
-        .onBeforeCapture;
+      const fn: OnBeforeCaptureResponder | undefined =
+        getResponders().onBeforeCapture;
       if (fn) {
         const before: BeforeCapture = {
           draggableId,
@@ -116,8 +116,8 @@ export default (getResponders: () => Responders, announce: Announce) => {
     );
     withTimings('onBeforeDragStart', () => {
       // No use of screen reader for this responder
-      const fn: OnBeforeDragStartResponder | undefined = getResponders()
-        .onBeforeDragStart;
+      const fn: OnBeforeDragStartResponder | undefined =
+        getResponders().onBeforeDragStart;
       if (fn) {
         fn(getDragStart(critical, mode));
       }

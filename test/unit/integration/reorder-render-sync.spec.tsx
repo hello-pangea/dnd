@@ -178,8 +178,15 @@ class App extends React.Component<any, State> {
   }
 }
 
-it('should call the onBeforeDragStart before connected components are updated, and onDragStart after', () => {
+beforeEach(() => {
   jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
+
+it('should call the onBeforeDragStart before connected components are updated, and onDragStart after', () => {
   const clearRenderMocks = () => {
     first.onRender.mockClear();
     second.onRender.mockClear();

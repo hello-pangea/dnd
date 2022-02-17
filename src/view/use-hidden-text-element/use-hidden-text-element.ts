@@ -23,10 +23,10 @@ export default function useHiddenTextElement({
   text,
 }: Args): ElementId {
   const uniqueId: string = useUniqueId('hidden-text', { separator: '-' });
-  const id: ElementId = useMemo(() => getElementId({ contextId, uniqueId }), [
-    uniqueId,
-    contextId,
-  ]);
+  const id: ElementId = useMemo(
+    () => getElementId({ contextId, uniqueId }),
+    [uniqueId, contextId],
+  );
 
   useEffect(
     function mount() {

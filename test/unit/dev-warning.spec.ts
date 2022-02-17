@@ -1,15 +1,19 @@
 import { warning } from '../../src/dev-warning';
 
-const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+let consoleWarnSpy: jest.SpyInstance;
+
+beforeEach(() => {
+  consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+});
 
 afterEach(() => {
-  warn.mockClear();
+  consoleWarnSpy.mockRestore();
 });
 
 it('should log a warning to the console', () => {
   warning('hey');
 
-  expect(warn).toHaveBeenCalled();
+  expect(consoleWarnSpy).toHaveBeenCalled();
 });
 
 it('should not log a warning if warnings are disabled', () => {
@@ -19,7 +23,7 @@ it('should not log a warning if warnings are disabled', () => {
   warning('sup');
   warning('hi');
 
-  expect(warn).not.toHaveBeenCalled();
+  expect(consoleWarnSpy).not.toHaveBeenCalled();
 
   // re-enable
 
@@ -27,5 +31,5 @@ it('should not log a warning if warnings are disabled', () => {
 
   warning('hey');
 
-  expect(warn).toHaveBeenCalled();
+  expect(consoleWarnSpy).toHaveBeenCalled();
 });

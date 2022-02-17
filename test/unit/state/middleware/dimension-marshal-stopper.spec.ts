@@ -18,9 +18,9 @@ import {
 } from '../../../util/preset-action-args';
 
 const getMarshal = (stopPublishing: jest.Mock): DimensionMarshal => {
-  const fake = ({
+  const fake = {
     stopPublishing,
-  } as unknown) as DimensionMarshal;
+  } as unknown as DimensionMarshal;
 
   return fake;
 };

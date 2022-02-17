@@ -147,9 +147,8 @@ describe('on the horizontal axis', () => {
       // disabling the droppable for good measure
       const critical: DroppableDimension =
         custom.dimensions.droppables[custom.critical.droppable.id];
-      custom.dimensions.droppables[
-        custom.critical.droppable.id
-      ] = disableDroppable(critical);
+      custom.dimensions.droppables[custom.critical.droppable.id] =
+        disableDroppable(critical);
 
       // Main axis movement not allowed
       const forward = axis.direction === 'vertical' ? 'MOVE_DOWN' : 'MOVE_LEFT';

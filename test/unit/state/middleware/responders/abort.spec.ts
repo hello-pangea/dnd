@@ -21,7 +21,13 @@ import createResponders from './util/get-responders-stub';
 import getCompletedWithResult from './util/get-completed-with-result';
 import { tryGetDestination } from '../../../../../src/state/get-impact-location';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 it('should call onDragEnd with the last published critical descriptor', () => {
   const responders = createResponders();

@@ -119,13 +119,12 @@ import {
         displacedBy.point,
       );
 
-      const offsetForEndOnDisplacedInHome1Center: Position = getOffsetForEndEdge(
-        {
+      const offsetForEndOnDisplacedInHome1Center: Position =
+        getOffsetForEndEdge({
           endEdgeOn: displacedInHome1Center,
           dragging: preset.inHome3.page.borderBox,
           axis,
-        },
-      );
+        });
 
       // still not far enough
       {

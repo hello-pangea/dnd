@@ -1,10 +1,5 @@
 module.exports = {
-  extends: [
-    'prettier',
-    'airbnb',
-    'prettier/react',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['airbnb', 'prettier', 'plugin:prettier/recommended'],
   plugins: ['prettier', '@emotion', 'react', 'react-hooks', 'import', 'es5'],
   parser: '@babel/eslint-parser',
   env: {
@@ -20,37 +15,37 @@ module.exports = {
   rules: {
     // Error on prettier violations
     'prettier/prettier': 'error',
-
     // New eslint style rules that is not disabled by prettier:
     'lines-between-class-members': 'off',
-
     // Allowing warning and error console logging
     // use `invariant` and `warning`
     'no-console': ['error'],
-
     // Opting out of prefer destructuring
     'prefer-destructuring': 'off',
-
     // Disallowing the use of variables starting with `_` unless it called on `this`.
     // Allowed: `this._secret = Symbol()`
     // Not allowed: `const _secret = Symbol()`
-    'no-underscore-dangle': ['error', { allowAfterThis: true }],
-
+    'no-underscore-dangle': [
+      'error',
+      {
+        allowAfterThis: true,
+      },
+    ],
     // Cannot reassign function parameters but allowing modification
-    'no-param-reassign': ['error', { props: false }],
-
+    'no-param-reassign': [
+      'error',
+      {
+        props: false,
+      },
+    ],
     // Named exports are kewl
     'import/prefer-default-export': 'off',
-
     // Don't tell me what to do!
     'max-classes-per-file': 'off',
-
     // Allowing ++ on numbers
     'no-plusplus': 'off',
-
     // Always enforcing the use of curly braces for if statements
     curly: ['error', 'all'],
-
     'no-restricted-syntax': [
       // Nicer booleans #1
       // Disabling the use of !! to cast to boolean
@@ -94,6 +89,14 @@ module.exports = {
       },
     ],
 
+    // https://github.com/airbnb/javascript/issues/2500
+    'no-restricted-exports': [
+      'error',
+      {
+        restrictedNamedExports: ['then'],
+      },
+    ],
+
     // Allowing Math.pow rather than forcing `**`
     'no-restricted-properties': [
       'off',
@@ -131,60 +134,53 @@ module.exports = {
         ],
       },
     ],
-
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: ['arrow-function', 'function-declaration'],
+      },
+    ],
     // Allowing jsx in files with any file extension (old components have jsx but not the extension)
     'react/jsx-filename-extension': 'off',
-
     // Not requiring default prop declarations all the time
     'react/require-default-props': 'off',
-
     // Opt out of preferring stateless functions
     'react/prefer-stateless-function': 'off',
-
     // Allowing files to have multiple components in it
     'react/no-multi-comp': 'off',
-
     // Sometimes we use the PropTypes.object PropType for simplicity
     'react/forbid-prop-types': 'off',
-
     // Allowing the non function setState approach
     'react/no-access-state-in-setstate': 'off',
-
     // Opting out of this
     'react/destructuring-assignment': 'off',
-
     // Adding 'skipShapeProps' as the rule has issues with correctly handling PropTypes.shape
-    'react/no-unused-prop-types': ['error', { skipShapeProps: true }],
-
+    'react/no-unused-prop-types': [
+      'error',
+      {
+        skipShapeProps: true,
+      },
+    ],
     // Having issues with this rule not working correctly
     'react/default-props-match-prop-types': 'off',
-
     // We do not need PropTypes validation
     'react/prop-types': 'off',
-
     // Allowing functions to be passed as props
     'react/jsx-no-bind': 'off',
-
     // Allowing importing from dev deps (for stories and tests)
     'import/no-extraneous-dependencies': 'off',
-
     // Enforce rules of hooks
     'react-hooks/rules-of-hooks': 'error',
     // Second argument to hook functions
     'react-hooks/exhaustive-deps': 'error',
-
     'react/jsx-props-no-spreading': 'off',
-
     // using <React.Fragment> is fine
     'react/jsx-fragments': 'off',
-
     // all good to declare static class members in the class
     'react/static-property-placement': 'off',
-
     // don't need to initialize state in a constructor
     'react/state-in-constructor': 'off',
   },
-
   overrides: [
     // Forbid using not es5 methods
     {
@@ -193,7 +189,9 @@ module.exports = {
         'es5/no-es6-methods': 'error',
         'es5/no-es6-static-methods': [
           'error',
-          { exceptMethods: ['Object.assign'] },
+          {
+            exceptMethods: ['Object.assign'],
+          },
         ],
       },
     },
@@ -241,7 +239,7 @@ module.exports = {
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
-        'prettier/@typescript-eslint',
+        'prettier',
       ],
       plugins: ['@typescript-eslint'],
       parser: '@typescript-eslint/parser',
@@ -257,16 +255,12 @@ module.exports = {
             tsx: 'never',
           },
         ],
-
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['error'],
-
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': ['error'],
-
         'no-useless-constructor': 'off',
         '@typescript-eslint/no-useless-constructor': ['error'],
-
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-empty-interface': 'off',
       },

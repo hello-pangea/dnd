@@ -230,9 +230,8 @@ export default function useMouseSensor(api: SensorAPI) {
           return;
         }
 
-        const draggableId: DraggableId | null = api.findClosestDraggableId(
-          event,
-        );
+        const draggableId: DraggableId | null =
+          api.findClosestDraggableId(event);
 
         if (!draggableId) {
           return;
@@ -284,9 +283,8 @@ export default function useMouseSensor(api: SensorAPI) {
           return;
         }
 
-        const options: DraggableOptions | null = api.findOptionsForDraggable(
-          id,
-        );
+        const options: DraggableOptions | null =
+          api.findOptionsForDraggable(id);
 
         if (!options) {
           return;

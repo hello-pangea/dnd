@@ -178,12 +178,8 @@ export default class Task extends Component<Props> {
     event.shiftKey;
 
   performAction = (event: MouseEvent | KeyboardEvent): void => {
-    const {
-      task,
-      toggleSelection,
-      toggleSelectionInGroup,
-      multiSelectTo,
-    } = this.props;
+    const { task, toggleSelection, toggleSelectionInGroup, multiSelectTo } =
+      this.props;
 
     if (this.wasToggleInSelectionGroupKeyUsed(event)) {
       toggleSelectionInGroup(task.id);

@@ -69,22 +69,24 @@ export function isOver(el: HTMLElement): string | null {
 
 const preset = getPreset();
 
-export const renderItemAndSpy = (
-  mock: jest.Mock<
-    unknown,
-    [DraggableProvided, DraggableStateSnapshot, DraggableRubric]
-  >,
-): RenderItem => (item: Item) => {
-  const render = defaultItemRender(item);
-  return (
-    provided: DraggableProvided,
-    snapshot: DraggableStateSnapshot,
-    rubric: DraggableRubric,
-  ) => {
-    mock(provided, snapshot, rubric);
-    return render(provided, snapshot, rubric);
+export const renderItemAndSpy =
+  (
+    mock: jest.Mock<
+      unknown,
+      [DraggableProvided, DraggableStateSnapshot, DraggableRubric]
+    >,
+  ): RenderItem =>
+  (item: Item) => {
+    const render = defaultItemRender(item);
+    return (
+      provided: DraggableProvided,
+      snapshot: DraggableStateSnapshot,
+      rubric: DraggableRubric,
+    ) => {
+      mock(provided, snapshot, rubric);
+      return render(provided, snapshot, rubric);
+    };
   };
-};
 
 export type Call = [DraggableProvided, DraggableStateSnapshot, DraggableRubric];
 

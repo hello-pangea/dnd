@@ -32,17 +32,15 @@ const Container = styled.div<ContainerProps>`
     isDragging ? 'box-shadow: 1px 1px 1px grey; background: lightblue' : ''};
 `;
 
-const getPortal = memoizeOne(
-  (): HTMLElement => {
-    invariant(document);
-    const body: HTMLElement = document.body;
-    invariant(body);
-    const el: HTMLElement = document.createElement('div');
-    el.className = 'rfd-portal';
-    body.appendChild(el);
-    return el;
-  },
-);
+const getPortal = memoizeOne((): HTMLElement => {
+  invariant(document);
+  const body: HTMLElement = document.body;
+  invariant(body);
+  const el: HTMLElement = document.createElement('div');
+  el.className = 'rfd-portal';
+  body.appendChild(el);
+  return el;
+});
 
 export default class Task extends Component<Props> {
   render(): ReactElement {

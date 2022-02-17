@@ -1,6 +1,6 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { colors } from '@atlaskit/theme';
 import type {
   DropResult,
@@ -53,8 +53,6 @@ export default class Board extends Component<Props, State> {
     columns: this.props.initial,
     ordered: Object.keys(this.props.initial),
   };
-
-  boardRef: HTMLElement | undefined | null;
 
   onDragEnd = (result: DropResult): void => {
     if (result.combine) {

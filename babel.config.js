@@ -14,6 +14,8 @@ module.exports = (api) => {
     plugins: [
       '@babel/transform-object-assign',
       ['@babel/proposal-class-properties', { loose: true }],
+      ['@babel/plugin-proposal-private-methods', { loose: true }],
+      ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
       // used for stripping out the `invariant` messages in production builds
       isProduction ? 'dev-expression' : false,
     ].filter(Boolean),

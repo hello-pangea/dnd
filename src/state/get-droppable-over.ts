@@ -53,23 +53,21 @@ function getFurthestAway({
 
   const startCenter: Position = draggable.page.borderBox.center;
   const sorted: WithDistance[] = candidates
-    .map(
-      (candidate: DroppableDimension): WithDistance => {
-        const axis: Axis = candidate.axis;
-        const target: Position = patch(
-          candidate.axis.line,
-          // use the current center of the dragging item on the main axis
-          pageBorderBox.center[axis.line],
-          // use the center of the list on the cross axis
-          candidate.page.borderBox.center[axis.crossAxisLine],
-        );
+    .map((candidate: DroppableDimension): WithDistance => {
+      const axis: Axis = candidate.axis;
+      const target: Position = patch(
+        candidate.axis.line,
+        // use the current center of the dragging item on the main axis
+        pageBorderBox.center[axis.line],
+        // use the center of the list on the cross axis
+        candidate.page.borderBox.center[axis.crossAxisLine],
+      );
 
-        return {
-          id: candidate.descriptor.id,
-          distance: distance(startCenter, target),
-        };
-      },
-    )
+      return {
+        id: candidate.descriptor.id,
+        distance: distance(startCenter, target),
+      };
+    })
     // largest value will be first
     .sort((a: WithDistance, b: WithDistance) => b.distance - a.distance);
 

@@ -92,10 +92,10 @@ export default function useStyleMarshal(contextId: ContextId, nonce?: string) {
     contextId,
   ]);
 
-  const dragging = useCallback(() => setDynamicStyle(styles.dragging), [
-    setDynamicStyle,
-    styles.dragging,
-  ]);
+  const dragging = useCallback(
+    () => setDynamicStyle(styles.dragging),
+    [setDynamicStyle, styles.dragging],
+  );
   const dropping = useCallback(
     (reason: DropReason) => {
       if (reason === 'DROP') {
