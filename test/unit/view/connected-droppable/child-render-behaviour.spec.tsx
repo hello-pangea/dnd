@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
-import type { Provided } from '../../../../src/view/droppable/droppable-types';
+import type { DroppableProvided } from '../../../../src/view/droppable/droppable-types';
 import Droppable from '../../../../src/view/droppable/connected-droppable';
 import forceUpdate from '../../../util/force-update';
 import { DragDropContext } from '../../../../src';
 
 class Person extends Component<{
   name: string;
-  provided: Provided;
+  provided: DroppableProvided;
 }> {
   render() {
     const { provided, name } = this.props;
@@ -26,7 +26,7 @@ class App extends Component<{
     return (
       <DragDropContext onDragEnd={() => {}}>
         <Droppable droppableId="drop-1">
-          {(provided: Provided) => (
+          {(provided: DroppableProvided) => (
             <Person name={this.props.currentUser} provided={provided} />
           )}
         </Droppable>
