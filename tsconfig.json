@@ -26,8 +26,7 @@
     "node_modules"
   ],
   "files": [
-    "src/global.d.ts",
-    "test/test-typescript-types.tsx"
+    "src/global.d.ts"
   ],
   "include": [
     "src/**/*"
