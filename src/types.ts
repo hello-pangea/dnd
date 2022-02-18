@@ -8,13 +8,14 @@ export type ContextId = Id;
 export type ElementId = Id;
 
 export type DroppableMode = 'standard' | 'virtual';
-export type DroppableDescriptor = {
+
+export interface DroppableDescriptor {
   id: DroppableId;
   type: TypeId;
   mode: DroppableMode;
-};
+}
 
-export type DraggableDescriptor = {
+export interface DraggableDescriptor {
   id: DraggableId;
   index: number;
   // Inherited from Droppable
@@ -22,17 +23,17 @@ export type DraggableDescriptor = {
   // This is technically redundant but it avoids
   // needing to look up a parent droppable just to get its type
   type: TypeId;
-};
+}
 
-export type DraggableOptions = {
+export interface DraggableOptions {
   canDragInteractiveElements: boolean;
   shouldRespectForcePress: boolean;
   isEnabled: boolean;
-};
+}
 
 export type Direction = 'horizontal' | 'vertical';
 
-export type VerticalAxis = {
+export interface VerticalAxis {
   direction: 'vertical';
   line: 'y';
   start: 'top';
@@ -42,9 +43,9 @@ export type VerticalAxis = {
   crossAxisStart: 'left';
   crossAxisEnd: 'right';
   crossAxisSize: 'width';
-};
+}
 
-export type HorizontalAxis = {
+export interface HorizontalAxis {
   direction: 'horizontal';
   line: 'x';
   start: 'left';
@@ -54,36 +55,38 @@ export type HorizontalAxis = {
   crossAxisStart: 'top';
   crossAxisEnd: 'bottom';
   crossAxisSize: 'height';
-};
+}
 
 export type Axis = VerticalAxis | HorizontalAxis;
 
-export type ScrollSize = {
+export interface ScrollSize {
   scrollHeight: number;
   scrollWidth: number;
-};
+}
 
-export type ScrollDetails = {
+export interface ScrollDifference {
+  value: Position;
+  // The actual displacement as a result of a scroll is in the opposite
+  // direction to the scroll itself. When scrolling down items are displaced
+  // upwards. This value is the negated version of the 'value'
+  displacement: Position;
+}
+
+export interface ScrollDetails {
   initial: Position;
   current: Position;
   // the maximum allowable scroll for the frame
   max: Position;
-  diff: {
-    value: Position;
-    // The actual displacement as a result of a scroll is in the opposite
-    // direction to the scroll itself. When scrolling down items are displaced
-    // upwards. This value is the negated version of the 'value'
-    displacement: Position;
-  };
-};
+  diff: ScrollDifference;
+}
 
-export type Placeholder = {
+export interface Placeholder {
   client: BoxModel;
   tagName: string;
   display: string;
-};
+}
 
-export type DraggableDimension = {
+export interface DraggableDimension {
   descriptor: DraggableDescriptor;
   // the placeholder for the draggable
   placeholder: Placeholder;
@@ -94,9 +97,9 @@ export type DraggableDimension = {
   // how much displacement the draggable causes
   // this is the size of the marginBox
   displaceBy: Position;
-};
+}
 
-export type Scrollable = {
+export interface Scrollable {
   // This is the window through which the droppable is observed
   // It does not change during a drag
   pageMarginBox: Rect;
@@ -107,9 +110,9 @@ export type Scrollable = {
   // Is controlled by the ignoreContainerClipping prop
   shouldClipSubject: boolean;
   scroll: ScrollDetails;
-};
+}
 
-export type PlaceholderInSubject = {
+export interface PlaceholderInSubject {
   // might not actually be increased by
   // placeholder if there is no required space
   increasedBy: Position | null;
@@ -117,9 +120,9 @@ export type PlaceholderInSubject = {
   // max scroll before placeholder added
   // will be null if there was no frame
   oldFrameMaxScroll: Position | null;
-};
+}
 
-export type DroppableSubject = {
+export interface DroppableSubject {
   // raw, unchanging
   page: BoxModel;
   withPlaceholder: PlaceholderInSubject | null;
@@ -130,9 +133,9 @@ export type DroppableSubject = {
   // - clipped by frame
   // The subject will be null if the hit area is completely empty
   active: Rect | null;
-};
+}
 
-export type DroppableDimension = {
+export interface DroppableDimension {
   descriptor: DroppableDescriptor;
   axis: Axis;
   isEnabled: boolean;
@@ -147,11 +150,11 @@ export type DroppableDimension = {
   frame: Scrollable | null;
   // what is visible through the frame
   subject: DroppableSubject;
-};
-export type DraggableLocation = {
+}
+export interface DraggableLocation {
   droppableId: DroppableId;
   index: number;
-};
+}
 
 export type DraggableIdMap = {
   [id in DraggableId]: true;
@@ -164,58 +167,60 @@ export type DroppableIdMap = {
 export type DraggableDimensionMap = {
   [key in DraggableId]: DraggableDimension;
 };
+
 export type DroppableDimensionMap = {
   [key in DroppableId]: DroppableDimension;
 };
 
-export type Displacement = {
+export interface Displacement {
   draggableId: DraggableId;
   shouldAnimate: boolean;
-};
+}
 
 export type DisplacementMap = {
   [key in DraggableId]: Displacement;
 };
 
-export type DisplacedBy = {
+export interface DisplacedBy {
   value: number;
   point: Position;
-};
+}
 
-export type Combine = {
+export interface Combine {
   draggableId: DraggableId;
   droppableId: DroppableId;
-};
-export type DisplacementGroups = {
+}
+
+export interface DisplacementGroups {
   all: DraggableId[];
   visible: DisplacementMap;
   invisible: DraggableIdMap;
-};
+}
 
-export type ReorderImpact = {
+export interface ReorderImpact {
   type: 'REORDER';
   destination: DraggableLocation;
-};
+}
 
-export type CombineImpact = {
+export interface CombineImpact {
   type: 'COMBINE';
   combine: Combine;
-};
+}
 
 export type ImpactLocation = ReorderImpact | CombineImpact;
 
-export type Displaced = {
+export interface Displaced {
   forwards: DisplacementGroups;
   backwards: DisplacementGroups;
-};
+}
 
-export type DragImpact = {
+export interface DragImpact {
   displaced: DisplacementGroups;
   displacedBy: DisplacedBy;
   at: ImpactLocation | null;
-};
+}
 
-export type ClientPositions = {
+export interface ClientPositions {
   // where the user initially selected
   // This point is not used to calculate the impact of a dragging item
   // It is used to calculate the offset from the initial selection point
@@ -224,61 +229,61 @@ export type ClientPositions = {
   borderBoxCenter: Position;
   // how far the item has moved from its original position
   offset: Position;
-};
+}
 
-export type PagePositions = {
+export interface PagePositions {
   selection: Position;
   borderBoxCenter: Position;
   // how much the page position has changed from the initial
   offset: Position;
-};
+}
 
 // There are two seperate modes that a drag can be in
 // FLUID: everything is done in response to highly granular input (eg mouse)
 // SNAP: items move in response to commands (eg keyboard);
 export type MovementMode = 'FLUID' | 'SNAP';
 
-export type DragPositions = {
+export interface DragPositions {
   client: ClientPositions;
   page: PagePositions;
-};
+}
 
-export type DraggableRubric = {
+export interface DraggableRubric {
   draggableId: DraggableId;
   type: TypeId;
   source: DraggableLocation;
-};
+}
 
 // Published in onBeforeCapture
 // We cannot give more information as things might change in the
 // onBeforeCapture responder!
-export type BeforeCapture = {
+export interface BeforeCapture {
   draggableId: DraggableId;
   mode: MovementMode;
-};
+}
 
 // published when a drag starts
-export type DragStart = {
+export interface DragStart extends DraggableRubric {
   mode: MovementMode;
-} & DraggableRubric;
+}
 
-export type DragUpdate = {
+export interface DragUpdate extends DragStart {
   // may not have any destination (drag to nowhere)
   destination: DraggableLocation | null;
   // populated when a draggable is dragging over another in combine mode
   combine: Combine | null;
-} & DragStart;
+}
 
 export type DropReason = 'DROP' | 'CANCEL';
 
 // published when a drag finishes
-export type DropResult = {
+export interface DropResult extends DragUpdate {
   reason: DropReason;
-} & DragUpdate;
+}
 
-export type ScrollOptions = {
+export interface ScrollOptions {
   shouldPublishImmediately: boolean;
-};
+}
 
 // using the draggable id rather than the descriptor as the descriptor
 // may change as a result of the initial flush. This means that the lift
@@ -286,49 +291,50 @@ export type ScrollOptions = {
 // confusion the request is just an id which is looked up
 // in the dimension-marshal post-flush
 // Not including droppableId as it might change in a drop flush
-export type LiftRequest = {
+export interface LiftRequest {
   draggableId: DraggableId;
   scrollOptions: ScrollOptions;
-};
+}
 
-export type Critical = {
+export interface Critical {
   draggable: DraggableDescriptor;
   droppable: DroppableDescriptor;
-};
+}
 
-export type Viewport = {
+export interface Viewport {
   // live updates with the latest values
   frame: Rect;
   scroll: ScrollDetails;
-};
+}
 
-export type LiftEffect = {
+export interface LiftEffect {
   inVirtualList: boolean;
   effected: DraggableIdMap;
   displacedBy: DisplacedBy;
-};
+}
 
-export type DimensionMap = {
+export interface DimensionMap {
   draggables: DraggableDimensionMap;
   droppables: DroppableDimensionMap;
-};
+}
 
-export type DroppablePublish = {
+export interface DroppablePublish {
   droppableId: DroppableId;
   scroll: Position;
-};
-export type Published = {
+}
+
+export interface Published {
   additions: DraggableDimension[];
   removals: DraggableId[];
   modified: DroppablePublish[];
-};
+}
 
-export type CompletedDrag = {
+export interface CompletedDrag {
   critical: Critical;
   result: DropResult;
   impact: DragImpact;
   afterCritical: LiftEffect;
-};
+}
 
 export interface IdleState {
   phase: 'IDLE';
@@ -401,58 +407,62 @@ export type Announce = (message: string) => void;
 
 export type InOutAnimationMode = 'none' | 'open' | 'close';
 
-export type ResponderProvided = {
+export interface ResponderProvided {
   announce: Announce;
-};
+}
 
-export type OnBeforeCaptureResponder = (before: BeforeCapture) => unknown;
-export type OnBeforeDragStartResponder = (start: DragStart) => unknown;
+export type OnBeforeCaptureResponder = (before: BeforeCapture) => void;
+
+export type OnBeforeDragStartResponder = (start: DragStart) => void;
+
 export type OnDragStartResponder = (
   start: DragStart,
   provided: ResponderProvided,
-) => unknown;
+) => void;
+
 export type OnDragUpdateResponder = (
   update: DragUpdate,
   provided: ResponderProvided,
-) => unknown;
+) => void;
+
 export type OnDragEndResponder = (
   result: DropResult,
   provided: ResponderProvided,
-) => unknown;
+) => void;
 
-export type Responders = {
+export interface Responders {
   onBeforeCapture?: OnBeforeCaptureResponder;
   onBeforeDragStart?: OnBeforeDragStartResponder;
   onDragStart?: OnDragStartResponder;
   onDragUpdate?: OnDragUpdateResponder;
   // always required
   onDragEnd: OnDragEndResponder;
-};
+}
 
-// ## Sensors
-export type StopDragOptions = {
+// Sensors
+export interface StopDragOptions {
   shouldBlockNextClick: boolean;
-};
+}
 
-type DragActions = {
+export interface DragActions {
   drop: (args?: StopDragOptions) => void;
   cancel: (args?: StopDragOptions) => void;
   isActive: () => boolean;
   shouldRespectForcePress: () => boolean;
-};
+}
 
-export type FluidDragActions = {
+export interface FluidDragActions extends DragActions {
   move: (clientSelection: Position) => void;
-} & DragActions;
+}
 
-export type SnapDragActions = {
+export interface SnapDragActions extends DragActions {
   moveUp: () => void;
   moveDown: () => void;
   moveRight: () => void;
   moveLeft: () => void;
-} & DragActions;
+}
 
-export type PreDragActions = {
+export interface PreDragActions {
   // discover if the lock is still active
   isActive: () => boolean;
   // whether it has been indicated if force press should be respected
@@ -462,11 +472,11 @@ export type PreDragActions = {
   snapLift: () => SnapDragActions;
   // cancel the pre drag without starting a drag. Releases the lock
   abort: () => void;
-};
+}
 
-export type TryGetLockOptions = {
+export interface TryGetLockOptions {
   sourceEvent?: Event;
-};
+}
 
 export type TryGetLock = (
   draggableId: DraggableId,
@@ -474,13 +484,13 @@ export type TryGetLock = (
   options?: TryGetLockOptions,
 ) => PreDragActions | null;
 
-export type SensorAPI = {
+export interface SensorAPI {
   tryGetLock: TryGetLock;
   canGetLock: (id: DraggableId) => boolean;
   isLockClaimed: () => boolean;
   tryReleaseLock: () => void;
   findClosestDraggableId: (event: Event) => DraggableId | null;
   findOptionsForDraggable: (id: DraggableId) => DraggableOptions | null;
-};
+}
 
 export type Sensor = (api: SensorAPI) => void;

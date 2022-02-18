@@ -4,7 +4,7 @@ import React, { useRef, useContext, FunctionComponent } from 'react';
 import type { ReactNode } from 'react';
 import { invariant } from '../../invariant';
 import type { DraggableId } from '../../types';
-import type { Props, Provided } from './droppable-types';
+import type { Props, DroppableProvided } from './droppable-types';
 import useDroppablePublisher from '../use-droppable-publisher';
 import Placeholder from '../placeholder';
 import AppContext from '../context/app-context';
@@ -15,8 +15,8 @@ import type { DroppableContextValue } from '../context/droppable-context';
 import getMaxWindowScroll from '../window/get-max-window-scroll';
 import useValidation from './use-validation';
 import type {
-  StateSnapshot as DraggableStateSnapshot,
-  Provided as DraggableProvided,
+  DraggableStateSnapshot as DraggableStateSnapshot,
+  DraggableProvided as DraggableProvided,
 } from '../draggable/draggable-types';
 import AnimateInOut from '../animate-in-out/animate-in-out';
 import type { AnimateProvided } from '../animate-in-out/animate-in-out';
@@ -117,8 +117,8 @@ const Droppable: FunctionComponent<Props> = (props) => {
     ],
   );
 
-  const provided: Provided = useMemo(
-    (): Provided => ({
+  const provided: DroppableProvided = useMemo(
+    (): DroppableProvided => ({
       innerRef: setDroppableRef,
       placeholder,
 

@@ -17,11 +17,11 @@ import type {
 import type {
   MapProps,
   InternalOwnProps,
-  PublicOwnProps,
+  DroppableProps,
   DefaultProps,
   Selector,
   DispatchProps,
-  StateSnapshot,
+  DroppableStateSnapshot,
   UseClone,
   DraggableChildrenFn,
 } from './droppable-types';
@@ -94,7 +94,7 @@ export const makeMapStateToProps = (): Selector => {
             }
           : null;
 
-        const snapshot: StateSnapshot = {
+        const snapshot: DroppableStateSnapshot = {
           isDraggingOver: isDraggingOverForConsumer,
           draggingOverWith: isDraggingOverForConsumer ? draggableId : null,
           draggingFromThisWith: draggableId,
@@ -118,7 +118,7 @@ export const makeMapStateToProps = (): Selector => {
         return idleWithAnimation;
       }
 
-      const snapshot: StateSnapshot = {
+      const snapshot: DroppableStateSnapshot = {
         isDraggingOver: isDraggingOverForConsumer,
         draggingOverWith: draggableId,
         draggingFromThisWith: null,
@@ -274,7 +274,7 @@ const ConnectedDroppable = connect(
     areStatePropsEqual: isStrictEqual,
   },
   // FIXME: Typings are really complexe
-)(Droppable) as unknown as FunctionComponent<PublicOwnProps>;
+)(Droppable) as unknown as FunctionComponent<DroppableProps>;
 
 ConnectedDroppable.defaultProps = defaultProps;
 

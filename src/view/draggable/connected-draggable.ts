@@ -22,12 +22,12 @@ import type {
   Combine,
 } from '../../types';
 import type {
-  PublicOwnProps,
+  DraggableProps,
   MapProps,
   OwnProps,
   DispatchProps,
   Selector,
-  StateSnapshot,
+  DraggableStateSnapshot,
   DropAnimation,
 } from './draggable-types';
 import whatIsDraggedOver from '../../state/droppable/what-is-dragged-over';
@@ -62,7 +62,7 @@ function getDraggableSelector(): TrySelect {
       draggingOver: DroppableId | null = null,
       combineWith: DraggableId | null = null,
       dropping: DropAnimation | null = null,
-    ): StateSnapshot => ({
+    ): DraggableStateSnapshot => ({
       isDragging: true,
       isClone,
       isDropAnimating: Boolean(dropping),
@@ -194,7 +194,7 @@ function getDraggableSelector(): TrySelect {
 
 function getSecondarySnapshot(
   combineTargetFor: DraggableId | null = null,
-): StateSnapshot {
+): DraggableStateSnapshot {
   return {
     isDragging: false,
     isDropAnimating: false,
@@ -388,6 +388,6 @@ const ConnectedDraggable = connect(
     areStatePropsEqual: isStrictEqual,
   },
   // FIXME: Typings are really complexe
-)(Draggable) as unknown as FunctionComponent<PublicOwnProps>;
+)(Draggable) as unknown as FunctionComponent<DraggableProps>;
 
 export default ConnectedDraggable;

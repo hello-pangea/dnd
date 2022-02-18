@@ -10,22 +10,22 @@ import type {
   DraggableRubric,
   DroppableMode,
 } from '../../types';
-import type { ChildrenFn } from '../draggable/draggable-types';
+import type { DraggableChildrenFn } from '../draggable/draggable-types';
 import { updateViewportMaxScroll } from '../../state/action-creators';
 
-export type DraggableChildrenFn = ChildrenFn;
+export type { DraggableChildrenFn } from '../draggable/draggable-types';
 
-export type DroppableProps = {
+export type DroppableProvidedProps = {
   // used for shared global styles
   'data-rfd-droppable-context-id': ContextId;
   // Used to lookup. Currently not used for drag and drop lifecycle
   'data-rfd-droppable-id': DroppableId;
 };
 
-export type Provided = {
+export type DroppableProvided = {
   innerRef: (a?: HTMLElement | null) => void;
   placeholder: ReactNode | null;
-  droppableProps: DroppableProps;
+  droppableProps: DroppableProvidedProps;
 };
 
 export type UseClone = {
@@ -33,7 +33,7 @@ export type UseClone = {
   render: DraggableChildrenFn;
 };
 
-export type StateSnapshot = {
+export type DroppableStateSnapshot = {
   // Is the Droppable being dragged over?
   isDraggingOver: boolean;
   // What is the id of the draggable that is dragging over the Droppable?
@@ -53,32 +53,35 @@ export type MapProps = {
   placeholder: Placeholder | null;
   shouldAnimatePlaceholder: boolean;
   // snapshot based on redux state to be provided to consumers
-  snapshot: StateSnapshot;
+  snapshot: DroppableStateSnapshot;
   useClone: UseClone | null;
 };
 
-export type DefaultProps = {
+export interface DefaultProps {
+  direction: Direction;
+  getContainerForClone: () => HTMLElement;
+  ignoreContainerClipping: boolean;
+  isCombineEnabled: boolean;
+  isDropDisabled: boolean;
   mode: DroppableMode;
   type: TypeId;
-  isDropDisabled: boolean;
-  isCombineEnabled: boolean;
-  direction: Direction;
   renderClone: DraggableChildrenFn | null;
-  ignoreContainerClipping: boolean;
-  getContainerForClone: () => HTMLElement;
-};
+}
 
 export type DispatchProps = {
   updateViewportMaxScroll: typeof updateViewportMaxScroll;
 };
 
-export type PublicOwnProps = {
-  children: (b: Provided, a: StateSnapshot) => ReactNode;
+export interface DroppableProps extends Partial<DefaultProps> {
+  children: (
+    provided: DroppableProvided,
+    snapshot: DroppableStateSnapshot,
+  ) => ReactNode;
   droppableId: DroppableId;
   renderClone?: DraggableChildrenFn | null;
-} & Partial<DefaultProps>;
+}
 
-export type InternalOwnProps = PublicOwnProps &
+export type InternalOwnProps = DroppableProps &
   DefaultProps & {
     renderClone: DraggableChildrenFn | null;
   };

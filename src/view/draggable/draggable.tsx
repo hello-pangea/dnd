@@ -8,9 +8,9 @@ import AppContext from '../context/app-context';
 import DroppableContext from '../context/droppable-context';
 import type {
   Props,
-  Provided,
+  DraggableProvided,
   DraggableStyle,
-  DragHandleProps,
+  DraggableProvidedDragHandleProps,
 } from './draggable-types';
 import { useValidation, useClonePropValidation } from './use-validation';
 import useRequiredContext from '../use-required-context';
@@ -93,7 +93,7 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
   }
   /* eslint-enable react-hooks/rules-of-hooks */
 
-  const dragHandleProps: DragHandleProps | null = useMemo(
+  const dragHandleProps: DraggableProvidedDragHandleProps | null = useMemo(
     () =>
       isEnabled
         ? {
@@ -131,12 +131,12 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
     [dropAnimationFinishedAction, mapped],
   );
 
-  const provided: Provided = useMemo(() => {
+  const provided: DraggableProvided = useMemo(() => {
     const style: DraggableStyle = getStyle(mapped);
     const onTransitionEnd =
       mapped.type === 'DRAGGING' && mapped.dropping ? onMoveEnd : undefined;
 
-    const result: Provided = {
+    const result: DraggableProvided = {
       innerRef: setRef,
       draggableProps: {
         'data-rfd-draggable-context-id': contextId,
