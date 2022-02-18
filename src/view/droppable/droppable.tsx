@@ -15,8 +15,8 @@ import type { DroppableContextValue } from '../context/droppable-context';
 import getMaxWindowScroll from '../window/get-max-window-scroll';
 import useValidation from './use-validation';
 import type {
-  DraggableStateSnapshot as DraggableStateSnapshot,
-  DraggableProvided as DraggableProvided,
+  DraggableStateSnapshot,
+  DraggableProvided,
 } from '../draggable/draggable-types';
 import AnimateInOut from '../animate-in-out/animate-in-out';
 import type { AnimateProvided } from '../animate-in-out/animate-in-out';
