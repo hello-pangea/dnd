@@ -1,13 +1,13 @@
 import React from 'react';
 import type {
-  Provided,
-  StateSnapshot,
+  DroppableStateSnapshot,
+  DroppableProvided,
 } from '../../../../../src/view/droppable/droppable-types';
 
 export default (mock = (arg: unknown) => {}) =>
   class Stubber extends React.Component<{
-    provided: Provided;
-    snapshot: StateSnapshot;
+    provided: DroppableProvided;
+    snapshot: DroppableStateSnapshot;
   }> {
     render() {
       const { provided, snapshot } = this.props;

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { DraggableId } from '../../types';
-import type { PublicOwnProps, PrivateOwnProps } from './draggable-types';
+import type { DraggableProps, PrivateOwnProps } from './draggable-types';
 import ConnectedDraggable from './connected-draggable';
 import useRequiredContext from '../use-required-context';
 import DroppableContext from '../context/droppable-context';
@@ -23,7 +23,7 @@ export function PrivateDraggable(props: PrivateOwnProps) {
 }
 
 // What we give to consumers
-export function PublicDraggable(props: PublicOwnProps) {
+export function PublicDraggable(props: DraggableProps) {
   // default values for props
   const isEnabled: boolean =
     typeof props.isDragDisabled === 'boolean' ? !props.isDragDisabled : true;

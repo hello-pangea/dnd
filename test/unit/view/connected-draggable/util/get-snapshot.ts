@@ -1,5 +1,5 @@
 import type {
-  StateSnapshot,
+  DraggableStateSnapshot,
   DropAnimation,
 } from '../../../../../src/view/draggable/draggable-types';
 import type {
@@ -22,7 +22,7 @@ export const getDraggingSnapshot = ({
   combineWith,
   dropping,
   isClone,
-}: GetDraggingSnapshotArgs): StateSnapshot => ({
+}: GetDraggingSnapshotArgs): DraggableStateSnapshot => ({
   isDragging: true,
   isDropAnimating: Boolean(dropping),
   dropAnimation: dropping,
@@ -39,7 +39,7 @@ type GetSecondarySnapshotArgs = {
 
 export const getSecondarySnapshot = ({
   combineTargetFor,
-}: GetSecondarySnapshotArgs): StateSnapshot => ({
+}: GetSecondarySnapshotArgs): DraggableStateSnapshot => ({
   isDragging: false,
   isClone: false,
   isDropAnimating: false,

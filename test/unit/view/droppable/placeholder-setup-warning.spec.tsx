@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ReactWrapper } from 'enzyme';
-import type { Provided } from '../../../../src/view/droppable/droppable-types';
+import type { DroppableProvided } from '../../../../src/view/droppable/droppable-types';
 import {
   homeAtRest,
   foreignOwnProps,
@@ -11,7 +11,7 @@ import mount from './util/mount';
 import { disableWarn } from '../../../util/console';
 
 class WithNoPlaceholder extends React.Component<{
-  provided: Provided;
+  provided: DroppableProvided;
 }> {
   render() {
     return (

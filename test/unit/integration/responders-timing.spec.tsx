@@ -5,8 +5,8 @@ import { invariant } from '../../../src/invariant';
 import { DragDropContext, Draggable, Droppable } from '../../../src';
 import { getComputedSpacing } from '../../util/dimension';
 import setDOMRect from '../../util/set-dom-rect';
-import type { Provided as DraggableProvided } from '../../../src/view/draggable/draggable-types';
-import type { Provided as DroppableProvided } from '../../../src/view/droppable/droppable-types';
+import type { DraggableProvided } from '../../../src/view/draggable/draggable-types';
+import type { DroppableProvided } from '../../../src/view/droppable/droppable-types';
 import type { Responders } from '../../../src/types';
 import { simpleLift, keyboard } from './util/controls';
 

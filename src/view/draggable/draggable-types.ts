@@ -16,7 +16,7 @@ import type {
 } from '../../types';
 import { dropAnimationFinished } from '../../state/action-creators';
 
-export type DraggingStyle = {
+export interface DraggingStyle {
   position: 'fixed';
   top: number;
   left: number;
@@ -34,14 +34,14 @@ export type DraggingStyle = {
   // canStartDrag() will prevent drags in some cases for non primary draggable.
   // It is also a minor performance optimisation
   pointerEvents: 'none';
-};
+}
 
-export type NotDraggingStyle = {
+export interface NotDraggingStyle {
   transform?: string;
   // null: use the global animation style
   // none: skip animation (used in certain displacement situations)
   transition?: 'none';
-};
+}
 
 export type DraggableStyle = DraggingStyle | NotDraggingStyle;
 
@@ -51,7 +51,7 @@ export type ZIndexOptions = {
 };
 
 // Props that can be spread onto the element directly
-export type DraggableProps = {
+export interface DraggableProvidedDraggableProps {
   // inline style
   style?: DraggableStyle;
   // used for shared global styles
@@ -60,9 +60,9 @@ export type DraggableProps = {
   'data-rfd-draggable-id': DraggableId;
   // used to know when a transition ends
   onTransitionEnd?: TransitionEventHandler;
-};
+}
 
-export type DragHandleProps = {
+export interface DraggableProvidedDragHandleProps {
   // what draggable the handle belongs to
   'data-rfd-drag-handle-draggable-id': DraggableId;
   // What DragDropContext the drag handle is in
@@ -84,35 +84,38 @@ export type DragHandleProps = {
   // Opting out of html5 drag and drop
   draggable: boolean;
   onDragStart: DragEventHandler;
-};
+}
 
-export type Provided = {
-  draggableProps: DraggableProps;
+export interface DraggableProvided {
+  draggableProps: DraggableProvidedDraggableProps;
   // will be null if the draggable is disabled
-  dragHandleProps: DragHandleProps | null;
+  dragHandleProps: DraggableProvidedDragHandleProps | null;
   // The following props will be removed once we move to react 16
-  innerRef: (a?: HTMLElement | null) => void;
-};
+  innerRef: (element?: HTMLElement | null) => void;
+}
 
 // to easily enable patching of styles
-export type DropAnimation = {
+export interface DropAnimation {
   duration: number;
   curve: string;
   moveTo: Position;
   opacity: number | null;
   scale: number | null;
-};
+}
 
-export type StateSnapshot = {
+export interface DraggableStateSnapshot {
   isDragging: boolean;
   isDropAnimating: boolean;
   isClone: boolean;
   dropAnimation: DropAnimation | null;
   draggingOver: DroppableId | null;
+  // the id of a draggable that you are combining with
   combineWith: DraggableId | null;
+  // a combine target is being dragged over by
   combineTargetFor: DraggableId | null;
+  // What type of movement is being done: 'FLUID' or 'SNAP'
   mode: MovementMode | null;
-};
+}
 
 export type DispatchProps = {
   dropAnimationFinished: typeof dropAnimationFinished;
@@ -127,7 +130,7 @@ export type DraggingMapProps = {
   combineWith: DraggableId | null;
   dimension: DraggableDimension;
   forceShouldAnimate: boolean | null;
-  snapshot: StateSnapshot;
+  snapshot: DraggableStateSnapshot;
 };
 
 export type SecondaryMapProps = {
@@ -135,7 +138,7 @@ export type SecondaryMapProps = {
   offset: Position;
   combineTargetFor: DraggableId | null;
   shouldAnimateDisplacement: boolean;
-  snapshot: StateSnapshot;
+  snapshot: DraggableStateSnapshot;
 };
 
 export type MappedProps = DraggingMapProps | SecondaryMapProps;
@@ -148,21 +151,21 @@ export type MapProps = {
   // secondary: ?SecondaryMapProps,
 };
 
-export type ChildrenFn = (
-  c: Provided,
-  b: StateSnapshot,
-  a: DraggableRubric,
+export type DraggableChildrenFn = (
+  provided: DraggableProvided,
+  snapshot: DraggableStateSnapshot,
+  rubic: DraggableRubric,
 ) => ReactNode | null;
 
-export type PublicOwnProps = {
+export interface DraggableProps {
   draggableId: DraggableId;
   index: number;
-  children: ChildrenFn;
+  children: DraggableChildrenFn;
   // optional own props
   isDragDisabled?: boolean;
   disableInteractiveElementBlocking?: boolean;
   shouldRespectForcePress?: boolean;
-};
+}
 
 export type PrivateOwnProps = {
   isClone: boolean;
@@ -170,7 +173,7 @@ export type PrivateOwnProps = {
   isEnabled: boolean;
   canDragInteractiveElements: boolean;
   shouldRespectForcePress: boolean;
-} & PublicOwnProps;
+} & DraggableProps;
 
 export type OwnProps = PrivateOwnProps;
 

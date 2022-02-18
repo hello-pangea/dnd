@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import { DragDropContext } from '../../../../src';
 import { getPreset } from '../../../util/dimension';
 import Draggable from '../../../../src/view/draggable/connected-draggable';
-import type { Provided } from '../../../../src/view/draggable/draggable-types';
+import type { DraggableProvided } from '../../../../src/view/draggable/draggable-types';
 import DroppableContext from '../../../../src/view/context/droppable-context';
 
 import type { DroppableContextValue } from '../../../../src/view/context/droppable-context';
@@ -19,7 +19,7 @@ const droppableContext: DroppableContextValue = {
 
 class Person extends Component<{
   name: string;
-  provided: Provided;
+  provided: DraggableProvided;
 }> {
   render() {
     const { provided, name } = this.props;
@@ -37,7 +37,7 @@ class Person extends Component<{
 
 type Props = {
   currentUser: string;
-  children: (currentUser: string, dragProvided: Provided) => ReactNode;
+  children: (currentUser: string, dragProvided: DraggableProvided) => ReactNode;
 };
 
 function App({ currentUser, children }: Props) {
@@ -53,7 +53,7 @@ function App({ currentUser, children }: Props) {
 }
 
 function getMock() {
-  return jest.fn((currentUser: string, provided: Provided) => (
+  return jest.fn((currentUser: string, provided: DraggableProvided) => (
     <Person name={currentUser} provided={provided} />
   ));
 }

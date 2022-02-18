@@ -7,8 +7,8 @@ import type { DropResult } from '../../../src';
 import { getComputedSpacing } from '../../util/dimension';
 import * as keyCodes from '../../../src/view/key-codes';
 import { simpleLift, keyboard } from './util/controls';
-import type { Provided as DraggableProvided } from '../../../src/view/draggable/draggable-types';
-import type { Provided as DroppableProvided } from '../../../src/view/droppable/droppable-types';
+import type { DraggableProvided } from '../../../src/view/draggable/draggable-types';
+import type { DroppableProvided } from '../../../src/view/droppable/droppable-types';
 import setDOMRect from '../../util/set-dom-rect';
 
 const reorder = (list: any[], startIndex: number, endIndex: number): any[] => {

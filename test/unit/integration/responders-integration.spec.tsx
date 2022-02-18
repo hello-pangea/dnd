@@ -20,8 +20,8 @@ import type {
   OnDragUpdateResponder,
   OnDragEndResponder,
 } from '../../../src/types';
-import type { Provided as DraggableProvided } from '../../../src/view/draggable/draggable-types';
-import type { Provided as DroppableProvided } from '../../../src/view/droppable/droppable-types';
+import type { DraggableProvided } from '../../../src/view/draggable/draggable-types';
+import type { DroppableProvided } from '../../../src/view/droppable/droppable-types';
 import { getComputedSpacing } from '../../util/dimension';
 import { simpleLift, mouse } from './util/controls';
 import setDOMRect from '../../util/set-dom-rect';

@@ -1,14 +1,14 @@
 import React from 'react';
-import type { Provided } from '../../../../src/view/droppable/droppable-types';
+import type { DroppableProvided } from '../../../../src/view/droppable/droppable-types';
 import mount from './util/mount';
 import { withError } from '../../../util/console';
 
 it('should warn a consumer if they have not provided a ref', () => {
   class NoRef extends React.Component<{
-    provided: Provided;
+    provided: DroppableProvided;
   }> {
     render() {
-      const provided: Provided = this.props.provided;
+      const provided: DroppableProvided = this.props.provided;
 
       return (
         <div {...provided.droppableProps}>
@@ -26,10 +26,10 @@ it('should warn a consumer if they have not provided a ref', () => {
 
 it('should throw a consumer if they have provided an SVGElement', () => {
   class WithSVG extends React.Component<{
-    provided: Provided;
+    provided: DroppableProvided;
   }> {
     render() {
-      const provided: Provided = this.props.provided;
+      const provided: DroppableProvided = this.props.provided;
 
       return (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

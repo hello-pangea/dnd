@@ -2,10 +2,10 @@ import React, { useMemo } from 'react';
 import { mount } from 'enzyme';
 import type {
   MapProps,
-  PublicOwnProps,
-  Provided,
+  DroppableProps,
+  DroppableProvided,
   DispatchProps,
-  StateSnapshot,
+  DroppableStateSnapshot,
   Props,
 } from '../../../../../src/view/droppable/droppable-types';
 import Droppable from '../../../../../src/view/droppable/droppable';
@@ -23,7 +23,7 @@ import useFocusMarshal from '../../../../../src/view/use-focus-marshal';
 
 type MountArgs = {
   WrappedComponent?: any;
-  ownProps?: Required<PublicOwnProps>;
+  ownProps?: Required<DroppableProps>;
   mapProps?: MapProps;
   dispatchProps?: DispatchProps;
   isMovementAllowed?: () => boolean;
@@ -55,7 +55,7 @@ function App(props: AppProps) {
   return (
     <AppContext.Provider value={context}>
       <Droppable {...rest}>
-        {(provided: Provided, snapshot: StateSnapshot) => (
+        {(provided: DroppableProvided, snapshot: DroppableStateSnapshot) => (
           <WrappedComponent provided={provided} snapshot={snapshot} />
         )}
       </Droppable>

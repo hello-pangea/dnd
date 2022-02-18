@@ -9,18 +9,18 @@ import useUniqueContextId, {
 } from './use-unique-context-id';
 import { reset as resetUniqueIds } from '../use-unique-id';
 
-type Props = {
+export interface DragDropContextProps extends Responders {
   // We do not technically need any children for this component
   children: ReactNode | null;
   // Read out by screen readers when focusing on a drag handle
   dragHandleUsageInstructions?: string;
+  enableDefaultSensors?: boolean | null;
   // Used for strict content security policies
   // See our [content security policy guide](/docs/guides/content-security-policy.md)
   nonce?: string;
   // See our [sensor api](/docs/sensors/sensor-api.md)
   sensors?: Sensor[];
-  enableDefaultSensors?: boolean | null;
-} & Responders;
+}
 
 // Reset any context that gets persisted across server side renders
 export function resetServerContext() {
@@ -28,7 +28,7 @@ export function resetServerContext() {
   resetUniqueIds();
 }
 
-export default function DragDropContext(props: Props) {
+export default function DragDropContext(props: DragDropContextProps) {
   const contextId: ContextId = useUniqueContextId();
   const dragHandleUsageInstructions: string =
     props.dragHandleUsageInstructions || preset.dragHandleUsageInstructions;
