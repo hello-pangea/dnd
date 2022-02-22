@@ -16,10 +16,10 @@ afterEach(() => {
   consoleWarnSpy.mockRestore();
 });
 
-type Props = {
+interface Props {
   draggableId: any;
   index: any;
-};
+}
 
 function WithCustomProps(props: Props) {
   return (

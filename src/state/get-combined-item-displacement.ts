@@ -8,12 +8,12 @@ import type {
 import { origin, negate } from './position';
 import didStartAfterCritical from './did-start-after-critical';
 
-type Args = {
+interface Args {
   displaced: DisplacementGroups;
   afterCritical: LiftEffect;
   combineWith: DraggableId;
   displacedBy: DisplacedBy;
-};
+}
 
 export default ({
   displaced,

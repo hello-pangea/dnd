@@ -36,31 +36,31 @@ function isSloppyClickThresholdExceeded(
   );
 }
 
-type Idle = {
+interface Idle {
   type: 'IDLE';
-};
+}
 
-type Pending = {
+interface Pending {
   type: 'PENDING';
   point: Position;
   actions: PreDragActions;
-};
+}
 
-type Dragging = {
+interface Dragging {
   type: 'DRAGGING';
   actions: FluidDragActions;
-};
+}
 
 type Phase = Idle | Pending | Dragging;
 
 const idle: Idle = { type: 'IDLE' };
 
-type GetCaptureArgs = {
+interface GetCaptureArgs {
   cancel: () => void;
   completed: () => void;
   getPhase: () => Phase;
   setPhase: (phase: Phase) => void;
-};
+}
 
 function getCaptureBindings({
   cancel,

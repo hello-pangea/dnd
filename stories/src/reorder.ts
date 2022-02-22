@@ -16,15 +16,15 @@ function reorder<TItem>(
 
 export default reorder;
 
-type ReorderQuoteMapArgs = {
+interface ReorderQuoteMapArgs {
   quoteMap: QuoteMap;
   source: DraggableLocation;
   destination: DraggableLocation;
-};
+}
 
-export type ReorderQuoteMapResult = {
+export interface ReorderQuoteMapResult {
   quoteMap: QuoteMap;
-};
+}
 
 export const reorderQuoteMap = ({
   quoteMap,
@@ -69,22 +69,22 @@ export const reorderQuoteMap = ({
   };
 };
 
-type List<T> = {
+interface List<T> {
   id: string;
   values: T[];
-};
+}
 
-type MoveBetweenArgs<T> = {
+interface MoveBetweenArgs<T> {
   list1: List<T>;
   list2: List<T>;
   source: DraggableLocation;
   destination: DraggableLocation;
-};
+}
 
-type MoveBetweenResult<T> = {
+interface MoveBetweenResult<T> {
   list1: List<T>;
   list2: List<T>;
-};
+}
 
 export function moveBetween<T>({
   list1,

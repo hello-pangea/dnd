@@ -4,9 +4,9 @@ import AnimateInOut from '../../../../src/view/animate-in-out/animate-in-out';
 
 import type { AnimateProvided } from '../../../../src/view/animate-in-out/animate-in-out';
 
-type ChildProps = {
+interface ChildProps {
   provided: AnimateProvided;
-};
+}
 
 class Child extends React.Component<ChildProps> {
   render() {
@@ -55,10 +55,10 @@ it('should allow children not to be rendered after a close animation', () => {
       <Child provided={provided} />
     ));
 
-  type Props = {
+  interface Props {
     on: unknown;
     shouldAnimate: boolean;
-  };
+  }
 
   function App({ on, shouldAnimate }: Props) {
     return (

@@ -15,10 +15,10 @@ const Parent = styled.div`
 
 type Width = 'small' | 'large';
 
-type ItemProps = {
+interface ItemProps {
   quote: Quote;
   index: number;
-};
+}
 
 const StyledItem = styled.div`
   border: 1px solid ${colors.N100};
@@ -46,10 +46,10 @@ function Item(props: ItemProps) {
   );
 }
 
-type ListProps = {
+interface ListProps {
   listId: string;
   quotes: Quote[];
-};
+}
 
 const ListContainer = styled.div`
   display: flex;

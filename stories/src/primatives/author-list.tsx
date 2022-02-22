@@ -58,13 +58,13 @@ const Container = styled.div`
   display: inline-flex;
 `;
 
-type Props = {
+interface Props {
   quotes: Quote[];
   listId: string;
   listType?: string;
   internalScroll?: boolean;
   isCombineEnabled?: boolean;
-};
+}
 
 export default class AuthorList extends Component<Props> {
   static defaultProps = {

@@ -15,7 +15,7 @@ import type { Id, Task as TaskType } from '../types';
 // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
 const primaryButton = 0;
 
-type Props = {
+interface Props {
   task: TaskType;
   index: number;
   isSelected: boolean;
@@ -24,13 +24,13 @@ type Props = {
   toggleSelection: (taskId: Id) => void;
   toggleSelectionInGroup: (taskId: Id) => void;
   multiSelectTo: (taskId: Id) => void;
-};
+}
 
-type GetBackgroundColorArgs = {
+interface GetBackgroundColorArgs {
   isSelected: boolean;
   isDragging: boolean;
   isGhosting: boolean;
-};
+}
 
 const getBackgroundColor = ({
   isSelected,

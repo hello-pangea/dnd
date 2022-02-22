@@ -16,13 +16,13 @@ import scrollDroppable from '../droppable/scroll-droppable';
 import { add } from '../position';
 import getDisplacementGroups from '../get-displacement-groups';
 
-type SpeculativeArgs = {
+interface SpeculativeArgs {
   impact: DragImpact;
   destination: DroppableDimension;
   viewport: Viewport;
   draggables: DraggableDimensionMap;
   maxScrollChange: Position;
-};
+}
 
 function getDraggables(
   ids: DraggableId[],

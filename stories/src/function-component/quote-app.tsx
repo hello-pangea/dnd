@@ -11,10 +11,10 @@ import { quotes as initial } from '../data';
 import reorder from '../reorder';
 import { grid } from '../constants';
 
-type QuoteProps = {
+interface QuoteProps {
   quote: QuoteType;
   index: number;
-};
+}
 
 const QuoteItem = styled.div`
   width: 200px;
@@ -40,9 +40,9 @@ function Quote({ quote, index }: QuoteProps) {
   );
 }
 
-type QuoteListProps = {
+interface QuoteListProps {
   quotes: QuoteType[];
-};
+}
 
 function QuoteList({ quotes }: QuoteListProps): ReactElement {
   return (

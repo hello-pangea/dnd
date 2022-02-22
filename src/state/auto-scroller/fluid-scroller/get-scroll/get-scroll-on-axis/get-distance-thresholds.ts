@@ -3,10 +3,10 @@ import config from '../../config';
 import type { Axis } from '../../../../../types';
 
 // all in pixels
-export type DistanceThresholds = {
+export interface DistanceThresholds {
   startScrollingFrom: number;
   maxScrollValueAt: number;
-};
+}
 
 // converts the percentages in the config into actual pixel values
 export default (container: Rect, axis: Axis): DistanceThresholds => {

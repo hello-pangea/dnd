@@ -10,14 +10,14 @@ import type {
 import getPageBorderBoxCenterFromImpact from '../get-page-border-box-center';
 import getClientFromPageBorderBoxCenter from './get-client-from-page-border-box-center';
 
-type Args = {
+interface Args {
   impact: DragImpact;
   draggable: DraggableDimension;
   droppable: DroppableDimension;
   draggables: DraggableDimensionMap;
   viewport: Viewport;
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   impact,

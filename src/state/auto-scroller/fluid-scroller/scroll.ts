@@ -11,13 +11,13 @@ import whatIsDraggedOver from '../../droppable/what-is-dragged-over';
 import getWindowScrollChange from './get-window-scroll-change';
 import getDroppableScrollChange from './get-droppable-scroll-change';
 
-type Args = {
+interface Args {
   state: DraggingState;
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
   scrollWindow: (scroll: Position) => void;
   scrollDroppable: (id: DroppableId, scroll: Position) => void;
-};
+}
 
 export default ({
   state,

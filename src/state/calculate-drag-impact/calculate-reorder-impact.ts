@@ -11,7 +11,7 @@ import isHomeOf from '../droppable/is-home-of';
 import { emptyGroups } from '../no-impact';
 import getDisplacementGroups from '../get-displacement-groups';
 
-type Args = {
+interface Args {
   draggable: DraggableDimension;
   insideDestination: DraggableDimension[];
   destination: DroppableDimension;
@@ -20,7 +20,7 @@ type Args = {
   last: DisplacementGroups;
   index: number | null;
   forceShouldAnimate?: boolean;
-};
+}
 
 function getIndexOfLastItem(
   draggables: DraggableDimension[],
@@ -39,12 +39,12 @@ function getIndexOfLastItem(
   return options.inHomeList ? indexOfLastItem : indexOfLastItem + 1;
 }
 
-type GoAtEndArgs = {
+interface GoAtEndArgs {
   insideDestination: DraggableDimension[];
   inHomeList: boolean;
   displacedBy: DisplacedBy;
   destination: DroppableDimension;
-};
+}
 
 function goAtEnd({
   insideDestination,

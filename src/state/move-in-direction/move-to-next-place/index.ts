@@ -18,7 +18,7 @@ import getClientFromPageBorderBoxCenter from '../../get-center-from-impact/get-c
 import { subtract } from '../../position';
 import isTotallyVisibleInNewLocation from './is-totally-visible-in-new-location';
 
-type Args = {
+interface Args {
   isMovingForward: boolean;
   draggable: DraggableDimension;
   destination: DroppableDimension;
@@ -28,7 +28,7 @@ type Args = {
   previousClientSelection: Position;
   previousPageBorderBoxCenter: Position;
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   isMovingForward,

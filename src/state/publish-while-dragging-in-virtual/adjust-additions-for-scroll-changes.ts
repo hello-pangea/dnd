@@ -11,11 +11,11 @@ import { add } from '../position';
 import offsetDraggable from './offset-draggable';
 import getFrame from '../get-frame';
 
-type Args = {
+interface Args {
   additions: DraggableDimension[];
   updatedDroppables: DroppableDimensionMap;
   viewport: Viewport;
-};
+}
 
 export default ({
   additions,

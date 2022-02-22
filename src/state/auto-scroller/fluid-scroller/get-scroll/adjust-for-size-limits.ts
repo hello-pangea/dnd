@@ -1,10 +1,10 @@
 import type { Rect, Position } from 'css-box-model';
 
-type Args = {
+interface Args {
   container: Rect;
   subject: Rect;
   proposedScroll: Position;
-};
+}
 
 export default ({
   container,

@@ -2,35 +2,35 @@ import type { DraggableId, DraggableLocation } from '../../src';
 
 export type Id = string;
 
-export type AuthorColors = {
+export interface AuthorColors {
   soft: string;
   hard: string;
-};
+}
 
-export type Author = {
+export interface Author {
   id: Id;
   name: string;
   avatarUrl: string;
   url: string;
   colors: AuthorColors;
-};
+}
 
-export type Quote = {
+export interface Quote {
   id: Id;
   content: string;
   author: Author;
-};
+}
 
-export type Dragging = {
+export interface Dragging {
   id: DraggableId;
   location: DraggableLocation;
-};
+}
 
-export type QuoteMap = {
+export interface QuoteMap {
   [key: string]: Quote[];
-};
+}
 
-export type Task = {
+export interface Task {
   id: Id;
   content: string;
-};
+}

@@ -8,13 +8,13 @@ import type {
   DraggableId,
 } from '../../../../../src/types';
 
-type GetDraggingSnapshotArgs = {
+interface GetDraggingSnapshotArgs {
   mode: MovementMode;
   draggingOver: DroppableId | null;
   combineWith: DraggableId | null;
   dropping: DropAnimation | null;
   isClone?: boolean | null;
-};
+}
 
 export const getDraggingSnapshot = ({
   mode,
@@ -33,9 +33,9 @@ export const getDraggingSnapshot = ({
   isClone: Boolean(isClone),
 });
 
-type GetSecondarySnapshotArgs = {
+interface GetSecondarySnapshotArgs {
   combineTargetFor: DraggableId | null;
-};
+}
 
 export const getSecondarySnapshot = ({
   combineTargetFor,

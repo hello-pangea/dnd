@@ -1,10 +1,10 @@
 import { warning } from '../../../dev-warning';
 
-type Args = {
+interface Args {
   startOfRange: number;
   endOfRange: number;
   current: number;
-};
+}
 
 export default ({ startOfRange, endOfRange, current }: Args): number => {
   const range: number = endOfRange - startOfRange;

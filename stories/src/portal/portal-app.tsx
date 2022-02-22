@@ -15,11 +15,11 @@ import type {
   DraggableStateSnapshot,
 } from '../../../src';
 
-type ItemProps = {
+interface ItemProps {
   provided: DraggableProvided;
   snapshot: DraggableStateSnapshot;
   quote: Quote;
-};
+}
 
 const portal: HTMLElement = document.createElement('div');
 portal.classList.add('my-super-cool-portal');
@@ -86,13 +86,13 @@ class PortalAwareItem extends Component<ItemProps> {
   }
 }
 
-type AppProps = {
+interface AppProps {
   initial: Quote[];
-};
+}
 
-type AppState = {
+interface AppState {
   quotes: Quote[];
-};
+}
 
 const Container = styled.div`
   margin: 0 auto;

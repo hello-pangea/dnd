@@ -3,16 +3,16 @@ import { css } from '@emotion/react';
 import { colors } from '@atlaskit/theme';
 import { grid, borderRadius } from '../constants';
 
-type Props = {
+interface Props {
   library: string;
   count: number;
   onCountChange: (count: number) => void;
-};
+}
 
-type Option = {
+interface Option {
   name: string;
   value: number;
-};
+}
 
 const options: Option[] = [
   { name: 'Small', value: 8 },

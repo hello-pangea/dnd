@@ -35,10 +35,10 @@ class Person extends Component<{
   }
 }
 
-type Props = {
+interface Props {
   currentUser: string;
   children: (currentUser: string, dragProvided: DraggableProvided) => ReactNode;
-};
+}
 
 function App({ currentUser, children }: Props) {
   return (

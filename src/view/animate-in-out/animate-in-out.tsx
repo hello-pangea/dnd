@@ -2,23 +2,23 @@ import React from 'react';
 import type { ReactNode } from 'react';
 import type { InOutAnimationMode } from '../../types';
 
-export type AnimateProvided = {
+export interface AnimateProvided {
   onClose: () => void;
   animate: InOutAnimationMode;
   data: unknown;
-};
+}
 
-type Props = {
+interface Props {
   on: unknown;
   shouldAnimate: boolean;
   children: (provided: AnimateProvided) => ReactNode;
-};
+}
 
-type State = {
+interface State {
   data: unknown;
   isVisible: boolean;
   animate: InOutAnimationMode;
-};
+}
 
 // Using a class here rather than hooks because
 // getDerivedStateFromProps results in far less renders.

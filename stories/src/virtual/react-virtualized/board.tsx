@@ -28,10 +28,10 @@ const Container = styled.div`
   display: flex;
 `;
 
-type RowProps = {
+interface RowProps {
   index: number;
   style: CSSProperties;
-};
+}
 
 // Using a higher order function so that we can look up the quotes data to retrieve
 // our quote from within the rowRender function
@@ -71,10 +71,10 @@ const getRowRender =
     );
   };
 
-type ColumnProps = {
+interface ColumnProps {
   columnId: string;
   quotes: Quote[];
-};
+}
 
 const ColumnContainer = styled.div`
   border-top-left-radius: ${borderRadius}px;
@@ -149,11 +149,11 @@ const Column = React.memo(function Column(props: ColumnProps) {
   );
 });
 
-type State = {
+interface State {
   itemCount: number;
   quoteMap: QuoteMap;
   columnKeys: string[];
-};
+}
 
 function getColumnKeys(quoteMap: QuoteMap): string[] {
   return Object.keys(quoteMap).sort();

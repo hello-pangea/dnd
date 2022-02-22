@@ -7,13 +7,13 @@ import { horizontal, vertical } from '../../../axis';
 // will replace -0 and replace with +0
 const clean = apply((value: number) => (value === 0 ? 0 : value));
 
-type Args = {
+interface Args {
   dragStartTime: number;
   container: Rect;
   subject: Rect;
   center: Position;
   shouldUseTimeDampening: boolean;
-};
+}
 
 export default ({
   dragStartTime,

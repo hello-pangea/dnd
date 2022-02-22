@@ -8,15 +8,15 @@ import { noop } from '../empty';
 
 type OnWindowScroll = (newScroll: Position) => void;
 
-type Args = {
+interface Args {
   onWindowScroll: OnWindowScroll;
-};
+}
 
-type Result = {
+interface Result {
   start: () => void;
   stop: () => void;
   isActive: () => boolean;
-};
+}
 
 function getWindowScrollBinding(update: () => void): UIEventBinding {
   return {

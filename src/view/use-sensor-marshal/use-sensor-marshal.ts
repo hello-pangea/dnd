@@ -56,12 +56,12 @@ function preventDefault(event: Event) {
 
 type LockPhase = 'PRE_DRAG' | 'DRAGGING' | 'COMPLETED';
 
-type IsActiveArgs = {
+interface IsActiveArgs {
   expected: LockPhase;
   phase: LockPhase;
   isLockActive: () => boolean;
   shouldWarn: boolean;
-};
+}
 
 function isActive({
   expected,
@@ -104,12 +104,12 @@ function isActive({
   return true;
 }
 
-type CanStartArgs = {
+interface CanStartArgs {
   lockAPI: LockAPI;
   registry: Registry;
   store: Store;
   draggableId: DraggableId;
-};
+}
 
 function canStart({
   lockAPI,
@@ -142,7 +142,7 @@ function canStart({
   return true;
 }
 
-type TryStartArgs = {
+interface TryStartArgs {
   lockAPI: LockAPI;
   contextId: ContextId;
   registry: Registry;
@@ -150,7 +150,7 @@ type TryStartArgs = {
   draggableId: DraggableId;
   forceSensorStop: (() => void) | null;
   sourceEvent: Event | null;
-};
+}
 
 function tryStart({
   lockAPI,
@@ -210,11 +210,11 @@ function tryStart({
 
   const tryDispatchWhenDragging = tryDispatch.bind(null, 'DRAGGING');
 
-  type LiftArgs = {
+  interface LiftArgs {
     liftActionArgs: LiftActionArgs;
     cleanup: () => void;
     actions: any;
-  };
+  }
 
   function lift(args: LiftArgs) {
     function completed() {
@@ -350,13 +350,13 @@ function tryStart({
   return preDrag;
 }
 
-type SensorMarshalArgs = {
+interface SensorMarshalArgs {
   contextId: ContextId;
   registry: Registry;
   store: Store;
   customSensors: Sensor[] | null;
   enableDefaultSensors: boolean;
-};
+}
 
 // default sensors are now exported to library consumers
 const defaultSensors: Sensor[] = [

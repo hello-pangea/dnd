@@ -22,22 +22,22 @@ function getHasOverlap(first: Rect, second: Rect): boolean {
   );
 }
 
-type Args = {
+interface Args {
   pageBorderBox: Rect;
   draggable: DraggableDimension;
   droppables: DroppableDimensionMap;
-};
+}
 
-type WithDistance = {
+interface WithDistance {
   distance: number;
   id: DroppableId;
-};
+}
 
-type GetFurthestArgs = {
+interface GetFurthestArgs {
   pageBorderBox: Rect;
   draggable: DraggableDimension;
   candidates: DroppableDimension[];
-};
+}
 
 function getFurthestAway({
   pageBorderBox,

@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import type { Action } from '../../state/store-types';
 
-type Bucket = {
+interface Bucket {
   [key: string]: number[];
-};
+}
 
 const average = (values: number[]): number => {
   const sum: number = values.reduce(

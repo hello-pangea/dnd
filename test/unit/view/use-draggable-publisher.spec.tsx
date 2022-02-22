@@ -29,11 +29,11 @@ import { disableWarn } from '../../util/console';
 const preset = getPreset();
 const noComputedSpacing = getComputedSpacing({});
 
-type ItemProps = {
+interface ItemProps {
   index?: number;
   draggableId?: DraggableId;
   registry: Registry;
-};
+}
 
 const defaultOptions: DraggableOptions = {
   canDragInteractiveElements: false,

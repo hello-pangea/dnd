@@ -12,7 +12,7 @@ import calculateReorderImpact from '../../../calculate-drag-impact/calculate-reo
 import fromCombine from './from-combine';
 import fromReorder from './from-reorder';
 
-export type Args = {
+export interface Args {
   isMovingForward: boolean;
   isInHomeList: boolean;
   draggable: DraggableDimension;
@@ -22,7 +22,7 @@ export type Args = {
   previousImpact: DragImpact;
   viewport: Viewport;
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   isMovingForward,

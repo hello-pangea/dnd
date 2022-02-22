@@ -79,12 +79,12 @@ function execute<TData extends AnyResponderData>(
   }
 }
 
-type WhileDragging = {
+interface WhileDragging {
   mode: MovementMode;
   lastCritical: Critical;
   lastCombine: Combine | null;
   lastLocation: DraggableLocation | null;
-};
+}
 
 export default (getResponders: () => Responders, announce: Announce) => {
   const asyncMarshal: AsyncMarshal = getAsyncMarshal();

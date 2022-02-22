@@ -1,10 +1,10 @@
 import { invariant } from '../../src/invariant';
 import writable from './writable';
 
-type Args = {
+interface Args {
   scrollHeight: number;
   scrollWidth: number;
-};
+}
 
 const setWindowScrollSize = ({ scrollHeight, scrollWidth }: Args): void => {
   const el = document.documentElement;

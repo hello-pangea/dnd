@@ -8,15 +8,15 @@ import AuthorList from '../primatives/author-list';
 import reorder from '../reorder';
 import { grid } from '../constants';
 
-type Props = {
+interface Props {
   initial: Quote[];
   internalScroll?: boolean;
   isCombineEnabled?: boolean;
-};
+}
 
-type State = {
+interface State {
   quotes: Quote[];
-};
+}
 
 const Root = styled.div`
   padding: ${grid}px;

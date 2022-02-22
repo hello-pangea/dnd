@@ -16,10 +16,10 @@ import type {
   DroppableStateSnapshot,
 } from '../src';
 
-type Item = {
+interface Item {
   id: string;
   content: string;
-};
+}
 
 // fake data generator
 const getItems = (count: number): Item[] =>
@@ -66,10 +66,10 @@ const getListStyle = (isDraggingOver: boolean) => ({
   overflow: 'auto',
 });
 
-type State = {
+interface State {
   items: Item[];
   isDropDisabled: boolean;
-};
+}
 
 class App extends React.Component<unknown, State> {
   state: State = {

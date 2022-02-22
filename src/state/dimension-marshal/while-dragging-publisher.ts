@@ -18,27 +18,27 @@ import type {
 import * as timings from '../../debug/timings';
 import { origin } from '../position';
 
-export type WhileDraggingPublisher = {
+export interface WhileDraggingPublisher {
   add: (entry: DraggableEntry) => void;
   remove: (entry: DraggableEntry) => void;
   stop: () => void;
-};
+}
 
-type Staging = {
+interface Staging {
   additions: DraggableEntryMap;
   removals: DraggableIdMap;
   modified: DroppableIdMap;
-};
+}
 
-type Callbacks = {
+interface Callbacks {
   publish: (args: Published) => unknown;
   collectionStarting: () => unknown;
-};
+}
 
-type Args = {
+interface Args {
   registry: Registry;
   callbacks: Callbacks;
-};
+}
 
 const clean = (): Staging => ({
   additions: {},

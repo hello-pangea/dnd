@@ -17,7 +17,7 @@ import getClientFromPageBorderBoxCenter from '../../get-center-from-impact/get-c
 import getPageBorderBoxCenter from '../../get-center-from-impact/get-page-border-box-center';
 import moveToNewDroppable from './move-to-new-droppable';
 
-type Args = {
+interface Args {
   isMovingForward: boolean;
   // the current page center of the dragging item
   previousPageBorderBoxCenter: Position;
@@ -31,7 +31,7 @@ type Args = {
   // the current viewport
   viewport: Viewport;
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   isMovingForward,

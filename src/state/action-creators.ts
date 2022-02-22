@@ -11,15 +11,15 @@ import type {
   Published,
 } from '../types';
 
-export type BeforeInitialCaptureArgs = {
+export interface BeforeInitialCaptureArgs {
   draggableId: DraggableId;
   movementMode: MovementMode;
-};
+}
 
-export type BeforeInitialCaptureAction = {
+export interface BeforeInitialCaptureAction {
   type: 'BEFORE_INITIAL_CAPTURE';
   payload: BeforeInitialCaptureArgs;
-};
+}
 
 export type BeforeInitialCaptureActionCreator = typeof beforeInitialCapture;
 
@@ -30,18 +30,18 @@ export const beforeInitialCapture = (
   payload: args,
 });
 
-export type LiftArgs = {
+export interface LiftArgs {
   // lifting with DraggableId rather than descriptor
   // as the descriptor might change after a drop is flushed
   id: DraggableId;
   clientSelection: Position;
   movementMode: MovementMode;
-};
+}
 
-export type LiftAction = {
+export interface LiftAction {
   type: 'LIFT';
   payload: LiftArgs;
-};
+}
 
 export type LiftActionCreator = typeof lift;
 
@@ -50,18 +50,18 @@ export const lift = (args: LiftArgs): LiftAction => ({
   payload: args,
 });
 
-export type InitialPublishArgs = {
+export interface InitialPublishArgs {
   critical: Critical;
   dimensions: DimensionMap;
   clientSelection: Position;
   viewport: Viewport;
   movementMode: MovementMode;
-};
+}
 
-export type InitialPublishAction = {
+export interface InitialPublishAction {
   type: 'INITIAL_PUBLISH';
   payload: InitialPublishArgs;
-};
+}
 
 export type InitialPublishActionCreator = typeof initialPublish;
 
@@ -72,10 +72,10 @@ export const initialPublish = (
   payload: args,
 });
 
-export type PublishWhileDraggingAction = {
+export interface PublishWhileDraggingAction {
   type: 'PUBLISH_WHILE_DRAGGING';
   payload: Published;
-};
+}
 
 export type PublishWhileDraggingArgs = Published;
 
@@ -88,10 +88,10 @@ export const publishWhileDragging = (
   payload: args,
 });
 
-export type CollectionStartingAction = {
+export interface CollectionStartingAction {
   type: 'COLLECTION_STARTING';
   payload: null;
-};
+}
 
 export type CollectionStartingActionCreator = typeof collectionStarting;
 
@@ -100,15 +100,15 @@ export const collectionStarting = (): CollectionStartingAction => ({
   payload: null,
 });
 
-export type UpdateDroppableScrollArgs = {
+export interface UpdateDroppableScrollArgs {
   id: DroppableId;
   newScroll: Position;
-};
+}
 
-export type UpdateDroppableScrollAction = {
+export interface UpdateDroppableScrollAction {
   type: 'UPDATE_DROPPABLE_SCROLL';
   payload: UpdateDroppableScrollArgs;
-};
+}
 
 export type UpdateDroppableScrollActionCreator = typeof updateDroppableScroll;
 
@@ -119,15 +119,15 @@ export const updateDroppableScroll = (
   payload: args,
 });
 
-export type UpdateDroppableIsEnabledArgs = {
+export interface UpdateDroppableIsEnabledArgs {
   id: DroppableId;
   isEnabled: boolean;
-};
+}
 
-export type UpdateDroppableIsEnabledAction = {
+export interface UpdateDroppableIsEnabledAction {
   type: 'UPDATE_DROPPABLE_IS_ENABLED';
   payload: UpdateDroppableIsEnabledArgs;
-};
+}
 
 export type UpdateDroppableIsEnabledActionCreator =
   typeof updateDroppableIsEnabled;
@@ -139,15 +139,15 @@ export const updateDroppableIsEnabled = (
   payload: args,
 });
 
-export type UpdateDroppableIsCombineEnabledArgs = {
+export interface UpdateDroppableIsCombineEnabledArgs {
   id: DroppableId;
   isCombineEnabled: boolean;
-};
+}
 
-export type UpdateDroppableIsCombineEnabledAction = {
+export interface UpdateDroppableIsCombineEnabledAction {
   type: 'UPDATE_DROPPABLE_IS_COMBINE_ENABLED';
   payload: UpdateDroppableIsCombineEnabledArgs;
-};
+}
 
 export type UpdateDroppableIsCombineEnabledActionCreator =
   typeof updateDroppableIsCombineEnabled;
@@ -159,14 +159,14 @@ export const updateDroppableIsCombineEnabled = (
   payload: args,
 });
 
-export type MoveArgs = {
+export interface MoveArgs {
   client: Position;
-};
+}
 
-export type MoveAction = {
+export interface MoveAction {
   type: 'MOVE';
   payload: MoveArgs;
-};
+}
 
 export type MoveActionCreator = typeof move;
 
@@ -175,14 +175,14 @@ export const move = (args: MoveArgs): MoveAction => ({
   payload: args,
 });
 
-type MoveByWindowScrollArgs = {
+interface MoveByWindowScrollArgs {
   newScroll: Position;
-};
+}
 
-export type MoveByWindowScrollAction = {
+export interface MoveByWindowScrollAction {
   type: 'MOVE_BY_WINDOW_SCROLL';
   payload: MoveByWindowScrollArgs;
-};
+}
 
 export type MoveByWindowScrollActionCreator = typeof moveByWindowScroll;
 
@@ -193,14 +193,14 @@ export const moveByWindowScroll = (
   payload: args,
 });
 
-export type UpdateViewportMaxScrollArgs = {
+export interface UpdateViewportMaxScrollArgs {
   maxScroll: Position;
-};
+}
 
-export type UpdateViewportMaxScrollAction = {
+export interface UpdateViewportMaxScrollAction {
   type: 'UPDATE_VIEWPORT_MAX_SCROLL';
   payload: UpdateViewportMaxScrollArgs;
-};
+}
 
 export type UpdateViewportMaxScrollActionCreator =
   typeof updateViewportMaxScroll;
@@ -212,10 +212,10 @@ export const updateViewportMaxScroll = (
   payload: args,
 });
 
-export type MoveUpAction = {
+export interface MoveUpAction {
   type: 'MOVE_UP';
   payload: null;
-};
+}
 
 export type MoveUpActionCreator = typeof moveUp;
 
@@ -224,10 +224,10 @@ export const moveUp = (): MoveUpAction => ({
   payload: null,
 });
 
-export type MoveDownAction = {
+export interface MoveDownAction {
   type: 'MOVE_DOWN';
   payload: null;
-};
+}
 
 export type MoveDownActionCreator = typeof moveDown;
 
@@ -236,10 +236,10 @@ export const moveDown = (): MoveDownAction => ({
   payload: null,
 });
 
-export type MoveRightAction = {
+export interface MoveRightAction {
   type: 'MOVE_RIGHT';
   payload: null;
-};
+}
 
 export type MoveRightActionCreator = typeof moveRight;
 
@@ -248,10 +248,10 @@ export const moveRight = (): MoveRightAction => ({
   payload: null,
 });
 
-export type MoveLeftAction = {
+export interface MoveLeftAction {
   type: 'MOVE_LEFT';
   payload: null;
-};
+}
 
 export type MoveLeftActionCreator = typeof moveLeft;
 
@@ -260,10 +260,10 @@ export const moveLeft = (): MoveLeftAction => ({
   payload: null,
 });
 
-export type FlushAction = {
+export interface FlushAction {
   type: 'FLUSH';
   payload: null;
-};
+}
 
 export type FlushActionCreator = typeof flush;
 
@@ -272,16 +272,16 @@ export const flush = (): FlushAction => ({
   payload: null,
 });
 
-export type AnimateDropArgs = {
+export interface AnimateDropArgs {
   completed: CompletedDrag;
   newHomeClientOffset: Position;
   dropDuration: number;
-};
+}
 
-export type DropAnimateAction = {
+export interface DropAnimateAction {
   type: 'DROP_ANIMATE';
   payload: AnimateDropArgs;
-};
+}
 
 export type AnimateDropActionCreator = typeof animateDrop;
 
@@ -290,14 +290,14 @@ export const animateDrop = (args: AnimateDropArgs): DropAnimateAction => ({
   payload: args,
 });
 
-export type DropCompleteArgs = {
+export interface DropCompleteArgs {
   completed: CompletedDrag;
-};
+}
 
-export type DropCompleteAction = {
+export interface DropCompleteAction {
   type: 'DROP_COMPLETE';
   payload: DropCompleteArgs;
-};
+}
 
 export type CompleteDropActionCreator = typeof completeDrop;
 
@@ -306,14 +306,14 @@ export const completeDrop = (args: DropCompleteArgs): DropCompleteAction => ({
   payload: args,
 });
 
-type DropArgs = {
+interface DropArgs {
   reason: DropReason;
-};
+}
 
-export type DropAction = {
+export interface DropAction {
   type: 'DROP';
   payload: DropArgs;
-};
+}
 
 export type DropActionCreator = typeof drop;
 
@@ -326,10 +326,10 @@ export type CancelActionCreator = typeof cancel;
 
 export const cancel = () => drop({ reason: 'CANCEL' });
 
-export type DropPendingAction = {
+export interface DropPendingAction {
   type: 'DROP_PENDING';
   payload: DropArgs;
-};
+}
 
 export type DropPendingActionCreator = typeof dropPending;
 
@@ -338,10 +338,10 @@ export const dropPending = (args: DropArgs): DropPendingAction => ({
   payload: args,
 });
 
-export type DropAnimationFinishedAction = {
+export interface DropAnimationFinishedAction {
   type: 'DROP_ANIMATION_FINISHED';
   payload: null;
-};
+}
 
 export type DropAnimationFinishedActionCreator = typeof dropAnimationFinished;
 

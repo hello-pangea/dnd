@@ -12,7 +12,7 @@ import type {
   Viewport,
 } from '../../../types';
 
-type GetBestDroppableArgs = {
+interface GetBestDroppableArgs {
   isMovingForward: boolean;
   // the current position of the dragging item
   pageBorderBoxCenter: Position;
@@ -21,7 +21,7 @@ type GetBestDroppableArgs = {
   // all the droppables in the system
   droppables: DroppableDimensionMap;
   viewport: Viewport;
-};
+}
 
 const getKnownActive = (droppable: DroppableDimension): Rect => {
   const rect: Rect | null = droppable.subject.active;

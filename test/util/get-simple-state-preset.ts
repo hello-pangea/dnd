@@ -111,10 +111,10 @@ export default (axis: Axis = vertical) => {
     phase: 'COLLECTING',
   });
 
-  type DropPendingArgs = {
+  interface DropPendingArgs {
     reason: DropReason;
     isWaiting: boolean;
-  };
+  }
 
   const defaultDropPending: DropPendingArgs = {
     reason: 'DROP',

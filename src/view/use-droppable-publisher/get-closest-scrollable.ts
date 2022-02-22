@@ -2,10 +2,10 @@ import { invariant } from '../../invariant';
 import { warning } from '../../dev-warning';
 import getBodyElement from '../get-body-element';
 
-type Overflow = {
+interface Overflow {
   overflowX: string;
   overflowY: string;
-};
+}
 
 const isEqual =
   (base: string) =>

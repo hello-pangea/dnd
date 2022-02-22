@@ -40,15 +40,15 @@ const Cell = styled.td`
   padding: ${grid}px;
 `;
 
-type TableCellProps = {
+interface TableCellProps {
   children: ReactNode;
   isDragOccurring: boolean;
-};
+}
 
-type TableCellSnapshot = {
+interface TableCellSnapshot {
   width: number;
   height: number;
-};
+}
 
 class TableCell extends React.Component<TableCellProps> {
   ref: HTMLElement | undefined | null;
@@ -116,11 +116,11 @@ class TableCell extends React.Component<TableCellProps> {
   }
 }
 
-type TableRowProps = {
+interface TableRowProps {
   quote: Quote;
   provided: DraggableProvided;
   snapshot: DraggableStateSnapshot;
-};
+}
 
 const IsDraggingContext = React.createContext<boolean>(false);
 
@@ -163,15 +163,15 @@ const CopyTableButton = styled.button``;
 
 /* stylelint-enable */
 
-type AppProps = {
+interface AppProps {
   initial: Quote[];
-};
+}
 
-type AppState = {
+interface AppState {
   quotes: Quote[];
   layout: 'fixed' | 'auto';
   isDragging: boolean;
-};
+}
 
 export default class TableApp extends Component<AppProps, AppState> {
   tableRef: HTMLElement | undefined | null;

@@ -30,18 +30,18 @@ const Container = styled.div`
   display: inline-flex;
 `;
 
-type Props = {
+interface Props {
   initial: QuoteMap;
   withScrollableColumns?: boolean;
   isCombineEnabled?: boolean;
   containerHeight?: string;
   useClone?: boolean;
-};
+}
 
-type State = {
+interface State {
   columns: QuoteMap;
   ordered: string[];
-};
+}
 
 export default class Board extends Component<Props, State> {
   /* eslint-disable react/sort-comp */

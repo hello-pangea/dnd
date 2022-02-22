@@ -13,10 +13,10 @@ import type {
   DroppableEntryMap,
 } from './registry-types';
 
-type EntryMap = {
+interface EntryMap {
   draggables: DraggableEntryMap;
   droppables: DroppableEntryMap;
-};
+}
 
 export default function createRegistry(): Registry {
   const entries: EntryMap = {

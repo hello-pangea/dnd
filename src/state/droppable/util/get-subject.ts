@@ -38,12 +38,12 @@ const clip = (target: Spacing, frame?: Scrollable | null): Rect | null => {
   return getRect(target);
 };
 
-type Args = {
+interface Args {
   page: BoxModel;
   withPlaceholder: PlaceholderInSubject | null;
   axis: Axis;
   frame: Scrollable | null;
-};
+}
 
 export default ({
   page,

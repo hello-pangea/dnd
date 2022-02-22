@@ -3,12 +3,12 @@ import getValueFromDistance from './get-value-from-distance';
 import dampenValueByTime from './dampen-value-by-time';
 import minScroll from './min-scroll';
 
-type Args = {
+interface Args {
   distanceToEdge: number;
   thresholds: DistanceThresholds;
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
-};
+}
 
 export default ({
   distanceToEdge,

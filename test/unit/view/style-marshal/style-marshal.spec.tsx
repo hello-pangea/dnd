@@ -12,11 +12,11 @@ const getMarshal = (myMock: jest.Mock<null>): StyleMarshal =>
   myMock.mock.calls[0][0];
 const getMock = () => jest.fn().mockImplementation(() => null);
 
-type Props = {
+interface Props {
   contextId: ContextId;
   nonce?: string;
   children: (marshal: StyleMarshal) => ReactNode;
-};
+}
 
 function WithMarshal(props: Props) {
   const marshal: StyleMarshal = useStyleMarshal(props.contextId, props.nonce);

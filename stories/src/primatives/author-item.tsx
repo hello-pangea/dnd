@@ -31,11 +31,11 @@ const Avatar = styled.img<AvatarProps>`
   }
 `;
 
-type Props = {
+interface Props {
   author: Author;
   provided: DraggableProvided;
   snapshot: DraggableStateSnapshot;
-};
+}
 
 export default class AuthorItem extends Component<Props> {
   render(): ReactElement {

@@ -6,11 +6,11 @@ import { createStore } from 'redux';
 import { Droppable, Draggable, DragDropContext } from '../../../../src';
 import type { DraggableProvided, DroppableProvided } from '../../../../src';
 
-type AppState = {
+interface AppState {
   foo: string;
   // Needed to appease react-redux connect type
   dispatch?: () => void;
-};
+}
 
 const original: AppState = {
   foo: 'bar',

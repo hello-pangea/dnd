@@ -34,7 +34,7 @@ import usePreviousRef from '../use-previous-ref';
 import useLayoutEffect from '../use-isomorphic-layout-effect';
 import useUniqueId from '../use-unique-id';
 
-type Props = {
+interface Props {
   droppableId: DroppableId;
   type: TypeId;
   mode: DroppableMode;
@@ -43,14 +43,14 @@ type Props = {
   isCombineEnabled: boolean;
   ignoreContainerClipping: boolean;
   getDroppableRef: () => HTMLElement | null;
-};
+}
 
-type WhileDragging = {
+interface WhileDragging {
   ref: HTMLElement;
   descriptor: DroppableDescriptor;
   env: Env;
   scrollOptions: ScrollOptions;
-};
+}
 
 const getClosestScrollableFromDrag = (
   dragging?: WhileDragging | null,

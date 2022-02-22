@@ -11,10 +11,10 @@ import type {
   DraggableProvided,
 } from '../../../src';
 
-type ItemType = {
+interface ItemType {
   id: string;
   component: ReactNode;
-};
+}
 
 const initial: ItemType[] = [
   {
@@ -165,10 +165,10 @@ const Status = styled.strong<StatusProps>`
   color: ${({ isEnabled }) => (isEnabled ? colors.B200 : colors.P100)};
 `;
 
-type State = {
+interface State {
   canDragInteractiveElements: boolean;
   items: ItemType[];
-};
+}
 
 export default class InteractiveElementsApp extends React.Component<
   unknown,

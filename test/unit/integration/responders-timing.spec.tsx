@@ -10,10 +10,10 @@ import type { DroppableProvided } from '../../../src/view/droppable/droppable-ty
 import type { Responders } from '../../../src/types';
 import { simpleLift, keyboard } from './util/controls';
 
-type ItemProps = {
+interface ItemProps {
   provided: DraggableProvided;
   onRender: () => void;
-};
+}
 
 class Item extends React.Component<ItemProps> {
   render() {

@@ -3,9 +3,9 @@ import type { Id } from '../types';
 
 let count = 0;
 
-type Options = {
+interface Options {
   separator: string;
-};
+}
 
 const defaults: Options = { separator: '::' };
 

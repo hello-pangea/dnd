@@ -3,11 +3,11 @@ import type { Axis } from '../../../../../../src/types';
 import { getPreset } from '../../../../../util/dimension';
 import getSimpleStatePreset from '../../../../../util/get-simple-state-preset';
 
-export type BlockFnArgs = {
+export interface BlockFnArgs {
   axis: Axis;
   preset: any;
   state: any;
-};
+}
 
 type BlockFn = (args: BlockFnArgs) => void;
 

@@ -4,13 +4,13 @@ import type { DistanceThresholds } from './get-distance-thresholds';
 import type { Axis } from '../../../../../types';
 import getValue from './get-value';
 
-type GetOnAxisArgs = {
+interface GetOnAxisArgs {
   container: Rect;
   distanceToEdges: Spacing;
   dragStartTime: number;
   axis: Axis;
   shouldUseTimeDampening: boolean;
-};
+}
 
 export default ({
   container,

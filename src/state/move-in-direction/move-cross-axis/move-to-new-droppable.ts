@@ -16,7 +16,7 @@ import { addPlaceholder } from '../../droppable/with-placeholder';
 import isHomeOf from '../../droppable/is-home-of';
 import calculateReorderImpact from '../../calculate-drag-impact/calculate-reorder-impact';
 
-type Args = {
+interface Args {
   previousPageBorderBoxCenter: Position;
   moveRelativeTo: DraggableDimension | null;
   insideDestination: DraggableDimension[];
@@ -25,7 +25,7 @@ type Args = {
   destination: DroppableDimension;
   viewport: Viewport;
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   previousPageBorderBoxCenter,

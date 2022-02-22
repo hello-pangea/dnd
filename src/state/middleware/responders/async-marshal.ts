@@ -1,14 +1,14 @@
 import { invariant } from '../../../invariant';
 
-type Entry = {
+interface Entry {
   timerId: TimeoutID;
   callback: () => void;
-};
+}
 
-export type AsyncMarshal = {
+export interface AsyncMarshal {
   add: (fn: () => void) => void;
   flush: () => void;
-};
+}
 
 export default () => {
   const entries: Entry[] = [];

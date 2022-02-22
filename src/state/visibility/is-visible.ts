@@ -6,22 +6,22 @@ import isTotallyVisibleThroughFrameOnAxis from './is-totally-visible-through-fra
 import { offsetByPosition } from '../spacing';
 import { origin } from '../position';
 
-export type Args = {
+export interface Args {
   target: Spacing;
   destination: DroppableDimension;
   viewport: Rect;
   withDroppableDisplacement: boolean;
   shouldCheckDroppable?: boolean;
   shouldCheckViewport?: boolean;
-};
+}
 
 type IsVisibleThroughFrameFn = (
   frame: Spacing,
 ) => (subject: Spacing) => boolean;
 
-type InternalArgs = {
+interface InternalArgs extends Args {
   isVisibleThroughFrameFn: IsVisibleThroughFrameFn;
-} & Args;
+}
 
 const getDroppableDisplaced = (
   target: Spacing,

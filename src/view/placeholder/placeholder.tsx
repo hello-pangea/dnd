@@ -11,7 +11,7 @@ import { noSpacing } from '../../state/spacing';
 
 function noop() {}
 
-export type PlaceholderStyle = {
+export interface PlaceholderStyle {
   display: string;
   boxSizing: 'border-box';
   width: number;
@@ -24,28 +24,28 @@ export type PlaceholderStyle = {
   flexGrow: '0';
   pointerEvents: 'none';
   transition: string | null;
-};
-export type Props = {
+}
+export interface Props {
   placeholder: PlaceholderType;
   animate: InOutAnimationMode;
   onClose: () => void;
   innerRef?: (instance: HTMLElement | null) => void;
   onTransitionEnd: () => void;
   contextId: ContextId;
-};
+}
 
-type Size = {
+interface Size {
   width: number;
   height: number;
   // Need to animate in/out animation as well as size
   margin: Spacing;
-};
+}
 
-type HelperArgs = {
+interface HelperArgs {
   isAnimatingOpenOnMount: boolean;
   placeholder: PlaceholderType;
   animate: InOutAnimationMode;
-};
+}
 
 const empty: Size = {
   width: 0,

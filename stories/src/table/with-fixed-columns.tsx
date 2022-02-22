@@ -50,11 +50,11 @@ const Cell = styled.td`
   width: 50%;
 `;
 
-type TableRowProps = {
+interface TableRowProps {
   quote: Quote;
   provided: DraggableProvided;
   snapshot: DraggableStateSnapshot;
-};
+}
 
 class TableRow extends Component<TableRowProps> {
   render() {
@@ -88,14 +88,14 @@ const CopyTableButton = styled.button``;
 
 /* stylelint-enable */
 
-type AppProps = {
+interface AppProps {
   initial: Quote[];
-};
+}
 
-type AppState = {
+interface AppState {
   quotes: Quote[];
   layout: 'fixed' | 'auto';
-};
+}
 
 export default class TableApp extends Component<AppProps, AppState> {
   // eslint-disable-next-line react/sort-comp

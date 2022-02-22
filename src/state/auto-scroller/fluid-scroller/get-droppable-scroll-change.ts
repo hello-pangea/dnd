@@ -3,13 +3,13 @@ import type { Scrollable, DroppableDimension } from '../../../types';
 import getScroll from './get-scroll';
 import { canScrollDroppable } from '../can-scroll';
 
-type Args = {
+interface Args {
   droppable: DroppableDimension;
   subject: Rect;
   center: Position;
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
-};
+}
 
 export default ({
   droppable,

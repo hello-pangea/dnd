@@ -55,9 +55,9 @@ function useDemoSensor(api: SensorAPI) {
   }, [start]);
 }
 
-type Props = {
+interface Props {
   initial: Quote[];
-};
+}
 
 export default function QuoteApp(props: Props): ReactElement {
   const [quotes, setQuotes] = useState(props.initial);

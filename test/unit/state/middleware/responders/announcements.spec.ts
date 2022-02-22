@@ -33,12 +33,12 @@ afterEach(() => {
   jest.useRealTimers();
 });
 
-type Case = {
+interface Case {
   responder: 'onDragStart' | 'onDragUpdate' | 'onDragEnd';
   description?: string;
   execute: (store: Store) => void;
   defaultMessage: string;
-};
+}
 
 const moveForwardUpdate: DragUpdate = {
   ...getDragStart(),

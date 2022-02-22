@@ -16,14 +16,14 @@ import type {
 import QuoteItem from '../../primatives/quote-item';
 import reorder from '../../reorder';
 
-type Props = {
+interface Props {
   initial: Quote[];
-};
+}
 
-type RowProps = {
+interface RowProps {
   index: number;
   style: CSSProperties;
-};
+}
 
 // Using a higher order function so that we can look up the quotes data to retrieve
 // our quote from within the rowRender function

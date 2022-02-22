@@ -13,7 +13,7 @@ import {
   getCurrentPageBorderBoxCenter,
 } from './without-starting-displacement';
 
-type Args = {
+interface Args {
   pageBorderBoxCenter: Position;
   viewport: Viewport;
   // the droppable that is being moved to
@@ -21,7 +21,7 @@ type Args = {
   // the droppables inside the destination
   insideDestination: DraggableDimension[];
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   pageBorderBoxCenter,

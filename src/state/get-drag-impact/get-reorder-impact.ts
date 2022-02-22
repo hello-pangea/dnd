@@ -17,7 +17,7 @@ import getDidStartAfterCritical from '../did-start-after-critical';
 import calculateReorderImpact from '../calculate-drag-impact/calculate-reorder-impact';
 import getIsDisplaced from '../get-is-displaced';
 
-type Args = {
+interface Args {
   pageBorderBoxWithDroppableScroll: Rect;
   draggable: DraggableDimension;
   destination: DroppableDimension;
@@ -25,13 +25,13 @@ type Args = {
   last: DisplacementGroups;
   viewport: Viewport;
   afterCritical: LiftEffect;
-};
+}
 
-type AtIndexArgs = {
+interface AtIndexArgs {
   draggable: DraggableDimension;
   closest: DraggableDimension | null;
   inHomeList: boolean;
-};
+}
 
 function atIndex({
   draggable,

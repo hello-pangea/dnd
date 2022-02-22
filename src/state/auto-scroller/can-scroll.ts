@@ -2,11 +2,11 @@ import type { Position } from 'css-box-model';
 import { add, apply, isEqual, origin } from '../position';
 import type { DroppableDimension, Viewport, Scrollable } from '../../types';
 
-type CanPartiallyScrollArgs = {
+interface CanPartiallyScrollArgs {
   max: Position;
   current: Position;
   change: Position;
-};
+}
 
 const smallestSigned = apply((value: number) => {
   if (value === 0) {
@@ -15,11 +15,11 @@ const smallestSigned = apply((value: number) => {
   return value > 0 ? 1 : -1;
 });
 
-type GetRemainderArgs = {
+interface GetRemainderArgs {
   current: Position;
   max: Position;
   change: Position;
-};
+}
 
 // We need to figure out how much of the movement
 // cannot be done with a scroll

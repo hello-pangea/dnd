@@ -33,13 +33,13 @@ const Title = styled.h4`
   margin: ${grid}px;
 `;
 
-type Props = {
+interface Props {
   initial: QuoteMap;
-};
+}
 
-type State = {
+interface State {
   quoteMap: QuoteMap;
-};
+}
 
 export default class QuoteApp extends Component<Props, State> {
   /* eslint-disable react/sort-comp */

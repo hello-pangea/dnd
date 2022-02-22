@@ -3,11 +3,11 @@ import type { Viewport, DraggableDimension } from '../../../types';
 import { add, subtract } from '../../position';
 import withViewportDisplacement from '../../with-scroll-change/with-viewport-displacement';
 
-type Args = {
+interface Args {
   pageBorderBoxCenter: Position;
   draggable: DraggableDimension;
   viewport: Viewport;
-};
+}
 
 export default ({
   pageBorderBoxCenter,

@@ -2,11 +2,11 @@ import { withScroll, offset as offsetBox } from 'css-box-model';
 import type { Position, BoxModel } from 'css-box-model';
 import type { DraggableDimension } from '../../types';
 
-type Args = {
+interface Args {
   draggable: DraggableDimension;
   offset: Position;
   initialWindowScroll: Position;
-};
+}
 
 export default ({
   draggable,

@@ -44,11 +44,11 @@ const getScrollableDroppableOver = (
   return maybe;
 };
 
-type Api = {
+interface Api {
   center: Position;
   destination: DroppableId | null;
   droppables: DroppableDimensionMap;
-};
+}
 
 export default ({
   center,

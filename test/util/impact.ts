@@ -20,15 +20,15 @@ export function getDraggableIdMap(ids: DraggableId[]): DraggableIdMap {
   }, {});
 }
 
-type VisibleEntry = {
+interface VisibleEntry {
   dimension: DraggableDimension;
   shouldAnimate?: boolean;
-};
+}
 
-type GetDisplacedArgs = {
+interface GetDisplacedArgs {
   visible?: VisibleEntry[];
   invisible?: DraggableDimension[];
-};
+}
 
 export function getForcedDisplacement({
   visible = [],

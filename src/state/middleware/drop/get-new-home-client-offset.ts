@@ -12,13 +12,13 @@ import whatIsDraggedOver from '../../droppable/what-is-dragged-over';
 import { subtract } from '../../position';
 import getClientBorderBoxCenter from '../../get-center-from-impact/get-client-border-box-center';
 
-type Args = {
+interface Args {
   impact: DragImpact;
   draggable: DraggableDimension;
   dimensions: DimensionMap;
   viewport: Viewport;
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   impact,

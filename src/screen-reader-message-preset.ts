@@ -7,12 +7,12 @@ import type {
   Combine,
 } from './types';
 
-export type MessagePreset = {
+export interface MessagePreset {
   dragHandleUsageInstructions: string;
   onDragStart: (start: DragStart) => string;
   onDragUpdate: (update: DragUpdate) => string;
   onDragEnd: (result: DropResult) => string;
-};
+}
 
 const dragHandleUsageInstructions = `
   Press space bar to start a drag.

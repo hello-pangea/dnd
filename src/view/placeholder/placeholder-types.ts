@@ -1,4 +1,4 @@
-export type PlaceholderStyle = {
+export interface PlaceholderStyle {
   display: string;
   boxSizing: 'border-box';
   width: number;
@@ -11,4 +11,4 @@ export type PlaceholderStyle = {
   flexGrow: '0';
   pointerEvents: 'none';
   transition: string;
-};
+}

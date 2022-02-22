@@ -15,11 +15,11 @@ const Root = styled.div`
   align-items: flex-start;
 `;
 
-type Props = {
+interface Props {
   initial: Quote[];
   isCombineEnabled?: boolean;
   listStyle?: CSSProperties;
-};
+}
 
 export default function QuoteApp(props: Props): ReactElement {
   const [quotes, setQuotes] = useState(() => props.initial);

@@ -1,8 +1,8 @@
 import type { Position } from 'css-box-model';
 
-type Options = {
+interface Options {
   shouldPublish: boolean;
-};
+}
 
 const defaultOptions: Options = {
   shouldPublish: true,

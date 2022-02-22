@@ -10,13 +10,13 @@ import type {
 import { tryGetDestination } from '../../../get-impact-location';
 import removeDraggableFromList from '../../../remove-draggable-from-list';
 
-export type Args = {
+export interface Args {
   isMovingForward: boolean;
   draggable: DraggableDimension;
   destination: DroppableDimension;
   insideDestination: DraggableDimension[];
   previousImpact: DragImpact;
-};
+}
 
 export default ({
   isMovingForward,

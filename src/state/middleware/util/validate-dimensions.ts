@@ -6,9 +6,9 @@ import type {
 import getDraggablesInsideDroppable from '../../get-draggables-inside-droppable';
 import { warning } from '../../../dev-warning';
 
-type ErrorMap = {
+interface ErrorMap {
   [index: number]: true;
-};
+}
 
 function checkIndexes(insideDestination: DraggableDimension[]) {
   // no point running if there are 1 or less items

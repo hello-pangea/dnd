@@ -45,10 +45,10 @@ export interface NotDraggingStyle {
 
 export type DraggableStyle = DraggingStyle | NotDraggingStyle;
 
-export type ZIndexOptions = {
+export interface ZIndexOptions {
   dragging: number;
   dropAnimating: number;
-};
+}
 
 // Props that can be spread onto the element directly
 export interface DraggableProvidedDraggableProps {
@@ -117,11 +117,11 @@ export interface DraggableStateSnapshot {
   mode: MovementMode | null;
 }
 
-export type DispatchProps = {
+export interface DispatchProps {
   dropAnimationFinished: typeof dropAnimationFinished;
-};
+}
 
-export type DraggingMapProps = {
+export interface DraggingMapProps {
   type: 'DRAGGING';
   offset: Position;
   mode: MovementMode;
@@ -131,25 +131,25 @@ export type DraggingMapProps = {
   dimension: DraggableDimension;
   forceShouldAnimate: boolean | null;
   snapshot: DraggableStateSnapshot;
-};
+}
 
-export type SecondaryMapProps = {
+export interface SecondaryMapProps {
   type: 'SECONDARY';
   offset: Position;
   combineTargetFor: DraggableId | null;
   shouldAnimateDisplacement: boolean;
   snapshot: DraggableStateSnapshot;
-};
+}
 
 export type MappedProps = DraggingMapProps | SecondaryMapProps;
 
-export type MapProps = {
+export interface MapProps {
   // when an item is being displaced by a dragging item,
   // we need to know if that movement should be animated
   mapped: MappedProps;
   // dragging: ?DraggingMapProps,
   // secondary: ?SecondaryMapProps,
-};
+}
 
 export type DraggableChildrenFn = (
   provided: DraggableProvided,
@@ -167,13 +167,13 @@ export interface DraggableProps {
   shouldRespectForcePress?: boolean;
 }
 
-export type PrivateOwnProps = {
+export interface PrivateOwnProps extends DraggableProps {
   isClone: boolean;
   // no longer optional
   isEnabled: boolean;
   canDragInteractiveElements: boolean;
   shouldRespectForcePress: boolean;
-} & DraggableProps;
+}
 
 export type OwnProps = PrivateOwnProps;
 

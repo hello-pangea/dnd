@@ -16,11 +16,11 @@ import type {
   DroppableId,
 } from '../../types';
 
-type Args = {
+interface Args {
   scrollDroppable: (id: DroppableId, change: Position) => void;
   scrollWindow: (offset: Position) => void;
   move: (args: MoveArgs) => unknown;
-};
+}
 
 export type JumpScroller = (state: DraggingState) => void;
 

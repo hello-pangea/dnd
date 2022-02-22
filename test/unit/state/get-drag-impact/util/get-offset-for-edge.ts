@@ -2,11 +2,11 @@ import type { Position, Rect } from 'css-box-model';
 import type { Axis } from '../../../../../src/types';
 import { patch, subtract } from '../../../../../src/state/position';
 
-type ForStart = {
+interface ForStart {
   startEdgeOn: Position;
   dragging: Rect;
   axis: Axis;
-};
+}
 
 export function getOffsetForStartEdge({
   startEdgeOn,
@@ -20,11 +20,11 @@ export function getOffsetForStartEdge({
   return offset;
 }
 
-type ForCrossAxisStart = {
+interface ForCrossAxisStart {
   crossAxisStartEdgeOn: Position;
   dragging: Rect;
   axis: Axis;
-};
+}
 
 export function getOffsetForCrossAxisStartEdge({
   crossAxisStartEdgeOn,
@@ -38,11 +38,11 @@ export function getOffsetForCrossAxisStartEdge({
   return offset;
 }
 
-type ForEnd = {
+interface ForEnd {
   endEdgeOn: Position;
   dragging: Rect;
   axis: Axis;
-};
+}
 
 export function getOffsetForEndEdge({
   endEdgeOn,
@@ -56,11 +56,11 @@ export function getOffsetForEndEdge({
   return offset;
 }
 
-type ForCrossAxisEnd = {
+interface ForCrossAxisEnd {
   crossAxisEndEdgeOn: Position;
   dragging: Rect;
   axis: Axis;
-};
+}
 
 export function getOffsetForCrossAxisEndEdge({
   crossAxisEndEdgeOn,
