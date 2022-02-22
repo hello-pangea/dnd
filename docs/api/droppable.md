@@ -24,7 +24,7 @@ import { Droppable } from '@react-forked/dnd';
 ```ts
 import type { ReactNode } from 'react';
 
-type Props = {
+interface Props {
   // required
   droppableId: DroppableId,
   children: (DroppableProvided, DroppableStateSnapshot) => ReactNode,
@@ -37,7 +37,7 @@ type Props = {
   renderClone?: DraggableChildrenFn | null,
   ignoreContainerClipping?: boolean,
   getContainerForClone?: () => HTMLElement,
-};
+}
 
 type DroppableMode = 'standard' | 'virtual';
 type Direction = 'horizontal' | 'vertical';
@@ -77,18 +77,18 @@ The function is provided with two arguments:
 ### 1. provided: (DroppableProvided)
 
 ```ts
-type DroppableProvided = {
+interface DroppableProvided {
   innerRef: (a?: HTMLElement | null) => void;
   placeholder: ReactNode | null;
   droppableProps: DroppableProps;
-};
+}
 
-type DroppableProps = {
+interface DroppableProps {
   // used for shared global styles
   'data-rfd-droppable-context-id': ContextId;
   // Used to lookup. Currently not used for drag and drop lifecycle
   'data-rfd-droppable-id': DroppableId;
-};
+}
 ```
 
 - `provided.innerRef`: In order for the droppable to function correctly, **you must** bind the `provided.innerRef` to the highest possible DOM node in the `ReactElement`. We do this in order to avoid needing to use `ReactDOM` to look up your DOM node.
@@ -112,7 +112,7 @@ type DroppableProps = {
 ### 2. snapshot: (DroppableStateSnapshot)
 
 ```ts
-type DroppableStateSnapshot = {
+interface DroppableStateSnapshot {
   // Is the Droppable being dragged over?
   isDraggingOver: boolean;
   // What is the id of the draggable that is dragging over the Droppable?
@@ -124,7 +124,7 @@ type DroppableStateSnapshot = {
   // This is useful information when working with virtual lists
   // (See our virtual list pattern)
   isUsingPlaceholder: boolean;
-};
+}
 ```
 
 The `children` function is also provided with a small amount of state relating to the current drag state. This can be optionally used to enhance your component. A common use case is changing the appearance of a `<Droppable />` while it is being dragged over.

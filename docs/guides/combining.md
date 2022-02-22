@@ -30,7 +30,7 @@ When `isCombineEnabled` is set on a list _any_ item in the list can be combine w
 ## `<Draggable />` > `DraggableStateSnapshot`
 
 ```diff
-type DraggableStateSnapshot = {
+interface DraggableStateSnapshot {
   isDragging: boolean;
   isDropAnimating: boolean;
   isClone: boolean;
@@ -39,7 +39,7 @@ type DraggableStateSnapshot = {
 + combineWith: DraggableId | null;
 + combineTargetFor: DraggableId | null;
   mode: MovementMode | null;
-};
+}
 ```
 
 If you are dragging a `<Draggable />` over another `<Draggable />` in combine mode then the id of the `<Draggable />` being dragged over will be populated in `combineWith`

@@ -18,7 +18,7 @@ type ElementId = Id;
 ### Responders
 
 ```ts
-type Responders = {
+interface Responders {
   // optional
   onBeforeCapture?: OnBeforeCaptureResponder;
   onBeforeDragStart?: OnBeforeDragStartResponder;
@@ -27,7 +27,7 @@ type Responders = {
 
   // required
   onDragEnd: OnDragEndResponder;
-};
+}
 
 type OnBeforeCaptureResponder = (before: BeforeCapture) => unknown;
 
@@ -39,41 +39,41 @@ type OnDragUpdateResponder = (update: DragUpdate, provided: ResponderProvided) =
 
 type OnDragEndResponder = (result: DropResult, provided: ResponderProvided) => unknown;
 
-type DraggableRubric = {
+interface DraggableRubric {
   draggableId: DraggableId;
   type: TypeId;
   source: DraggableLocation;
-};
+}
 
-type DragStart = DraggableRubric & {
+interface DragStart extends DraggableRubric {
     mode: MovementMode;
-};
+}
 
 
-type DragUpdate = DragStart & {
+interface DragUpdate extends DragStart {
   // populated if in a reorder position
   destination: DraggableLocation | null;
   // populated if combining with another draggable
   combine: Combine | null;
-};
+}
 
 // details about the draggable that is being combined with
-type Combine = {
+interface Combine {
   draggableId: DraggableId;
   droppableId: DroppableId;
-};
+}
 
-type DropResult = DragUpdate & {
+interface DropResult extends DragUpdate {
     reason: DropReason;
-};
+}
 
 type DropReason = 'DROP' | 'CANCEL';
 
-type DraggableLocation = {
+interface DraggableLocation {
   droppableId: DroppableId;
   // the position of the droppable within a droppable
   index: number;
-};
+}
 
 // There are two modes that a drag can be in
 // FLUID: everything is done in response to highly granular input (eg mouse)
@@ -85,56 +85,56 @@ type MovementMode = 'FLUID' | 'SNAP';
 
 ```ts
 type Sensor = (api: SensorAPI) => void;
-type SensorAPI = {
+interface SensorAPI {
   tryGetLock: TryGetLock;
   canGetLock: (id: DraggableId) => boolean;
   isLockClaimed: () => boolean;
   tryReleaseLock: () => void;
   findClosestDraggableId: (event: Event) => DraggableId | null;
   findOptionsForDraggable: (id: DraggableId) => DraggableOptions | null;
-};
+}
 type TryGetLock = (
   draggableId: DraggableId,
   forceStop?: () => void,
   options?: TryGetLockOptions
 ) => PreDragActions | null;
-type TryGetLockOptions = {
+interface TryGetLockOptions {
   sourceEvent?: Event;
-};
+}
 ```
 
 ### Droppable
 
 ```ts
-type DroppableProvided = {
+interface DroppableProvided {
   innerRef: (a?: HTMLElement | null) => void;
   placeholder: ReactNode | null;
   droppableProps: DroppableProps;
-};
-type DroppableProps = {
+}
+interface DroppableProps {
   // used for shared global styles
   'data-rfd-droppable-context-id': ContextId;
   // Used to lookup. Currently not used for drag and drop lifecycle
   'data-rfd-droppable-id': DroppableId;
-};
-type DroppableStateSnapshot = {
+}
+interface DroppableStateSnapshot {
   isDraggingOver: boolean;
   draggingOverWith: DraggableId | null;
   draggingFromThisWith: DraggableId | null;
   isUsingPlaceholder: boolean;
-};
+}
 ```
 
 ### Draggable
 
 ```ts
-type DraggableProvided = {
+interface DraggableProvided {
   draggableProps: DraggableProps;
   dragHandleProps: DragHandleProps | null;
   innerRef: (a?: HTMLElement | null) => void;
-};
+}
 
-type DraggableStateSnapshot = {
+interface DraggableStateSnapshot {
   isDragging: boolean;
   isDropAnimating: boolean;
   isClone: boolean;
@@ -143,14 +143,15 @@ type DraggableStateSnapshot = {
   combineWith: DraggableId | null;
   combineTargetFor: DraggableId | null;
   mode: MovementMode | null;
-};
+}
 
-type DraggableProps = {
+interface DraggableProps {
   style?: DraggableStyle;
   'data-rfd-draggable-context-id': ContextId;
   'data-rfd-draggable-id': DraggableId;
   onTransitionEnd?: TransitionEventHandler;
-};
+}
+
 type DraggableChildrenFn = (
   DraggableProvided,
   DraggableStateSnapshot,
@@ -158,7 +159,7 @@ type DraggableChildrenFn = (
 ) => ReactNode | null;
 
 type DraggableStyle = DraggingStyle | NotDraggingStyle;
-type DraggingStyle = {
+interface DraggingStyle {
   position: 'fixed';
   top: number;
   left: number;
@@ -170,13 +171,13 @@ type DraggingStyle = {
   zIndex: number;
   opacity?: number;
   pointerEvents: 'none';
-};
-type NotDraggingStyle = {
+}
+interface NotDraggingStyle {
   transform?: string;
   transition?: 'none';
-};
+}
 
-type DragHandleProps = {
+interface DragHandleProps {
   'data-rfd-drag-handle-draggable-id': DraggableId;
   'data-rfd-drag-handle-context-id': ContextId;
   role: string;
@@ -184,15 +185,15 @@ type DragHandleProps = {
   tabIndex: number;
   draggable: boolean;
   onDragStart: DragEventHandler;
-};
+}
 
-type DropAnimation = {
+interface DropAnimation {
   duration: number;
   curve: string;
   moveTo: Position;
   opacity: number | null;
   scale: number | null;
-};
+}
 ```
 
 ## Using the TypeScript types

@@ -15,7 +15,7 @@ Here is the shape of `DropAnimation`:
 ```ts
 type DropReason = 'DROP' | 'CANCEL';
 
-type DropAnimation = {
+interface DropAnimation {
   // how long the animation will run for
   duration: number;
   // the animation curve that we will be using for the drop
@@ -26,7 +26,7 @@ type DropAnimation = {
   opacity: number | null;
   // when combining with another item, we animate the scale when dropping
   scale: number | null;
-};
+}
 ```
 
 You can use the `DraggableDroppingState` to build up your own `transform` and `transition` properties during a drop.

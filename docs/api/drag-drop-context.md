@@ -5,7 +5,7 @@ In order to use drag and drop, you need to have the part of your `React` tree th
 ## Props
 
 ```ts
-type Responders = {
+interface Responders {
   // optional
   onBeforeCapture?: OnBeforeCaptureResponder;
   onBeforeDragStart?: OnBeforeDragStartResponder;
@@ -14,11 +14,11 @@ type Responders = {
 
   // required
   onDragEnd: OnDragEndResponder;
-};
+}
 
 import type { ReactNode } from 'react';
 
-type Props = Responders & {
+interface Props extends Responders {
   // We do not technically need any children for this component
   children: ReactNode | null;
   // Read out by screen readers when focusing on a drag handle
@@ -28,7 +28,7 @@ type Props = Responders & {
   // Used for custom sensors
   sensors?: Sensor[];
   enableDefaultSensors?: boolean | null;
-};
+}
 ```
 
 - `dragHandleUsageInstructions`: What is read out to screen reader users when a _drag handle_ is given browser focus. See our [screen reader guide](/docs/guides/screen-reader.md)
