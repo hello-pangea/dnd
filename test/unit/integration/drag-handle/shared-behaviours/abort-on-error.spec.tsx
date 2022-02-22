@@ -8,10 +8,10 @@ import { forEachSensor, simpleLift } from '../../util/controls';
 import type { Control } from '../../util/controls';
 import causeRuntimeError from '../../../../util/cause-runtime-error';
 
-type Props = {
+interface Props {
   throw: () => void;
   setForceThrow: (fn: () => void) => void;
-};
+}
 
 function Vomit(props: Props) {
   const setShouldThrow = useState(0)[1];
@@ -32,10 +32,10 @@ function Vomit(props: Props) {
   return null;
 }
 
-type Thrower = {
+interface Thrower {
   setForceThrow: (fn: () => void) => void;
   execute: () => void;
-};
+}
 
 function getThrower(): Thrower {
   let current: (() => void) | null = null;

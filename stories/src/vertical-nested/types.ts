@@ -1,7 +1,7 @@
 import { Quote } from '../types';
 
-export type NestedQuoteList = {
+export interface NestedQuoteList {
   id: string;
   title: string;
   children: Array<Quote | NestedQuoteList>;
-};
+}

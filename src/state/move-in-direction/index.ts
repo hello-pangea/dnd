@@ -13,10 +13,10 @@ import moveToNextPlace from './move-to-next-place';
 import moveCrossAxis from './move-cross-axis';
 import whatIsDraggedOver from '../droppable/what-is-dragged-over';
 
-type Args = {
+interface Args {
   state: DraggingState;
   type: 'MOVE_UP' | 'MOVE_RIGHT' | 'MOVE_DOWN' | 'MOVE_LEFT';
-};
+}
 
 const getDroppableOver = (
   impact: DragImpact,

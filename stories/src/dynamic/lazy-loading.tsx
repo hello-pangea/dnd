@@ -6,10 +6,10 @@ import type { Quote } from '../types';
 import { quotes as initial, getQuotes } from '../data';
 import reorder from '../reorder';
 
-type State = {
+interface State {
   quotes: Quote[];
   isLoading: boolean;
-};
+}
 
 export default class LazyLoading extends React.Component<unknown, State> {
   timerId: number | undefined | null = null;

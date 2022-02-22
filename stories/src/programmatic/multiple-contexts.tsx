@@ -78,10 +78,10 @@ function getSensor(delay: number): Sensor {
   };
 }
 
-type Props = {
+interface Props {
   initial: Quote[];
   sensors?: Sensor[];
-};
+}
 
 function QuoteApp(props: Props) {
   const [quotes, setQuotes] = useState(props.initial);

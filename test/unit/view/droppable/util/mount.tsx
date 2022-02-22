@@ -21,18 +21,18 @@ import type { AppContextValue } from '../../../../../src/view/context/app-contex
 import createRegistry from '../../../../../src/state/registry/create-registry';
 import useFocusMarshal from '../../../../../src/view/use-focus-marshal';
 
-type MountArgs = {
+interface MountArgs {
   WrappedComponent?: any;
   ownProps?: Required<DroppableProps>;
   mapProps?: MapProps;
   dispatchProps?: DispatchProps;
   isMovementAllowed?: () => boolean;
-};
+}
 
-type AppProps = {
+interface AppProps extends Props {
   isMovementAllowed: () => boolean;
   WrappedComponent: any;
-} & Props;
+}
 
 function App(props: AppProps) {
   const { WrappedComponent, isMovementAllowed, ...rest } = props;

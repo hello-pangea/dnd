@@ -20,16 +20,16 @@ const reorder = (list: any[], startIndex: number, endIndex: number): any[] => {
   return result;
 };
 
-type Task = {
+interface Task {
   id: string;
   onRender: () => void;
   setRef: (ref?: HTMLElement | null) => void;
-};
+}
 
-type TaskItemProps = {
+interface TaskItemProps {
   task: Task;
   provided: DraggableProvided;
-};
+}
 
 class TaskItem extends React.Component<TaskItemProps> {
   render() {
@@ -52,9 +52,9 @@ class TaskItem extends React.Component<TaskItemProps> {
   }
 }
 
-type InnerListProps = {
+interface InnerListProps {
   tasks: Task[];
-};
+}
 
 class InnerList extends React.Component<InnerListProps> {
   shouldComponentUpdate(props: InnerListProps) {
@@ -94,9 +94,9 @@ const setDroppableBounds = (ref?: HTMLElement | null) => {
     );
 };
 
-type State = {
+interface State {
   tasks: Task[];
-};
+}
 
 const first = {
   id: 'first',

@@ -44,21 +44,21 @@ const Cell = styled.td`
   padding: ${grid}px;
 `;
 
-type TableCellProps = {
+interface TableCellProps {
   children: ReactNode;
   isDragOccurring: boolean;
   isDragging: boolean;
   cellId: string;
-};
+}
 
-type TableCellSnapshot = {
+interface TableCellSnapshot {
   width: number;
   height: number;
-};
+}
 
-type SnapshotMap = {
+interface SnapshotMap {
   [cellId: string]: TableCellSnapshot;
-};
+}
 
 const snapshotMap: SnapshotMap = {};
 
@@ -170,11 +170,11 @@ class TableCell extends React.Component<TableCellProps> {
   }
 }
 
-type TableRowProps = {
+interface TableRowProps {
   quote: Quote;
   provided: DraggableProvided;
   snapshot: DraggableStateSnapshot;
-};
+}
 
 // Using a table as the portal so that we do not get react
 // warnings when mounting a tr element
@@ -247,15 +247,15 @@ const CopyTableButton = styled.button``;
 
 /* stylelint-enable */
 
-type AppProps = {
+interface AppProps {
   initial: Quote[];
-};
+}
 
-type AppState = {
+interface AppState {
   quotes: Quote[];
   layout: 'fixed' | 'auto';
   isDragging: boolean;
-};
+}
 
 export default class TableApp extends Component<AppProps, AppState> {
   tableRef: HTMLElement | undefined | null;

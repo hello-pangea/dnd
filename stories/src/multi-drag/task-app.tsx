@@ -14,12 +14,12 @@ const Container = styled.div`
   user-select: none;
 `;
 
-type State = {
+interface State {
   entities: Entities;
   selectedTaskIds: Id[];
   // sad times
   draggingTaskId: Id | undefined | null;
-};
+}
 
 const getTasks = (entities: Entities, columnId: Id): Task[] =>
   entities.columns[columnId].taskIds.map(

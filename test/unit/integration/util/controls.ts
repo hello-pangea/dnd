@@ -3,14 +3,14 @@ import { sloppyClickThreshold } from '../../../../src/view/use-sensor-marshal/se
 import { timeForLongPress } from '../../../../src/view/use-sensor-marshal/sensors/use-touch-sensor';
 import * as keyCodes from '../../../../src/view/key-codes';
 
-export type Control = {
+export interface Control {
   name: string;
   preLift: (handle: HTMLElement) => void;
   lift: (handle: HTMLElement) => void;
   move: (handle: HTMLElement) => void;
   drop: (handle: HTMLElement) => void;
   cancel: (handle: HTMLElement) => void;
-};
+}
 
 export function simpleLift(control: Control, handle: HTMLElement) {
   control.preLift(handle);

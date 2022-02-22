@@ -9,7 +9,7 @@ import type { DroppableProvided, DroppableStateSnapshot } from '../../../src';
 import type { Column as ColumnType } from './types';
 import type { Task as TaskType, Id } from '../types';
 
-type Props = {
+interface Props {
   column: ColumnType;
   tasks: TaskType[];
   selectedTaskIds: Id[];
@@ -17,7 +17,7 @@ type Props = {
   toggleSelection: (taskId: Id) => void;
   toggleSelectionInGroup: (taskId: Id) => void;
   multiSelectTo: (taskId: Id) => void;
-};
+}
 
 const Container = styled.div`
   width: 300px;

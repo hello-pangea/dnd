@@ -31,12 +31,12 @@ import type {
 import isTotallyVisibleThroughFrame from '../../src/state/visibility/is-totally-visible-through-frame';
 import patchDimensionMap from '../../src/state/patch-dimension-map';
 
-type GetComputedSpacingArgs = {
+interface GetComputedSpacingArgs {
   margin?: Spacing;
   padding?: Spacing;
   border?: Spacing;
   display?: string;
-};
+}
 
 const origin: Position = { x: 0, y: 0 };
 
@@ -164,14 +164,14 @@ const getPlaceholder = (client: BoxModel): Placeholder => ({
   display: 'block',
 });
 
-type GetDraggableArgs = {
+interface GetDraggableArgs {
   descriptor: DraggableDescriptor;
   borderBox: Spacing;
   windowScroll?: Position;
   margin?: Spacing;
   padding?: Spacing;
   border?: Spacing;
-};
+}
 
 export const getDraggableDimension = ({
   descriptor,
@@ -203,7 +203,7 @@ export const getDraggableDimension = ({
   return result;
 };
 
-type ClosestMaker = {
+interface ClosestMaker {
   borderBox: Spacing;
   margin?: Spacing;
   border?: Spacing;
@@ -211,9 +211,9 @@ type ClosestMaker = {
   scrollSize: ScrollSize;
   scroll: Position;
   shouldClipSubject: boolean;
-};
+}
 
-type GetDroppableArgs = {
+interface GetDroppableArgs {
   descriptor: DroppableDescriptor;
   borderBox: Spacing;
   direction?: 'vertical' | 'horizontal';
@@ -225,7 +225,7 @@ type GetDroppableArgs = {
   isEnabled?: boolean;
   isFixedOnPage?: boolean;
   isCombineEnabled?: boolean;
-};
+}
 
 export const getDroppableDimension = ({
   descriptor,
@@ -357,11 +357,11 @@ export const getPreset = (axis: Axis = vertical) => {
   const droppableBorderBoxEnd: number =
     droppableBorderBoxStart + droppableBorderBoxSize;
 
-  type BorderBoxAfterArgs = {
+  interface BorderBoxAfterArgs {
     goAfter: DraggableDimension;
     droppable: DroppableDimension;
     borderBoxSize: number;
-  };
+  }
 
   const borderBoxAfter = ({
     goAfter,
@@ -674,11 +674,11 @@ export const disableDroppable = (
 
 const windowScroll: Position = getPreset().windowScroll;
 
-type ShiftArgs = {
+interface ShiftArgs {
   amount: Position;
   draggables: DraggableDimensionMap;
   indexChange: number;
-};
+}
 
 // will not expand the droppable to make room
 export const shiftDraggables = ({

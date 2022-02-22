@@ -2,11 +2,11 @@ import type { Position, BoxModel, Rect } from 'css-box-model';
 import { patch } from '../position';
 import type { Axis } from '../../types';
 
-type Args = {
+interface Args {
   axis: Axis;
   moveRelativeTo: BoxModel;
   isMoving: BoxModel;
-};
+}
 
 const distanceFromStartToBorderBoxCenter = (
   axis: Axis,
@@ -46,11 +46,11 @@ export const goBefore = ({ axis, moveRelativeTo, isMoving }: Args): Position =>
     getCrossAxisBorderBoxCenter(axis, moveRelativeTo.marginBox, isMoving),
   );
 
-type GoIntoArgs = {
+interface GoIntoArgs {
   axis: Axis;
   moveInto: BoxModel;
   isMoving: BoxModel;
-};
+}
 
 // moves into the content box
 export const goIntoStart = ({

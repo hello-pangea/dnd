@@ -121,10 +121,10 @@ it('should animate closed if required', () => {
   const child = jest.fn().mockReturnValue(<div>hi</div>);
   const data = { hello: 'world' };
 
-  type Props = {
+  interface Props {
     value: unknown;
     shouldAnimate: boolean;
-  };
+  }
 
   function App({ value, shouldAnimate }: Props) {
     return (

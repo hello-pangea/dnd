@@ -22,10 +22,10 @@ import setDOMRect from '../../../util/set-dom-rect';
 
 const preset = getPreset();
 
-type CardProps = {
+interface CardProps {
   index: number;
   descriptor: DraggableDescriptor;
-};
+}
 
 function Card(props: CardProps) {
   return (
@@ -44,10 +44,10 @@ function Card(props: CardProps) {
   );
 }
 
-type ColumnProps = {
+interface ColumnProps {
   index: number;
   descriptor: DroppableDescriptor;
-};
+}
 
 function Column(props: ColumnProps) {
   return (

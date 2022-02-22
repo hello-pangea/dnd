@@ -11,13 +11,13 @@ import whenCombining from './when-combining';
 import whenReordering from './when-reordering';
 import withDroppableDisplacement from '../../with-scroll-change/with-droppable-displacement';
 
-type Args = {
+interface Args {
   impact: DragImpact;
   afterCritical: LiftEffect;
   draggable: DraggableDimension;
   droppable: DroppableDimension | null;
   draggables: DraggableDimensionMap;
-};
+}
 
 const getResultWithoutDroppableDisplacement = ({
   impact,

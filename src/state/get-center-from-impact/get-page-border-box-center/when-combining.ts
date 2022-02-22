@@ -11,12 +11,12 @@ import { add } from '../../position';
 import getCombinedItemDisplacement from '../../get-combined-item-displacement';
 import { tryGetCombine } from '../../get-impact-location';
 
-type Args = {
+interface Args {
   impact: DragImpact;
   // all draggables in the system
   draggables: DraggableDimensionMap;
   afterCritical: LiftEffect;
-};
+}
 
 // Returns the client offset required to move an item from its
 // original client position to its final resting position

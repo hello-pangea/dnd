@@ -1,18 +1,18 @@
 import type { Position } from 'css-box-model';
 import { BeforeCapture } from '../../types';
 
-export type EventOptions = {
+export interface EventOptions {
   passive?: boolean;
   capture?: boolean;
   // sometimes an event might only event want to be bound once
   once?: boolean;
-};
+}
 
-export type EventBinding<TEvent = Event> = {
+export interface EventBinding<TEvent = Event> {
   eventName: string;
   fn: (event: TEvent) => void;
   options?: EventOptions;
-};
+}
 
 interface BeforeEventDetail {
   before: BeforeCapture;

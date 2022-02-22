@@ -18,11 +18,11 @@ import type {
 } from '../../types';
 import getViewport from '../../view/window/get-viewport';
 
-type Args = {
+interface Args {
   critical: Critical;
   scrollOptions: ScrollOptions;
   registry: Registry;
-};
+}
 
 export default ({
   critical,

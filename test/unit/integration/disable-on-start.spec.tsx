@@ -31,9 +31,9 @@ jest
   .spyOn(window, 'getComputedStyle')
   .mockImplementation(() => getComputedSpacing({}));
 
-type State = {
+interface State {
   isDropDisabled: boolean;
-};
+}
 
 class App extends React.Component<any, State> {
   state: State = {

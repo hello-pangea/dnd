@@ -14,11 +14,11 @@ import recomputeDisplacementVisibility from '../../update-displacement-visibilit
 import getClientBorderBoxCenter from '../../get-center-from-impact/get-client-border-box-center';
 import update from './update';
 
-type Args = {
+interface Args {
   state: StateWhenUpdatesAllowed;
   dimensions?: DimensionMap;
   viewport?: Viewport;
-};
+}
 
 export default ({
   state,

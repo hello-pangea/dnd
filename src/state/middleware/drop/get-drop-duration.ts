@@ -3,11 +3,11 @@ import { distance as getDistance } from '../../position';
 import { timings } from '../../../animation';
 import type { DropReason } from '../../../types';
 
-type GetDropDurationArgs = {
+interface GetDropDurationArgs {
   current: Position;
   destination: Position;
   reason: DropReason;
-};
+}
 
 const { minDropTime, maxDropTime } = timings;
 const dropTimeRange: number = maxDropTime - minDropTime;

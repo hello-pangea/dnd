@@ -77,11 +77,11 @@ class Controls extends React.Component<{
   }
 }
 
-type State = {
+interface State {
   quoteMap: QuoteMap;
   changeBy: number;
   isCombineEnabled: boolean;
-};
+}
 
 const Container = styled.div`
   display: flex;

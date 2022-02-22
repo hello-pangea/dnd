@@ -10,14 +10,14 @@ import type {
 } from '../types';
 import { isPartiallyVisible } from './visibility/is-visible';
 
-type Args = {
+interface Args {
   afterDragging: DraggableDimension[];
   destination: DroppableDimension;
   displacedBy: DisplacedBy;
   last: DisplacementGroups | null;
   viewport: Rect;
   forceShouldAnimate?: boolean;
-};
+}
 
 const getShouldAnimate = (
   id: DraggableId,

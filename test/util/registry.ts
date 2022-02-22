@@ -17,10 +17,10 @@ import type {
 import { getPreset } from './dimension';
 import { origin } from '../../src/state/position';
 
-type DraggableArgs = {
+interface DraggableArgs {
   uniqueId?: Id;
   dimension: DraggableDimension;
-};
+}
 
 const defaultOptions: DraggableOptions = {
   canDragInteractiveElements: true,
@@ -56,10 +56,10 @@ export const getDroppableCallbacks = (
   dragStopped: jest.fn(),
 });
 
-type DroppableArgs = {
+interface DroppableArgs {
   uniqueId?: Id;
   dimension: DroppableDimension;
-};
+}
 
 export function getDroppableEntry({
   uniqueId = getUniqueId(),
@@ -72,7 +72,7 @@ export function getDroppableEntry({
   };
 }
 
-export type DimensionWatcher = {
+export interface DimensionWatcher {
   draggable: {
     getDimension: jest.Mock;
   };
@@ -82,7 +82,7 @@ export type DimensionWatcher = {
     getScrollWhileDragging: jest.Mock;
     dragStopped: jest.Mock;
   };
-};
+}
 
 const preset = getPreset();
 

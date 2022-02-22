@@ -53,9 +53,9 @@ const setRefDimensions = (ref?: HTMLElement | null) => {
     .mockImplementation(() => getComputedSpacing({}));
 };
 
-type Props = {
+interface Props {
   responders: Responders;
-};
+}
 
 interface MockedResponders {
   onBeforeCapture: jest.MockedFunction<OnBeforeCaptureResponder>;

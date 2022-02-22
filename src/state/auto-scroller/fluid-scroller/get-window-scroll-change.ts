@@ -3,13 +3,13 @@ import type { Viewport } from '../../../types';
 import getScroll from './get-scroll';
 import { canScrollWindow } from '../can-scroll';
 
-type Args = {
+interface Args {
   viewport: Viewport;
   subject: Rect;
   center: Position;
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
-};
+}
 
 export default ({
   viewport,

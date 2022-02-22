@@ -15,17 +15,17 @@ import getDraggablesInsideDroppable from './get-draggables-inside-droppable';
 import getDisplacedBy from './get-displaced-by';
 import getDisplacementGroups from './get-displacement-groups';
 
-type Args = {
+interface Args {
   draggable: DraggableDimension;
   home: DroppableDimension;
   draggables: DraggableDimensionMap;
   viewport: Viewport;
-};
+}
 
-type Result = {
+interface Result {
   afterCritical: LiftEffect;
   impact: DragImpact;
-};
+}
 
 export default ({ draggable, home, draggables, viewport }: Args): Result => {
   const displacedBy: DisplacedBy = getDisplacedBy(

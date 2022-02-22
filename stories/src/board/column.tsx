@@ -33,14 +33,14 @@ const Header = styled.div<HeaderProps>`
   }
 `;
 
-type Props = {
+interface Props {
   title: string;
   quotes: Quote[];
   index: number;
   isScrollable?: boolean;
   isCombineEnabled?: boolean;
   useClone?: boolean;
-};
+}
 
 export default class Column extends Component<Props> {
   render(): ReactElement {

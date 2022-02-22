@@ -9,7 +9,7 @@ import type {
 import recompute from '../../update-displacement-visibility/recompute';
 import { emptyGroups } from '../../no-impact';
 
-type Args = {
+interface Args {
   draggables: DraggableDimensionMap;
   home: DroppableDimension;
   reason: DropReason;
@@ -17,12 +17,12 @@ type Args = {
   onLiftImpact: DragImpact;
   viewport: Viewport;
   afterCritical: LiftEffect;
-};
+}
 
-export type Result = {
+export interface Result {
   impact: DragImpact;
   didDropInsideDroppable: boolean;
-};
+}
 
 export default ({
   draggables,

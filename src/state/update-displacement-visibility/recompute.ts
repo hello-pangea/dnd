@@ -9,13 +9,13 @@ import type {
 } from '../../types';
 import getDisplacementGroups from '../get-displacement-groups';
 
-type RecomputeArgs = {
+interface RecomputeArgs {
   impact: DragImpact;
   draggables: DraggableDimensionMap;
   destination: DroppableDimension;
   viewport: Viewport;
   forceShouldAnimate?: boolean;
-};
+}
 
 function getDraggables(
   ids: DraggableId[],

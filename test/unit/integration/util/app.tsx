@@ -17,7 +17,7 @@ import { Responders } from '../../../../src/types';
 import reorder from '../../../util/reorder';
 import { noop } from '../../../../src/empty';
 
-export type Item = {
+export interface Item {
   id: string;
   // defaults to true
   isEnabled?: boolean;
@@ -25,7 +25,7 @@ export type Item = {
   canDragInteractiveElements?: boolean;
   // defaults to false
   shouldRespectForcePress?: boolean;
-};
+}
 
 export type RenderItem = (
   item: Item,
@@ -55,7 +55,7 @@ export const defaultItemRender: RenderItem =
       </div>
     );
 
-type Props = {
+interface Props extends Partial<Responders> {
   items?: Item[];
   anotherChild?: ReactNode;
   renderItem?: RenderItem;
@@ -66,7 +66,7 @@ type Props = {
   useClone?: boolean;
   sensors?: Sensor[];
   enableDefaultSensors?: boolean;
-} & Partial<Responders>;
+}
 
 function getItems() {
   return Array.from(

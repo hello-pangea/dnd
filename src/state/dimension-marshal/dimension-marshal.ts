@@ -25,10 +25,10 @@ import type {
 } from '../../types';
 import { warning } from '../../dev-warning';
 
-type Collection = {
+interface Collection {
   critical: Critical;
   unsubscribe: Unsubscribe;
-};
+}
 
 function shouldPublishUpdate(
   registry: Registry,

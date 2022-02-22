@@ -1,6 +1,6 @@
-type Records = {
+interface Records {
   [key: string]: number;
-};
+}
 
 const records: Records = {};
 let isEnabled = false;
@@ -27,10 +27,10 @@ export const start = (key: string) => {
   }
 };
 
-type Style = {
+interface Style {
   textColor: string;
   symbol: string;
-};
+}
 
 export const finish = (key: string) => {
   if (process.env.NODE_ENV !== 'production') {

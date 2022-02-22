@@ -32,9 +32,9 @@ const SidebarContainer = styled.div`
   position: fixed;
 `;
 
-type ListProps = {
+interface ListProps {
   quotes: Quote[];
-};
+}
 
 const sidebarPortal: HTMLElement = document.createElement('div');
 sidebarPortal.classList.add('sidebar-portal');
@@ -131,10 +131,10 @@ class Content extends React.Component<ListProps> {
   }
 }
 
-type State = {
+interface State {
   inSidebar: Quote[];
   inContent: Quote[];
-};
+}
 
 const initial: State = {
   inSidebar: getQuotes(40),

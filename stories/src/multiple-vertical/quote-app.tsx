@@ -50,9 +50,9 @@ const PushDown = styled.div`
   height: 200px;
 `;
 
-type Props = {
+interface Props {
   initial: QuoteMap;
-};
+}
 
 type State = ReorderQuoteMapResult;
 

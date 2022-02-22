@@ -17,7 +17,7 @@ import getCombineImpact from './get-combine-impact';
 import noImpact from '../no-impact';
 import { offsetRectByPosition } from '../rect';
 
-type Args = {
+interface Args {
   pageOffset: Position;
   draggable: DraggableDimension;
   // all dimensions in system
@@ -26,7 +26,7 @@ type Args = {
   previousImpact: DragImpact;
   viewport: Viewport;
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   pageOffset,

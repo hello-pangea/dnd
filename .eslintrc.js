@@ -255,6 +255,12 @@ module.exports = {
             tsx: 'never',
           },
         ],
+
+        '@typescript-eslint/consistent-type-definitions': [
+          'error',
+          'interface',
+        ],
+
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['error'],
         'no-unused-expressions': 'off',

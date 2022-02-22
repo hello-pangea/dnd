@@ -4,18 +4,18 @@ import { invariant } from '../../../src/invariant';
 import type { DraggableLocation } from '../../../src';
 import reorder from '../reorder';
 
-type Args = {
+interface Args {
   entities: Entities;
   selectedTaskIds: Id[];
   source: DraggableLocation;
   destination: DraggableLocation;
-};
+}
 
-export type Result = {
+export interface Result {
   entities: Entities;
   // a drop operations can change the order of the selected task array
   selectedTaskIds: Id[];
-};
+}
 
 const withNewTaskIds = (column: Column, taskIds: Id[]): Column => ({
   id: column.id,

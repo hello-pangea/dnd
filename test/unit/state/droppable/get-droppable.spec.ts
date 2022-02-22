@@ -147,9 +147,9 @@ describe('closest scrollable', () => {
     });
     const framePage: BoxModel = withScroll(frameClient, windowScroll);
 
-    type Options = {
+    interface Options {
       shouldClipSubject: boolean;
-    };
+    }
 
     const defaultOptions: Options = { shouldClipSubject: true };
 

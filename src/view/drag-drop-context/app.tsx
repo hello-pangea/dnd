@@ -50,7 +50,7 @@ import usePrevious from '../use-previous-ref';
 import { warning } from '../../dev-warning';
 import useSensorMarshal from '../use-sensor-marshal/use-sensor-marshal';
 
-export type Props = {
+export interface Props extends Responders {
   contextId: string;
   setCallbacks: SetAppCallbacks;
   nonce?: string;
@@ -61,7 +61,7 @@ export type Props = {
   enableDefaultSensors?: boolean | null;
   // screen reader
   dragHandleUsageInstructions: string;
-} & Responders;
+}
 
 const createResponders = (props: Props): Responders => ({
   onBeforeCapture: props.onBeforeCapture,

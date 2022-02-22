@@ -21,10 +21,10 @@ import getLiftEffect from '../get-lift-effect';
 import scrollDroppable from '../droppable/scroll-droppable';
 import whatIsDraggedOver from '../droppable/what-is-dragged-over';
 
-type Args = {
+interface Args {
   state: CollectingState | DropPendingState;
   published: Published;
-};
+}
 
 const timingsKey = 'Processing dynamic changes';
 

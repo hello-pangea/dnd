@@ -1,12 +1,12 @@
 import type { Position } from 'css-box-model';
 import { subtract } from './position';
 
-type Args = {
+interface Args {
   scrollHeight: number;
   scrollWidth: number;
   height: number;
   width: number;
-};
+}
 
 export default ({
   scrollHeight,

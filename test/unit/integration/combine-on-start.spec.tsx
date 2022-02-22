@@ -13,9 +13,9 @@ import { DragDropContext, Droppable, Draggable } from '../../../src';
 import { simpleLift, keyboard } from './util/controls';
 import { withPoorDimensionMocks } from './util/helpers';
 
-type State = {
+interface State {
   isCombineEnabled: boolean;
-};
+}
 
 class App extends React.Component<any, State> {
   state: State = {

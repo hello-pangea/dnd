@@ -15,15 +15,15 @@ import type {
   DropResult,
 } from '../../../src';
 
-type Task = {
+interface Task {
   id: string;
   content: string;
-};
+}
 
-type TaskItemProps = {
+interface TaskItemProps {
   task: Task;
   index: number;
-};
+}
 
 interface CanvasProps {
   isDragging: boolean;
@@ -91,9 +91,9 @@ const initial: Task[] = Array.from(
   }),
 );
 
-type State = {
+interface State {
   tasks: Task[];
-};
+}
 
 export default class App extends React.Component<unknown, State> {
   state: State = {

@@ -14,15 +14,15 @@ import type {
 import QuoteItem from '../../primatives/quote-item';
 import reorder from '../../reorder';
 
-type Props = {
+interface Props {
   initial: Quote[];
-};
+}
 
-type RowProps = {
+interface RowProps {
   data: Quote[];
   index: number;
   style: CSSProperties;
-};
+}
 
 const Row = React.memo(({ data: quotes, index, style }: RowProps) => {
   const quote: Quote = quotes[index];

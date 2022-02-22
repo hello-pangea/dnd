@@ -1,6 +1,6 @@
 import type { Position } from 'css-box-model';
 import { bindActionCreators, Dispatch as ReduxDispatch } from 'redux';
-import type { Action, Dispatch } from '../../src/state/store-types';
+import type { Dispatch } from '../../src/state/store-types';
 import create from '../../src/state/dimension-marshal/dimension-marshal';
 import type {
   CollectionStartingAction,
@@ -22,7 +22,6 @@ import {
   updateDroppableIsCombineEnabled,
 } from '../../src/state/action-creators';
 import type {
-  Callbacks,
   DimensionMarshal,
   StartPublishingResult,
 } from '../../src/state/dimension-marshal/dimension-marshal-types';
@@ -33,7 +32,7 @@ export const createMarshal = (
   registry: Registry,
   dispatch: Dispatch,
 ): DimensionMarshal => {
-  const callbacks = bindActionCreators<Action, Callbacks>(
+  const callbacks = bindActionCreators(
     {
       publishWhileDragging,
       collectionStarting,

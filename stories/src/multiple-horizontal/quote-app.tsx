@@ -20,9 +20,9 @@ const Root = styled.div`
   flex-direction: column;
 `;
 
-type Props = {
+interface Props {
   initial: QuoteMap;
-};
+}
 
 type State = ReorderQuoteMapResult;
 

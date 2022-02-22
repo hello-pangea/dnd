@@ -74,11 +74,11 @@ const withSpacing = getComputedSpacing({ padding, margin, border });
 
 export const descriptor: DroppableDescriptor = preset.home.descriptor;
 
-type WithAppContextProps = {
+interface WithAppContextProps {
   marshal?: DimensionMarshal;
   registry: Registry;
   children: ReactNode;
-};
+}
 
 const focusMarshal = {
   register: () => noop,
@@ -106,13 +106,13 @@ export function WithAppContext(props: WithAppContextProps) {
   );
 }
 
-type ScrollableItemProps = {
+interface ScrollableItemProps {
   type?: TypeId;
   isScrollable?: boolean;
   isDropDisabled?: boolean;
   isCombineEnabled?: boolean;
   droppableId?: DroppableId;
-};
+}
 
 export function ScrollableItem(props: ScrollableItemProps) {
   const droppableRef = createRef();
@@ -150,12 +150,12 @@ export function ScrollableItem(props: ScrollableItemProps) {
   );
 }
 
-type AppProps = {
+interface AppProps {
   droppableIsScrollable?: boolean;
   parentIsScrollable?: boolean;
   ignoreContainerClipping?: boolean;
   showPlaceholder?: boolean;
-};
+}
 
 export function App(props: AppProps) {
   const droppableRef = createRef();

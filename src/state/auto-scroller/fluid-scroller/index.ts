@@ -5,21 +5,21 @@ import scroll from './scroll';
 import { invariant } from '../../../invariant';
 import * as timings from '../../../debug/timings';
 
-export type PublicArgs = {
+export interface PublicArgs {
   scrollWindow: (change: Position) => void;
   scrollDroppable: (id: DroppableId, change: Position) => void;
-};
+}
 
-export type FluidScroller = {
+export interface FluidScroller {
   scroll: (state: DraggingState) => void;
   start: (state: DraggingState) => void;
   stop: () => void;
-};
+}
 
-type WhileDragging = {
+interface WhileDragging {
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
-};
+}
 
 export default ({
   scrollWindow,

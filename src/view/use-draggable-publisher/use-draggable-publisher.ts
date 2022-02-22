@@ -16,11 +16,11 @@ import makeDimension from './get-dimension';
 import useLayoutEffect from '../use-isomorphic-layout-effect';
 import useUniqueId from '../use-unique-id';
 
-export type Args = {
+export interface Args extends DraggableOptions {
   descriptor: DraggableDescriptor;
   getDraggableRef: () => HTMLElement | null;
   registry: Registry;
-} & DraggableOptions;
+}
 
 export default function useDraggablePublisher(args: Args) {
   const uniqueId: Id = useUniqueId('draggable');

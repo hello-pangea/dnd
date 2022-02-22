@@ -1,9 +1,9 @@
 import getClosestScrollable from './get-closest-scrollable';
 
-export type Env = {
+export interface Env {
   closestScrollable: HTMLElement | null;
   isFixedOnPage: boolean;
-};
+}
 
 // TODO: do this check at the same time as the closest scrollable
 // in order to avoid double calling getComputedStyle

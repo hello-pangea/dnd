@@ -1,7 +1,7 @@
 import type { DropReason } from '../../types';
 
-export type StyleMarshal = {
+export interface StyleMarshal {
   dragging: () => void;
   dropping: (reason: DropReason) => void;
   resting: () => void;
-};
+}

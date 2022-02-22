@@ -8,13 +8,13 @@ import type {
 } from '../../../../../../src/types';
 import patchDimensionMap from '../../../../../../src/state/patch-dimension-map';
 
-type DragToArgs = {
+interface DragToArgs {
   selection: Position;
   viewport: Viewport;
   state: any;
   impact?: DragImpact;
   droppable?: DroppableDimension;
-};
+}
 
 export default ({
   selection,

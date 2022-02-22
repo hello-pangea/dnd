@@ -20,9 +20,9 @@ import useLayoutEffect from '../../use-isomorphic-layout-effect';
 
 function noop() {}
 
-type KeyMap = {
+interface KeyMap {
   [key: number]: true;
-};
+}
 
 const scrollJumpKeys: KeyMap = {
   [keyCodes.pageDown]: true,

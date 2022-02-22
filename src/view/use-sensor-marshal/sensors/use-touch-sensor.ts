@@ -23,22 +23,22 @@ type TouchWithForce = Touch & {
   force: number;
 };
 
-type Idle = {
+interface Idle {
   type: 'IDLE';
-};
+}
 
-type Pending = {
+interface Pending {
   type: 'PENDING';
   point: Position;
   actions: PreDragActions;
   longPressTimerId: TimeoutID;
-};
+}
 
-type Dragging = {
+interface Dragging {
   type: 'DRAGGING';
   actions: FluidDragActions;
   hasMoved: boolean;
-};
+}
 
 type Phase = Idle | Pending | Dragging;
 
@@ -48,11 +48,11 @@ const idle: Idle = { type: 'IDLE' };
 export const timeForLongPress = 120;
 export const forcePressThreshold = 0.15;
 
-type GetBindingArgs = {
+interface GetBindingArgs {
   cancel: () => void;
   completed: () => void;
   getPhase: () => Phase;
-};
+}
 
 function getWindowBindings({
   cancel,

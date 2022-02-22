@@ -4,7 +4,7 @@ import type { DimensionMarshal } from '../../state/dimension-marshal/dimension-m
 import type { FocusMarshal } from '../use-focus-marshal/focus-marshal-types';
 import type { Registry } from '../../state/registry/registry-types';
 
-export type AppContextValue = {
+export interface AppContextValue {
   focus: FocusMarshal;
   contextId: ContextId;
   canLift: (id: DraggableId) => boolean;
@@ -12,6 +12,6 @@ export type AppContextValue = {
   dragHandleUsageInstructionsId: ElementId;
   marshal: DimensionMarshal;
   registry: Registry;
-};
+}
 
 export default React.createContext<AppContextValue | null>(null);

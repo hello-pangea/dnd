@@ -15,25 +15,25 @@ import { updateViewportMaxScroll } from '../../state/action-creators';
 
 export type { DraggableChildrenFn } from '../draggable/draggable-types';
 
-export type DroppableProvidedProps = {
+export interface DroppableProvidedProps {
   // used for shared global styles
   'data-rfd-droppable-context-id': ContextId;
   // Used to lookup. Currently not used for drag and drop lifecycle
   'data-rfd-droppable-id': DroppableId;
-};
+}
 
-export type DroppableProvided = {
+export interface DroppableProvided {
   innerRef: (a?: HTMLElement | null) => void;
   placeholder: ReactNode | null;
   droppableProps: DroppableProvidedProps;
-};
+}
 
-export type UseClone = {
+export interface UseClone {
   dragging: DraggableRubric;
   render: DraggableChildrenFn;
-};
+}
 
-export type DroppableStateSnapshot = {
+export interface DroppableStateSnapshot {
   // Is the Droppable being dragged over?
   isDraggingOver: boolean;
   // What is the id of the draggable that is dragging over the Droppable?
@@ -44,9 +44,9 @@ export type DroppableStateSnapshot = {
   // Whether or not the placeholder is actively being used.
   // This is useful information when working with virtual lists
   isUsingPlaceholder: boolean;
-};
+}
 
-export type MapProps = {
+export interface MapProps {
   // placeholder:
   // - used to keep space in the home list during the whole drag and drop
   // - used to make space in foreign lists during a drag
@@ -55,7 +55,7 @@ export type MapProps = {
   // snapshot based on redux state to be provided to consumers
   snapshot: DroppableStateSnapshot;
   useClone: UseClone | null;
-};
+}
 
 export interface DefaultProps {
   direction: Direction;
@@ -68,9 +68,9 @@ export interface DefaultProps {
   renderClone: DraggableChildrenFn | null;
 }
 
-export type DispatchProps = {
+export interface DispatchProps {
   updateViewportMaxScroll: typeof updateViewportMaxScroll;
-};
+}
 
 export interface DroppableProps extends Partial<DefaultProps> {
   children: (

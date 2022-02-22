@@ -7,11 +7,11 @@ import type { AutoScroller } from './auto-scroller-types';
 import type { DroppableId, State } from '../../types';
 import type { MoveArgs } from '../action-creators';
 
-export type Args = {
+export interface Args {
   scrollWindow: (offset: Position) => void;
   scrollDroppable: (id: DroppableId, change: Position) => void;
   move: (args: MoveArgs) => unknown;
-};
+}
 
 export default ({
   scrollDroppable,

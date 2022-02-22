@@ -6,9 +6,9 @@ import bindEvents from '../event-bindings/bind-events';
 import { RbdInvariant } from '../../invariant';
 import type { AppCallbacks } from './drag-drop-context-types';
 
-type Props = {
+interface Props {
   children: (setCallbacks: (callbacks: AppCallbacks) => void) => ReactNode;
-};
+}
 
 export default class ErrorBoundary extends React.Component<Props> {
   callbacks: AppCallbacks | null = null;

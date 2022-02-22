@@ -1,8 +1,8 @@
 import * as keyCodes from '../../../key-codes';
 
-type KeyMap = {
+interface KeyMap {
   [key: number]: true;
-};
+}
 
 const preventedKeys: KeyMap = {
   // submission

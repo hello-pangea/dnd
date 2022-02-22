@@ -5,7 +5,7 @@ import { borderRadius, grid } from '../constants';
 import type { Quote, AuthorColors } from '../types';
 import type { DraggableProvided } from '../../../src';
 
-type Props = {
+interface Props {
   quote: Quote;
   isDragging: boolean;
   provided: DraggableProvided;
@@ -13,7 +13,7 @@ type Props = {
   isGroupedOver?: boolean;
   style?: CSSProperties;
   index?: number;
-};
+}
 
 const getBackgroundColor = (
   isDragging: boolean,

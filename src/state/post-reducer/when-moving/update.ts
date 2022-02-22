@@ -14,7 +14,7 @@ import getDragImpact from '../../get-drag-impact';
 import { add, subtract } from '../../position';
 import recomputePlaceholders from '../../recompute-placeholders';
 
-type Args<TState extends StateWhenUpdatesAllowed> = {
+interface Args<TState extends StateWhenUpdatesAllowed> {
   state: TState;
   clientSelection?: Position;
   dimensions?: DimensionMap;
@@ -23,7 +23,7 @@ type Args<TState extends StateWhenUpdatesAllowed> = {
   impact?: DragImpact | null;
   // provide a scroll jump request (optionally provided - and can be null)
   scrollJumpRequest?: Position | null;
-};
+}
 
 export default <TState extends StateWhenUpdatesAllowed>({
   state,

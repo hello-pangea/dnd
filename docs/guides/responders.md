@@ -59,10 +59,10 @@ This responder is called after we know a drag will start, but before any dimensi
 ```ts
 // We cannot give more information as things might change in the
 // onBeforeCapture responder!
-export type BeforeCapture = {
+export interface BeforeCapture {
   draggableId: DraggableId;
   mode: MovementMode;
-};
+}
 // No second 'provided' argument
 export type OnBeforeCaptureResponder = (before: BeforeCapture) => unknown;
 
@@ -91,9 +91,9 @@ type OnBeforeDragStartResponder = (start: DragStart) => unknown;
 `onDragStart`, `onDragUpdate` and `onDragEnd` are given a `provided: ResponderProvided` object. This object has one property: `announce`. This function is used to synchronously announce a message to screen readers. If you do not use this function we will announce a default english message. We have created a [guide for screen reader usage](/docs/guides/screen-reader.md) which we recommend using if you are interested in controlling the screen reader messages for yourself and to support internationalisation. If you are using `announce` it must be called synchronously.
 
 ```ts
-type ResponderProvided = {
+interface ResponderProvided {
   announce: Announce;
-};
+}
 
 type Announce = (message: string) => void;
 ```
@@ -110,21 +110,21 @@ type OnDragStartResponder = (
 ) => unknown;
 
 // supporting types
-type DraggableRubric = {
+interface DraggableRubric {
   draggableId: DraggableId;
   type: TypeId;
   source: DraggableLocation;
-};
+}
 
-type DragStart = DraggableRubric & {
+interface DragStart extends DraggableRubric {
   mode: MovementMode;
 };
 
-type DraggableLocation = {
+interface DraggableLocation {
   droppableId: DroppableId;
   // the position of the draggable within a droppable
   index: number;
-};
+}
 type Id = string;
 type DraggableId = Id;
 type DroppableId = Id;
@@ -155,17 +155,17 @@ type OnDragUpdateResponder = (
   provided: ResponderProvided,
 ) => unknown;
 
-type DragUpdate = DragStart & {
+interface DragUpdate extends DragStart {
   // may not have any destination (drag to nowhere)
   destination: DraggableLocation | null;
   // populated when a draggable is dragging over another in combine mode
   combine: Combine | null;
-};
+}
 
-type Combine = {
+interface Combine {
   draggableId: DraggableId;
   droppableId: DroppableId;
-};
+}
 ```
 
 - `...DragStart`: _see above_
@@ -184,9 +184,9 @@ type OragEndResponder = (
   provided: ResponderProvided,
 ) => unknown;
 
-type DropResult = DragUpdate & {
+interface DropResult extends DragUpdate {
   reason: DropReason;
-};
+}
 
 type DropReason = 'DROP' | 'CANCEL';
 ```

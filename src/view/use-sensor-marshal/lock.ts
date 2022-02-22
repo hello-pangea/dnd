@@ -1,16 +1,16 @@
 import { invariant } from '../../invariant';
 
-export type Lock = {
+export interface Lock {
   abandon: () => void;
-};
+}
 
-export type LockAPI = {
+export interface LockAPI {
   isClaimed: () => boolean;
   isActive: (lock: Lock) => boolean;
   claim: (abandon: () => void) => Lock;
   release: () => void;
   tryAbandon: () => void;
-};
+}
 
 export default function create(): LockAPI {
   let lock: Lock | null = null;

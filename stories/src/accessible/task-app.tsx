@@ -16,10 +16,10 @@ import type {
 } from '../../../src';
 import type { Task } from '../types';
 
-type State = {
+interface State {
   tasks: Task[];
   blur: number;
-};
+}
 
 const Container = styled.div`
   padding-top: 20vh;

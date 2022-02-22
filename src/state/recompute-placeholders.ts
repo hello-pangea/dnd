@@ -14,11 +14,11 @@ import type {
 import patchDroppableMap from './patch-droppable-map';
 import isHomeOf from './droppable/is-home-of';
 
-type ClearArgs = {
+interface ClearArgs {
   previousImpact: DragImpact;
   impact: DragImpact;
   droppables: DroppableDimensionMap;
-};
+}
 
 const clearUnusedPlaceholder = ({
   previousImpact,
@@ -48,13 +48,13 @@ const clearUnusedPlaceholder = ({
   return patchDroppableMap(droppables, updated);
 };
 
-type Args = {
+interface Args {
   draggable: DraggableDimension;
   draggables: DraggableDimensionMap;
   droppables: DroppableDimensionMap;
   impact: DragImpact;
   previousImpact: DragImpact;
-};
+}
 
 export default ({
   draggable,

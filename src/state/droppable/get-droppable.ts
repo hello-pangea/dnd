@@ -12,15 +12,15 @@ import { origin } from '../position';
 import getMaxScroll from '../get-max-scroll';
 import getSubject from './util/get-subject';
 
-export type Closest = {
+export interface Closest {
   client: BoxModel;
   page: BoxModel;
   scroll: Position;
   scrollSize: ScrollSize;
   shouldClipSubject: boolean;
-};
+}
 
-type Args = {
+interface Args {
   descriptor: DroppableDescriptor;
   isEnabled: boolean;
   isCombineEnabled: boolean;
@@ -30,7 +30,7 @@ type Args = {
   // is null when in a fixed container
   page: BoxModel;
   closest?: Closest | null;
-};
+}
 
 export default ({
   descriptor,

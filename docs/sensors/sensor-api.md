@@ -116,20 +116,20 @@ A `sensor` is provided with a an object (`SensorAPI`) which is used to try to ge
 ```ts
 type Sensor = (api: SensorAPI) => void;
 
-type SensorAPI = {
+interface SensorAPI {
   tryGetLock: TryGetLock;
   canGetLock: (id: DraggableId) => boolean;
   isLockClaimed: () => boolean;
   tryReleaseLock: () => void;
   findClosestDraggableId: (event: Event) => DraggableId | null;
   findOptionsForDraggable: (id: DraggableId) => DraggableOptions | null;
-};
+}
 
-type DraggableOptions = {
+interface DraggableOptions {
   canDragInteractiveElements: boolean;
   shouldRespectForcePress: boolean;
   isEnabled: boolean;
-};
+}
 ```
 
 - `tryGetLock` (`TryGetLock`): a function that is used to **try** and get a **lock** for a `<Draggable />`
@@ -150,9 +150,9 @@ type TryGetLock = (
 - `forceStop` (optional): a function that is called when the lock needs to be abandoned by the application. See **force abandoning locks**.
 
 ```ts
-type TryGetLockOptions = {
+interface TryGetLockOptions {
   sourceEvent?: Event;
-};
+}
 ```
 
 - `sourceEvent` (optional): Used to do further validation when starting the drag from a user input event. We will do some [interactive element checking](/docs/api/draggable.md#interactive-child-elements-within-a-draggable-)
@@ -162,7 +162,7 @@ type TryGetLockOptions = {
 The `PreDragAction` object contains a number of functions:
 
 ```ts
-type PreDragActions = {
+interface PreDragActions {
   // discover if the lock is still active
   isActive: () => boolean;
   // whether it has been indicated if force press should be respected
@@ -172,7 +172,7 @@ type PreDragActions = {
   snapLift: () => SnapDragActions;
   // Cancel the pre drag without starting a drag. Releases the lock
   abort: () => void;
-};
+}
 ```
 
 This phase allows you to conditionally start or abort a drag after obtaining an exclusive **lock**. This is useful if you are not sure if a drag should start such as when using [long press](/docs/sensors/touch.md) or [sloppy click detection](/docs/sensors/mouse.md). If you want to abort the pre drag without lifting you can call `.abort()`.
@@ -184,16 +184,16 @@ You can lift a dragging item by calling either `.fluidLift(clientSelection)` or 
 #### Shared
 
 ```ts
-type DragActions = {
+interface DragActions {
   drop: (args?: StopDragOptions) => void;
   cancel: (args?: StopDragOptions) => void;
   isActive: () => boolean;
   shouldRespectForcePress: () => boolean;
-};
+}
 
-type StopDragOptions = {
+interface StopDragOptions {
   shouldBlockNextClick: boolean;
-};
+}
 ```
 
 #### Fluid dragging
@@ -203,9 +203,9 @@ type StopDragOptions = {
 `<Draggable />`s move around naturally in response a moving point. The _impact_ of the drag is controlled by a _collision engine_. (This is what our [mouse sensor](/docs/sensors/mouse.md) and [touch sensor](/docs/sensors/touch.md) use)
 
 ```ts
-type FluidDragActions = DragActions & {
+interface FluidDragActions extends DragActions {
   move: (clientSelection: Position) => void;
-};
+}
 ```
 
 Calls to `.move()` are throttled using [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). So if you make multiple `.move()` calls in the same animation frame, it will only result in a single update
@@ -227,12 +227,12 @@ drag.move({ x: 0, y: 3 });
 `<Draggable />`s are forced to move to a new position using a single command. For example, "move down". (This is what our [keyboard sensor](/docs/sensors/keyboard.md) uses)
 
 ```ts
-export type SnapDragActions = DragActions & {
+export interface SnapDragActions extends DragActions {
   moveUp: () => void;
   moveDown: () => void;
   moveRight: () => void;
   moveLeft: () => void;
-};
+}
 ```
 
 ## Force abandoning locks

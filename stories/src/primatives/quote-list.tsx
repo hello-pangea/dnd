@@ -70,7 +70,7 @@ const Container = styled.div``;
 
 /* stylelint-enable */
 
-type Props = {
+interface Props {
   listId?: string;
   listType?: string;
   quotes: Quote[];
@@ -83,11 +83,11 @@ type Props = {
   // may not be provided - and might be null
   ignoreContainerClipping?: boolean;
   useClone?: boolean;
-};
+}
 
-type QuoteListProps = {
+interface QuoteListProps {
   quotes: Quote[];
-};
+}
 
 function InnerQuoteList(props: QuoteListProps): ReactElement {
   return (
@@ -114,11 +114,11 @@ function InnerQuoteList(props: QuoteListProps): ReactElement {
 
 const InnerQuoteListMemo = React.memo<QuoteListProps>(InnerQuoteList);
 
-type InnerListProps = {
+interface InnerListProps {
   dropProvided: DroppableProvided;
   quotes: Quote[];
   title: string | undefined | null;
-};
+}
 
 function InnerList(props: InnerListProps) {
   const { quotes, dropProvided } = props;

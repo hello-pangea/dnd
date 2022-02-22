@@ -14,10 +14,10 @@ import { getId } from '../../../src/view/use-announcer/use-announcer';
 //   jest.useRealTimers();
 // });
 
-type Props = {
+interface Props {
   contextId: ContextId;
   children: (announce: Announce) => ReactNode;
-};
+}
 
 function WithAnnouncer(props: Props) {
   const announce: Announce = useAnnouncer(props.contextId);

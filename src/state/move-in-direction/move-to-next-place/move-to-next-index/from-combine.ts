@@ -9,14 +9,14 @@ import type {
 } from '../../../../types';
 import didStartAfterCritical from '../../../did-start-after-critical';
 
-type Args = {
+interface Args {
   isMovingForward: boolean;
   destination: DroppableDimension;
   displaced: DisplacementGroups;
   draggables: DraggableDimensionMap;
   combine: Combine;
   afterCritical: LiftEffect;
-};
+}
 
 export default ({
   isMovingForward,

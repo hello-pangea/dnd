@@ -160,10 +160,10 @@ describe('can partially scroll', () => {
     });
   });
 
-  type Item = {
+  interface Item {
     current: Position;
     change: Position;
-  };
+  }
 
   it('should return true if can only partially move in one direction', () => {
     const max: Position = { x: 100, y: 200 };
@@ -287,10 +287,10 @@ describe('get overlap', () => {
     const max: Position = { x: 100, y: 100 };
     const current: Position = { x: 50, y: 50 };
 
-    type Item = {
+    interface Item {
       change: Position;
       expected: Position;
-    };
+    }
 
     it('should return overlap on a single axis', () => {
       const items: Item[] = [

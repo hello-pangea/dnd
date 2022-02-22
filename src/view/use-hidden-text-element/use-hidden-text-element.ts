@@ -4,19 +4,19 @@ import type { ContextId, ElementId } from '../../types';
 import getBodyElement from '../get-body-element';
 import useUniqueId from '../use-unique-id';
 
-type GetIdArgs = {
+interface GetIdArgs {
   contextId: ContextId;
   uniqueId: string;
-};
+}
 
 export function getElementId({ contextId, uniqueId }: GetIdArgs): ElementId {
   return `rfd-hidden-text-${contextId}-${uniqueId}`;
 }
 
-type Args = {
+interface Args {
   contextId: ContextId;
   text: string;
-};
+}
 
 export default function useHiddenTextElement({
   contextId,

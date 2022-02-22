@@ -8,10 +8,10 @@ import type { Task as TaskType } from '../types';
 import { grid, borderRadius } from '../constants';
 import BlurContext from './blur-context';
 
-type Props = {
+interface Props {
   tasks: TaskType[];
   title: string;
-};
+}
 
 interface ContainerProps {
   blur: number;

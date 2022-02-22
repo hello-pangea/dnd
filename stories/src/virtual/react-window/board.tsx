@@ -28,11 +28,11 @@ const Container = styled.div`
   display: flex;
 `;
 
-type RowProps = {
+interface RowProps {
   data: Quote[];
   index: number;
   style: CSSProperties;
-};
+}
 
 // Memoizing row items for even better performance!
 const Row = React.memo(({ data: quotes, index, style }: RowProps) => {
@@ -69,10 +69,10 @@ const Row = React.memo(({ data: quotes, index, style }: RowProps) => {
   );
 }, areEqual);
 
-type ColumnProps = {
+interface ColumnProps {
   columnId: string;
   quotes: Quote[];
-};
+}
 
 const ColumnContainer = styled.div`
   border-top-left-radius: ${borderRadius}px;
@@ -144,11 +144,11 @@ const Column = React.memo(function Column(props: ColumnProps) {
   );
 });
 
-type State = {
+interface State {
   itemCount: number;
   quoteMap: QuoteMap;
   columnKeys: string[];
-};
+}
 
 function getColumnKeys(quoteMap: QuoteMap): string[] {
   return Object.keys(quoteMap).sort();

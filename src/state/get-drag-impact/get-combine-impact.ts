@@ -13,14 +13,14 @@ import getDisplacedBy from '../get-displaced-by';
 import getIsDisplaced from '../get-is-displaced';
 import removeDraggableFromList from '../remove-draggable-from-list';
 
-type Args = {
+interface Args {
   draggable: DraggableDimension;
   pageBorderBoxWithDroppableScroll: Rect;
   previousImpact: DragImpact;
   destination: DroppableDimension;
   insideDestination: DraggableDimension[];
   afterCritical: LiftEffect;
-};
+}
 
 // exported for testing
 export const combineThresholdDivisor = 4;

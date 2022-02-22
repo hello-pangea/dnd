@@ -2,15 +2,15 @@ import type { ContextId } from '../../types';
 import { transitions } from '../../animation';
 import * as attributes from '../data-attributes';
 
-export type Styles = {
+export interface Styles {
   always: string;
   dragging: string;
   resting: string;
   dropAnimating: string;
   userCancel: string;
-};
+}
 
-type Rule = {
+interface Rule {
   selector: string;
   styles: {
     always?: string;
@@ -19,7 +19,7 @@ type Rule = {
     dropAnimating?: string;
     userCancel?: string;
   };
-};
+}
 
 const makeGetSelector = (context: string) => (attribute: string) =>
   `[${attribute}="${context}"]`;

@@ -38,12 +38,12 @@ const original: Viewport = getCurrent();
 
 export const resetViewport = () => setViewport(original);
 
-type CreateViewportArgs = {
+interface CreateViewportArgs {
   frame: Rect;
   scroll: Position;
   scrollHeight: number;
   scrollWidth: number;
-};
+}
 
 const origin: Position = { x: 0, y: 0 };
 
@@ -73,11 +73,11 @@ export const createViewport = ({
   return viewport;
 };
 
-type WithWindowScrollSizeArgs = {
+interface WithWindowScrollSizeArgs {
   viewport: Viewport;
   scrollWidth: number;
   scrollHeight: number;
-};
+}
 
 export const withWindowScrollSize = ({
   viewport,

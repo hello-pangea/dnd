@@ -8,7 +8,7 @@ import {
 import type { Args as IsVisibleArgs } from '../../visibility/is-visible';
 import type { DraggableDimension, DroppableDimension } from '../../../types';
 
-type Args = {
+interface Args {
   draggable: DraggableDimension;
   destination: DroppableDimension;
   newPageBorderBoxCenter: Position;
@@ -16,7 +16,7 @@ type Args = {
   // only allowing a 'false' value. Being super clear
   withDroppableDisplacement: false;
   onlyOnMainAxis?: boolean;
-};
+}
 
 export default ({
   draggable,

@@ -46,14 +46,14 @@ const composeEnhancers =
       })
     : compose;
 
-type Args = {
+interface Args {
   dimensionMarshal: DimensionMarshal;
   focusMarshal: FocusMarshal;
   styleMarshal: StyleMarshal;
   getResponders: () => Responders;
   announce: Announce;
   autoScroller: AutoScroller;
-};
+}
 
 export default ({
   dimensionMarshal,

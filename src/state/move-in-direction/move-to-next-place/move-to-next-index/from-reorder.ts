@@ -1,11 +1,11 @@
 import type { DraggableDimension, DraggableLocation } from '../../../../types';
 
-type Args = {
+interface Args {
   isMovingForward: boolean;
   isInHomeList: boolean;
   location: DraggableLocation;
   insideDestination: DraggableDimension[];
-};
+}
 
 export default ({
   isMovingForward,

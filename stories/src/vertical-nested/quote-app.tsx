@@ -39,9 +39,9 @@ const Root = styled.div`
   align-items: flex-start;
 `;
 
-type State = {
+interface State {
   list: NestedQuoteList;
-};
+}
 
 export default class QuoteApp extends Component<unknown, State> {
   /* eslint-disable react/sort-comp */

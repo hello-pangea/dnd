@@ -4,11 +4,11 @@ import { warning } from '../../dev-warning';
 import checkIsValidInnerRef from '../check-is-valid-inner-ref';
 import useDevSetupWarning from '../use-dev-setup-warning';
 
-type Args = {
+interface Args {
   props: Props;
   getDroppableRef: () => HTMLElement | null;
   getPlaceholderRef: () => HTMLElement | null;
-};
+}
 
 type CheckFn = (args: Args) => void;
 

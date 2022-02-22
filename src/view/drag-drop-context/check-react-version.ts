@@ -1,12 +1,12 @@
 import { invariant } from '../../invariant';
 import { warning } from '../../dev-warning';
 
-type Version = {
+interface Version {
   major: number;
   minor: number;
   patch: number;
   raw: string;
-};
+}
 
 // We can use a simple regex here given that:
 // - the version that react supplies is always full: eg 16.5.2

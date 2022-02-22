@@ -6,10 +6,10 @@ import { dragHandle as dragHandleAttr } from '../data-attributes';
 import useLayoutEffect from '../use-isomorphic-layout-effect';
 import findDragHandle from '../get-elements/find-drag-handle';
 
-type Entry = {
+interface Entry {
   id: DraggableId;
   focus: () => void;
-};
+}
 
 type EntryMap = {
   [id in DraggableId]: Entry;

@@ -13,12 +13,12 @@ import QuoteList from '../primatives/quote-list';
 import reorder from '../reorder';
 import { grid, borderRadius } from '../constants';
 
-type ControlProps = {
+interface ControlProps {
   quotes: Quote[];
   canLift: boolean;
   isDragging: boolean;
   lift: (quoteId: string) => SnapDragActions | undefined | null;
-};
+}
 
 const ControlBox = styled.div`
   display: flex;
@@ -176,9 +176,9 @@ const Layout = styled.div`
   }
 `;
 
-type Props = {
+interface Props {
   initial: Quote[];
-};
+}
 
 export default function QuoteApp(props: Props): ReactElement {
   const [quotes, setQuotes] = useState(props.initial);

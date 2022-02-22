@@ -70,7 +70,7 @@ const getClient = (
   return client;
 };
 
-type Args = {
+interface Args {
   ref: HTMLElement;
   descriptor: DroppableDescriptor;
   env: Env;
@@ -79,7 +79,7 @@ type Args = {
   isDropDisabled: boolean;
   isCombineEnabled: boolean;
   shouldClipSubject: boolean;
-};
+}
 
 export default ({
   ref,

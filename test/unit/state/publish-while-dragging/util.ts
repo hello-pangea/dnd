@@ -18,11 +18,11 @@ export const empty: Published = {
   modified: [],
 };
 
-type ShiftArgs = {
+interface ShiftArgs {
   draggable: DraggableDimension;
   change: Position;
   newIndex: number;
-};
+}
 
 export const shift = ({
   draggable,
