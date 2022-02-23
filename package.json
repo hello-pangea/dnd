@@ -114,7 +114,7 @@
     "@types/react-redux": "^7.1.22",
     "@types/react-virtualized": "^9.21.19",
     "@types/react-window": "^1.8.5",
-    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "babel-jest": "^27.5.1",
