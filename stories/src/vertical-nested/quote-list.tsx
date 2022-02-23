@@ -1,18 +1,18 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { Droppable, Draggable } from '../../../src';
-import QuoteItem from '../primatives/quote-item';
-import Title from '../primatives/title';
-import { grid } from '../constants';
-import type { Quote } from '../types';
-import type { NestedQuoteList } from './types';
+import { Droppable, Draggable } from '@react-forked/dnd';
 import type {
   DroppableProvided,
   DroppableStateSnapshot,
   DraggableProvided,
   DraggableStateSnapshot,
-} from '../../../src';
+} from '@react-forked/dnd';
+import QuoteItem from '../primatives/quote-item';
+import Title from '../primatives/title';
+import { grid } from '../constants';
+import type { Quote } from '../types';
+import type { NestedQuoteList } from './types';
 
 const Root = styled.div`
   width: 250px;

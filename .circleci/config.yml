@@ -4,6 +4,8 @@ jobs:
     docker:
       - image: circleci/node:14.18.2-browsers
     working_directory: ~/repo
+    environment:
+      - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
     steps:
       # Fetch Code
       - checkout
@@ -11,9 +13,9 @@ jobs:
       - restore_cache:
           keys:
             # Restore cached node_modules
-            - v12-dependencies-{{ checksum "yarn.lock" }}
+            - v15-dependencies-{{ checksum "yarn.lock" }}
             # fallback to using the latest cache if no exact match is found
-            - v12-dependencies-
+            - v15-dependencies-
 
       - run:
           name: Add CI global modules
@@ -43,7 +45,8 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v12-dependencies-{{ checksum "yarn.lock" }}
+          key: v15-dependencies-{{ checksum "yarn.lock" }}
+
   validate:
     docker:
       - image: circleci/node:14.18.2-browsers
@@ -53,7 +56,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v12-dependencies-{{ checksum "yarn.lock" }}
+            - v15-dependencies-{{ checksum "yarn.lock" }}
 
       - run:
           # PR's from forks cannot use the dependency cache for performance reasons
@@ -63,6 +66,7 @@ jobs:
       - run:
           name: Lint + Typecheck
           command: yarn validate
+
   test-unit:
     docker:
       - image: circleci/node:14.18.2-browsers
@@ -72,7 +76,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v12-dependencies-{{ checksum "yarn.lock" }}
+            - v15-dependencies-{{ checksum "yarn.lock" }}
 
       - run:
           # PR's from forks cannot use the dependency cache for performance reasons
@@ -87,6 +91,7 @@ jobs:
 
       - store_test_results:
           path: test-reports/junit
+
   test-bundle:
     docker:
       - image: circleci/node:14.18.2-browsers
@@ -96,7 +101,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v12-dependencies-{{ checksum "yarn.lock" }}
+            - v15-dependencies-{{ checksum "yarn.lock" }}
 
       # PR's from forks cannot use the dependency cache for performance reasons
       - run:
@@ -106,17 +111,42 @@ jobs:
       - run:
           name: Check Bundle Size
           command: yarn run bundle-size:check
-  test-browser:
+
+  build:
     docker:
-      # https://github.com/cypress-io/circleci-orb/blob/master/src/orb.yml
-      - image: cypress/base:14.18.1
+      - image: circleci/node:14.18.2-browsers
     working_directory: ~/repo
     steps:
       - checkout
 
       - restore_cache:
           keys:
-            - v12-dependencies-{{ checksum "yarn.lock" }}
+            - v15-dependencies-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Build asset
+          command: yarn build
+
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - '*'
+
+  test-browser:
+    docker:
+      - image: circleci/node:14.18.2-browsers
+    working_directory: ~/repo
+    environment:
+      - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: ~/repo/dist
+
+      - restore_cache:
+          keys:
+            - v15-dependencies-{{ checksum "yarn.lock" }}
 
       # PR's from forks cannot use the dependency cache for performance reasons
       - run:
@@ -132,6 +162,7 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+
   test-a11y:
     docker:
       - image: circleci/node:14.18.2-browsers
@@ -139,9 +170,12 @@ jobs:
     steps:
       - checkout
 
+      - attach_workspace:
+          at: ~/repo/dist
+
       - restore_cache:
           keys:
-            - v12-dependencies-{{ checksum "yarn.lock" }}
+            - v15-dependencies-{{ checksum "yarn.lock" }}
 
       # PR's from forks cannot use the dependency cache for performance reasons
       - run:
@@ -157,6 +191,7 @@ jobs:
 
       - store_test_results:
           path: test-reports/lighthouse
+
 workflows:
   version: 2
   build:
@@ -171,9 +206,12 @@ workflows:
       - test-bundle:
           requires:
             - install
+      - build:
+          requires:
+            - install
       - test-browser:
           requires:
-            - install
+            - build
       - test-a11y:
           requires:
-            - install
+            - build

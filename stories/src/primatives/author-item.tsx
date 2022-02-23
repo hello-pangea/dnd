@@ -1,8 +1,11 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
+import type {
+  DraggableProvided,
+  DraggableStateSnapshot,
+} from '@react-forked/dnd';
 import { grid } from '../constants';
-import type { DraggableProvided, DraggableStateSnapshot } from '../../../src';
 import type { Author } from '../types';
 
 interface AvatarProps {

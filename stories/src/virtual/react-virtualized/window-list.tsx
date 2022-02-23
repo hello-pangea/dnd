@@ -2,8 +2,7 @@ import React, { CSSProperties, ReactElement, useState } from 'react';
 import ReactDOM from 'react-dom';
 import 'react-virtualized/styles.css';
 import { WindowScroller, List } from 'react-virtualized';
-import type { Quote } from '../../types';
-import { Droppable, Draggable, DragDropContext } from '../../../../src';
+import { Droppable, Draggable, DragDropContext } from '@react-forked/dnd';
 
 import type {
   DroppableProvided,
@@ -11,7 +10,8 @@ import type {
   DraggableStateSnapshot,
   DraggableRubric,
   DropResult,
-} from '../../../../src';
+} from '@react-forked/dnd';
+import type { Quote } from '../../types';
 
 import QuoteItem from '../../primatives/quote-item';
 import reorder from '../../reorder';

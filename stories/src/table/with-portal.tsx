@@ -5,17 +5,17 @@ import type { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { DragDropContext, Droppable, Draggable } from '../../../src';
-import { invariant } from '../../../src/invariant';
-import reorder from '../reorder';
-import { grid } from '../constants';
-import type { Quote } from '../types';
+import { DragDropContext, Droppable, Draggable } from '@react-forked/dnd';
 import type {
   DropResult,
   DroppableProvided,
   DraggableProvided,
   DraggableStateSnapshot,
-} from '../../../src';
+} from '@react-forked/dnd';
+import { invariant } from '../../../src/invariant';
+import reorder from '../reorder';
+import { grid } from '../constants';
+import type { Quote } from '../types';
 
 const Table = styled.table<{ layout: Property.TableLayout }>`
   width: 500px;

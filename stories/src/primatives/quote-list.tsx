@@ -1,17 +1,17 @@
 import React, { CSSProperties, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { Droppable, Draggable } from '../../../src';
-import QuoteItem from './quote-item';
-import { grid } from '../constants';
-import Title from './title';
-import type { Quote } from '../types';
+import { Droppable, Draggable } from '@react-forked/dnd';
 import type {
   DroppableProvided,
   DroppableStateSnapshot,
   DraggableProvided,
   DraggableStateSnapshot,
-} from '../../../src';
+} from '@react-forked/dnd';
+import QuoteItem from './quote-item';
+import { grid } from '../constants';
+import Title from './title';
+import type { Quote } from '../types';
 
 export const getBackgroundColor = (
   isDraggingOver: boolean,

@@ -1,9 +1,9 @@
 import React, { ReactElement, useState } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
+import { DragDropContext, Droppable, Draggable } from '@react-forked/dnd';
+import type { DropResult } from '@react-forked/dnd';
 import type { Task } from '../types';
-import { DragDropContext, Droppable, Draggable } from '../../../src';
-import type { DropResult } from '../../../src';
 import { grid } from '../constants';
 import reorder, { moveBetween } from '../reorder';
 

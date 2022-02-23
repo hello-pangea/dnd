@@ -2,13 +2,13 @@
 import React, { ReactElement } from 'react';
 import type { ChangeEvent } from 'react';
 import styled from '@emotion/styled';
+import { DragDropContext } from '@react-forked/dnd';
+import type { DropResult, DragUpdate } from '@react-forked/dnd';
 import QuoteList from '../primatives/quote-list';
-import { DragDropContext } from '../../../src';
 import { generateQuoteMap, authors } from '../data';
 import { reorderQuoteMap } from '../reorder';
 import { grid } from '../constants';
 import type { Quote, QuoteMap, Author } from '../types';
-import type { DropResult, DragUpdate } from '../../../src';
 
 const initial: QuoteMap = generateQuoteMap(0);
 

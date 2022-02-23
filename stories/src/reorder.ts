@@ -1,5 +1,5 @@
+import type { DraggableLocation } from '@react-forked/dnd';
 import type { Quote, QuoteMap } from './types';
-import type { DraggableLocation } from '../../src';
 
 // a little function to help us with reordering the result
 function reorder<TItem>(

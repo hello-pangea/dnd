@@ -1,11 +1,6 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
-import TaskList from './task-list';
-import initial from './data';
-import reorder from '../reorder';
-import { grid } from '../constants';
-import { DragDropContext } from '../../../src';
-import BlurContext from './blur-context';
+import { DragDropContext } from '@react-forked/dnd';
 import type {
   Announce,
   DragStart,
@@ -13,7 +8,12 @@ import type {
   DropResult,
   DraggableLocation,
   ResponderProvided,
-} from '../../../src';
+} from '@react-forked/dnd';
+import TaskList from './task-list';
+import initial from './data';
+import reorder from '../reorder';
+import { grid } from '../constants';
+import BlurContext from './blur-context';
 import type { Task } from '../types';
 
 interface State {

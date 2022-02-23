@@ -1,11 +1,15 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
-import { DragDropContext } from '../../../src';
+import { DragDropContext } from '@react-forked/dnd';
+import type {
+  DragStart,
+  DropResult,
+  DraggableLocation,
+} from '@react-forked/dnd';
 import initial from './data';
 import Column from './column';
 import type { Result as ReorderResult } from './utils';
 import { mutliDragAwareReorder, multiSelectTo as multiSelect } from './utils';
-import type { DragStart, DropResult, DraggableLocation } from '../../../src';
 import type { Task, Id } from '../types';
 import type { Entities } from './types';
 

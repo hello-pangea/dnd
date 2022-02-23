@@ -1,9 +1,12 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
+import { Draggable } from '@react-forked/dnd';
+import type {
+  DraggableProvided,
+  DraggableStateSnapshot,
+} from '@react-forked/dnd';
 import { grid, borderRadius } from '../constants';
-import { Draggable } from '../../../src';
-import type { DraggableProvided, DraggableStateSnapshot } from '../../../src';
 import QuoteList from '../primatives/quote-list';
 import Title from '../primatives/title';
 import type { Quote } from '../types';

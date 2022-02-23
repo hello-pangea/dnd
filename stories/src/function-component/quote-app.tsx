@@ -1,11 +1,11 @@
 import React, { ReactElement, useState } from 'react';
 import styled from '@emotion/styled';
-import { DragDropContext, Droppable, Draggable } from '../../../src';
+import { DragDropContext, Droppable, Draggable } from '@react-forked/dnd';
 import type {
   DropResult,
   DraggableProvided,
   DroppableProvided,
-} from '../../../src';
+} from '@react-forked/dnd';
 import type { Quote as QuoteType } from '../types';
 import { quotes as initial } from '../data';
 import reorder from '../reorder';

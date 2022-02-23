@@ -1,9 +1,9 @@
 import React, { ReactElement, useState } from 'react';
+import { DragDropContext } from '@react-forked/dnd';
+import type { DropResult } from '@react-forked/dnd';
 import { quotes as initial } from '../data';
 import type { Quote } from '../types';
 import QuoteList from '../primatives/quote-list';
-import { DragDropContext } from '../../../src';
-import type { DropResult } from '../../../src';
 import reorder from '../reorder';
 
 function getQuotes() {

@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import memoizeOne from 'memoize-one';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
+import { Draggable } from '@react-forked/dnd';
+import type {
+  DraggableProvided,
+  DraggableStateSnapshot,
+} from '@react-forked/dnd';
 import { invariant } from '../../../src/invariant';
-import { Draggable } from '../../../src';
-import type { DraggableProvided, DraggableStateSnapshot } from '../../../src';
 import type { Task as TaskType } from '../types';
 import { grid, borderRadius } from '../constants';
 import BlurContext from './blur-context';

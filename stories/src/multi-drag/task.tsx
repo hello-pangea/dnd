@@ -7,9 +7,12 @@ import React, {
 } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { Draggable } from '../../../src';
+import { Draggable } from '@react-forked/dnd';
+import type {
+  DraggableProvided,
+  DraggableStateSnapshot,
+} from '@react-forked/dnd';
 import { grid, borderRadius } from '../constants';
-import type { DraggableProvided, DraggableStateSnapshot } from '../../../src';
 import type { Id, Task as TaskType } from '../types';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button

@@ -1,7 +1,6 @@
 import React, { CSSProperties, ReactElement, useState } from 'react';
 import { FixedSizeList as List, areEqual } from 'react-window';
-import type { Quote } from '../../types';
-import { Droppable, Draggable, DragDropContext } from '../../../../src';
+import { Droppable, Draggable, DragDropContext } from '@react-forked/dnd';
 
 import type {
   DroppableProvided,
@@ -9,7 +8,8 @@ import type {
   DraggableStateSnapshot,
   DraggableRubric,
   DropResult,
-} from '../../../../src';
+} from '@react-forked/dnd';
+import type { Quote } from '../../types';
 
 import QuoteItem from '../../primatives/quote-item';
 import reorder from '../../reorder';

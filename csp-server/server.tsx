@@ -1,9 +1,9 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import { resetServerContext } from '@react-forked/dnd';
 import { resolve } from 'path';
 import App from './app';
-import { resetServerContext } from '../src';
 
 let count = 0;
 function getNonce(): string {

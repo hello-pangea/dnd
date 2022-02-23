@@ -1,9 +1,11 @@
 {
   "extends": "../tsconfig.json",
-
+  "include": ["**/*"],
   "compilerOptions": {
-    "types": ["csstype"]
+    "baseUrl": ".",
+    "types": ["csstype"],
+    "paths": {
+      "@react-forked/dnd": ["../src/index.ts"]
+    }
   },
-
-  "include": ["**/*"]
 }

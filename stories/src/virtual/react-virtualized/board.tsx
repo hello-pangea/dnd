@@ -13,11 +13,11 @@ import type {
   DroppableProvided,
   DroppableStateSnapshot,
   DraggableRubric,
-} from '../../../../src';
+} from '@react-forked/dnd';
+import { DragDropContext, Droppable, Draggable } from '@react-forked/dnd';
 import type { QuoteMap, Quote } from '../../types';
 import Title from '../../primatives/title';
 import { reorderQuoteMap } from '../../reorder';
-import { DragDropContext, Droppable, Draggable } from '../../../../src';
 import QuoteItem from '../../primatives/quote-item';
 import { grid, borderRadius } from '../../constants';
 import { getBackgroundColor } from '../../primatives/quote-list';

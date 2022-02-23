@@ -2,19 +2,18 @@ import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import type { Quote } from '../types';
-import { grid } from '../constants';
-import { getQuotes } from '../data';
-import QuoteItem from '../primatives/quote-item';
-import { DragDropContext, Draggable, Droppable } from '../../../src';
-import { invariant } from '../../../src/invariant';
-
+import { DragDropContext, Draggable, Droppable } from '@react-forked/dnd';
 import type {
   DropResult,
   DraggableProvided,
   DraggableStateSnapshot,
   DroppableProvided,
-} from '../../../src';
+} from '@react-forked/dnd';
+import type { Quote } from '../types';
+import { grid } from '../constants';
+import { getQuotes } from '../data';
+import QuoteItem from '../primatives/quote-item';
+import { invariant } from '../../../src/invariant';
 
 const sidebarWidth = 300;
 
