@@ -6,11 +6,11 @@ import type {
   DropResult,
   DraggableLocation,
   DroppableProvided,
-} from '../../../src';
+} from '@react-forked/dnd';
+import { DragDropContext, Droppable } from '@react-forked/dnd';
 import type { QuoteMap, Quote } from '../types';
 import Column from './column';
 import reorder, { reorderQuoteMap } from '../reorder';
-import { DragDropContext, Droppable } from '../../../src';
 
 interface ParentContainerProps {
   height: string;

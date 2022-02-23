@@ -1,13 +1,13 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { DragDropContext } from '../../../src';
+import { DragDropContext } from '@react-forked/dnd';
+import type { DropResult, DraggableLocation } from '@react-forked/dnd';
 import QuoteList from '../primatives/quote-list';
 import { grid } from '../constants';
 import { reorderQuoteMap } from '../reorder';
 import type { ReorderQuoteMapResult } from '../reorder';
 import type { QuoteMap } from '../types';
-import type { DropResult, DraggableLocation } from '../../../src';
 
 const Root = styled.div`
   background-color: ${colors.B200};

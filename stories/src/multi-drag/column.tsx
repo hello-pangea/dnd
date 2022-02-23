@@ -2,10 +2,13 @@ import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import memoizeOne from 'memoize-one';
 import { colors } from '@atlaskit/theme';
-import { Droppable } from '../../../src';
+import { Droppable } from '@react-forked/dnd';
+import type {
+  DroppableProvided,
+  DroppableStateSnapshot,
+} from '@react-forked/dnd';
 import { grid, borderRadius } from '../constants';
 import Task from './task';
-import type { DroppableProvided, DroppableStateSnapshot } from '../../../src';
 import type { Column as ColumnType } from './types';
 import type { Task as TaskType, Id } from '../types';
 

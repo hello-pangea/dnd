@@ -1,9 +1,9 @@
 import React, { CSSProperties } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
+import type { DraggableProvided } from '@react-forked/dnd';
 import { borderRadius, grid } from '../constants';
 import type { Quote, AuthorColors } from '../types';
-import type { DraggableProvided } from '../../../src';
 
 interface Props {
   quote: Quote;

@@ -1,9 +1,9 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { Droppable } from '../../../src';
+import { Droppable } from '@react-forked/dnd';
+import type { DroppableProvided } from '@react-forked/dnd';
 import Task from './task';
-import type { DroppableProvided } from '../../../src';
 import type { Task as TaskType } from '../types';
 import { grid, borderRadius } from '../constants';
 import BlurContext from './blur-context';

@@ -1,4 +1,4 @@
-import type { DraggableId, DraggableLocation } from '../../src';
+import type { DraggableId, DraggableLocation } from '@react-forked/dnd';
 
 export type Id = string;
 

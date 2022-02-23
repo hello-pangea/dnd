@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
 import React, { useRef, useState, useCallback, ReactElement } from 'react';
 import styled from '@emotion/styled';
-import type { Quote } from '../types';
 import type {
   DropResult,
   PreDragActions,
   SnapDragActions,
   SensorAPI,
-} from '../../../src';
-import { DragDropContext } from '../../../src';
+} from '@react-forked/dnd';
+import { DragDropContext } from '@react-forked/dnd';
+import type { Quote } from '../types';
 import QuoteList from '../primatives/quote-list';
 import reorder from '../reorder';
 import { grid, borderRadius } from '../constants';

@@ -1,10 +1,7 @@
 import React, { CSSProperties, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { grid } from '../constants';
-import reorder from '../reorder';
-import { DragDropContext, Draggable, Droppable } from '../../../src';
-
+import { DragDropContext, Draggable, Droppable } from '@react-forked/dnd';
 import type {
   DroppableProvided,
   DraggableProvided,
@@ -13,7 +10,9 @@ import type {
   NotDraggingStyle,
   DropAnimation,
   DropResult,
-} from '../../../src';
+} from '@react-forked/dnd';
+import { grid } from '../constants';
+import reorder from '../reorder';
 
 interface Task {
   id: string;

@@ -1,7 +1,11 @@
 import React, { ReactElement } from 'react';
+import { DragDropContext } from '@react-forked/dnd';
+import type {
+  DropResult,
+  DragUpdate,
+  DraggableLocation,
+} from '@react-forked/dnd';
 import QuoteList from '../primatives/quote-list';
-import { DragDropContext } from '../../../src';
-import type { DropResult, DragUpdate, DraggableLocation } from '../../../src';
 import type { Quote } from '../types';
 import { quotes as initial, getQuotes } from '../data';
 import reorder from '../reorder';

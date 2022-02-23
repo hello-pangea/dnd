@@ -3,9 +3,6 @@ import { FixedSizeList as List, areEqual } from 'react-window';
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/react';
 import { colors } from '@atlaskit/theme';
-import type { QuoteMap, Quote } from '../../types';
-import Title from '../../primatives/title';
-import { reorderQuoteMap } from '../../reorder';
 import {
   DragDropContext,
   Droppable,
@@ -17,7 +14,10 @@ import {
   DroppableProvided,
   DraggableRubric,
   DroppableStateSnapshot,
-} from '../../../../src';
+} from '@react-forked/dnd';
+import type { QuoteMap, Quote } from '../../types';
+import Title from '../../primatives/title';
+import { reorderQuoteMap } from '../../reorder';
 import QuoteItem from '../../primatives/quote-item';
 import { grid, borderRadius } from '../../constants';
 import { getBackgroundColor } from '../../primatives/quote-list';

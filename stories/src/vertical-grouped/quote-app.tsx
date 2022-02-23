@@ -1,12 +1,12 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { DragDropContext } from '../../../src';
+import { DragDropContext } from '@react-forked/dnd';
+import type { DropResult } from '@react-forked/dnd';
 import QuoteList from '../primatives/quote-list';
 import { grid } from '../constants';
 import { reorderQuoteMap } from '../reorder';
 import type { QuoteMap } from '../types';
-import type { DropResult } from '../../../src';
 
 const Root = styled.div`
   background: ${colors.B200};

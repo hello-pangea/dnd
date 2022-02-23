@@ -1,8 +1,8 @@
 import React, { CSSProperties, ReactElement, useState } from 'react';
 import styled from '@emotion/styled';
+import type { DropResult } from '@react-forked/dnd';
+import { DragDropContext } from '@react-forked/dnd';
 import type { Quote } from '../types';
-import type { DropResult } from '../../../src';
-import { DragDropContext } from '../../../src';
 import QuoteList from '../primatives/quote-list';
 import reorder from '../reorder';
 import { grid } from '../constants';

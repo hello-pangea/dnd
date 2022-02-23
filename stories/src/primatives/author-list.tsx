@@ -1,16 +1,16 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { Droppable, Draggable } from '../../../src';
-import Author from './author-item';
-import { grid } from '../constants';
-import type { Quote } from '../types';
+import { Droppable, Draggable } from '@react-forked/dnd';
 import type {
   DroppableProvided,
   DroppableStateSnapshot,
   DraggableProvided,
   DraggableStateSnapshot,
-} from '../../../src';
+} from '@react-forked/dnd';
+import Author from './author-item';
+import { grid } from '../constants';
+import type { Quote } from '../types';
 
 interface WrapperProps {
   isDraggingOver: boolean;
