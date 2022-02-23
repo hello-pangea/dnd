@@ -1,6 +1,6 @@
 const childProcess = require('child_process');
 const path = require('path');
-const waitPort = require('wait-port');
+const waitOn = require('wait-on');
 const ports = require('./server-ports');
 
 const storybook = childProcess.spawn(process.execPath, [
@@ -26,14 +26,12 @@ process.on('exit', () => {
 });
 
 Promise.all([
-  waitPort({
-    host: 'localhost',
-    port: ports.storybook,
+  waitOn({
+    resources: [`http://localhost:${ports.storybook}/`],
     timeout: 60000,
   }),
-  waitPort({
-    host: 'localhost',
-    port: ports.cspServer,
+  waitOn({
+    resources: [`http://localhost:${ports.cspServer}/`],
     timeout: 60000,
   }),
 ])
