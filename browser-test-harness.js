@@ -6,6 +6,7 @@ const ports = require('./server-ports');
 const storybook = childProcess.spawn(process.execPath, [
   path.join('node_modules', '.bin', 'cross-env-shell'),
   'DISABLE_HMR=true',
+  'USE_PRODUCTION_BUILD=true',
   path.join('node_modules', '.bin', 'start-storybook'),
   '--ci',
   '-p',
@@ -13,6 +14,8 @@ const storybook = childProcess.spawn(process.execPath, [
 ]);
 
 const cspServer = childProcess.spawn(process.execPath, [
+  path.join('node_modules', '.bin', 'cross-env-shell'),
+  'USE_PRODUCTION_BUILD=true',
   path.join('csp-server', 'start.sh'),
   `${ports.cspServer}`,
 ]);

@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = (api) => {
   const isTest = api.env('test');
   const isProduction = api.env('production');
@@ -12,6 +14,17 @@ module.exports = (api) => {
       ],
     ].filter(Boolean),
     plugins: [
+      [
+        'babel-plugin-module-resolver',
+        {
+          alias: {
+            '@react-forked/dnd':
+              process.env.USE_PRODUCTION_BUILD === 'true'
+                ? path.resolve(__dirname, './dist/dnd')
+                : path.resolve(__dirname, './src/index.ts'),
+          },
+        },
+      ],
       '@babel/transform-object-assign',
       ['@babel/proposal-class-properties', { loose: true }],
       ['@babel/plugin-proposal-private-methods', { loose: true }],

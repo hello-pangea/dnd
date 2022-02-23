@@ -120,6 +120,7 @@
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-dev-expression": "^0.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
     "cross-env": "^7.0.2",
     "csstype": "^3.0.10",
     "cypress": "^9.5.0",
