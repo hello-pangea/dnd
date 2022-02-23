@@ -241,6 +241,13 @@ module.exports = {
         'plugin:import/typescript',
         'prettier',
       ],
+      settings: {
+        'import/resolver': {
+          typescript: {
+            project: ['./tsconfig.json', './*/tsconfig.json'],
+          },
+        },
+      },
       plugins: ['@typescript-eslint'],
       parser: '@typescript-eslint/parser',
       files: ['**/*.ts?(x)'],
