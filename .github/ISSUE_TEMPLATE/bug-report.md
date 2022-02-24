@@ -9,7 +9,7 @@ labels: "unconfirmed-bug, untriaged"
 
 We have created a common setup issues guide to help you troubleshoot common setup problems:
 
-https://github.com/react-forked/dnd/blob/master/docs/guides/common-setup-issues.md
+https://github.com/react-forked/dnd/blob/main/docs/guides/common-setup-issues.md
 
 ## Check your console
 

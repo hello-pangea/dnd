@@ -7,7 +7,7 @@
 
 **Beautiful** and **accessible** drag and drop for lists with [`React`](https://facebook.github.io/react/)
 
-[![CircleCI branch](https://img.shields.io/circleci/project/github/react-forked/dnd/master.svg)](https://circleci.com/gh/react-forked/dnd/tree/master)
+[![CircleCI branch](https://img.shields.io/circleci/project/github/react-forked/dnd/main.svg)](https://circleci.com/gh/react-forked/dnd/tree/main)
 [![npm](https://img.shields.io/npm/v/@react-forked/dnd.svg)](https://www.npmjs.com/package/@react-forked/dnd)
 
 ![quote application example](https://user-images.githubusercontent.com/2182637/53614150-efbed780-3c2c-11e9-9204-a5d2e746faca.gif)
