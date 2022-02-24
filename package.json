@@ -103,7 +103,7 @@
     "@types/enzyme": "^3.10.11",
     "@types/express": "^4.17.13",
     "@types/fs-extra": "^9.0.13",
-    "@types/jest": "^27.4.0",
+    "@types/jest": "^27.4.1",
     "@types/jest-axe": "^3.5.3",
     "@types/jsdom": "^16.2.14",
     "@types/markdown-it": "^12.2.3",
