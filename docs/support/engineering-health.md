@@ -1,6 +1,6 @@
 # Engineering health
 
-[![CircleCI branch](https://img.shields.io/circleci/project/github/react-forked/dnd/master.svg)](https://circleci.com/gh/react-forked/dnd/tree/master)
+[![CircleCI branch](https://img.shields.io/circleci/build/github/react-forked/dnd/main.svg)](https://circleci.com/gh/react-forked/dnd/tree/main)
 
 #### TypeScript
 
@@ -24,7 +24,7 @@ While code coverage is [not a guarantee of code health](https://stackoverflow.co
 
 ## Performance
 
-[![CircleCI branch](https://img.shields.io/badge/speed-blazing%20%F0%9F%94%A5-brightgreen.svg?style=flat)](https://circleci.com/gh/react-forked/dnd/tree/master)
+[![CircleCI branch](https://img.shields.io/badge/speed-blazing%20%F0%9F%94%A5-brightgreen.svg?style=flat)](https://circleci.com/gh/react-forked/dnd/tree/main)
 
 This codebase is designed to be **extremely performant** - it is part of its DNA. It is designed to perform the smallest amount of updates possible. You can have a read about performance work done for `@react-forked/dnd` here:
 

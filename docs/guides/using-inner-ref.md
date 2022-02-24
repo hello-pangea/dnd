@@ -217,6 +217,6 @@ Here is an example that shows off the learnings presented in this guide: https:/
 
 ## A note on SVG's
 
-`@react-forked/dnd` does not support the dragging of `<svg>` elements. Wrap your `<svg>` in a `HTMLElement` such as `<span>` or `<div>` for great accessibility and cross browser support. See our [using SVGs guide](https://github.com/react-forked/dnd/tree/master/docs/guides/using-svgs.md) for more information.
+`@react-forked/dnd` does not support the dragging of `<svg>` elements. Wrap your `<svg>` in a `HTMLElement` such as `<span>` or `<div>` for great accessibility and cross browser support. See our [dragging SVGs guide](https://github.com/react-forked/dnd/blob/main/docs/guides/dragging-svgs.md) for more information.
 
 [← Back to documentation](/README.md#documentation-)
