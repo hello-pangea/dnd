@@ -107,7 +107,7 @@
     "@types/jest-axe": "^3.5.3",
     "@types/jsdom": "^16.2.14",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^14.14.37",
+    "@types/node": "^17.0.21",
     "@types/raf-schd": "^4.0.1",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
