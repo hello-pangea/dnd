@@ -201,6 +201,7 @@ module.exports = {
       extends: ['plugin:node/recommended'],
       files: [
         '**/*.eslintrc.js',
+        '.stylelintrc.js',
         'a11y-audit-parse.js',
         'browser-test-harness.js',
         'babel.config.js',
