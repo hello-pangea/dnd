@@ -2314,6 +2314,14 @@
     core-js "^3.8.2"
     global "^4.4.0"
 
+"@storybook/client-logger@6.5.0-alpha.42":
+  version "6.5.0-alpha.42"
+  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-6.5.0-alpha.42.tgz#0b6ade278f48e658d669214586ec7c342c4a8d22"
+  integrity sha512-9SXgI7e+nvDAIl/QgheebRX6UuWgjApf1GUjbIh9AecXwD3Lgs1b8obmxVgVjeVMqevqlmYWKGJIo6biZYaGfg==
+  dependencies:
+    core-js "^3.8.2"
+    global "^4.4.0"
+
 "@storybook/components@6.5.0-alpha.41":
   version "6.5.0-alpha.41"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.5.0-alpha.41.tgz#d2501a3636b645052783810e6273e621c87a3801"
@@ -2752,12 +2760,21 @@
     resolve-from "^5.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/theming@6.5.0-alpha.41", "@storybook/theming@^6.5.0-alpha.39":
+"@storybook/theming@6.5.0-alpha.41":
   version "6.5.0-alpha.41"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.5.0-alpha.41.tgz#d9a85b6dd900b4c8fb83138b11abfcf84c179821"
   integrity sha512-4HMwDBcsNG9TDiIBi0Io8PkibVuZ1jG3hoq3X4+N5n7TA+ja+dgnIQ+eIwHLAaYxqjVCH122NWZgOP96uylGSQ==
   dependencies:
     "@storybook/client-logger" "6.5.0-alpha.41"
+    core-js "^3.8.2"
+    regenerator-runtime "^0.13.7"
+
+"@storybook/theming@^6.5.0-alpha.42":
+  version "6.5.0-alpha.42"
+  resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.5.0-alpha.42.tgz#c5a7ce24667c0a11e240e436f50793fc1dc086fe"
+  integrity sha512-ds/pebKbFlP15CKAz+mirnfuJADxyWry+duk0V/EHl0eZRL1ifEH62espJhzYYNCQdyuylftQmKsZ39ge66Kxg==
+  dependencies:
+    "@storybook/client-logger" "6.5.0-alpha.42"
     core-js "^3.8.2"
     regenerator-runtime "^0.13.7"
 
