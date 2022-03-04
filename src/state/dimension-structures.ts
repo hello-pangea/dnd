@@ -22,7 +22,7 @@ export const toDraggableMap = memoizeOne((draggables: DraggableDimension[]) =>
 
 export const toDroppableList = memoizeOne(
   (droppables: DroppableDimensionMap): DroppableDimension[] =>
-    Object.values(droppables),
+    Object.values(droppables).reverse(),
 );
 
 export const toDraggableList = memoizeOne(
