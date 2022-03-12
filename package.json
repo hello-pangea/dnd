@@ -37,6 +37,7 @@
     "prettier_target": "*.{js,jsx,ts,tsx,md,json} src/**/*.{js,jsx,ts,tsx,md,json} test/**/*.{js,jsx,ts,tsx,md,json} docs/**/*.{js,jsx,ts,tsx,md,json} stories/**/*.{js,jsx,ts,tsx,md,json} cypress/**/*.{js,jsx,ts,tsx,md,json} csp-server/**/*.{js,jsx,ts,tsx,md,json}"
   },
   "scripts": {
+    "prepare": "husky install",
     "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=single-vertical-list--basic --no-enable-error-reporting --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
     "test": "yarn test:react-17 && yarn test:react-16",
     "test:react-16": "REACT_VERSION=16 jest --config ./jest.config.js",
@@ -144,6 +145,7 @@
     "eslint-plugin-storybook": "0.5.7",
     "fast-glob": "3.2.11",
     "fs-extra": "10.0.1",
+    "husky": "7.0.4",
     "jest": "27.5.1",
     "jest-axe": "5.0.1",
     "jest-junit": "13.0.0",
