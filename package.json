@@ -38,6 +38,7 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "release": "cross-env SKIP_PREPARE_COMMIT_MSG=true release-it",
     "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=single-vertical-list--basic --no-enable-error-reporting --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
     "test": "yarn test:react-17 && yarn test:react-16",
     "test:react-16": "REACT_VERSION=16 jest --config ./jest.config.js",
@@ -91,6 +92,7 @@
     "@emotion/eslint-plugin": "11.7.0",
     "@emotion/react": "11.8.1",
     "@emotion/styled": "11.8.1",
+    "@release-it/conventional-changelog": "4.2.2",
     "@rollup/plugin-babel": "5.3.1",
     "@rollup/plugin-commonjs": "21.0.2",
     "@rollup/plugin-json": "4.1.0",
@@ -166,6 +168,7 @@
     "react-test-renderer": "17.0.2",
     "react-virtualized": "9.22.3",
     "react-window": "1.8.6",
+    "release-it": "14.12.5",
     "require-from-string": "2.0.2",
     "rimraf": "3.0.2",
     "rollup": "2.68.0",

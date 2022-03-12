@@ -1,4 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+if [ "$SKIP_PREPARE_COMMIT_MSG" = "true" ]; then
+  echo "SKIP_PREPARE_COMMIT_MSG env variable is set to 'true', skipping prepare-commit-msg"
+  exit 0
+fi
+
 exec < /dev/tty && yarn cz --hook || true
