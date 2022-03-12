@@ -74,7 +74,7 @@
     "use-memo-one": "^1.1.2"
   },
   "devDependencies": {
-    "@atlaskit/css-reset": "6.3.7",
+    "@atlaskit/css-reset": "6.3.8",
     "@atlaskit/theme": "12.1.4",
     "@babel/core": "7.17.5",
     "@babel/eslint-parser": "7.17.0",

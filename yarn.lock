@@ -16,13 +16,13 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/css-reset@6.3.7":
-  version "6.3.7"
-  resolved "https://registry.yarnpkg.com/@atlaskit/css-reset/-/css-reset-6.3.7.tgz#4110ddbfd395b3dc9242aa8e871b337b07e05bba"
-  integrity sha512-CGTQou72H7muIU55F3Bq/o1x+MXbO58XDl+aBE9WXLjMnlcyuxb7G/BEwVQiFijMvOLw+0O9EsBMEoUHIefVfg==
+"@atlaskit/css-reset@6.3.8":
+  version "6.3.8"
+  resolved "https://registry.yarnpkg.com/@atlaskit/css-reset/-/css-reset-6.3.8.tgz#20d71f361834e6ebf972e12bdb502430feb5b30c"
+  integrity sha512-e1IwRsDMiD/OW2SbELwQUR9FyJfMYDJtbO9ihyG2iTHGkMRiLMD+2wMDnMViRH7Gx6Xv7v276EXKr+7J3Oeqpg==
   dependencies:
     "@atlaskit/theme" "^12.1.0"
-    "@atlaskit/tokens" "^0.6.0"
+    "@atlaskit/tokens" "^0.7.0"
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.0"
 
