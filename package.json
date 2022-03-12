@@ -130,7 +130,7 @@
     "commitizen": "4.2.4",
     "cross-env": "7.0.3",
     "csstype": "3.0.11",
-    "cypress": "9.5.0",
+    "cypress": "9.5.1",
     "dotenv": "16.0.0",
     "emotion-theming": "11.0.0",
     "enzyme": "3.11.0",
