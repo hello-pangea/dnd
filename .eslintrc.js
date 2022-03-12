@@ -205,6 +205,7 @@ module.exports = {
         'a11y-audit-parse.js',
         'browser-test-harness.js',
         'babel.config.js',
+        'commitlint.config.js',
         'jest.config.js',
         'lighthouse.config.js',
         'rollup.config.js',
