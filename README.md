@@ -9,6 +9,8 @@
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/react-forked/dnd/main.svg)](https://circleci.com/gh/react-forked/dnd/tree/main)
 [![npm](https://img.shields.io/npm/v/@react-forked/dnd.svg)](https://www.npmjs.com/package/@react-forked/dnd)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-blue.svg)](https://conventionalcommits.org)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-blue.svg)](http://commitizen.github.io/cz-cli/)
 
 ![quote application example](https://user-images.githubusercontent.com/2182637/53614150-efbed780-3c2c-11e9-9204-a5d2e746faca.gif)
 
