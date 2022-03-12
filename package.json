@@ -157,7 +157,7 @@
     "jest-junit": "13.0.0",
     "jest-watch-typeahead": "1.0.0",
     "jsdom": "19.0.0",
-    "lighthouse": "9.4.0",
+    "lighthouse": "9.5.0",
     "markdown-it": "12.3.2",
     "prettier": "2.5.1",
     "raf-stub": "3.0.0",
