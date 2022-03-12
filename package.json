@@ -90,7 +90,7 @@
     "@commitlint/cz-commitlint": "16.2.1",
     "@emotion/babel-preset-css-prop": "11.2.0",
     "@emotion/eslint-plugin": "11.7.0",
-    "@emotion/react": "11.8.1",
+    "@emotion/react": "11.8.2",
     "@emotion/styled": "11.8.1",
     "@release-it/conventional-changelog": "4.2.2",
     "@rollup/plugin-babel": "5.3.1",
