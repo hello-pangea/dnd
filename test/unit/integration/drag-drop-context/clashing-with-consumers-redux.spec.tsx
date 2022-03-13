@@ -8,8 +8,6 @@ import type { DraggableProvided, DroppableProvided } from '../../../../src';
 
 interface AppState {
   foo: string;
-  // Needed to appease react-redux connect type
-  dispatch?: () => void;
 }
 
 const original: AppState = {
