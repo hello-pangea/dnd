@@ -159,7 +159,7 @@
     "jsdom": "19.0.0",
     "lighthouse": "9.5.0",
     "markdown-it": "12.3.2",
-    "prettier": "2.5.1",
+    "prettier": "2.6.0",
     "raf-stub": "3.0.0",
     "react": "17.0.2",
     "react-16": "npm:react@16.14.0",
