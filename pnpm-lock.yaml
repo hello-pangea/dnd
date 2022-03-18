@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@atlaskit/css-reset': 6.3.8
+  '@atlaskit/css-reset': 6.3.9
   '@atlaskit/theme': 12.1.5
   '@babel/core': 7.17.5
   '@babel/eslint-parser': 7.17.0
@@ -138,7 +138,7 @@ dependencies:
   use-memo-one: 1.1.2_react@17.0.2
 
 devDependencies:
-  '@atlaskit/css-reset': 6.3.8_react@17.0.2
+  '@atlaskit/css-reset': 6.3.9_react@17.0.2
   '@atlaskit/theme': 12.1.5_react@17.0.2
   '@babel/core': 7.17.5
   '@babel/eslint-parser': 7.17.0_@babel+core@7.17.5+eslint@8.11.0
@@ -273,13 +273,13 @@ packages:
       '@babel/runtime': 7.17.2
     dev: true
 
-  /@atlaskit/css-reset/6.3.8_react@17.0.2:
-    resolution: {integrity: sha512-e1IwRsDMiD/OW2SbELwQUR9FyJfMYDJtbO9ihyG2iTHGkMRiLMD+2wMDnMViRH7Gx6Xv7v276EXKr+7J3Oeqpg==}
+  /@atlaskit/css-reset/6.3.9_react@17.0.2:
+    resolution: {integrity: sha512-JnFF3+jC69T6zhdDy60auXnZSMwY+U6xDSY2OSN8+v1jDy2UZLsGss1KsKSyjip4e3AalbsL1ZYGjaEm6xKldQ==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
       '@atlaskit/theme': 12.1.5_react@17.0.2
-      '@atlaskit/tokens': 0.7.1_react@17.0.2
+      '@atlaskit/tokens': 0.8.0_react@17.0.2
       '@babel/runtime': 7.17.2
       fbjs: 3.0.4
       react: 17.0.2
@@ -308,18 +308,6 @@ packages:
       '@babel/runtime': 7.17.2
       react: 17.0.2
     transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@atlaskit/tokens/0.7.1_react@17.0.2:
-    resolution: {integrity: sha512-QJEH/bR1+1OssE3gZu7QeQ9XpJEWorLY9Fi0+AiCWozPLoGIAe2vsHN74BL36gAShNZipHhyh/Uz54p/Nt502w==}
-    dependencies:
-      '@atlaskit/ds-lib': 1.4.0_react@17.0.2
-      '@babel/runtime': 7.17.2
-      '@babel/traverse': 7.17.3
-      '@babel/types': 7.17.0
-    transitivePeerDependencies:
-      - react
       - supports-color
     dev: true
 
