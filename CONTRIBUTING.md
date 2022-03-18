@@ -36,7 +36,7 @@ The online courses listed are no free - feel free to seek out alternatives if yo
 We have very precise rules over how our git commit messages can be formatted. This leads to **more readable messages** that are easy to follow when looking through the **project history**. But also, we use the git commit messages to **generate the change log**. This project adheres to [Semantic Versioning 2.0](http://semver.org/).
 
 The commit message formatting can be added using a typical git workflow or through the use of a CLI
-wizard ([Commitizen](https://github.com/commitizen/cz-cli)). To use the wizard, run `yarn cz` or `git commit` in your terminal after staging your changes in git.
+wizard ([Commitizen](https://github.com/commitizen/cz-cli)). To use the wizard, run `pnpm cz` or `git commit` in your terminal after staging your changes in git.
 
 The format of each commit must follow the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/).
 

@@ -6,4 +6,4 @@ if [ "$SKIP_PREPARE_COMMIT_MSG" = "true" ]; then
   exit 0
 fi
 
-exec < /dev/tty && yarn cz --hook || true
+exec < /dev/tty && pnpm cz --hook || true
