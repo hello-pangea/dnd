@@ -7,11 +7,14 @@
 1. Add the `@react-forked/dnd` package
 
 ```bash
-# yarn
-yarn add @react-forked/dnd
-
 # npm
 npm install @react-forked/dnd --save
+
+# pnpm
+pnpm add @react-forked/dnd
+
+# yarn
+yarn add @react-forked/dnd
 ```
 
 2. Use the package

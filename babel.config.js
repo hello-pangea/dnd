@@ -20,17 +20,17 @@ module.exports = (api) => {
           alias: {
             '@react-forked/dnd':
               process.env.USE_PRODUCTION_BUILD === 'true'
-                ? path.resolve(__dirname, './dist/dnd')
+                ? path.resolve(__dirname, './dist/dnd.esm')
                 : path.resolve(__dirname, './src/index.ts'),
           },
         },
       ],
-      '@babel/transform-object-assign',
-      ['@babel/proposal-class-properties', { loose: true }],
+      '@babel/plugin-transform-object-assign',
+      ['@babel/plugin-proposal-class-properties', { loose: true }],
       ['@babel/plugin-proposal-private-methods', { loose: true }],
       ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
       // used for stripping out the `invariant` messages in production builds
-      isProduction ? 'dev-expression' : false,
+      isProduction ? 'babel-plugin-dev-expression' : false,
     ].filter(Boolean),
     comments: false,
   };

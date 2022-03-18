@@ -4,7 +4,7 @@ const waitOn = require('wait-on');
 const ports = require('./server-ports');
 
 const storybook = childProcess.spawn(process.execPath, [
-  path.join('node_modules', '.bin', 'cross-env-shell'),
+  path.join('node_modules', 'cross-env', 'src', 'bin', 'cross-env-shell.js'),
   'DISABLE_HMR=true',
   'USE_PRODUCTION_BUILD=true',
   path.join('node_modules', '.bin', 'start-storybook'),
@@ -14,7 +14,7 @@ const storybook = childProcess.spawn(process.execPath, [
 ]);
 
 const cspServer = childProcess.spawn(process.execPath, [
-  path.join('node_modules', '.bin', 'cross-env-shell'),
+  path.join('node_modules', 'cross-env', 'src', 'bin', 'cross-env-shell.js'),
   'USE_PRODUCTION_BUILD=true',
   path.join('csp-server', 'start.sh'),
   `${ports.cspServer}`,
@@ -25,16 +25,13 @@ process.on('exit', () => {
   cspServer.kill();
 });
 
-Promise.all([
-  waitOn({
-    resources: [`http://localhost:${ports.storybook}/`],
-    timeout: 60000,
-  }),
-  waitOn({
-    resources: [`http://localhost:${ports.cspServer}/`],
-    timeout: 60000,
-  }),
-])
+waitOn({
+  resources: [
+    `http://localhost:${ports.storybook}`,
+    `http://localhost:${ports.cspServer}`,
+  ],
+  timeout: 60000,
+})
   .then(() => {
     if (!process.argv[2]) {
       // eslint-disable-next-line no-restricted-syntax

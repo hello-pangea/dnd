@@ -13,12 +13,12 @@ const readFile = promisify(fs.readFile);
 jest.setTimeout(120 * 1000);
 
 async function clean() {
-  await exec('yarn build:clean');
+  await exec('pnpm build:clean');
 }
 
 beforeAll(async () => {
   await clean();
-  await exec('yarn build:dist');
+  await exec('pnpm build:dist');
 });
 
 afterAll(clean);

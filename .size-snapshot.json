@@ -1,13 +1,13 @@
 {
   "dnd.js": {
-    "bundled": 375170,
-    "minified": 135792,
-    "gzipped": 40506
+    "bundled": 375284,
+    "minified": 135837,
+    "gzipped": 40524
   },
   "dnd.min.js": {
-    "bundled": 306745,
-    "minified": 108423,
-    "gzipped": 31332
+    "bundled": 306859,
+    "minified": 108429,
+    "gzipped": 31342
   },
   "dnd.esm.js": {
     "bundled": 242252,

@@ -1,91 +1,84 @@
-version: 2
+version: 2.1
+
+orbs:
+  browser-tools: circleci/browser-tools@1.2.4
+
+commands:
+  # TODO: Find a better to setup pnpm. We could use
+  #       an image which have pnpm alreay setup on it.
+  #       See: https://github.com/CircleCI-Public/cimg-node/issues/216
+  pnpm:
+    steps:
+      - run:
+          name: Install pnpm
+          command: curl -f https://get.pnpm.io/v6.js | sudo node - add --global pnpm
+
+      - run:
+          name: Setup pnpm store path
+          command: pnpm config set store-dir ~/repo/.pnpm-store
+
 jobs:
   install:
     docker:
-      - image: circleci/node:14.18.2-browsers
+      - image: cimg/node:16.14.0-browsers
     working_directory: ~/repo
     environment:
       - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
     steps:
       # Fetch Code
       - checkout
+      - pnpm
 
       - restore_cache:
           keys:
             # Restore cached node_modules
-            - v15-dependencies-{{ checksum "yarn.lock" }}
+            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
             # fallback to using the latest cache if no exact match is found
-            - v15-dependencies-
-
-      - run:
-          name: Add CI global modules
-          command: yarn global add greenkeeper-lockfile@1
+            - v16-dependencies-
 
       - run:
           name: Install Dependencies
-          command: yarn
-
-      - run:
-          name: Update Lockfile
-          command: $(yarn global bin)/greenkeeper-lockfile-update
-
-      - run:
-          name: Upload Lockfile
-          command: $(yarn global bin)/greenkeeper-lockfile-upload
-
-      - run:
-          name: Validate Yarn Lock File
-          command: |
-            if [[ "$(git status -s)" != "" ]] && [[ "$CIRCLE_BRANCH" != greenkeeper/* ]]; then
-              echo "Your yarn.lock was modified during install, please check in any changes to the yarn.lock file"
-              exit 1
-            fi
+          command: pnpm install --frozen-lockfile
 
       # Save the node_modules cache
       - save_cache:
           paths:
+            - .pnpm-store
             - node_modules
-          key: v15-dependencies-{{ checksum "yarn.lock" }}
+          key: v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
   validate:
     docker:
-      - image: circleci/node:14.18.2-browsers
+      - image: cimg/node:16.14.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
+      - pnpm
 
       - restore_cache:
           keys:
-            - v15-dependencies-{{ checksum "yarn.lock" }}
-
-      - run:
-          # PR's from forks cannot use the dependency cache for performance reasons
-          name: 'Forked PR dependency install'
-          command: yarn
+            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Lint + Typecheck
-          command: yarn validate
+          command: pnpm validate
 
   test-unit:
     docker:
-      - image: circleci/node:14.18.2-browsers
+      - image: cimg/node:16.14.0-browsers
     working_directory: ~/repo
+    resource_class: medium+
     steps:
       - checkout
+      - pnpm
 
       - restore_cache:
           keys:
-            - v15-dependencies-{{ checksum "yarn.lock" }}
-
-      - run:
-          # PR's from forks cannot use the dependency cache for performance reasons
-          name: 'Forked PR dependency install'
-          command: yarn
+            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Jest Suite
-          command: yarn test
+          command: pnpm test
           environment:
             JEST_JUNIT_OUTPUT: 'test-reports/junit/js-test-results.xml'
 
@@ -94,38 +87,35 @@ jobs:
 
   test-bundle:
     docker:
-      - image: circleci/node:14.18.2-browsers
+      - image: cimg/node:16.14.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
+      - pnpm
 
       - restore_cache:
           keys:
-            - v15-dependencies-{{ checksum "yarn.lock" }}
-
-      # PR's from forks cannot use the dependency cache for performance reasons
-      - run:
-          name: 'Forked PR dependency install'
-          command: yarn
+            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Check Bundle Size
-          command: yarn run bundle-size:check
+          command: pnpm run bundle-size:check
 
   build:
     docker:
-      - image: circleci/node:14.18.2-browsers
+      - image: cimg/node:16.14.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
+      - pnpm
 
       - restore_cache:
           keys:
-            - v15-dependencies-{{ checksum "yarn.lock" }}
+            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Build asset
-          command: yarn build
+          command: pnpm build
 
       - persist_to_workspace:
           root: dist
@@ -134,28 +124,26 @@ jobs:
 
   test-browser:
     docker:
-      - image: circleci/node:14.18.2-browsers
+      - image: cimg/node:16.14.0-browsers
     working_directory: ~/repo
     environment:
       - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - checkout
+      - pnpm
 
       - attach_workspace:
           at: ~/repo/dist
 
       - restore_cache:
           keys:
-            - v15-dependencies-{{ checksum "yarn.lock" }}
-
-      # PR's from forks cannot use the dependency cache for performance reasons
-      - run:
-          name: 'Forked PR dependency install'
-          command: yarn
+            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: 'Run cypress'
-          command: node browser-test-harness.js yarn test:browser:ci
+          command: node browser-test-harness.js pnpm test:browser:ci
 
       # store videos and screenshots (if any) as CI artifacts
       - store_artifacts:
@@ -165,26 +153,24 @@ jobs:
 
   test-a11y:
     docker:
-      - image: circleci/node:14.18.2-browsers
+      - image: cimg/node:16.14.0-browsers
     working_directory: ~/repo
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - checkout
+      - pnpm
 
       - attach_workspace:
           at: ~/repo/dist
 
       - restore_cache:
           keys:
-            - v15-dependencies-{{ checksum "yarn.lock" }}
-
-      # PR's from forks cannot use the dependency cache for performance reasons
-      - run:
-          name: 'Forked PR dependency install'
-          command: yarn
+            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Accessibility Audit
-          command: node browser-test-harness.js yarn test:accessibility
+          command: node browser-test-harness.js pnpm test:accessibility
 
       - store_artifacts:
           path: test-reports/lighthouse
