@@ -60,7 +60,7 @@ specifiers:
   babel-plugin-module-resolver: 4.1.0
   commitizen: 4.2.4
   cross-env: 7.0.3
-  css-box-model: ^1.2.0
+  css-box-model: ^1.2.1
   csstype: 3.0.11
   cypress: 9.5.2
   dotenv: 16.0.0
