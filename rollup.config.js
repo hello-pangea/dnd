@@ -55,7 +55,10 @@ export default [
       babel(getBabelOptions({ useESModules: true })),
       resolve({ extensions }),
       commonjs(commonjsArgs),
-      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+      replace({
+        preventAssignment: true,
+        'process.env.NODE_ENV': JSON.stringify('development'),
+      }),
       sizeSnapshot(snapshotArgs),
     ],
   },
@@ -77,7 +80,10 @@ export default [
       resolve({ extensions }),
       commonjs(commonjsArgs),
       strip(),
-      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+      replace({
+        preventAssignment: true,
+        'process.env.NODE_ENV': JSON.stringify('production'),
+      }),
       sizeSnapshot(snapshotArgs),
       terser(),
       // Useful for debugging: you can see what code is dropped
