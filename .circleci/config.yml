@@ -67,6 +67,7 @@ jobs:
     docker:
       - image: cimg/node:16.14.0-browsers
     working_directory: ~/repo
+    resource_class: medium+
     steps:
       - checkout
       - pnpm
