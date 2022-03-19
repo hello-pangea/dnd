@@ -37,6 +37,7 @@
     "prettier_target": "*.{js,jsx,ts,tsx,md,json} src/**/*.{js,jsx,ts,tsx,md,json} test/**/*.{js,jsx,ts,tsx,md,json} docs/**/*.{js,jsx,ts,tsx,md,json} stories/**/*.{js,jsx,ts,tsx,md,json} cypress/**/*.{js,jsx,ts,tsx,md,json} csp-server/**/*.{js,jsx,ts,tsx,md,json}"
   },
   "scripts": {
+    "chromatic": "chromatic --project-token=f92123f238de",
     "prepare": "husky install",
     "release": "cross-env SKIP_PREPARE_COMMIT_MSG=true release-it",
     "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=single-vertical-list--basic --no-enable-error-reporting --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
