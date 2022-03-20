@@ -118,15 +118,15 @@ export const quotes: Quote[] = [
 ];
 
 // So we do not have any clashes with our hardcoded ones
-let idCount: number = quotes.length + 1;
-
+let idCount: number;
 let predictableMathRandom: seedrandom.PRNG;
 
-export const resetRandomSeed = (seed: string) => {
+export const resetData = (seed: string) => {
+  idCount = 1;
   predictableMathRandom = seedrandom(seed);
 };
 
-resetRandomSeed('base');
+resetData('base');
 
 export const getQuotes = (count: number = quotes.length): Quote[] =>
   // eslint-disable-next-line no-restricted-syntax
