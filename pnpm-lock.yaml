@@ -107,7 +107,7 @@ specifiers:
   react-virtualized: 9.22.3
   react-window: 1.8.6
   redux: ^4.1.2
-  release-it: 14.12.5
+  release-it: 14.13.0
   require-from-string: 2.0.2
   rimraf: 3.0.2
   rollup: 2.70.1
@@ -159,7 +159,7 @@ devDependencies:
   '@emotion/react': 11.8.2_707fe24a3ddaa8115c00d0a9966a19ae
   '@emotion/styled': 11.8.1_fd44c83c6284aa4d6bde750ada762da8
   '@jest/environment': 27.5.1
-  '@release-it/conventional-changelog': 4.2.2_release-it@14.12.5
+  '@release-it/conventional-changelog': 4.2.2_release-it@14.13.0
   '@rollup/plugin-babel': 5.3.1_@babel+core@7.17.8+rollup@2.70.1
   '@rollup/plugin-commonjs': 21.0.2_rollup@2.70.1
   '@rollup/plugin-json': 4.1.0_rollup@2.70.1
@@ -238,7 +238,7 @@ devDependencies:
   react-test-renderer: 17.0.2_react@17.0.2
   react-virtualized: 9.22.3_react-dom@17.0.2+react@17.0.2
   react-window: 1.8.6_react-dom@17.0.2+react@17.0.2
-  release-it: 14.12.5
+  release-it: 14.13.0
   require-from-string: 2.0.2
   rimraf: 3.0.2
   rollup: 2.70.1
@@ -2832,7 +2832,7 @@ packages:
     resolution: {integrity: sha512-8U7hIl7+30XbIrJ0deQMXpXESM1L4yrt6BHok5hzcR0LivivuNkk+tHU1iRVScOwCmQcrOr6kvtIr29MNbQHqQ==}
     dev: true
 
-  /@release-it/conventional-changelog/4.2.2_release-it@14.12.5:
+  /@release-it/conventional-changelog/4.2.2_release-it@14.13.0:
     resolution: {integrity: sha512-cbpfMSKTt8VtyltNls6Kt0WXIRmgILNpF1nqGE2oe3acs286Brrb5WFGyPhYR8XUy0nVsnjG1zmUPP6n0Xd6XA==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -2842,7 +2842,7 @@ packages:
       conventional-changelog: 3.1.25
       conventional-recommended-bump: 6.1.0
       prepend-file: 2.0.1
-      release-it: 14.12.5
+      release-it: 14.13.0
     dev: true
 
   /@rollup/plugin-babel/5.3.1_@babel+core@7.17.8+rollup@2.70.1:
@@ -14401,8 +14401,8 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /release-it/14.12.5:
-    resolution: {integrity: sha512-mGFbbX8eEKMOhfjq5mZAgGppT8CME1T+vj6xA5tAPYSCuPpcNEDjqiG1tJfPy/XImZI4uS3U6pNP5KyDpy9etg==}
+  /release-it/14.13.0:
+    resolution: {integrity: sha512-tiVocA1QcAC0fgMBSIq8IBfRVmGCvLTkG5Mxdl2WmH91tLuzFmSsDUgpTJGhIBo+ly+oe+vsr7EZ+rkCDNuZoQ==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -14432,6 +14432,7 @@ packages:
       update-notifier: 5.1.0
       url-join: 4.0.1
       uuid: 8.3.2
+      wildcard-match: 5.1.2
       yaml: 1.10.2
       yargs-parser: 20.2.9
     transitivePeerDependencies:
@@ -16988,6 +16989,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       string-width: 4.2.3
+    dev: true
+
+  /wildcard-match/5.1.2:
+    resolution: {integrity: sha512-qNXwI591Z88c8bWxp+yjV60Ch4F8Riawe3iGxbzquhy8Xs9m+0+SLFBGb/0yCTIDElawtaImC37fYZ+dr32KqQ==}
     dev: true
 
   /windows-release/4.0.0:
