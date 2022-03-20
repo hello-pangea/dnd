@@ -143,7 +143,7 @@ jobs:
 
       - run:
           name: 'Run cypress'
-          command: node browser-test-harness.js pnpm test:browser:ci
+          command: node browser-test-harness.js browser
 
       # store videos and screenshots (if any) as CI artifacts
       - store_artifacts:
@@ -170,7 +170,7 @@ jobs:
 
       - run:
           name: Accessibility Audit
-          command: node browser-test-harness.js pnpm test:accessibility
+          command: node browser-test-harness.js accessibility
 
       - store_artifacts:
           path: test-reports/lighthouse
