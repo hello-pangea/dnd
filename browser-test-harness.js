@@ -25,6 +25,11 @@ process.on('exit', () => {
   cspServer.kill();
 });
 
+const cmdArgsMap = {
+  accessibility: ['test:accessibility'],
+  browser: ['test:browser:ci'],
+};
+
 waitOn({
   resources: [
     `http://localhost:${ports.storybook}`,
@@ -38,7 +43,14 @@ waitOn({
       throw new Error('Started servers but no command supplied to run after');
     }
 
-    const child = childProcess.spawn(process.argv[2], process.argv.slice(3), {
+    const args = cmdArgsMap[process.argv[2]];
+
+    if (!args) {
+      // eslint-disable-next-line no-restricted-syntax
+      throw new Error('Unknown argument provided');
+    }
+
+    const child = childProcess.spawn('pnpm', args, {
       stdio: 'inherit',
     });
 
