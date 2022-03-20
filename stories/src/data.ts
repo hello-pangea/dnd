@@ -1,4 +1,5 @@
 import { colors } from '@atlaskit/theme';
+import seedrandom from 'seedrandom';
 import type { Author, Quote, QuoteMap } from './types';
 import finnImg from '../static/media/finn-min.png';
 import bmoImg from '../static/media/bmo-min.png';
@@ -119,27 +120,23 @@ export const quotes: Quote[] = [
 // So we do not have any clashes with our hardcoded ones
 let idCount: number = quotes.length + 1;
 
-export const getQuotes = (count: number): Quote[] =>
+let predictableMathRandom: seedrandom.PRNG;
+
+export const resetRandomSeed = (seed: string) => {
+  predictableMathRandom = seedrandom(seed);
+};
+
+resetRandomSeed('base');
+
+export const getQuotes = (count: number = quotes.length): Quote[] =>
   // eslint-disable-next-line no-restricted-syntax
   Array.from({ length: count }, (v, k) => k).map(() => {
-    const random: Quote = quotes[Math.floor(Math.random() * quotes.length)];
+    const random: Quote =
+      quotes[Math.floor(predictableMathRandom() * quotes.length)];
 
     const custom: Quote = {
       ...random,
       id: `G${idCount++}`,
-    };
-
-    return custom;
-  });
-
-export const getAuthors = (count: number): Author[] =>
-  // eslint-disable-next-line no-restricted-syntax
-  Array.from({ length: count }, (v, k) => k).map(() => {
-    const random: Author = authors[Math.floor(Math.random() * authors.length)];
-
-    const custom: Author = {
-      ...random,
-      id: `author-${idCount++}`,
     };
 
     return custom;

@@ -51,6 +51,7 @@ specifiers:
   '@types/react-redux': 7.1.23
   '@types/react-virtualized': 9.21.20
   '@types/react-window': 1.8.5
+  '@types/seedrandom': 3.0.2
   '@typescript-eslint/eslint-plugin': 5.15.0
   '@typescript-eslint/parser': 5.15.0
   '@wojtekmaj/enzyme-adapter-react-17': 0.6.6
@@ -114,6 +115,7 @@ specifiers:
   rollup-plugin-dts: 4.2.0
   rollup-plugin-size-snapshot: 0.12.0
   rollup-plugin-terser: 7.0.2
+  seedrandom: 3.0.5
   storybook-addon-performance: 0.16.1
   styled-components: 5.3.3
   stylelint: 14.6.0
@@ -187,6 +189,7 @@ devDependencies:
   '@types/react-redux': 7.1.23
   '@types/react-virtualized': 9.21.20
   '@types/react-window': 1.8.5
+  '@types/seedrandom': 3.0.2
   '@typescript-eslint/eslint-plugin': 5.15.0_f2c49ce7d0e93ebcfdb4b7d25b131b28
   '@typescript-eslint/parser': 5.15.0_eslint@8.11.0+typescript@4.6.2
   '@wojtekmaj/enzyme-adapter-react-17': 0.6.6_fae758709a8810ba97b4c03852dde4d0
@@ -245,6 +248,7 @@ devDependencies:
   rollup-plugin-dts: 4.2.0_rollup@2.70.1+typescript@4.6.2
   rollup-plugin-size-snapshot: 0.12.0_rollup@2.70.1
   rollup-plugin-terser: 7.0.2_rollup@2.70.1
+  seedrandom: 3.0.5
   storybook-addon-performance: 0.16.1_f456dfc349ace84b0ea11d9e6e4ef3ab
   styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
   stylelint: 14.6.0
@@ -4513,6 +4517,10 @@ packages:
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+
+  /@types/seedrandom/3.0.2:
+    resolution: {integrity: sha512-YPLqEOo0/X8JU3rdiq+RgUKtQhQtrppE766y7vMTu8dGML7TVtZNiiiaC/hhU9Zqw9UYopXxhuWWENclMVBwKQ==}
+    dev: true
 
   /@types/serve-static/1.13.10:
     resolution: {integrity: sha512-nCkHGI4w7ZgAdNkrEu0bv+4xNV/XDqW+DydknebMOQwkpDGx8G+HTlj7R7ABI8i8nKxVw0wtKPi1D+lPOkh4YQ==}
@@ -14847,6 +14855,10 @@ packages:
       '@types/json-schema': 7.0.9
       ajv: 6.12.6
       ajv-keywords: 3.5.2_ajv@6.12.6
+    dev: true
+
+  /seedrandom/3.0.5:
+    resolution: {integrity: sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==}
     dev: true
 
   /semver-diff/3.1.1:

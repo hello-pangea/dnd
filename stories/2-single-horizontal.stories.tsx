@@ -2,25 +2,24 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
 import AuthorApp from './src/horizontal/author-app';
-import { quotes, getQuotes } from './src/data';
-import type { Quote } from './src/types';
+import { getQuotes } from './src/data';
 
-const bigData: Quote[] = getQuotes(30);
+const generateBigData = () => getQuotes(30);
 
 const WideWindow = styled.div`
   width: 120vw;
 `;
 
 storiesOf('single horizontal list', module)
-  .add('simple', () => <AuthorApp initial={quotes} />)
+  .add('simple', () => <AuthorApp initial={getQuotes()} />)
   .add('with combine enabled', () => (
-    <AuthorApp initial={quotes} isCombineEnabled />
+    <AuthorApp initial={getQuotes()} isCombineEnabled />
   ))
   .add('with overflow scroll', () => (
-    <AuthorApp initial={bigData} internalScroll />
+    <AuthorApp initial={generateBigData()} internalScroll />
   ))
   .add('with window scroll and overflow scroll', () => (
     <WideWindow>
-      <AuthorApp initial={bigData} internalScroll />
+      <AuthorApp initial={generateBigData()} internalScroll />
     </WideWindow>
   ));
