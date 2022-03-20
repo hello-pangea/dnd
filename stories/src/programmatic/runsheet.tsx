@@ -23,7 +23,7 @@ function delay(fn: () => void, time = 300) {
 function useDemoSensor(api: SensorAPI) {
   const start = useCallback(
     async function start() {
-      const preDrag: PreDragActions | undefined | null = api.tryGetLock('1');
+      const preDrag: PreDragActions | undefined | null = api.tryGetLock('G1');
 
       if (!preDrag) {
         console.warn('unable to start drag');
