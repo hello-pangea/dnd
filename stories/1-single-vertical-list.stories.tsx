@@ -28,7 +28,13 @@ const Title = styled.h4`
 
 storiesOf('single vertical list', module)
   .add('basic', () => <QuoteApp initial={data.small} />)
-  .add('large data set', () => <QuoteApp initial={data.large} />)
+  .add('large data set', () => <QuoteApp initial={data.large} />, {
+    chromatic: {
+      // This is to make sure we do not reach
+      // the 25,000,000px limit of the snapshot.
+      viewports: [320],
+    },
+  })
   .add('Droppable is a scroll container', () => (
     <QuoteApp
       initial={data.medium}

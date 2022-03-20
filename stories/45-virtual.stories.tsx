@@ -14,6 +14,14 @@ storiesOf('Virtual: react-window', module)
 storiesOf('Virtual: react-virtualized', module)
   .add('list', () => <ReactVirtualizedList initial={getQuotes(1000)} />)
   .add('board', () => <ReactVirtualizedBoard />)
-  .add('window list', () => (
-    <ReactVirtualizedWindowList initial={getQuotes(1000)} />
-  ));
+  .add(
+    'window list',
+    () => <ReactVirtualizedWindowList initial={getQuotes(700)} />,
+    {
+      chromatic: {
+        // This is to make sure we do not reach
+        // the 25,000,000px limit of the snapshot.
+        viewports: [320],
+      },
+    },
+  );
