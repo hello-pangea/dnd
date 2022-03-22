@@ -129,7 +129,7 @@
     "@typescript-eslint/parser": "5.15.0",
     "@wojtekmaj/enzyme-adapter-react-17": "0.6.6",
     "babel-jest": "27.5.1",
-    "babel-loader": "8.2.3",
+    "babel-loader": "8.2.4",
     "babel-plugin-dev-expression": "0.2.3",
     "babel-plugin-module-resolver": "4.1.0",
     "commitizen": "4.2.4",
