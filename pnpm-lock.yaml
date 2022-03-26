@@ -54,7 +54,7 @@ specifiers:
   '@types/seedrandom': 3.0.2
   '@typescript-eslint/eslint-plugin': 5.15.0
   '@typescript-eslint/parser': 5.15.0
-  '@wojtekmaj/enzyme-adapter-react-17': 0.6.6
+  '@wojtekmaj/enzyme-adapter-react-17': 0.6.7
   babel-jest: 27.5.1
   babel-loader: 8.2.3
   babel-plugin-dev-expression: 0.2.3
@@ -192,7 +192,7 @@ devDependencies:
   '@types/seedrandom': 3.0.2
   '@typescript-eslint/eslint-plugin': 5.15.0_f2c49ce7d0e93ebcfdb4b7d25b131b28
   '@typescript-eslint/parser': 5.15.0_eslint@8.11.0+typescript@4.6.2
-  '@wojtekmaj/enzyme-adapter-react-17': 0.6.6_fae758709a8810ba97b4c03852dde4d0
+  '@wojtekmaj/enzyme-adapter-react-17': 0.6.7_fae758709a8810ba97b4c03852dde4d0
   babel-jest: 27.5.1_@babel+core@7.17.8
   babel-loader: 8.2.3_fa907c5a4f16ccc493e21649ccc59574
   babel-plugin-dev-expression: 0.2.3_@babel+core@7.17.8
@@ -5048,8 +5048,8 @@ packages:
       '@xtuc/long': 4.2.2
     dev: true
 
-  /@wojtekmaj/enzyme-adapter-react-17/0.6.6_fae758709a8810ba97b4c03852dde4d0:
-    resolution: {integrity: sha512-gSfhg8CiL0Vwc2UgUblGVZIy7M0KyXaZsd8+QwzV8TSVRLkGyzdLtYEcs9wRWyQTsdmOd+oRGqbVgUX7AVJxug==}
+  /@wojtekmaj/enzyme-adapter-react-17/0.6.7_fae758709a8810ba97b4c03852dde4d0:
+    resolution: {integrity: sha512-B+byiwi/T1bx5hcj9wc0fUL5Hlb5giSXJzcnEfJVl2j6dGV2NJfcxDBYX0WWwIxlzNiFz8kAvlkFWI2y/nscZQ==}
     peerDependencies:
       enzyme: ^3.0.0
       react: ^17.0.0-0
