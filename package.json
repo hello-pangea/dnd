@@ -185,7 +185,7 @@
     "rollup-plugin-terser": "7.0.2",
     "seedrandom": "3.0.5",
     "storybook-addon-performance": "0.16.1",
-    "styled-components": "5.3.3",
+    "styled-components": "5.3.5",
     "stylelint": "14.6.1",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-recommended": "7.0.0",
