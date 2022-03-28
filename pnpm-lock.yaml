@@ -124,7 +124,7 @@ specifiers:
   stylelint-config-standard: 25.0.0
   stylelint-config-styled-components: 0.1.1
   stylelint-processor-styled-components: 1.10.0
-  ts-jest: 27.1.3
+  ts-jest: 27.1.4
   typescript: 4.6.2
   use-memo-one: ^1.1.2
   wait-on: 6.0.1
@@ -257,7 +257,7 @@ devDependencies:
   stylelint-config-standard: 25.0.0_stylelint@14.6.1
   stylelint-config-styled-components: 0.1.1
   stylelint-processor-styled-components: 1.10.0
-  ts-jest: 27.1.3_11a8855f2c116be91eccf3d0af60dd3e
+  ts-jest: 27.1.4_11a8855f2c116be91eccf3d0af60dd3e
   typescript: 4.6.2
   wait-on: 6.0.1
   webpack: 5.70.0
@@ -16101,15 +16101,15 @@ packages:
     engines: {node: '>=6.10'}
     dev: true
 
-  /ts-jest/27.1.3_11a8855f2c116be91eccf3d0af60dd3e:
-    resolution: {integrity: sha512-6Nlura7s6uM9BVUAoqLH7JHyMXjz8gluryjpPXxr3IxZdAXnU6FhjvVLHFtfd1vsE1p8zD1OJfskkc0jhTSnkA==}
+  /ts-jest/27.1.4_11a8855f2c116be91eccf3d0af60dd3e:
+    resolution: {integrity: sha512-qjkZlVPWVctAezwsOD1OPzbZ+k7zA5z3oxII4dGdZo5ggX/PL7kvwTM0pXTr10fAtbiVpJaL3bWd502zAhpgSQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
     peerDependencies:
       '@babel/core': '>=7.0.0-beta.0 <8'
       '@types/jest': ^27.0.0
       babel-jest: '>=27.0.0 <28'
-      esbuild: ~0.14.0
+      esbuild: '*'
       jest: ^27.0.0
       typescript: '>=3.8 <5.0'
     peerDependenciesMeta:
