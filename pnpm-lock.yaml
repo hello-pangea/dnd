@@ -56,7 +56,7 @@ specifiers:
   '@typescript-eslint/parser': 5.15.0
   '@wojtekmaj/enzyme-adapter-react-17': 0.6.6
   babel-jest: 27.5.1
-  babel-loader: 8.2.3
+  babel-loader: 8.2.4
   babel-plugin-dev-expression: 0.2.3
   babel-plugin-module-resolver: 4.1.0
   commitizen: 4.2.4
@@ -194,7 +194,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.15.0_eslint@8.11.0+typescript@4.6.2
   '@wojtekmaj/enzyme-adapter-react-17': 0.6.6_fae758709a8810ba97b4c03852dde4d0
   babel-jest: 27.5.1_@babel+core@7.17.8
-  babel-loader: 8.2.3_fa907c5a4f16ccc493e21649ccc59574
+  babel-loader: 8.2.4_fa907c5a4f16ccc493e21649ccc59574
   babel-plugin-dev-expression: 0.2.3_@babel+core@7.17.8
   babel-plugin-module-resolver: 4.1.0
   commitizen: 4.2.4
@@ -3198,7 +3198,7 @@ packages:
       '@types/node': 16.11.26
       '@types/webpack': 4.41.32
       autoprefixer: 9.8.8
-      babel-loader: 8.2.3_b72fb7e629d39881e138edb6dcd0dfbe
+      babel-loader: 8.2.4_b72fb7e629d39881e138edb6dcd0dfbe
       case-sensitive-paths-webpack-plugin: 2.4.0
       core-js: 3.21.1
       css-loader: 3.6.0_webpack@4.46.0
@@ -3479,7 +3479,7 @@ packages:
       '@storybook/semver': 7.3.2
       '@types/node': 16.11.26
       '@types/pretty-hrtime': 1.0.1
-      babel-loader: 8.2.3_b72fb7e629d39881e138edb6dcd0dfbe
+      babel-loader: 8.2.4_b72fb7e629d39881e138edb6dcd0dfbe
       babel-plugin-macros: 3.1.0
       babel-plugin-polyfill-corejs3: 0.1.7_@babel+core@7.17.8
       chalk: 4.1.2
@@ -3711,7 +3711,7 @@ packages:
       '@storybook/ui': 6.5.0-alpha.49_react-dom@17.0.2+react@17.0.2
       '@types/node': 16.11.26
       '@types/webpack': 4.41.32
-      babel-loader: 8.2.3_b72fb7e629d39881e138edb6dcd0dfbe
+      babel-loader: 8.2.4_b72fb7e629d39881e138edb6dcd0dfbe
       case-sensitive-paths-webpack-plugin: 2.4.0
       chalk: 4.1.2
       core-js: 3.21.1
@@ -5706,8 +5706,8 @@ packages:
       - supports-color
     dev: true
 
-  /babel-loader/8.2.3_b72fb7e629d39881e138edb6dcd0dfbe:
-    resolution: {integrity: sha512-n4Zeta8NC3QAsuyiizu0GkmRcQ6clkV9WFUnUf1iXP//IeSKbWjofW3UHyZVwlOB4y039YQKefawyTn64Zwbuw==}
+  /babel-loader/8.2.4_b72fb7e629d39881e138edb6dcd0dfbe:
+    resolution: {integrity: sha512-8dytA3gcvPPPv4Grjhnt8b5IIiTcq/zeXOPk4iTYI0SVXcsmuGg7JtBRDp8S9X+gJfhQ8ektjXZlDu1Bb33U8A==}
     engines: {node: '>= 8.9'}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -5715,14 +5715,14 @@ packages:
     dependencies:
       '@babel/core': 7.17.8
       find-cache-dir: 3.3.2
-      loader-utils: 1.4.0
+      loader-utils: 2.0.2
       make-dir: 3.1.0
       schema-utils: 2.7.1
       webpack: 4.46.0
     dev: true
 
-  /babel-loader/8.2.3_fa907c5a4f16ccc493e21649ccc59574:
-    resolution: {integrity: sha512-n4Zeta8NC3QAsuyiizu0GkmRcQ6clkV9WFUnUf1iXP//IeSKbWjofW3UHyZVwlOB4y039YQKefawyTn64Zwbuw==}
+  /babel-loader/8.2.4_fa907c5a4f16ccc493e21649ccc59574:
+    resolution: {integrity: sha512-8dytA3gcvPPPv4Grjhnt8b5IIiTcq/zeXOPk4iTYI0SVXcsmuGg7JtBRDp8S9X+gJfhQ8ektjXZlDu1Bb33U8A==}
     engines: {node: '>= 8.9'}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -5730,7 +5730,7 @@ packages:
     dependencies:
       '@babel/core': 7.17.8
       find-cache-dir: 3.3.2
-      loader-utils: 1.4.0
+      loader-utils: 2.0.2
       make-dir: 3.1.0
       schema-utils: 2.7.1
       webpack: 5.70.0
