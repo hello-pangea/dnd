@@ -35,7 +35,7 @@ specifiers:
   '@storybook/core': 6.5.0-alpha.51
   '@storybook/react': 6.5.0-alpha.51
   '@storybook/theming': 6.5.0-alpha.51
-  '@testing-library/dom': 8.11.3
+  '@testing-library/dom': 8.12.0
   '@testing-library/react': 12.1.4
   '@types/enzyme': 3.10.11
   '@types/express': 4.17.13
@@ -173,7 +173,7 @@ devDependencies:
   '@storybook/core': 6.5.0-alpha.51_5855fb526e2e4657132f3df0856fcb36
   '@storybook/react': 6.5.0-alpha.51_4f98ecb92d550104db53b4a6595f3616
   '@storybook/theming': 6.5.0-alpha.51_react-dom@17.0.2+react@17.0.2
-  '@testing-library/dom': 8.11.3
+  '@testing-library/dom': 8.12.0
   '@testing-library/react': 12.1.4_react-dom@17.0.2+react@17.0.2
   '@types/enzyme': 3.10.11
   '@types/express': 4.17.13
@@ -4088,8 +4088,8 @@ packages:
       pretty-format: 26.6.2
     dev: true
 
-  /@testing-library/dom/8.11.3:
-    resolution: {integrity: sha512-9LId28I+lx70wUiZjLvi1DB/WT2zGOxUh46glrSNMaWVx849kKAluezVzZrXJfTKKoQTmEOutLes/bHg4Bj3aA==}
+  /@testing-library/dom/8.12.0:
+    resolution: {integrity: sha512-rBrJk5WjI02X1edtiUcZhgyhgBhiut96r5Jp8J5qktKdcvLcZpKDW8i2hkGMMItxrghjXuQ5AM6aE0imnFawaw==}
     engines: {node: '>=12'}
     dependencies:
       '@babel/code-frame': 7.16.7
@@ -4125,7 +4125,7 @@ packages:
       react-dom: '*'
     dependencies:
       '@babel/runtime': 7.17.8
-      '@testing-library/dom': 8.11.3
+      '@testing-library/dom': 8.12.0
       '@types/react-dom': 17.0.14
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
