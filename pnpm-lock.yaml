@@ -96,7 +96,7 @@ specifiers:
   markdown-it: 12.3.2
   memoize-one: ^6.0.0
   memory-fs: 0.5.0
-  prettier: 2.6.1
+  prettier: 2.6.2
   raf-schd: ^4.0.3
   raf-stub: 3.0.0
   react: 17.0.2
@@ -215,7 +215,7 @@ devDependencies:
   eslint-plugin-jest: 26.1.3_999503cc9dd683854c288a023c8289ec
   eslint-plugin-jsx-a11y: 6.5.1_eslint@8.11.0
   eslint-plugin-node: 11.1.0_eslint@8.11.0
-  eslint-plugin-prettier: 4.0.0_e2923b5169e23c4db59b86a638c599a3
+  eslint-plugin-prettier: 4.0.0_d787f974c3263c3f552a159664c9f51b
   eslint-plugin-react: 7.29.4_eslint@8.11.0
   eslint-plugin-react-hooks: 4.3.0_eslint@8.11.0
   eslint-plugin-storybook: 0.5.7_eslint@8.11.0+typescript@4.6.2
@@ -232,7 +232,7 @@ devDependencies:
   lighthouse: 9.5.0
   markdown-it: 12.3.2
   memory-fs: 0.5.0
-  prettier: 2.6.1
+  prettier: 2.6.2
   raf-stub: 3.0.0
   react: 17.0.2
   react-16: /react/16.14.0
@@ -8484,7 +8484,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_e2923b5169e23c4db59b86a638c599a3:
+  /eslint-plugin-prettier/4.0.0_d787f974c3263c3f552a159664c9f51b:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -8497,7 +8497,7 @@ packages:
     dependencies:
       eslint: 8.11.0
       eslint-config-prettier: 8.5.0_eslint@8.11.0
-      prettier: 2.6.1
+      prettier: 2.6.2
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -13606,8 +13606,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier/2.6.1:
-    resolution: {integrity: sha512-8UVbTBYGwN37Bs9LERmxCPjdvPxlEowx2urIL6urHzdb3SDq4B/Z6xLFCblrSnE4iKWcS6ziJ3aOYrc1kz/E2A==}
+  /prettier/2.6.2:
+    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
