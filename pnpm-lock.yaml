@@ -71,7 +71,7 @@ specifiers:
   eslint: 8.11.0
   eslint-config-airbnb: 19.0.4
   eslint-config-prettier: 8.5.0
-  eslint-import-resolver-typescript: 2.7.0
+  eslint-import-resolver-typescript: 2.7.1
   eslint-plugin-cypress: 2.12.1
   eslint-plugin-es5: 1.5.0
   eslint-plugin-import: 2.25.4
@@ -208,7 +208,7 @@ devDependencies:
   eslint: 8.11.0
   eslint-config-airbnb: 19.0.4_7140beeccf3df295a69ff5c793cf2661
   eslint-config-prettier: 8.5.0_eslint@8.11.0
-  eslint-import-resolver-typescript: 2.7.0_fe22d862ffeecaee86c93a006d59e41e
+  eslint-import-resolver-typescript: 2.7.1_fe22d862ffeecaee86c93a006d59e41e
   eslint-plugin-cypress: 2.12.1_eslint@8.11.0
   eslint-plugin-es5: 1.5.0_eslint@8.11.0
   eslint-plugin-import: 2.25.4_eslint@8.11.0
@@ -8410,8 +8410,8 @@ packages:
       resolve: 1.22.0
     dev: true
 
-  /eslint-import-resolver-typescript/2.7.0_fe22d862ffeecaee86c93a006d59e41e:
-    resolution: {integrity: sha512-MNHS3u5pebvROX4MjGP9coda589ZGfL1SqdxUV4kSrcclfDRWvNE2D+eljbnWVMvWDVRgT89nhscMHPKYGcObQ==}
+  /eslint-import-resolver-typescript/2.7.1_fe22d862ffeecaee86c93a006d59e41e:
+    resolution: {integrity: sha512-00UbgGwV8bSgUv34igBDbTOtKhqoRMy9bFjNehT40bXg6585PNIct8HhXZ0SybqB9rWtXj9crcku8ndDn/gIqQ==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: '*'
