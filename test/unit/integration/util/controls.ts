@@ -1,6 +1,6 @@
 import { fireEvent, act } from '@testing-library/react';
 import { sloppyClickThreshold } from '../../../../src/view/use-sensor-marshal/sensors/use-mouse-sensor';
-import { timeForLongPress } from '../../../../src/view/use-sensor-marshal/sensors/use-touch-sensor';
+import { defaultTimeForLongPress } from '../../../../src/view/use-sensor-marshal/sensors/use-touch-sensor';
 import * as keyCodes from '../../../../src/view/key-codes';
 
 export interface Control {

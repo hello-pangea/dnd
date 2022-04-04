@@ -21,6 +21,7 @@ import type {
 import AnimateInOut from '../animate-in-out/animate-in-out';
 import type { AnimateProvided } from '../animate-in-out/animate-in-out';
 import { PrivateDraggable } from '../draggable/draggable-api';
+import { defaultTimeForLongPress } from '../use-sensor-marshal/sensors/use-touch-sensor';
 
 const Droppable: FunctionComponent<Props> = (props) => {
   const appContext: AppContextValue | null = useContext<AppContextValue | null>(
@@ -157,6 +158,7 @@ const Droppable: FunctionComponent<Props> = (props) => {
         isEnabled
         // not important as drag has already started
         shouldRespectForcePress={false}
+        timeForLongPress={defaultTimeForLongPress}
         canDragInteractiveElements
       >
         {(
