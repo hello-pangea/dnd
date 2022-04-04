@@ -176,7 +176,7 @@
     "react-test-renderer": "17.0.2",
     "react-virtualized": "9.22.3",
     "react-window": "1.8.6",
-    "release-it": "14.13.1",
+    "release-it": "14.14.0",
     "require-from-string": "2.0.2",
     "rimraf": "3.0.2",
     "rollup": "2.70.1",
