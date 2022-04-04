@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.2.4
+  browser-tools: circleci/browser-tools@1.2.5
 
 commands:
   # TODO: Find a better to setup pnpm. We could use
