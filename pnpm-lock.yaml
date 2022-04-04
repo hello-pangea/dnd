@@ -103,7 +103,7 @@ specifiers:
   react-16: npm:react@16.14.0
   react-dom: 17.0.2
   react-dom-16: npm:react-dom@16.14.0
-  react-redux: ^7.2.6
+  react-redux: ^7.2.8
   react-test-renderer: 17.0.2
   react-virtualized: 9.22.3
   react-window: 1.8.6
@@ -135,7 +135,7 @@ dependencies:
   css-box-model: 1.2.1
   memoize-one: 6.0.0
   raf-schd: 4.0.3
-  react-redux: 7.2.6_react-dom@17.0.2+react@17.0.2
+  react-redux: 7.2.8_react-dom@17.0.2+react@17.0.2
   redux: 4.1.2
   use-memo-one: 1.1.2_react@17.0.2
 
@@ -14118,10 +14118,10 @@ packages:
       warning: 4.0.3
     dev: true
 
-  /react-redux/7.2.6_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-10RPdsz0UUrRL1NZE0ejTkucnclYSgXp5q+tB5SWx2qeG2ZJQJyymgAhwKy73yiL/13btfB6fPr+rgbMAaZIAQ==}
+  /react-redux/7.2.8_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-6+uDjhs3PSIclqoCk0kd6iX74gzrGc3W5zcAjbrFgEdIjRSQObdIwfx80unTkVUYvbQ95Y8Av3OvFHq1w5EOUw==}
     peerDependencies:
-      react: ^16.8.3 || ^17
+      react: ^16.8.3 || ^17 || ^18
       react-dom: '*'
       react-native: '*'
     peerDependenciesMeta:
