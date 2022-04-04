@@ -1,5 +1,6 @@
 import type { OwnProps } from '../../../../../src/view/draggable/draggable-types';
 import type { DraggableDimension } from '../../../../../src/types';
+import { defaultTimeForLongPress } from '../../../../../src/view/use-sensor-marshal/sensors/use-touch-sensor';
 
 export default (dimension: DraggableDimension): OwnProps => ({
   // Public own props
@@ -14,4 +15,5 @@ export default (dimension: DraggableDimension): OwnProps => ({
   isEnabled: true,
   canDragInteractiveElements: false,
   shouldRespectForcePress: true,
+  timeForLongPress: defaultTimeForLongPress,
 });

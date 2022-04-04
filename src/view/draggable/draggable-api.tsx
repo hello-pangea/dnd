@@ -4,6 +4,8 @@ import type { DraggableProps, PrivateOwnProps } from './draggable-types';
 import ConnectedDraggable from './connected-draggable';
 import useRequiredContext from '../use-required-context';
 import DroppableContext from '../context/droppable-context';
+import { defaultTimeForLongPress } from '../use-sensor-marshal/sensors/use-touch-sensor';
+
 
 import type { DroppableContextValue } from '../context/droppable-context';
 
@@ -31,6 +33,7 @@ export function PublicDraggable(props: DraggableProps) {
     props.disableInteractiveElementBlocking,
   );
   const shouldRespectForcePress = Boolean(props.shouldRespectForcePress);
+  const timeForLongPress: number = props.timeForLongPress !== undefined ? Number(props.timeForLongPress) : defaultTimeForLongPress;
 
   return (
     <PrivateDraggable
@@ -39,6 +42,7 @@ export function PublicDraggable(props: DraggableProps) {
       isEnabled={isEnabled}
       canDragInteractiveElements={canDragInteractiveElements}
       shouldRespectForcePress={shouldRespectForcePress}
+      timeForLongPress={timeForLongPress}
     />
   );
 }

@@ -5,6 +5,7 @@ import type {
 import createRegistry from '../../../../src/state/registry/create-registry';
 import { getPreset } from '../../../util/dimension';
 import { getDraggableEntry } from '../../../util/registry';
+import { defaultTimeForLongPress } from '../../../../src/view/use-sensor-marshal/sensors/use-touch-sensor';
 
 const preset = getPreset();
 
@@ -46,6 +47,7 @@ it('should allow for updating existing entries', () => {
       canDragInteractiveElements: true,
       // updated
       shouldRespectForcePress: true,
+      timeForLongPress: defaultTimeForLongPress,
       isEnabled: true,
     },
     getDimension: () => preset.inHome1,
@@ -71,6 +73,7 @@ it('should throw away updates if the uniqueId is outdated', () => {
       canDragInteractiveElements: true,
       // updated
       shouldRespectForcePress: true,
+      timeForLongPress: defaultTimeForLongPress,
       isEnabled: true,
     },
     getDimension: () => preset.inHome1,

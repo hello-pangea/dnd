@@ -31,6 +31,7 @@ export default function useDraggablePublisher(args: Args) {
     getDraggableRef,
     canDragInteractiveElements,
     shouldRespectForcePress,
+    timeForLongPress,
     isEnabled,
   } = args;
 
@@ -38,9 +39,15 @@ export default function useDraggablePublisher(args: Args) {
     () => ({
       canDragInteractiveElements,
       shouldRespectForcePress,
+      timeForLongPress,
       isEnabled,
     }),
-    [canDragInteractiveElements, isEnabled, shouldRespectForcePress],
+    [
+      canDragInteractiveElements,
+      isEnabled,
+      shouldRespectForcePress,
+      timeForLongPress,
+    ],
   );
 
   const getDimension = useCallback(
