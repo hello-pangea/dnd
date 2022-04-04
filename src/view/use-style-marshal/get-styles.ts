@@ -143,7 +143,7 @@ export default (contextId: ContextId): Styles => {
   // we do not want the browser to have behaviors we do not expect
 
   const body: Rule = {
-    selector: 'body',
+    selector: 'body, html',
     styles: {
       dragging: `
         cursor: grabbing;
@@ -153,6 +153,8 @@ export default (contextId: ContextId): Styles => {
         -moz-user-select: none;
         -ms-user-select: none;
         overflow-anchor: none;
+        height: 100vh;
+        background: red;
       `,
     },
   };

@@ -164,7 +164,16 @@ function getCaptureBindings({
     },
     {
       eventName: 'resize',
-      fn: cancel,
+      fn: (e) => {
+        const phase: Phase = getPhase();
+
+        if (phase.type !== 'DRAGGING') {
+          cancel();
+          return;
+        }
+
+        phase.actions.updateDimensions();
+      },
     },
     {
       eventName: 'scroll',

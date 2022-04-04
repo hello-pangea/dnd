@@ -453,6 +453,7 @@ export interface DragActions {
 
 export interface FluidDragActions extends DragActions {
   move: (clientSelection: Position) => void;
+  updateDimensions: () => void;
 }
 
 export interface SnapDragActions extends DragActions {

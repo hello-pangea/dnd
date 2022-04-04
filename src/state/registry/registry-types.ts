@@ -33,7 +33,11 @@ export interface DraggableAPI {
   getAllByType: (type: TypeId) => DraggableEntry[];
 }
 
-export type GetDroppableDimensionFn = (
+export type GetDroppableDimension = (
+  windowScroll: Position,
+) => DroppableDimension;
+
+export type GetDroppableDimensionAndWatchScrollFn = (
   windowScroll: Position,
   options: ScrollOptions,
 ) => DroppableDimension;
@@ -44,8 +48,12 @@ export interface RecollectDroppableOptions {
 
 export interface DroppableCallbacks {
   // a drag is starting
-  getDimensionAndWatchScroll: GetDroppableDimensionFn;
+  getDimensionAndWatchScroll: GetDroppableDimensionAndWatchScrollFn;
   getScrollWhileDragging: () => Position;
+
+  // updating dimensions
+  getDimension: GetDroppableDimension;
+
   // scroll a droppable
   scroll: (change: Position) => void;
   // If the Droppable is listening for scroll events - it needs to stop!

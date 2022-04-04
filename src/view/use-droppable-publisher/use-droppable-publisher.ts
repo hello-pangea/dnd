@@ -122,22 +122,25 @@ export default function useDroppablePublisher(args: Props) {
     scheduleScrollUpdate();
   }, [scheduleScrollUpdate, updateScroll]);
 
-  const getDimensionAndWatchScroll = useCallback(
-    (windowScroll: Position, options: ScrollOptions) => {
-      invariant(
-        !whileDraggingRef.current,
-        'Cannot collect a droppable while a drag is occurring',
-      );
+  const getDroppableDimension = useCallback(
+    (windowScroll: Position, options?: ScrollOptions): DroppableDimension => {
       const previous: Props = previousRef.current;
       const ref: HTMLElement | null = previous.getDroppableRef();
       invariant(ref, 'Cannot collect without a droppable ref');
       const env: Env = getEnv(ref);
 
+      const scrollOptions = options || whileDraggingRef.current?.scrollOptions;
+
+      invariant(
+        scrollOptions,
+        'scrollOptions must be set by options argument or by the scrollOptions of the dragging ref',
+      );
+
       const dragging: WhileDragging = {
         ref,
         descriptor,
         env,
-        scrollOptions: options,
+        scrollOptions,
       };
       // side effect
       whileDraggingRef.current = dragging;
@@ -153,7 +156,29 @@ export default function useDroppablePublisher(args: Props) {
         shouldClipSubject: !previous.ignoreContainerClipping,
       });
 
-      const scrollable: Element | null = env.closestScrollable;
+      return dimension;
+    },
+    [descriptor, previousRef],
+  );
+
+  const getScrollable = () => {
+    invariant(
+      whileDraggingRef.current,
+      'Cannot get scrollable while a drag is not occurring',
+    );
+
+    return whileDraggingRef.current.env.closestScrollable;
+  };
+
+  const getDimensionAndWatchScroll = useCallback(
+    (windowScroll: Position, options: ScrollOptions) => {
+      invariant(
+        !whileDraggingRef.current,
+        'Cannot collect a droppable while a drag is occurring',
+      );
+
+      const dimension = getDroppableDimension(windowScroll, options);
+      const scrollable: Element | null = getScrollable();
 
       if (scrollable) {
         scrollable.setAttribute(
@@ -165,7 +190,7 @@ export default function useDroppablePublisher(args: Props) {
         scrollable.addEventListener(
           'scroll',
           onClosestScroll,
-          getListenerOptions(dragging.scrollOptions),
+          getListenerOptions(options),
         );
         // print a debug warning if using an unsupported nested scroll container setup
         if (process.env.NODE_ENV !== 'production') {
@@ -175,7 +200,7 @@ export default function useDroppablePublisher(args: Props) {
 
       return dimension;
     },
-    [appContext.contextId, descriptor, onClosestScroll, previousRef],
+    [appContext.contextId, getDroppableDimension, onClosestScroll],
   );
 
   const getScrollWhileDragging = useCallback((): Position => {
@@ -227,12 +252,20 @@ export default function useDroppablePublisher(args: Props) {
 
   const callbacks: DroppableCallbacks = useMemo(() => {
     return {
+      getDimension: (windowScroll: Position) =>
+        getDroppableDimension(windowScroll),
       getDimensionAndWatchScroll,
       getScrollWhileDragging,
       dragStopped,
       scroll,
     };
-  }, [dragStopped, getDimensionAndWatchScroll, getScrollWhileDragging, scroll]);
+  }, [
+    dragStopped,
+    getDimensionAndWatchScroll,
+    getDroppableDimension,
+    getScrollWhileDragging,
+    scroll,
+  ]);
 
   const entry: DroppableEntry = useMemo(
     () => ({

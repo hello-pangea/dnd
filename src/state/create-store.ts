@@ -2,6 +2,7 @@
 import { applyMiddleware, createStore, compose, StoreEnhancer } from 'redux';
 import reducer from './reducer';
 import lift from './middleware/lift';
+import updateDimensions from './middleware/update-dimensions';
 import style from './middleware/style';
 import drop from './middleware/drop/drop-middleware';
 import scrollListener from './middleware/scroll-listener';
@@ -96,6 +97,7 @@ export default ({
         dimensionMarshalStopper(dimensionMarshal),
         // Fire application responders in response to drag changes
         lift(dimensionMarshal),
+        updateDimensions(dimensionMarshal),
         drop,
         // When a drop animation finishes - fire a drop complete
         dropAnimationFinish,

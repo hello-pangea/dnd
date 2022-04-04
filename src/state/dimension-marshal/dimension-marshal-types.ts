@@ -14,7 +14,7 @@ import type {
   Viewport,
 } from '../../types';
 
-export interface StartPublishingResult {
+export interface PublishingResult {
   critical: Critical;
   dimensions: DimensionMap;
   viewport: Viewport;
@@ -31,7 +31,8 @@ export interface DimensionMarshal {
   updateDroppableScroll: (id: DroppableId, newScroll: Position) => void;
   scrollDroppable: (id: DroppableId, change: Position) => void;
   // Entry
-  startPublishing: (request: LiftRequest) => StartPublishingResult;
+  startPublishing: (request: LiftRequest) => PublishingResult;
+  updatePublishing: () => PublishingResult;
   stopPublishing: () => void;
 }
 

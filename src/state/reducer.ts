@@ -1,4 +1,4 @@
-import type { Position } from 'css-box-model';
+import { Position, offset } from 'css-box-model';
 import { invariant } from '../invariant';
 import type {
   DimensionMap,
@@ -20,7 +20,8 @@ import type { Action } from './store-types';
 import type { PublicResult as MoveInDirectionResult } from './move-in-direction/move-in-direction-types';
 import scrollDroppable from './droppable/scroll-droppable';
 import moveInDirection from './move-in-direction';
-import { add, isEqual, origin } from './position';
+import { add, isEqual, origin, subtract } from './position';
+import { offsetByPosition } from './spacing';
 import scrollViewport from './scroll-viewport';
 import isMovementAllowed from './is-movement-allowed';
 import { toDroppableList } from './dimension-structures';
@@ -129,6 +130,121 @@ export default (state: State = idle, action: Action): State => {
       impact,
       afterCritical,
       onLiftImpact: impact,
+      viewport,
+      scrollJumpRequest: null,
+      forceShouldAnimate: null,
+    };
+
+    return result;
+  }
+
+  if (action.type === 'UPDATE_DIMENSIONS') {
+    invariant(
+      state.phase === 'DRAGGING',
+      'INITIAL_PUBLISH must come after a IDLE phase',
+    );
+    const { critical, viewport, dimensions } = action.payload;
+
+    const draggable: DraggableDimension =
+      dimensions.draggables[critical.draggable.id];
+    const home: DroppableDimension =
+      dimensions.droppables[critical.droppable.id];
+
+    // We need to recalculate all items to what it
+    // would look like if we have done the lift right 
+    // after the resize!
+    const prevDraggable: DraggableDimension =
+      state.dimensions.draggables[critical.draggable.id];
+    console.log({ prevDraggable, draggable });
+    const selectionClientDiff = subtract(
+      draggable.client.contentBox,
+      prevDraggable.client.contentBox,
+    );
+    const clientSelection: Position = add(
+      state.initial.client.selection,
+      selectionClientDiff,
+    );
+
+    // calculate original position after resize
+    const insideDiff = subtract(
+      prevDraggable.client.marginBox,
+      state.dimensions.droppables[critical.droppable.id].client.contentBox,
+    );
+    const droppableDiff = subtract(
+      state.dimensions.droppables[critical.droppable.id].client.contentBox,
+      home.client.contentBox,
+    );
+    const diff = add(insideDiff, droppableDiff);
+
+    const updatedDraggable = {
+      ...draggable,
+      client: offset(draggable.client, diff),
+      placeholder: {
+        ...draggable.placeholder,
+        client: offset(draggable.placeholder.client, diff),
+      },
+      page: offset(draggable.page, diff),
+    };
+
+    console.log({ diff });
+
+    const updatedDraggables = {
+      ...dimensions.draggables,
+      [critical.draggable.id]: updatedDraggable,
+    };
+
+    const updatedDimensions = {
+      ...dimensions,
+      draggables: updatedDraggables,
+    };
+
+    const client: ClientPositions = {
+      selection: clientSelection,
+      borderBoxCenter: updatedDraggable.client.borderBox.center,
+      offset: origin, // <- should this be updated?
+    };
+
+    const initial: DragPositions = {
+      client,
+      page: {
+        selection: add(client.selection, viewport.scroll.initial),
+        borderBoxCenter: add(client.selection, viewport.scroll.initial),
+        offset: add(client.selection, viewport.scroll.diff.value),
+      },
+    };
+
+    // Can only auto scroll the window if every list is not fixed on the page
+    const isWindowScrollAllowed: boolean = toDroppableList(
+      updatedDimensions.droppables,
+    ).every((item: DroppableDimension) => !item.isFixedOnPage);
+
+    const { impact, afterCritical } = getLiftEffect({
+      draggable: updatedDraggable,
+      home,
+      draggables: updatedDimensions.draggables,
+      viewport,
+    });
+
+    // return update({
+    //   state,
+    //   updatedDimensions,
+    //   viewport,
+    //   impact,
+    //   clientSelection,
+    // });
+
+    const result: DraggingState = {
+      ...state,
+      phase: 'DRAGGING',
+      isDragging: true,
+      critical,
+      dimensions: updatedDimensions,
+      initial,
+      current: initial,
+      isWindowScrollAllowed,
+      // impact,
+      // afterCritical,
+      // onLiftImpact: impact,
       viewport,
       scrollJumpRequest: null,
       forceShouldAnimate: null,

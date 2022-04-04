@@ -12,7 +12,6 @@ import type {
   DroppableDimension,
   DraggableDimension,
   DimensionMap,
-  ScrollOptions,
   Critical,
   Viewport,
 } from '../../types';
@@ -20,16 +19,13 @@ import getViewport from '../../view/window/get-viewport';
 
 interface Args {
   critical: Critical;
-  scrollOptions: ScrollOptions;
   registry: Registry;
 }
 
-export default ({
-  critical,
-  scrollOptions,
-  registry,
-}: Args): PublishingResult => {
-  const timingKey = 'Initial collection from DOM';
+window.addEventListener('resize', console.log);
+
+export default ({ critical, registry }: Args): PublishingResult => {
+  const timingKey = 'Update collection from DOM';
   timings.start(timingKey);
   const viewport: Viewport = getViewport();
   const windowScroll: Position = viewport.scroll.current;
@@ -40,7 +36,7 @@ export default ({
     .getAllByType(home.type)
     .map(
       (entry: DroppableEntry): DroppableDimension =>
-        entry.callbacks.getDimensionAndWatchScroll(windowScroll, scrollOptions),
+        entry.callbacks.getDimension(windowScroll),
     );
 
   const draggables: DraggableDimension[] = registry.draggable
@@ -49,6 +45,8 @@ export default ({
       (entry: DraggableEntry): DraggableDimension =>
         entry.getDimension(windowScroll),
     );
+
+  console.log({ droppables, draggables, viewport });
 
   const dimensions: DimensionMap = {
     draggables: toDraggableMap(draggables),

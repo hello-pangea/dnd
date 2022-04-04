@@ -72,6 +72,38 @@ export const initialPublish = (
   payload: args,
 });
 
+export interface DimensionsChangedAction {
+  type: 'DIMENSIONS_CHANGED';
+  payload: null;
+}
+
+export type DimensionsChangedCreator = typeof dimensionsChanged;
+
+export const dimensionsChanged = (): DimensionsChangedAction => ({
+  type: 'DIMENSIONS_CHANGED',
+  payload: null,
+});
+
+export interface UpdateDimensionsArgs {
+  critical: Critical;
+  dimensions: DimensionMap;
+  viewport: Viewport;
+}
+
+export interface UpdateDimensionsAction {
+  type: 'UPDATE_DIMENSIONS';
+  payload: UpdateDimensionsArgs;
+}
+
+export type UpdateDimensionsCreator = typeof updateDimensions;
+
+export const updateDimensions = (
+  args: UpdateDimensionsArgs,
+): UpdateDimensionsAction => ({
+  type: 'UPDATE_DIMENSIONS',
+  payload: args,
+});
+
 export interface PublishWhileDraggingAction {
   type: 'PUBLISH_WHILE_DRAGGING';
   payload: Published;
@@ -354,6 +386,8 @@ export type Action =
   | BeforeInitialCaptureAction
   | LiftAction
   | InitialPublishAction
+  | DimensionsChangedAction
+  | UpdateDimensionsAction
   | PublishWhileDraggingAction
   | CollectionStartingAction
   | UpdateDroppableScrollAction
@@ -378,6 +412,8 @@ export type ActionCreator =
   | BeforeInitialCaptureActionCreator
   | LiftActionCreator
   | InitialPublishActionCreator
+  | DimensionsChangedCreator
+  | UpdateDimensionsCreator
   | PublishWhileDraggingActionCreator
   | CollectionStartingActionCreator
   | UpdateDroppableScrollActionCreator

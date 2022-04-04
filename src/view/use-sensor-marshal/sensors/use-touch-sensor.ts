@@ -63,12 +63,30 @@ function getWindowBindings({
     // https://davidwalsh.name/orientation-change
     {
       eventName: 'orientationchange',
-      fn: cancel,
+      fn: () => {
+        const phase: Phase = getPhase();
+
+        if (phase.type !== 'DRAGGING') {
+          cancel();
+          return;
+        }
+
+        phase.actions.updateDimensions();
+      },
     },
     // some devices fire resize if the orientation changes
     {
       eventName: 'resize',
-      fn: cancel,
+      fn: () => {
+        const phase: Phase = getPhase();
+
+        if (phase.type !== 'DRAGGING') {
+          cancel();
+          return;
+        }
+
+        phase.actions.updateDimensions();
+      },
     },
     // Long press can bring up a context menu
     // need to opt out of this behavior

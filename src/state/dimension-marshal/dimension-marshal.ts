@@ -3,11 +3,12 @@ import { invariant } from '../../invariant';
 import type {
   DimensionMarshal,
   Callbacks,
-  StartPublishingResult,
+  PublishingResult,
 } from './dimension-marshal-types';
 import createPublisher from './while-dragging-publisher';
 import type { WhileDraggingPublisher } from './while-dragging-publisher';
 import getInitialPublish from './get-initial-publish';
+import getPublish from './get-publish';
 import type {
   Registry,
   DroppableEntry,
@@ -169,7 +170,36 @@ export default (registry: Registry, callbacks: Callbacks) => {
     }
   };
 
-  const startPublishing = (request: LiftRequest): StartPublishingResult => {
+  const updatePublishing = (): PublishingResult => {
+    invariant(
+      collection,
+      'Can only update critical dimensions when a collection is occurring',
+    );
+
+    const entry: DraggableEntry = registry.draggable.getById(
+      collection.critical.draggable.id,
+    );
+    const home: DroppableEntry = registry.droppable.getById(
+      entry.descriptor.droppableId,
+    );
+
+    const critical: Critical = {
+      draggable: entry.descriptor,
+      droppable: home.descriptor,
+    };
+
+    collection = {
+      ...collection,
+      critical,
+    };
+
+    return getPublish({
+      critical,
+      registry,
+    });
+  };
+
+  const startPublishing = (request: LiftRequest): PublishingResult => {
     invariant(
       !collection,
       'Cannot start capturing critical dimensions as there is already a collection',
@@ -209,6 +239,7 @@ export default (registry: Registry, callbacks: Callbacks) => {
 
     // Entry
     startPublishing,
+    updatePublishing,
     stopPublishing,
   };
 

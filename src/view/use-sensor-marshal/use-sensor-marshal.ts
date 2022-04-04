@@ -30,6 +30,7 @@ import {
   drop as dropAction,
   lift as liftAction,
   flush,
+  dimensionsChanged as dimensionsChangedAction,
 } from '../../state/action-creators';
 import type { LiftArgs as LiftActionArgs } from '../../state/action-creators';
 import isDragging from '../../state/is-dragging';
@@ -283,6 +284,9 @@ function tryStart({
     const move = rafSchd((client: Position) => {
       tryDispatchWhenDragging(() => moveAction({ client }));
     });
+    const updateDimensions = rafSchd(() => {
+      tryDispatchWhenDragging(() => dimensionsChangedAction());
+    });
 
     const api = lift({
       liftActionArgs: {
@@ -290,13 +294,17 @@ function tryStart({
         clientSelection,
         movementMode: 'FLUID',
       },
-      cleanup: () => move.cancel(),
-      actions: { move },
+      cleanup: () => {
+        move.cancel();
+        updateDimensions.cancel();
+      },
+      actions: { move, updateDimensions },
     });
 
     return {
       ...api,
       move,
+      updateDimensions,
     };
   }
 
