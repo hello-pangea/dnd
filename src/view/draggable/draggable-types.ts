@@ -165,6 +165,7 @@ export interface DraggableProps {
   isDragDisabled?: boolean;
   disableInteractiveElementBlocking?: boolean;
   shouldRespectForcePress?: boolean;
+  timeForLongPress?: number,
 }
 
 export interface PrivateOwnProps extends DraggableProps {
@@ -173,6 +174,7 @@ export interface PrivateOwnProps extends DraggableProps {
   isEnabled: boolean;
   canDragInteractiveElements: boolean;
   shouldRespectForcePress: boolean;
+  timeForLongPress: number,
 }
 
 export type OwnProps = PrivateOwnProps;

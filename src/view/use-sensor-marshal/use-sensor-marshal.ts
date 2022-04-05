@@ -198,6 +198,11 @@ function tryStart({
     return entry.options.shouldRespectForcePress;
   }
 
+  function getDisableLongPress(): number {
+    return entry.options.timeForLongPress;
+  }
+
+
   function isLockActive(): boolean {
     return lockAPI.isActive(lock);
   }
@@ -273,6 +278,7 @@ function tryStart({
           shouldWarn: false,
         }),
       shouldRespectForcePress: getShouldRespectForcePress,
+      timeForLongPress: getDisableLongPress,
       drop: (options?: StopDragOptions) => finish('DROP', options),
       cancel: (options?: StopDragOptions) => finish('CANCEL', options),
       ...args.actions,
@@ -342,6 +348,7 @@ function tryStart({
         shouldWarn: false,
       }),
     shouldRespectForcePress: getShouldRespectForcePress,
+    timeForLongPress: getDisableLongPress,
     fluidLift,
     snapLift,
     abort: abortPreDrag,

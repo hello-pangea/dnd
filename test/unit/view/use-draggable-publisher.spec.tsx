@@ -23,6 +23,7 @@ import type {
   GetDraggableDimensionFn,
 } from '../../../src/state/registry/registry-types';
 import createRegistry from '../../../src/state/registry/create-registry';
+import { defaultTimeForLongPress } from '../../../src/view/use-sensor-marshal/sensors/use-touch-sensor';
 import setDOMRect from '../../util/set-dom-rect';
 import { disableWarn } from '../../util/console';
 
@@ -38,6 +39,7 @@ interface ItemProps {
 const defaultOptions: DraggableOptions = {
   canDragInteractiveElements: false,
   shouldRespectForcePress: false,
+  timeForLongPress: defaultTimeForLongPress,
   isEnabled: true,
 };
 

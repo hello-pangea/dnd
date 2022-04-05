@@ -49,6 +49,7 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
     draggableId,
     isEnabled,
     shouldRespectForcePress,
+    timeForLongPress,
     canDragInteractiveElements,
     isClone,
 
@@ -78,6 +79,7 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
         getDraggableRef: getRef,
         canDragInteractiveElements,
         shouldRespectForcePress,
+        timeForLongPress,
         isEnabled,
       }),
       [
@@ -86,6 +88,7 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
         getRef,
         canDragInteractiveElements,
         shouldRespectForcePress,
+        timeForLongPress,
         isEnabled,
       ],
     );
