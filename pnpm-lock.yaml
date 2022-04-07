@@ -49,7 +49,7 @@ specifiers:
   '@types/react': 17.0.43
   '@types/react-dom': 17.0.14
   '@types/react-redux': 7.1.23
-  '@types/react-virtualized': 9.21.20
+  '@types/react-virtualized': 9.21.21
   '@types/react-window': 1.8.5
   '@types/seedrandom': 3.0.2
   '@typescript-eslint/eslint-plugin': 5.18.0
@@ -187,7 +187,7 @@ devDependencies:
   '@types/react': 17.0.43
   '@types/react-dom': 17.0.14
   '@types/react-redux': 7.1.23
-  '@types/react-virtualized': 9.21.20
+  '@types/react-virtualized': 9.21.21
   '@types/react-window': 1.8.5
   '@types/seedrandom': 3.0.2
   '@typescript-eslint/eslint-plugin': 5.18.0_23ae08f55ef78e4dc8480783cbeb4d14
@@ -4488,8 +4488,8 @@ packages:
       '@types/react': 17.0.43
     dev: true
 
-  /@types/react-virtualized/9.21.20:
-    resolution: {integrity: sha512-i8nZf1LpuX5rG4DZLaPGayIQwjxsZwmst5VdNhEznDTENel9p3A735AdRRp2iueFOyOuWBmaEaDxg8AD3GHilA==}
+  /@types/react-virtualized/9.21.21:
+    resolution: {integrity: sha512-Exx6I7p4Qn+BBA1SRyj/UwQlZ0I0Pq7g7uhAp0QQ4JWzZunqEqNBGTmCmMmS/3N9wFgAGWuBD16ap7k8Y14VPA==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/react': 17.0.43
