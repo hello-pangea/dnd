@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import QuoteApp from './src/multiple-vertical/quote-app';
-import { getQuotes } from './src/data';
+import QuoteApp from '../src/multiple-vertical/quote-app';
+import { getQuotes } from '../src/data';
 
 const generateQuoteMap = () => ({
   alpha: getQuotes(7),
@@ -16,6 +16,6 @@ const generateQuoteMap = () => ({
   kappa: getQuotes(5),
 });
 
-storiesOf('multiple vertical lists', module).add('stress test', () => (
+storiesOf('Examples/multiple vertical lists', module).add('stress test', () => (
   <QuoteApp initial={generateQuoteMap()} />
 ));

@@ -6,7 +6,7 @@ import {
   Draggable,
   DraggingStyle,
   NotDraggingStyle,
-} from '../src';
+} from '../../src';
 
 import type {
   DropResult,
@@ -14,7 +14,7 @@ import type {
   DraggableStateSnapshot,
   DroppableProvided,
   DroppableStateSnapshot,
-} from '../src';
+} from '../../src';
 
 interface Item {
   id: string;
@@ -148,7 +148,7 @@ class App extends React.Component<unknown, State> {
   }
 }
 
-storiesOf('onDragStart', module).add(
+storiesOf('Examples/onDragStart', module).add(
   'toggle isDropDisabled onDragStart',
   () => <App />,
 );

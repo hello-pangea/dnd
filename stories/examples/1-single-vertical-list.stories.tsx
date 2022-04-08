@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
-import QuoteApp from './src/vertical/quote-app';
-import { getQuotes } from './src/data';
-import { grid } from './src/constants';
+import QuoteApp from '../src/vertical/quote-app';
+import { getQuotes } from '../src/data';
+import { grid } from '../src/constants';
 
 const generateData = {
   small: () => getQuotes(),
@@ -26,7 +26,7 @@ const Title = styled.h4`
   margin-bottom: ${grid}px;
 `;
 
-storiesOf('single vertical list', module)
+storiesOf('Examples/single vertical list', module)
   .add('basic', () => <QuoteApp initial={generateData.small()} />)
   .add('large data set', () => <QuoteApp initial={generateData.large()} />, {
     chromatic: {
