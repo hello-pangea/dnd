@@ -9,6 +9,7 @@ const generateQuoteMap = () => ({
   gamma: getQuotes(22),
 });
 
-storiesOf('Examples/multiple horizontal lists', module).add('stress test', () => (
-  <QuoteApp initial={generateQuoteMap()} />
-));
+storiesOf('Examples/multiple horizontal lists', module).add(
+  'stress test',
+  () => <QuoteApp initial={generateQuoteMap()} />,
+);
