@@ -47,7 +47,7 @@ specifiers:
   '@types/node': 16.11.26
   '@types/raf-schd': 4.0.1
   '@types/react': 17.0.43
-  '@types/react-dom': 17.0.14
+  '@types/react-dom': 18.0.0
   '@types/react-redux': 7.1.23
   '@types/react-virtualized': 9.21.20
   '@types/react-window': 1.8.5
@@ -185,7 +185,7 @@ devDependencies:
   '@types/node': 16.11.26
   '@types/raf-schd': 4.0.1
   '@types/react': 17.0.43
-  '@types/react-dom': 17.0.14
+  '@types/react-dom': 18.0.0
   '@types/react-redux': 7.1.23
   '@types/react-virtualized': 9.21.20
   '@types/react-window': 1.8.5
@@ -4126,7 +4126,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.8
       '@testing-library/dom': 8.12.0
-      '@types/react-dom': 17.0.14
+      '@types/react-dom': 18.0.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: true
@@ -4468,8 +4468,8 @@ packages:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
     dev: true
 
-  /@types/react-dom/17.0.14:
-    resolution: {integrity: sha512-H03xwEP1oXmSfl3iobtmQ/2dHF5aBHr8aUMwyGZya6OW45G+xtdzmq6HkncefiBt5JU8DVyaWl/nWZbjZCnzAQ==}
+  /@types/react-dom/18.0.0:
+    resolution: {integrity: sha512-49897Y0UiCGmxZqpC8Blrf6meL8QUla6eb+BBhn69dTXlmuOlzkfr7HHY/O8J25e1lTUMs+YYxSlVDAaGHCOLg==}
     dependencies:
       '@types/react': 17.0.43
     dev: true
