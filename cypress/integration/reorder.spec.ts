@@ -4,7 +4,7 @@ import { getHandleSelector } from './util';
 
 describe('reorder', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=single-vertical-list--basic');
+    cy.visit('/iframe.html?id=examples-single-vertical-list--basic');
   });
 
   it('should reorder within a list', () => {

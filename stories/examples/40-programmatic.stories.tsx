@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import WithControls from './src/programmatic/with-controls';
-import Runsheet from './src/programmatic/runsheet';
-import { getQuotes } from './src/data';
+import WithControls from '../src/programmatic/with-controls';
+import Runsheet from '../src/programmatic/runsheet';
+import { getQuotes } from '../src/data';
 
-storiesOf('Programmatic dragging', module)
+storiesOf('Examples/Programmatic dragging', module)
   .add('with controls', () => (
     <WithControls initial={getQuotes().slice(0, 3)} />
   ))

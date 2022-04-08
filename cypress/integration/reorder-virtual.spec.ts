@@ -4,7 +4,7 @@ import { getHandleSelector } from './util';
 
 describe('reorder: virtual', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=virtual-react-window--list');
+    cy.visit('/iframe.html?id=examples-virtual-react-window--list');
   });
 
   it('should reorder within a list', () => {

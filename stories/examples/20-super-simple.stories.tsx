@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Simple from './src/simple/simple';
-import SimpleWithScroll from './src/simple/simple-scrollable';
-import WithMixedSpacing from './src/simple/simple-mixed-spacing';
+import Simple from '../src/simple/simple';
+import SimpleWithScroll from '../src/simple/simple-scrollable';
+import WithMixedSpacing from '../src/simple/simple-mixed-spacing';
 
-storiesOf('Super simple', module)
+storiesOf('Examples/Super simple', module)
   .add('vertical list', () => <Simple />)
   .add('vertical list with scroll (overflow: auto)', () => (
     <SimpleWithScroll overflow="auto" />

@@ -4,7 +4,7 @@ import { getHandleSelector } from './util';
 
 describe('reorder lists', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=board--simple');
+    cy.visit('/iframe.html?id=examples-board--simple');
   });
 
   it('should reorder lists', () => {

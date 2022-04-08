@@ -24,4 +24,10 @@ export const decorators = [
 
 export const parameters = {
   layout: 'fullscreen',
+
+  options: {
+    storySort: {
+      order: ['Welcome', 'Examples'],
+    },
+  },
 };
