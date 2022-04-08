@@ -8,8 +8,8 @@ See how beautiful it is for yourself!
 
 ## Viewing on a mobile or tablet
 
-- [Simple list](https://react-forked-dnd.netlify.com/iframe.html?id=single-vertical-list--basic)
-- [Board](https://react-forked-dnd.netlify.com/iframe.html?id=board--simple) - best viewed in landscape
+- [Simple list](https://react-forked-dnd.netlify.com/iframe.html?id=examples-single-vertical-list--basic)
+- [Board](https://react-forked-dnd.netlify.com/iframe.html?id=examples-board--simple) - best viewed in landscape
 
 > We provide different links for touch devices as [storybook](https://github.com/storybooks/storybook) runs examples in an iframe which can result in a strange auto scroll experience
 

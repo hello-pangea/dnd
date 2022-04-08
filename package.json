@@ -40,7 +40,7 @@
     "chromatic": "chromatic --project-token=f92123f238de",
     "prepare": "husky install",
     "release": "cross-env SKIP_PREPARE_COMMIT_MSG=true release-it",
-    "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=single-vertical-list--basic --no-enable-error-reporting --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
+    "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=examples-single-vertical-list--basic --no-enable-error-reporting --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
     "test": "pnpm test:react-17 && pnpm test:react-16",
     "test:react-16": "REACT_VERSION=16 jest --config ./jest.config.js",
     "test:react-17": "jest --config ./jest.config.js",
