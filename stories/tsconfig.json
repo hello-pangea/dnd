@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "compilerOptions": {
     "baseUrl": ".",
-    "types": ["csstype"],
+    "types": ["@emotion/react/types/css-prop", "csstype"],
     "paths": {
       "@react-forked/dnd": ["../src/index.ts"]
     }
