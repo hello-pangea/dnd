@@ -39,7 +39,7 @@ specifiers:
   '@storybook/theming': 6.5.0-alpha.59
   '@testing-library/dom': 8.12.0
   '@testing-library/react': 12.1.4
-  '@types/enzyme': 3.10.11
+  '@types/enzyme': 3.10.12
   '@types/express': 4.17.13
   '@types/fs-extra': 9.0.13
   '@types/jest': 27.4.1
@@ -179,7 +179,7 @@ devDependencies:
   '@storybook/theming': 6.5.0-alpha.59_react-dom@17.0.2+react@17.0.2
   '@testing-library/dom': 8.12.0
   '@testing-library/react': 12.1.4_react-dom@17.0.2+react@17.0.2
-  '@types/enzyme': 3.10.11
+  '@types/enzyme': 3.10.12
   '@types/express': 4.17.13
   '@types/fs-extra': 9.0.13
   '@types/jest': 27.4.1
@@ -4612,8 +4612,8 @@ packages:
       '@types/node': 16.11.26
     dev: true
 
-  /@types/enzyme/3.10.11:
-    resolution: {integrity: sha512-LEtC7zXsQlbGXWGcnnmOI7rTyP+i1QzQv4Va91RKXDEukLDaNyxu0rXlfMiGEhJwfgTPCTb0R+Pnlj//oM9e/w==}
+  /@types/enzyme/3.10.12:
+    resolution: {integrity: sha512-xryQlOEIe1TduDWAOphR0ihfebKFSWOXpIsk+70JskCfRfW+xALdnJ0r1ZOTo85F9Qsjk6vtlU7edTYHbls9tA==}
     dependencies:
       '@types/cheerio': 0.22.31
       '@types/react': 17.0.43
