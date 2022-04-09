@@ -110,7 +110,7 @@ specifiers:
   react-virtualized: 9.22.3
   react-window: 1.8.6
   redux: ^4.1.2
-  release-it: 14.14.0
+  release-it: 14.14.1
   require-from-string: 2.0.2
   rimraf: 3.0.2
   rollup: 2.70.1
@@ -163,7 +163,7 @@ devDependencies:
   '@emotion/react': 11.9.0_c1cf67fb40c16c390126f300fc197413
   '@emotion/styled': 11.8.1_5154967df6f19c47e31ab6c742104bd5
   '@jest/environment': 27.5.1
-  '@release-it/conventional-changelog': 4.2.2_release-it@14.14.0
+  '@release-it/conventional-changelog': 4.2.2_release-it@14.14.1
   '@rollup/plugin-babel': 5.3.1_@babel+core@7.17.8+rollup@2.70.1
   '@rollup/plugin-commonjs': 21.0.3_rollup@2.70.1
   '@rollup/plugin-json': 4.1.0_rollup@2.70.1
@@ -245,7 +245,7 @@ devDependencies:
   react-test-renderer: 17.0.2_react@17.0.2
   react-virtualized: 9.22.3_react-dom@17.0.2+react@17.0.2
   react-window: 1.8.6_react-dom@17.0.2+react@17.0.2
-  release-it: 14.14.0
+  release-it: 14.14.1
   require-from-string: 2.0.2
   rimraf: 3.0.2
   rollup: 2.70.1
@@ -2729,7 +2729,7 @@ packages:
     resolution: {integrity: sha512-8KG5RD0GVP4ydEzRn/I4BNDuxDtqVbOdm8675T49OIG/NGhaK0pjPX7ZcDlvKYbA+ulvVK3ztfcF4uBdOxuJbQ==}
     dependencies:
       '@gar/promisify': 1.1.3
-      semver: 7.3.5
+      semver: 7.3.6
     dev: true
 
   /@npmcli/move-file/1.1.2:
@@ -2890,7 +2890,7 @@ packages:
     resolution: {integrity: sha512-8U7hIl7+30XbIrJ0deQMXpXESM1L4yrt6BHok5hzcR0LivivuNkk+tHU1iRVScOwCmQcrOr6kvtIr29MNbQHqQ==}
     dev: true
 
-  /@release-it/conventional-changelog/4.2.2_release-it@14.14.0:
+  /@release-it/conventional-changelog/4.2.2_release-it@14.14.1:
     resolution: {integrity: sha512-cbpfMSKTt8VtyltNls6Kt0WXIRmgILNpF1nqGE2oe3acs286Brrb5WFGyPhYR8XUy0nVsnjG1zmUPP6n0Xd6XA==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -2900,7 +2900,7 @@ packages:
       conventional-changelog: 3.1.25
       conventional-recommended-bump: 6.1.0
       prepend-file: 2.0.1
-      release-it: 14.14.0
+      release-it: 14.14.1
     dev: true
 
   /@rollup/plugin-babel/5.3.1_@babel+core@7.17.8+rollup@2.70.1:
@@ -5147,7 +5147,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.5
+      semver: 7.3.6
       tsutils: 3.21.0_typescript@4.6.3
       typescript: 4.6.3
     transitivePeerDependencies:
@@ -5168,7 +5168,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.5
+      semver: 7.3.6
       tsutils: 3.21.0_typescript@4.6.3
       typescript: 4.6.3
     transitivePeerDependencies:
@@ -5189,7 +5189,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.5
+      semver: 7.3.6
       tsutils: 3.21.0_typescript@4.6.3
       typescript: 4.6.3
     transitivePeerDependencies:
@@ -9741,7 +9741,7 @@ packages:
       memfs: 3.4.1
       minimatch: 3.1.2
       schema-utils: 2.7.0
-      semver: 7.3.5
+      semver: 7.3.6
       tapable: 1.1.3
       typescript: 4.6.3
       webpack: 4.46.0
@@ -10849,9 +10849,9 @@ packages:
       through: 2.3.8
     dev: true
 
-  /inquirer/8.2.2:
-    resolution: {integrity: sha512-pG7I/si6K/0X7p1qU+rfWnpTE1UIkTONN1wxtzh0d+dHXtT/JG6qBgLxoyHVsQa8cFABxAPh0pD6uUUHiAoaow==}
-    engines: {node: '>=12.0.0'}
+  /inquirer/8.2.0:
+    resolution: {integrity: sha512-0crLweprevJ02tTuA6ThpoAERAGyVILC4sS74uib58Xf/zSr1/ZWtmm7D5CI+bSQEaA04f0K7idaHpQbSWgiVQ==}
+    engines: {node: '>=8.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
       chalk: 4.1.2
@@ -11902,7 +11902,7 @@ packages:
       jest-util: 27.5.1
       natural-compare: 1.4.0
       pretty-format: 27.5.1
-      semver: 7.3.5
+      semver: 7.3.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -12649,6 +12649,11 @@ packages:
       yallist: 4.0.0
     dev: true
 
+  /lru-cache/7.8.0:
+    resolution: {integrity: sha512-AmXqneQZL3KZMIgBpaPTeI6pfwh+xQ2vutMsyqOu1TBdEXFZgpG/80wuJ531w2ZN7TI0/oc8CPxzh/DKQudZqg==}
+    engines: {node: '>=12'}
+    dev: true
+
   /lru_map/0.3.3:
     resolution: {integrity: sha1-tcg1G5Rky9dQM1p5ZQoOwOVhGN0=}
     dev: true
@@ -13305,7 +13310,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.8.1
-      semver: 7.3.5
+      semver: 7.3.6
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -14059,7 +14064,7 @@ packages:
       loader-utils: 2.0.2
       postcss: 7.0.39
       schema-utils: 3.1.1
-      semver: 7.3.5
+      semver: 7.3.6
       webpack: 4.46.0
     dev: true
 
@@ -15024,8 +15029,8 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /release-it/14.14.0:
-    resolution: {integrity: sha512-HOkRYiLHevQvKIgSBSKs+2FJboPEWced5S8lvy4PL6BdPrEKDW7nKkL8Whs6Bc+d1Mvz4kzoxfK2jOmritzq3w==}
+  /release-it/14.14.1:
+    resolution: {integrity: sha512-9+Bgulvs9N50rGHsHXAVpoAjsfUxwVjheK16yKJ3LUdbU9SV52tupTCYBruxw2gj6QOta8z1zD3rFRv3x6QVRg==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -15041,7 +15046,7 @@ packages:
       globby: 11.0.4
       got: 11.8.3
       import-cwd: 3.0.0
-      inquirer: 8.2.2
+      inquirer: 8.2.0
       is-ci: 3.0.1
       lodash: 4.17.21
       mime-types: 2.1.35
@@ -15050,7 +15055,8 @@ packages:
       ora: 5.4.1
       os-name: 4.0.1
       parse-json: 5.2.0
-      semver: 7.3.5
+      promise.allsettled: 1.0.5
+      semver: 7.3.6
       shelljs: 0.8.5
       update-notifier: 5.1.0
       url-join: 4.0.1
@@ -15544,6 +15550,14 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
+
+  /semver/7.3.6:
+    resolution: {integrity: sha512-HZWqcgwLsjaX1HBD31msI/rXktuIhS+lWvdE4kN9z+8IVT4Itc7vqU2WvYsyD6/sjYCt4dEKH/m1M3dwI9CC5w==}
+    engines: {node: ^10.0.0 || ^12.0.0 || ^14.0.0 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      lru-cache: 7.8.0
     dev: true
 
   /send/0.17.2:
@@ -17141,7 +17155,7 @@ packages:
       is-yarn-global: 0.3.0
       latest-version: 5.1.0
       pupa: 2.1.1
-      semver: 7.3.5
+      semver: 7.3.6
       semver-diff: 3.1.1
       xdg-basedir: 4.0.0
     dev: true
