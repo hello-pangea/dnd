@@ -20,7 +20,7 @@ specifiers:
   '@commitlint/cz-commitlint': 16.2.3
   '@emotion/babel-preset-css-prop': 11.2.0
   '@emotion/eslint-plugin': 11.7.0
-  '@emotion/react': 11.8.2
+  '@emotion/react': 11.9.0
   '@emotion/styled': 11.8.1
   '@jest/environment': 27.5.1
   '@release-it/conventional-changelog': 4.2.2
@@ -160,8 +160,8 @@ devDependencies:
   '@commitlint/cz-commitlint': 16.2.3_commitizen@4.2.4
   '@emotion/babel-preset-css-prop': 11.2.0_@babel+core@7.17.8
   '@emotion/eslint-plugin': 11.7.0_eslint@8.11.0
-  '@emotion/react': 11.8.2_c1cf67fb40c16c390126f300fc197413
-  '@emotion/styled': 11.8.1_9e1aa84c2920c31b9f962a733ba5a2b4
+  '@emotion/react': 11.9.0_c1cf67fb40c16c390126f300fc197413
+  '@emotion/styled': 11.8.1_5154967df6f19c47e31ab6c742104bd5
   '@jest/environment': 27.5.1
   '@release-it/conventional-changelog': 4.2.2_release-it@14.14.0
   '@rollup/plugin-babel': 5.3.1_@babel+core@7.17.8+rollup@2.70.1
@@ -2126,7 +2126,7 @@ packages:
       '@babel/runtime': 7.17.8
       '@emotion/hash': 0.8.0
       '@emotion/memoize': 0.7.5
-      '@emotion/serialize': 1.0.2
+      '@emotion/serialize': 1.0.3
       babel-plugin-macros: 2.8.0
       convert-source-map: 1.8.0
       escape-string-regexp: 4.0.0
@@ -2221,8 +2221,8 @@ packages:
     resolution: {integrity: sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==}
     dev: true
 
-  /@emotion/react/11.8.2_c1cf67fb40c16c390126f300fc197413:
-    resolution: {integrity: sha512-+1bcHBaNJv5nkIIgnGKVsie3otS0wF9f1T1hteF3WeVvMNQEtfZ4YyFpnphGoot3ilU/wWMgP2SgIDuHLE/wAA==}
+  /@emotion/react/11.9.0_c1cf67fb40c16c390126f300fc197413:
+    resolution: {integrity: sha512-lBVSF5d0ceKtfKCDQJveNAtkC7ayxpVlgOohLgXqRwqWr9bOf4TZAFFyIcNngnV6xK6X4x2ZeXq7vliHkoVkxQ==}
     peerDependencies:
       '@babel/core': ^7.0.0
       '@types/react': '*'
@@ -2237,7 +2237,7 @@ packages:
       '@babel/runtime': 7.17.8
       '@emotion/babel-plugin': 11.7.2_@babel+core@7.17.8
       '@emotion/cache': 11.7.1
-      '@emotion/serialize': 1.0.2
+      '@emotion/serialize': 1.0.3
       '@emotion/utils': 1.1.0
       '@emotion/weak-memoize': 0.2.5
       '@types/react': 17.0.43
@@ -2257,6 +2257,16 @@ packages:
 
   /@emotion/serialize/1.0.2:
     resolution: {integrity: sha512-95MgNJ9+/ajxU7QIAruiOAdYNjxZX7G2mhgrtDWswA21VviYIRP1R5QilZ/bDY42xiKsaktP4egJb3QdYQZi1A==}
+    dependencies:
+      '@emotion/hash': 0.8.0
+      '@emotion/memoize': 0.7.5
+      '@emotion/unitless': 0.7.5
+      '@emotion/utils': 1.1.0
+      csstype: 3.0.11
+    dev: true
+
+  /@emotion/serialize/1.0.3:
+    resolution: {integrity: sha512-2mSSvgLfyV3q+iVh3YWgNlUc2a9ZlDU7DjuP5MjK3AXRR0dYigCrP99aeFtaB2L/hjfEZdSThn5dsZ0ufqbvsA==}
     dependencies:
       '@emotion/hash': 0.8.0
       '@emotion/memoize': 0.7.5
@@ -2299,7 +2309,7 @@ packages:
       react: 17.0.2
     dev: true
 
-  /@emotion/styled/11.8.1_9e1aa84c2920c31b9f962a733ba5a2b4:
+  /@emotion/styled/11.8.1_5154967df6f19c47e31ab6c742104bd5:
     resolution: {integrity: sha512-OghEVAYBZMpEquHZwuelXcRjRJQOVayvbmNR0zr174NHdmMgrNkLC6TljKC5h9lZLkN5WGrdUcrKlOJ4phhoTQ==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -2316,7 +2326,7 @@ packages:
       '@babel/runtime': 7.17.8
       '@emotion/babel-plugin': 11.7.2_@babel+core@7.17.8
       '@emotion/is-prop-valid': 1.1.2
-      '@emotion/react': 11.8.2_c1cf67fb40c16c390126f300fc197413
+      '@emotion/react': 11.9.0_c1cf67fb40c16c390126f300fc197413
       '@emotion/serialize': 1.0.2
       '@emotion/utils': 1.1.0
       '@types/react': 17.0.43
