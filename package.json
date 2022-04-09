@@ -163,7 +163,7 @@
     "jest": "27.5.1",
     "jest-axe": "6.0.0",
     "jest-environment-jsdom": "27.5.1",
-    "jest-junit": "13.0.0",
+    "jest-junit": "13.1.0",
     "jest-watch-typeahead": "1.0.0",
     "jsdom": "19.0.0",
     "lighthouse": "9.5.0",
