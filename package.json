@@ -171,10 +171,12 @@
     "memory-fs": "0.5.0",
     "prettier": "2.6.2",
     "raf-stub": "3.0.0",
-    "react": "17.0.2",
+    "react": "18.0.0",
     "react-16": "npm:react@16.14.0",
-    "react-dom": "17.0.2",
+    "react-17": "npm:react@17.0.2",
+    "react-dom": "18.0.0",
     "react-dom-16": "npm:react-dom@16.14.0",
+    "react-dom-17": "npm:react-dom@17.0.2",
     "react-test-renderer": "17.0.2",
     "react-virtualized": "9.22.3",
     "react-window": "1.8.6",
@@ -200,8 +202,8 @@
     "webpack": "5.72.0"
   },
   "peerDependencies": {
-    "react": "^16.8.5 || ^17.0.0",
-    "react-dom": "^16.8.5 || ^17.0.0"
+    "react": "^16.8.5 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.5 || ^17.0.0 || ^18.0.0"
   },
   "license": "Apache-2.0",
   "jest-junit": {
