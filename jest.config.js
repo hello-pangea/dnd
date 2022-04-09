@@ -19,18 +19,20 @@ const config = {
   ],
 };
 
-if (process.env.REACT_VERSION === '16') {
+const REACT_VERSION = process.env.REACT_VERSION;
+
+if (['16', '17'].includes(REACT_VERSION)) {
   config.testPathIgnorePatterns = [
     ...config.testPathIgnorePatterns,
     // These test do not requires react and will
-    // be run in the base run (with react v17)
+    // be run in the base run (with react v18)
     'test/unit/docs',
     'test/unit/health',
   ];
-  config.cacheDirectory = '.cache/jest-cache-react-16';
+  config.cacheDirectory = `.cache/jest-cache-react-${REACT_VERSION}`;
   config.moduleNameMapper = {
-    '^react-dom((\\/.*)?)$': 'react-dom-16$1',
-    '^react((\\/.*)?)$': 'react-16$1',
+    '^react-dom((\\/.*)?)$': `react-dom-${REACT_VERSION}$1`,
+    '^react((\\/.*)?)$': `react-${REACT_VERSION}$1`,
   };
 }
 
