@@ -114,7 +114,7 @@ specifiers:
   require-from-string: 2.0.2
   rimraf: 3.0.2
   rollup: 2.70.1
-  rollup-plugin-dts: 4.2.0
+  rollup-plugin-dts: 4.2.1
   rollup-plugin-size-snapshot: 0.12.0
   rollup-plugin-terser: 7.0.2
   seedrandom: 3.0.5
@@ -249,7 +249,7 @@ devDependencies:
   require-from-string: 2.0.2
   rimraf: 3.0.2
   rollup: 2.70.1
-  rollup-plugin-dts: 4.2.0_rollup@2.70.1+typescript@4.6.3
+  rollup-plugin-dts: 4.2.1_rollup@2.70.1+typescript@4.6.3
   rollup-plugin-size-snapshot: 0.12.0_rollup@2.70.1
   rollup-plugin-terser: 7.0.2_rollup@2.70.1
   seedrandom: 3.0.5
@@ -15319,12 +15319,12 @@ packages:
     engines: {node: '>=0.10'}
     dev: true
 
-  /rollup-plugin-dts/4.2.0_rollup@2.70.1+typescript@4.6.3:
-    resolution: {integrity: sha512-lx6irWVhz/x4//tIqRhzk4FOqGQ0n37ZM2wpPCn4uafl/EmiV92om7ZdAsq7Bzho6C+Xh5GfsyuP9H+Udv72Lg==}
-    engines: {node: '>=v12.22.10'}
+  /rollup-plugin-dts/4.2.1_rollup@2.70.1+typescript@4.6.3:
+    resolution: {integrity: sha512-eaxQZNUJ5iQcxNGlpJ1CUgG4OSVqWjDZ3nNSWBIoGrpcote2aNphSe1RJOaSYkb8dwn3o+rYm1vvld/5z3EGSQ==}
+    engines: {node: '>=v12.22.11'}
     peerDependencies:
-      rollup: ^2.55
-      typescript: ^4.1
+      rollup: ^2.70
+      typescript: ^4.6
     dependencies:
       magic-string: 0.26.1
       rollup: 2.70.1
