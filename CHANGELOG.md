@@ -1,6 +1,64 @@
 
 
-### [14.0.1](https://github.com/react-forked/dnd/compare/v14.0.0...v14.0.1) (2022-03-20)
+### [14.0.2](https://github.com/react-forked/dnd/compare/v14.0.1...v14.0.2) (2022-04-10)
+
+
+### CI 🛠
+
+* **orb:** update browser-tools orb to v1.2.5 ([#283](https://github.com/react-forked/dnd/issues/283)) ([ab7daed](https://github.com/react-forked/dnd/commit/ab7daed95f963f0b18783acaa87f58a5147969de))
+
+
+### Docs 📃
+
+* **storybook:** add welcome page ([#310](https://github.com/react-forked/dnd/issues/310)) ([a4fe553](https://github.com/react-forked/dnd/commit/a4fe553126b9371af31f1539be52a84495f3be91))
+* **storybook:** fix documentation links to stories ([#311](https://github.com/react-forked/dnd/issues/311)) ([6b9454d](https://github.com/react-forked/dnd/commit/6b9454d77b094d0a2c68119f457e6ae30ea5c756))
+
+
+### Others 🔧
+
+* **deps:** update dependency react-redux to ^7.2.8 ([#288](https://github.com/react-forked/dnd/issues/288)) ([2a25710](https://github.com/react-forked/dnd/commit/2a257103e35cd6728b6c00ef66ef10a64fce8bbd))
+* **dev-deps:** update actions/cache action to v3 ([#266](https://github.com/react-forked/dnd/issues/266)) ([86dbaa3](https://github.com/react-forked/dnd/commit/86dbaa34cc6fa4bbdb9ea4d14692f9b970540a21))
+* **dev-deps:** update babel monorepo to v7.17.9 ([#300](https://github.com/react-forked/dnd/issues/300)) ([9657a46](https://github.com/react-forked/dnd/commit/9657a46969b42f426ff15570d773e5070e3eb452))
+* **dev-deps:** update dependency @atlaskit/css-reset to v6.3.10 ([#301](https://github.com/react-forked/dnd/issues/301)) ([dfc0dff](https://github.com/react-forked/dnd/commit/dfc0dff72536291c97be14ee66c77135b104222f))
+* **dev-deps:** update dependency @atlaskit/theme to v12.1.6 ([#302](https://github.com/react-forked/dnd/issues/302)) ([3db1267](https://github.com/react-forked/dnd/commit/3db1267bff3950ea86d60bef74e5c0d90563ccb1))
+* **dev-deps:** update dependency @emotion/react to v11.9.0 ([#299](https://github.com/react-forked/dnd/issues/299)) ([07ed697](https://github.com/react-forked/dnd/commit/07ed697f2ba5774c7a2690012dcaa5b255f11794))
+* **dev-deps:** update dependency @rollup/plugin-commonjs to v21.0.3 ([#281](https://github.com/react-forked/dnd/issues/281)) ([2258df7](https://github.com/react-forked/dnd/commit/2258df7e97c22feb6012c1aa92c7f1cc01cbebea))
+* **dev-deps:** update dependency @testing-library/dom to v8.12.0 ([#272](https://github.com/react-forked/dnd/issues/272)) ([42e55b4](https://github.com/react-forked/dnd/commit/42e55b4f47df3a42c1fa0e080a8eed6c15a02fef))
+* **dev-deps:** update dependency @testing-library/dom to v8.13.0 ([#296](https://github.com/react-forked/dnd/issues/296)) ([f2d3b0e](https://github.com/react-forked/dnd/commit/f2d3b0e5b3b811e6f3d7f12a85afa1745e08b909))
+* **dev-deps:** update dependency @types/enzyme to v3.10.12 ([#314](https://github.com/react-forked/dnd/issues/314)) ([b23929a](https://github.com/react-forked/dnd/commit/b23929a09d101878e1c38da848cabcc0cbe43b24))
+* **dev-deps:** update dependency @types/react to v17.0.43 ([#269](https://github.com/react-forked/dnd/issues/269)) ([db9816d](https://github.com/react-forked/dnd/commit/db9816dbc2e430df958ba7e98525d912ce909044))
+* **dev-deps:** update dependency @types/react to v17.0.44 ([#305](https://github.com/react-forked/dnd/issues/305)) ([6d79fdc](https://github.com/react-forked/dnd/commit/6d79fdcc4ea1f66b99c0a9eff7e0d54094750087))
+* **dev-deps:** update dependency @types/react-dom to v17.0.15 ([#306](https://github.com/react-forked/dnd/issues/306)) ([42169c5](https://github.com/react-forked/dnd/commit/42169c569df70519b39a6b088b356f612e14f638))
+* **dev-deps:** update dependency @types/react-virtualized to v9.21.21 ([#307](https://github.com/react-forked/dnd/issues/307)) ([609f9b2](https://github.com/react-forked/dnd/commit/609f9b2055ec29ed524e68b65b0a63e0e5e7dd63))
+* **dev-deps:** update dependency @wojtekmaj/enzyme-adapter-react-17 to v0.6.7 ([#280](https://github.com/react-forked/dnd/issues/280)) ([67e7be1](https://github.com/react-forked/dnd/commit/67e7be19137a35619d8a5becfb1004ab16dba5bb))
+* **dev-deps:** update dependency babel-loader to v8.2.4 ([#268](https://github.com/react-forked/dnd/issues/268)) ([f51a24c](https://github.com/react-forked/dnd/commit/f51a24c6cfb19c66961e53179fb188e00587afd1))
+* **dev-deps:** update dependency cypress to v9.5.3 ([#282](https://github.com/react-forked/dnd/issues/282)) ([bf4539b](https://github.com/react-forked/dnd/commit/bf4539b5c9eed6ebcfb898af7f3302db04e3cc14))
+* **dev-deps:** update dependency eslint to v8.13.0 ([#279](https://github.com/react-forked/dnd/issues/279)) ([0ce0d1a](https://github.com/react-forked/dnd/commit/0ce0d1aee466a771195cc83fedeb9626401def38))
+* **dev-deps:** update dependency eslint-import-resolver-typescript to v2.7.0 ([#271](https://github.com/react-forked/dnd/issues/271)) ([ec4bc91](https://github.com/react-forked/dnd/commit/ec4bc91b9958880da0f5c115844598209a1caf90))
+* **dev-deps:** update dependency eslint-import-resolver-typescript to v2.7.1 ([#292](https://github.com/react-forked/dnd/issues/292)) ([461d770](https://github.com/react-forked/dnd/commit/461d770bab14544fcbd60ba7c1e80a3c541e708d))
+* **dev-deps:** update dependency eslint-plugin-import to v2.26.0 ([#298](https://github.com/react-forked/dnd/issues/298)) ([5c8cd3c](https://github.com/react-forked/dnd/commit/5c8cd3ce505ff9e5871df7b1bee48eabf3b6590a))
+* **dev-deps:** update dependency eslint-plugin-jest to v26.1.3 ([#273](https://github.com/react-forked/dnd/issues/273)) ([a354a0b](https://github.com/react-forked/dnd/commit/a354a0b8f8aa9c8397586a0d4ddea115976a293f))
+* **dev-deps:** update dependency eslint-plugin-jest to v26.1.4 ([#312](https://github.com/react-forked/dnd/issues/312)) ([7cc79e5](https://github.com/react-forked/dnd/commit/7cc79e51d088fd73dce22cf5e7e674edf81e6e92))
+* **dev-deps:** update dependency eslint-plugin-react-hooks to v4.4.0 ([#284](https://github.com/react-forked/dnd/issues/284)) ([1a8e469](https://github.com/react-forked/dnd/commit/1a8e469db34c6cbb239e1e6bc626dc8ff9c91514))
+* **dev-deps:** update dependency eslint-plugin-storybook to v0.5.8 ([#304](https://github.com/react-forked/dnd/issues/304)) ([6993c77](https://github.com/react-forked/dnd/commit/6993c7714e89c4af8c4448f9fde9d25f1dea5729))
+* **dev-deps:** update dependency jest-junit to v13.1.0 ([#297](https://github.com/react-forked/dnd/issues/297)) ([d409723](https://github.com/react-forked/dnd/commit/d409723375cabc35d846e669c97e427d3b33ba81))
+* **dev-deps:** update dependency prettier to v2.6.1 ([#277](https://github.com/react-forked/dnd/issues/277)) ([1edcb31](https://github.com/react-forked/dnd/commit/1edcb3101276e85de58238891f5b47c4903ec2da))
+* **dev-deps:** update dependency prettier to v2.6.2 ([#291](https://github.com/react-forked/dnd/issues/291)) ([556668b](https://github.com/react-forked/dnd/commit/556668b1ffff66fe3d94011a6393258b6f60d749))
+* **dev-deps:** update dependency release-it to v14.13.1 ([#265](https://github.com/react-forked/dnd/issues/265)) ([25a2ebe](https://github.com/react-forked/dnd/commit/25a2ebe6ad2fd5412a8ff6f747f5885e01285ce3))
+* **dev-deps:** update dependency release-it to v14.14.0 ([#289](https://github.com/react-forked/dnd/issues/289)) ([210a9a7](https://github.com/react-forked/dnd/commit/210a9a7555110ecfcf5fd63e3f6319836d967b44))
+* **dev-deps:** update dependency release-it to v14.14.1 ([#315](https://github.com/react-forked/dnd/issues/315)) ([4d16cc7](https://github.com/react-forked/dnd/commit/4d16cc7aa4129a457d30f8cd6373e20dcee5a3e4))
+* **dev-deps:** update dependency rollup-plugin-dts to v4.2.1 ([#313](https://github.com/react-forked/dnd/issues/313)) ([82c7e15](https://github.com/react-forked/dnd/commit/82c7e15388bbeb185178b3bb750d4d649602d1e4))
+* **dev-deps:** update dependency styled-components to v5.3.5 ([#274](https://github.com/react-forked/dnd/issues/274)) ([344de45](https://github.com/react-forked/dnd/commit/344de45c39d10f5327033647e2f0c5ebff22d053))
+* **dev-deps:** update dependency stylelint to v14.6.1 ([#278](https://github.com/react-forked/dnd/issues/278)) ([d869dd3](https://github.com/react-forked/dnd/commit/d869dd3ca4d2c1596f0d52872ae4c0c839417aee))
+* **dev-deps:** update dependency ts-jest to v27.1.4 ([#275](https://github.com/react-forked/dnd/issues/275)) ([b631cb0](https://github.com/react-forked/dnd/commit/b631cb073ee8be3d35eeb27db5d83d3e8484b84a))
+* **dev-deps:** update dependency typescript to v4.6.3 ([#276](https://github.com/react-forked/dnd/issues/276)) ([1dc8646](https://github.com/react-forked/dnd/commit/1dc8646d2f80330e0139a3102b2a58e73d6f5d5b))
+* **dev-deps:** update dependency webpack to v5.71.0 ([#290](https://github.com/react-forked/dnd/issues/290)) ([92bcb24](https://github.com/react-forked/dnd/commit/92bcb24b6ce6b5a1cb4cde83fde6efaa9c0aec59))
+* **dev-deps:** update dependency webpack to v5.72.0 ([#303](https://github.com/react-forked/dnd/issues/303)) ([dff2bbb](https://github.com/react-forked/dnd/commit/dff2bbba94a4ec5f5caa6d7dee3545ce14251816))
+* **dev-deps:** update storybook monorepo to v6.5.0-alpha.51 ([#270](https://github.com/react-forked/dnd/issues/270)) ([c6a5bbb](https://github.com/react-forked/dnd/commit/c6a5bbbbb9376a3d3acf69534bac97a686fcbeaf))
+* **dev-deps:** update storybook monorepo to v6.5.0-alpha.60 ([#286](https://github.com/react-forked/dnd/issues/286)) ([c19ac49](https://github.com/react-forked/dnd/commit/c19ac493816586a744fa926b3c998f9564baa65b))
+* **dev-deps:** update typescript-eslint monorepo to v5.17.0 ([#267](https://github.com/react-forked/dnd/issues/267)) ([a5556e1](https://github.com/react-forked/dnd/commit/a5556e14095736c649791a15dc93319a4e39e1c4))
+* **dev-deps:** update typescript-eslint monorepo to v5.18.0 ([#294](https://github.com/react-forked/dnd/issues/294)) ([b07f088](https://github.com/react-forked/dnd/commit/b07f0888b1d7f54724181c17a3b4ff8900e753e9))
+* **synk:** prevent cli command injection ([#264](https://github.com/react-forked/dnd/issues/264)) ([bd31f99](https://github.com/react-forked/dnd/commit/bd31f9900fd8ed2bbdf52ec18a99c81e0f8afd74))### [14.0.1](https://github.com/react-forked/dnd/compare/v14.0.0...v14.0.1) (2022-03-20)
 
 
 ### Tests 🧪
