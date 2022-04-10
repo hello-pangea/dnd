@@ -14,7 +14,6 @@ import {
   homeAtRest,
   dispatchProps as defaultDispatchProps,
 } from './get-props';
-import getStubber from './get-stubber';
 import { getMarshalStub } from '../../../../util/dimension-marshal';
 import AppContext from '../../../../../src/view/context/app-context';
 import type { AppContextValue } from '../../../../../src/view/context/app-context';
@@ -22,11 +21,12 @@ import createRegistry from '../../../../../src/state/registry/create-registry';
 import useFocusMarshal from '../../../../../src/view/use-focus-marshal';
 
 interface MountArgs {
-  WrappedComponent?: any;
+  WrappedComponent: any;
   ownProps?: Required<DroppableProps>;
   mapProps?: MapProps;
   dispatchProps?: DispatchProps;
   isMovementAllowed?: () => boolean;
+  overwriteProps?: Partial<AppProps>;
 }
 
 interface AppProps extends Props {
@@ -64,18 +64,19 @@ function App(props: AppProps) {
 }
 
 export default ({
-  WrappedComponent = getStubber(),
+  WrappedComponent,
   ownProps = homeOwnProps,
   mapProps = homeAtRest,
   dispatchProps = defaultDispatchProps,
   isMovementAllowed = () => true,
-}: MountArgs = {}) =>
-  mount<any>(
-    <App
-      {...ownProps}
-      {...mapProps}
-      {...dispatchProps}
-      isMovementAllowed={isMovementAllowed}
-      WrappedComponent={WrappedComponent}
-    />,
-  );
+  overwriteProps = {},
+}: MountArgs) => (
+  <App
+    {...ownProps}
+    {...mapProps}
+    {...dispatchProps}
+    isMovementAllowed={isMovementAllowed}
+    WrappedComponent={WrappedComponent}
+    {...overwriteProps}
+  />
+);
