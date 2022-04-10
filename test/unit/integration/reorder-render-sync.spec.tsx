@@ -1,6 +1,5 @@
 import React from 'react';
 import { getRect } from 'css-box-model';
-// import { mount, type ReactWrapper } from 'enzyme';
 import { render, fireEvent } from '@testing-library/react';
 import { DragDropContext, Draggable, Droppable } from '../../../src';
 import type { DropResult } from '../../../src';

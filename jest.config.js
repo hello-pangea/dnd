@@ -31,6 +31,7 @@ if (['16', '17'].includes(REACT_VERSION)) {
   ];
   config.cacheDirectory = `.cache/jest-cache-react-${REACT_VERSION}`;
   config.moduleNameMapper = {
+    '^@testing-library/react((\\/.*)?)$': '@testing-library/react-16-17$1',
     '^react-dom((\\/.*)?)$': `react-dom-${REACT_VERSION}$1`,
     '^react((\\/.*)?)$': `react-${REACT_VERSION}$1`,
   };

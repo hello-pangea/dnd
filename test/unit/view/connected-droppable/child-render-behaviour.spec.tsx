@@ -1,8 +1,7 @@
+import { render, screen } from '@testing-library/react';
 import React, { Component } from 'react';
-import { mount } from 'enzyme';
 import type { DroppableProvided } from '../../../../src/view/droppable/droppable-types';
 import Droppable from '../../../../src/view/droppable/connected-droppable';
-import forceUpdate from '../../../util/force-update';
 import { DragDropContext } from '../../../../src';
 
 class Person extends Component<{
@@ -46,34 +45,32 @@ afterEach(() => {
 });
 
 it('should render the child function when the parent renders', () => {
-  const wrapper = mount(<App currentUser="Jake" />);
+  const { unmount } = render(<App currentUser="Jake" />);
 
   expect(personRenderSpy).toHaveBeenCalledTimes(1);
-  expect(wrapper.find(Person).props().name).toBe('Jake');
+  expect(screen.getByText(/Jake/).textContent).toBe('hello Jake');
 
-  wrapper.unmount();
+  unmount();
 });
 
 it('should render the child function when the parent re-renders', () => {
-  const wrapper = mount(<App currentUser="Jake" />);
+  const { rerender, unmount } = render(<App currentUser="Jake" />);
 
-  forceUpdate(wrapper);
+  rerender(<App currentUser="Jake" />);
 
   expect(personRenderSpy).toHaveBeenCalledTimes(2);
-  expect(wrapper.find(Person).props().name).toBe('Jake');
+  expect(screen.getByText(/Jake/).textContent).toBe('hello Jake');
 
-  wrapper.unmount();
+  unmount();
 });
 
 it('should render the child function when the parents props changes that cause a re-render', () => {
-  const wrapper = mount(<App currentUser="Jake" />);
+  const { rerender, unmount } = render(<App currentUser="Jake" />);
 
-  wrapper.setProps({
-    currentUser: 'Finn',
-  });
+  rerender(<App currentUser="Finn" />);
 
   expect(personRenderSpy).toHaveBeenCalledTimes(2);
-  expect(wrapper.find(Person).props().name).toBe('Finn');
+  expect(screen.getByText(/Finn/).textContent).toBe('hello Finn');
 
-  wrapper.unmount();
+  unmount();
 });

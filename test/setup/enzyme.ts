@@ -17,4 +17,6 @@ function getAdapter() {
 
 const Adapter = getAdapter();
 
+// Drop enzyme usaged
+// See: https://dev.to/wojtekmaj/enzyme-is-dead-now-what-ekl
 Enzyme.configure({ adapter: new Adapter() });
