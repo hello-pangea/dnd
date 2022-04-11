@@ -38,7 +38,7 @@ specifiers:
   '@storybook/react': 6.5.0-alpha.60
   '@storybook/theming': 6.5.0-alpha.60
   '@testing-library/dom': 8.13.0
-  '@testing-library/react': 12.1.4
+  '@testing-library/react': 12.1.5
   '@types/enzyme': 3.10.12
   '@types/express': 4.17.13
   '@types/fs-extra': 9.0.13
@@ -178,7 +178,7 @@ devDependencies:
   '@storybook/react': 6.5.0-alpha.60_53061357d4abbea43324b67fa10c9322
   '@storybook/theming': 6.5.0-alpha.60_react-dom@17.0.2+react@17.0.2
   '@testing-library/dom': 8.13.0
-  '@testing-library/react': 12.1.4_react-dom@17.0.2+react@17.0.2
+  '@testing-library/react': 12.1.5_react-dom@17.0.2+react@17.0.2
   '@types/enzyme': 3.10.12
   '@types/express': 4.17.13
   '@types/fs-extra': 9.0.13
@@ -4537,12 +4537,12 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react/12.1.4_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-jiPKOm7vyUw311Hn/HlNQ9P8/lHNtArAx0PisXyFixDDvfl8DbD6EUdbshK5eqauvBSvzZd19itqQ9j3nferJA==}
+  /@testing-library/react/12.1.5_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: '*'
-      react-dom: '*'
+      react: <18.0.0
+      react-dom: <18.0.0
     dependencies:
       '@babel/runtime': 7.17.9
       '@testing-library/dom': 8.13.0
