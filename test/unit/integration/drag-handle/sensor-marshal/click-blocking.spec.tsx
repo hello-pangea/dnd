@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, fireEvent, createEvent } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, render, fireEvent, createEvent } from '@testing-library/react';
 import { invariant } from '../../../../../src/invariant';
 import type {
   SensorAPI,
