@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { invariant } from '../../../../src/invariant';
 import { getMarshalStub } from '../../../util/dimension-marshal';
@@ -27,14 +27,14 @@ it('should throw if the droppable has no closest scrollable', () => {
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   // no scroll parent
-  const wrapper = mount(
+  const { container } = render(
     <WithAppContext marshal={marshal} registry={registry}>
       <App parentIsScrollable={false} droppableIsScrollable={false} />,
     </WithAppContext>,
   );
-  const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
+  const droppable = container.querySelector('.droppable') as HTMLElement;
   invariant(droppable);
-  const parent = wrapper.find('.scroll-parent').getDOMNode<HTMLElement>();
+  const parent = container.querySelector('.scroll-parent') as HTMLElement;
   invariant(parent);
   jest
     .spyOn(droppable, 'getBoundingClientRect')
@@ -68,18 +68,18 @@ describe('there is a closest scrollable', () => {
     const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext marshal={marshal} registry={registry}>
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container = wrapper
-      .find('.scroll-container')
-      .getDOMNode<HTMLElement>();
-    invariant(container);
+    const scrollContainer = container.querySelector(
+      '.scroll-container',
+    ) as HTMLElement;
+    invariant(scrollContainer);
 
-    expect(container.scrollTop).toBe(0);
-    expect(container.scrollLeft).toBe(0);
+    expect(scrollContainer.scrollTop).toBe(0);
+    expect(scrollContainer.scrollLeft).toBe(0);
 
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
@@ -89,26 +89,26 @@ describe('there is a closest scrollable', () => {
 
     callbacks.scroll({ x: 500, y: 1000 });
 
-    expect(container.scrollLeft).toBe(500);
-    expect(container.scrollTop).toBe(1000);
+    expect(scrollContainer.scrollLeft).toBe(500);
+    expect(scrollContainer.scrollTop).toBe(1000);
   });
 
   it('should throw if asked to scoll while scroll is not currently being watched', () => {
     const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext marshal={marshal} registry={registry}>
         <ScrollableItem />
       </WithAppContext>,
     );
 
-    const container = wrapper
-      .find('.scroll-container')
-      .getDOMNode<HTMLElement>();
-    invariant(container);
-    expect(container.scrollTop).toBe(0);
-    expect(container.scrollLeft).toBe(0);
+    const scrollContainer = container.querySelector(
+      '.scroll-container',
+    ) as HTMLElement;
+    invariant(scrollContainer);
+    expect(scrollContainer.scrollTop).toBe(0);
+    expect(scrollContainer.scrollLeft).toBe(0);
 
     // dimension not returned yet
     const callbacks: DroppableCallbacks =
