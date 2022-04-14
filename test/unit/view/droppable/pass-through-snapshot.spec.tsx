@@ -1,5 +1,6 @@
-import type { ReactWrapper } from 'enzyme';
-import mount from './util/mount';
+import { render } from '@testing-library/react';
+import React from 'react';
+import App from './util/app';
 import getStubber from './util/get-stubber';
 import {
   isNotOverHome,
@@ -15,32 +16,38 @@ const getLastSnapshot = (myMock: any) => {
 
 it('should let a consumer know when a foreign list is being dragged over', () => {
   const myMock = jest.fn();
-  mount({
-    ownProps: foreignOwnProps,
-    mapProps: isOverForeign,
-    WrappedComponent: getStubber(myMock),
-  });
+  const WrappedComponent = getStubber(myMock);
+
+  render(
+    <App
+      ownProps={foreignOwnProps}
+      mapProps={isOverForeign}
+      WrappedComponent={WrappedComponent}
+    />,
+  );
 
   expect(getLastSnapshot(myMock)).toEqual(isOverForeign.snapshot);
 });
 
 it('should update snapshot as dragging over changes', () => {
   const myMock = jest.fn();
+  const WrappedComponent = getStubber(myMock);
 
-  const wrapper: ReactWrapper<any> = mount({
-    mapProps: homeAtRest,
-    WrappedComponent: getStubber(myMock),
-  });
+  const { rerender } = render(
+    <App mapProps={homeAtRest} WrappedComponent={WrappedComponent} />,
+  );
   expect(getLastSnapshot(myMock)).toBe(homeAtRest.snapshot);
 
-  wrapper.setProps(isOverHome);
+  rerender(<App mapProps={isOverHome} WrappedComponent={WrappedComponent} />);
   expect(getLastSnapshot(myMock)).toBe(isOverHome.snapshot);
 
   // now over foreign list
-  wrapper.setProps(isNotOverHome);
+  rerender(
+    <App mapProps={isNotOverHome} WrappedComponent={WrappedComponent} />,
+  );
   expect(getLastSnapshot(myMock)).toBe(isNotOverHome.snapshot);
 
   // drag is now over
-  wrapper.setProps(homeAtRest);
+  rerender(<App mapProps={homeAtRest} WrappedComponent={WrappedComponent} />);
   expect(getLastSnapshot(myMock)).toBe(homeAtRest.snapshot);
 });

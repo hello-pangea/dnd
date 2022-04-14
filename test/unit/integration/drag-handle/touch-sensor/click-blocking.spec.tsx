@@ -1,6 +1,5 @@
 import React from 'react';
-import { fireEvent, render, createEvent } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, fireEvent, render, createEvent } from '@testing-library/react';
 import App from '../../util/app';
 import { touch, simpleLift } from '../../util/controls';
 

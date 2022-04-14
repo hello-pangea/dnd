@@ -1,11 +1,8 @@
-/* eslint-disable react/no-multi-comp */
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import type { DroppableDescriptor } from '../../../../src/types';
-import forceUpdate from '../../../util/force-update';
 import { preset, ScrollableItem, WithAppContext } from './util/shared';
 import { setViewport } from '../../../util/viewport';
-import PassThroughProps from '../../../util/pass-through-props';
 import type {
   Registry,
   DroppableEntry,
@@ -18,7 +15,7 @@ it('should register itself when mounting', () => {
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
 
-  mount(
+  render(
     <WithAppContext registry={registry}>
       <ScrollableItem />
     </WithAppContext>,
@@ -41,7 +38,7 @@ it('should unregister itself when unmounting', () => {
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   const unregisterSpy = jest.spyOn(registry.droppable, 'unregister');
 
-  const wrapper = mount(
+  const { unmount } = render(
     <WithAppContext registry={registry}>
       <ScrollableItem />
     </WithAppContext>,
@@ -51,7 +48,7 @@ it('should unregister itself when unmounting', () => {
 
   const entry = registerSpy.mock.calls[0][0];
 
-  wrapper.unmount();
+  unmount();
   expect(unregisterSpy).toHaveBeenCalledTimes(1);
   expect(unregisterSpy).toHaveBeenCalledWith(entry);
 });
@@ -61,14 +58,10 @@ it('should update its registration when a descriptor property changes', () => {
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   const unregisterSpy = jest.spyOn(registry.droppable, 'unregister');
 
-  const wrapper = mount(
-    <PassThroughProps>
-      {(extra) => (
-        <WithAppContext registry={registry}>
-          <ScrollableItem {...extra} />
-        </WithAppContext>
-      )}
-    </PassThroughProps>,
+  const { rerender } = render(
+    <WithAppContext registry={registry}>
+      <ScrollableItem />
+    </WithAppContext>,
   );
 
   // $ExpectError: using awesome matchers
@@ -85,9 +78,11 @@ it('should update its registration when a descriptor property changes', () => {
   registerSpy.mockClear();
 
   // updating the index
-  wrapper.setProps({
-    droppableId: 'some-new-id',
-  });
+  rerender(
+    <WithAppContext registry={registry}>
+      <ScrollableItem droppableId="some-new-id" />
+    </WithAppContext>,
+  );
   const updated: DroppableDescriptor = {
     ...preset.home.descriptor,
     id: 'some-new-id',
@@ -112,7 +107,7 @@ it('should not update its registration when a descriptor property does not chang
   const registerSpy = jest.spyOn(registry.droppable, 'register');
   const unregisterSpy = jest.spyOn(registry.droppable, 'unregister');
 
-  const wrapper = mount(
+  const { rerender } = render(
     <WithAppContext registry={registry}>
       <ScrollableItem />
     </WithAppContext>,
@@ -121,7 +116,11 @@ it('should not update its registration when a descriptor property does not chang
   expect(unregisterSpy).not.toHaveBeenCalled();
   registerSpy.mockClear();
 
-  forceUpdate(wrapper);
+  rerender(
+    <WithAppContext registry={registry}>
+      <ScrollableItem />
+    </WithAppContext>,
+  );
   expect(unregisterSpy).not.toHaveBeenCalled();
   expect(registerSpy).not.toHaveBeenCalled();
 });

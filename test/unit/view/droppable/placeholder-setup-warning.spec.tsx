@@ -1,5 +1,5 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import type { ReactWrapper } from 'enzyme';
 import type { DroppableProvided } from '../../../../src/view/droppable/droppable-types';
 import {
   homeAtRest,
@@ -7,7 +7,7 @@ import {
   isOverForeign,
   isNotOverForeign,
 } from './util/get-props';
-import mount from './util/mount';
+import App from './util/app';
 import { disableWarn } from '../../../util/console';
 
 class WithNoPlaceholder extends React.Component<{
@@ -29,56 +29,76 @@ disableWarn();
 
 describe('is over foreign', () => {
   it('should log a warning when mounting', () => {
-    const wrapper: ReactWrapper<any> = mount({
-      ownProps: foreignOwnProps,
-      mapProps: isOverForeign,
-      WrappedComponent: WithNoPlaceholder,
-    });
+    const { unmount } = render(
+      <App
+        ownProps={foreignOwnProps}
+        mapProps={isOverForeign}
+        WrappedComponent={WithNoPlaceholder}
+      />,
+    );
 
     expect(console.warn).toHaveBeenCalled();
 
-    wrapper.unmount();
+    unmount();
   });
 
   it('should log a warning when updating', () => {
-    const wrapper: ReactWrapper<any> = mount({
-      ownProps: foreignOwnProps,
-      mapProps: homeAtRest,
-      WrappedComponent: WithNoPlaceholder,
-    });
+    const { rerender, unmount } = render(
+      <App
+        ownProps={foreignOwnProps}
+        mapProps={homeAtRest}
+        WrappedComponent={WithNoPlaceholder}
+      />,
+    );
     expect(console.warn).not.toHaveBeenCalled();
 
-    wrapper.setProps(isOverForeign);
+    rerender(
+      <App
+        ownProps={foreignOwnProps}
+        mapProps={isOverForeign}
+        WrappedComponent={WithNoPlaceholder}
+      />,
+    );
     expect(console.warn).toHaveBeenCalled();
 
-    wrapper.unmount();
+    unmount();
   });
 });
 
 describe('is not over foreign', () => {
   it('should not log a warning when mounting', () => {
-    const wrapper: ReactWrapper<any> = mount({
-      ownProps: foreignOwnProps,
-      mapProps: isNotOverForeign,
-      WrappedComponent: WithNoPlaceholder,
-    });
+    const { unmount } = render(
+      <App
+        ownProps={foreignOwnProps}
+        mapProps={isNotOverForeign}
+        WrappedComponent={WithNoPlaceholder}
+      />,
+    );
 
     expect(console.warn).not.toHaveBeenCalled();
 
-    wrapper.unmount();
+    unmount();
   });
 
   it('should not log a warning when updating', () => {
-    const wrapper: ReactWrapper<any> = mount({
-      ownProps: foreignOwnProps,
-      mapProps: homeAtRest,
-      WrappedComponent: WithNoPlaceholder,
-    });
+    const { rerender, unmount } = render(
+      <App
+        ownProps={foreignOwnProps}
+        mapProps={homeAtRest}
+        WrappedComponent={WithNoPlaceholder}
+      />,
+    );
     expect(console.warn).not.toHaveBeenCalled();
 
-    wrapper.setProps(isNotOverForeign);
+    rerender(
+      <App
+        ownProps={foreignOwnProps}
+        mapProps={isNotOverForeign}
+        WrappedComponent={WithNoPlaceholder}
+      />,
+    );
     expect(console.warn).not.toHaveBeenCalled();
 
-    wrapper.unmount();
+    unmount();
   });
 });
