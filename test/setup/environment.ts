@@ -5,6 +5,12 @@ import { TextDecoder, TextEncoder } from 'util';
 
 import attachRafStub from './attach-raf-stub';
 
+declare global {
+  interface ProcessEnv {
+    REACT_VERSION?: string;
+  }
+}
+
 export default class MyJSDOMEnvironment extends JSDOMEnvironment {
   constructor(config: Config.ProjectConfig, context?: EnvironmentContext) {
     super(config, context);
