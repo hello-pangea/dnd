@@ -1,7 +1,6 @@
+import { render } from '@testing-library/react';
 import React, { useRef, useCallback } from 'react';
 import type { Spacing, Rect } from 'css-box-model';
-import { mount } from 'enzyme';
-import type { ReactWrapper } from 'enzyme';
 import { useMemo } from 'use-memo-one';
 import { invariant } from '../../../src/invariant';
 import useDraggablePublisher from '../../../src/view/use-draggable-publisher';
@@ -10,7 +9,6 @@ import {
   getDraggableDimension,
   getComputedSpacing,
 } from '../../util/dimension';
-import forceUpdate from '../../util/force-update';
 import type {
   DraggableId,
   DraggableDimension,
@@ -78,7 +76,7 @@ describe('dimension registration', () => {
   it('should register itself when mounting', () => {
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.draggable, 'register');
-    mount(<Item registry={registry} />);
+    render(<Item registry={registry} />);
 
     const expected: DraggableEntry = {
       // $ExpectError
@@ -96,7 +94,7 @@ describe('dimension registration', () => {
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.draggable, 'register');
     const unregisterSpy = jest.spyOn(registry.draggable, 'unregister');
-    const wrapper = mount(<Item registry={registry} />);
+    const { unmount } = render(<Item registry={registry} />);
 
     const expected: DraggableEntry = {
       // $ExpectError
@@ -113,7 +111,7 @@ describe('dimension registration', () => {
     const entry = registerSpy.mock.calls[0][0];
     expect(entry).toEqual(expected);
 
-    wrapper.unmount();
+    unmount();
     expect(unregisterSpy).toHaveBeenCalledTimes(1);
     expect(unregisterSpy.mock.calls[0][0]).toBe(entry);
   });
@@ -123,7 +121,7 @@ describe('dimension registration', () => {
     const registerSpy = jest.spyOn(registry.draggable, 'register');
     const updateSpy = jest.spyOn(registry.draggable, 'update');
     const unregisterSpy = jest.spyOn(registry.draggable, 'unregister');
-    const wrapper = mount(<Item registry={registry} />);
+    const { rerender } = render(<Item registry={registry} />);
 
     const expectedInitial: DraggableEntry = {
       // $ExpectError
@@ -146,9 +144,7 @@ describe('dimension registration', () => {
     registerSpy.mockReset();
 
     // updating the index
-    wrapper.setProps({
-      index: 1000,
-    });
+    rerender(<Item index={1000} registry={registry} />);
 
     // Descriptor updated
     const expectedUpdate: DraggableEntry = {
@@ -176,11 +172,11 @@ describe('dimension registration', () => {
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.draggable, 'register');
     const updateSpy = jest.spyOn(registry.draggable, 'update');
-    const wrapper = mount(<Item registry={registry} />);
+    const { rerender } = render(<Item registry={registry} />);
 
     expect(registerSpy).toHaveBeenCalledTimes(1);
 
-    forceUpdate(wrapper);
+    rerender(<Item registry={registry} />);
     expect(updateSpy).not.toHaveBeenCalled();
   });
 });
@@ -188,14 +184,10 @@ describe('dimension registration', () => {
 describe('dimension publishing', () => {
   // we are doing this rather than spying on the prototype.
   // Sometimes setRef was being provided with an element that did not have the mocked prototype :|
-  const setBoundingClientRect = (
-    wrapper: ReactWrapper<any>,
-    borderBox: Rect,
-  ) => {
-    const ref = wrapper.getDOMNode();
-    invariant(ref);
+  const setBoundingClientRect = (element: Element | null, borderBox: Rect) => {
+    invariant(element);
 
-    ref.getBoundingClientRect = () => setDOMRect(borderBox);
+    element.getBoundingClientRect = () => setDOMRect(borderBox);
   };
 
   it('should publish the dimensions of the target when requested', () => {
@@ -219,7 +211,7 @@ describe('dimension publishing', () => {
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.draggable, 'register');
 
-    const wrapper: ReactWrapper<any> = mount(
+    const { container } = render(
       <Item
         registry={registry}
         draggableId={expected.descriptor.id}
@@ -227,7 +219,10 @@ describe('dimension publishing', () => {
       />,
     );
 
-    setBoundingClientRect(wrapper, expected.client.borderBox);
+    setBoundingClientRect(
+      container.firstElementChild,
+      expected.client.borderBox,
+    );
 
     // pull the get dimension function out
     const getDimension: GetDraggableDimensionFn =
@@ -266,7 +261,7 @@ describe('dimension publishing', () => {
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.draggable, 'register');
 
-    const wrapper: ReactWrapper<any> = mount(
+    const { container } = render(
       <Item
         registry={registry}
         draggableId={expected.descriptor.id}
@@ -274,7 +269,10 @@ describe('dimension publishing', () => {
       />,
     );
 
-    setBoundingClientRect(wrapper, expected.client.borderBox);
+    setBoundingClientRect(
+      container.firstElementChild,
+      expected.client.borderBox,
+    );
 
     // pull the get dimension function out
     const getDimension: GetDraggableDimensionFn =
@@ -307,7 +305,7 @@ describe('dimension publishing', () => {
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.draggable, 'register');
 
-    const wrapper: ReactWrapper<any> = mount(
+    const { container } = render(
       <Item
         draggableId={expected.descriptor.id}
         index={expected.descriptor.index}
@@ -315,7 +313,10 @@ describe('dimension publishing', () => {
       />,
     );
 
-    setBoundingClientRect(wrapper, expected.client.borderBox);
+    setBoundingClientRect(
+      container.firstElementChild,
+      expected.client.borderBox,
+    );
 
     // pull the get dimension function out
     const getDimension: GetDraggableDimensionFn =
@@ -357,7 +358,7 @@ describe('dimension publishing', () => {
     }
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.draggable, 'register');
-    const wrapper: ReactWrapper<any> = mount(
+    const { unmount } = render(
       <NoRefItem registry={registry} draggableId="draggable" />,
     );
     // pull the get dimension function out
@@ -365,6 +366,6 @@ describe('dimension publishing', () => {
       registerSpy.mock.calls[0][0].getDimension;
     // when we call the get dimension function without a ref things will explode
     expect(getDimension).toThrow();
-    wrapper.unmount();
+    unmount();
   });
 });

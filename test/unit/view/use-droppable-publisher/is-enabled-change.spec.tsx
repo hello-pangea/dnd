@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { getMarshalStub } from '../../../util/dimension-marshal';
 import { setViewport } from '../../../util/viewport';
@@ -8,8 +8,6 @@ import {
   ScrollableItem,
   WithAppContext,
 } from './util/shared';
-import forceUpdate from '../../../util/force-update';
-import PassThroughProps from '../../../util/pass-through-props';
 import type {
   Registry,
   DroppableCallbacks,
@@ -22,14 +20,10 @@ it('should publish updates to the enabled state when dragging', () => {
   const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
-  const wrapper = mount(
-    <PassThroughProps>
-      {(extra) => (
-        <WithAppContext marshal={marshal} registry={registry}>
-          <ScrollableItem isDropDisabled={false} {...extra} />
-        </WithAppContext>
-      )}
-    </PassThroughProps>,
+  const { rerender } = render(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem isDropDisabled={false} />
+    </WithAppContext>,
   );
   // not called yet
   expect(marshal.updateDroppableIsEnabled).not.toHaveBeenCalled();
@@ -38,9 +32,11 @@ it('should publish updates to the enabled state when dragging', () => {
   callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
 
   const isDropDisabled = true;
-  wrapper.setProps({
-    isDropDisabled,
-  });
+  rerender(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem isDropDisabled />
+    </WithAppContext>,
+  );
 
   expect(marshal.updateDroppableIsEnabled).toHaveBeenCalledTimes(1);
   expect(marshal.updateDroppableIsEnabled).toHaveBeenCalledWith(
@@ -52,14 +48,10 @@ it('should publish updates to the enabled state when dragging', () => {
 it('should not publish updates to the enabled state when there is no drag', () => {
   const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
-  const wrapper = mount(
-    <PassThroughProps>
-      {(extra) => (
-        <WithAppContext marshal={marshal} registry={registry}>
-          <ScrollableItem isDropDisabled={false} {...extra} />
-        </WithAppContext>
-      )}
-    </PassThroughProps>,
+  const { rerender } = render(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem isDropDisabled={false} />
+    </WithAppContext>,
   );
 
   // not called yet
@@ -67,9 +59,11 @@ it('should not publish updates to the enabled state when there is no drag', () =
 
   // no yet dragging
 
-  wrapper.setProps({
-    isDropDisabled: true,
-  });
+  rerender(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem isDropDisabled />
+    </WithAppContext>,
+  );
 
   expect(marshal.updateDroppableIsEnabled).not.toHaveBeenCalled();
 });
@@ -78,14 +72,10 @@ it('should not publish updates when there is no change', () => {
   const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
-  const wrapper = mount(
-    <PassThroughProps>
-      {(extra) => (
-        <WithAppContext marshal={marshal} registry={registry}>
-          <ScrollableItem isDropDisabled={false} {...extra} />
-        </WithAppContext>
-      )}
-    </PassThroughProps>,
+  const { rerender } = render(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem isDropDisabled={false} />
+    </WithAppContext>,
   );
 
   // not called yet
@@ -94,14 +84,21 @@ it('should not publish updates when there is no change', () => {
   callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
 
   // no change
-  wrapper.setProps({
-    isDropDisabled: false,
-  });
+  rerender(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem isDropDisabled={false} />
+    </WithAppContext>,
+  );
 
   expect(marshal.updateDroppableIsEnabled).not.toHaveBeenCalled();
   // $ExpectError
   marshal.updateDroppableIsEnabled.mockReset();
 
-  forceUpdate(wrapper);
+  // force update
+  rerender(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem isDropDisabled={false} />
+    </WithAppContext>,
+  );
   expect(marshal.updateDroppableIsEnabled).not.toHaveBeenCalled();
 });

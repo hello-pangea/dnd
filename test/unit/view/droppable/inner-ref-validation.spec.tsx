@@ -1,6 +1,7 @@
+import { render } from '@testing-library/react';
 import React from 'react';
 import type { DroppableProvided } from '../../../../src/view/droppable/droppable-types';
-import mount from './util/mount';
+import App from './util/app';
 import { withError } from '../../../util/console';
 
 it('should warn a consumer if they have not provided a ref', () => {
@@ -20,7 +21,7 @@ it('should warn a consumer if they have not provided a ref', () => {
   }
 
   withError(() => {
-    mount({ WrappedComponent: NoRef });
+    render(<App WrappedComponent={NoRef} />);
   });
 });
 
@@ -44,6 +45,6 @@ it('should throw a consumer if they have provided an SVGElement', () => {
   }
 
   withError(() => {
-    mount({ WrappedComponent: WithSVG });
+    render(<App WrappedComponent={WithSVG} />);
   });
 });
