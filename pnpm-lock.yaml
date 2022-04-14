@@ -50,7 +50,7 @@ specifiers:
   '@types/raf-schd': 4.0.1
   '@types/react': 17.0.44
   '@types/react-dom': 17.0.15
-  '@types/react-redux': 7.1.23
+  '@types/react-redux': 7.1.24
   '@types/react-virtualized': 9.21.21
   '@types/react-window': 1.8.5
   '@types/seedrandom': 3.0.2
@@ -190,7 +190,7 @@ devDependencies:
   '@types/raf-schd': 4.0.1
   '@types/react': 17.0.44
   '@types/react-dom': 17.0.15
-  '@types/react-redux': 7.1.23
+  '@types/react-redux': 7.1.24
   '@types/react-virtualized': 9.21.21
   '@types/react-window': 1.8.5
   '@types/seedrandom': 3.0.2
@@ -4894,8 +4894,8 @@ packages:
       '@types/react': 17.0.44
     dev: true
 
-  /@types/react-redux/7.1.23:
-    resolution: {integrity: sha512-D02o3FPfqQlfu2WeEYwh3x2otYd2Dk1o8wAfsA0B1C2AJEFxE663Ozu7JzuWbznGgW248NaOF6wsqCGNq9d3qw==}
+  /@types/react-redux/7.1.24:
+    resolution: {integrity: sha512-7FkurKcS1k0FHZEtdbbgN8Oc6b+stGSfZYjQGicofJ0j4U0qIn/jaSvnP2pLwZKiai3/17xqqxkkrxTgN8UNbQ==}
     dependencies:
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 17.0.44
@@ -14618,7 +14618,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.17.9
-      '@types/react-redux': 7.1.23
+      '@types/react-redux': 7.1.24
       hoist-non-react-statics: 3.3.2
       loose-envify: 1.4.0
       prop-types: 15.8.1
