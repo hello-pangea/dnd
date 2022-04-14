@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { mount } from 'enzyme';
 import type {
   MapProps,
   DroppableProps,
@@ -27,6 +26,7 @@ interface MountArgs {
   mapProps?: MapProps;
   dispatchProps?: DispatchProps;
   isMovementAllowed?: () => boolean;
+  overwriteProps?: Partial<AppProps>;
 }
 
 interface AppProps extends Props {
@@ -69,13 +69,14 @@ export default ({
   mapProps = homeAtRest,
   dispatchProps = defaultDispatchProps,
   isMovementAllowed = () => true,
-}: MountArgs = {}) =>
-  mount<any>(
-    <App
-      {...ownProps}
-      {...mapProps}
-      {...dispatchProps}
-      isMovementAllowed={isMovementAllowed}
-      WrappedComponent={WrappedComponent}
-    />,
-  );
+  overwriteProps = {},
+}: MountArgs) => (
+  <App
+    {...ownProps}
+    {...mapProps}
+    {...dispatchProps}
+    isMovementAllowed={isMovementAllowed}
+    WrappedComponent={WrappedComponent}
+    {...overwriteProps}
+  />
+);

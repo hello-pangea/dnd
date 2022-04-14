@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import mount from './util/mount';
+import { render } from '@testing-library/react';
+import React from 'react';
+import App from './util/app';
 import { homeOwnProps as defaultOwnProps } from './util/get-props';
 import { withError } from '../../../util/console';
 
@@ -21,21 +23,21 @@ it('should throw if no droppableId is provided', () => {
   };
 
   withError(() => {
-    // @ts-ignore: expect error - not provided
+    // @ts-expect-error
     ownProps.droppableId = undefined;
-    mount({ ownProps });
+    render(<App ownProps={ownProps} />);
   });
 
   withError(() => {
-    // @ts-ignore: expect error - not a string
+    // @ts-expect-error
     ownProps.droppableId = null;
-    mount({ ownProps });
+    render(<App ownProps={ownProps} />);
   });
 
   withError(() => {
-    // @ts-ignore: expect error - using number
+    // @ts-expect-error
     ownProps.droppableId = 3;
-    mount({ ownProps });
+    render(<App ownProps={ownProps} />);
   });
 });
 
@@ -44,9 +46,9 @@ it('should throw if isDropDisabled is set to null', () => {
     ...defaultOwnProps,
   };
   withError(() => {
-    // @ts-ignore: expect error - null
+    // @ts-expect-error
     ownProps.isDropDisabled = null;
-    mount({ ownProps });
+    render(<App ownProps={ownProps} />);
   });
 });
 
@@ -55,9 +57,9 @@ it('should throw if isCombineEnabled is set to null', () => {
     ...defaultOwnProps,
   };
   withError(() => {
-    // @ts-ignore: expect error - null
+    // @ts-expect-error
     ownProps.isCombineEnabled = null;
-    mount({ ownProps });
+    render(<App ownProps={ownProps} />);
   });
 });
 
@@ -66,8 +68,8 @@ it('should throw if ignoreContainerClipping is set to null', () => {
     ...defaultOwnProps,
   };
   withError(() => {
-    // @ts-ignore: expect error - null
+    // @ts-expect-error
     ownProps.ignoreContainerClipping = null;
-    mount({ ownProps });
+    render(<App ownProps={ownProps} />);
   });
 });

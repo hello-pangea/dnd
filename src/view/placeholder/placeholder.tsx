@@ -193,5 +193,3 @@ const Placeholder: FunctionComponent<Props> = (props) => {
 };
 
 export default React.memo<Props>(Placeholder);
-// enzyme does not work well with memo, so exporting the non-memo version
-export const WithoutMemo = Placeholder;

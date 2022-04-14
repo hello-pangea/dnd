@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import type { Position } from 'css-box-model';
 import { invariant } from '../../../../src/invariant';
@@ -30,15 +30,15 @@ describe('should immediately publish updates', () => {
     const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext marshal={marshal} registry={registry}>
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container = wrapper
-      .find('.scroll-container')
-      .getDOMNode<HTMLElement>();
-    invariant(container);
+    const scrollContainer = container.querySelector(
+      '.scroll-container',
+    ) as HTMLElement;
+    invariant(scrollContainer);
 
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
@@ -46,7 +46,7 @@ describe('should immediately publish updates', () => {
     // watch scroll will only be called after the dimension is requested
     callbacks.getDimensionAndWatchScroll(preset.windowScroll, immediate);
 
-    scroll(container, { x: 500, y: 1000 });
+    scroll(scrollContainer, { x: 500, y: 1000 });
 
     expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
       preset.home.descriptor.id,
@@ -59,15 +59,15 @@ describe('should immediately publish updates', () => {
     const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext marshal={marshal} registry={registry}>
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container = wrapper
-      .find('.scroll-container')
-      .getDOMNode<HTMLElement>();
-    invariant(container);
+    const scrollContainer = container.querySelector(
+      '.scroll-container',
+    ) as HTMLElement;
+    invariant(scrollContainer);
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
       registerSpy.mock.calls[0][0].callbacks;
@@ -76,7 +76,7 @@ describe('should immediately publish updates', () => {
     callbacks.getDimensionAndWatchScroll(preset.windowScroll, immediate);
 
     // first event
-    scroll(container, { x: 500, y: 1000 });
+    scroll(scrollContainer, { x: 500, y: 1000 });
     expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
     expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
       preset.home.descriptor.id,
@@ -86,11 +86,11 @@ describe('should immediately publish updates', () => {
     marshal.updateDroppableScroll.mockReset();
 
     // second event - scroll to same spot
-    scroll(container, { x: 500, y: 1000 });
+    scroll(scrollContainer, { x: 500, y: 1000 });
     expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
 
     // third event - new value
-    scroll(container, { x: 500, y: 1001 });
+    scroll(scrollContainer, { x: 500, y: 1001 });
     expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
       preset.home.descriptor.id,
       { x: 500, y: 1001 },
@@ -103,15 +103,15 @@ describe('should schedule publish updates', () => {
     const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext marshal={marshal} registry={registry}>
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container = wrapper
-      .find('.scroll-container')
-      .getDOMNode<HTMLElement>();
-    invariant(container);
+    const scrollContainer = container.querySelector(
+      '.scroll-container',
+    ) as HTMLElement;
+    invariant(scrollContainer);
 
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
@@ -119,7 +119,7 @@ describe('should schedule publish updates', () => {
     // watch scroll will only be called after the dimension is requested
     callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
 
-    scroll(container, { x: 500, y: 1000 });
+    scroll(scrollContainer, { x: 500, y: 1000 });
     // release the update animation frame
     requestAnimationFrame.step();
 
@@ -133,15 +133,15 @@ describe('should schedule publish updates', () => {
     const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext marshal={marshal} registry={registry}>
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container = wrapper
-      .find('.scroll-container')
-      .getDOMNode<HTMLElement>();
-    invariant(container);
+    const scrollContainer = container.querySelector(
+      '.scroll-container',
+    ) as HTMLElement;
+    invariant(scrollContainer);
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
       registerSpy.mock.calls[0][0].callbacks;
@@ -150,9 +150,9 @@ describe('should schedule publish updates', () => {
     callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
 
     // first event
-    scroll(container, { x: 500, y: 1000 });
+    scroll(scrollContainer, { x: 500, y: 1000 });
     // second event in same frame
-    scroll(container, { x: 200, y: 800 });
+    scroll(scrollContainer, { x: 200, y: 800 });
 
     // release the update animation frame
     requestAnimationFrame.step();
@@ -173,15 +173,15 @@ describe('should schedule publish updates', () => {
     const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext marshal={marshal} registry={registry}>
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container = wrapper
-      .find('.scroll-container')
-      .getDOMNode<HTMLElement>();
-    invariant(container);
+    const scrollContainer = container.querySelector(
+      '.scroll-container',
+    ) as HTMLElement;
+    invariant(scrollContainer);
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
       registerSpy.mock.calls[0][0].callbacks;
@@ -190,7 +190,7 @@ describe('should schedule publish updates', () => {
     callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
 
     // first event
-    scroll(container, { x: 500, y: 1000 });
+    scroll(scrollContainer, { x: 500, y: 1000 });
     // release the frame
     requestAnimationFrame.step();
     expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
@@ -202,11 +202,11 @@ describe('should schedule publish updates', () => {
     marshal.updateDroppableScroll.mockReset();
 
     // second event
-    scroll(container, { x: 501, y: 1001 });
+    scroll(scrollContainer, { x: 501, y: 1001 });
     // no frame to release change yet
 
     // third event - back to original value
-    scroll(container, { x: 500, y: 1000 });
+    scroll(scrollContainer, { x: 500, y: 1000 });
     // release the frame
     requestAnimationFrame.step();
     expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
@@ -216,15 +216,15 @@ describe('should schedule publish updates', () => {
     const marshal = getMarshalStub();
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext marshal={marshal} registry={registry}>
         <ScrollableItem />
       </WithAppContext>,
     );
-    const container = wrapper
-      .find('.scroll-container')
-      .getDOMNode<HTMLElement>();
-    invariant(container);
+    const scrollContainer = container.querySelector(
+      '.scroll-container',
+    ) as HTMLElement;
+    invariant(scrollContainer);
     // tell the droppable to watch for scrolling
     const callbacks: DroppableCallbacks =
       registerSpy.mock.calls[0][0].callbacks;
@@ -233,14 +233,14 @@ describe('should schedule publish updates', () => {
     callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
 
     // first event
-    scroll(container, { x: 500, y: 1000 });
+    scroll(scrollContainer, { x: 500, y: 1000 });
     requestAnimationFrame.step();
     expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
     // $ExpectError
     marshal.updateDroppableScroll.mockReset();
 
     // second event
-    scroll(container, { x: 400, y: 100 });
+    scroll(scrollContainer, { x: 400, y: 100 });
     // no animation frame to release event fired yet
 
     // unwatching before frame fired
@@ -257,13 +257,15 @@ it('should stop watching scroll when no longer required to publish', () => {
   const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
-  const wrapper = mount(
+  const { container } = render(
     <WithAppContext marshal={marshal} registry={registry}>
       <ScrollableItem />
     </WithAppContext>,
   );
-  const container = wrapper.find('.scroll-container').getDOMNode<HTMLElement>();
-  invariant(container);
+  const scrollContainer = container.querySelector(
+    '.scroll-container',
+  ) as HTMLElement;
+  invariant(scrollContainer);
   // tell the droppable to watch for scrolling
   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
 
@@ -271,7 +273,7 @@ it('should stop watching scroll when no longer required to publish', () => {
   callbacks.getDimensionAndWatchScroll(preset.windowScroll, immediate);
 
   // first event
-  scroll(container, { x: 500, y: 1000 });
+  scroll(scrollContainer, { x: 500, y: 1000 });
   expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
   // $ExpectError
   marshal.updateDroppableScroll.mockReset();
@@ -279,7 +281,7 @@ it('should stop watching scroll when no longer required to publish', () => {
   callbacks.dragStopped();
 
   // scroll event after no longer watching
-  scroll(container, { x: 190, y: 400 });
+  scroll(scrollContainer, { x: 190, y: 400 });
   expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
 });
 
@@ -290,23 +292,25 @@ it('should stop watching for scroll events when the component is unmounted', () 
   const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
-  const wrapper = mount(
+  const { container, unmount } = render(
     <WithAppContext marshal={marshal} registry={registry}>
       <ScrollableItem />
     </WithAppContext>,
   );
-  const container = wrapper.find('.scroll-container').getDOMNode<HTMLElement>();
-  invariant(container);
+  const scrollContainer = container.querySelector(
+    '.scroll-container',
+  ) as HTMLElement;
+  invariant(scrollContainer);
   // tell the droppable to watch for scrolling
   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
 
   // watch scroll will only be called after the dimension is requested
   callbacks.getDimensionAndWatchScroll(preset.windowScroll, immediate);
 
-  wrapper.unmount();
+  unmount();
 
   // second event - will not fire any updates
-  scroll(container, { x: 100, y: 300 });
+  scroll(scrollContainer, { x: 100, y: 300 });
   expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
   // also logs a warning
   expect(consoleWarnSpy).toHaveBeenCalled();
@@ -317,7 +321,7 @@ it('should throw an error if asked to watch a scroll when already listening for 
   const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
-  const wrapper = mount(
+  const { unmount } = render(
     <WithAppContext marshal={marshal} registry={registry}>
       <ScrollableItem />
     </WithAppContext>,
@@ -333,7 +337,7 @@ it('should throw an error if asked to watch a scroll when already listening for 
 
   // cleanup
   callbacks.dragStopped();
-  wrapper.unmount();
+  unmount();
 });
 
 // if this is not the case then it will break in IE11
@@ -341,15 +345,20 @@ it('should add and remove events with the same event options', () => {
   const marshal = getMarshalStub();
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
-  const wrapper = mount(
+  const { container } = render(
     <WithAppContext marshal={marshal} registry={registry}>
       <ScrollableItem />
     </WithAppContext>,
   );
-  const container = wrapper.find('.scroll-container').getDOMNode<HTMLElement>();
-  invariant(container);
-  const addEventListenerSpy = jest.spyOn(container, 'addEventListener');
-  const removeEventListenerSpy = jest.spyOn(container, 'removeEventListener');
+  const scrollContainer = container.querySelector(
+    '.scroll-container',
+  ) as HTMLElement;
+  invariant(scrollContainer);
+  const addEventListenerSpy = jest.spyOn(scrollContainer, 'addEventListener');
+  const removeEventListenerSpy = jest.spyOn(
+    scrollContainer,
+    'removeEventListener',
+  );
 
   // tell the droppable to watch for scrolling
   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;

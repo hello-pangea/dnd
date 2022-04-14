@@ -1,2 +1,1 @@
 import './browser';
-import './enzyme';
