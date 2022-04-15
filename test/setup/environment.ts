@@ -8,7 +8,7 @@ import transitionEventPolyfill from './transition-event-polyfill';
 
 declare global {
   interface ProcessEnv {
-    REACT_VERSION?: string;
+    REACT_MAJOR_VERSION?: string;
   }
 }
 
