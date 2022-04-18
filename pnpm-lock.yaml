@@ -109,7 +109,7 @@ specifiers:
   react-test-renderer: 17.0.2
   react-virtualized: 9.22.3
   react-window: 1.8.6
-  redux: ^4.1.2
+  redux: ^4.2.0
   release-it: 14.14.1
   require-from-string: 2.0.2
   rimraf: 3.0.2
@@ -138,7 +138,7 @@ dependencies:
   memoize-one: 6.0.0
   raf-schd: 4.0.3
   react-redux: 7.2.8_react-dom@17.0.2+react@17.0.2
-  redux: 4.1.2
+  redux: 4.2.0
   use-memo-one: 1.1.2_react@17.0.2
 
 devDependencies:
@@ -4900,7 +4900,7 @@ packages:
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 17.0.44
       hoist-non-react-statics: 3.3.2
-      redux: 4.1.2
+      redux: 4.2.0
 
   /@types/react-syntax-highlighter/11.0.5:
     resolution: {integrity: sha512-VIOi9i2Oj5XsmWWoB72p3KlZoEbdRAcechJa8Ztebw7bDl2YmR+odxIqhtJGp1q2EozHs02US+gzxJ9nuf56qg==}
@@ -14890,8 +14890,8 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
-  /redux/4.1.2:
-    resolution: {integrity: sha512-SH8PglcebESbd/shgf6mii6EIoRM0zrQyjcuQ+ojmfxjTtE0z9Y8pa62iA/OJ58qjP6j27uyW4kUF4jl/jd6sw==}
+  /redux/4.2.0:
+    resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
     dependencies:
       '@babel/runtime': 7.17.9
 
