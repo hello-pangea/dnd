@@ -380,10 +380,7 @@ const ConnectedDraggable = connect(
   {
     // Using our own context for the store to avoid clashing with consumers
     context: StoreContext as any,
-    // Default value, but being really clear
-    pure: true,
     // When pure, compares the result of mapStateToProps to its previous value.
-    // Default value: shallowEqual
     // Switching to a strictEqual as we return a memoized object on changes
     areStatePropsEqual: isStrictEqual,
   },
