@@ -108,7 +108,7 @@ specifiers:
   react-redux: ^7.2.8
   react-test-renderer: 17.0.2
   react-virtualized: 9.22.3
-  react-window: 1.8.6
+  react-window: 1.8.7
   redux: ^4.1.2
   release-it: 14.14.1
   require-from-string: 2.0.2
@@ -244,7 +244,7 @@ devDependencies:
   react-dom-16: /react-dom/16.14.0_react@17.0.2
   react-test-renderer: 17.0.2_react@17.0.2
   react-virtualized: 9.22.3_react-dom@17.0.2+react@17.0.2
-  react-window: 1.8.6_react-dom@17.0.2+react@17.0.2
+  react-window: 1.8.7_react-dom@17.0.2+react@17.0.2
   release-it: 14.14.1
   require-from-string: 2.0.2
   rimraf: 3.0.2
@@ -14743,12 +14743,12 @@ packages:
       react-lifecycles-compat: 3.0.4
     dev: true
 
-  /react-window/1.8.6_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-8VwEEYyjz6DCnGBsd+MgkD0KJ2/OXFULyDtorIiTz+QzwoP94tBoA7CnbtyXMm+cCeAUER5KJcPtWl9cpKbOBg==}
+  /react-window/1.8.7_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-JHEZbPXBpKMmoNO1bNhoXOOLg/ujhL/BU4IqVU9r8eQPcy5KQnGHIHDRkJ0ns9IM5+Aq5LNwt3j8t3tIrePQzA==}
     engines: {node: '>8.0.0'}
     peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
       '@babel/runtime': 7.17.9
       memoize-one: 5.2.1
