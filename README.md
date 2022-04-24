@@ -14,7 +14,7 @@
 
 ![quote application example](https://user-images.githubusercontent.com/2182637/53614150-efbed780-3c2c-11e9-9204-a5d2e746faca.gif)
 
-[Play with this example if you want!](https://react-forked-dnd.netlify.com/iframe.html?selectedKind=board&selectedStory=simple)
+[Play with this example if you want!](https://react-forked-dnd.netlify.app/?path=/story/examples-board--simple)
 
 </div>
 
