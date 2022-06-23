@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@atlaskit/css-reset": "6.3.10",
-    "@atlaskit/theme": "12.1.6",
+    "@atlaskit/theme": "12.1.9",
     "@babel/core": "7.17.9",
     "@babel/eslint-parser": "7.17.0",
     "@babel/plugin-proposal-class-properties": "7.16.7",
