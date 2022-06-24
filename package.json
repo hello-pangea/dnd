@@ -155,7 +155,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
-    "eslint-plugin-storybook": "0.5.8",
+    "eslint-plugin-storybook": "0.5.13",
     "express": "4.17.3",
     "fast-glob": "3.2.11",
     "fs-extra": "10.0.1",
