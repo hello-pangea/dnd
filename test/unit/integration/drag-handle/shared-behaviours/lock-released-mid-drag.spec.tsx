@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import type { SensorAPI } from '../../../../../src/types';
 import { forEachSensor, simpleLift } from '../../util/controls';
 import type { Control } from '../../util/controls';
@@ -21,7 +21,9 @@ forEachSensor((control: Control) => {
     expect(api.isLockClaimed()).toBe(true);
     expect(isDragging(handle)).toBe(true);
 
-    api.tryReleaseLock();
+    act(() => {
+      api.tryReleaseLock();
+    });
 
     expect(api.isLockClaimed()).toBe(false);
     expect(isDragging(handle)).toBe(false);

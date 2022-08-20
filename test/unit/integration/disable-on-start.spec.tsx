@@ -1,6 +1,6 @@
 import React from 'react';
 import { getRect } from 'css-box-model';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import type {
   DraggableProvided,
   DroppableProvided,
@@ -42,7 +42,10 @@ class App extends React.Component<any, State> {
 
   onDragStart = (start: DragStart) => {
     this.props.onDragStart(start);
-    this.setState({ isDropDisabled: true });
+
+    act(() => {
+      this.setState({ isDropDisabled: true });
+    });
   };
 
   onDragUpdate = (update: DragUpdate) => {
@@ -51,7 +54,10 @@ class App extends React.Component<any, State> {
 
   onDragEnd = (result: DropResult) => {
     this.props.onDragEnd(result);
-    this.setState({ isDropDisabled: false });
+
+    act(() => {
+      this.setState({ isDropDisabled: false });
+    });
   };
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity

@@ -32,11 +32,18 @@ it('should remove any registrations', () => {
   registry.draggable.register(entry);
   expect(registry.draggable.exists(id)).toBe(true);
 
-  // still available after a unmount
   unmount();
-  expect(registry.draggable.exists(id)).toBe(true);
 
-  // cleared after frame
-  requestAnimationFrame.step();
+  // only for react 16 and 17
+  if (['16', '17'].includes(`${process.env.REACT_MAJOR_VERSION}`)) {
+    // still available after a unmount
+    // eslint-disable-next-line jest/no-conditional-expect
+    expect(registry.draggable.exists(id)).toBe(true);
+
+    // cleared after frame
+    requestAnimationFrame.step();
+  }
+
+  // registry cleared
   expect(registry.draggable.exists(id)).toBe(false);
 });

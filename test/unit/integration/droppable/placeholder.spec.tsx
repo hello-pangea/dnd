@@ -279,7 +279,7 @@ describe('foreign list', () => {
 
   it('should flush a foreign list collapsing animation if a new drag starts', () => {
     withPoorBoardDimensions((preset) => {
-      const { container, getByTestId } = render(<Board />);
+      const { container, getByTestId, rerender } = render(<Board />);
       const handle: HTMLElement = getByTestId(preset.inHome1.descriptor.id);
 
       expandedMouse.powerLift(handle, preset.inHome1.client.borderBox.center);
@@ -315,6 +315,9 @@ describe('foreign list', () => {
         second,
         preset.inHome2.client.borderBox.center,
       );
+
+      rerender(<Board />);
+
       expect(isDragging(second)).toBe(true);
       expect(isOver(second)).toBe(preset.home.descriptor.id);
       expect(hasPlaceholder(preset.foreign.descriptor.id, container)).toBe(
