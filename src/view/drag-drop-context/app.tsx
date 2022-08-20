@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { flushSync } from 'react-dom';
 import type { ReactNode, MutableRefObject } from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Provider } from 'react-redux';
@@ -64,7 +65,21 @@ export interface Props extends Responders {
 }
 
 const createResponders = (props: Props): Responders => ({
-  onBeforeCapture: props.onBeforeCapture,
+  onBeforeCapture: (t) => {
+    const onBeforeCapureCallback = () => {
+      if (props.onBeforeCapture) {
+        props.onBeforeCapture(t);
+      }
+    };
+
+    if (React.version.startsWith('16') || React.version.startsWith('17')) {
+      // prior to react 18 state are not automatically batched
+      onBeforeCapureCallback();
+    } else {
+      // must prevent automatic batching react 18 and above
+      flushSync(onBeforeCapureCallback);
+    }
+  },
   onBeforeDragStart: props.onBeforeDragStart,
   onDragStart: props.onDragStart,
   onDragEnd: props.onDragEnd,

@@ -1,4 +1,5 @@
 import React, { useRef, DragEvent, TransitionEvent } from 'react';
+import { flushSync } from 'react-dom';
 import { useMemo, useCallback } from 'use-memo-one';
 import type { DraggableRubric, DraggableDescriptor } from '../../types';
 import getStyle from './get-style';
@@ -126,7 +127,13 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
         return;
       }
 
-      dropAnimationFinishedAction();
+      if (React.version.startsWith('16') || React.version.startsWith('17')) {
+        // prior to react 18 state are not automatically batched
+        dropAnimationFinishedAction();
+      } else {
+        // must prevent automatic batching react 18 and above
+        flushSync(dropAnimationFinishedAction);
+      }
     },
     [dropAnimationFinishedAction, mapped],
   );
