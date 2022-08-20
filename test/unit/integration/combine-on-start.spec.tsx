@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import * as keyCodes from '../../../src/view/key-codes';
 import type {
   DraggableProvided,
@@ -24,7 +24,10 @@ class App extends React.Component<any, State> {
 
   onDragStart = (start: DragStart) => {
     this.props.onDragStart(start);
-    this.setState({ isCombineEnabled: true });
+
+    act(() => {
+      this.setState({ isCombineEnabled: true });
+    });
   };
 
   onDragUpdate = (update: DragUpdate) => {
@@ -33,7 +36,10 @@ class App extends React.Component<any, State> {
 
   onDragEnd = (result: DropResult) => {
     this.props.onDragEnd(result);
-    this.setState({ isCombineEnabled: false });
+
+    act(() => {
+      this.setState({ isCombineEnabled: false });
+    });
   };
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity
@@ -101,7 +107,7 @@ it('should allow the changing of combining in onDragStart', () => {
       onDragUpdate: jest.fn(),
       onDragEnd: jest.fn(),
     };
-    const { getByTestId } = render(<App {...responders} />);
+    const { getByTestId, rerender } = render(<App {...responders} />);
 
     const handle: HTMLElement = getByTestId('0');
     simpleLift(keyboard, handle);
@@ -118,6 +124,8 @@ it('should allow the changing of combining in onDragStart', () => {
       mode: 'SNAP',
     };
     expect(responders.onDragStart).toHaveBeenCalledWith(start);
+
+    rerender(<App {...responders} />);
 
     // now moving down will cause a combine impact!
     fireEvent.keyDown(handle, { keyCode: keyCodes.arrowDown });

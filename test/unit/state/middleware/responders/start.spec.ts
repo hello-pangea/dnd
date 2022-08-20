@@ -13,7 +13,9 @@ import getAnnounce from './util/get-announce-stub';
 
 beforeEach(() => {
   // Keep performance usaged
-  jest.useFakeTimers('legacy');
+  jest.useFakeTimers({
+    legacyFakeTimers: true,
+  });
 });
 
 afterEach(() => {

@@ -169,6 +169,8 @@ it('should animate closed if required', () => {
   // this will trigger a setState that will stop rendering the child
   provided.onClose();
 
+  rerender(<App value={null} shouldAnimate />);
+
   expect(container.innerHTML).toEqual('');
   expect(child).not.toHaveBeenCalled();
 });

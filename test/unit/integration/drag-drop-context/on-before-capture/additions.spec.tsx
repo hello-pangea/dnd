@@ -50,7 +50,7 @@ it('should allow for additions to be made', () => {
     );
   }
 
-  const { getByTestId } = render(<Root />);
+  const { getByTestId, rerender } = render(<Root />);
   const handle: HTMLElement = getByTestId('0');
 
   // act(() => {}); is joining the two into one update which is
@@ -58,6 +58,8 @@ it('should allow for additions to be made', () => {
   withError(() => {
     expandedMouse.rawPowerLift(handle, { x: 0, y: 0 });
   });
+
+  rerender(<Root />);
 
   expect(isDragging(handle)).toBe(true);
 });
@@ -122,7 +124,7 @@ it('should adjust captured values for any changes that impact that dragging item
     );
   }
 
-  const { getByTestId, queryByTestId } = render(<Root />);
+  const { getByTestId, queryByTestId, rerender } = render(<Root />);
   const initial: HTMLElement = getByTestId('initial');
 
   // initially it had an index of 1
@@ -135,6 +137,8 @@ it('should adjust captured values for any changes that impact that dragging item
   withError(() => {
     expandedMouse.rawPowerLift(initial, { x: 0, y: 0 });
   });
+
+  rerender(<Root />);
 
   // first item has been added
   expect(queryByTestId('first')).toBeTruthy();
