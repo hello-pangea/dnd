@@ -40,6 +40,9 @@ describe('reorder: virtual', () => {
       force: true,
     });
 
+    // we must wait before asserting the new order
+    cy.wait(timings.outOfTheWay * 1000);
+
     // This is setting up a chain of commands and this test will not wait
     // for a 'promise' to resolve. Linting is getting confused by .then
     cy.get('@item-id').then((id) => {
