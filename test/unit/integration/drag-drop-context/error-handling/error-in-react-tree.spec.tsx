@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
 import { invariant } from '../../../../../src/invariant';
 import App from '../../util/app';
@@ -8,11 +8,16 @@ import { withError } from '../../../../util/console';
 
 it('should recover from rfd errors', () => {
   let hasThrown = false;
+
   function CanThrow(props: { shouldThrow: boolean }) {
-    if (!hasThrown && props.shouldThrow) {
-      hasThrown = true;
-      invariant(false, 'throwing');
-    }
+    useEffect(() => {
+      if (!hasThrown && props.shouldThrow) {
+        hasThrown = true;
+
+        invariant(false, 'throwing');
+      }
+    });
+
     return null;
   }
 
@@ -32,15 +37,19 @@ it('should recover from rfd errors', () => {
 
 it('should not recover from non-rfd errors', () => {
   let hasThrown = false;
+
   function CanThrow(props: { shouldThrow: boolean }) {
-    if (!hasThrown && props.shouldThrow) {
-      hasThrown = true;
-      throw new Error('Boom');
-    }
+    useEffect(() => {
+      if (!hasThrown && props.shouldThrow) {
+        hasThrown = true;
+        throw new Error('Boom');
+      }
+    });
+
     return null;
   }
 
-  const { rerender, getByTestId } = render(
+  const { container, rerender, getByTestId } = render(
     <App anotherChild={<CanThrow shouldThrow={false} />} />,
   );
 
@@ -50,24 +59,30 @@ it('should not recover from non-rfd errors', () => {
   withError(() => {
     expect(() => {
       rerender(<App anotherChild={<CanThrow shouldThrow />} />);
-    }).toThrow();
+    }).toThrow('Boom');
   });
+
+  expect(container.children.length).toBe(0);
 });
 
 it('should not recover from runtime errors', () => {
   let hasThrown = false;
+
   function CanThrow(props: { shouldThrow: boolean }) {
-    if (!hasThrown && props.shouldThrow) {
-      hasThrown = true;
-      // Boom: TypeError
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      window.foo();
-    }
+    useEffect(() => {
+      if (!hasThrown && props.shouldThrow) {
+        hasThrown = true;
+        // Boom: TypeError
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        window.foo();
+      }
+    });
+
     return null;
   }
 
-  const { rerender, getByTestId } = render(
+  const { rerender, getByTestId, container } = render(
     <App anotherChild={<CanThrow shouldThrow={false} />} />,
   );
 
@@ -77,6 +92,8 @@ it('should not recover from runtime errors', () => {
   withError(() => {
     expect(() => {
       rerender(<App anotherChild={<CanThrow shouldThrow />} />);
-    }).toThrow();
+    }).toThrow('window.foo is not a function');
   });
+
+  expect(container.children.length).toBe(0);
 });

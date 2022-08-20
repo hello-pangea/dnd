@@ -19,7 +19,7 @@ function getTouchStart(handle: HTMLElement): Event {
 }
 
 it('should start dragging after a long press', () => {
-  const { getByText } = render(<App />);
+  const { getByText, rerender } = render(<App />);
   const handle: HTMLElement = getByText('item: 0');
   const touchStart: Event = getTouchStart(handle);
 
@@ -33,6 +33,8 @@ it('should start dragging after a long press', () => {
 
   // allow long press to run
   jest.runOnlyPendingTimers();
+
+  rerender(<App />);
 
   // now dragging
   expect(isDragging(handle)).toBe(true);
@@ -83,5 +85,7 @@ it('should allow a false start', () => {
 
   fireEvent(handle, getTouchStart(handle));
   jest.advanceTimersByTime(timeForLongPress);
+  render(<App />);
+
   expect(isDragging(handle)).toBe(true);
 });

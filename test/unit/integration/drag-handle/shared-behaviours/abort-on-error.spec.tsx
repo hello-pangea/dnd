@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { render, act } from '@testing-library/react';
 import { invariant } from '../../../../../src/invariant';
 import { isDragging, getOffset } from '../../util/helpers';
@@ -14,20 +14,16 @@ interface Props {
 }
 
 function Vomit(props: Props) {
-  const setShouldThrow = useState(0)[1];
-  const shouldThrowRef = useRef(false);
+  const setState = useState(0)[1];
 
-  function chuck() {
-    shouldThrowRef.current = true;
-    setShouldThrow((current) => current + 1);
+  function throwInLifecycle() {
+    setState(() => {
+      props.throw();
+      return 0;
+    });
   }
 
-  props.setForceThrow(chuck);
-
-  if (shouldThrowRef.current) {
-    shouldThrowRef.current = false;
-    props.throw();
-  }
+  props.setForceThrow(throwInLifecycle);
 
   return null;
 }
@@ -112,7 +108,7 @@ forEachSensor((control: Control) => {
 
     expect(() => {
       thrower.execute();
-    }).toThrow();
+    }).toThrow('Raw error throw');
 
     // handle is gone
     expect(queryByText('item: 0')).toBe(null);

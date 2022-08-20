@@ -89,7 +89,7 @@ it('should give the clone the starting location', () => {
 // this test is indirectly validating that a clone does not talk the registry or marshal
 it('should allow reordering other items when dropping', () => {
   withPoorDimensionMocks((preset) => {
-    const { getByTestId } = render(<App useClone />);
+    const { getByTestId, rerender } = render(<App useClone />);
     const box0 = preset.inHome1.client.borderBox;
     const box1 = preset.inHome2.client.borderBox;
 
@@ -114,6 +114,8 @@ it('should allow reordering other items when dropping', () => {
     withError(() => {
       expandedMouse.rawPowerLift(getByTestId('1'), box0.center);
     });
+
+    rerender(<App useClone />);
 
     expect(isDragging(getByTestId('1'))).toBe(true);
     expect(isDragging(getByTestId('0'))).toBe(false);

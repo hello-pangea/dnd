@@ -67,7 +67,7 @@ it('should adjust captured values for any changes that impact that dragging item
     );
   }
 
-  const { getByTestId, queryByTestId } = render(<Root />);
+  const { getByTestId, queryByTestId, rerender } = render(<Root />);
   const second: HTMLElement = getByTestId('second');
 
   // initially it had an index of 1
@@ -79,7 +79,8 @@ it('should adjust captured values for any changes that impact that dragging item
     expandedMouse.rawPowerLift(getByTestId('second'), { x: 0, y: 0 });
   });
 
-  // act(() => rerender());
+  rerender(<Root />);
+
   // first item has been removed
   expect(queryByTestId('first')).toBe(null);
   // second is now dragging
