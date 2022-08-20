@@ -70,18 +70,28 @@ it('should not allow a sensor to obtain a on a dropping item, but can claim one 
   // drag not started yet
   expect(isDragging(handle)).toBe(false);
   // start a drag
-  const actions: FluidDragActions = preDrag.fluidLift({ x: 0, y: 0 });
+  let actions: FluidDragActions;
+  act(() => {
+    actions = preDrag.fluidLift({ x: 0, y: 0 });
+  });
   expect(isDragging(handle)).toBe(true);
 
   // release the movement
-  actions.move({ x: 100, y: 100 });
+  act(() => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    actions!.move({ x: 100, y: 100 });
+  });
   requestAnimationFrame.flush();
 
-  actions.drop();
+  act(() => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    actions!.drop();
+  });
   expect(isDropAnimating(handle)).toBe(true);
 
   // lock is no longer active
-  expect(actions.isActive()).toBe(false);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  expect(actions!.isActive()).toBe(false);
   expect(preDrag.isActive()).toBe(false);
 
   // cannot get a new lock while still dropping
