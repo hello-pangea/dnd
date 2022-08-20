@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Position } from 'css-box-model';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import { invariant } from '../../../../../src/invariant';
 import type {
   SensorAPI,
@@ -37,7 +37,9 @@ it('should throttle move events by request animation frame', () => {
   expect(getOffset(handle)).toEqual({ x: 0, y: 0 });
 
   // moved after frame
-  requestAnimationFrame.step();
+  act(() => {
+    requestAnimationFrame.step();
+  });
   expect(getOffset(handle)).toEqual(offset);
 });
 

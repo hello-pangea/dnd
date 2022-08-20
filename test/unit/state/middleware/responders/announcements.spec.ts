@@ -26,7 +26,9 @@ import getAnnounce from './util/get-announce-stub';
 import getCompletedWithResult from './util/get-completed-with-result';
 
 beforeEach(() => {
-  jest.useFakeTimers('legacy');
+  jest.useFakeTimers({
+    legacyFakeTimers: true,
+  });
 });
 
 afterEach(() => {
