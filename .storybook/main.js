@@ -1,17 +1,16 @@
 require('dotenv').config();
 
 module.exports = {
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-storysource',
-    'storybook-addon-performance/register',
-  ],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-storysource'],
   check: true,
   checkOptions: {
     tsconfig: '../stories/tsconfig.json',
   },
   core: {
     disableTelemetry: true,
+  },
+  reactOptions: {
+    strictMode: true,
   },
   stories: [
     '../stories/**/*.stories.mdx',
