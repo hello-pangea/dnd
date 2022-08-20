@@ -7,6 +7,7 @@ const storybook = childProcess.spawn(process.execPath, [
   path.join('node_modules', 'cross-env', 'src', 'bin', 'cross-env-shell.js'),
   'DISABLE_HMR=true',
   'USE_PRODUCTION_BUILD=true',
+  `REACT_MAJOR_VERSION=${process.env.REACT_MAJOR_VERSION || '18'}`,
   path.join('node_modules', '.bin', 'start-storybook'),
   '--ci',
   '-p',
@@ -16,6 +17,7 @@ const storybook = childProcess.spawn(process.execPath, [
 const cspServer = childProcess.spawn(process.execPath, [
   path.join('node_modules', 'cross-env', 'src', 'bin', 'cross-env-shell.js'),
   'USE_PRODUCTION_BUILD=true',
+  `REACT_MAJOR_VERSION=${process.env.REACT_MAJOR_VERSION || '18'}`,
   path.join('csp-server', 'start.sh'),
   `${ports.cspServer}`,
 ]);

@@ -132,6 +132,9 @@ jobs:
     working_directory: ~/repo
     environment:
       - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
+    parameters:
+      react-major-version:
+        type: string
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -148,6 +151,8 @@ jobs:
       - run:
           name: 'Run cypress'
           command: node browser-test-harness.js browser
+          environment:
+            REACT_MAJOR_VERSION: << parameters.react-major-version >>
 
       # store videos and screenshots (if any) as CI artifacts
       - store_artifacts:
@@ -203,6 +208,9 @@ workflows:
           requires:
             - install
       - test-browser:
+          matrix:
+            parameters:
+              react-major-version: ['16', '17', '18']
           requires:
             - build
       - test-a11y:

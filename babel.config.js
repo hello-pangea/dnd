@@ -4,6 +4,10 @@ module.exports = (api) => {
   const isTest = api.env('test');
   const isProduction = api.env('production');
 
+  const reactMajorVersion = process.env.REACT_MAJOR_VERSION;
+  const isOldReactVersion = ['16', '17'].includes(reactMajorVersion);
+  const reactModuleSufix = isOldReactVersion ? `-${reactMajorVersion}` : '';
+
   return {
     presets: [
       '@babel/react',
@@ -22,6 +26,9 @@ module.exports = (api) => {
               process.env.USE_PRODUCTION_BUILD === 'true'
                 ? path.resolve(__dirname, './dist/dnd.esm')
                 : path.resolve(__dirname, './src/index.ts'),
+
+            react: `react${reactModuleSufix}`,
+            'react-dom': `react-dom${reactModuleSufix}`,
           },
         },
       ],
