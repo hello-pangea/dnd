@@ -91,7 +91,7 @@ function App(props: Props): ReactElement {
             rowCount={quotes.length}
             rowHeight={110}
             width={300}
-            ref={(ref) => {
+            ref={(ref: any) => {
               // react-virtualized has no way to get the list's ref that I can so
               // So we use the `ReactDOM.findDOMNode(ref)` escape hatch to get the ref
               if (ref) {
