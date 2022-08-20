@@ -11,7 +11,10 @@ storiesOf('Examples/Virtual: react-window', module)
   .add('list', () => <ReactWindowList initial={getQuotes(1000)} />)
   .add('board', () => <ReactWindowBoard />);
 
-storiesOf('Examples/Virtual: react-virtualized', module)
+storiesOf(
+  'Examples/Virtual: react-virtualized (this library does not official support for react 18)',
+  module,
+)
   .add('list', () => <ReactVirtualizedList initial={getQuotes(1000)} />)
   .add('board', () => <ReactVirtualizedBoard />)
   .add(
