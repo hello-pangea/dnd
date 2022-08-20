@@ -23,6 +23,9 @@ describe('reorder', () => {
       .wait(timings.outOfTheWay * 1000)
       .trigger('keydown', { keyCode: keyCodes.space, force: true });
 
+    // we must wait before asserting the new order
+    cy.wait(timings.outOfTheWay * 1000);
+
     // order now 2, 1
     // note: not using get aliases as they where returning incorrect results
     cy.get(getHandleSelector()).eq(0).should('contain', 'id:G2');
