@@ -10,6 +10,9 @@ module.exports = {
   checkOptions: {
     tsconfig: '../stories/tsconfig.json',
   },
+  core: {
+    disableTelemetry: true,
+  },
   stories: [
     '../stories/**/*.stories.mdx',
     '../stories/**/*.stories.@(js|jsx|ts|tsx)',
