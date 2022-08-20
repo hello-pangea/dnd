@@ -87,7 +87,7 @@ function App(props: Props): ReactElement {
       >
         {(droppableProvided: DroppableProvided) => (
           <WindowScroller>
-            {({ height, isScrolling, onChildScroll, scrollTop }) => (
+            {({ height, isScrolling, onChildScroll, scrollTop }: any) => (
               <List
                 autoHeight
                 rowCount={quotes.length}
@@ -97,7 +97,7 @@ function App(props: Props): ReactElement {
                 scrollTop={scrollTop}
                 rowHeight={110}
                 width={300}
-                ref={(ref) => {
+                ref={(ref: any) => {
                   // react-virtualized has no way to get the list's ref that I can so
                   // So we use the `ReactDOM.findDOMNode(ref)` escape hatch to get the ref
                   if (ref) {
