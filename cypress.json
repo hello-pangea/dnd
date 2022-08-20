@@ -1,8 +1,0 @@
-{
-  "baseUrl": "http://localhost:9002",
-  "pageLoadTimeout": 10000,
-  "retries": 1,
-  "testFiles": "**/*.spec.*",
-  "viewportHeight": 600,
-  "viewportWidth": 800
-}

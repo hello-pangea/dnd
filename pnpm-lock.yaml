@@ -67,7 +67,7 @@ specifiers:
   cross-env: 7.0.3
   css-box-model: ^1.2.1
   csstype: 3.0.11
-  cypress: 9.5.3
+  cypress: 10.6.0
   dotenv: 16.0.0
   emotion-theming: 11.0.0
   eslint: 8.13.0
@@ -206,7 +206,7 @@ devDependencies:
   commitizen: 4.2.4
   cross-env: 7.0.3
   csstype: 3.0.11
-  cypress: 9.5.3
+  cypress: 10.6.0
   dotenv: 16.0.0
   emotion-theming: 11.0.0
   eslint: 8.13.0
@@ -7645,8 +7645,8 @@ packages:
     resolution: {integrity: sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==}
     dev: true
 
-  /cypress/9.5.3:
-    resolution: {integrity: sha512-ItelIVmqMTnKYbo1JrErhsGgQGjWOxCpHT1TfMvwnIXKXN/OSlPjEK7rbCLYDZhejQL99PmUqul7XORI24Ik0A==}
+  /cypress/10.6.0:
+    resolution: {integrity: sha512-6sOpHjostp8gcLO34p6r/Ci342lBs8S5z9/eb3ZCQ22w2cIhMWGUoGKkosabPBfKcvRS9BE4UxybBtlIs8gTQA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true
@@ -13782,7 +13782,7 @@ packages:
     dev: true
 
   /proxy-from-env/1.0.0:
-    resolution: {integrity: sha1-M8UDmPcOp+uW0h97gXYwpVeRx+4=}
+    resolution: {integrity: sha512-F2JHgJQ1iqwnHDcQjVBsq3n/uoaFL+iPW/eAeL7kVxy/2RrWaN4WroKjjvbsoRtv0ftelNyC01bjRhn/bhcf4A==}
     dev: true
 
   /prr/1.0.1:
