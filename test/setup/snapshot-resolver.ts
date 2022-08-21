@@ -1,4 +1,5 @@
 import path from 'path';
+import getReactMajorVersion from '../util/get-react-major-version';
 
 // resolve snapshot folder with the react version
 // __react_16_snapshots__, __react_17_snapshots__, etc.
@@ -7,11 +8,12 @@ export default {
   resolveSnapshotPath: (testPath: string, snapshotExtension: string) => {
     const breadcrumb = testPath.split(path.sep);
     const filename = breadcrumb.pop();
+    const reactMajorVersion = getReactMajorVersion();
 
     return (
       [
         ...breadcrumb,
-        `__react_${process.env.REACT_MAJOR_VERSION}_snapshots__`,
+        `__react_${reactMajorVersion}_snapshots__`,
         filename,
       ].join(path.sep) + snapshotExtension
     );

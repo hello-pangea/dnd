@@ -8,12 +8,6 @@ import { TextDecoder, TextEncoder } from 'util';
 import attachRafStub from './attach-raf-stub';
 import transitionEventPolyfill from './transition-event-polyfill';
 
-declare global {
-  interface ProcessEnv {
-    REACT_MAJOR_VERSION?: string;
-  }
-}
-
 export default class MyJSDOMEnvironment extends JSDOMEnvironment {
   constructor(config: JestEnvironmentConfig, context: EnvironmentContext) {
     super(config, context);
