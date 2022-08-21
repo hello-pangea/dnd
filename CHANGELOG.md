@@ -1,5 +1,51 @@
 
 
+## [15.0.0-beta.0](https://github.com/react-forked/dnd/compare/v14.0.2...v15.0.0-beta.0) (2022-08-21)
+
+
+### Docs 📃
+
+* **readme:** fix storybook link ([#346](https://github.com/react-forked/dnd/issues/346)) ([a892bba](https://github.com/react-forked/dnd/commit/a892bba4402120087270083e44d1bca3961ac266))
+
+
+### Features 🔥
+
+* **peer-deps:** add react and react-dom 18 ([#321](https://github.com/react-forked/dnd/issues/321)) ([36e97cd](https://github.com/react-forked/dnd/commit/36e97cd6307466187696ea152215fd857474ab00)), closes [#319](https://github.com/react-forked/dnd/issues/319)
+* **registry:** drop ansyc registry clean for react 18+ ([#392](https://github.com/react-forked/dnd/issues/392)) ([89c7d07](https://github.com/react-forked/dnd/commit/89c7d073e5a0fd801eab916be74a966aac69a775))
+
+
+### Bug Fixes 🛠
+
+* make sure the droppable exsist in the registry before notify a removal ([#392](https://github.com/react-forked/dnd/issues/392)) ([dc92b26](https://github.com/react-forked/dnd/commit/dc92b269b587ab5b02a79e9c078f3c897362fa19))
+* **react:** prevent automatic batching for some state changes ([#392](https://github.com/react-forked/dnd/issues/392)) ([ed0e9c2](https://github.com/react-forked/dnd/commit/ed0e9c259a350f6c29ccb4137af7f94e3e8c1c44))
+
+
+### Tests 🧪
+
+* adjust test to work for react 16, 17 and 18 ([#392](https://github.com/react-forked/dnd/issues/392)) ([e728b7a](https://github.com/react-forked/dnd/commit/e728b7a2f61ef9685a66e52d308a03aee3206b49))
+* **dev-deps:** migrate from enzyme to @testing-library/react ([#323](https://github.com/react-forked/dnd/issues/323)) ([4fa731f](https://github.com/react-forked/dnd/commit/4fa731faa261dab39c2b5eb5bc484549b1105d0f))
+
+
+### Others 🔧
+
+* **deps:** bump multiple deps and dev-deps ([#392](https://github.com/react-forked/dnd/issues/392)) ([3b22dae](https://github.com/react-forked/dnd/commit/3b22dae75d6f920fe8dba55dfcb5778c75c491de))
+* **deps:** support react-redux@8 ([#392](https://github.com/react-forked/dnd/issues/392)) ([82c111e](https://github.com/react-forked/dnd/commit/82c111e90dd84a082f37a84fe4af5ff54f2b7aad))
+* **dev-deps:** bump all babel related packages ([#395](https://github.com/react-forked/dnd/issues/395)) ([40bd6bc](https://github.com/react-forked/dnd/commit/40bd6bc5d62cf224ce04b8dfa8c2002b8a7aa32c))
+* **dev-deps:** bump all eslint related packages ([#395](https://github.com/react-forked/dnd/issues/395)) ([66d5374](https://github.com/react-forked/dnd/commit/66d5374b79b26fb9374ff9c960cf09d58cbd5a82))
+* **dev-deps:** bump commit and release packages ([#395](https://github.com/react-forked/dnd/issues/395)) ([525fb63](https://github.com/react-forked/dnd/commit/525fb63b4a862d61e9ea54d186097cb8daf6c6a2))
+* **dev-deps:** bump cypress and fix specs ([#392](https://github.com/react-forked/dnd/issues/392)) ([26bf701](https://github.com/react-forked/dnd/commit/26bf70112dbb99682e369a55ffc0a4332951ddf9))
+* **dev-deps:** bump node to 16.17.0 ([#395](https://github.com/react-forked/dnd/issues/395)) ([ee38217](https://github.com/react-forked/dnd/commit/ee38217d3cbd466f1317c650a969dd140ef0d7d8))
+* **dev-deps:** bump prettier ([#395](https://github.com/react-forked/dnd/issues/395)) ([68fe9b8](https://github.com/react-forked/dnd/commit/68fe9b8129b76191da5cbb1e0d3e715f540b5866))
+* **dev-deps:** bump rollup related packages ([#395](https://github.com/react-forked/dnd/issues/395)) ([811fb88](https://github.com/react-forked/dnd/commit/811fb885110aac8765a81f9eee5cb93a1ef31bb0))
+* **dev-deps:** bump styling related packages ([#395](https://github.com/react-forked/dnd/issues/395)) ([b7e5a2f](https://github.com/react-forked/dnd/commit/b7e5a2fd3dffe43d50fab7cd287b5de22ded924b))
+* **dev-deps:** bump support packages ([#395](https://github.com/react-forked/dnd/issues/395)) ([e73a8fc](https://github.com/react-forked/dnd/commit/e73a8fc7c638f8f582fd5fa3dc9014d5624f2e74))
+* **storybook:** disable telemetry ([#392](https://github.com/react-forked/dnd/issues/392)) ([2d6fba4](https://github.com/react-forked/dnd/commit/2d6fba4b8a1843eba1a7ea7904af0ed57b015d8e))
+* **storybook:** enable strict mode ([#392](https://github.com/react-forked/dnd/issues/392)) ([7106efa](https://github.com/react-forked/dnd/commit/7106efa02a959b3d29ab99c34f769d28c9757d65))
+* **test:** fix issue when running test with react major version env set ([#392](https://github.com/react-forked/dnd/issues/392)) ([5ce1957](https://github.com/react-forked/dnd/commit/5ce1957e0f06addd89023eea879848b7beb6309d))
+* **test:** setup jest test to run against the last three major version of react ([#392](https://github.com/react-forked/dnd/issues/392)) ([5cae0bd](https://github.com/react-forked/dnd/commit/5cae0bd619785a105991dd93ad0cad7661991087))
+* **type:** fix react-virtualized type (library does not support react 18) ([#392](https://github.com/react-forked/dnd/issues/392)) ([b990622](https://github.com/react-forked/dnd/commit/b990622b513315fe2b748b085bba40aeb1a58e6d))
+* update sizes snapshot ([#392](https://github.com/react-forked/dnd/issues/392)) ([142563e](https://github.com/react-forked/dnd/commit/142563e81f6fccc1a99b24fbd5f9cb70cf8bc45d))
+
 ### [14.0.2](https://github.com/react-forked/dnd/compare/v14.0.1...v14.0.2) (2022-04-10)
 
 
