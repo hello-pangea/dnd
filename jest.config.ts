@@ -1,14 +1,11 @@
-// eslint-disable-next-line import/no-import-module-exports
+/* eslint-disable @typescript-eslint/triple-slash-reference */
+/// <reference path="./test/typings/environment.d.ts" />
+
 import type { Config } from 'jest';
+import getReactMajorVersion from './test/util/get-react-major-version';
+import isRunningInCI from './test/util/is-running-in-ci';
 
-declare global {
-  interface ProcessEnv {
-    REACT_MAJOR_VERSION: string;
-    CI?: boolean;
-  }
-}
-
-const reactMajorVersion = process.env.REACT_MAJOR_VERSION;
+const reactMajorVersion = getReactMajorVersion();
 
 const config: Config = {
   clearMocks: true,
@@ -39,7 +36,7 @@ const config: Config = {
 };
 
 // eslint-disable-next-line no-console
-console.log('Testing with React version:', `${reactMajorVersion || '18'}.x.x`);
+console.log('Testing with React version:', `${reactMajorVersion}.x.x`);
 
 if (['16', '17'].includes(reactMajorVersion)) {
   config.testPathIgnorePatterns = [
@@ -57,8 +54,8 @@ if (['16', '17'].includes(reactMajorVersion)) {
   };
 }
 
-if (process.env.CI) {
+if (isRunningInCI()) {
   config.maxWorkers = 2;
 }
 
-module.exports = config;
+export default config;
