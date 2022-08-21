@@ -7,11 +7,12 @@ export default {
   resolveSnapshotPath: (testPath: string, snapshotExtension: string) => {
     const breadcrumb = testPath.split(path.sep);
     const filename = breadcrumb.pop();
+    const reactMajorVersion = process.env.REACT_MAJOR_VERSION || '18';
 
     return (
       [
         ...breadcrumb,
-        `__react_${process.env.REACT_MAJOR_VERSION}_snapshots__`,
+        `__react_${reactMajorVersion}_snapshots__`,
         filename,
       ].join(path.sep) + snapshotExtension
     );
