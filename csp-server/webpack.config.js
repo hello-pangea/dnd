@@ -1,5 +1,9 @@
 const path = require('path');
 
+const reactMajorVersion = process.env.REACT_MAJOR_VERSION;
+const isOldReactVersion = ['16', '17'].includes(reactMajorVersion);
+const reactModuleSufix = isOldReactVersion ? `-${reactMajorVersion}` : '';
+
 const common = {
   context: path.resolve(__dirname, '..'),
   mode: 'development',
@@ -11,6 +15,12 @@ const common = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs'],
+
+    alias: {
+      react: require.resolve(`react${reactModuleSufix}`),
+      'react-dom': require.resolve(`react-dom${reactModuleSufix}`),
+      'react-dom/client': require.resolve('react-dom/client'),
+    },
   },
   module: {
     rules: [

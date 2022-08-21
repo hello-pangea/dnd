@@ -1,14 +1,22 @@
 require('dotenv').config();
 
+const reactMajorVersion = process.env.REACT_MAJOR_VERSION;
+const isOldReactVersion = ['16', '17'].includes(reactMajorVersion);
+const reactModuleSufix = isOldReactVersion ? `-${reactMajorVersion}` : '';
+
 module.exports = {
   addons: ['@storybook/addon-essentials', '@storybook/addon-storysource'],
   check: true,
   checkOptions: {
     tsconfig: '../stories/tsconfig.json',
   },
-  disableTelemetry: true,
+  core: {
+    builder: require.resolve('./custom-builder'),
+    disableTelemetry: true,
+  },
   reactOptions: {
     strictMode: true,
+    legacyRootApi: isOldReactVersion,
   },
   stories: [
     '../stories/**/*.stories.mdx',
@@ -28,6 +36,12 @@ module.exports = {
         (singleEntry) => !singleEntry.includes('/webpack-hot-middleware/'),
       );
     }
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      // react: require.resolve(`react${reactModuleSufix}`),
+      // 'react-dom': require.resolve(`react-dom${reactModuleSufix}`),
+    };
 
     return config;
   },

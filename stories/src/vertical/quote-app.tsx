@@ -21,6 +21,15 @@ interface Props {
   listStyle?: CSSProperties;
 }
 
+// Add this in your component file
+require('react-dom');
+window.React2 = require('react');
+
+console.log('ehehheeheheheh', window.React1 === window.React2, {
+  React1: React1.version,
+  React2: React2.version,
+});
+
 export default function QuoteApp(props: Props): ReactElement {
   const [quotes, setQuotes] = useState(() => props.initial);
 

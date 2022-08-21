@@ -34,6 +34,7 @@ specifiers:
   '@storybook/addon-essentials': 6.5.10
   '@storybook/addon-storysource': 6.5.10
   '@storybook/addons': 6.5.10
+  '@storybook/builder-webpack4': ^6.5.10
   '@storybook/core': 6.5.10
   '@storybook/react': 6.5.10
   '@storybook/theming': 6.5.10
@@ -171,11 +172,12 @@ devDependencies:
   '@rollup/plugin-replace': 4.0.0_rollup@2.70.1
   '@rollup/plugin-strip': 2.1.0_rollup@2.70.1
   '@storybook/addon-docs': 6.5.10_68cc54423f409f886e758457e8907ffe
-  '@storybook/addon-essentials': 6.5.10_68cc54423f409f886e758457e8907ffe
+  '@storybook/addon-essentials': 6.5.10_c422acdf82e3885bb032357d9a12255b
   '@storybook/addon-storysource': 6.5.10_react-dom@18.2.0+react@18.2.0
   '@storybook/addons': 6.5.10_react-dom@18.2.0+react@18.2.0
+  '@storybook/builder-webpack4': 6.5.10_635754ae763bbf2838c8dea294821ca8
   '@storybook/core': 6.5.10_1cf0aa0b96f7c52630d59fb8f626a5f5
-  '@storybook/react': 6.5.10_b8ad7b77fa4218ce9e151bc82b7603a3
+  '@storybook/react': 6.5.10_f48fd71bfbfc362a39019fb1ef0e270d
   '@storybook/theming': 6.5.10_react-dom@18.2.0+react@18.2.0
   '@testing-library/dom': 8.17.1
   '@testing-library/jest-dom': 5.16.5
@@ -3262,7 +3264,7 @@ packages:
       - webpack-command
     dev: true
 
-  /@storybook/addon-essentials/6.5.10_68cc54423f409f886e758457e8907ffe:
+  /@storybook/addon-essentials/6.5.10_c422acdf82e3885bb032357d9a12255b:
     resolution: {integrity: sha512-PT2aiR4vgAyB0pl3HNBUa4/a7NDRxASxAazz7zt9ZDirkipDKfxwdcLeRoJzwSngVDWEhuz5/paN5x4eNp4Hww==}
     peerDependencies:
       '@babel/core': ^7.9.6
@@ -3330,6 +3332,7 @@ packages:
       '@storybook/addon-viewport': 6.5.10_react-dom@18.2.0+react@18.2.0
       '@storybook/addons': 6.5.10_react-dom@18.2.0+react@18.2.0
       '@storybook/api': 6.5.10_react-dom@18.2.0+react@18.2.0
+      '@storybook/builder-webpack4': 6.5.10_635754ae763bbf2838c8dea294821ca8
       '@storybook/core-common': 6.5.10_635754ae763bbf2838c8dea294821ca8
       '@storybook/node-logger': 6.5.10
       core-js: 3.24.1
@@ -4126,7 +4129,7 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/react/6.5.10_b8ad7b77fa4218ce9e151bc82b7603a3:
+  /@storybook/react/6.5.10_f48fd71bfbfc362a39019fb1ef0e270d:
     resolution: {integrity: sha512-m8S1qQrwA7pDGwdKEvL6LV3YKvSzVUY297Fq+xcTU3irnAy4sHDuFoLqV6Mi1510mErK1r8+rf+0R5rEXB219g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
@@ -4159,6 +4162,7 @@ packages:
       '@babel/preset-react': 7.16.7_@babel+core@7.17.9
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.7_a6ddf6349bbfbae23464eb7cd0d9bae7
       '@storybook/addons': 6.5.10_react-dom@18.2.0+react@18.2.0
+      '@storybook/builder-webpack4': 6.5.10_635754ae763bbf2838c8dea294821ca8
       '@storybook/client-logger': 6.5.10
       '@storybook/core': 6.5.10_1cf0aa0b96f7c52630d59fb8f626a5f5
       '@storybook/core-common': 6.5.10_635754ae763bbf2838c8dea294821ca8

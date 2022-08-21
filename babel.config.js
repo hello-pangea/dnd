@@ -8,6 +8,13 @@ module.exports = (api) => {
   const isOldReactVersion = ['16', '17'].includes(reactMajorVersion);
   const reactModuleSufix = isOldReactVersion ? `-${reactMajorVersion}` : '';
 
+  console.log(
+    `REACT_MAJOR_VERSION: ${reactMajorVersion}`,
+    `module suffix: ${reactModuleSufix}`,
+    require.resolve(`react${reactModuleSufix}`),
+    require.resolve(`react-dom${reactModuleSufix}`),
+  );
+
   return {
     presets: [
       '@babel/react',
@@ -27,8 +34,9 @@ module.exports = (api) => {
                 ? path.resolve(__dirname, './dist/dnd.esm')
                 : path.resolve(__dirname, './src/index.ts'),
 
-            react: `react${reactModuleSufix}`,
-            'react-dom': `react-dom${reactModuleSufix}`,
+            // react: require.resolve(`react${reactModuleSufix}`),
+            // 'react-dom': require.resolve(`react-dom${reactModuleSufix}`),
+            // 'react-dom/client': require.resolve('react-dom/client'),
           },
         },
       ],
