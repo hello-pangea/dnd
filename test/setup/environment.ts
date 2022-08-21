@@ -1,5 +1,7 @@
-import type { Config } from '@jest/types';
-import type { EnvironmentContext } from '@jest/environment';
+import type {
+  EnvironmentContext,
+  JestEnvironmentConfig,
+} from '@jest/environment';
 import JSDOMEnvironment from 'jest-environment-jsdom';
 import { TextDecoder, TextEncoder } from 'util';
 
@@ -8,12 +10,12 @@ import transitionEventPolyfill from './transition-event-polyfill';
 
 declare global {
   interface ProcessEnv {
-    REACT_VERSION?: string;
+    REACT_MAJOR_VERSION?: string;
   }
 }
 
 export default class MyJSDOMEnvironment extends JSDOMEnvironment {
-  constructor(config: Config.ProjectConfig, context?: EnvironmentContext) {
+  constructor(config: JestEnvironmentConfig, context: EnvironmentContext) {
     super(config, context);
 
     attachRafStub.call(this);

@@ -68,6 +68,9 @@ jobs:
       - image: cimg/node:16.14.2-browsers
     working_directory: ~/repo
     resource_class: medium+
+    parameters:
+      react-major-version:
+        type: string
     steps:
       - checkout
       - pnpm
@@ -81,6 +84,7 @@ jobs:
           command: pnpm test
           environment:
             JEST_JUNIT_OUTPUT: 'test-reports/junit/js-test-results.xml'
+            REACT_MAJOR_VERSION: << parameters.react-major-version >>
 
       - store_test_results:
           path: test-reports/junit
@@ -187,6 +191,9 @@ workflows:
           requires:
             - install
       - test-unit:
+          matrix:
+            parameters:
+              react-major-version: ['16', '17', '18']
           requires:
             - install
       - test-bundle:
