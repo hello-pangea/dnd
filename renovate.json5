@@ -23,5 +23,19 @@
       rangeStrategy: "widen",
       commitMessagePrefix: "chore(peer-deps):",
     },
+
+    // to support previous react version
+    {
+      "matchPackageNames": ["@testing-library/react-16-17"],
+      "allowedVersions": "<13.0.0",
+    },
+    {
+      "matchPackageNames": ["react-16", "react-dom-16"],
+      "allowedVersions": "<17.0.0",
+    },
+    {
+      "matchPackageNames": ["react-17", "react-dom-17"],
+      "allowedVersions": "<18.0.0",
+    },
   ],
 }
