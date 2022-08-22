@@ -44,7 +44,7 @@
     "commit": "cz",
     "chromatic": "chromatic --project-token=f92123f238de",
     "prepare": "husky install",
-    "release": "cross-env SKIP_PREPARE_COMMIT_MSG=true release-it",
+    "release": "release-it",
     "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=examples-single-vertical-list--basic --no-enable-error-reporting --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
     "test": "jest --config ./jest.config.ts",
     "test:react-16": "cross-env REACT_MAJOR_VERSION=16 pnpm test",
