@@ -37,6 +37,7 @@
     "prettier_target": "*.{js,jsx,ts,tsx,md,json} src/**/*.{js,jsx,ts,tsx,md,json} test/**/*.{js,jsx,ts,tsx,md,json} docs/**/*.{js,jsx,ts,tsx,md,json} stories/**/*.{js,jsx,ts,tsx,md,json} cypress/**/*.{js,jsx,ts,tsx,md,json} csp-server/**/*.{js,jsx,ts,tsx,md,json}"
   },
   "scripts": {
+    "commit": "cz",
     "chromatic": "chromatic --project-token=f92123f238de",
     "prepare": "husky install",
     "release": "cross-env SKIP_PREPARE_COMMIT_MSG=true release-it",
