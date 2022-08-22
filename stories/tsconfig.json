@@ -7,5 +7,5 @@
     "paths": {
       "@react-forked/dnd": ["../src/index.ts"]
     }
-  },
+  }
 }
