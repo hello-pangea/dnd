@@ -2,6 +2,6 @@
   "extends": "../tsconfig.json",
   "include": ["**/*"],
   "compilerOptions": {
-    "types": ["cypress", "node"],
+    "types": ["cypress", "node"]
   }
 }

@@ -4,9 +4,7 @@
   "private": false,
   "description": "Beautiful and accessible drag and drop for lists with React",
   "author": "Alex Reardon <areardon@atlassian.com>",
-  "maintainers": [
-    "Gabriel Santerre <gab@100terres.com>"
-  ],
+  "maintainers": ["Gabriel Santerre <gab@100terres.com>"],
   "keywords": [
     "drag and drop",
     "dnd",
@@ -30,10 +28,7 @@
   "module": "dist/dnd.esm.js",
   "types": "dist/dnd.d.ts",
   "sideEffects": false,
-  "files": [
-    "/dist",
-    "/src"
-  ],
+  "files": ["/dist", "/src"],
   "publishConfig": {
     "access": "public"
   },

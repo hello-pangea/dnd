@@ -17,18 +17,9 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "types": [],
-    "lib": [
-      "dom",
-      "esnext"
-    ]
+    "lib": ["dom", "esnext"]
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "files": [
-    "src/global.d.ts"
-  ],
-  "include": [
-    "src/**/*"
-  ]
+  "exclude": ["node_modules"],
+  "files": ["src/global.d.ts"],
+  "include": ["src/**/*"]
 }
