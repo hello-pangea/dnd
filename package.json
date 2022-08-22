@@ -150,7 +150,7 @@
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-es5": "1.5.0",
     "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jest": "26.8.5",
+    "eslint-plugin-jest": "26.8.7",
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.2.1",
