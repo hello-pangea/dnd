@@ -1,8 +1,12 @@
-ie >= 11
-last 1 Edge version
-last 1 Firefox version
-last 1 Chrome version
-last 1 Safari version
-last 1 iOS version
-last 1 Android version
-last 1 ChromeAndroid version
+# These browsers account for 89.03% of all users globally
+last 5 versions
+not ios_saf < 15
+not safari < 15
+not samsung < 17
+not and_qq > 0
+not and_uc > 0
+not baidu > 0
+not ie > 0
+not kaios > 0
+not op_mob > 0
+not dead
