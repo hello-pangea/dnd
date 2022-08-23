@@ -1,6 +1,6 @@
 # Engineering health
 
-[![CircleCI branch](https://img.shields.io/circleci/build/github/react-forked/dnd/main.svg)](https://circleci.com/gh/react-forked/dnd/tree/main)
+[![CircleCI branch](https://img.shields.io/circleci/build/github/hello-pangea/dnd/main.svg)](https://circleci.com/gh/hello-pangea/dnd/tree/main)
 
 #### TypeScript
 
@@ -10,7 +10,7 @@ The [`TypeScript`](https://www.typescriptlang.org/docs/handbook/intro.html) docu
 
 ## Tested
 
-[![Tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://www.npmjs.com/package/@react-forked/dnd) [![Tested with cypress](https://img.shields.io/badge/tested%20with-cypress-brightgreen.svg?style=flat)](https://www.cypress.io/)
+[![Tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://www.npmjs.com/package/@hello-pangea/dnd) [![Tested with cypress](https://img.shields.io/badge/tested%20with-cypress-brightgreen.svg?style=flat)](https://www.cypress.io/)
 
 This code base employs a number of different testing strategies including unit, integration, browser and performance tests. Testing various aspects of the system helps to promote its quality and stability.
 
@@ -24,9 +24,9 @@ While code coverage is [not a guarantee of code health](https://stackoverflow.co
 
 ## Performance
 
-[![CircleCI branch](https://img.shields.io/badge/speed-blazing%20%F0%9F%94%A5-brightgreen.svg?style=flat)](https://circleci.com/gh/react-forked/dnd/tree/main)
+[![CircleCI branch](https://img.shields.io/badge/speed-blazing%20%F0%9F%94%A5-brightgreen.svg?style=flat)](https://circleci.com/gh/hello-pangea/dnd/tree/main)
 
-This codebase is designed to be **extremely performant** - it is part of its DNA. It is designed to perform the smallest amount of updates possible. You can have a read about performance work done for `@react-forked/dnd` here:
+This codebase is designed to be **extremely performant** - it is part of its DNA. It is designed to perform the smallest amount of updates possible. You can have a read about performance work done for `@hello-pangea/dnd` here:
 
 - [Rethinking drag and drop](https://medium.com/@alexandereardon/rethinking-drag-and-drop-d9f5770b4e6b)
 - [Dragging React performance forward](https://medium.com/@alexandereardon/dragging-react-performance-forward-688b30d40a33)
@@ -36,7 +36,7 @@ This codebase is designed to be **extremely performant** - it is part of its DNA
 
 ## Size
 
-[![minzip](https://img.shields.io/bundlephobia/minzip/@react-forked/dnd.svg)](https://www.npmjs.com/package/@react-forked/dnd)
+[![minzip](https://img.shields.io/bundlephobia/minzip/@hello-pangea/dnd.svg)](https://www.npmjs.com/package/@hello-pangea/dnd)
 
 Great care has been taken to keep the library as light as possible. There could be a smaller net cost if you where already using one of the underlying dependencies.
 

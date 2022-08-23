@@ -174,7 +174,7 @@ interface Combine {
 
 ### `onDragEnd` (required)
 
-> `@react-forked/dnd` will throw an error if a `onDragEnd` prop is not provided
+> `@hello-pangea/dnd` will throw an error if a `onDragEnd` prop is not provided
 
 This function is _extremely_ important and has an critical role to play in the application lifecycle. **This function must result in the _synchronous_ reordering of a list of `Draggables`**
 
@@ -202,7 +202,7 @@ If you need to persist a reorder to a remote data store - update the list synchr
 
 ## No dimension changes during a drag
 
-`@react-forked/dnd` does not support the changing of the size of any `<Draggable />` or `<Droppable />` after a drag has started. We build a virtual model of every `<Draggable />` and `<Droppable />` when a drag starts. We do not recollect these during a drag. So if you change the size of something: the user will see the updated size, but our virtual model will remain unchanged. If you want to modify dimensions before a drag starts you can use `onBeforeCapture`
+`@hello-pangea/dnd` does not support the changing of the size of any `<Draggable />` or `<Droppable />` after a drag has started. We build a virtual model of every `<Draggable />` and `<Droppable />` when a drag starts. We do not recollect these during a drag. So if you change the size of something: the user will see the updated size, but our virtual model will remain unchanged. If you want to modify dimensions before a drag starts you can use `onBeforeCapture`
 
 ## Block updates during a drag
 

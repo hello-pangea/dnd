@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for considering contributing to `@react-forked/dnd`! ❤️
+Thanks for considering contributing to `@hello-pangea/dnd`! ❤️
 
 Do not forget to read our [git commit guidelines](#-git-commit-guidelines) beforehand.
 
@@ -19,15 +19,15 @@ If you spot a bug you are welcome to raise it on our issue page. You are also we
 If you would like to see a feature added to the library, here is what you do:
 
 1.  Have a read of `README.md` to understand the motivations of this library. It is fairly opinionated and is not intended to be a universal drag and drop library. As such, it will not support every drag and drop interaction.
-2.  Have a search through the [open and closed issues](https://github.com/react-forked/dnd/issues?utf8=%E2%9C%93&q=is%3Aissue) to see if the feature you are requesting as already been requested.
+2.  Have a search through the [open and closed issues](https://github.com/hello-pangea/dnd/issues?utf8=%E2%9C%93&q=is%3Aissue) to see if the feature you are requesting as already been requested.
 3.  Have a clear and general purpose keyboard story for any feature request
-4.  Please [create an issue](https://github.com/react-forked/dnd/issues/new) to discuss it.
+4.  Please [create an issue](https://github.com/hello-pangea/dnd/issues/new) to discuss it.
 
 **Please do not raise a pull request directly**. There may be reasons why we will not add every feature to this library.
 
 ## Large contributions
 
-If you are interested in making a large contribution to this library there is some recommended reading / training we suggest. There is a large amount of different libraries, techniques and tools used in `@react-forked/dnd` and we have created a list with resources about them. Not everything in the list will be applicable to everyone. But it is a great reference and starting point for those who do not know where to start.
+If you are interested in making a large contribution to this library there is some recommended reading / training we suggest. There is a large amount of different libraries, techniques and tools used in `@hello-pangea/dnd` and we have created a list with resources about them. Not everything in the list will be applicable to everyone. But it is a great reference and starting point for those who do not know where to start.
 
 The online courses listed are no free - feel free to seek out alternatives if you want to. We recommend the egghead.io courses because they are quite comprehensive.
 
@@ -102,8 +102,8 @@ Here is some general reading about html5 drag and drop. It is worth having a rea
 
 #### Prior work
 
-It is worth looking at other libraries out there to see how they do drag and drop. Things to look at is their philosophy and api. `@react-forked/dnd` is an opinionated, higher level abstraction than most drag and drop libraries. We do not need to support every use case. We need to find the right level of control while still maintaining a beautiful experience for the user, flexibility of use and a clean, powerful api.
+It is worth looking at other libraries out there to see how they do drag and drop. Things to look at is their philosophy and api. `@hello-pangea/dnd` is an opinionated, higher level abstraction than most drag and drop libraries. We do not need to support every use case. We need to find the right level of control while still maintaining a beautiful experience for the user, flexibility of use and a clean, powerful api.
 
-- [`react-dnd`](https://react-dnd.github.io/react-dnd/) - `@react-forked/dnd` draws a fair amount of inspiration from `react-dnd`. Something to keep in mind is that `react-dnd` is designed to provide a set of drag and drop primitives which is a different set of goals to this project.
-- [`react-sortable-hoc`](https://github.com/clauderic/react-sortable-hoc/) - on the surface this library looks similar to `@react-forked/dnd`. Alex Reardon created a [comparison blog](https://medium.com/@alexandereardon/thanks-for-reaching-out-dimitar-nestorov-8c0bf9abe19) that explains the differences
+- [`react-dnd`](https://react-dnd.github.io/react-dnd/) - `@hello-pangea/dnd` draws a fair amount of inspiration from `react-dnd`. Something to keep in mind is that `react-dnd` is designed to provide a set of drag and drop primitives which is a different set of goals to this project.
+- [`react-sortable-hoc`](https://github.com/clauderic/react-sortable-hoc/) - on the surface this library looks similar to `@hello-pangea/dnd`. Alex Reardon created a [comparison blog](https://medium.com/@alexandereardon/thanks-for-reaching-out-dimitar-nestorov-8c0bf9abe19) that explains the differences
 - [`jQuery sortable`](http://jqueryui.com/sortable/) - the king of drag and drop for a long time

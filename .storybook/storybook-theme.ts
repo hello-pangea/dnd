@@ -4,10 +4,10 @@ import logo from './compressed-logo-rfd.svg';
 const brandTitle = `
   <span
     style="display:flex;align-items:center"
-    title="@react-forked/dnd"
+    title="@hello-pangea/dnd"
   >
     <img
-      alt="Logo of @react-forked/dnd"
+      alt="Logo of @hello-pangea/dnd"
       src="${logo}"
       style="display:block;width:auto;height:42px;max-width:100%"
     />
@@ -20,5 +20,5 @@ const brandTitle = `
 export default create({
   base: 'light',
   brandTitle,
-  brandUrl: 'https://github.com/react-forked/dnd',
+  brandUrl: 'https://github.com/hello-pangea/dnd',
 });
