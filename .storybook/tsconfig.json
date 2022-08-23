@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@react-forked/dnd": ["../src/index.ts"]
+      "@hello-pangea/dnd": ["../src/index.ts"]
     }
   },
 }

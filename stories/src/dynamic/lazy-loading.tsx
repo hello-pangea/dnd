@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
-import { DragDropContext } from '@react-forked/dnd';
+import { DragDropContext } from '@hello-pangea/dnd';
 import type {
   DropResult,
   DragUpdate,
   DraggableLocation,
-} from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
 import QuoteList from '../primatives/quote-list';
 import type { Quote } from '../types';
 import { quotes as initial, getQuotes } from '../data';

@@ -53,7 +53,7 @@ function shouldPublishUpdate(
       You are attempting to add or remove a Draggable [id: ${entry.descriptor.id}]
       while a drag is occurring. This is only supported for virtual lists.
 
-      See https://github.com/react-forked/dnd/blob/main/docs/patterns/virtual-lists.md
+      See https://github.com/hello-pangea/dnd/blob/main/docs/patterns/virtual-lists.md
     `);
     return false;
   }

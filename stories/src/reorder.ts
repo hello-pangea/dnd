@@ -1,4 +1,4 @@
-import type { DraggableLocation } from '@react-forked/dnd';
+import type { DraggableLocation } from '@hello-pangea/dnd';
 import type { Quote, QuoteMap } from './types';
 
 // a little function to help us with reordering the result

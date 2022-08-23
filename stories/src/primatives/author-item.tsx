@@ -4,7 +4,7 @@ import { colors } from '@atlaskit/theme';
 import type {
   DraggableProvided,
   DraggableStateSnapshot,
-} from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
 import { grid } from '../constants';
 import type { Author } from '../types';
 

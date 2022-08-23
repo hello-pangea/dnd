@@ -1,11 +1,11 @@
 import React, { Component, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { Draggable } from '@react-forked/dnd';
+import { Draggable } from '@hello-pangea/dnd';
 import type {
   DraggableProvided,
   DraggableStateSnapshot,
-} from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
 import { grid, borderRadius } from '../constants';
 import QuoteList from '../primatives/quote-list';
 import Title from '../primatives/title';

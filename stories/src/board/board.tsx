@@ -6,8 +6,8 @@ import type {
   DropResult,
   DraggableLocation,
   DroppableProvided,
-} from '@react-forked/dnd';
-import { DragDropContext, Droppable } from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
+import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import type { QuoteMap, Quote } from '../types';
 import Column from './column';
 import reorder, { reorderQuoteMap } from '../reorder';

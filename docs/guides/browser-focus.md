@@ -2,7 +2,7 @@
 
 > "You got to focus on what's real, man" - [Jake from Adventure time](https://www.youtube.com/watch?v=TFGz6Qvg1CE)
 
-`@react-forked/dnd` includes logic to maintain browser focus for _drag handles_. This especially important for [keyboard dragging](/docs/sensors/keyboard.md) which requires the dragging item to be focused.
+`@hello-pangea/dnd` includes logic to maintain browser focus for _drag handles_. This especially important for [keyboard dragging](/docs/sensors/keyboard.md) which requires the dragging item to be focused.
 
 ## Terminology reminder 📖
 

@@ -1,7 +1,7 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { resetServerContext } from '@react-forked/dnd';
+import { resetServerContext } from '@hello-pangea/dnd';
 import { resolve } from 'path';
 import App from './app';
 

@@ -25,7 +25,7 @@ function welcomeMessage(): void {
   );
 
   consoleTable([
-    ['@react-forked/dnd version', version],
+    ['@hello-pangea/dnd version', version],
     ['react version', React.version],
     ['process.env.NODE_ENV', process.env.NODE_ENV],
   ]);

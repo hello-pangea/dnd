@@ -5,7 +5,7 @@ import {
   Draggable,
   DraggableStyle,
   DropResult,
-} from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
 
 // fake data generator
 const getItems = (count: number) =>
