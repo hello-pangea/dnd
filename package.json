@@ -5,7 +5,8 @@
   "description": "Beautiful and accessible drag and drop for lists with React",
   "author": "Alex Reardon <areardon@atlassian.com>",
   "maintainers": [
-    "Gabriel Santerre <gab@100terres.com>"
+    "Gabriel Santerre <gab@100terres.com>",
+    "Reece Carolan <reece@hellopangea.com>"
   ],
   "keywords": [
     "drag and drop",

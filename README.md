@@ -154,10 +154,11 @@ Alex Reardon [@alexandereardon](https://twitter.com/alexandereardon)
 
 > Alex is no longer personally maintaning this project. The other wonderful maintainers are carrying this project forward.
 
-## Maintainer 🛠️
+## Maintainers 🛠️
 
 - Gabriel Santerre [@100terres](https://github.com/100terres)
-- Many other [@Atlassian](https://twitter.com/Atlassian)'s!
+- Reece Carolan [@Xhale1](https://github.com/Xhale1)
+- Many [@Atlassian](https://twitter.com/Atlassian)'s have contributed to the original [`react-beautiful-dnd`](https://github.com/atlassian/react-beautiful-dnd). _Atlassian is no longer involved with this project._
 
 ## Collaborators 🤝
 
