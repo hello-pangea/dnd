@@ -1,7 +1,0 @@
-[build.environment]
-  # This is simply a hack to prevent npm from doing anything
-  # see: https://answers.netlify.com/t/using-pnpm-and-pnpm-workspaces/2759
-  NPM_FLAGS = "--version"
-
-[build]
-  command = "npx pnpm install --store=node_modules/.pnpm-store && npx pnpm build-storybook"
