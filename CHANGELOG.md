@@ -1,5 +1,28 @@
 
 
+## [16.0.0](https://github.com/hello-pangea/dnd/compare/v15.0.0...v16.0.0) (2022-08-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **rename:** The project has a new home! From react-forked organization to
+hello-pangea. You should install @hello-pangea/dnd package instead.
+
+### Docs 📃
+
+* **community:** add discord badge ([ac03141](https://github.com/hello-pangea/dnd/commit/ac03141e28a9c6a78638b73caeced162651094c6))
+
+
+### Code Refactoring 🖌
+
+* **rename:** project from @react-forked/dnd to @hello-pangea/dnd ([146b204](https://github.com/hello-pangea/dnd/commit/146b204161ca0de8ef7f966f9e2015c1f766a403))
+
+
+### Others 🔧
+
+* **netlify:** stop using the service to deploy our storybook website ([#412](https://github.com/hello-pangea/dnd/issues/412)) ([48eb4a7](https://github.com/hello-pangea/dnd/commit/48eb4a73b5997e05d824879b0ea696e15f76a2aa))
+* update maintainers section to add Reece Carolan (@Xhale1) ([9a22333](https://github.com/hello-pangea/dnd/commit/9a22333792875f5e1cd197b313f71488819c7778))
+
 ## [15.0.0](https://github.com/react-forked/dnd/compare/v14.0.2...v15.0.0) (2022-08-22)
 
 
