@@ -13,6 +13,7 @@ interface Props {
   isGroupedOver?: boolean;
   style?: CSSProperties;
   index?: number;
+  className?: string;
 }
 
 const getBackgroundColor = (
@@ -177,8 +178,16 @@ function getStyle(provided?: DraggableProvided, style?: CSSProperties | null) {
 // things we should be doing in the selector as we do not know if consumers
 // will be using PureComponent
 function QuoteItem(props: Props) {
-  const { quote, isDragging, isGroupedOver, provided, style, isClone, index } =
-    props;
+  const {
+    quote,
+    isDragging,
+    isGroupedOver,
+    provided,
+    style,
+    isClone,
+    index,
+    className,
+  } = props;
 
   return (
     <Container
@@ -194,6 +203,7 @@ function QuoteItem(props: Props) {
       data-testid={quote.id}
       data-index={index}
       aria-label={`${quote.author.name} quote ${quote.content}`}
+      className={className}
     >
       <Avatar src={quote.author.avatarUrl} alt={quote.author.name} />
       {isClone ? <CloneBadge>Clone</CloneBadge> : null}
