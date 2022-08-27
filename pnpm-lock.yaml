@@ -139,7 +139,6 @@ dependencies:
   memoize-one: 6.0.0
   raf-schd: 4.0.3
   react-redux: 8.0.2_ps4ywwwjjeajezffxxirqk36qa
-  react-virtuoso: 2.17.2_biqbaboplfbrettd7655fr4n2y
   redux: 4.2.0
   use-memo-one: 1.1.2_react@18.2.0
 
@@ -247,6 +246,7 @@ devDependencies:
   react-dom-16: /react-dom/16.14.0_react@18.2.0
   react-dom-17: /react-dom/17.0.2_react@18.2.0
   react-virtualized: 9.22.3_biqbaboplfbrettd7655fr4n2y
+  react-virtuoso: 2.17.2_biqbaboplfbrettd7655fr4n2y
   react-window: 1.8.7_biqbaboplfbrettd7655fr4n2y
   release-it: 15.3.0
   require-from-string: 2.0.2
@@ -5077,11 +5077,11 @@ packages:
     dependencies:
       '@virtuoso.dev/urx': 0.2.13
       react: 18.2.0
-    dev: false
+    dev: true
 
   /@virtuoso.dev/urx/0.2.13:
     resolution: {integrity: sha512-iirJNv92A1ZWxoOHHDYW/1KPoi83939o83iUBQHIim0i3tMeSKEh+bxhJdTHQ86Mr4uXx9xGUTq69cp52ZP8Xw==}
-    dev: false
+    dev: true
 
   /@webassemblyjs/ast/1.11.1:
     resolution: {integrity: sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw==}
@@ -14461,7 +14461,7 @@ packages:
       '@virtuoso.dev/urx': 0.2.13
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: false
+    dev: true
 
   /react-window/1.8.7_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-JHEZbPXBpKMmoNO1bNhoXOOLg/ujhL/BU4IqVU9r8eQPcy5KQnGHIHDRkJ0ns9IM5+Aq5LNwt3j8t3tIrePQzA==}
