@@ -41,7 +41,6 @@ specifiers:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0
   '@testing-library/react-16-17': npm:@testing-library/react@12.1.5
-  '@types/enzyme': 3.10.12
   '@types/express': 4.17.13
   '@types/fs-extra': 9.0.13
   '@types/jest-axe': 3.5.4
@@ -68,7 +67,6 @@ specifiers:
   csstype: 3.1.0
   cypress: 10.6.0
   dotenv: 16.0.1
-  emotion-theming: 11.0.0
   eslint: 8.22.0
   eslint-config-airbnb: 19.0.4
   eslint-config-prettier: 8.5.0
@@ -179,7 +177,6 @@ devDependencies:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/react-16-17': /@testing-library/react/12.1.5_biqbaboplfbrettd7655fr4n2y
-  '@types/enzyme': 3.10.12
   '@types/express': 4.17.13
   '@types/fs-extra': 9.0.13
   '@types/jest-axe': 3.5.4
@@ -205,7 +202,6 @@ devDependencies:
   csstype: 3.1.0
   cypress: 10.6.0
   dotenv: 16.0.1
-  emotion-theming: 11.0.0
   eslint: 8.22.0
   eslint-config-airbnb: 19.0.4_p6gmk62mkdgf6va7ebrkix347q
   eslint-config-prettier: 8.5.0_eslint@8.22.0
@@ -4551,23 +4547,10 @@ packages:
       '@types/responselike': 1.0.0
     dev: true
 
-  /@types/cheerio/0.22.31:
-    resolution: {integrity: sha512-Kt7Cdjjdi2XWSfrZ53v4Of0wG3ZcmaegFXjMmz9tfNrZSkzzo36G0AL1YqSdcIA78Etjt6E609pt5h1xnQkPUw==}
-    dependencies:
-      '@types/node': 16.11.52
-    dev: true
-
   /@types/connect/3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
       '@types/node': 16.11.52
-    dev: true
-
-  /@types/enzyme/3.10.12:
-    resolution: {integrity: sha512-xryQlOEIe1TduDWAOphR0ihfebKFSWOXpIsk+70JskCfRfW+xALdnJ0r1ZOTo85F9Qsjk6vtlU7edTYHbls9tA==}
-    dependencies:
-      '@types/cheerio': 0.22.31
-      '@types/react': 18.0.17
     dev: true
 
   /@types/eslint-scope/3.7.4:
@@ -8276,10 +8259,6 @@ packages:
   /emojis-list/3.0.0:
     resolution: {integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==}
     engines: {node: '>= 4'}
-    dev: true
-
-  /emotion-theming/11.0.0:
-    resolution: {integrity: sha512-OhYpCGBjaLcD9c4ptwCr9SxHjfRTDqeqdzMobusJ+a/drlfnJ3AT9gmGKIhNHiXtr6626h6fsvLY22Or9CxUqw==}
     dev: true
 
   /encodeurl/1.0.2:
