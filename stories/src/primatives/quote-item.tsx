@@ -1,14 +1,14 @@
-import React, { CSSProperties } from 'react';
-import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
+import styled from '@emotion/styled';
 import type { DraggableProvided } from '@hello-pangea/dnd';
+import React, { CSSProperties } from 'react';
 import { borderRadius, grid } from '../constants';
-import type { Quote, AuthorColors } from '../types';
+import type { AuthorColors, Quote } from '../types';
 
 interface Props {
   quote: Quote;
   isDragging: boolean;
-  provided: DraggableProvided;
+  provided?: DraggableProvided;
   isClone?: boolean;
   isGroupedOver?: boolean;
   style?: CSSProperties;
@@ -158,13 +158,13 @@ const QuoteId = styled.small`
   text-align: right;
 `;
 
-function getStyle(provided: DraggableProvided, style?: CSSProperties | null) {
+function getStyle(provided?: DraggableProvided, style?: CSSProperties | null) {
   if (!style) {
-    return provided.draggableProps.style;
+    return provided?.draggableProps.style ?? {};
   }
 
   return {
-    ...provided.draggableProps.style,
+    ...provided?.draggableProps.style,
     ...style,
   };
 }
@@ -186,9 +186,9 @@ function QuoteItem(props: Props) {
       isDragging={isDragging}
       isGroupedOver={Boolean(isGroupedOver)}
       colors={quote.author.colors}
-      ref={provided.innerRef}
-      {...provided.draggableProps}
-      {...provided.dragHandleProps}
+      ref={provided?.innerRef}
+      {...provided?.draggableProps}
+      {...provided?.dragHandleProps}
       style={getStyle(provided, style)}
       data-is-dragging={isDragging}
       data-testid={quote.id}

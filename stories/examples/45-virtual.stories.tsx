@@ -1,20 +1,23 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ReactWindowList from '../src/virtual/react-window/list';
-import ReactVirtualizedList from '../src/virtual/react-virtualized/list';
+import React from 'react';
 import { getQuotes } from '../src/data';
-import ReactWindowBoard from '../src/virtual/react-window/board';
 import ReactVirtualizedBoard from '../src/virtual/react-virtualized/board';
+import ReactVirtualizedList from '../src/virtual/react-virtualized/list';
 import ReactVirtualizedWindowList from '../src/virtual/react-virtualized/window-list';
+import ReactVirtuosoBoard from '../src/virtual/react-virtuoso/board';
+import ReactVirtuosoList from '../src/virtual/react-virtuoso/list';
+import ReactWindowBoard from '../src/virtual/react-window/board';
+import ReactWindowList from '../src/virtual/react-window/list';
+
+storiesOf('Examples/Virtual: react-virtuoso', module)
+  .add('list', () => <ReactVirtuosoList initial={getQuotes(1000)} />)
+  .add('board', () => <ReactVirtuosoBoard />);
 
 storiesOf('Examples/Virtual: react-window', module)
   .add('list', () => <ReactWindowList initial={getQuotes(1000)} />)
   .add('board', () => <ReactWindowBoard />);
 
-storiesOf(
-  'Examples/Virtual: react-virtualized (this library does not official support for react 18)',
-  module,
-)
+storiesOf('Examples/Virtual: react-virtualized', module)
   .add('list', () => <ReactVirtualizedList initial={getQuotes(1000)} />)
   .add('board', () => <ReactVirtualizedBoard />)
   .add(

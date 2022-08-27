@@ -109,6 +109,7 @@ specifiers:
   react-dom-17: npm:react-dom@17.0.2
   react-redux: ^8.0.2
   react-virtualized: 9.22.3
+  react-virtuoso: ^2.17.2
   react-window: 1.8.7
   redux: ^4.2.0
   release-it: 15.3.0
@@ -138,6 +139,7 @@ dependencies:
   memoize-one: 6.0.0
   raf-schd: 4.0.3
   react-redux: 8.0.2_ps4ywwwjjeajezffxxirqk36qa
+  react-virtuoso: 2.17.2_biqbaboplfbrettd7655fr4n2y
   redux: 4.2.0
   use-memo-one: 1.1.2_react@18.2.0
 
@@ -5066,6 +5068,20 @@ packages:
       '@typescript-eslint/types': 5.33.1
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@virtuoso.dev/react-urx/0.2.13_react@18.2.0:
+    resolution: {integrity: sha512-MY0ugBDjFb5Xt8v2HY7MKcRGqw/3gTpMlLXId2EwQvYJoC8sP7nnXjAxcBtTB50KTZhO0SbzsFimaZ7pSdApwA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      '@virtuoso.dev/urx': 0.2.13
+      react: 18.2.0
+    dev: false
+
+  /@virtuoso.dev/urx/0.2.13:
+    resolution: {integrity: sha512-iirJNv92A1ZWxoOHHDYW/1KPoi83939o83iUBQHIim0i3tMeSKEh+bxhJdTHQ86Mr4uXx9xGUTq69cp52ZP8Xw==}
+    dev: false
 
   /@webassemblyjs/ast/1.11.1:
     resolution: {integrity: sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw==}
@@ -14433,6 +14449,19 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-lifecycles-compat: 3.0.4
     dev: true
+
+  /react-virtuoso/2.17.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-5xl0mCCVEANzY0SbVbUjQgRrc2it3vdGCn72kUQo0wy4s3QGVR8S3QcLZj3lBrHocGIf/ONEJ3g/uqs0KEl9eA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16 || >=17 || >= 18'
+      react-dom: '>=16 || >=17 || >= 18'
+    dependencies:
+      '@virtuoso.dev/react-urx': 0.2.13_react@18.2.0
+      '@virtuoso.dev/urx': 0.2.13
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-window/1.8.7_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-JHEZbPXBpKMmoNO1bNhoXOOLg/ujhL/BU4IqVU9r8eQPcy5KQnGHIHDRkJ0ns9IM5+Aq5LNwt3j8t3tIrePQzA==}

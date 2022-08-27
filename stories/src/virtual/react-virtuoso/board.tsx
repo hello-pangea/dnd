@@ -1,20 +1,18 @@
 import { colors } from '@atlaskit/theme';
 import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
-import type {
+import {
+  DragDropContext,
+  Draggable,
   DraggableLocation,
   DraggableProvided,
   DraggableRubric,
   DraggableStateSnapshot,
-  DroppableProvided,
-  DroppableStateSnapshot,
+  Droppable,
   DropResult,
 } from '@hello-pangea/dnd';
-import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
-import React, { CSSProperties, ReactElement, useReducer } from 'react';
-import ReactDOM from 'react-dom';
-import { List } from 'react-virtualized';
-import 'react-virtualized/styles.css';
+import React, { ReactElement, useEffect, useReducer, useState } from 'react';
+import { Virtuoso } from 'react-virtuoso';
 import { borderRadius, grid } from '../../constants';
 import { generateQuoteMap } from '../../data';
 import QuoteItem from '../../primatives/quote-item';
@@ -29,47 +27,52 @@ const Container = styled.div`
 `;
 
 interface RowProps {
-  index: number;
-  style: CSSProperties;
+  quote: Quote;
+  provided: DraggableProvided;
+  isDragging: boolean;
 }
 
-// Using a higher order function so that we can look up the quotes data to retrieve
-// our quote from within the rowRender function
-const getRowRender =
-  (quotes: Quote[]) =>
-  ({ index, style }: RowProps) => {
-    const quote: Quote | undefined | null = quotes[index];
+// Memoizing row items for even better performance!
+const Row = React.memo(({ quote, provided, isDragging }: RowProps) => {
+  return (
+    <div
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      ref={provided.innerRef}
+      style={provided.draggableProps.style}
+      className={`item ${isDragging ? 'is-dragging' : ''}`}
+    >
+      <div style={{ padding: '4px 8px 4px 8px' }}>
+        <QuoteItem
+          quote={quote}
+          isDragging={isDragging}
+          style={{ margin: '0px' }}
+        />
+      </div>
+    </div>
+  );
+});
 
-    // We are rendering an extra item for the placeholder
-    // Do do this we increased our data set size to include one 'fake' item
-    if (!quote) {
-      return null;
-    }
+const HeightPreservingItem = ({ children, ...props }: any) => {
+  const [size, setSize] = useState(0);
+  const knownSize = props['data-known-size'];
+  useEffect(() => {
+    setSize((prevSize) => {
+      return knownSize === 0 ? prevSize : knownSize;
+    });
+  }, [knownSize]);
 
-    // Faking some nice spacing around the items
-    const patchedStyle = {
-      ...style,
-      // style.left and style.top should be number
-      // https://github.com/bvaughn/react-virtualized/blob/48d3566b66c30047dcfc84efdec86ee55845e790/source/Grid/defaultCellRangeRenderer.js#L67-L91
-      left: (style.left as number) + grid,
-      top: (style.top as number) + grid,
-      width: `calc(${style.width} - ${grid * 2}px)`,
-      height: `calc(${style.height}px - ${grid}px)`,
-    };
-
-    return (
-      <Draggable draggableId={quote.id} index={index} key={quote.id}>
-        {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
-          <QuoteItem
-            provided={provided}
-            quote={quote}
-            isDragging={snapshot.isDragging}
-            style={patchedStyle}
-          />
-        )}
-      </Draggable>
-    );
-  };
+  return (
+    <div
+      {...props}
+      className="height-preserving-container"
+      // check styling in the style tag below
+      style={{ '--child-height': `${size}px` }}
+    >
+      {children}
+    </div>
+  );
+};
 
 interface ColumnProps {
   columnId: string;
@@ -100,47 +103,64 @@ const Column = React.memo(function Column(props: ColumnProps) {
           snapshot: DraggableStateSnapshot,
           rubric: DraggableRubric,
         ) => (
-          <QuoteItem
+          <Row
             provided={provided}
             isDragging={snapshot.isDragging}
             quote={quotes[rubric.source.index]}
-            style={{ margin: 0 }}
           />
         )}
       >
-        {(
-          droppableProvided: DroppableProvided,
-          snapshot: DroppableStateSnapshot,
-        ) => {
+        {(droppableProvided, snapshot) => {
+          // Add an extra item to our list to make space for a dragging item
+          // Usually the DroppableProvided.placeholder does this, but that won't
+          // work in a virtual list
           const itemCount: number = snapshot.isUsingPlaceholder
             ? quotes.length + 1
             : quotes.length;
 
           return (
-            <List
-              height={500}
-              rowCount={itemCount}
-              rowHeight={110}
-              width={300}
-              ref={(ref: any) => {
-                // react-virtualized has no way to get the list's ref that I can so
-                // So we use the `ReactDOM.findDOMNode(ref)` escape hatch to get the ref
-                if (ref) {
-                  // eslint-disable-next-line react/no-find-dom-node
-                  const whatHasMyLifeComeTo = ReactDOM.findDOMNode(ref);
-                  if (whatHasMyLifeComeTo instanceof HTMLElement) {
-                    droppableProvided.innerRef(whatHasMyLifeComeTo);
-                  }
-                }
+            <Virtuoso
+              components={{
+                Item: HeightPreservingItem,
               }}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              scrollerRef={droppableProvided.innerRef}
+              data={quotes}
+              totalCount={itemCount}
               style={{
+                width: 300,
+                height: 500,
                 backgroundColor: getBackgroundColor(
                   snapshot.isDraggingOver,
                   Boolean(snapshot.draggingFromThisWith),
                 ),
                 transition: 'background-color 0.2s ease',
               }}
-              rowRenderer={getRowRender(quotes)}
+              // eslint-disable-next-line react/no-unstable-nested-components
+              itemContent={(index, quote) => {
+                // We are rendering an extra item for the placeholder
+                // Do do this we increased our data set size to include one 'fake' item
+                if (!quote) {
+                  return null;
+                }
+
+                return (
+                  <Draggable
+                    draggableId={quote.id}
+                    index={index}
+                    key={quote.id}
+                  >
+                    {(provided) => (
+                      <Row
+                        quote={quote}
+                        provided={provided}
+                        isDragging={false}
+                      />
+                    )}
+                  </Draggable>
+                );
+              }}
             />
           );
         }}
@@ -229,10 +249,14 @@ function Board(): ReactElement {
 
   return (
     <>
-      <p>
-        React virtualized is no longer maintained and does not support React 18.
-        Try react-virtuoso or react-window instead.
-      </p>
+      <style>
+        {`
+          .height-preserving-container:empty {
+            min-height: calc(var(--child-height));
+            box-sizing: border-box;
+          }
+      `}
+      </style>
       <DragDropContext onDragEnd={onDragEnd}>
         <Container>
           {state.columnKeys.map((key: string) => {
@@ -242,7 +266,7 @@ function Board(): ReactElement {
           })}
         </Container>
         <QuoteCountSlider
-          library="react-virtualized"
+          library="react-virtuoso"
           count={state.itemCount}
           onCountChange={(count: number) =>
             dispatch({ type: 'CHANGE_COUNT', payload: count })
