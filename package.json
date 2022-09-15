@@ -1,5 +1,5 @@
 {
-  "name": "@hello-pangea/dnd",
+  "name": "@warenek/dnd",
   "version": "16.0.0",
   "private": false,
   "description": "Beautiful and accessible drag and drop for lists with React",
@@ -22,10 +22,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hello-pangea/dnd.git"
+    "url": "git+https://github.com/WarEnek/dnd.git"
   },
   "bugs": {
-    "url": "https://github.com/hello-pangea/dnd/issues"
+    "url": "https://github.com/WarEnek/dnd/issues"
   },
   "main": "dist/dnd.cjs.js",
   "module": "dist/dnd.esm.js",
