@@ -1,8 +1,6 @@
+import { act, render } from '@testing-library/react';
 import React from 'react';
-import { mount } from 'enzyme';
-import type { ReactWrapper } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import Placeholder from './util/placeholder-with-class';
+import Placeholder from '../../../../src/view/placeholder';
 import { expectIsEmpty, expectIsFull } from './util/expect';
 import { placeholder } from './util/data';
 import getPlaceholderStyle from './util/get-placeholder-style';
@@ -37,20 +35,22 @@ const getCreatePlaceholderCalls = () => {
 };
 
 it('should animate a mount', () => {
-  const wrapper: ReactWrapper<any> = mount(
+  const onClose = jest.fn();
+  const onTransitionEnd = jest.fn();
+  const { container } = render(
     <Placeholder
       contextId={contextId}
       animate="open"
       placeholder={placeholder}
-      onClose={jest.fn()}
-      onTransitionEnd={jest.fn()}
+      onClose={onClose}
+      onTransitionEnd={onTransitionEnd}
     />,
   );
 
   expect(getCreatePlaceholderCalls().length).toBe(1);
 
   // first call had an empty size
-  const onMount = getPlaceholderStyle(wrapper);
+  const onMount = getPlaceholderStyle(container);
   expectIsEmpty(onMount);
 
   // Will trigger a .setState
@@ -58,68 +58,79 @@ it('should animate a mount', () => {
     jest.runOnlyPendingTimers();
   });
 
-  // tell enzyme that something has changed
-  wrapper.update();
-
-  const postMount = getPlaceholderStyle(wrapper);
+  const postMount = getPlaceholderStyle(container);
   expectIsFull(postMount);
 });
 
 it('should not animate a mount if interrupted', () => {
-  const wrapper: ReactWrapper<any> = mount(
+  const onClose = jest.fn();
+  const onTransitionEnd = jest.fn();
+  const { container, rerender } = render(
     <Placeholder
       animate="open"
       contextId={contextId}
       placeholder={placeholder}
-      onClose={jest.fn()}
-      onTransitionEnd={jest.fn()}
+      onClose={onClose}
+      onTransitionEnd={onTransitionEnd}
     />,
   );
-  const onMount = getPlaceholderStyle(wrapper);
+  const onMount = getPlaceholderStyle(container);
   expectIsEmpty(onMount);
 
   expect(getCreatePlaceholderCalls()).toHaveLength(1);
 
   // interrupting animation
-  wrapper.setProps({
-    animate: 'none',
-  });
+  rerender(
+    <Placeholder
+      animate="none"
+      contextId={contextId}
+      placeholder={placeholder}
+      onClose={onClose}
+      onTransitionEnd={onTransitionEnd}
+    />,
+  );
 
   // render 1: normal
   // render 2: useEffect calling setState
   // render 3: result of setState
   expect(getCreatePlaceholderCalls()).toHaveLength(3);
 
-  // no timers are run
-  // let enzyme know that the react tree has changed due to the set state
-  wrapper.update();
-
-  const postMount = getPlaceholderStyle(wrapper);
+  const postMount = getPlaceholderStyle(container);
   expectIsFull(postMount);
 
   // validation - no further updates
   spy.mockClear();
   jest.runOnlyPendingTimers();
-  wrapper.update();
-  expectIsFull(getPlaceholderStyle(wrapper));
+  rerender(
+    <Placeholder
+      animate="none"
+      contextId={contextId}
+      placeholder={placeholder}
+      onClose={onClose}
+      onTransitionEnd={onTransitionEnd}
+    />,
+  );
+  expectIsFull(getPlaceholderStyle(container));
   expect(getCreatePlaceholderCalls()).toHaveLength(0);
 });
 
 it('should not animate in if unmounted', () => {
+  const onClose = jest.fn();
+  const onTransitionEnd = jest.fn();
   const error = jest.spyOn(console, 'error');
 
-  const wrapper: ReactWrapper<any> = mount(
+  const { container, unmount } = render(
     <Placeholder
       animate="open"
       contextId={contextId}
       placeholder={placeholder}
-      onClose={jest.fn()}
-      onTransitionEnd={jest.fn()}
+      onClose={onClose}
+      onTransitionEnd={onTransitionEnd}
     />,
   );
-  expectIsEmpty(getPlaceholderStyle(wrapper));
+  expectIsEmpty(getPlaceholderStyle(container));
 
-  wrapper.unmount();
+  unmount();
   jest.runOnlyPendingTimers();
 
   // an internal setState would be triggered the timer was

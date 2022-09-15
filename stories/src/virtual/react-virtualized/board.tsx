@@ -13,8 +13,8 @@ import type {
   DroppableProvided,
   DroppableStateSnapshot,
   DraggableRubric,
-} from '@react-forked/dnd';
-import { DragDropContext, Droppable, Draggable } from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import type { QuoteMap, Quote } from '../../types';
 import Title from '../../primatives/title';
 import { reorderQuoteMap } from '../../reorder';
@@ -122,7 +122,7 @@ const Column = React.memo(function Column(props: ColumnProps) {
               rowCount={itemCount}
               rowHeight={110}
               width={300}
-              ref={(ref) => {
+              ref={(ref: any) => {
                 // react-virtualized has no way to get the list's ref that I can so
                 // So we use the `ReactDOM.findDOMNode(ref)` escape hatch to get the ref
                 if (ref) {

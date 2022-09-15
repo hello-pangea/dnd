@@ -64,7 +64,7 @@ const isBodyScrollable = (): boolean => {
     Because we cannot determine if the <body> is a scroll container, and generally it is not one,
     we will be treating the <body> as *not* a scroll container
 
-    More information: https://github.com/react-forked/dnd/blob/main/docs/guides/how-we-detect-scroll-containers.md
+    More information: https://github.com/hello-pangea/dnd/blob/main/docs/guides/how-we-detect-scroll-containers.md
   `);
   return false;
 };

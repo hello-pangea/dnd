@@ -13,7 +13,7 @@ interface Process {
 declare const process: Process;
 
 declare interface Window {
-  '__@react-forked/dnd-disable-dev-warnings'?: boolean;
+  '__@hello-pangea/dnd-disable-dev-warnings'?: boolean;
 }
 
 // From the test folder we explicitly set typescript to load node.

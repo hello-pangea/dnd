@@ -4,14 +4,14 @@ import React, { Component, Fragment, ReactElement } from 'react';
 import type { ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
-import { DragDropContext, Droppable, Draggable } from '@react-forked/dnd';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import type {
   DropResult,
   DroppableProvided,
   DraggableProvided,
   DraggableStateSnapshot,
   DraggableRubric,
-} from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
 import { invariant } from '../../../src/invariant';
 
 import reorder from '../reorder';

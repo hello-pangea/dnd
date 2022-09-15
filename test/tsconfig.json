@@ -4,6 +4,6 @@
   "include": ["**/*"],
 
   "compilerOptions": {
-    "types": ["jest", "jsdom", "node"],
+    "types": ["jest", "jsdom", "node"]
   }
 }

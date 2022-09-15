@@ -1,15 +1,21 @@
 require('dotenv').config();
 
 module.exports = {
-  addons: [
-    'storybook-addon-performance/register',
-    '@storybook/addon-storysource',
-  ],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-storysource'],
   check: true,
   checkOptions: {
     tsconfig: '../stories/tsconfig.json',
   },
-  stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
+  core: {
+    disableTelemetry: true,
+  },
+  reactOptions: {
+    strictMode: true,
+  },
+  stories: [
+    '../stories/**/*.stories.mdx',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   babel: async (options) => ({
     ...options,
     presets: ['@emotion/babel-preset-css-prop', ...options.presets],

@@ -4,7 +4,7 @@ This is a little guide to help you with some common setup issues
 
 ## Check your `console`
 
-For detectable setup issues we try to log information in the `console` for `development` builds of `@react-forked/dnd`. If things are not working, first thing to do is check your `console`.
+For detectable setup issues we try to log information in the `console` for `development` builds of `@hello-pangea/dnd`. If things are not working, first thing to do is check your `console`.
 
 ## React version
 
@@ -68,7 +68,7 @@ return items.map((item, index) => (
 
 We recommend you set a `min-height` or `min-width` on a `<Droppable />` to ensure that there is a visible drop target when a list is empty
 
-We go over this in our [Get started with `@react-forked/dnd` course](https://egghead.io/lessons/react-move-items-between-columns-with-react-beautiful-dnd-using-ondragend) (This is using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))
+We go over this in our [Get started with `@hello-pangea/dnd` course](https://egghead.io/lessons/react-move-items-between-columns-with-react-beautiful-dnd-using-ondragend) (This is using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))
 
 ## Image flickering in a `<Draggable />`
 

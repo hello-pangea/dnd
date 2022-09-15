@@ -133,6 +133,6 @@ This is the same as `Phase: dropping`. However we do not apply a `cursor: grab` 
 
 ## Preset styles are vendor prefixed
 
-All styles applied are vendor prefixed correctly to meet the requirements of our [supported browser matrix](https://confluence.atlassian.com/cloud/supported-browsers-744721663.html). This is done by hand to avoid adding to @react-forked/dnd's size by including a css-in-js library
+All styles applied are vendor prefixed correctly to meet the requirements of our [supported browser matrix](https://confluence.atlassian.com/cloud/supported-browsers-744721663.html). This is done by hand to avoid adding to @hello-pangea/dnd's size by including a css-in-js library
 
 [← Back to documentation](/README.md#documentation-)

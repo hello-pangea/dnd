@@ -4,7 +4,7 @@ import { getDroppableSelector, getHandleSelector } from './util';
 
 describe('move between lists', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=board--simple');
+    cy.visit('/iframe.html?id=examples-board--simple');
   });
 
   it('should move between lists', () => {

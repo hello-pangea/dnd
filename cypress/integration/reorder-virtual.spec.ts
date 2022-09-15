@@ -4,7 +4,7 @@ import { getHandleSelector } from './util';
 
 describe('reorder: virtual', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=virtual-react-window--list');
+    cy.visit('/iframe.html?id=examples-virtual-react-window--list');
   });
 
   it('should reorder within a list', () => {
@@ -39,6 +39,9 @@ describe('reorder: virtual', () => {
       keyCode: keyCodes.space,
       force: true,
     });
+
+    // we must wait before asserting the new order
+    cy.wait(timings.outOfTheWay * 1000);
 
     // This is setting up a chain of commands and this test will not wait
     // for a 'promise' to resolve. Linting is getting confused by .then

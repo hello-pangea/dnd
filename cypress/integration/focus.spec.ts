@@ -3,7 +3,7 @@ import { getHandleSelector, getDraggableSelector } from './util';
 
 describe('focus', () => {
   it('should not steal focus if not already focused when lifting', () => {
-    cy.visit('/iframe.html?id=board--dragging-a-clone');
+    cy.visit('/iframe.html?id=examples-board--dragging-a-clone');
     // focusing on another handle
     cy.get(getHandleSelector('1')).focus();
     cy.focused().should('contain', 'id:1');
@@ -45,7 +45,7 @@ describe('focus', () => {
   });
 
   it('should maintain focus if dragging a clone', () => {
-    cy.visit('/iframe.html?id=board--dragging-a-clone');
+    cy.visit('/iframe.html?id=examples-board--dragging-a-clone');
     // focusing on another handle
     cy.get(getHandleSelector('2')).focus();
     cy.focused().should('contain', 'id:2');
@@ -82,7 +82,7 @@ describe('focus', () => {
   });
 
   it('should give focus to a combine target', () => {
-    cy.visit('/iframe.html?id=board--with-combining-and-cloning');
+    cy.visit('/iframe.html?id=examples-board--with-combining-and-cloning');
     cy.get(getHandleSelector('2')).focus();
     cy.focused().should('contain', 'id:2');
 
@@ -114,7 +114,7 @@ describe('focus', () => {
   });
 
   it('should not give focus to a combine target if source did not have focus at start of drag', () => {
-    cy.visit('/iframe.html?id=board--with-combining-and-cloning');
+    cy.visit('/iframe.html?id=examples-board--with-combining-and-cloning');
     // focusing on something unrelated to the drag
     cy.get(getHandleSelector('3')).focus();
 

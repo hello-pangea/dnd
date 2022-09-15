@@ -4,7 +4,7 @@ import { getHandleSelector } from './util';
 
 describe('reorder', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=single-vertical-list--basic');
+    cy.visit('/iframe.html?id=examples-single-vertical-list--basic');
   });
 
   it('should reorder within a list', () => {
@@ -22,6 +22,9 @@ describe('reorder', () => {
       // finishing before the movement time is fine - but this looks nice
       .wait(timings.outOfTheWay * 1000)
       .trigger('keydown', { keyCode: keyCodes.space, force: true });
+
+    // we must wait before asserting the new order
+    cy.wait(timings.outOfTheWay * 1000);
 
     // order now 2, 1
     // note: not using get aliases as they where returning incorrect results

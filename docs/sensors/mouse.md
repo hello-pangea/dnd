@@ -12,7 +12,7 @@ This allows consumers to wrap interactive elements such as an anchor and have it
 
 ## Keyboard shortcuts
 
-When a drag **is not occurring** `@react-forked/dnd` does not impact any of the standard keyboard interactions (it has no listeners bound).
+When a drag **is not occurring** `@hello-pangea/dnd` does not impact any of the standard keyboard interactions (it has no listeners bound).
 
 When a drag **is occurring** with a _mouse_ the user is able to execute the following keyboard shortcuts:
 

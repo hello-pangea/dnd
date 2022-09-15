@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactElement } from 'react';
 import styled from '@emotion/styled';
-import { DragDropContext, Draggable, Droppable } from '@react-forked/dnd';
+import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
 import type {
   DroppableProvided,
   DraggableProvided,
@@ -8,7 +8,7 @@ import type {
   DraggingStyle,
   NotDraggingStyle,
   DropResult,
-} from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
 import { grid } from '../constants';
 import reorder from '../reorder';
 

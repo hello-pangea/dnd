@@ -1,6 +1,6 @@
 # Keyboard dragging
 
-`@react-forked/dnd` supports dragging with only a keyboard. We have audited how our keyboard shortcuts interact with standard browser keyboard interactions. When the user is not dragging they can use their keyboard as they normally would. While dragging we override and disable certain browser shortcuts (such as `tab`) to ensure a fluid experience for the user.
+`@hello-pangea/dnd` supports dragging with only a keyboard. We have audited how our keyboard shortcuts interact with standard browser keyboard interactions. When the user is not dragging they can use their keyboard as they normally would. While dragging we override and disable certain browser shortcuts (such as `tab`) to ensure a fluid experience for the user.
 
 > To see more indepth information about how we impact standard browser events see our [how we use DOM events guide](/docs/guides/how-we-use-dom-events.md)
 
@@ -36,7 +36,7 @@ During a drag the following standard keyboard events have their default behaviou
 
 ## Auto scrolling
 
-When dragging with a keyboard, `@react-forked/dnd` will also perform [auto scrolling](/docs/guides/auto-scrolling.md) operations to ensure the item can be moved around
+When dragging with a keyboard, `@hello-pangea/dnd` will also perform [auto scrolling](/docs/guides/auto-scrolling.md) operations to ensure the item can be moved around
 
 [auto-scroll-board-keyboard](https://user-images.githubusercontent.com/2182637/36520650-3d3638f8-17e6-11e8-9cba-1fb439070285.gif)
 

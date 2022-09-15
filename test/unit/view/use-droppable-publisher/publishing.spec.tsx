@@ -1,8 +1,6 @@
+import { render } from '@testing-library/react';
 import type { Position } from 'css-box-model';
-import { mount } from 'enzyme';
-import type { ReactWrapper } from 'enzyme';
 import React from 'react';
-import { invariant } from '../../../../src/invariant';
 import type { DroppableDimension, ScrollSize } from '../../../../src/types';
 import { negate } from '../../../../src/state/position';
 import { offsetByPosition } from '../../../../src/state/spacing';
@@ -49,7 +47,7 @@ it('should publish the dimensions of the target', () => {
     border,
     windowScroll: { x: 0, y: 0 },
   });
-  const wrapper: ReactWrapper<any> = mount(
+  const { container } = render(
     <WithAppContext registry={registry}>
       <ScrollableItem
         droppableId={expected.descriptor.id}
@@ -58,8 +56,7 @@ it('should publish the dimensions of the target', () => {
       />
     </WithAppContext>,
   );
-  const el = wrapper.getDOMNode<HTMLElement>();
-  invariant(el);
+  const el = container.firstElementChild as HTMLElement;
   jest
     .spyOn(el, 'getBoundingClientRect')
     .mockImplementation(() => setDOMRect(bigClient.borderBox));
@@ -100,7 +97,7 @@ it('should consider the window scroll when calculating dimensions', () => {
     windowScroll,
   });
 
-  const wrapper: ReactWrapper<any> = mount(
+  const { container } = render(
     <WithAppContext registry={registry}>
       <ScrollableItem
         droppableId={expected.descriptor.id}
@@ -109,8 +106,7 @@ it('should consider the window scroll when calculating dimensions', () => {
       />
     </WithAppContext>,
   );
-  const el = wrapper.getDOMNode<HTMLElement>();
-  invariant(el);
+  const el = container.firstElementChild as HTMLElement;
   jest
     .spyOn(el, 'getBoundingClientRect')
     .mockImplementation(() => setDOMRect(bigClient.borderBox));
@@ -138,13 +134,12 @@ describe('no closest scrollable', () => {
       padding,
       windowScroll: preset.windowScroll,
     });
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext registry={registry}>
         <App parentIsScrollable={false} />
       </WithAppContext>,
     );
-    const el = wrapper.find('.droppable').getDOMNode<HTMLElement>();
-    invariant(el);
+    const el = container.querySelector('.droppable') as HTMLElement;
     jest
       .spyOn(el, 'getBoundingClientRect')
       .mockImplementation(() => setDOMRect(bigClient.borderBox));
@@ -196,13 +191,12 @@ describe('droppable is scrollable', () => {
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     // both the droppable and the parent are scrollable
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext registry={registry}>
         <App droppableIsScrollable />
       </WithAppContext>,
     );
-    const el = wrapper.find('.droppable').getDOMNode<HTMLElement>();
-    invariant(el);
+    const el = container.querySelector('.droppable') as HTMLElement;
     // returning smaller border box as this is what occurs when the element is scrollable
     jest
       .spyOn(el, 'getBoundingClientRect')
@@ -261,13 +255,12 @@ describe('droppable is scrollable', () => {
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
     // both the droppable and the parent are scrollable
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext registry={registry}>
         <App droppableIsScrollable />
       </WithAppContext>,
     );
-    const el = wrapper.find('.droppable').getDOMNode<HTMLElement>();
-    invariant(el);
+    const el = container.querySelector('.droppable') as HTMLElement;
     // returning smaller border box as this is what occurs when the element is scrollable
     jest
       .spyOn(el, 'getBoundingClientRect')
@@ -320,17 +313,18 @@ describe('parent of droppable is scrollable', () => {
     });
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext registry={registry}>
         <App parentIsScrollable droppableIsScrollable={false} />
       </WithAppContext>,
     );
-    const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
-    invariant(droppable);
+    const droppable = container.querySelector('.droppable') as HTMLElement;
     jest
       .spyOn(droppable, 'getBoundingClientRect')
       .mockImplementation(() => setDOMRect(bigClient.borderBox));
-    const parent: HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+    const parent: HTMLElement = container.querySelector(
+      '.scroll-parent',
+    ) as HTMLElement;
     jest
       .spyOn(parent, 'getBoundingClientRect')
       .mockImplementation(() => setDOMRect(smallFrameClient.borderBox));
@@ -380,14 +374,13 @@ describe('both droppable and parent is scrollable', () => {
     });
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
-    const wrapper = mount(
+    const { container } = render(
       <WithAppContext registry={registry}>
         <App parentIsScrollable droppableIsScrollable />,
       </WithAppContext>,
     );
-    const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
-    invariant(droppable);
-    const parent: HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+    const droppable = container.querySelector('.droppable') as HTMLElement;
+    const parent = container.querySelector('.scroll-parent') as HTMLElement;
     jest
       .spyOn(droppable, 'getBoundingClientRect')
       .mockImplementation(() => setDOMRect(smallFrameClient.borderBox));
@@ -425,15 +418,15 @@ it('should capture the initial scroll of the closest scrollable', () => {
   const frameScroll: Position = { x: 10, y: 20 };
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
-  const wrapper = mount(
+  const { container } = render(
     <WithAppContext registry={registry}>
       <App parentIsScrollable droppableIsScrollable={false} />,
     </WithAppContext>,
   );
-  const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
-  invariant(droppable);
-  const parent: HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
-  invariant(parent);
+  const droppable = container.querySelector('.droppable') as HTMLElement;
+  const parent: HTMLElement = container.querySelector(
+    '.scroll-parent',
+  ) as HTMLElement;
   // manually setting the scroll of the parent node
   parent.scrollTop = frameScroll.y;
   parent.scrollLeft = frameScroll.x;
@@ -485,7 +478,7 @@ it('should indicate if subject clipping is permitted based on the ignoreContaine
   // in this case the parent of the droppable is the closest scrollable
   const registry: Registry = createRegistry();
   const registerSpy = jest.spyOn(registry.droppable, 'register');
-  const wrapper = mount(
+  const { container } = render(
     <WithAppContext registry={registry}>
       <App
         parentIsScrollable
@@ -494,9 +487,8 @@ it('should indicate if subject clipping is permitted based on the ignoreContaine
       />
     </WithAppContext>,
   );
-  const droppable = wrapper.find('.droppable').getDOMNode<HTMLElement>();
-  invariant(droppable);
-  const parent: HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  const droppable = container.querySelector('.droppable') as HTMLElement;
+  const parent = container.querySelector('.scroll-parent') as HTMLElement;
   const scrollSize: ScrollSize = {
     scrollWidth: bigClient.paddingBox.width,
     scrollHeight: bigClient.paddingBox.height,

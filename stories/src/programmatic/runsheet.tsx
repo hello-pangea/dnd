@@ -5,8 +5,8 @@ import type {
   PreDragActions,
   SnapDragActions,
   SensorAPI,
-} from '@react-forked/dnd';
-import { DragDropContext } from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
+import { DragDropContext } from '@hello-pangea/dnd';
 import type { Quote } from '../types';
 import QuoteList from '../primatives/quote-list';
 import reorder from '../reorder';

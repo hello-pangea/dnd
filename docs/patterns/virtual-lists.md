@@ -1,6 +1,6 @@
 # Virtual lists
 
-`@react-forked/dnd` supports drag and drop within and between virtual lists. This lets you have fantastic performance with very large data sets. As a general rule, you will want to start using a virtual list when your list size is more than 500 items.
+`@hello-pangea/dnd` supports drag and drop within and between virtual lists. This lets you have fantastic performance with very large data sets. As a general rule, you will want to start using a virtual list when your list size is more than 500 items.
 
 ![virtual-board](https://user-images.githubusercontent.com/2182637/66453948-e0044d00-eab1-11e9-88db-3e5165dde69b.gif)
 
@@ -19,7 +19,7 @@ There are drawbacks with using virtual lists. They stem from the fact that with 
 
 ## Support
 
-`@react-forked/dnd` is designed to work with existing virtual list solutions and does not have it's own virtual list abstraction. There is no official "virtual list" specification or implementation for the web. Different virtual list libraries achieve windowing through various techniques. So we cannot guarentee that `@react-forked/dnd` will work with every virtual list library. We have created examples for `react-window` and `react-virtualized` which are the two most popular virtual list libraries for `react`.
+`@hello-pangea/dnd` is designed to work with existing virtual list solutions and does not have it's own virtual list abstraction. There is no official "virtual list" specification or implementation for the web. Different virtual list libraries achieve windowing through various techniques. So we cannot guarentee that `@hello-pangea/dnd` will work with every virtual list library. We have created examples for `react-window` and `react-virtualized` which are the two most popular virtual list libraries for `react`.
 
 ## Premade examples 🎁
 
@@ -27,16 +27,16 @@ Please raise a pull request if you would like to add examples for other virtuali
 
 ### [`react-window`](https://github.com/bvaughn/react-window)
 
-- [List](https://react-forked-dnd.netlify.com/?path=/story/virtual-react-window--list) ([source](/stories/src/virtual/react-window/list.jsx))
-- [Board](https://react-forked-dnd.netlify.com/?path=/story/virtual-react-window--board) ([source](/stories/src/virtual/react-window/board.jsx))
+- [List](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-window--list) ([source](/stories/src/virtual/react-window/list.jsx))
+- [Board](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-window--board) ([source](/stories/src/virtual/react-window/board.jsx))
 - [Basic list on `codesandbox.io`](https://codesandbox.io/s/simple-virtual-list-dark-c6wqc)
 - [Basic board on `codesandbox.io`](https://codesandbox.io/s/simple-virtual-list-board-vgvzt)
 
 ### [`react-virtualized`](https://github.com/bvaughn/react-virtualized)
 
-- [List](https://react-forked-dnd.netlify.com/?path=/story/virtual-react-virtualized--list) ([source](/stories/src/virtual/react-virtualized/list.jsx))
-- [Board](https://react-forked-dnd.netlify.com/?path=/story/virtual-react-virtualized--board) ([source](/stories/src/virtual/react-virtualized/board.jsx))
-- [List](https://react-forked-dnd.netlify.com/?path=/story/virtual-react-virtualized--window-list) with [`WindowScroller`](https://github.com/bvaughn/react-virtualized/blob/master/docs/WindowScroller.md) ([source](/stories/src/virtual/react-virtualized/window-list.jsx))
+- [List](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-virtualized--list) ([source](/stories/src/virtual/react-virtualized/list.jsx))
+- [Board](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-virtualized--board) ([source](/stories/src/virtual/react-virtualized/board.jsx))
+- [List](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-virtualized--window-list) with [`WindowScroller`](https://github.com/bvaughn/react-virtualized/blob/master/docs/WindowScroller.md) ([source](/stories/src/virtual/react-virtualized/window-list.jsx))
 
 ### [`react-virtuoso`](https://github.com/petyosi/react-virtuoso)
 React Virtuoso comes with automatic item measurement out of the box.
@@ -45,7 +45,7 @@ React Virtuoso comes with automatic item measurement out of the box.
 
 ## Usage
 
-`@react-forked/dnd` does not provide its own virtual list abstraction so there is a bit of wiring that you will need to do in order to get going with existing virtual list solutions 🛠
+`@hello-pangea/dnd` does not provide its own virtual list abstraction so there is a bit of wiring that you will need to do in order to get going with existing virtual list solutions 🛠
 
 ### Enable overscanning
 
@@ -53,7 +53,7 @@ React Virtuoso comes with automatic item measurement out of the box.
 
 Most virtual list libraries support the concept of **overscanning**. Overscanning is where a small about of non-visible items are rendered near the boundary of the window. When a scroll occurs the overscanned item can be immediately moved into view and does not need to be created. Overscanning generally leads to a more fluid experience.
 
-It is required that overscanning be enabled for `@react-forked/dnd` to work correctly. If overscanning is not enabled, `rfd` cannot tell if there are more items in the list when an item is in the last visual position. We require an overscanning value of one or more.
+It is required that overscanning be enabled for `@hello-pangea/dnd` to work correctly. If overscanning is not enabled, `rfd` cannot tell if there are more items in the list when an item is in the last visual position. We require an overscanning value of one or more.
 
 ### Set `<Droppable /> | mode` to `virtual`
 

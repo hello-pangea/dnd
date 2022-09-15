@@ -1,5 +1,8 @@
+import '@testing-library/jest-dom';
+
 // ensuring that each test has at least one assertion
 beforeEach(() => {
+  // eslint-disable-next-line jest/no-standalone-expect
   expect.hasAssertions();
 });
 

@@ -2,7 +2,7 @@ import React, { CSSProperties, ReactElement, useState } from 'react';
 import ReactDOM from 'react-dom';
 import 'react-virtualized/styles.css';
 import { List } from 'react-virtualized';
-import { Droppable, Draggable, DragDropContext } from '@react-forked/dnd';
+import { Droppable, Draggable, DragDropContext } from '@hello-pangea/dnd';
 
 import type {
   DroppableProvided,
@@ -10,7 +10,7 @@ import type {
   DraggableStateSnapshot,
   DraggableRubric,
   DropResult,
-} from '@react-forked/dnd';
+} from '@hello-pangea/dnd';
 import type { Quote } from '../../types';
 
 import QuoteItem from '../../primatives/quote-item';
@@ -91,7 +91,7 @@ function App(props: Props): ReactElement {
             rowCount={quotes.length}
             rowHeight={110}
             width={300}
-            ref={(ref) => {
+            ref={(ref: any) => {
               // react-virtualized has no way to get the list's ref that I can so
               // So we use the `ReactDOM.findDOMNode(ref)` escape hatch to get the ref
               if (ref) {

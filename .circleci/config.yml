@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.2.5
+  browser-tools: circleci/browser-tools@1.4.0
 
 commands:
   # TODO: Find a better to setup pnpm. We could use
@@ -20,7 +20,7 @@ commands:
 jobs:
   install:
     docker:
-      - image: cimg/node:16.14.2-browsers
+      - image: cimg/node:16.17.0-browsers
     working_directory: ~/repo
     environment:
       - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
@@ -49,7 +49,7 @@ jobs:
 
   validate:
     docker:
-      - image: cimg/node:16.14.2-browsers
+      - image: cimg/node:16.17.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -65,9 +65,12 @@ jobs:
 
   test-unit:
     docker:
-      - image: cimg/node:16.14.2-browsers
+      - image: cimg/node:16.17.0-browsers
     working_directory: ~/repo
     resource_class: medium+
+    parameters:
+      react-major-version:
+        type: string
     steps:
       - checkout
       - pnpm
@@ -81,13 +84,14 @@ jobs:
           command: pnpm test
           environment:
             JEST_JUNIT_OUTPUT: 'test-reports/junit/js-test-results.xml'
+            REACT_MAJOR_VERSION: << parameters.react-major-version >>
 
       - store_test_results:
           path: test-reports/junit
 
   test-bundle:
     docker:
-      - image: cimg/node:16.14.2-browsers
+      - image: cimg/node:16.17.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -103,7 +107,7 @@ jobs:
 
   build:
     docker:
-      - image: cimg/node:16.14.2-browsers
+      - image: cimg/node:16.17.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -124,7 +128,7 @@ jobs:
 
   test-browser:
     docker:
-      - image: cimg/node:16.14.2-browsers
+      - image: cimg/node:16.17.0-browsers
     working_directory: ~/repo
     environment:
       - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
@@ -153,7 +157,7 @@ jobs:
 
   test-a11y:
     docker:
-      - image: cimg/node:16.14.2-browsers
+      - image: cimg/node:16.17.0-browsers
     working_directory: ~/repo
     steps:
       - browser-tools/install-chrome
@@ -187,6 +191,9 @@ workflows:
           requires:
             - install
       - test-unit:
+          matrix:
+            parameters:
+              react-major-version: ['16', '17', '18']
           requires:
             - install
       - test-bundle:

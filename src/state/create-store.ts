@@ -42,7 +42,7 @@ const composeEnhancers =
   typeof window !== 'undefined' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-        name: '@react-forked/dnd',
+        name: '@hello-pangea/dnd',
       })
     : compose;
 
