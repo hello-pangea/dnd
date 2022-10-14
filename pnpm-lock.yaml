@@ -104,7 +104,7 @@ specifiers:
   react-dom: 18.2.0
   react-dom-16: npm:react-dom@16.14.0
   react-dom-17: npm:react-dom@17.0.2
-  react-redux: ^8.0.2
+  react-redux: ^8.0.4
   react-virtualized: 9.22.3
   react-window: 1.8.7
   redux: ^4.2.0
@@ -133,7 +133,7 @@ dependencies:
   css-box-model: 1.2.1
   memoize-one: 6.0.0
   raf-schd: 4.0.3
-  react-redux: 8.0.2_ps4ywwwjjeajezffxxirqk36qa
+  react-redux: 8.0.4_ps4ywwwjjeajezffxxirqk36qa
   redux: 4.2.0
   use-memo-one: 1.1.2_react@18.2.0
 
@@ -14491,8 +14491,8 @@ packages:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
     dev: true
 
-  /react-redux/8.0.2_ps4ywwwjjeajezffxxirqk36qa:
-    resolution: {integrity: sha512-nBwiscMw3NoP59NFCXFf02f8xdo+vSHT/uZ1ldDwF7XaTpzm+Phk97VT4urYBl5TYAPNVaFm12UHAEyzkpNzRA==}
+  /react-redux/8.0.4_ps4ywwwjjeajezffxxirqk36qa:
+    resolution: {integrity: sha512-yMfQ7mX6bWuicz2fids6cR1YT59VTuT8MKyyE310wJQlINKENCeT1UcPdEiX6znI5tF8zXyJ/VYvDgeGuaaNwQ==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
       '@types/react-dom': ^16.8 || ^17.0 || ^18.0
