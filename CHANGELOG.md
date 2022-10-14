@@ -1,5 +1,24 @@
 
 
+## [16.0.1](https://github.com/hello-pangea/dnd/compare/v16.0.0...v16.0.1) (2022-10-14)
+
+
+### Docs 📃
+
+* clarify that grid layouts are not supported in readme ([58437ba](https://github.com/hello-pangea/dnd/commit/58437bac7bc462ebe835d612b0c143ec8ff3c435))
+
+
+### Others 🔧
+
+* **deps:** update babel libraries ([#428](https://github.com/hello-pangea/dnd/issues/428)) ([19cdc08](https://github.com/hello-pangea/dnd/commit/19cdc08c78fc243b5a64e59b4b94d2872baeed35))
+* **deps:** update react-redux to v8.0.4 ([#427](https://github.com/hello-pangea/dnd/issues/427)) ([3b9ee6a](https://github.com/hello-pangea/dnd/commit/3b9ee6a856d8551a60bd0a34501c84d63e55c632))
+* **deps:** update use-memo-one to v1.1.3 ([#426](https://github.com/hello-pangea/dnd/issues/426)) ([4239e6e](https://github.com/hello-pangea/dnd/commit/4239e6eb2d67ab6b30995630a7baa9e81e72885f))
+* **dev-deps:** jest 28 -> 29 and jsdom 19 -> 20 ([b9946f4](https://github.com/hello-pangea/dnd/commit/b9946f472d4b5162c63b145fdf0a11ae0d29190d))
+* **dev-deps:** remove @types/enzyme and unused emotion-theming ([f3ab174](https://github.com/hello-pangea/dnd/commit/f3ab174579181206e319ec776d9d34c8b50a113a))
+* **dev-deps:** remove @types/jest ([1b5c83a](https://github.com/hello-pangea/dnd/commit/1b5c83a5cdb440a2281b4ecc90ee306b0bf02e59))
+* **dev-deps:** typescript 4.7 -> 4.8 ([cc5f954](https://github.com/hello-pangea/dnd/commit/cc5f954e6e8d1782cf849e76c582663a99abe6e1))
+* **dev-deps:** update minor dev deps ([e01d879](https://github.com/hello-pangea/dnd/commit/e01d879369cc63c30568290bd0d4ff5c898be1fa))
+
 ## [16.0.0](https://github.com/hello-pangea/dnd/compare/v15.0.0...v16.0.0) (2022-08-25)
 
 
