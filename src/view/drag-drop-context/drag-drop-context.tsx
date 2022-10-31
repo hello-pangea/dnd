@@ -2,6 +2,7 @@ import React from 'react';
 import type { ReactNode } from 'react';
 import type { Responders, ContextId, Sensor } from '../../types';
 import ErrorBoundary from './error-boundary';
+import { warning } from '../../dev-warning';
 import preset from '../../screen-reader-message-preset';
 import App from './app';
 import useUniqueContextId, {
@@ -29,6 +30,14 @@ export interface DragDropContextProps extends Responders {
 
 // Reset any context that gets persisted across server side renders
 export function resetServerContext() {
+  if ('useId' in React) {
+    warning(
+      `It is not necessary to call resetServerContext when using React 18+`,
+    );
+
+    return;
+  }
+
   resetContextId();
   resetUniqueIds();
 }

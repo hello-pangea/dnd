@@ -11,7 +11,10 @@ function getNonce(): string {
 }
 
 function renderHtml(policy?: string, nonce?: string) {
-  resetServerContext();
+  if (!('useId' in React)) {
+    resetServerContext();
+  }
+
   let meta = '';
   if (nonce) {
     meta += `<meta id="csp-nonce" property="csp-nonce" content="${nonce}" />`;
