@@ -8,6 +8,7 @@ import useUniqueContextId, {
   reset as resetContextId,
 } from './use-unique-context-id';
 import { reset as resetUniqueIds } from '../use-unique-id';
+import { PartialAutoScrollConfig } from '../../state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
 
 export interface DragDropContextProps extends Responders {
   // We do not technically need any children for this component
@@ -20,6 +21,8 @@ export interface DragDropContextProps extends Responders {
   nonce?: string;
   // See our [sensor api](/docs/sensors/sensor-api.md)
   sensors?: Sensor[];
+  // autoScrollConfig options
+  autoScrollOptions?: PartialAutoScrollConfig;
 }
 
 // Reset any context that gets persisted across server side renders
@@ -50,6 +53,7 @@ export default function DragDropContext(props: DragDropContextProps) {
           onDragStart={props.onDragStart}
           onDragUpdate={props.onDragUpdate}
           onDragEnd={props.onDragEnd}
+          autoScrollOptions={props.autoScrollOptions}
         >
           {props.children}
         </App>
