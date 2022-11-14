@@ -1,7 +1,8 @@
 // Types used to control how the fluid auto scroll feels
 export interface PartialAutoScrollConfig {
-  // percentage distance form edge of container
+  // percentage distance from edge of container at which to start auto scrolling
   startFromPercentage?: number;
+  // percentage distance from edge of container at which max scroll speed is achieved
   maxScrollAtPercentage?: number;
   // pixels per frame
   maxPixelScroll?: number;
@@ -14,9 +15,9 @@ export interface PartialAutoScrollConfig {
 
   durationDampening?: {
     // ms: how long to dampen the speed of an auto scroll from the start of a drag
-    stopDampeningAt: number;
+    stopDampeningAt?: number;
     // ms: when to start accelerating the reduction of duration dampening
-    accelerateAt: number;
+    accelerateAt?: number;
   };
 
   // whether or not autoscroll should be turned off entirely

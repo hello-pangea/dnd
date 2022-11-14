@@ -38,4 +38,31 @@ We also correctly update the scroll position as required when keyboard dragging.
 
 This is amazing for users with visual impairments as they can correctly move items around in big lists without needing to use mouse positioning.
 
+## Customizing AutoScroll Behavior
+
+The `DragDropContext` accepts a `prop` called `autoScrollOptions`, which follows the following interface:
+
+```ts
+autoScrollOptions: PartialAutoScrollConfig = {
+  // percentage distance from edge of container at which to start auto scrolling
+  startFromPercentage?: number;
+  // percentage distance from edge of container at which max scroll speed is achieved
+  maxScrollAtPercentage?: number;
+  // pixels per frame
+  maxPixelScroll?: number;
+  // A function used to ease a percentage value for scroll
+  ease?: (percentage: number) => number;
+  durationDampening?: {
+    // ms: how long to dampen the speed of an auto scroll from the start of a drag
+    stopDampeningAt?: number;
+    // ms: when to start accelerating the reduction of duration dampening
+    accelerateAt?: number;
+  };
+  // whether or not autoscroll should be turned off entirely
+  disabled?: boolean;
+}
+```
+
+This prop provides developers interested in exerting more control over auto scroll with the tools to do so. Visit the "Custom Auto-Scroll Options" story of the [DND Storybook](https://dnd.hellopangea.com/?path=/story/welcome--page) to better understand what each property of this prop controls.
+
 [← Back to documentation](/README.md#documentation-)
