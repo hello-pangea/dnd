@@ -2,11 +2,12 @@ import type { DistanceThresholds } from './get-distance-thresholds';
 import getPercentage from '../../get-percentage';
 import { AutoScrollConfig } from '../../config/autoscroll-config-types';
 import minScroll from './min-scroll';
+import { defaultAutoScrollConfig } from '../../config/use-autoscroll-config';
 
 export default (
   distanceToEdge: number,
   thresholds: DistanceThresholds,
-  autoScrollOptions: AutoScrollConfig
+  autoScrollOptions: AutoScrollConfig = defaultAutoScrollConfig,
 ): number => {
   /*
   // This function only looks at the distance to one edge
@@ -54,7 +55,8 @@ export default (
     1 - percentageFromMaxScrollValueAt;
 
   const scroll: number =
-    autoScrollOptions.maxPixelScroll * autoScrollOptions.ease(percentageFromStartScrollingFrom);
+    autoScrollOptions.maxPixelScroll *
+    autoScrollOptions.ease(percentageFromStartScrollingFrom);
 
   // scroll will always be a positive integer
   return Math.ceil(scroll);

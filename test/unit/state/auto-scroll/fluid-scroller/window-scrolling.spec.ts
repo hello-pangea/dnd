@@ -16,7 +16,7 @@ import {
   negate,
 } from '../../../../../src/state/position';
 import getArgsMock from './util/get-args-mock';
-import config from '../../../../../src/state/auto-scroller/fluid-scroller/config';
+import { defaultAutoScrollConfig } from '../../../../../src/state/auto-scroller/fluid-scroller/config/use-autoscroll-config';
 
 forEach(({ axis, state }: BlockFnArgs) => {
   const thresholds: DistanceThresholds = getDistanceThresholds(
@@ -165,7 +165,7 @@ forEach(({ axis, state }: BlockFnArgs) => {
       );
       requestAnimationFrame.step();
       expect(mocks.scrollWindow).toHaveBeenCalledWith(
-        patch(axis.line, config.maxPixelScroll),
+        patch(axis.line, defaultAutoScrollConfig.maxPixelScroll),
       );
     });
 
@@ -184,7 +184,7 @@ forEach(({ axis, state }: BlockFnArgs) => {
       );
       requestAnimationFrame.step();
       expect(mocks.scrollWindow).toHaveBeenCalledWith(
-        patch(axis.line, config.maxPixelScroll),
+        patch(axis.line, defaultAutoScrollConfig.maxPixelScroll),
       );
     });
 
@@ -213,7 +213,7 @@ forEach(({ axis, state }: BlockFnArgs) => {
       requestAnimationFrame.step();
       expect(mocks.scrollWindow).toHaveBeenCalledTimes(1);
       expect(mocks.scrollWindow).toHaveBeenCalledWith(
-        patch(axis.line, config.maxPixelScroll),
+        patch(axis.line, defaultAutoScrollConfig.maxPixelScroll),
       );
     });
   });
@@ -360,7 +360,7 @@ forEach(({ axis, state }: BlockFnArgs) => {
       );
       requestAnimationFrame.step();
       expect(mocks.scrollWindow).toHaveBeenCalledWith(
-        negate(patch(axis.line, config.maxPixelScroll)),
+        negate(patch(axis.line, defaultAutoScrollConfig.maxPixelScroll)),
       );
     });
 
@@ -379,7 +379,7 @@ forEach(({ axis, state }: BlockFnArgs) => {
       );
       requestAnimationFrame.step();
       expect(mocks.scrollWindow).toHaveBeenCalledWith(
-        negate(patch(axis.line, config.maxPixelScroll)),
+        negate(patch(axis.line, defaultAutoScrollConfig.maxPixelScroll)),
       );
     });
 
@@ -408,7 +408,7 @@ forEach(({ axis, state }: BlockFnArgs) => {
       requestAnimationFrame.step();
       expect(mocks.scrollWindow).toHaveBeenCalledTimes(1);
       expect(mocks.scrollWindow).toHaveBeenCalledWith(
-        negate(patch(axis.line, config.maxPixelScroll)),
+        negate(patch(axis.line, defaultAutoScrollConfig.maxPixelScroll)),
       );
     });
   });

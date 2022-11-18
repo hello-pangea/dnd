@@ -40,7 +40,7 @@ This is amazing for users with visual impairments as they can correctly move ite
 
 ## Customizing AutoScroll Behavior
 
-The `DragDropContext` accepts a `prop` called `autoScrollOptions`, which follows the following interface:
+The `<DragDropContext />` accepts a `prop` called `autoScrollOptions`, which follows the following interface:
 
 ```ts
 autoScrollOptions: PartialAutoScrollConfig = {

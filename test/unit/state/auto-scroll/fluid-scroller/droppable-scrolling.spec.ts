@@ -16,8 +16,8 @@ import {
   negate,
 } from '../../../../../src/state/position';
 import getArgsMock from './util/get-args-mock';
-import config from '../../../../../src/state/auto-scroller/fluid-scroller/config';
 import scrollDroppable from '../../../../../src/state/droppable/scroll-droppable';
+import { defaultAutoScrollConfig } from '../../../../../src/state/auto-scroller/fluid-scroller/config/use-autoscroll-config';
 
 forEach(({ axis, state, preset }: BlockFnArgs) => {
   const { scrollable, frameClient } = getDroppable(preset);
@@ -178,7 +178,7 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
       requestAnimationFrame.step();
       expect(mocks.scrollDroppable).toHaveBeenCalledWith(
         scrollable.descriptor.id,
-        patch(axis.line, config.maxPixelScroll),
+        patch(axis.line, defaultAutoScrollConfig.maxPixelScroll),
       );
     });
 
@@ -199,7 +199,7 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
       requestAnimationFrame.step();
       expect(mocks.scrollDroppable).toHaveBeenCalledWith(
         scrollable.descriptor.id,
-        patch(axis.line, config.maxPixelScroll),
+        patch(axis.line, defaultAutoScrollConfig.maxPixelScroll),
       );
     });
 
@@ -231,7 +231,7 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
       expect(mocks.scrollDroppable).toHaveBeenCalledTimes(1);
       expect(mocks.scrollDroppable).toHaveBeenCalledWith(
         scrollable.descriptor.id,
-        patch(axis.line, config.maxPixelScroll),
+        patch(axis.line, defaultAutoScrollConfig.maxPixelScroll),
       );
     });
   });
@@ -386,7 +386,7 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
       requestAnimationFrame.step();
       expect(mocks.scrollDroppable).toHaveBeenCalledWith(
         scrolled.descriptor.id,
-        negate(patch(axis.line, config.maxPixelScroll)),
+        negate(patch(axis.line, defaultAutoScrollConfig.maxPixelScroll)),
       );
     });
 
@@ -407,7 +407,7 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
       requestAnimationFrame.step();
       expect(mocks.scrollDroppable).toHaveBeenCalledWith(
         scrolled.descriptor.id,
-        negate(patch(axis.line, config.maxPixelScroll)),
+        negate(patch(axis.line, defaultAutoScrollConfig.maxPixelScroll)),
       );
     });
 
@@ -439,7 +439,7 @@ forEach(({ axis, state, preset }: BlockFnArgs) => {
       expect(mocks.scrollDroppable).toHaveBeenCalledTimes(1);
       expect(mocks.scrollDroppable).toHaveBeenCalledWith(
         scrolled.descriptor.id,
-        negate(patch(axis.line, config.maxPixelScroll)),
+        negate(patch(axis.line, defaultAutoScrollConfig.maxPixelScroll)),
       );
     });
   });
