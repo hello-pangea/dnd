@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 
 import { DropResult } from '../../../src/types';
 import DragDropContext from '../../../src/view/drag-drop-context';
-import { defaultAutoScrollConfig } from '../../../src/state/auto-scroller/fluid-scroller/config/use-autoscroll-config';
-import { PartialAutoScrollConfig } from '../../../src/state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
+import { defaultAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config/use-autoscroll-config';
+import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
 
 import reorder from '../reorder';
 import type { Quote } from '../types';
@@ -34,9 +34,9 @@ const Para = styled.p`
 export default function CustomizeAutoScrollApp(): ReactElement {
   const [quotes, setQuotes] = useState(getQuotes(NUM_QUOTES));
   const [authorListAutoScrollOptions, changeALAutoScrollOptions] =
-    useState<PartialAutoScrollConfig>(defaultAutoScrollConfig);
+    useState<PartialAutoScrollOptions>(defaultAutoScrollOptions);
   const [boardAutoScrollOptions, changeBoardAutoScrollOptions] =
-    useState<PartialAutoScrollConfig>(defaultAutoScrollConfig);
+    useState<PartialAutoScrollOptions>(defaultAutoScrollOptions);
 
   const boardValues = generateQuoteMap(NUM_QUOTES);
   const extraBoardValues = generateQuoteMap(NUM_QUOTES);

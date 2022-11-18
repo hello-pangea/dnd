@@ -50,7 +50,7 @@ import useStartupValidation from './use-startup-validation';
 import usePrevious from '../use-previous-ref';
 import { warning } from '../../dev-warning';
 import useSensorMarshal from '../use-sensor-marshal/use-sensor-marshal';
-import { PartialAutoScrollConfig } from '../../state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
+import { PartialAutoScrollOptions } from '../../state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
 import useAutoScrollConfig from '../../state/auto-scroller/fluid-scroller/config/use-autoscroll-config';
 
 export interface Props extends Responders {
@@ -65,7 +65,7 @@ export interface Props extends Responders {
   // screen reader
   dragHandleUsageInstructions: string;
   // options to exert more control over autoScroll
-  autoScrollOptions?: PartialAutoScrollConfig;
+  autoScrollOptions?: PartialAutoScrollOptions;
 }
 
 const createResponders = (props: Props): Responders => ({

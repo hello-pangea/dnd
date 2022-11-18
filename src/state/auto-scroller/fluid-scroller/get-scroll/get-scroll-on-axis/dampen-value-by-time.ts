@@ -1,8 +1,8 @@
 import getPercentage from '../../get-percentage';
-import { AutoScrollConfig } from '../../config/autoscroll-config-types';
+import { AutoScrollOptions } from '../../config/autoscroll-config-types';
 import minScroll from './min-scroll';
 
-export default (
+export default (AutoScrollOptions
   proposedScroll: number,
   dragStartTime: number,
   autoScrollOptions: AutoScrollConfig,

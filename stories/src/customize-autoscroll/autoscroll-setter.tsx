@@ -1,7 +1,7 @@
 import React, { ReactElement, SyntheticEvent } from 'react';
 import styled from '@emotion/styled';
 import { grid } from '../constants';
-import { PartialAutoScrollConfig } from '../../../src/state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
+import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
 
 const SetterContainer = styled.div`
   display: flex;
@@ -48,9 +48,9 @@ const Select = styled.select`
 `;
 
 interface SetterProps {
-  autoScrollOptions: PartialAutoScrollConfig;
+  autoScrollOptions: PartialAutoScrollOptions;
   changeAutoScrollOptions: React.Dispatch<
-    React.SetStateAction<PartialAutoScrollConfig>
+    React.SetStateAction<PartialAutoScrollOptions>
   >;
 }
 

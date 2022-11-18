@@ -1,7 +1,7 @@
 import type { Rect } from 'css-box-model';
-import { AutoScrollConfig } from '../../config/autoscroll-config-types';
+import { AutoScrollOptions } from '../../config/autoscroll-config-types';
 import type { Axis } from '../../../../../types';
-import { defaultAutoScrollConfig } from '../../config/use-autoscroll-config';
+import { defaultAutoScrollOptions } from '../../config/use-autoscroll-config';
 
 // all in pixels
 export interface DistanceThresholds {
@@ -13,7 +13,7 @@ export interface DistanceThresholds {
 export default (
   container: Rect,
   axis: Axis,
-  autoScrollOptions: AutoScrollConfig = defaultAutoScrollConfig,
+  autoScrollOptions: AutoScrollOptions = defaultAutoScrollOptions,
 ): DistanceThresholds => {
   const startScrollingFrom: number =
     container[axis.size] * autoScrollOptions.startFromPercentage;

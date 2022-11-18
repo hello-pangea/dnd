@@ -11,7 +11,7 @@ import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import type { QuoteMap, Quote } from '../types';
 import Column from './column';
 import reorder, { reorderQuoteMap } from '../reorder';
-import { PartialAutoScrollConfig } from '../../../src/state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
+import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
 
 interface ParentContainerProps {
   height: string;
@@ -38,7 +38,7 @@ interface Props {
   containerHeight?: string;
   useClone?: boolean;
   applyGlobalStyles?: boolean;
-  autoScrollOptions?: PartialAutoScrollConfig;
+  autoScrollOptions?: PartialAutoScrollOptions;
 }
 
 interface State {

@@ -2,7 +2,7 @@ import type { Position, Rect } from 'css-box-model';
 import type { Viewport } from '../../../types';
 import getScroll from './get-scroll';
 import { canScrollWindow } from '../can-scroll';
-import { AutoScrollConfig } from './config/autoscroll-config-types';
+import { AutoScrollOptions } from './config/autoscroll-config-types';
 
 interface Args {
   viewport: Viewport;
@@ -10,7 +10,7 @@ interface Args {
   center: Position;
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
-  autoScrollOptions: AutoScrollConfig;
+  autoScrollOptions: AutoScrollOptions;
 }
 
 export default ({

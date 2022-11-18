@@ -3,7 +3,7 @@ import { apply, isEqual, origin } from '../../../position';
 import getScrollOnAxis from './get-scroll-on-axis';
 import adjustForSizeLimits from './adjust-for-size-limits';
 import { horizontal, vertical } from '../../../axis';
-import { AutoScrollConfig } from '../config/autoscroll-config-types';
+import { AutoScrollOptions } from '../config/autoscroll-config-types';
 
 // will replace -0 and replace with +0
 const clean = apply((value: number) => (value === 0 ? 0 : value));
@@ -14,7 +14,7 @@ interface Args {
   subject: Rect;
   center: Position;
   shouldUseTimeDampening: boolean;
-  autoScrollOptions: AutoScrollConfig;
+  autoScrollOptions: AutoScrollOptions;
 }
 
 export default ({

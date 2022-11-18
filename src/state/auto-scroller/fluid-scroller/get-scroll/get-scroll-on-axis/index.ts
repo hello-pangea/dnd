@@ -1,6 +1,6 @@
 import type { Rect, Spacing } from 'css-box-model';
 import getDistanceThresholds from './get-distance-thresholds';
-import { AutoScrollConfig } from '../../config/autoscroll-config-types';
+import { AutoScrollOptions } from '../../config/autoscroll-config-types';
 import type { DistanceThresholds } from './get-distance-thresholds';
 import type { Axis } from '../../../../../types';
 import getValue from './get-value';
@@ -13,6 +13,7 @@ interface GetOnAxisArgs {
   shouldUseTimeDampening: boolean;
   autoScrollOptions: AutoScrollConfig;
 }
+AutoScrollOptions;
 
 export default ({
   container,

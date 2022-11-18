@@ -1,5 +1,5 @@
 import type { DistanceThresholds } from './get-distance-thresholds';
-import { AutoScrollConfig } from '../../config/autoscroll-config-types';
+import { AutoScrollOptions } from '../../config/autoscroll-config-types';
 import getValueFromDistance from './get-value-from-distance';
 import dampenValueByTime from './dampen-value-by-time';
 import minScroll from './min-scroll';
@@ -9,7 +9,7 @@ interface Args {
   thresholds: DistanceThresholds;
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
-  autoScrollOptions: AutoScrollConfig;
+  autoScrollOptions: AutoScrollOptions;
 }
 
 export default ({

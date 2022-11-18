@@ -10,7 +10,7 @@ import getBestScrollableDroppable from './get-best-scrollable-droppable';
 import whatIsDraggedOver from '../../droppable/what-is-dragged-over';
 import getWindowScrollChange from './get-window-scroll-change';
 import getDroppableScrollChange from './get-droppable-scroll-change';
-import { AutoScrollConfig } from './config/autoscroll-config-types';
+import { AutoScrollOptions } from './config/autoscroll-config-types';
 
 interface Args {
   state: DraggingState;
@@ -18,7 +18,7 @@ interface Args {
   shouldUseTimeDampening: boolean;
   scrollWindow: (scroll: Position) => void;
   scrollDroppable: (id: DroppableId, scroll: Position) => void;
-  autoScrollOptions: AutoScrollConfig;
+  autoScrollOptions: AutoScrollOptions;
 }
 
 export default ({

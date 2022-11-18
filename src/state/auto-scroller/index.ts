@@ -6,13 +6,13 @@ import type { JumpScroller } from './jump-scroller';
 import type { AutoScroller } from './auto-scroller-types';
 import type { DroppableId, State } from '../../types';
 import type { MoveArgs } from '../action-creators';
-import { AutoScrollConfig } from './fluid-scroller/config/autoscroll-config-types';
+import { AutoScrollOptions } from './fluid-scroller/config/autoscroll-config-types';
 
 export interface Args {
   scrollWindow: (offset: Position) => void;
   scrollDroppable: (id: DroppableId, change: Position) => void;
   move: (args: MoveArgs) => unknown;
-  autoScrollOptions: AutoScrollConfig;
+  autoScrollOptions: AutoScrollOptions;
 }
 
 export default ({

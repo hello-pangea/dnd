@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 import {
-  PartialAutoScrollConfig,
-  AutoScrollConfig,
+  PartialAutoScrollOptions,
+  AutoScrollOptions,
 } from './autoscroll-config-types';
 
 // default autoScroll configuration options
-export const defaultAutoScrollConfig: AutoScrollConfig = {
+export const defaultAutoScrollOptions: AutoScrollOptions = {
   startFromPercentage: 0.25,
   maxScrollAtPercentage: 0.05,
   maxPixelScroll: 28,
@@ -17,18 +17,18 @@ export const defaultAutoScrollConfig: AutoScrollConfig = {
   disabled: false,
 };
 
-export default function useAutoScrollConfig(config?: PartialAutoScrollConfig) {
+export default function useAutoScrollConfig(config?: PartialAutoScrollOptions) {
   // using useRef to persist between renders
-  const autoScrollConfigRef = useRef<AutoScrollConfig>({
-    ...defaultAutoScrollConfig,
+  const autoScrollConfigRef = useRef<AutoScrollOptions>({
+    ...defaultAutoScrollOptions,
     ...config,
     durationDampening: {
-      ...defaultAutoScrollConfig.durationDampening,
+      ...defaultAutoScrollOptions.durationDampening,
       ...config?.durationDampening,
     },
   });
 
-  function updateAutoScrollConfig(newConfig?: PartialAutoScrollConfig) {
+  function updateAutoScrollConfig(newConfig?: PartialAutoScrollOptions) {
     autoScrollConfigRef.current = {
       ...autoScrollConfigRef.current,
       ...newConfig,
