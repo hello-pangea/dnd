@@ -106,14 +106,15 @@ export default function App(props: Props) {
     sensors,
     nonce,
     dragHandleUsageInstructions,
-    autoScrollOptions
+    autoScrollOptions,
   } = props;
   const lazyStoreRef: LazyStoreRef = useRef<Store | null>(null);
 
   useStartupValidation();
 
   // initialize the autoScroll configuration
-  const { autoScrollConfigRef, updateAutoScrollConfig } = useAutoScrollConfig(autoScrollOptions);
+  const { autoScrollConfigRef, updateAutoScrollConfig } =
+    useAutoScrollConfig(autoScrollOptions);
 
   // useMemo to update the autoScroll config
   useMemo(() => {
@@ -176,7 +177,11 @@ export default function App(props: Props) {
           lazyDispatch as Dispatch,
         ),
       }),
-    [autoScrollConfigRef.current, dimensionMarshal.scrollDroppable, lazyDispatch],
+    [
+      autoScrollConfigRef.current,
+      dimensionMarshal.scrollDroppable,
+      lazyDispatch,
+    ],
   );
 
   const focusMarshal: FocusMarshal = useFocusMarshal(contextId);

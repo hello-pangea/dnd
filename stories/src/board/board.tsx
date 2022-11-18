@@ -50,7 +50,7 @@ export default class Board extends Component<Props, State> {
   /* eslint-disable react/sort-comp */
   static defaultProps = {
     isCombineEnabled: false,
-    globallyApplyStyle: true
+    globallyApplyStyle: true,
   };
 
   state: State = {
@@ -128,7 +128,7 @@ export default class Board extends Component<Props, State> {
       useClone,
       isCombineEnabled,
       withScrollableColumns,
-      globallyApplyStyle
+      globallyApplyStyle,
     } = this.props;
 
     const board = (
@@ -177,7 +177,8 @@ export default class Board extends Component<Props, State> {
                 background: ${colors.B200};
               }
             `}
-          />) : null}
+          />
+        ) : null}
       </React.Fragment>
     );
   }

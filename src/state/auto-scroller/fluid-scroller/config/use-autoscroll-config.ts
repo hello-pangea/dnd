@@ -1,5 +1,8 @@
-import { useRef } from "react";
-import { PartialAutoScrollConfig, AutoScrollConfig } from "./autoscroll-config-types";
+import { useRef } from 'react';
+import {
+  PartialAutoScrollConfig,
+  AutoScrollConfig,
+} from './autoscroll-config-types';
 
 // default autoScroll configuration options
 export const defaultAutoScrollConfig: AutoScrollConfig = {
@@ -11,7 +14,7 @@ export const defaultAutoScrollConfig: AutoScrollConfig = {
     stopDampeningAt: 1200,
     accelerateAt: 360,
   },
-  disabled: false
+  disabled: false,
 };
 
 export default function useAutoScrollConfig(config?: PartialAutoScrollConfig) {
@@ -21,8 +24,8 @@ export default function useAutoScrollConfig(config?: PartialAutoScrollConfig) {
     ...config,
     durationDampening: {
       ...defaultAutoScrollConfig.durationDampening,
-      ...config?.durationDampening
-    }
+      ...config?.durationDampening,
+    },
   });
 
   function updateAutoScrollConfig(newConfig?: PartialAutoScrollConfig) {
@@ -31,13 +34,13 @@ export default function useAutoScrollConfig(config?: PartialAutoScrollConfig) {
       ...newConfig,
       durationDampening: {
         ...autoScrollConfigRef.current.durationDampening,
-        ...newConfig?.durationDampening
-      }
+        ...newConfig?.durationDampening,
+      },
     };
   }
 
   return {
     autoScrollConfigRef,
-    updateAutoScrollConfig
+    updateAutoScrollConfig,
   };
 }

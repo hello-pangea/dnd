@@ -44,25 +44,37 @@ const BottomContainer = styled.div`
 
 const Select = styled.select`
   width: 15ch;
-  margin: 2px
+  margin: 2px;
 `;
-
 
 interface SetterProps {
   autoScrollOptions: PartialAutoScrollConfig;
-  changeAutoScrollOptions: React.Dispatch<React.SetStateAction<PartialAutoScrollConfig>>;
+  changeAutoScrollOptions: React.Dispatch<
+    React.SetStateAction<PartialAutoScrollConfig>
+  >;
 }
 
-export default function AutoScrollOptionsSetter(props: SetterProps): ReactElement {
+export default function AutoScrollOptionsSetter(
+  props: SetterProps,
+): ReactElement {
   function selectEase(option?: string) {
-    if (option === 'quadratic') return (x: number): number => x ** 2;
-    else if (option === 'cubic') return (x: number): number => x ** 3;
-    else return (x: number): number => x;
+    if (option === 'quadratic') {
+      return (x: number): number => x ** 2;
+    }
+
+    if (option === 'cubic') {
+      return (x: number): number => x ** 3;
+    }
+
+    return (x: number): number => x;
   }
 
   function selectDisabled(option?: string) {
-    if (option === 'yes') return true;
-    else return false;
+    if (option === 'yes') {
+      return true;
+    }
+
+    return false;
   }
 
   return (
@@ -75,7 +87,9 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
             const percent = parseFloat(e.target[0].value);
 
             if (percent < 0 || percent > 1 || isNaN(percent)) {
-              alert('Percentage of window from which to start scrolling must be between 0 and 1 inclusive');
+              alert(
+                'Percentage of window from which to start scrolling must be between 0 and 1 inclusive',
+              );
               e.target[0].value = '';
               return;
             }
@@ -86,8 +100,8 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
             });
           }}
         >
-          <label htmlFor='percent'>startFromPercentage:</label>
-          <Input id='percent' type='text' name='percent'></Input>
+          <label htmlFor="percent">startFromPercentage:</label>
+          <Input id="percent" type="text" name="percent"></Input>
         </Form>
         <Form
           onSubmit={(e) => {
@@ -96,7 +110,9 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
             const percent = parseFloat(e.target[0].value);
 
             if (isNaN(percent) || percent < 0 || percent > 1) {
-              alert('Percentage of window at which max scroll speed is achieved must be between 0 and 1 inclusive');
+              alert(
+                'Percentage of window at which max scroll speed is achieved must be between 0 and 1 inclusive',
+              );
               e.target[0].value = '';
               return;
             }
@@ -107,8 +123,8 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
             });
           }}
         >
-          <label htmlFor='percent'>maxScrollAtPercentage:</label>
-          <Input id='percent' type='text' name='percent'></Input>
+          <label htmlFor="percent">maxScrollAtPercentage:</label>
+          <Input id="percent" type="text" name="percent"></Input>
         </Form>
         <Form
           onSubmit={(e) => {
@@ -127,17 +143,19 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
             });
           }}
         >
-          <label htmlFor='pixelScroll'>maxPixelScroll:</label>
-          <Input id='pixelScroll' type='text' name='pixelScroll'></Input>
+          <label htmlFor="pixelScroll">maxPixelScroll:</label>
+          <Input id="pixelScroll" type="text" name="pixelScroll"></Input>
         </Form>
       </TopContainer>
       <BottomContainer>
         ease:
         <Select
-          onChange={(e) => props.changeAutoScrollOptions({
-            ...props.autoScrollOptions,
-            ease: selectEase(e.target.value)
-          })}
+          onChange={(e) =>
+            props.changeAutoScrollOptions({
+              ...props.autoScrollOptions,
+              ease: selectEase(e.target.value),
+            })
+          }
         >
           <option>linear</option>
           <option>quadratic</option>
@@ -145,10 +163,12 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
         </Select>
         disabled:
         <Select
-          onChange={(e) => props.changeAutoScrollOptions({
-            ...props.autoScrollOptions,
-            disabled: selectDisabled(e.target.value)
-          })}
+          onChange={(e) =>
+            props.changeAutoScrollOptions({
+              ...props.autoScrollOptions,
+              disabled: selectDisabled(e.target.value),
+            })
+          }
         >
           <option>no</option>
           <option>yes</option>
@@ -160,7 +180,9 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
             const val = parseFloat(e.target[0].value);
 
             if (isNaN(val) || val < 0) {
-              alert('Total time to dampen auto scroll speed should be a positive number of milliseconds');
+              alert(
+                'Total time to dampen auto scroll speed should be a positive number of milliseconds',
+              );
               e.target[0].value = '';
               return;
             }
@@ -169,13 +191,13 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
               ...props.autoScrollOptions,
               durationDampening: {
                 ...props.autoScrollOptions.durationDampening,
-                stopDampeningAt: val
+                stopDampeningAt: val,
               },
             });
           }}
         >
-          <label htmlFor='stop-dampening'>stopDampeningAt:</label>
-          <Input id='stop-dampening' type='text' name='stop-dampening'></Input>
+          <label htmlFor="stop-dampening">stopDampeningAt:</label>
+          <Input id="stop-dampening" type="text" name="stop-dampening"></Input>
         </Form>
         <Form
           onSubmit={(e) => {
@@ -183,7 +205,9 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
             // time after drag startups, at which to start accelerating the reduction in dampening
             const val = parseFloat(e.target[0].value);
             if (isNaN(val)) {
-              alert('Time at which to start accelerating reduction of dampening should be a position number of millseconds');
+              alert(
+                'Time at which to start accelerating reduction of dampening should be a position number of millseconds',
+              );
               e.target[0].value = '';
               return;
             }
@@ -192,13 +216,13 @@ export default function AutoScrollOptionsSetter(props: SetterProps): ReactElemen
               ...props.autoScrollOptions,
               durationDampening: {
                 ...props.autoScrollOptions.durationDampening,
-                accelerateAt: val
-              }
+                accelerateAt: val,
+              },
             });
           }}
         >
-          <label htmlFor='pixelScroll'>accelerateAt:</label>
-          <Input id='pixelScroll' type='text' name='pixelScroll'></Input>
+          <label htmlFor="pixelScroll">accelerateAt:</label>
+          <Input id="pixelScroll" type="text" name="pixelScroll"></Input>
         </Form>
       </BottomContainer>
     </SetterContainer>

@@ -12,7 +12,6 @@ import getWindowScrollChange from './get-window-scroll-change';
 import getDroppableScrollChange from './get-droppable-scroll-change';
 import { AutoScrollConfig } from './config/autoscroll-config-types';
 
-
 interface Args {
   state: DraggingState;
   dragStartTime: number;
@@ -28,7 +27,7 @@ export default ({
   shouldUseTimeDampening,
   scrollWindow,
   scrollDroppable,
-  autoScrollOptions
+  autoScrollOptions,
 }: Args): void => {
   const center: Position = state.current.page.borderBoxCenter;
   const draggable: DraggableDimension =
@@ -43,7 +42,7 @@ export default ({
       subject,
       center,
       shouldUseTimeDampening,
-      autoScrollOptions
+      autoScrollOptions,
     });
 
     if (change) {
@@ -68,7 +67,7 @@ export default ({
     subject,
     center,
     shouldUseTimeDampening,
-    autoScrollOptions
+    autoScrollOptions,
   });
 
   if (change) {

@@ -5,7 +5,6 @@ import type { DistanceThresholds } from './get-distance-thresholds';
 import type { Axis } from '../../../../../types';
 import getValue from './get-value';
 
-
 interface GetOnAxisArgs {
   container: Rect;
   distanceToEdges: Spacing;
@@ -21,9 +20,13 @@ export default ({
   dragStartTime,
   axis,
   shouldUseTimeDampening,
-  autoScrollOptions
+  autoScrollOptions,
 }: GetOnAxisArgs): number => {
-  const thresholds: DistanceThresholds = getDistanceThresholds(container, axis, autoScrollOptions);
+  const thresholds: DistanceThresholds = getDistanceThresholds(
+    container,
+    axis,
+    autoScrollOptions,
+  );
   const isCloserToEnd: boolean =
     distanceToEdges[axis.end] < distanceToEdges[axis.start];
 
@@ -33,7 +36,7 @@ export default ({
       thresholds,
       dragStartTime,
       shouldUseTimeDampening,
-      autoScrollOptions
+      autoScrollOptions,
     });
   }
 
@@ -44,7 +47,7 @@ export default ({
       thresholds,
       dragStartTime,
       shouldUseTimeDampening,
-      autoScrollOptions
+      autoScrollOptions,
     })
   );
 };

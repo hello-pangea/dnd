@@ -28,22 +28,22 @@ const Container = styled.div`
 
 const Para = styled.p`
   margin: 2px;
-  padding-left: 10px; 
+  padding-left: 10px;
 `;
 
 export default function CustomizeAutoScrollApp(): ReactElement {
   const [quotes, setQuotes] = useState(getQuotes(NUM_QUOTES));
-  const [authorListAutoScrollOptions, changeALAutoScrollOptions] = 
+  const [authorListAutoScrollOptions, changeALAutoScrollOptions] =
     useState<PartialAutoScrollConfig>(defaultAutoScrollConfig);
-  const [boardAutoScrollOptions, changeBoardAutoScrollOptions] = 
+  const [boardAutoScrollOptions, changeBoardAutoScrollOptions] =
     useState<PartialAutoScrollConfig>(defaultAutoScrollConfig);
 
-  var boardValues = generateQuoteMap(NUM_QUOTES);
-  var extraBoardValues = generateQuoteMap(NUM_QUOTES);
+  const boardValues = generateQuoteMap(NUM_QUOTES);
+  const extraBoardValues = generateQuoteMap(NUM_QUOTES);
   // create copies so that the window size is larger
-  Array.from(authors).map(k => {
-    boardValues[`Second-${k.name}`] = extraBoardValues[k.name];
-  })
+  for (const author of authors) {
+    boardValues[`Second-${author.name}`] = extraBoardValues[author.name];
+  }
 
   function onDragStart() {
     // Add a little vibration if the browser supports it.
@@ -84,25 +84,31 @@ export default function CustomizeAutoScrollApp(): ReactElement {
   return (
     <Root>
       <Title>
-        Configure <code>autoScrollOptions</code> for a single <code>DragDropContext</code> 
+        Configure <code>autoScrollOptions</code> for a single{' '}
+        <code>DragDropContext</code>
         (hit enter to submit text box inputs):
       </Title>
       <Para>
-        <code>startFromPercentage</code>: percentage of window, from the edge, at which to start scrolling (default: 0.25).
-        Must be between 0 and 1. <br/>
-        <code>maxScrollAtPercentage</code>: percentage of window, from the edge, at which maximum scroll speed is achieved 
-        (default: 0.05). Must be between 0 and 1. <br/>
-        <code>maxPixelScroll</code>: maximum speed of auto scroll, in pixels per second (default: 28).
-        Can be any number, including negative, which lets you scroll backwards! <br />
-        <code>ease</code>: The function used to ease scroll. (default: f(x) = x^2). 
-        Here, choose linear, quadratic or cubic, but while coding, this can be any function
-        from [0, 1] to [0, 1]. <br />
-        <code>disabled</code>: if true, then dragging around either columns or quotes in the columns will not
-        auto-scroll the window or the droppables (default: false). <br />
-        <code>durationDampening.stopDampeningAt</code>: Time in milliseconds after which to finish dampening
-        the auto scroll (default: 1200). <br />
-        <code>durationDampening.accelerateAt</code>: Time in milliseconds after which to start accelerating the
-        reduction of dampening of the autoScroll (default: 360).
+        <code>startFromPercentage</code>: percentage of window, from the edge,
+        at which to start scrolling (default: 0.25). Must be between 0 and 1.{' '}
+        <br />
+        <code>maxScrollAtPercentage</code>: percentage of window, from the edge,
+        at which maximum scroll speed is achieved (default: 0.05). Must be
+        between 0 and 1. <br />
+        <code>maxPixelScroll</code>: maximum speed of auto scroll, in pixels per
+        second (default: 28). Can be any number, including negative, which lets
+        you scroll backwards! <br />
+        <code>ease</code>: The function used to ease scroll. (default: f(x) =
+        x^2). Here, choose linear, quadratic or cubic, but while coding, this
+        can be any function from [0, 1] to [0, 1]. <br />
+        <code>disabled</code>: if true, then dragging around either columns or
+        quotes in the columns will not auto-scroll the window or the droppables
+        (default: false). <br />
+        <code>durationDampening.stopDampeningAt</code>: Time in milliseconds
+        after which to finish dampening the auto scroll (default: 1200). <br />
+        <code>durationDampening.accelerateAt</code>: Time in milliseconds after
+        which to start accelerating the reduction of dampening of the autoScroll
+        (default: 360).
       </Para>
       <AutoScrollOptionsSetter
         autoScrollOptions={authorListAutoScrollOptions}
@@ -114,14 +120,12 @@ export default function CustomizeAutoScrollApp(): ReactElement {
           onDragEnd={onDragEnd}
           autoScrollOptions={authorListAutoScrollOptions}
         >
-          <AuthorList
-            quotes={quotes}
-            listId="author-list"
-          />
+          <AuthorList quotes={quotes} listId="author-list" />
         </DragDropContext>
       </Container>
       <Title>
-        Configure <code>autoScrollOptions</code> for a nested <code>DragDropContext</code> 
+        Configure <code>autoScrollOptions</code> for a nested{' '}
+        <code>DragDropContext</code>
       </Title>
       <AutoScrollOptionsSetter
         autoScrollOptions={boardAutoScrollOptions}
@@ -132,7 +136,7 @@ export default function CustomizeAutoScrollApp(): ReactElement {
           initial={boardValues}
           globallyApplyStyle={false}
           autoScrollOptions={boardAutoScrollOptions}
-        ></Board>
+        />
       </Container>
     </Root>
   );

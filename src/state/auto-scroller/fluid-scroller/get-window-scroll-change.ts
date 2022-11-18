@@ -19,7 +19,7 @@ export default ({
   center,
   dragStartTime,
   shouldUseTimeDampening,
-  autoScrollOptions
+  autoScrollOptions,
 }: Args): Position | null => {
   const scroll: Position | null = getScroll({
     dragStartTime,
@@ -27,7 +27,7 @@ export default ({
     subject,
     center,
     shouldUseTimeDampening,
-    autoScrollOptions
+    autoScrollOptions,
   });
 
   return scroll && canScrollWindow(viewport, scroll) ? scroll : null;

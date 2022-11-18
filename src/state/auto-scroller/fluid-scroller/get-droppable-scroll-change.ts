@@ -19,7 +19,7 @@ export default ({
   center,
   dragStartTime,
   shouldUseTimeDampening,
-  autoScrollOptions
+  autoScrollOptions,
 }: Args): Position | null => {
   // We know this has a closestScrollable
   const frame: Scrollable | null = droppable.frame;
@@ -35,7 +35,7 @@ export default ({
     subject,
     center,
     shouldUseTimeDampening,
-    autoScrollOptions
+    autoScrollOptions,
   });
 
   return scroll && canScrollDroppable(droppable, scroll) ? scroll : null;
