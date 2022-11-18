@@ -134,7 +134,7 @@ export default function CustomizeAutoScrollApp(): ReactElement {
       <Container>
         <Board
           initial={boardValues}
-          globallyApplyStyle={false}
+          applyGlobalStyles={false}
           autoScrollOptions={boardAutoScrollOptions}
         />
       </Container>

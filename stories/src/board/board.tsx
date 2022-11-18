@@ -37,7 +37,7 @@ interface Props {
   isCombineEnabled?: boolean;
   containerHeight?: string;
   useClone?: boolean;
-  globallyApplyStyle?: boolean;
+  applyGlobalStyles?: boolean;
   autoScrollOptions?: PartialAutoScrollConfig;
 }
 
@@ -50,7 +50,7 @@ export default class Board extends Component<Props, State> {
   /* eslint-disable react/sort-comp */
   static defaultProps = {
     isCombineEnabled: false,
-    globallyApplyStyle: true,
+    applyGlobalStyles: true,
   };
 
   state: State = {
@@ -128,7 +128,7 @@ export default class Board extends Component<Props, State> {
       useClone,
       isCombineEnabled,
       withScrollableColumns,
-      globallyApplyStyle,
+      applyGlobalStyles,
     } = this.props;
 
     const board = (
@@ -170,7 +170,7 @@ export default class Board extends Component<Props, State> {
             board
           )}
         </DragDropContext>
-        {globallyApplyStyle ? (
+        {applyGlobalStyles ? (
           <Global
             styles={css`
               body {
