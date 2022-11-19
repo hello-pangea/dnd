@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { ReactElement, SyntheticEvent } from 'react';
+import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { grid } from '../constants';
 import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/autoscroll-config-types';
@@ -19,28 +19,14 @@ const TopContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-tiems: center;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: row;
-  height: 3vh;
-  justify-content: space-around;
-  margin: 0;
-  margin-left: 2px;
-  margin-right: 2px;
-`;
-
-const Input = styled.input`
-  width: 15ch;
+  align-items: center;
 `;
 
 const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-tiems: center;
+  align-items: center;
   margin-top: 10px;
 `;
 

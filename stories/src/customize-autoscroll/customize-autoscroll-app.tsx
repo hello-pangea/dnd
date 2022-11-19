@@ -96,7 +96,7 @@ export default function CustomizeAutoScrollApp(): ReactElement {
         at which maximum scroll speed is achieved (default: 0.05). Must be
         between 0 and 1. <br />
         <code>maxPixelScroll</code>: maximum speed of auto scroll, in pixels per
-        second (default: 28). Can be any number, including negative, which lets
+        frame (default: 28). Can be any number, including negative, which lets
         you scroll backwards! <br />
         <code>ease</code>: The function used to ease scroll. (default: f(x) =
         x^2). Here, choose linear, quadratic or cubic, but while coding, this
