@@ -1,7 +1,9 @@
+/* eslint-disable no-alert */
 import React, { ReactElement, SyntheticEvent } from 'react';
 import styled from '@emotion/styled';
 import { grid } from '../constants';
 import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/autoscroll-config-types';
+import { defaultAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config';
 
 const SetterContainer = styled.div`
   display: flex;
@@ -80,72 +82,108 @@ export default function AutoScrollOptionsSetter(
   return (
     <SetterContainer>
       <TopContainer>
-        <Form
-          onSubmit={(e) => {
-            e.preventDefault();
-            // percentage of window from which to start scrolling
-            const percent = parseFloat(e.target[0].value);
+        <label htmlFor="percent">
+          startFromPercentage:
+          <input
+            id="percent"
+            type="number"
+            name="percent"
+            onChange={(event) => {
+              event.preventDefault();
+              // percentage of window from which to start scrolling
+              const percent = parseFloat(event.currentTarget.value);
 
-            if (percent < 0 || percent > 1 || isNaN(percent)) {
-              alert(
-                'Percentage of window from which to start scrolling must be between 0 and 1 inclusive',
-              );
-              e.target[0].value = '';
-              return;
-            }
+              if (Number.isNaN(percent)) {
+                event.currentTarget.value = '';
 
-            props.changeAutoScrollOptions({
-              ...props.autoScrollOptions,
-              startFromPercentage: percent,
-            });
-          }}
-        >
-          <label htmlFor="percent">startFromPercentage:</label>
-          <Input id="percent" type="text" name="percent"></Input>
-        </Form>
-        <Form
-          onSubmit={(e) => {
-            e.preventDefault();
-            // percentage of window at which max scroll speed is achieved
-            const percent = parseFloat(e.target[0].value);
+                props.changeAutoScrollOptions({
+                  ...props.autoScrollOptions,
+                  startFromPercentage:
+                    defaultAutoScrollOptions.startFromPercentage,
+                });
 
-            if (isNaN(percent) || percent < 0 || percent > 1) {
-              alert(
-                'Percentage of window at which max scroll speed is achieved must be between 0 and 1 inclusive',
-              );
-              e.target[0].value = '';
-              return;
-            }
+                return;
+              }
 
-            props.changeAutoScrollOptions({
-              ...props.autoScrollOptions,
-              maxScrollAtPercentage: percent,
-            });
-          }}
-        >
-          <label htmlFor="percent">maxScrollAtPercentage:</label>
-          <Input id="percent" type="text" name="percent"></Input>
-        </Form>
-        <Form
-          onSubmit={(e) => {
-            e.preventDefault();
-            // max pixel scroll speed in pixels per second
-            const val = parseFloat(e.target[0].value);
-            if (isNaN(val)) {
-              alert('Max pixel scroll speed must be a number');
-              e.target[0].value = '';
-              return;
-            }
+              if (percent < 0 || percent > 1) {
+                alert(
+                  'Percentage of window from which to start scrolling must be between 0 and 1 inclusive',
+                );
+                event.currentTarget.value = '';
+                return;
+              }
 
-            props.changeAutoScrollOptions({
-              ...props.autoScrollOptions,
-              maxPixelScroll: val,
-            });
-          }}
-        >
-          <label htmlFor="pixelScroll">maxPixelScroll:</label>
-          <Input id="pixelScroll" type="text" name="pixelScroll"></Input>
-        </Form>
+              props.changeAutoScrollOptions({
+                ...props.autoScrollOptions,
+                startFromPercentage: percent,
+              });
+            }}
+          />
+        </label>
+        <label htmlFor="percent">
+          maxScrollAtPercentage:
+          <input
+            id="percent"
+            type="number"
+            name="percent"
+            onChange={(event) => {
+              event.preventDefault();
+              // percentage of window at which max scroll speed is achieved
+              const percent = parseFloat(event.currentTarget.value);
+
+              if (Number.isNaN(percent)) {
+                event.currentTarget.value = '';
+
+                props.changeAutoScrollOptions({
+                  ...props.autoScrollOptions,
+                  maxScrollAtPercentage:
+                    defaultAutoScrollOptions.maxScrollAtPercentage,
+                });
+
+                return;
+              }
+
+              if (percent < 0 || percent > 1) {
+                alert(
+                  'Percentage of window at which max scroll speed is achieved must be between 0 and 1 inclusive',
+                );
+                event.currentTarget.value = '';
+                return;
+              }
+
+              props.changeAutoScrollOptions({
+                ...props.autoScrollOptions,
+                maxScrollAtPercentage: percent,
+              });
+            }}
+          />
+        </label>
+        <label htmlFor="pixelScroll">
+          maxPixelScroll:
+          <input
+            id="pixelScroll"
+            type="number"
+            name="pixelScroll"
+            onChange={(event) => {
+              const val = parseFloat(event.currentTarget.value);
+              if (Number.isNaN(val)) {
+                event.currentTarget.value = '';
+
+                props.changeAutoScrollOptions({
+                  ...props.autoScrollOptions,
+                  maxPixelScroll: defaultAutoScrollOptions.maxPixelScroll,
+                });
+
+                return;
+              }
+
+              props.changeAutoScrollOptions({
+                ...props.autoScrollOptions,
+                maxPixelScroll: val,
+              });
+            }}
+          />
+        </label>
       </TopContainer>
       <BottomContainer>
         ease:
@@ -173,57 +211,86 @@ export default function AutoScrollOptionsSetter(
           <option>no</option>
           <option>yes</option>
         </Select>
-        <Form
-          onSubmit={(e) => {
-            e.preventDefault();
-            // time after drag starts at which dampening stops
-            const val = parseFloat(e.target[0].value);
+        <label htmlFor="stop-dampening">
+          stopDampeningAt:
+          <input
+            id="stop-dampening"
+            type="number"
+            name="stop-dampening"
+            onChange={(event) => {
+              event.preventDefault();
+              // time after drag starts at which dampening stops
+              const val = parseFloat(event.currentTarget.value);
 
-            if (isNaN(val) || val < 0) {
-              alert(
-                'Total time to dampen auto scroll speed should be a positive number of milliseconds',
-              );
-              e.target[0].value = '';
-              return;
-            }
+              if (Number.isNaN(val)) {
+                event.currentTarget.value = '';
 
-            props.changeAutoScrollOptions({
-              ...props.autoScrollOptions,
-              durationDampening: {
-                ...props.autoScrollOptions.durationDampening,
-                stopDampeningAt: val,
-              },
-            });
-          }}
-        >
-          <label htmlFor="stop-dampening">stopDampeningAt:</label>
-          <Input id="stop-dampening" type="text" name="stop-dampening"></Input>
-        </Form>
-        <Form
-          onSubmit={(e) => {
-            e.preventDefault();
-            // time after drag startups, at which to start accelerating the reduction in dampening
-            const val = parseFloat(e.target[0].value);
-            if (isNaN(val)) {
-              alert(
-                'Time at which to start accelerating reduction of dampening should be a position number of millseconds',
-              );
-              e.target[0].value = '';
-              return;
-            }
+                props.changeAutoScrollOptions({
+                  ...props.autoScrollOptions,
+                  durationDampening: {
+                    ...props.autoScrollOptions.durationDampening,
+                    stopDampeningAt:
+                      defaultAutoScrollOptions.durationDampening
+                        .stopDampeningAt,
+                  },
+                });
 
-            props.changeAutoScrollOptions({
-              ...props.autoScrollOptions,
-              durationDampening: {
-                ...props.autoScrollOptions.durationDampening,
-                accelerateAt: val,
-              },
-            });
-          }}
-        >
-          <label htmlFor="pixelScroll">accelerateAt:</label>
-          <Input id="pixelScroll" type="text" name="pixelScroll"></Input>
-        </Form>
+                return;
+              }
+
+              if (val < 0) {
+                alert(
+                  'Total time to dampen auto scroll speed should be a positive number of milliseconds',
+                );
+                event.currentTarget.value = '';
+                return;
+              }
+
+              props.changeAutoScrollOptions({
+                ...props.autoScrollOptions,
+                durationDampening: {
+                  ...props.autoScrollOptions.durationDampening,
+                  stopDampeningAt: val,
+                },
+              });
+            }}
+          />
+        </label>
+        <label htmlFor="pixelScroll">
+          accelerateAt:
+          <input
+            id="pixelScroll"
+            type="number"
+            name="pixelScroll"
+            onChange={(event) => {
+              event.preventDefault();
+              // time after drag startups, at which to start accelerating the reduction in dampening
+              const val = parseFloat(event.currentTarget.value);
+              if (Number.isNaN(val)) {
+                event.currentTarget.value = '';
+
+                props.changeAutoScrollOptions({
+                  ...props.autoScrollOptions,
+                  durationDampening: {
+                    ...props.autoScrollOptions.durationDampening,
+                    accelerateAt:
+                      defaultAutoScrollOptions.durationDampening.accelerateAt,
+                  },
+                });
+
+                return;
+              }
+
+              props.changeAutoScrollOptions({
+                ...props.autoScrollOptions,
+                durationDampening: {
+                  ...props.autoScrollOptions.durationDampening,
+                  accelerateAt: val,
+                },
+              });
+            }}
+          />
+        </label>
       </BottomContainer>
     </SetterContainer>
   );
