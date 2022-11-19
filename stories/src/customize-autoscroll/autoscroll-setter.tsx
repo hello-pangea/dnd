@@ -1,7 +1,7 @@
 import React, { ReactElement, SyntheticEvent } from 'react';
 import styled from '@emotion/styled';
 import { grid } from '../constants';
-import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
+import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/autoscroll-config-types';
 
 const SetterContainer = styled.div`
   display: flex;

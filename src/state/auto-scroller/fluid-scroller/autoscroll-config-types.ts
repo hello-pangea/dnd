@@ -1,4 +1,4 @@
-import { RecursivePartial } from '../../../../libTypes';
+import { RecursivePartial } from '../../../lib-types';
 
 // full version of the PartialAutoScrollConfig, used to establish default
 // parameters for user control over autoScroll

@@ -2,7 +2,7 @@ import type { Position, Rect } from 'css-box-model';
 import type { Scrollable, DroppableDimension } from '../../../types';
 import getScroll from './get-scroll';
 import { canScrollDroppable } from '../can-scroll';
-import { AutoScrollOptions } from './config/autoscroll-config-types';
+import { AutoScrollOptions } from './autoscroll-config-types';
 
 interface Args {
   droppable: DroppableDimension;
@@ -10,7 +10,7 @@ interface Args {
   center: Position;
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
-  autoScrollOptions: AutoScrollOptions;
+  getAutoScrollOptions: () => AutoScrollOptions;
 }
 
 export default ({
@@ -19,7 +19,7 @@ export default ({
   center,
   dragStartTime,
   shouldUseTimeDampening,
-  autoScrollOptions,
+  getAutoScrollOptions,
 }: Args): Position | null => {
   // We know this has a closestScrollable
   const frame: Scrollable | null = droppable.frame;
@@ -35,7 +35,7 @@ export default ({
     subject,
     center,
     shouldUseTimeDampening,
-    autoScrollOptions,
+    getAutoScrollOptions,
   });
 
   return scroll && canScrollDroppable(droppable, scroll) ? scroll : null;

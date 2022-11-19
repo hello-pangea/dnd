@@ -6,25 +6,25 @@ import type { JumpScroller } from './jump-scroller';
 import type { AutoScroller } from './auto-scroller-types';
 import type { DroppableId, State } from '../../types';
 import type { MoveArgs } from '../action-creators';
-import { AutoScrollOptions } from './fluid-scroller/config/autoscroll-config-types';
+import { AutoScrollOptions } from './fluid-scroller/autoscroll-config-types';
 
 export interface Args {
   scrollWindow: (offset: Position) => void;
   scrollDroppable: (id: DroppableId, change: Position) => void;
   move: (args: MoveArgs) => unknown;
-  autoScrollOptions: AutoScrollOptions;
+  getAutoScrollOptions: () => AutoScrollOptions;
 }
 
 export default ({
   scrollDroppable,
   scrollWindow,
   move,
-  autoScrollOptions,
+  getAutoScrollOptions,
 }: Args): AutoScroller => {
   const fluidScroller: FluidScroller = createFluidScroller({
     scrollWindow,
     scrollDroppable,
-    autoScrollOptions,
+    getAutoScrollOptions,
   });
 
   const jumpScroll: JumpScroller = createJumpScroller({
@@ -34,6 +34,8 @@ export default ({
   });
 
   const scroll = (state: State) => {
+    const autoScrollOptions = getAutoScrollOptions();
+
     // Only allowing auto scrolling in the DRAGGING phase
     // and when autoScroll is not disabled
     if (autoScrollOptions.disabled || state.phase !== 'DRAGGING') {

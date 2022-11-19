@@ -4,13 +4,13 @@ import type { DraggingState, DroppableId } from '../../../types';
 import scroll from './scroll';
 import { invariant } from '../../../invariant';
 import * as timings from '../../../debug/timings';
-import { AutoScrollOptions } from './config/autoscroll-config-types';
-import { defaultAutoScrollOptions } from './config/use-autoscroll-config';
+import { AutoScrollOptions } from './autoscroll-config-types';
+import { defaultAutoScrollOptions } from './config';
 
 export interface PublicArgs {
   scrollWindow: (change: Position) => void;
   scrollDroppable: (id: DroppableId, change: Position) => void;
-  autoScrollOptions?: AutoScrollOptions;
+  getAutoScrollOptions?: () => AutoScrollOptions;
 }
 
 export interface FluidScroller {
@@ -27,7 +27,7 @@ interface WhileDragging {
 export default ({
   scrollWindow,
   scrollDroppable,
-  autoScrollOptions = defaultAutoScrollOptions,
+  getAutoScrollOptions = () => defaultAutoScrollOptions,
 }: PublicArgs): FluidScroller => {
   const scheduleWindowScroll = rafSchd(scrollWindow);
   const scheduleDroppableScroll = rafSchd(scrollDroppable);
@@ -43,7 +43,7 @@ export default ({
       scrollDroppable: scheduleDroppableScroll,
       dragStartTime,
       shouldUseTimeDampening,
-      autoScrollOptions,
+      getAutoScrollOptions,
     });
   };
 
@@ -62,7 +62,7 @@ export default ({
       shouldUseTimeDampening: false,
       scrollWindow: fakeScrollCallback,
       scrollDroppable: fakeScrollCallback,
-      autoScrollOptions,
+      getAutoScrollOptions,
     });
 
     dragging = {

@@ -50,8 +50,11 @@ import useStartupValidation from './use-startup-validation';
 import usePrevious from '../use-previous-ref';
 import { warning } from '../../dev-warning';
 import useSensorMarshal from '../use-sensor-marshal/use-sensor-marshal';
-import { PartialAutoScrollOptions } from '../../state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
-import useAutoScrollConfig from '../../state/auto-scroller/fluid-scroller/config/use-autoscroll-config';
+import {
+  AutoScrollOptions,
+  PartialAutoScrollOptions,
+} from '../../state/auto-scroller/fluid-scroller/autoscroll-config-types';
+import { defaultAutoScrollOptions } from '../../state/auto-scroller/fluid-scroller/config';
 
 export interface Props extends Responders {
   contextId: string;
@@ -65,6 +68,7 @@ export interface Props extends Responders {
   // screen reader
   dragHandleUsageInstructions: string;
   // options to exert more control over autoScroll
+  // eslint-disable-next-line react/no-unused-prop-types
   autoScrollOptions?: PartialAutoScrollOptions;
 }
 
@@ -92,6 +96,15 @@ const createResponders = (props: Props): Responders => ({
   onDragUpdate: props.onDragUpdate,
 });
 
+const createAutoScrollOptions = (props: Props): AutoScrollOptions => ({
+  ...defaultAutoScrollOptions,
+  ...props.autoScrollOptions,
+  durationDampening: {
+    ...defaultAutoScrollOptions.durationDampening,
+    ...props.autoScrollOptions,
+  },
+});
+
 type LazyStoreRef = MutableRefObject<Store | null>;
 
 function getStore(lazyRef: LazyStoreRef): Store {
@@ -106,26 +119,20 @@ export default function App(props: Props) {
     sensors,
     nonce,
     dragHandleUsageInstructions,
-    autoScrollOptions,
   } = props;
   const lazyStoreRef: LazyStoreRef = useRef<Store | null>(null);
 
   useStartupValidation();
-
-  // initialize the autoScroll configuration
-  const { autoScrollConfigRef, updateAutoScrollConfig } =
-    useAutoScrollConfig(autoScrollOptions);
-
-  // useMemo to update the autoScroll config
-  useMemo(() => {
-    updateAutoScrollConfig(autoScrollOptions);
-  }, [autoScrollOptions]);
 
   // lazy collection of responders using a ref - update on ever render
   const lastPropsRef = usePrevious<Props>(props);
 
   const getResponders: () => Responders = useCallback(() => {
     return createResponders(lastPropsRef.current);
+  }, [lastPropsRef]);
+
+  const getAutoScrollOptions = useCallback(() => {
+    return createAutoScrollOptions(lastPropsRef.current);
   }, [lastPropsRef]);
 
   const announce: Announce = useAnnouncer(contextId);
@@ -169,7 +176,7 @@ export default function App(props: Props) {
       createAutoScroller({
         scrollWindow,
         scrollDroppable: dimensionMarshal.scrollDroppable,
-        autoScrollOptions: autoScrollConfigRef.current,
+        getAutoScrollOptions,
         ...bindActionCreators(
           {
             move,
@@ -177,11 +184,7 @@ export default function App(props: Props) {
           lazyDispatch as Dispatch,
         ),
       }),
-    [
-      autoScrollConfigRef.current,
-      dimensionMarshal.scrollDroppable,
-      lazyDispatch,
-    ],
+    [dimensionMarshal.scrollDroppable, lazyDispatch, getAutoScrollOptions],
   );
 
   const focusMarshal: FocusMarshal = useFocusMarshal(contextId);

@@ -1,14 +1,17 @@
 import type { DistanceThresholds } from './get-distance-thresholds';
 import getPercentage from '../../get-percentage';
-import { AutoScrollOptions } from '../../config/autoscroll-config-types';
+import { AutoScrollOptions } from '../../autoscroll-config-types';
 import minScroll from './min-scroll';
-import { defaultAutoScrollOptions } from '../../config/use-autoscroll-config';
+import { defaultAutoScrollOptions } from '../../config';
 
 export default (
   distanceToEdge: number,
   thresholds: DistanceThresholds,
-  autoScrollOptions: AutoScrollOptions = defaultAutoScrollOptions,
+  getAutoScrollOptions: () => AutoScrollOptions = () =>
+    defaultAutoScrollOptions,
 ): number => {
+  const autoScrollOptions = getAutoScrollOptions();
+
   /*
   // This function only looks at the distance to one edge
   // Example: looking at bottom edge

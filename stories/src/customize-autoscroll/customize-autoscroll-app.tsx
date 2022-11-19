@@ -3,8 +3,7 @@ import styled from '@emotion/styled';
 
 import { DropResult } from '../../../src/types';
 import DragDropContext from '../../../src/view/drag-drop-context';
-import { defaultAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config/use-autoscroll-config';
-import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config/autoscroll-config-types';
+import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/autoscroll-config-types';
 
 import reorder from '../reorder';
 import type { Quote } from '../types';
@@ -13,6 +12,7 @@ import Board from '../board/board';
 import { getQuotes, generateQuoteMap, authors } from '../data';
 import Title from '../primatives/title';
 import AutoScrollOptionsSetter from './autoscroll-setter';
+import { defaultAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config';
 
 const NUM_QUOTES = 30;
 
