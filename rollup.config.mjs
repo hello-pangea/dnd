@@ -4,11 +4,11 @@ import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import strip from '@rollup/plugin-strip';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import dts from 'rollup-plugin-dts';
 
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
 
 const input = './src/index.ts';
 const extensions = ['.ts', '.tsx'];
