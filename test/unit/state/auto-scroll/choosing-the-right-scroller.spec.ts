@@ -11,7 +11,7 @@ import getScroller from '../../../../src/state/auto-scroller';
 import type { Args } from '../../../../src/state/auto-scroller';
 import type { AutoScroller } from '../../../../src/state/auto-scroller/auto-scroller-types';
 import { origin } from '../../../../src/state/position';
-import { defaultAutoScrollOptions } from '../../../../src/state/auto-scroller/fluid-scroller/config';
+import { defaultAutoScrollerOptions } from '../../../../src/state/auto-scroller/fluid-scroller/config';
 
 const state = getStatePreset();
 
@@ -19,7 +19,7 @@ const getMocks = (): Args => ({
   scrollDroppable: jest.fn(),
   scrollWindow: jest.fn(),
   move: jest.fn(),
-  getAutoScrollOptions: () => defaultAutoScrollOptions,
+  getAutoScrollerOptions: () => defaultAutoScrollerOptions,
 });
 
 const windowScrollSize = {

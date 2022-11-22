@@ -1,16 +1,17 @@
 import getPercentage from '../../get-percentage';
-import { AutoScrollOptions } from '../../autoscroll-config-types';
+import { AutoScrollerOptions } from '../../auto-scroller-options-types';
 import minScroll from './min-scroll';
 
 export default (
   proposedScroll: number,
   dragStartTime: number,
-  getAutoScrollOptions: () => AutoScrollOptions,
+  getAutoScrollerOptions: () => AutoScrollerOptions,
 ): number => {
-  const autoScrollOptions = getAutoScrollOptions();
+  const autoScrollerOptions = getAutoScrollerOptions();
 
-  const accelerateAt: number = autoScrollOptions.durationDampening.accelerateAt;
-  const stopAt: number = autoScrollOptions.durationDampening.stopDampeningAt;
+  const accelerateAt: number =
+    autoScrollerOptions.durationDampening.accelerateAt;
+  const stopAt: number = autoScrollerOptions.durationDampening.stopDampeningAt;
 
   const startOfRange: number = dragStartTime;
   const endOfRange: number = stopAt;
@@ -37,7 +38,7 @@ export default (
 
   const scroll: number =
     proposedScroll *
-    autoScrollOptions.ease(betweenAccelerateAtAndStopAtPercentage);
+    autoScrollerOptions.ease(betweenAccelerateAtAndStopAtPercentage);
 
   return Math.ceil(scroll);
 };

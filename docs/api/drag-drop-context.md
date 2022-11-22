@@ -30,7 +30,7 @@ interface Props extends Responders {
   sensors?: Sensor[];
   enableDefaultSensors?: boolean | null;
   // autoScrollConfig options
-  autoScrollOptions?: PartialAutoScrollConfig;
+  autoScrollerOptions?: PartialAutoScrollerOptions;
 }
 ```
 
@@ -38,7 +38,7 @@ interface Props extends Responders {
 - `nonce`: Used for strict content security policy setups. See our [content security policy guide](/docs/guides/content-security-policy.md)
 - `sensors`: Used to pass in your own `sensor`s for a `<DragDropContext />`. See our [sensor api documentation](/docs/sensors/sensor-api.md)
 - `enableDefaultSensors`: Whether or not the default sensors ([mouse](/docs/sensors/mouse.md), [keyboard](/docs/sensors/keyboard.md), and [touch](/docs/sensors/touch.md)) are enabled. You can also import them separately as `useMouseSensor`, `useKeyboardSensor`, or `useTouchSensor` and reuse just some of them via `sensors` prop. See our [sensor api documentation](/docs/sensors/sensor-api.md)
-- `autoScrollOptions`: An object whose several (optional) properties allow the user configure auto-scroll behavior for their needs. A simple example is `{ disabled: true }`, which turns off auto scroll entirely for that `<DragDropContext />`. See our [Auto scrolling documentation](/docs/guides/auto-scrolling.md)
+- `autoScrollerOptions`: An object whose several (optional) properties allow the user to configure the auto-scroll behavior. A simple example is `{ disabled: true }`, which turns off auto scrolling entirely for that `<DragDropContext />`. See our [Auto scrolling documentation](/docs/guides/auto-scrolling.md)
 
 > See our [type guide](/docs/guides/types.md) for more details
 

@@ -2,8 +2,8 @@
 import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { grid } from '../constants';
-import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/autoscroll-config-types';
-import { defaultAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config';
+import { PartialAutoScrollerOptions } from '../../../src/state/auto-scroller/fluid-scroller/auto-scroller-options-types';
+import { defaultAutoScrollerOptions } from '../../../src/state/auto-scroller/fluid-scroller/config';
 
 const SetterContainer = styled.div`
   display: flex;
@@ -36,9 +36,9 @@ const Select = styled.select`
 `;
 
 interface SetterProps {
-  autoScrollOptions: PartialAutoScrollOptions;
+  autoScrollerOptions: PartialAutoScrollerOptions;
   changeAutoScrollOptions: React.Dispatch<
-    React.SetStateAction<PartialAutoScrollOptions>
+    React.SetStateAction<PartialAutoScrollerOptions>
   >;
 }
 
@@ -83,9 +83,9 @@ export default function AutoScrollOptionsSetter(
                 event.currentTarget.value = '';
 
                 props.changeAutoScrollOptions({
-                  ...props.autoScrollOptions,
+                  ...props.autoScrollerOptions,
                   startFromPercentage:
-                    defaultAutoScrollOptions.startFromPercentage,
+                    defaultAutoScrollerOptions.startFromPercentage,
                 });
 
                 return;
@@ -100,7 +100,7 @@ export default function AutoScrollOptionsSetter(
               }
 
               props.changeAutoScrollOptions({
-                ...props.autoScrollOptions,
+                ...props.autoScrollerOptions,
                 startFromPercentage: percent,
               });
             }}
@@ -121,9 +121,9 @@ export default function AutoScrollOptionsSetter(
                 event.currentTarget.value = '';
 
                 props.changeAutoScrollOptions({
-                  ...props.autoScrollOptions,
+                  ...props.autoScrollerOptions,
                   maxScrollAtPercentage:
-                    defaultAutoScrollOptions.maxScrollAtPercentage,
+                    defaultAutoScrollerOptions.maxScrollAtPercentage,
                 });
 
                 return;
@@ -138,7 +138,7 @@ export default function AutoScrollOptionsSetter(
               }
 
               props.changeAutoScrollOptions({
-                ...props.autoScrollOptions,
+                ...props.autoScrollerOptions,
                 maxScrollAtPercentage: percent,
               });
             }}
@@ -156,15 +156,15 @@ export default function AutoScrollOptionsSetter(
                 event.currentTarget.value = '';
 
                 props.changeAutoScrollOptions({
-                  ...props.autoScrollOptions,
-                  maxPixelScroll: defaultAutoScrollOptions.maxPixelScroll,
+                  ...props.autoScrollerOptions,
+                  maxPixelScroll: defaultAutoScrollerOptions.maxPixelScroll,
                 });
 
                 return;
               }
 
               props.changeAutoScrollOptions({
-                ...props.autoScrollOptions,
+                ...props.autoScrollerOptions,
                 maxPixelScroll: val,
               });
             }}
@@ -176,7 +176,7 @@ export default function AutoScrollOptionsSetter(
         <Select
           onChange={(e) =>
             props.changeAutoScrollOptions({
-              ...props.autoScrollOptions,
+              ...props.autoScrollerOptions,
               ease: selectEase(e.target.value),
             })
           }
@@ -189,7 +189,7 @@ export default function AutoScrollOptionsSetter(
         <Select
           onChange={(e) =>
             props.changeAutoScrollOptions({
-              ...props.autoScrollOptions,
+              ...props.autoScrollerOptions,
               disabled: selectDisabled(e.target.value),
             })
           }
@@ -212,11 +212,11 @@ export default function AutoScrollOptionsSetter(
                 event.currentTarget.value = '';
 
                 props.changeAutoScrollOptions({
-                  ...props.autoScrollOptions,
+                  ...props.autoScrollerOptions,
                   durationDampening: {
-                    ...props.autoScrollOptions.durationDampening,
+                    ...props.autoScrollerOptions.durationDampening,
                     stopDampeningAt:
-                      defaultAutoScrollOptions.durationDampening
+                      defaultAutoScrollerOptions.durationDampening
                         .stopDampeningAt,
                   },
                 });
@@ -233,9 +233,9 @@ export default function AutoScrollOptionsSetter(
               }
 
               props.changeAutoScrollOptions({
-                ...props.autoScrollOptions,
+                ...props.autoScrollerOptions,
                 durationDampening: {
-                  ...props.autoScrollOptions.durationDampening,
+                  ...props.autoScrollerOptions.durationDampening,
                   stopDampeningAt: val,
                 },
               });
@@ -256,11 +256,11 @@ export default function AutoScrollOptionsSetter(
                 event.currentTarget.value = '';
 
                 props.changeAutoScrollOptions({
-                  ...props.autoScrollOptions,
+                  ...props.autoScrollerOptions,
                   durationDampening: {
-                    ...props.autoScrollOptions.durationDampening,
+                    ...props.autoScrollerOptions.durationDampening,
                     accelerateAt:
-                      defaultAutoScrollOptions.durationDampening.accelerateAt,
+                      defaultAutoScrollerOptions.durationDampening.accelerateAt,
                   },
                 });
 
@@ -268,9 +268,9 @@ export default function AutoScrollOptionsSetter(
               }
 
               props.changeAutoScrollOptions({
-                ...props.autoScrollOptions,
+                ...props.autoScrollerOptions,
                 durationDampening: {
-                  ...props.autoScrollOptions.durationDampening,
+                  ...props.autoScrollerOptions.durationDampening,
                   accelerateAt: val,
                 },
               });

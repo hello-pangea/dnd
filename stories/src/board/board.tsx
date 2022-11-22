@@ -11,7 +11,7 @@ import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import type { QuoteMap, Quote } from '../types';
 import Column from './column';
 import reorder, { reorderQuoteMap } from '../reorder';
-import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/autoscroll-config-types';
+import { PartialAutoScrollerOptions } from '../../../src/state/auto-scroller/fluid-scroller/auto-scroller-options-types';
 
 interface ParentContainerProps {
   height: string;
@@ -38,7 +38,7 @@ interface Props {
   containerHeight?: string;
   useClone?: boolean;
   applyGlobalStyles?: boolean;
-  autoScrollOptions?: PartialAutoScrollOptions;
+  autoScrollerOptions?: PartialAutoScrollerOptions;
 }
 
 interface State {
@@ -162,7 +162,7 @@ export default class Board extends Component<Props, State> {
       <React.Fragment>
         <DragDropContext
           onDragEnd={this.onDragEnd}
-          autoScrollOptions={this.props.autoScrollOptions}
+          autoScrollerOptions={this.props.autoScrollerOptions}
         >
           {containerHeight ? (
             <ParentContainer height={containerHeight}>{board}</ParentContainer>

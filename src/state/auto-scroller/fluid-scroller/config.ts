@@ -1,7 +1,7 @@
-import { AutoScrollOptions } from './autoscroll-config-types';
+import { AutoScrollerOptions } from './auto-scroller-options-types';
 
 // default autoScroll configuration options
-export const defaultAutoScrollOptions: AutoScrollOptions = {
+export const defaultAutoScrollerOptions: AutoScrollerOptions = {
   startFromPercentage: 0.25,
   maxScrollAtPercentage: 0.05,
   maxPixelScroll: 28,

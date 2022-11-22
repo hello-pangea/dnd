@@ -40,10 +40,10 @@ This is amazing for users with visual impairments as they can correctly move ite
 
 ## Customizing AutoScroll Behavior
 
-The `<DragDropContext />` accepts a `prop` called `autoScrollOptions`, which follows the following interface:
+The `<DragDropContext />` accepts a `prop` called `autoScrollerOptions`, which follows the following interface:
 
 ```ts
-autoScrollOptions: PartialAutoScrollConfig = {
+const autoScrollerOptions: PartialAutoScrollerOptions = {
   // percentage distance from edge of container at which to start auto scrolling
   startFromPercentage?: number;
   // percentage distance from edge of container at which max scroll speed is achieved
@@ -63,6 +63,6 @@ autoScrollOptions: PartialAutoScrollConfig = {
 }
 ```
 
-This prop provides developers interested in exerting more control over auto scroll with the tools to do so. Visit the "Custom Auto-Scroll Options" story of the [DND Storybook](https://dnd.hellopangea.com/?path=/story/welcome--page) to better understand what each property of this prop controls.
+This prop provides developers interested in exerting more control over auto scroll with the tools to do so. Visit the "Custom Auto-Scroll Options" story of the [DND Storybook](https://dnd.hellopangea.com/?path=/story/examples-custom-auto-scroll-options--customize-properties-of-autoscroll-within-multiple-dragdropcontexts) to better understand what each property of this prop controls.
 
 [← Back to documentation](/README.md#documentation-)

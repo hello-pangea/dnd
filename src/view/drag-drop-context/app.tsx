@@ -51,10 +51,10 @@ import usePrevious from '../use-previous-ref';
 import { warning } from '../../dev-warning';
 import useSensorMarshal from '../use-sensor-marshal/use-sensor-marshal';
 import {
-  AutoScrollOptions,
-  PartialAutoScrollOptions,
-} from '../../state/auto-scroller/fluid-scroller/autoscroll-config-types';
-import { defaultAutoScrollOptions } from '../../state/auto-scroller/fluid-scroller/config';
+  AutoScrollerOptions,
+  PartialAutoScrollerOptions,
+} from '../../state/auto-scroller/fluid-scroller/auto-scroller-options-types';
+import { defaultAutoScrollerOptions } from '../../state/auto-scroller/fluid-scroller/config';
 
 export interface Props extends Responders {
   contextId: string;
@@ -69,7 +69,7 @@ export interface Props extends Responders {
   dragHandleUsageInstructions: string;
   // options to exert more control over autoScroll
   // eslint-disable-next-line react/no-unused-prop-types
-  autoScrollOptions?: PartialAutoScrollOptions;
+  autoScrollerOptions?: PartialAutoScrollerOptions;
 }
 
 const createResponders = (props: Props): Responders => ({
@@ -96,12 +96,12 @@ const createResponders = (props: Props): Responders => ({
   onDragUpdate: props.onDragUpdate,
 });
 
-const createAutoScrollOptions = (props: Props): AutoScrollOptions => ({
-  ...defaultAutoScrollOptions,
-  ...props.autoScrollOptions,
+const createAutoScrollerOptions = (props: Props): AutoScrollerOptions => ({
+  ...defaultAutoScrollerOptions,
+  ...props.autoScrollerOptions,
   durationDampening: {
-    ...defaultAutoScrollOptions.durationDampening,
-    ...props.autoScrollOptions,
+    ...defaultAutoScrollerOptions.durationDampening,
+    ...props.autoScrollerOptions,
   },
 });
 
@@ -131,8 +131,8 @@ export default function App(props: Props) {
     return createResponders(lastPropsRef.current);
   }, [lastPropsRef]);
 
-  const getAutoScrollOptions = useCallback(() => {
-    return createAutoScrollOptions(lastPropsRef.current);
+  const getAutoScrollerOptions = useCallback(() => {
+    return createAutoScrollerOptions(lastPropsRef.current);
   }, [lastPropsRef]);
 
   const announce: Announce = useAnnouncer(contextId);
@@ -176,7 +176,7 @@ export default function App(props: Props) {
       createAutoScroller({
         scrollWindow,
         scrollDroppable: dimensionMarshal.scrollDroppable,
-        getAutoScrollOptions,
+        getAutoScrollerOptions,
         ...bindActionCreators(
           {
             move,
@@ -184,7 +184,7 @@ export default function App(props: Props) {
           lazyDispatch as Dispatch,
         ),
       }),
-    [dimensionMarshal.scrollDroppable, lazyDispatch, getAutoScrollOptions],
+    [dimensionMarshal.scrollDroppable, lazyDispatch, getAutoScrollerOptions],
   );
 
   const focusMarshal: FocusMarshal = useFocusMarshal(contextId);

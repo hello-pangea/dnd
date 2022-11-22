@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { DropResult } from '../../../src/types';
 import DragDropContext from '../../../src/view/drag-drop-context';
-import { PartialAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/autoscroll-config-types';
+import { PartialAutoScrollerOptions } from '../../../src/state/auto-scroller/fluid-scroller/auto-scroller-options-types';
 
 import reorder from '../reorder';
 import type { Quote } from '../types';
@@ -12,7 +12,7 @@ import Board from '../board/board';
 import { getQuotes, generateQuoteMap, authors } from '../data';
 import Title from '../primatives/title';
 import AutoScrollOptionsSetter from './autoscroll-setter';
-import { defaultAutoScrollOptions } from '../../../src/state/auto-scroller/fluid-scroller/config';
+import { defaultAutoScrollerOptions } from '../../../src/state/auto-scroller/fluid-scroller/config';
 
 const NUM_QUOTES = 30;
 
@@ -28,15 +28,17 @@ const Container = styled.div`
 
 const Para = styled.p`
   margin: 2px;
+  margin-bottom: 8px;
   padding-left: 10px;
+  line-height: 2;
 `;
 
 export default function CustomizeAutoScrollApp(): ReactElement {
   const [quotes, setQuotes] = useState(getQuotes(NUM_QUOTES));
   const [authorListAutoScrollOptions, changeALAutoScrollOptions] =
-    useState<PartialAutoScrollOptions>(defaultAutoScrollOptions);
+    useState<PartialAutoScrollerOptions>(defaultAutoScrollerOptions);
   const [boardAutoScrollOptions, changeBoardAutoScrollOptions] =
-    useState<PartialAutoScrollOptions>(defaultAutoScrollOptions);
+    useState<PartialAutoScrollerOptions>(defaultAutoScrollerOptions);
 
   const boardValues = generateQuoteMap(NUM_QUOTES);
   const extraBoardValues = generateQuoteMap(NUM_QUOTES);
@@ -84,58 +86,74 @@ export default function CustomizeAutoScrollApp(): ReactElement {
   return (
     <Root>
       <Title>
-        Configure <code>autoScrollOptions</code> for a single{' '}
+        Configure <code>autoScrollerOptions</code> for a single{' '}
         <code>DragDropContext</code>
-        (hit enter to submit text box inputs):
       </Title>
       <Para>
-        <code>startFromPercentage</code>: percentage of window, from the edge,
-        at which to start scrolling (default: 0.25). Must be between 0 and 1.{' '}
+        <b>
+          <code>startFromPercentage</code>:
+        </b>{' '}
+        percentage of window, from the edge, at which to start scrolling
+        (default: 0.25). Must be between 0 and 1. <br />
+        <b>
+          <code>maxScrollAtPercentage</code>:
+        </b>{' '}
+        percentage of window, from the edge, at which maximum scroll speed is
+        achieved (default: 0.05). Must be between 0 and 1. <br />
+        <b>
+          <code>maxPixelScroll</code>:
+        </b>{' '}
+        maximum speed of auto scroll, in pixels per frame (default: 28). Can be
+        any number, including negative, which lets you scroll backwards! <br />
+        <b>
+          <code>ease</code>:
+        </b>{' '}
+        The function used to ease scroll. (default: f(x) = x^2). Here, choose
+        linear, quadratic or cubic, but while coding, this can be any function
+        from [0, 1] to [0, 1]. <br />
+        <b>
+          <code>disabled</code>:
+        </b>{' '}
+        if true, then dragging around either columns or quotes in the columns
+        will not auto-scroll the window or the droppables (default: false).{' '}
         <br />
-        <code>maxScrollAtPercentage</code>: percentage of window, from the edge,
-        at which maximum scroll speed is achieved (default: 0.05). Must be
-        between 0 and 1. <br />
-        <code>maxPixelScroll</code>: maximum speed of auto scroll, in pixels per
-        frame (default: 28). Can be any number, including negative, which lets
-        you scroll backwards! <br />
-        <code>ease</code>: The function used to ease scroll. (default: f(x) =
-        x^2). Here, choose linear, quadratic or cubic, but while coding, this
-        can be any function from [0, 1] to [0, 1]. <br />
-        <code>disabled</code>: if true, then dragging around either columns or
-        quotes in the columns will not auto-scroll the window or the droppables
-        (default: false). <br />
-        <code>durationDampening.stopDampeningAt</code>: Time in milliseconds
-        after which to finish dampening the auto scroll (default: 1200). <br />
-        <code>durationDampening.accelerateAt</code>: Time in milliseconds after
-        which to start accelerating the reduction of dampening of the autoScroll
-        (default: 360).
+        <b>
+          <code>stopDampeningAt</code>:
+        </b>{' '}
+        Time in milliseconds after which to finish dampening the auto scroll
+        (default: 1200). <br />
+        <b>
+          <code>accelerateAt</code>:
+        </b>{' '}
+        Time in milliseconds after which to start accelerating the reduction of
+        dampening of the autoScroll (default: 360).
       </Para>
       <AutoScrollOptionsSetter
-        autoScrollOptions={authorListAutoScrollOptions}
+        autoScrollerOptions={authorListAutoScrollOptions}
         changeAutoScrollOptions={changeALAutoScrollOptions}
       />
       <Container>
         <DragDropContext
           onDragStart={onDragStart}
           onDragEnd={onDragEnd}
-          autoScrollOptions={authorListAutoScrollOptions}
+          autoScrollerOptions={authorListAutoScrollOptions}
         >
           <AuthorList quotes={quotes} listId="author-list" />
         </DragDropContext>
       </Container>
       <Title>
-        Configure <code>autoScrollOptions</code> for a nested{' '}
+        Configure <code>autoScrollerOptions</code> for a nested{' '}
         <code>DragDropContext</code>
       </Title>
       <AutoScrollOptionsSetter
-        autoScrollOptions={boardAutoScrollOptions}
+        autoScrollerOptions={boardAutoScrollOptions}
         changeAutoScrollOptions={changeBoardAutoScrollOptions}
       />
       <Container>
         <Board
           initial={boardValues}
           applyGlobalStyles={false}
-          autoScrollOptions={boardAutoScrollOptions}
+          autoScrollerOptions={boardAutoScrollOptions}
         />
       </Container>
     </Root>

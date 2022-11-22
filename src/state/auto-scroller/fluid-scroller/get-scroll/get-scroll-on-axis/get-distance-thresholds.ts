@@ -1,7 +1,7 @@
 import type { Rect } from 'css-box-model';
-import { AutoScrollOptions } from '../../autoscroll-config-types';
+import { AutoScrollerOptions } from '../../auto-scroller-options-types';
 import type { Axis } from '../../../../../types';
-import { defaultAutoScrollOptions } from '../../config';
+import { defaultAutoScrollerOptions } from '../../config';
 
 // all in pixels
 export interface DistanceThresholds {
@@ -13,15 +13,15 @@ export interface DistanceThresholds {
 export default (
   container: Rect,
   axis: Axis,
-  getAutoScrollOptions: () => AutoScrollOptions = () =>
-    defaultAutoScrollOptions,
+  getAutoScrollerOptions: () => AutoScrollerOptions = () =>
+    defaultAutoScrollerOptions,
 ): DistanceThresholds => {
-  const autoScrollOptions = getAutoScrollOptions();
+  const autoScrollerOptions = getAutoScrollerOptions();
 
   const startScrollingFrom: number =
-    container[axis.size] * autoScrollOptions.startFromPercentage;
+    container[axis.size] * autoScrollerOptions.startFromPercentage;
   const maxScrollValueAt: number =
-    container[axis.size] * autoScrollOptions.maxScrollAtPercentage;
+    container[axis.size] * autoScrollerOptions.maxScrollAtPercentage;
 
   const thresholds: DistanceThresholds = {
     startScrollingFrom,

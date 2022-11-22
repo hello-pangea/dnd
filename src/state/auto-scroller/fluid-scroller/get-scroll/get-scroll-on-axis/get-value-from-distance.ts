@@ -1,16 +1,16 @@
 import type { DistanceThresholds } from './get-distance-thresholds';
 import getPercentage from '../../get-percentage';
-import { AutoScrollOptions } from '../../autoscroll-config-types';
+import { AutoScrollerOptions } from '../../auto-scroller-options-types';
 import minScroll from './min-scroll';
-import { defaultAutoScrollOptions } from '../../config';
+import { defaultAutoScrollerOptions } from '../../config';
 
 export default (
   distanceToEdge: number,
   thresholds: DistanceThresholds,
-  getAutoScrollOptions: () => AutoScrollOptions = () =>
-    defaultAutoScrollOptions,
+  getAutoScrollerOptions: () => AutoScrollerOptions = () =>
+    defaultAutoScrollerOptions,
 ): number => {
-  const autoScrollOptions = getAutoScrollOptions();
+  const autoScrollerOptions = getAutoScrollerOptions();
 
   /*
   // This function only looks at the distance to one edge
@@ -38,7 +38,7 @@ export default (
 
   // use max speed when on or over boundary
   if (distanceToEdge <= thresholds.maxScrollValueAt) {
-    return autoScrollOptions.maxPixelScroll;
+    return autoScrollerOptions.maxPixelScroll;
   }
 
   // when just going on the boundary return the minimum integer
@@ -58,8 +58,8 @@ export default (
     1 - percentageFromMaxScrollValueAt;
 
   const scroll: number =
-    autoScrollOptions.maxPixelScroll *
-    autoScrollOptions.ease(percentageFromStartScrollingFrom);
+    autoScrollerOptions.maxPixelScroll *
+    autoScrollerOptions.ease(percentageFromStartScrollingFrom);
 
   // scroll will always be a positive integer
   return Math.ceil(scroll);
