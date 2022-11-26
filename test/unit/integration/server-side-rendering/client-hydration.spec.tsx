@@ -6,12 +6,11 @@ import { resetServerContext } from '../../../../src';
 import App from '../util/app';
 import { noop } from '../../../../src/empty';
 import getBodyElement from '../../../../src/view/get-body-element';
-import getReactMajorVersion from '../../../util/get-react-major-version';
+import invokeOnReactVersion from '../../../util/invoke-on-react-version';
 
-const pre18React = ['16', '17'].includes(getReactMajorVersion());
 beforeEach(() => {
   // Reset server context between tests to prevent state being shared between them
-  if (pre18React) resetServerContext();
+  invokeOnReactVersion(['16', '17'], resetServerContext);
 });
 
 // Checking that the browser globals are available in this test file
@@ -27,7 +26,7 @@ it('should support hydrating a server side rendered application', () => {
   // on the server
   const error = jest.spyOn(console, 'error').mockImplementation(noop);
 
-  if (pre18React) resetServerContext();
+  invokeOnReactVersion(['16', '17'], resetServerContext);
   const serverHTML: string = ReactDOMServer.renderToString(<App />);
 
   error.mock.calls.forEach((call) => {
@@ -39,7 +38,7 @@ it('should support hydrating a server side rendered application', () => {
 
   // would be done client side
   // would have a fresh server context on the client
-  if (pre18React) resetServerContext();
+  invokeOnReactVersion(['16', '17'], resetServerContext);
   const el = document.createElement('div');
   el.innerHTML = serverHTML;
   getBodyElement().appendChild(el);

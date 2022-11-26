@@ -10,22 +10,28 @@ interface Options {
 
 const defaults: Options = { separator: '::' };
 
-export function reset() {
+export function resetDeprecatedUniqueId() {
   count = 0;
 }
 
-export default 'useId' in React
-  ? function useUniqueId(prefix: string, options: Options = defaults): Id {
-      const id = React.useId();
+function useDeprecatedUniqueId(
+  prefix: string,
+  options: Options = defaults,
+): Id {
+  return useMemo(
+    () => `${prefix}${options.separator}${count++}`,
+    [options.separator, prefix],
+  );
+}
 
-      return useMemo(
-        () => `${prefix}${options.separator}${id}`,
-        [options.separator, prefix, id],
-      );
-    }
-  : function useUniqueId(prefix: string, options: Options = defaults): Id {
-      return useMemo(
-        () => `${prefix}${options.separator}${count++}`,
-        [options.separator, prefix],
-      );
-    };
+function useUniqueId(prefix: string, options: Options = defaults): Id {
+  const id = React.useId();
+
+  return useMemo(
+    () => `${prefix}${options.separator}${id}`,
+    [options.separator, prefix, id],
+  );
+}
+
+// The useId hook is only available in React 18+
+export default 'useId' in React ? useUniqueId : useDeprecatedUniqueId;

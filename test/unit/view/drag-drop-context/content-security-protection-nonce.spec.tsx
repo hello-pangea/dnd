@@ -4,19 +4,20 @@ import DragDropContext from '../../../../src/view/drag-drop-context';
 import { resetServerContext } from '../../../../src';
 import * as attributes from '../../../../src/view/data-attributes';
 import getReactMajorVersion from '../../../util/get-react-major-version';
+import invokeOnReactVersion from '../../../util/invoke-on-react-version';
 
-const pre18React = ['16', '17'].includes(getReactMajorVersion());
+const isReact18 = getReactMajorVersion() === '18';
 it('should insert nonce into style tag', () => {
   const nonce = 'ThisShouldBeACryptographicallySecurePseudorandomNumber';
 
-  if (pre18React) resetServerContext();
+  invokeOnReactVersion(['16', '17'], resetServerContext);
   const { unmount } = render(
     <DragDropContext nonce={nonce} onDragEnd={() => {}}>
       {null}
     </DragDropContext>,
   );
   const styleTag = document.querySelector(
-    `[${attributes.prefix}-always="${pre18React ? '0' : ':r0:'}"]`,
+    `[${attributes.prefix}-always="${isReact18 ? ':r0:' : '0'}"]`,
   );
   const nonceAttribute = styleTag ? styleTag.getAttribute('nonce') : '';
   expect(nonceAttribute).toEqual(nonce);

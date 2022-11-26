@@ -6,9 +6,9 @@ import { warning } from '../../dev-warning';
 import preset from '../../screen-reader-message-preset';
 import App from './app';
 import useUniqueContextId, {
-  reset as resetContextId,
+  resetDeprecatedUniqueContextId,
 } from './use-unique-context-id';
-import { reset as resetUniqueIds } from '../use-unique-id';
+import { resetDeprecatedUniqueId } from '../use-unique-id';
 import { PartialAutoScrollerOptions } from '../../state/auto-scroller/fluid-scroller/auto-scroller-options-types';
 
 export interface DragDropContextProps extends Responders {
@@ -30,6 +30,7 @@ export interface DragDropContextProps extends Responders {
 
 // Reset any context that gets persisted across server side renders
 export function resetServerContext() {
+  // The useId hook is only available in React 18+
   if ('useId' in React) {
     warning(
       `It is not necessary to call resetServerContext when using React 18+`,
@@ -38,8 +39,8 @@ export function resetServerContext() {
     return;
   }
 
-  resetContextId();
-  resetUniqueIds();
+  resetDeprecatedUniqueContextId();
+  resetDeprecatedUniqueId();
 }
 
 export default function DragDropContext(props: DragDropContextProps) {
