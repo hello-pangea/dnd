@@ -3,6 +3,7 @@ import { apply, isEqual, origin } from '../../../position';
 import getScrollOnAxis from './get-scroll-on-axis';
 import adjustForSizeLimits from './adjust-for-size-limits';
 import { horizontal, vertical } from '../../../axis';
+import { AutoScrollerOptions } from '../auto-scroller-options-types';
 
 // will replace -0 and replace with +0
 const clean = apply((value: number) => (value === 0 ? 0 : value));
@@ -13,6 +14,7 @@ interface Args {
   subject: Rect;
   center: Position;
   shouldUseTimeDampening: boolean;
+  getAutoScrollerOptions: () => AutoScrollerOptions;
 }
 
 export default ({
@@ -21,6 +23,7 @@ export default ({
   subject,
   center,
   shouldUseTimeDampening,
+  getAutoScrollerOptions,
 }: Args): Position | null => {
   // get distance to each edge
   const distanceToEdges: Spacing = {
@@ -44,6 +47,7 @@ export default ({
     dragStartTime,
     axis: vertical,
     shouldUseTimeDampening,
+    getAutoScrollerOptions,
   });
   const x: number = getScrollOnAxis({
     container,
@@ -51,6 +55,7 @@ export default ({
     dragStartTime,
     axis: horizontal,
     shouldUseTimeDampening,
+    getAutoScrollerOptions,
   });
 
   const required: Position = clean({ x, y });

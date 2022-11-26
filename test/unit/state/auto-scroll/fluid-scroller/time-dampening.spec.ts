@@ -9,11 +9,13 @@ import getDistanceThresholds from '../../../../../src/state/auto-scroller/fluid-
 import type { DistanceThresholds } from '../../../../../src/state/auto-scroller/fluid-scroller/get-scroll/get-scroll-on-axis/get-distance-thresholds';
 import { patch } from '../../../../../src/state/position';
 import getArgsMock from './util/get-args-mock';
-import config from '../../../../../src/state/auto-scroller/fluid-scroller/config';
 import minScroll from '../../../../../src/state/auto-scroller/fluid-scroller/get-scroll/get-scroll-on-axis/min-scroll';
+import { defaultAutoScrollerOptions } from '../../../../../src/state/auto-scroller/fluid-scroller/config';
 
-const stopAt: number = config.durationDampening.stopDampeningAt;
-const startAcceleratingAt: number = config.durationDampening.accelerateAt;
+const stopAt: number =
+  defaultAutoScrollerOptions.durationDampening.stopDampeningAt;
+const startAcceleratingAt: number =
+  defaultAutoScrollerOptions.durationDampening.accelerateAt;
 const accelerationRange: number = stopAt - startAcceleratingAt;
 
 forEach(({ state, axis }: BlockFnArgs) => {
@@ -74,7 +76,7 @@ forEach(({ state, axis }: BlockFnArgs) => {
 
     requestAnimationFrame.step();
     expect(mocks.scrollWindow).toHaveBeenCalledWith(
-      patch(axis.line, config.maxPixelScroll),
+      patch(axis.line, defaultAutoScrollerOptions.maxPixelScroll),
     );
   });
 
@@ -184,7 +186,7 @@ forEach(({ state, axis }: BlockFnArgs) => {
       mocks.scrollWindow.mock.calls[0][0];
     expect(firstAcceleratedScroll[axis.line]).toBeGreaterThan(minScroll);
     expect(firstAcceleratedScroll[axis.line]).toBeLessThan(
-      config.maxPixelScroll,
+      defaultAutoScrollerOptions.maxPixelScroll,
     );
     mocks.scrollWindow.mockClear();
 
@@ -206,7 +208,7 @@ forEach(({ state, axis }: BlockFnArgs) => {
     );
     expect(secondAcceleratedScroll[axis.line]).toBeGreaterThan(minScroll);
     expect(secondAcceleratedScroll[axis.line]).toBeLessThan(
-      config.maxPixelScroll,
+      defaultAutoScrollerOptions.maxPixelScroll,
     );
     mocks.scrollWindow.mockClear();
 
@@ -226,6 +228,8 @@ forEach(({ state, axis }: BlockFnArgs) => {
       firstAcceleratedScroll[axis.line],
     );
     expect(lastAcceleratedScroll[axis.line]).toBeGreaterThan(minScroll);
-    expect(lastAcceleratedScroll[axis.line]).toEqual(config.maxPixelScroll);
+    expect(lastAcceleratedScroll[axis.line]).toEqual(
+      defaultAutoScrollerOptions.maxPixelScroll,
+    );
   });
 });

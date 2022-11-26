@@ -1,5 +1,6 @@
 import type { Rect, Spacing } from 'css-box-model';
 import getDistanceThresholds from './get-distance-thresholds';
+import { AutoScrollerOptions } from '../../auto-scroller-options-types';
 import type { DistanceThresholds } from './get-distance-thresholds';
 import type { Axis } from '../../../../../types';
 import getValue from './get-value';
@@ -10,6 +11,7 @@ interface GetOnAxisArgs {
   dragStartTime: number;
   axis: Axis;
   shouldUseTimeDampening: boolean;
+  getAutoScrollerOptions: () => AutoScrollerOptions;
 }
 
 export default ({
@@ -18,8 +20,13 @@ export default ({
   dragStartTime,
   axis,
   shouldUseTimeDampening,
+  getAutoScrollerOptions,
 }: GetOnAxisArgs): number => {
-  const thresholds: DistanceThresholds = getDistanceThresholds(container, axis);
+  const thresholds: DistanceThresholds = getDistanceThresholds(
+    container,
+    axis,
+    getAutoScrollerOptions,
+  );
   const isCloserToEnd: boolean =
     distanceToEdges[axis.end] < distanceToEdges[axis.start];
 
@@ -29,6 +36,7 @@ export default ({
       thresholds,
       dragStartTime,
       shouldUseTimeDampening,
+      getAutoScrollerOptions,
     });
   }
 
@@ -39,6 +47,7 @@ export default ({
       thresholds,
       dragStartTime,
       shouldUseTimeDampening,
+      getAutoScrollerOptions,
     })
   );
 };

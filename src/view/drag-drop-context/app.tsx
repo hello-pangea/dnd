@@ -50,6 +50,11 @@ import useStartupValidation from './use-startup-validation';
 import usePrevious from '../use-previous-ref';
 import { warning } from '../../dev-warning';
 import useSensorMarshal from '../use-sensor-marshal/use-sensor-marshal';
+import {
+  AutoScrollerOptions,
+  PartialAutoScrollerOptions,
+} from '../../state/auto-scroller/fluid-scroller/auto-scroller-options-types';
+import { defaultAutoScrollerOptions } from '../../state/auto-scroller/fluid-scroller/config';
 
 export interface Props extends Responders {
   contextId: string;
@@ -62,6 +67,9 @@ export interface Props extends Responders {
   enableDefaultSensors?: boolean | null;
   // screen reader
   dragHandleUsageInstructions: string;
+  // options to exert more control over autoScroll
+  // eslint-disable-next-line react/no-unused-prop-types
+  autoScrollerOptions?: PartialAutoScrollerOptions;
 }
 
 const createResponders = (props: Props): Responders => ({
@@ -88,6 +96,15 @@ const createResponders = (props: Props): Responders => ({
   onDragUpdate: props.onDragUpdate,
 });
 
+const createAutoScrollerOptions = (props: Props): AutoScrollerOptions => ({
+  ...defaultAutoScrollerOptions,
+  ...props.autoScrollerOptions,
+  durationDampening: {
+    ...defaultAutoScrollerOptions.durationDampening,
+    ...props.autoScrollerOptions,
+  },
+});
+
 type LazyStoreRef = MutableRefObject<Store | null>;
 
 function getStore(lazyRef: LazyStoreRef): Store {
@@ -112,6 +129,10 @@ export default function App(props: Props) {
 
   const getResponders: () => Responders = useCallback(() => {
     return createResponders(lastPropsRef.current);
+  }, [lastPropsRef]);
+
+  const getAutoScrollerOptions = useCallback(() => {
+    return createAutoScrollerOptions(lastPropsRef.current);
   }, [lastPropsRef]);
 
   const announce: Announce = useAnnouncer(contextId);
@@ -155,6 +176,7 @@ export default function App(props: Props) {
       createAutoScroller({
         scrollWindow,
         scrollDroppable: dimensionMarshal.scrollDroppable,
+        getAutoScrollerOptions,
         ...bindActionCreators(
           {
             move,
@@ -162,7 +184,7 @@ export default function App(props: Props) {
           lazyDispatch as Dispatch,
         ),
       }),
-    [dimensionMarshal.scrollDroppable, lazyDispatch],
+    [dimensionMarshal.scrollDroppable, lazyDispatch, getAutoScrollerOptions],
   );
 
   const focusMarshal: FocusMarshal = useFocusMarshal(contextId);

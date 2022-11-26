@@ -10,6 +10,7 @@ import getBestScrollableDroppable from './get-best-scrollable-droppable';
 import whatIsDraggedOver from '../../droppable/what-is-dragged-over';
 import getWindowScrollChange from './get-window-scroll-change';
 import getDroppableScrollChange from './get-droppable-scroll-change';
+import { AutoScrollerOptions } from './auto-scroller-options-types';
 
 interface Args {
   state: DraggingState;
@@ -17,6 +18,7 @@ interface Args {
   shouldUseTimeDampening: boolean;
   scrollWindow: (scroll: Position) => void;
   scrollDroppable: (id: DroppableId, scroll: Position) => void;
+  getAutoScrollerOptions: () => AutoScrollerOptions;
 }
 
 export default ({
@@ -25,6 +27,7 @@ export default ({
   shouldUseTimeDampening,
   scrollWindow,
   scrollDroppable,
+  getAutoScrollerOptions,
 }: Args): void => {
   const center: Position = state.current.page.borderBoxCenter;
   const draggable: DraggableDimension =
@@ -39,6 +42,7 @@ export default ({
       subject,
       center,
       shouldUseTimeDampening,
+      getAutoScrollerOptions,
     });
 
     if (change) {
@@ -63,6 +67,7 @@ export default ({
     subject,
     center,
     shouldUseTimeDampening,
+    getAutoScrollerOptions,
   });
 
   if (change) {

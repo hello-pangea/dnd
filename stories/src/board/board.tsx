@@ -11,6 +11,7 @@ import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import type { QuoteMap, Quote } from '../types';
 import Column from './column';
 import reorder, { reorderQuoteMap } from '../reorder';
+import { PartialAutoScrollerOptions } from '../../../src/state/auto-scroller/fluid-scroller/auto-scroller-options-types';
 
 interface ParentContainerProps {
   height: string;
@@ -36,6 +37,8 @@ interface Props {
   isCombineEnabled?: boolean;
   containerHeight?: string;
   useClone?: boolean;
+  applyGlobalStyles?: boolean;
+  autoScrollerOptions?: PartialAutoScrollerOptions;
 }
 
 interface State {
@@ -47,6 +50,7 @@ export default class Board extends Component<Props, State> {
   /* eslint-disable react/sort-comp */
   static defaultProps = {
     isCombineEnabled: false,
+    applyGlobalStyles: true,
   };
 
   state: State = {
@@ -124,6 +128,7 @@ export default class Board extends Component<Props, State> {
       useClone,
       isCombineEnabled,
       withScrollableColumns,
+      applyGlobalStyles,
     } = this.props;
 
     const board = (
@@ -155,20 +160,25 @@ export default class Board extends Component<Props, State> {
 
     return (
       <React.Fragment>
-        <DragDropContext onDragEnd={this.onDragEnd}>
+        <DragDropContext
+          onDragEnd={this.onDragEnd}
+          autoScrollerOptions={this.props.autoScrollerOptions}
+        >
           {containerHeight ? (
             <ParentContainer height={containerHeight}>{board}</ParentContainer>
           ) : (
             board
           )}
         </DragDropContext>
-        <Global
-          styles={css`
-            body {
-              background: ${colors.B200};
-            }
-          `}
-        />
+        {applyGlobalStyles ? (
+          <Global
+            styles={css`
+              body {
+                background: ${colors.B200};
+              }
+            `}
+          />
+        ) : null}
       </React.Fragment>
     );
   }

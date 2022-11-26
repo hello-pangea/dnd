@@ -1,4 +1,5 @@
 import type { DistanceThresholds } from './get-distance-thresholds';
+import { AutoScrollerOptions } from '../../auto-scroller-options-types';
 import getValueFromDistance from './get-value-from-distance';
 import dampenValueByTime from './dampen-value-by-time';
 import minScroll from './min-scroll';
@@ -8,6 +9,7 @@ interface Args {
   thresholds: DistanceThresholds;
   dragStartTime: number;
   shouldUseTimeDampening: boolean;
+  getAutoScrollerOptions: () => AutoScrollerOptions;
 }
 
 export default ({
@@ -15,8 +17,13 @@ export default ({
   thresholds,
   dragStartTime,
   shouldUseTimeDampening,
+  getAutoScrollerOptions,
 }: Args): number => {
-  const scroll: number = getValueFromDistance(distanceToEdge, thresholds);
+  const scroll: number = getValueFromDistance(
+    distanceToEdge,
+    thresholds,
+    getAutoScrollerOptions,
+  );
 
   // not enough distance to trigger a minimum scroll
   // we can bail here
@@ -34,5 +41,8 @@ export default ({
   // we must let at least 1px through to trigger a scroll event an
   // another auto scroll call
 
-  return Math.max(dampenValueByTime(scroll, dragStartTime), minScroll);
+  return Math.max(
+    dampenValueByTime(scroll, dragStartTime, getAutoScrollerOptions),
+    minScroll,
+  );
 };
