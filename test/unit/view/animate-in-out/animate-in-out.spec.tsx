@@ -43,7 +43,8 @@ it('should pass data through to children', () => {
   const expected: AnimateProvided = {
     data,
     animate: 'none',
-    // $ExpectError - wrong type
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore - wrong type
     onClose: expect.any(Function),
   };
   expect(child).toHaveBeenCalledWith(expected);
@@ -62,7 +63,8 @@ it('should open instantly if required', () => {
   const expected: AnimateProvided = {
     data,
     animate: 'none',
-    // $ExpectError - wrong type
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore - wrong type
     onClose: expect.any(Function),
   };
   expect(child).toHaveBeenCalledWith(expected);
@@ -81,7 +83,8 @@ it('should animate open if requested', () => {
   const expected: AnimateProvided = {
     data,
     animate: 'open',
-    // $ExpectError - wrong type
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore - wrong type
     onClose: expect.any(Function),
   };
   expect(child).toHaveBeenCalledWith(expected);
@@ -103,7 +106,8 @@ it('should close instantly if required', () => {
   const initial: AnimateProvided = {
     data,
     animate: 'none',
-    // $ExpectError - wrong type
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore - wrong type
     onClose: expect.any(Function),
   };
   expect(child).toHaveBeenCalledWith(initial);
@@ -141,7 +145,8 @@ it('should animate closed if required', () => {
   const initial: AnimateProvided = {
     data,
     animate: 'none',
-    // $ExpectError - wrong type
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore - wrong type
     onClose: expect.any(Function),
   };
   expect(child).toHaveBeenCalledWith(initial);
@@ -158,7 +163,8 @@ it('should animate closed if required', () => {
     data,
     // still visible while animating
     animate: 'close',
-    // $ExpectError - wrong type
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore - wrong type
     onClose: expect.any(Function),
   };
   expect(child).toHaveBeenCalledWith(second);

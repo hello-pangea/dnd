@@ -83,7 +83,8 @@ describe('dimension registration', () => {
       uniqueId: expect.any(String),
       descriptor: preset.inHome1.descriptor,
       options: defaultOptions,
-      // $ExpectError
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore - wrong type
       getDimension: expect.any(Function),
     };
     expect(registerSpy).toHaveBeenCalledTimes(1);
@@ -101,7 +102,8 @@ describe('dimension registration', () => {
       uniqueId: expect.any(String),
       descriptor: preset.inHome1.descriptor,
       options: defaultOptions,
-      // $ExpectError
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore - wrong type
       getDimension: expect.any(Function),
     };
 
@@ -128,7 +130,8 @@ describe('dimension registration', () => {
       uniqueId: expect.any(String),
       descriptor: preset.inHome1.descriptor,
       options: defaultOptions,
-      // $ExpectError
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore - wrong type
       getDimension: expect.any(Function),
     };
 
@@ -154,7 +157,8 @@ describe('dimension registration', () => {
         index: 1000,
       },
       options: defaultOptions,
-      // $ExpectError
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore - wrong type
       getDimension: expect.any(Function),
     };
     expect(updateSpy).toHaveBeenCalledTimes(1);
