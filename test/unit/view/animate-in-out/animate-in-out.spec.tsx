@@ -43,9 +43,7 @@ it('should pass data through to children', () => {
   const expected: AnimateProvided = {
     data,
     animate: 'none',
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore - wrong type
-    onClose: expect.any(Function),
+    onClose: expect.any(Function) as () => void,
   };
   expect(child).toHaveBeenCalledWith(expected);
 });
@@ -63,9 +61,7 @@ it('should open instantly if required', () => {
   const expected: AnimateProvided = {
     data,
     animate: 'none',
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore - wrong type
-    onClose: expect.any(Function),
+    onClose: expect.any(Function) as () => void,
   };
   expect(child).toHaveBeenCalledWith(expected);
 });
@@ -83,9 +79,7 @@ it('should animate open if requested', () => {
   const expected: AnimateProvided = {
     data,
     animate: 'open',
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore - wrong type
-    onClose: expect.any(Function),
+    onClose: expect.any(Function) as () => void,
   };
   expect(child).toHaveBeenCalledWith(expected);
 });
@@ -106,9 +100,7 @@ it('should close instantly if required', () => {
   const initial: AnimateProvided = {
     data,
     animate: 'none',
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore - wrong type
-    onClose: expect.any(Function),
+    onClose: expect.any(Function) as () => void,
   };
   expect(child).toHaveBeenCalledWith(initial);
   expect(container.innerHTML).toEqual('<div>hi</div>');
@@ -145,9 +137,7 @@ it('should animate closed if required', () => {
   const initial: AnimateProvided = {
     data,
     animate: 'none',
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore - wrong type
-    onClose: expect.any(Function),
+    onClose: expect.any(Function) as () => void,
   };
   expect(child).toHaveBeenCalledWith(initial);
   expect(child).toHaveBeenCalledTimes(1);
@@ -163,9 +153,7 @@ it('should animate closed if required', () => {
     data,
     // still visible while animating
     animate: 'close',
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore - wrong type
-    onClose: expect.any(Function),
+    onClose: expect.any(Function) as () => void,
   };
   expect(child).toHaveBeenCalledWith(second);
 

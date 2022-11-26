@@ -79,13 +79,10 @@ describe('dimension registration', () => {
     render(<Item registry={registry} />);
 
     const expected: DraggableEntry = {
-      // $ExpectError
       uniqueId: expect.any(String),
       descriptor: preset.inHome1.descriptor,
       options: defaultOptions,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore - wrong type
-      getDimension: expect.any(Function),
+      getDimension: expect.any(Function) as GetDraggableDimensionFn,
     };
     expect(registerSpy).toHaveBeenCalledTimes(1);
     expect(registerSpy).toHaveBeenCalledWith(expected);
@@ -98,13 +95,10 @@ describe('dimension registration', () => {
     const { unmount } = render(<Item registry={registry} />);
 
     const expected: DraggableEntry = {
-      // $ExpectError
       uniqueId: expect.any(String),
       descriptor: preset.inHome1.descriptor,
       options: defaultOptions,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore - wrong type
-      getDimension: expect.any(Function),
+      getDimension: expect.any(Function) as GetDraggableDimensionFn,
     };
 
     expect(unregisterSpy).not.toHaveBeenCalled();
@@ -126,13 +120,10 @@ describe('dimension registration', () => {
     const { rerender } = render(<Item registry={registry} />);
 
     const expectedInitial: DraggableEntry = {
-      // $ExpectError
       uniqueId: expect.any(String),
       descriptor: preset.inHome1.descriptor,
       options: defaultOptions,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore - wrong type
-      getDimension: expect.any(Function),
+      getDimension: expect.any(Function) as GetDraggableDimensionFn,
     };
 
     // asserting shape of original publish
@@ -157,9 +148,7 @@ describe('dimension registration', () => {
         index: 1000,
       },
       options: defaultOptions,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore - wrong type
-      getDimension: expect.any(Function),
+      getDimension: expect.any(Function) as GetDraggableDimensionFn,
     };
     expect(updateSpy).toHaveBeenCalledTimes(1);
     // new descriptor
