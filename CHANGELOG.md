@@ -1,5 +1,12 @@
 
 
+## [16.1.0](https://github.com/hello-pangea/dnd/compare/v16.0.1...v16.1.0) (2022-11-26)
+
+
+### Features 🔥
+
+* ability to modify autoScroller config options ([#434](https://github.com/hello-pangea/dnd/issues/434)) ([8277937](https://github.com/hello-pangea/dnd/commit/82779377a4faf93a91f9cfca0a1be0bb35278ee6)), closes [#431](https://github.com/hello-pangea/dnd/issues/431)
+
 ## [16.0.1](https://github.com/hello-pangea/dnd/compare/v16.0.0...v16.0.1) (2022-10-14)
 
 

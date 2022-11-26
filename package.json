@@ -1,6 +1,6 @@
 {
   "name": "@hello-pangea/dnd",
-  "version": "16.0.1",
+  "version": "16.1.0",
   "private": false,
   "description": "Beautiful and accessible drag and drop for lists with React",
   "author": "Alex Reardon <areardon@atlassian.com>",
