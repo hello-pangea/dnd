@@ -25,7 +25,7 @@ specifiers:
   '@emotion/styled': 11.10.5
   '@jest/environment': 29.3.1
   '@release-it/conventional-changelog': 5.1.1
-  '@rollup/plugin-babel': 6.0.2
+  '@rollup/plugin-babel': 6.0.3
   '@rollup/plugin-commonjs': 23.0.2
   '@rollup/plugin-json': 5.0.1
   '@rollup/plugin-node-resolve': 15.0.1
@@ -162,7 +162,7 @@ devDependencies:
   '@emotion/styled': 11.10.5_hmjty4frusbltjhl3xd7udcm2y
   '@jest/environment': 29.3.1
   '@release-it/conventional-changelog': 5.1.1_release-it@15.5.0
-  '@rollup/plugin-babel': 6.0.2_ecxuj7zm5zl7qcys7nvyfh7ewm
+  '@rollup/plugin-babel': 6.0.3_ecxuj7zm5zl7qcys7nvyfh7ewm
   '@rollup/plugin-commonjs': 23.0.2_rollup@3.4.0
   '@rollup/plugin-json': 5.0.1_rollup@3.4.0
   '@rollup/plugin-node-resolve': 15.0.1_rollup@3.4.0
@@ -2948,8 +2948,8 @@ packages:
       semver: 7.3.8
     dev: true
 
-  /@rollup/plugin-babel/6.0.2_ecxuj7zm5zl7qcys7nvyfh7ewm:
-    resolution: {integrity: sha512-Vnt8XIWYwCf3MD7qhBWYlP9pjSZvcE++nlPXhQYw6YNehl5742AzFbrV6h4BHb20VAOVUlIksVLymQCTwVCGDg==}
+  /@rollup/plugin-babel/6.0.3_ecxuj7zm5zl7qcys7nvyfh7ewm:
+    resolution: {integrity: sha512-fKImZKppa1A/gX73eg4JGo+8kQr/q1HBQaCGKECZ0v4YBBv3lFqi14+7xyApECzvkLTHCifx+7ntcrvtBIRcpg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -6575,7 +6575,7 @@ packages:
       glob: 7.2.3
       infer-owner: 1.0.4
       lru-cache: 6.0.0
-      minipass: 3.3.4
+      minipass: 3.3.6
       minipass-collect: 1.0.2
       minipass-flush: 1.0.5
       minipass-pipeline: 1.2.4
@@ -9736,7 +9736,7 @@ packages:
     resolution: {integrity: sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==}
     engines: {node: '>= 8'}
     dependencies:
-      minipass: 3.3.4
+      minipass: 3.3.6
     dev: true
 
   /fs-monkey/1.0.3:
@@ -12906,25 +12906,25 @@ packages:
     resolution: {integrity: sha512-6T6lH0H8OG9kITm/Jm6tdooIbogG9e0tLgpY6mphXSm/A9u8Nq1ryBG+Qspiub9LjWlBPsPS3tWQ/Botq4FdxA==}
     engines: {node: '>= 8'}
     dependencies:
-      minipass: 3.3.4
+      minipass: 3.3.6
     dev: true
 
   /minipass-flush/1.0.5:
     resolution: {integrity: sha512-JmQSYYpPUqX5Jyn1mXaRwOda1uQ8HP5KAT/oDSLCzt1BYRhQU0/hDtsB1ufZfEEzMZ9aAVmsBw8+FWsIXlClWw==}
     engines: {node: '>= 8'}
     dependencies:
-      minipass: 3.3.4
+      minipass: 3.3.6
     dev: true
 
   /minipass-pipeline/1.2.4:
     resolution: {integrity: sha512-xuIq7cIOt09RPRJ19gdi4b+RiNvDFYe5JH+ggNvBqGqpQXcru3PcRmOZuHBKWK1Txf9+cQ+HMVN4d6z46LZP7A==}
     engines: {node: '>=8'}
     dependencies:
-      minipass: 3.3.4
+      minipass: 3.3.6
     dev: true
 
-  /minipass/3.3.4:
-    resolution: {integrity: sha512-I9WPbWHCGu8W+6k1ZiGpPu0GkoKBeorkfKNuAFBNS1HNFJvke82sxvI5bzcCNpWPorkOO5QQ+zomzzwRxejXiw==}
+  /minipass/3.3.6:
+    resolution: {integrity: sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==}
     engines: {node: '>=8'}
     dependencies:
       yallist: 4.0.0
@@ -12934,7 +12934,7 @@ packages:
     resolution: {integrity: sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==}
     engines: {node: '>= 8'}
     dependencies:
-      minipass: 3.3.4
+      minipass: 3.3.6
       yallist: 4.0.0
     dev: true
 
@@ -15795,7 +15795,7 @@ packages:
     resolution: {integrity: sha512-97qShzy1AiyxvPNIkLWoGua7xoQzzPjQ0HAH4B0rWKo7SZ6USuPcrUiAFrws0UH8RrbWmgq3LMTObhPIHbbBeQ==}
     engines: {node: '>= 8'}
     dependencies:
-      minipass: 3.3.4
+      minipass: 3.3.6
     dev: true
 
   /stable/0.1.8:
@@ -16288,7 +16288,7 @@ packages:
     dependencies:
       chownr: 2.0.0
       fs-minipass: 2.1.0
-      minipass: 3.3.4
+      minipass: 3.3.6
       minizlib: 2.1.2
       mkdirp: 1.0.4
       yallist: 4.0.0

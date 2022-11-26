@@ -106,7 +106,7 @@
     "@emotion/styled": "11.10.5",
     "@jest/environment": "29.3.1",
     "@release-it/conventional-changelog": "5.1.1",
-    "@rollup/plugin-babel": "6.0.2",
+    "@rollup/plugin-babel": "6.0.3",
     "@rollup/plugin-commonjs": "23.0.2",
     "@rollup/plugin-json": "5.0.1",
     "@rollup/plugin-node-resolve": "15.0.1",
