@@ -1,3 +1,4 @@
+import React from 'react';
 import { useMemo } from 'use-memo-one';
 import type { Id } from '../types';
 
@@ -9,11 +10,11 @@ interface Options {
 
 const defaults: Options = { separator: '::' };
 
-export function reset() {
+export function resetDeprecatedUniqueId() {
   count = 0;
 }
 
-export default function useUniqueId(
+function useDeprecatedUniqueId(
   prefix: string,
   options: Options = defaults,
 ): Id {
@@ -22,3 +23,15 @@ export default function useUniqueId(
     [options.separator, prefix],
   );
 }
+
+function useUniqueId(prefix: string, options: Options = defaults): Id {
+  const id = React.useId();
+
+  return useMemo(
+    () => `${prefix}${options.separator}${id}`,
+    [options.separator, prefix, id],
+  );
+}
+
+// The useId hook is only available in React 18+
+export default 'useId' in React ? useUniqueId : useDeprecatedUniqueId;

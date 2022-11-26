@@ -4,6 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { resetServerContext } from '@hello-pangea/dnd';
 import { resolve } from 'path';
 import App from './app';
+import invokeOnReactVersion from '../test/util/invoke-on-react-version';
 
 let count = 0;
 function getNonce(): string {
@@ -11,7 +12,8 @@ function getNonce(): string {
 }
 
 function renderHtml(policy?: string, nonce?: string) {
-  resetServerContext();
+  invokeOnReactVersion(['16', '17'], resetServerContext);
+
   let meta = '';
   if (nonce) {
     meta += `<meta id="csp-nonce" property="csp-nonce" content="${nonce}" />`;
@@ -32,6 +34,7 @@ export default (port: string, outputPath: string, fs: any): void => {
     res.end(fs.readFileSync(resolve(outputPath, 'client.js')));
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function render(res: any, policy?: string, nonce?: string) {
     if (policy) {
       res.header('Content-Security-Policy', policy);

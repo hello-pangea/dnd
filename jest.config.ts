@@ -52,6 +52,12 @@ if (['16', '17'].includes(reactMajorVersion)) {
     '^react-dom((\\/.*)?)$': `react-dom-${reactMajorVersion}$1`,
     '^react((\\/.*)?)$': `react-${reactMajorVersion}$1`,
   };
+} else {
+  config.testPathIgnorePatterns = [
+    ...(config.testPathIgnorePatterns || []),
+    // resetServerContext is irrelevant from 18 onwards
+    'test/unit/integration/drag-drop-context/reset-server-context.spec.tsx',
+  ];
 }
 
 if (isRunningInCI()) {
