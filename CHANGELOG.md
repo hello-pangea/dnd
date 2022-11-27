@@ -1,5 +1,12 @@
 
 
+## [16.2.0](https://github.com/hello-pangea/dnd/compare/v16.1.0...v16.2.0) (2022-11-27)
+
+
+### Bug Fixes 🛠
+
+* **ssr:** use useId for hydration and remove the need for resetServerContext (React 18+) ([#439](https://github.com/hello-pangea/dnd/issues/439)) ([bcb66d3](https://github.com/hello-pangea/dnd/commit/bcb66d32683519fb09f6a651ec2a0f63bd90d304))
+
 ## [16.1.0](https://github.com/hello-pangea/dnd/compare/v16.0.1...v16.1.0) (2022-11-26)
 
 
