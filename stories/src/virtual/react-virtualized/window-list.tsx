@@ -1,14 +1,14 @@
+import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
 import React, { CSSProperties, ReactElement, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { List, WindowScroller } from 'react-virtualized';
 import 'react-virtualized/styles.css';
-import { WindowScroller, List } from 'react-virtualized';
-import { Droppable, Draggable, DragDropContext } from '@hello-pangea/dnd';
 
 import type {
-  DroppableProvided,
   DraggableProvided,
-  DraggableStateSnapshot,
   DraggableRubric,
+  DraggableStateSnapshot,
+  DroppableProvided,
   DropResult,
 } from '@hello-pangea/dnd';
 import type { Quote } from '../../types';
@@ -67,54 +67,60 @@ function App(props: Props): ReactElement {
   }
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable
-        droppableId="droppable"
-        mode="virtual"
-        renderClone={(
-          provided: DraggableProvided,
-          snapshot: DraggableStateSnapshot,
-          rubric: DraggableRubric,
-        ) => (
-          <QuoteItem
-            provided={provided}
-            isDragging={snapshot.isDragging}
-            quote={quotes[rubric.source.index]}
-            style={{ margin: 0 }}
-            index={rubric.source.index}
-          />
-        )}
-      >
-        {(droppableProvided: DroppableProvided) => (
-          <WindowScroller>
-            {({ height, isScrolling, onChildScroll, scrollTop }: any) => (
-              <List
-                autoHeight
-                rowCount={quotes.length}
-                height={height}
-                isScrolling={isScrolling}
-                onScroll={onChildScroll}
-                scrollTop={scrollTop}
-                rowHeight={110}
-                width={300}
-                ref={(ref: any) => {
-                  // react-virtualized has no way to get the list's ref that I can so
-                  // So we use the `ReactDOM.findDOMNode(ref)` escape hatch to get the ref
-                  if (ref) {
-                    // eslint-disable-next-line react/no-find-dom-node
-                    const whatHasMyLifeComeTo = ReactDOM.findDOMNode(ref);
-                    if (whatHasMyLifeComeTo instanceof HTMLElement) {
-                      droppableProvided.innerRef(whatHasMyLifeComeTo);
+    <>
+      <p>
+        React virtualized is no longer maintained and does not support React 18.
+        Try react-virtuoso or react-window instead.
+      </p>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable
+          droppableId="droppable"
+          mode="virtual"
+          renderClone={(
+            provided: DraggableProvided,
+            snapshot: DraggableStateSnapshot,
+            rubric: DraggableRubric,
+          ) => (
+            <QuoteItem
+              provided={provided}
+              isDragging={snapshot.isDragging}
+              quote={quotes[rubric.source.index]}
+              style={{ margin: 0 }}
+              index={rubric.source.index}
+            />
+          )}
+        >
+          {(droppableProvided: DroppableProvided) => (
+            <WindowScroller>
+              {({ height, isScrolling, onChildScroll, scrollTop }: any) => (
+                <List
+                  autoHeight
+                  rowCount={quotes.length}
+                  height={height}
+                  isScrolling={isScrolling}
+                  onScroll={onChildScroll}
+                  scrollTop={scrollTop}
+                  rowHeight={110}
+                  width={300}
+                  ref={(ref: any) => {
+                    // react-virtualized has no way to get the list's ref that I can so
+                    // So we use the `ReactDOM.findDOMNode(ref)` escape hatch to get the ref
+                    if (ref) {
+                      // eslint-disable-next-line react/no-find-dom-node
+                      const whatHasMyLifeComeTo = ReactDOM.findDOMNode(ref);
+                      if (whatHasMyLifeComeTo instanceof HTMLElement) {
+                        droppableProvided.innerRef(whatHasMyLifeComeTo);
+                      }
                     }
-                  }
-                }}
-                rowRenderer={getRowRender(quotes)}
-              />
-            )}
-          </WindowScroller>
-        )}
-      </Droppable>
-    </DragDropContext>
+                  }}
+                  rowRenderer={getRowRender(quotes)}
+                />
+              )}
+            </WindowScroller>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </>
   );
 }
 

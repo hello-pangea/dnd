@@ -1,18 +1,19 @@
-import React, { CSSProperties } from 'react';
-import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
+import styled from '@emotion/styled';
 import type { DraggableProvided } from '@hello-pangea/dnd';
+import React, { CSSProperties } from 'react';
 import { borderRadius, grid } from '../constants';
-import type { Quote, AuthorColors } from '../types';
+import type { AuthorColors, Quote } from '../types';
 
 interface Props {
   quote: Quote;
   isDragging: boolean;
-  provided: DraggableProvided;
+  provided?: DraggableProvided;
   isClone?: boolean;
   isGroupedOver?: boolean;
   style?: CSSProperties;
   index?: number;
+  className?: string;
 }
 
 const getBackgroundColor = (
@@ -158,13 +159,13 @@ const QuoteId = styled.small`
   text-align: right;
 `;
 
-function getStyle(provided: DraggableProvided, style?: CSSProperties | null) {
+function getStyle(provided?: DraggableProvided, style?: CSSProperties | null) {
   if (!style) {
-    return provided.draggableProps.style;
+    return provided?.draggableProps.style ?? {};
   }
 
   return {
-    ...provided.draggableProps.style,
+    ...provided?.draggableProps.style,
     ...style,
   };
 }
@@ -177,8 +178,16 @@ function getStyle(provided: DraggableProvided, style?: CSSProperties | null) {
 // things we should be doing in the selector as we do not know if consumers
 // will be using PureComponent
 function QuoteItem(props: Props) {
-  const { quote, isDragging, isGroupedOver, provided, style, isClone, index } =
-    props;
+  const {
+    quote,
+    isDragging,
+    isGroupedOver,
+    provided,
+    style,
+    isClone,
+    index,
+    className,
+  } = props;
 
   return (
     <Container
@@ -186,14 +195,15 @@ function QuoteItem(props: Props) {
       isDragging={isDragging}
       isGroupedOver={Boolean(isGroupedOver)}
       colors={quote.author.colors}
-      ref={provided.innerRef}
-      {...provided.draggableProps}
-      {...provided.dragHandleProps}
+      ref={provided?.innerRef}
+      {...provided?.draggableProps}
+      {...provided?.dragHandleProps}
       style={getStyle(provided, style)}
       data-is-dragging={isDragging}
       data-testid={quote.id}
       data-index={index}
       aria-label={`${quote.author.name} quote ${quote.content}`}
+      className={className}
     >
       <Avatar src={quote.author.avatarUrl} alt={quote.author.name} />
       {isClone ? <CloneBadge>Clone</CloneBadge> : null}
