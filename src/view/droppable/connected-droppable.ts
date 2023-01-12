@@ -41,6 +41,22 @@ const getDraggable = (
   dimensions: DimensionMap,
 ): DraggableDimension => dimensions.draggables[critical.draggable.id];
 
+function getBody(): HTMLElement {
+  invariant(document.body, 'document.body is not ready');
+  return document.body;
+}
+
+const defaultProps: DefaultProps = {
+  mode: 'standard',
+  type: 'DEFAULT',
+  direction: 'vertical',
+  isDropDisabled: false,
+  isCombineEnabled: false,
+  ignoreContainerClipping: false,
+  renderClone: null,
+  getContainerForClone: getBody,
+};
+
 // Returning a function to ensure each
 // Droppable gets its own selector
 export const makeMapStateToProps = (): Selector => {
@@ -135,13 +151,19 @@ export const makeMapStateToProps = (): Selector => {
     },
   );
 
-  const selector = (state: State, ownProps: InternalOwnProps): MapProps => {
+  const selector = (
+    state: State,
+    {
+      droppableId,
+      type = defaultProps.type,
+      isDropDisabled = defaultProps.isDropDisabled,
+      renderClone = defaultProps.renderClone,
+    }: InternalOwnProps,
+  ): MapProps => {
     // not checking if item is disabled as we need the home list to display a placeholder
 
-    const id: DroppableId = ownProps.droppableId;
-    const type: TypeId = ownProps.type;
-    const isEnabled = !ownProps.isDropDisabled;
-    const renderClone: DraggableChildrenFn | null = ownProps.renderClone;
+    const id: DroppableId = droppableId;
+    const isEnabled = !isDropDisabled;
 
     if (isDragging(state)) {
       const critical: Critical = state.critical;
@@ -228,22 +250,6 @@ const mapDispatchToProps: DispatchProps = {
   updateViewportMaxScroll: updateViewportMaxScrollAction,
 };
 
-function getBody(): HTMLElement {
-  invariant(document.body, 'document.body is not ready');
-  return document.body;
-}
-
-const defaultProps: DefaultProps = {
-  mode: 'standard',
-  type: 'DEFAULT',
-  direction: 'vertical',
-  isDropDisabled: false,
-  isCombineEnabled: false,
-  ignoreContainerClipping: false,
-  renderClone: null,
-  getContainerForClone: getBody,
-};
-
 // Abstract class allows to specify props and defaults to component.
 // All other ways give any or do not let add default props.
 // eslint-disable-next-line
@@ -261,8 +267,22 @@ const ConnectedDroppable = connect(
   makeMapStateToProps,
   // no dispatch props for droppable
   mapDispatchToProps,
-  // mergeProps - using default
-  null as any,
+  // default react-redux mergeProps and now-deprecated react defaultProps resolution
+  (stateProps, dispatchProps, ownProps) => {
+    const props: Record<string, unknown> = {
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+    };
+    for (const propName in defaultProps) {
+      if (props[propName] === undefined) {
+        // @ts-expect-error property enumeration from an object with known keys
+        // doesn't actually type the key string with a union of known keys
+        props[propName] = defaultProps[propName];
+      }
+    }
+    return props as any;
+  },
   {
     // Ensuring our context does not clash with consumers
     context: StoreContext as any,
@@ -273,7 +293,5 @@ const ConnectedDroppable = connect(
   },
   // FIXME: Typings are really complexe
 )(Droppable) as unknown as FunctionComponent<DroppableProps>;
-
-ConnectedDroppable.defaultProps = defaultProps;
 
 export default ConnectedDroppable;
