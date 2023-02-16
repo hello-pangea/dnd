@@ -145,7 +145,7 @@
     "babel-plugin-module-resolver": "4.1.0",
     "commitizen": "4.2.5",
     "cross-env": "7.0.3",
-    "csstype": "3.1.0",
+    "csstype": "3.1.1",
     "cypress": "10.6.0",
     "dotenv": "16.0.1",
     "eslint": "8.23.0",
