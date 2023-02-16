@@ -125,7 +125,7 @@
     "@testing-library/react-16-17": "npm:@testing-library/react@^12.1.5",
     "@types/express": "4.17.13",
     "@types/fs-extra": "9.0.13",
-    "@types/jest-axe": "3.5.4",
+    "@types/jest-axe": "3.5.5",
     "@types/jsdom": "20.0.0",
     "@types/markdown-it": "12.2.3",
     "@types/node": "16.11.52",
