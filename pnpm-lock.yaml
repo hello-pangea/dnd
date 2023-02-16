@@ -67,7 +67,7 @@ specifiers:
   css-box-model: ^1.2.1
   csstype: 3.1.1
   cypress: 10.6.0
-  dotenv: 16.0.1
+  dotenv: 16.0.3
   eslint: 8.23.0
   eslint-config-airbnb: 19.0.4
   eslint-config-prettier: 8.5.0
@@ -201,7 +201,7 @@ devDependencies:
   cross-env: 7.0.3
   csstype: 3.1.1
   cypress: 10.6.0
-  dotenv: 16.0.1
+  dotenv: 16.0.3
   eslint: 8.23.0
   eslint-config-airbnb: 19.0.4_dc5unztgy7cri6hrpc62vxgf2u
   eslint-config-prettier: 8.5.0_eslint@8.23.0
@@ -8435,8 +8435,8 @@ packages:
     resolution: {integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==}
     dev: true
 
-  /dotenv/16.0.1:
-    resolution: {integrity: sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==}
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
     dev: true
 
