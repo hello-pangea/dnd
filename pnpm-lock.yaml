@@ -54,7 +54,7 @@ specifiers:
   '@types/react-redux': 7.1.25
   '@types/react-virtualized': 9.21.21
   '@types/react-window': 1.8.5
-  '@types/seedrandom': 3.0.2
+  '@types/seedrandom': 3.0.4
   '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 5.52.0
   '@typescript-eslint/parser': 5.52.0
@@ -65,7 +65,7 @@ specifiers:
   commitizen: 4.2.5
   cross-env: 7.0.3
   css-box-model: ^1.2.1
-  csstype: 3.1.0
+  csstype: 3.1.1
   cypress: 10.6.0
   dotenv: 16.0.1
   eslint: 8.23.0
@@ -189,7 +189,7 @@ devDependencies:
   '@types/react-redux': 7.1.25
   '@types/react-virtualized': 9.21.21
   '@types/react-window': 1.8.5
-  '@types/seedrandom': 3.0.2
+  '@types/seedrandom': 3.0.4
   '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 5.52.0_2opsr474zqovatay2eqtgwji5q
   '@typescript-eslint/parser': 5.52.0_yqf6kl63nyoq5megxukfnom5rm
@@ -199,7 +199,7 @@ devDependencies:
   babel-plugin-module-resolver: 4.1.0
   commitizen: 4.2.5
   cross-env: 7.0.3
-  csstype: 3.1.0
+  csstype: 3.1.1
   cypress: 10.6.0
   dotenv: 16.0.1
   eslint: 8.23.0
@@ -2315,7 +2315,7 @@ packages:
       '@emotion/memoize': 0.8.0
       '@emotion/unitless': 0.8.0
       '@emotion/utils': 1.2.0
-      csstype: 3.1.0
+      csstype: 3.1.1
     dev: true
 
   /@emotion/sheet/1.2.0:
@@ -5002,7 +5002,7 @@ packages:
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
-      csstype: 3.1.0
+      csstype: 3.1.1
     dev: true
 
   /@types/react/18.0.28:
@@ -5010,7 +5010,7 @@ packages:
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
-      csstype: 3.1.0
+      csstype: 3.1.1
 
   /@types/resolve/1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -5025,8 +5025,8 @@ packages:
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
 
-  /@types/seedrandom/3.0.2:
-    resolution: {integrity: sha512-YPLqEOo0/X8JU3rdiq+RgUKtQhQtrppE766y7vMTu8dGML7TVtZNiiiaC/hhU9Zqw9UYopXxhuWWENclMVBwKQ==}
+  /@types/seedrandom/3.0.4:
+    resolution: {integrity: sha512-/rWdxeiuZenlawrHU+XV6ZHMTKOqrC2hMfeDfLTIWJhDZP5aVqXRysduYHBbhD7CeJO6FJr/D2uBVXB7GT6v7w==}
     dev: true
 
   /@types/semver/7.3.13:
@@ -7922,8 +7922,8 @@ packages:
       cssom: 0.3.8
     dev: true
 
-  /csstype/3.1.0:
-    resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
 
   /currently-unhandled/0.4.1:
     resolution: {integrity: sha512-/fITjgjGU50vjQ4FH6eUoYu+iUoUKIXws2hL15JJpIR+BbTxaXQsMuuyjtNh2WqsSBS5nsaZHFsFecyw5CCAng==}
@@ -8377,7 +8377,7 @@ packages:
     resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
     dependencies:
       '@babel/runtime': 7.19.4
-      csstype: 3.1.0
+      csstype: 3.1.1
     dev: true
 
   /dom-serializer/1.4.1:
