@@ -23,7 +23,7 @@ specifiers:
   '@emotion/react': 11.10.0
   '@emotion/styled': 11.10.0
   '@jest/environment': 29.0.1
-  '@release-it/conventional-changelog': 5.1.0
+  '@release-it/conventional-changelog': 5.1.1
   '@rollup/plugin-babel': 6.0.3
   '@rollup/plugin-commonjs': 24.0.1
   '@rollup/plugin-json': 6.0.0
@@ -158,7 +158,7 @@ devDependencies:
   '@emotion/react': 11.10.0_fqzj3foo73inygzmdvtrnr44uu
   '@emotion/styled': 11.10.0_ioohvvtdho5tgesszn2c6r3b4u
   '@jest/environment': 29.0.1
-  '@release-it/conventional-changelog': 5.1.0_release-it@15.4.0
+  '@release-it/conventional-changelog': 5.1.1_release-it@15.4.0
   '@rollup/plugin-babel': 6.0.3_rv4w37equ66xnpmvdttxprqzcy
   '@rollup/plugin-commonjs': 24.0.1_rollup@3.15.0
   '@rollup/plugin-json': 6.0.0_rollup@3.15.0
@@ -2911,7 +2911,7 @@ packages:
     resolution: {integrity: sha512-8KG5RD0GVP4ydEzRn/I4BNDuxDtqVbOdm8675T49OIG/NGhaK0pjPX7ZcDlvKYbA+ulvVK3ztfcF4uBdOxuJbQ==}
     dependencies:
       '@gar/promisify': 1.1.3
-      semver: 7.3.7
+      semver: 7.3.8
     dev: true
 
   /@npmcli/move-file/1.1.2:
@@ -3114,17 +3114,17 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@release-it/conventional-changelog/5.1.0_release-it@15.4.0:
-    resolution: {integrity: sha512-o55D822tVIoldUDj1Fp1KvenVREcEEjYOyuVNwRVnTcExFN6nWUPrH05q7Y8opT23N5snuCwPJ5bzLPEcpBvRg==}
+  /@release-it/conventional-changelog/5.1.1_release-it@15.4.0:
+    resolution: {integrity: sha512-QtbDBe36dQfzexAfDYrbLPvd5Cb5bMWmLcjcGhCOWBss7fe1/gCjoxDULVz+7N7G5Nu2UMeBwHcUp/w8RDh5VQ==}
     engines: {node: '>=14'}
     peerDependencies:
-      release-it: ^15.3.0
+      release-it: ^15.4.1
     dependencies:
       concat-stream: 2.0.0
       conventional-changelog: 3.1.25
       conventional-recommended-bump: 6.1.0
       release-it: 15.4.0
-      semver: 7.3.7
+      semver: 7.3.8
     dev: true
 
   /@rollup/plugin-babel/6.0.3_rv4w37equ66xnpmvdttxprqzcy:
@@ -5233,7 +5233,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.3.8
       tsutils: 3.21.0_typescript@4.8.2
       typescript: 4.8.2
     transitivePeerDependencies:
@@ -6685,7 +6685,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1_bluebird@3.7.2
+      promise-inflight: 1.0.1
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -9743,7 +9743,7 @@ packages:
       memfs: 3.4.7
       minimatch: 3.1.2
       schema-utils: 2.7.0
-      semver: 7.3.7
+      semver: 7.3.8
       tapable: 1.1.3
       typescript: 4.8.2
       webpack: 4.46.0
@@ -11935,7 +11935,7 @@ packages:
       jest-util: 29.0.1
       natural-compare: 1.4.0
       pretty-format: 29.0.1
-      semver: 7.3.7
+      semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -13331,7 +13331,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.10.0
-      semver: 7.3.7
+      semver: 7.3.8
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -13775,7 +13775,7 @@ packages:
       got: 12.3.1
       registry-auth-token: 5.0.1
       registry-url: 6.0.1
-      semver: 7.3.7
+      semver: 7.3.8
     dev: true
 
   /pako/1.0.11:
@@ -14111,7 +14111,7 @@ packages:
       loader-utils: 2.0.2
       postcss: 7.0.39
       schema-utils: 3.1.1
-      semver: 7.3.7
+      semver: 7.3.8
       webpack: 4.46.0
     dev: true
 
@@ -14298,17 +14298,6 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
-    dev: true
-
-  /promise-inflight/1.0.1_bluebird@3.7.2:
-    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
-    dependencies:
-      bluebird: 3.7.2
     dev: true
 
   /promise.allsettled/1.0.5:
@@ -15483,7 +15472,7 @@ packages:
     resolution: {integrity: sha512-0Ju4+6A8iOnpL/Thra7dZsSlOHYAHIeMxfhWQRI1/VLcT3WDBZKKtQt/QkBOsiIN9ZpuvHE6cGZ0x4glCMmfiA==}
     engines: {node: '>=12'}
     dependencies:
-      semver: 7.3.7
+      semver: 7.3.8
     dev: true
 
   /semver/5.7.1:
@@ -15498,6 +15487,14 @@ packages:
 
   /semver/7.3.7:
     resolution: {integrity: sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      lru-cache: 6.0.0
+    dev: true
+
+  /semver/7.3.8:
+    resolution: {integrity: sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -17087,7 +17084,7 @@ packages:
       is-yarn-global: 0.4.0
       latest-version: 7.0.0
       pupa: 3.1.0
-      semver: 7.3.7
+      semver: 7.3.8
       semver-diff: 4.0.0
       xdg-basedir: 5.1.0
     dev: true
