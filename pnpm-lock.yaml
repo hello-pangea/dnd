@@ -51,7 +51,7 @@ specifiers:
   '@types/raf-schd': 4.0.1
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.6
-  '@types/react-redux': 7.1.24
+  '@types/react-redux': 7.1.25
   '@types/react-virtualized': 9.21.21
   '@types/react-window': 1.8.5
   '@types/seedrandom': 3.0.2
@@ -186,7 +186,7 @@ devDependencies:
   '@types/raf-schd': 4.0.1
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.6
-  '@types/react-redux': 7.1.24
+  '@types/react-redux': 7.1.25
   '@types/react-virtualized': 9.21.21
   '@types/react-window': 1.8.5
   '@types/seedrandom': 3.0.2
@@ -4975,8 +4975,8 @@ packages:
     dependencies:
       '@types/react': 18.0.28
 
-  /@types/react-redux/7.1.24:
-    resolution: {integrity: sha512-7FkurKcS1k0FHZEtdbbgN8Oc6b+stGSfZYjQGicofJ0j4U0qIn/jaSvnP2pLwZKiai3/17xqqxkkrxTgN8UNbQ==}
+  /@types/react-redux/7.1.25:
+    resolution: {integrity: sha512-bAGh4e+w5D8dajd6InASVIyCo4pZLJ66oLb80F9OBLO1gKESbZcRCJpTT6uLXX+HAB57zw1WTdwJdAsewuTweg==}
     dependencies:
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.0.28
