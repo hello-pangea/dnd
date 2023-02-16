@@ -128,7 +128,7 @@
     "@types/jest-axe": "3.5.5",
     "@types/jsdom": "20.0.0",
     "@types/markdown-it": "12.2.3",
-    "@types/node": "16.11.52",
+    "@types/node": "16.18.12",
     "@types/raf-schd": "4.0.1",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
