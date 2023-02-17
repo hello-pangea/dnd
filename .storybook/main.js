@@ -8,6 +8,7 @@ module.exports = {
   },
   core: {
     disableTelemetry: true,
+    builder: 'webpack5',
   },
   reactOptions: {
     strictMode: true,
