@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@atlaskit/css-reset': 6.3.13
+  '@atlaskit/css-reset': 6.3.20
   '@atlaskit/theme': 12.1.9
   '@babel/core': 7.20.12
   '@babel/eslint-parser': 7.19.1
@@ -137,7 +137,7 @@ dependencies:
   use-memo-one: 1.1.3_react@18.2.0
 
 devDependencies:
-  '@atlaskit/css-reset': 6.3.13_react@18.2.0
+  '@atlaskit/css-reset': 6.3.20_react@18.2.0
   '@atlaskit/theme': 12.1.9_react@18.2.0
   '@babel/core': 7.20.12
   '@babel/eslint-parser': 7.19.1_3xrhygphf5cydd2u6c2yoqs3ce
@@ -276,13 +276,13 @@ packages:
       '@babel/runtime': 7.20.13
     dev: true
 
-  /@atlaskit/css-reset/6.3.13_react@18.2.0:
-    resolution: {integrity: sha512-bezlMjS4iU65dOSQ8k8Ig14afV7yInJElkiZj5JyeJudW3LNcZ5EG0agKpfGZyVhyX5KSqPaKSvr6t0AbBu32A==}
+  /@atlaskit/css-reset/6.3.20_react@18.2.0:
+    resolution: {integrity: sha512-KBhiuRbSbDhtJbv/6QksLSSYpfo9z3a3YhsuXAkTATmco3woLZYNoRpwYI3lF0xDQUc+2JNlAv+lIpqqnkEkZg==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
-      '@atlaskit/theme': 12.1.9_react@18.2.0
-      '@atlaskit/tokens': 0.10.16_react@18.2.0
+      '@atlaskit/theme': 12.2.8_react@18.2.0
+      '@atlaskit/tokens': 1.1.0_react@18.2.0
       '@babel/runtime': 7.20.13
       fbjs: 3.0.4
       react: 18.2.0
@@ -315,6 +315,20 @@ packages:
       - supports-color
     dev: true
 
+  /@atlaskit/theme/12.2.8_react@18.2.0:
+    resolution: {integrity: sha512-Y+ugqribyjqUdIPHOWjj4jqWXIt8ruZADaxz0qqvwmGz0MbOJ7Vi9VO9TCtMGOldJm38IbualFLh95HAqSmzOg==}
+    peerDependencies:
+      react: ^16.8.0
+    dependencies:
+      '@atlaskit/codemod-utils': 4.1.2
+      '@atlaskit/ds-lib': 2.1.1_react@18.2.0
+      '@atlaskit/tokens': 1.1.0_react@18.2.0
+      '@babel/runtime': 7.20.13
+      react: 18.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@atlaskit/tokens/0.10.16_react@18.2.0:
     resolution: {integrity: sha512-OmFVXMo71uPpIzagw4ZWGQjJgj+ryZV32wqdGjyiSnfME7K24VVQLDyIzw9lLSsiRKr3SDJT880lw5570y3+ag==}
     peerDependencies:
@@ -324,6 +338,21 @@ packages:
       '@babel/runtime': 7.20.13
       '@babel/traverse': 7.20.13
       '@babel/types': 7.20.7
+      react: 18.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@atlaskit/tokens/1.1.0_react@18.2.0:
+    resolution: {integrity: sha512-EOxcNV1VNr1o90eEIOTUfBzcsxiaWB2JDf8ytdFiI20BoeKbWkfJqeP6V3CkcmN9IwQ5M5fjK5PBq1FlAxDRXg==}
+    peerDependencies:
+      react: ^16.8.0
+    dependencies:
+      '@atlaskit/ds-lib': 2.1.1_react@18.2.0
+      '@babel/runtime': 7.20.13
+      '@babel/traverse': 7.20.13
+      '@babel/types': 7.20.7
+      bind-event-listener: 2.1.1
       react: 18.2.0
     transitivePeerDependencies:
       - supports-color
