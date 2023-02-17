@@ -42,7 +42,7 @@ specifiers:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0
   '@testing-library/react-16-17': npm:@testing-library/react@^12.1.5
-  '@types/express': 4.17.13
+  '@types/express': 4.17.17
   '@types/fs-extra': 9.0.13
   '@types/jest-axe': 3.5.5
   '@types/jsdom': 20.0.0
@@ -82,7 +82,7 @@ specifiers:
   eslint-plugin-react: 7.31.1
   eslint-plugin-react-hooks: 4.6.0
   eslint-plugin-storybook: 0.6.4
-  express: 4.18.1
+  express: 4.18.2
   fast-glob: 3.2.11
   fs-extra: 10.1.0
   husky: 8.0.1
@@ -177,7 +177,7 @@ devDependencies:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/react-16-17': /@testing-library/react/12.1.5_biqbaboplfbrettd7655fr4n2y
-  '@types/express': 4.17.13
+  '@types/express': 4.17.17
   '@types/fs-extra': 9.0.13
   '@types/jest-axe': 3.5.5
   '@types/jsdom': 20.0.0
@@ -216,7 +216,7 @@ devDependencies:
   eslint-plugin-react: 7.31.1_eslint@8.23.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.23.0
   eslint-plugin-storybook: 0.6.4_yqf6kl63nyoq5megxukfnom5rm
-  express: 4.18.1
+  express: 4.18.2
   fast-glob: 3.2.11
   fs-extra: 10.1.0
   husky: 8.0.1
@@ -4025,7 +4025,7 @@ packages:
       babel-plugin-polyfill-corejs3: 0.1.7_@babel+core@7.19.3
       chalk: 4.1.2
       core-js: 3.25.0
-      express: 4.18.1
+      express: 4.18.2
       file-system-cache: 1.1.0
       find-up: 5.0.0
       fork-ts-checker-webpack-plugin: 6.5.2_sc2dl67evmj3o5d2knz5e4jlye
@@ -4102,7 +4102,7 @@ packages:
       core-js: 3.25.0
       cpy: 8.1.2
       detect-port: 1.3.0
-      express: 4.18.1
+      express: 4.18.2
       fs-extra: 9.1.0
       global: 4.4.0
       globby: 11.1.0
@@ -4254,7 +4254,7 @@ packages:
       chalk: 4.1.2
       core-js: 3.25.0
       css-loader: 3.6.0_webpack@4.46.0
-      express: 4.18.1
+      express: 4.18.2
       file-loader: 6.2.0_webpack@4.46.0
       find-up: 5.0.0
       fs-extra: 9.1.0
@@ -4757,19 +4757,19 @@ packages:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: true
 
-  /@types/express-serve-static-core/4.17.30:
-    resolution: {integrity: sha512-gstzbTWro2/nFed1WXtf+TtrpwxH7Ggs4RLYTLbeVgIkUQOI3WG/JKjgeOU1zXDvezllupjrf8OPIdvTbIaVOQ==}
+  /@types/express-serve-static-core/4.17.33:
+    resolution: {integrity: sha512-TPBqmR/HRYI3eC2E5hmiivIzv+bidAfXofM+sbonAGvyDhySGw9/PQZFt2BLOrjUUR++4eJVpx6KnLQK1Fk9tA==}
     dependencies:
       '@types/node': 16.11.52
       '@types/qs': 6.9.7
       '@types/range-parser': 1.2.4
     dev: true
 
-  /@types/express/4.17.13:
-    resolution: {integrity: sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA==}
+  /@types/express/4.17.17:
+    resolution: {integrity: sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==}
     dependencies:
       '@types/body-parser': 1.19.2
-      '@types/express-serve-static-core': 4.17.30
+      '@types/express-serve-static-core': 4.17.33
       '@types/qs': 6.9.7
       '@types/serve-static': 1.15.0
     dev: true
@@ -6480,8 +6480,8 @@ packages:
     resolution: {integrity: sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ==}
     dev: true
 
-  /body-parser/1.20.0:
-    resolution: {integrity: sha512-DfJ+q6EPcGKZD1QWUjSpqp+Q7bDQTsQIF4zfUAtZ6qk+H/3/QRhg9CEp39ss+/T2vw0+HaidC0ecJj/DRLIaKg==}
+  /body-parser/1.20.1:
+    resolution: {integrity: sha512-jWi7abTbYwajOytWCQc37VulmWiRae5RyTpaCyDcS5/lMdtwSz5lOpDE67srw/HYe35f1z3fDQw+3txg7gNtWw==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
     dependencies:
       bytes: 3.1.2
@@ -6492,7 +6492,7 @@ packages:
       http-errors: 2.0.0
       iconv-lite: 0.4.24
       on-finished: 2.4.1
-      qs: 6.10.3
+      qs: 6.11.0
       raw-body: 2.5.1
       type-is: 1.6.18
       unpipe: 1.0.0
@@ -9318,13 +9318,13 @@ packages:
       jest-util: 29.1.2
     dev: true
 
-  /express/4.18.1:
-    resolution: {integrity: sha512-zZBcOX9TfehHQhtupq57OF8lFZ3UZi08Y97dwFCkD8p9d/d2Y3M+ykKcwaMDEL+4qyUolgBDX6AblpR3fL212Q==}
+  /express/4.18.2:
+    resolution: {integrity: sha512-5/PsL6iGPdfQ/lKM1UuielYgv3BUoJfz1aUwU9vHZ+J7gyvwdQXFEBIEIaxeGf0GIcreATNyBExtalisDbuMqQ==}
     engines: {node: '>= 0.10.0'}
     dependencies:
       accepts: 1.3.8
       array-flatten: 1.1.1
-      body-parser: 1.20.0
+      body-parser: 1.20.1
       content-disposition: 0.5.4
       content-type: 1.0.4
       cookie: 0.5.0
@@ -9343,7 +9343,7 @@ packages:
       parseurl: 1.3.3
       path-to-regexp: 0.1.7
       proxy-addr: 2.0.7
-      qs: 6.10.3
+      qs: 6.11.0
       range-parser: 1.2.1
       safe-buffer: 5.2.1
       send: 0.18.0
@@ -14564,13 +14564,6 @@ packages:
   /q/1.5.1:
     resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
-    dev: true
-
-  /qs/6.10.3:
-    resolution: {integrity: sha512-wr7M2E0OFRfIfJZjKGieI8lBKb7fRCH4Fv5KNPEs7gJ8jadvotdsS08PzOKR7opXhZ/Xkjtt3WF9g38drmyRqQ==}
-    engines: {node: '>=0.6'}
-    dependencies:
-      side-channel: 1.0.4
     dev: true
 
   /qs/6.11.0:
