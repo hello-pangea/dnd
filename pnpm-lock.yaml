@@ -113,7 +113,7 @@ specifiers:
   redux: ^4.2.0
   release-it: 15.6.0
   require-from-string: 2.0.2
-  rimraf: 3.0.2
+  rimraf: 4.1.2
   rollup: 3.15.0
   rollup-plugin-dts: 5.2.0
   seedrandom: 3.0.5
@@ -245,7 +245,7 @@ devDependencies:
   react-window: 1.8.8_biqbaboplfbrettd7655fr4n2y
   release-it: 15.6.0
   require-from-string: 2.0.2
-  rimraf: 3.0.2
+  rimraf: 4.1.2
   rollup: 3.15.0
   rollup-plugin-dts: 5.2.0_xswiuafr57fmdlvfpvse52fe3e
   seedrandom: 3.0.5
@@ -15744,6 +15744,12 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+    dev: true
+
+  /rimraf/4.1.2:
+    resolution: {integrity: sha512-BlIbgFryTbw3Dz6hyoWFhKk+unCcHMSkZGrTFVAx2WmttdBSonsdtRlwiuTbDqTKr+UlXIUqJVS4QT5tUzGENQ==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /ripemd160/2.0.2:
