@@ -144,7 +144,7 @@
     "babel-jest": "29.4.3",
     "babel-loader": "9.1.2",
     "babel-plugin-dev-expression": "0.2.3",
-    "babel-plugin-module-resolver": "4.1.0",
+    "babel-plugin-module-resolver": "5.0.0",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
     "csstype": "3.1.1",
