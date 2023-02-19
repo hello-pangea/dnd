@@ -47,7 +47,7 @@ specifiers:
   '@types/express': 4.17.17
   '@types/fs-extra': 11.0.1
   '@types/jest-axe': 3.5.5
-  '@types/jsdom': 20.0.1
+  '@types/jsdom': 21.1.0
   '@types/markdown-it': 12.2.3
   '@types/node': 18.13.0
   '@types/raf-schd': 4.0.1
@@ -93,7 +93,7 @@ specifiers:
   jest-environment-jsdom: 29.4.3
   jest-junit: 14.0.1
   jest-watch-typeahead: 2.2.2
-  jsdom: 20.0.3
+  jsdom: 21.1.0
   lighthouse: 9.6.8
   markdown-it: 13.0.1
   memoize-one: ^6.0.0
@@ -184,7 +184,7 @@ devDependencies:
   '@types/express': 4.17.17
   '@types/fs-extra': 11.0.1
   '@types/jest-axe': 3.5.5
-  '@types/jsdom': 20.0.1
+  '@types/jsdom': 21.1.0
   '@types/markdown-it': 12.2.3
   '@types/node': 18.13.0
   '@types/raf-schd': 4.0.1
@@ -229,7 +229,7 @@ devDependencies:
   jest-environment-jsdom: 29.4.3
   jest-junit: 14.0.1
   jest-watch-typeahead: 2.2.2_jest@29.4.3
-  jsdom: 20.0.3
+  jsdom: 21.1.0
   lighthouse: 9.6.8
   markdown-it: 13.0.1
   memory-fs: 0.5.0
@@ -4948,7 +4948,15 @@ packages:
     dependencies:
       '@types/node': 18.13.0
       '@types/tough-cookie': 4.0.2
-      parse5: 7.0.0
+      parse5: 7.1.2
+    dev: true
+
+  /@types/jsdom/21.1.0:
+    resolution: {integrity: sha512-leWreJOdnuIxq9Y70tBVm/bvTuh31DSlF/r4l7Cfi4uhVQqLHD0Q4v301GMisEMwwbMgF7ZKxuZ+Jbd4NcdmRw==}
+    dependencies:
+      '@types/node': 18.13.0
+      '@types/tough-cookie': 4.0.2
+      parse5: 7.1.2
     dev: true
 
   /@types/json-schema/7.0.11:
@@ -5661,12 +5669,6 @@ packages:
 
   /acorn/7.4.1:
     resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-    dev: true
-
-  /acorn/8.8.0:
-    resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
@@ -8684,11 +8686,6 @@ packages:
 
   /entities/3.0.1:
     resolution: {integrity: sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==}
-    engines: {node: '>=0.12'}
-    dev: true
-
-  /entities/4.3.1:
-    resolution: {integrity: sha512-o4q/dYJlmyjP2zfnaWDUC6A3BQFmVTX+tZPezK7k0GLSU9QYCauscf5Y+qcEPzKL+EixVouYDgLQK5H9GrLpkg==}
     engines: {node: '>=0.12'}
     dev: true
 
@@ -12530,6 +12527,47 @@ packages:
       - utf-8-validate
     dev: true
 
+  /jsdom/21.1.0:
+    resolution: {integrity: sha512-m0lzlP7qOtthD918nenK3hdItSd2I+V3W9IrBcB36sqDwG+KnUs66IF5GY7laGWUnlM9vTsD0W1QwSEBYWWcJg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      canvas: ^2.5.0
+    peerDependenciesMeta:
+      canvas:
+        optional: true
+    dependencies:
+      abab: 2.0.6
+      acorn: 8.8.2
+      acorn-globals: 7.0.1
+      cssom: 0.5.0
+      cssstyle: 2.3.0
+      data-urls: 3.0.2
+      decimal.js: 10.4.3
+      domexception: 4.0.0
+      escodegen: 2.0.0
+      form-data: 4.0.0
+      html-encoding-sniffer: 3.0.0
+      http-proxy-agent: 5.0.0
+      https-proxy-agent: 5.0.1
+      is-potential-custom-element-name: 1.0.1
+      nwsapi: 2.2.2
+      parse5: 7.1.2
+      saxes: 6.0.0
+      symbol-tree: 3.2.4
+      tough-cookie: 4.1.2
+      w3c-xmlserializer: 4.0.0
+      webidl-conversions: 7.0.0
+      whatwg-encoding: 2.0.0
+      whatwg-mimetype: 3.0.0
+      whatwg-url: 11.0.0
+      ws: 8.12.1
+      xml-name-validator: 4.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: true
+
   /jsesc/0.5.0:
     resolution: {integrity: sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==}
     hasBin: true
@@ -14287,12 +14325,6 @@ packages:
 
   /parse5/6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}
-    dev: true
-
-  /parse5/7.0.0:
-    resolution: {integrity: sha512-y/t8IXSPWTuRZqXc0ajH/UwDj4mnqLEbSttNbThcFhGrZuOyoyvNBO85PBp2jQa55wY9d07PBNjsK8ZP3K5U6g==}
-    dependencies:
-      entities: 4.3.1
     dev: true
 
   /parse5/7.1.2:
@@ -16994,7 +17026,7 @@ packages:
     hasBin: true
     dependencies:
       '@jridgewell/source-map': 0.3.2
-      acorn: 8.8.0
+      acorn: 8.8.2
       commander: 2.20.3
       source-map-support: 0.5.21
     dev: true
