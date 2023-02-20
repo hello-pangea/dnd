@@ -123,7 +123,7 @@
     "@storybook/theming": "6.5.16",
     "@testing-library/dom": "8.20.0",
     "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/react": "13.4.0",
+    "@testing-library/react": "14.0.0",
     "@testing-library/react-16-17": "npm:@testing-library/react@^12.1.5",
     "@types/express": "4.17.17",
     "@types/fs-extra": "11.0.1",
