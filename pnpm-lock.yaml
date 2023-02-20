@@ -94,7 +94,7 @@ specifiers:
   jest-junit: 15.0.0
   jest-watch-typeahead: 2.2.2
   jsdom: 21.1.0
-  lighthouse: 9.6.8
+  lighthouse: 10.0.1
   markdown-it: 13.0.1
   memoize-one: ^6.0.0
   memory-fs: 0.5.0
@@ -230,7 +230,7 @@ devDependencies:
   jest-junit: 15.0.0
   jest-watch-typeahead: 2.2.2_jest@29.4.3
   jsdom: 21.1.0
-  lighthouse: 9.6.8
+  lighthouse: 10.0.1_typescript@4.9.5
   markdown-it: 13.0.1
   memory-fs: 0.5.0
   prettier: 2.8.4
@@ -6172,11 +6172,6 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axe-core/4.4.1:
-    resolution: {integrity: sha512-gd1kmb21kwNuWr6BQz8fv6GNECPBnUasepcoLbekws23NVBLODdsClRZ+bQ8+9Uomf3Sm3+Vwn0oYG9NvwnJCw==}
-    engines: {node: '>=4'}
-    dev: true
-
   /axe-core/4.5.1:
     resolution: {integrity: sha512-1exVbW0X1O/HSr/WMwnaweyqcWOgZgLiVxdLG34pvSQk4NlYQr9OUy0JLwuhFfuVNQzzqgH57eYzkFBCb3bIsQ==}
     engines: {node: '>=4'}
@@ -8000,12 +7995,6 @@ packages:
     resolution: {integrity: sha512-iKuQcq+NdHqlAcwUY0o/HL69XQrUaQdMjmStJ8JFmUaiiQErlhrmuigkg/CU4E2J0IyUKUrMAgl36TvN67MqTw==}
     dev: true
 
-  /cssstyle/1.2.1:
-    resolution: {integrity: sha512-7DYm8qe+gPx/h77QlCyFmX80+fGaE/6A/Ekl0zaszYOubvySO2saYFdQ78P29D0UsULxFKCetDGNaNRUdSF+2A==}
-    dependencies:
-      cssom: 0.3.8
-    dev: true
-
   /cssstyle/2.3.0:
     resolution: {integrity: sha512-AZL67abkUzIuvcHqk7c09cezpGNcxUxU4Ioi/05xHk4DQeTkWmGYftIE6ctU6AEt+Gn4n1lDStOtj7FKycP71A==}
     engines: {node: '>=8'}
@@ -8416,8 +8405,8 @@ packages:
       - supports-color
     dev: true
 
-  /devtools-protocol/0.0.981744:
-    resolution: {integrity: sha512-0cuGS8+jhR67Fy7qG3i3Pc7Aw494sb9yG9QgpG97SFVWwolgYjlhJg7n+UaHxOQT30d1TYu/EYe9k01ivLErIg==}
+  /devtools-protocol/0.0.1094867:
+    resolution: {integrity: sha512-pmMDBKiRVjh0uKK6CT1WqZmM3hBVSgD+N2MrgyV1uNizAZMw4tx6i/RTc+/uCsKSCmg0xXx7arCP/OFcIwTsiQ==}
     dev: true
 
   /diff-sequences/28.1.1:
@@ -12427,8 +12416,8 @@ packages:
     resolution: {integrity: sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==}
     dev: true
 
-  /js-library-detector/6.5.0:
-    resolution: {integrity: sha512-Kq7VckJ5kb26kHMAu1sDO8t2qr7M5Uw6Gf7fVGtu1YceoHdqTcobwnB5kStcktusPuPmiCE8PbCaiLzhiBsSAw==}
+  /js-library-detector/6.6.0:
+    resolution: {integrity: sha512-z8OkDmXALZ22bIzBtIW8cpJ39MV93/Zu1rWrFdhsNw+sity2rOLaGT2kfWWQ6mnRTWs4ddONY5kiroA8e98Gvg==}
     engines: {node: '>=12'}
     dev: true
 
@@ -12750,46 +12739,47 @@ packages:
       - supports-color
     dev: true
 
-  /lighthouse-stack-packs/1.8.2:
-    resolution: {integrity: sha512-vlCUxxQAB8Nu6LQHqPpDRiMi06Du593/my/6JbMttQeEfJ7pf4OS8obSTh5xSOS80U/O7fq59Q8rQGAUxQatUQ==}
+  /lighthouse-stack-packs/1.9.1:
+    resolution: {integrity: sha512-9prq6oMkVHz3GeCkphq4FHXXdj3M/WPiFWUvJAczLYV8j/oTxsgiHSPMqh1KVV11CP0VTxD40hFC0pDfXF+khQ==}
     dev: true
 
-  /lighthouse/9.6.8:
-    resolution: {integrity: sha512-5aRSvnqazci8D2oE7GJM6C7IStvUuMVV+74cGyBuS4n4NCixsDd6+uJdX834XiInSfo+OuVbAJCX4Xu6d2+N9Q==}
-    engines: {node: '>=14.15'}
+  /lighthouse/10.0.1_typescript@4.9.5:
+    resolution: {integrity: sha512-vxHggvQPAx5ousLosVzWHTPJ+MpVYee+ojiP0r0ewq8cWAvnzLb6M2EieeBfjjm87shRaj0BB2puC8gFztwXXw==}
+    engines: {node: '>=16.16'}
     hasBin: true
     dependencies:
       '@sentry/node': 6.19.7
-      axe-core: 4.4.1
+      axe-core: 4.6.3
       chrome-launcher: 0.15.1
       configstore: 5.0.1
       csp_evaluator: 1.1.1
-      cssstyle: 1.2.1
       enquirer: 2.3.6
       http-link-header: 0.8.0
       intl-messageformat: 4.4.0
       jpeg-js: 0.4.4
-      js-library-detector: 6.5.0
+      js-library-detector: 6.6.0
       lighthouse-logger: 1.3.0
-      lighthouse-stack-packs: 1.8.2
+      lighthouse-stack-packs: 1.9.1
       lodash: 4.17.21
       lookup-closest-locale: 6.2.0
-      metaviewport-parser: 0.2.0
+      metaviewport-parser: 0.3.0
       open: 8.4.0
       parse-cache-control: 1.0.1
       ps-list: 8.1.0
-      puppeteer-core: 13.7.0
+      puppeteer-core: 19.7.1_typescript@4.9.5
       robots-parser: 3.0.0
       semver: 5.7.1
       speedline-core: 1.4.3
-      third-party-web: 0.17.1
+      third-party-web: 0.20.2
       ws: 7.5.9
       yargs: 17.5.1
       yargs-parser: 21.1.1
     transitivePeerDependencies:
       - bufferutil
+      - chromium-bidi
       - encoding
       - supports-color
+      - typescript
       - utf-8-validate
     dev: true
 
@@ -13316,8 +13306,8 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
-  /metaviewport-parser/0.2.0:
-    resolution: {integrity: sha512-qL5NtY18LGs7lvZCkj3ep2H4Pes9rIiSLZRUyfDdvVw7pWFA0eLwmqaIxApD74RGvUrNEtk9e5Wt1rT+VlCvGw==}
+  /metaviewport-parser/0.3.0:
+    resolution: {integrity: sha512-EoYJ8xfjQ6kpe9VbVHvZTZHiOl4HL1Z18CrZ+qahvLXT7ZO4YTC2JMyt5FaUp9JJp6J4Ybb/z7IsCXZt86/QkQ==}
     dev: true
 
   /methods/1.1.2:
@@ -14758,11 +14748,6 @@ packages:
     engines: {node: '>= 0.6.0'}
     dev: true
 
-  /progress/2.0.3:
-    resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
-    engines: {node: '>=0.4.0'}
-    dev: true
-
   /promise-inflight/1.0.1:
     resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
     peerDependencies:
@@ -14938,22 +14923,29 @@ packages:
       escape-goat: 4.0.0
     dev: true
 
-  /puppeteer-core/13.7.0:
-    resolution: {integrity: sha512-rXja4vcnAzFAP1OVLq/5dWNfwBGuzcOARJ6qGV7oAZhnLmVRU8G5MsdeQEAOy332ZhkIOnn9jp15R89LKHyp2Q==}
-    engines: {node: '>=10.18.1'}
+  /puppeteer-core/19.7.1_typescript@4.9.5:
+    resolution: {integrity: sha512-4b5Go25IA+0xrUIw0Qtqi4nxc0qwdu/C7VT1+tFPl1W27207YT+7bxfANC3PjXMlS6bcbzinCf5YfGqMl8tfyQ==}
+    engines: {node: '>=14.1.0'}
+    peerDependencies:
+      chromium-bidi: 0.4.3
+      typescript: '>= 4.7.4'
+    peerDependenciesMeta:
+      chromium-bidi:
+        optional: true
+      typescript:
+        optional: true
     dependencies:
       cross-fetch: 3.1.5
       debug: 4.3.4
-      devtools-protocol: 0.0.981744
+      devtools-protocol: 0.0.1094867
       extract-zip: 2.0.1
       https-proxy-agent: 5.0.1
-      pkg-dir: 4.2.0
-      progress: 2.0.3
       proxy-from-env: 1.1.0
       rimraf: 3.0.2
       tar-fs: 2.1.1
+      typescript: 4.9.5
       unbzip2-stream: 1.4.3
-      ws: 8.5.0
+      ws: 8.11.0
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -17021,8 +17013,8 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
-  /third-party-web/0.17.1:
-    resolution: {integrity: sha512-X9Mha8cVeBwakunlZXkXL6xRzw8VCcDGWqT59EzeTYAJIi8ien3CuufnEGEx4ZUFahumNQdoOwf4H2T9Ca6lBg==}
+  /third-party-web/0.20.2:
+    resolution: {integrity: sha512-KFaFBDto+gH2DZW6ooFCGYrR8CGV6b/Ibsc2RTUkKhTPbxOWZuKs0NTftdAMoz0Aivf4bAHgW+kAGKciSQpqFg==}
     dev: true
 
   /throttleit/1.0.0:
@@ -18216,12 +18208,12 @@ packages:
         optional: true
     dev: true
 
-  /ws/8.12.1:
-    resolution: {integrity: sha512-1qo+M9Ba+xNhPB+YTWUlK6M17brTut5EXbcBaMRN5pH5dFrXz7lzz1ChFSUq3bOUl8yEvSenhHmYUNJxFzdJew==}
+  /ws/8.11.0:
+    resolution: {integrity: sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
+      utf-8-validate: ^5.0.2
     peerDependenciesMeta:
       bufferutil:
         optional: true
@@ -18229,12 +18221,12 @@ packages:
         optional: true
     dev: true
 
-  /ws/8.5.0:
-    resolution: {integrity: sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==}
+  /ws/8.12.1:
+    resolution: {integrity: sha512-1qo+M9Ba+xNhPB+YTWUlK6M17brTut5EXbcBaMRN5pH5dFrXz7lzz1ChFSUq3bOUl8yEvSenhHmYUNJxFzdJew==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
-      utf-8-validate: ^5.0.2
+      utf-8-validate: '>=5.0.2'
     peerDependenciesMeta:
       bufferutil:
         optional: true
