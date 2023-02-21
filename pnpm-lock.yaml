@@ -83,7 +83,7 @@ specifiers:
   eslint-plugin-prettier: 4.2.1
   eslint-plugin-react: 7.32.2
   eslint-plugin-react-hooks: 4.6.0
-  eslint-plugin-storybook: 0.6.10
+  eslint-plugin-storybook: 0.6.11
   express: 4.18.2
   fast-glob: 3.2.12
   fs-extra: 11.1.0
@@ -219,7 +219,7 @@ devDependencies:
   eslint-plugin-prettier: 4.2.1_u5wnrdwibbfomslmnramz52buy
   eslint-plugin-react: 7.32.2_eslint@8.34.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.34.0
-  eslint-plugin-storybook: 0.6.10_7kw3g6rralp5ps6mg3uyzz6azm
+  eslint-plugin-storybook: 0.6.11_7kw3g6rralp5ps6mg3uyzz6azm
   express: 4.18.2
   fast-glob: 3.2.12
   fs-extra: 11.1.0
@@ -9256,14 +9256,14 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-storybook/0.6.10_7kw3g6rralp5ps6mg3uyzz6azm:
-    resolution: {integrity: sha512-3DKXRey06EhwnTKaG6fgMqGTy4C3z6Ikyv6VVixO5BvaExWQe3yGWIAufrC2Et0OaAMIaMwx9KWjqb/Wq+JxPg==}
+  /eslint-plugin-storybook/0.6.11_7kw3g6rralp5ps6mg3uyzz6azm:
+    resolution: {integrity: sha512-lIVmCqQgA0bhcuS1yWYBFrnPHBKPEQI+LHPDtlN81UE1/17onCqgwUW7Nyt7gS2OHjCAiOR4npjTGEoe0hssKw==}
     engines: {node: 12.x || 14.x || >= 16}
     peerDependencies:
       eslint: '>=6'
     dependencies:
       '@storybook/csf': 0.0.1
-      '@typescript-eslint/utils': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
+      '@typescript-eslint/utils': 5.53.0_7kw3g6rralp5ps6mg3uyzz6azm
       eslint: 8.34.0
       requireindex: 1.2.0
       ts-dedent: 2.2.0
