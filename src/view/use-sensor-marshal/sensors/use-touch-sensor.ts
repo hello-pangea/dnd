@@ -120,7 +120,7 @@ function getHandleBindings({
       // Opting out of passive touchmove (default) so as to prevent scrolling while moving
       // Not worried about performance as effect of move is throttled in requestAnimationFrame
       // Using `capture: false` due to a recent horrible firefox bug: https://twitter.com/alexandereardon/status/1125904207184187393
-      options: { capture: false },
+      options: { capture: false, passive: false },
       fn: (event: TouchEvent) => {
         const phase: Phase = getPhase();
         // Drag has not yet started and we are waiting for a long press.
