@@ -1,25 +1,23 @@
 import type { DraggableId, ContextId } from '../../types';
 import { dragHandle as dragHandleAttr } from '../data-attributes';
 import { warning } from '../../dev-warning';
-import { querySelectorAll } from '../../query-selector-all';
+import { queryElements } from '../../query-selector-all';
 import isHtmlElement from '../is-type-of-element/is-html-element';
 
 export default function findDragHandle(
   contextId: ContextId,
   draggableId: DraggableId,
+  ref: HTMLElement | null,
 ): HTMLElement | null {
   // cannot create a selector with the draggable id as it might not be a valid attribute selector
   const selector = `[${dragHandleAttr.contextId}="${contextId}"]`;
-  const possible = querySelectorAll(document, selector);
-
-  if (!possible.length) {
-    warning(`Unable to find any drag handles in the context "${contextId}"`);
-    return null;
-  }
-
-  const handle = possible.find((el): boolean => {
-    return el.getAttribute(dragHandleAttr.draggableId) === draggableId;
-  });
+  const handle = queryElements(
+    ref,
+    selector,
+    (el: Element): boolean => {
+      return el.getAttribute(dragHandleAttr.draggableId) === draggableId;
+    },
+  );
 
   if (!handle) {
     warning(
