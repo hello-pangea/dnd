@@ -7,7 +7,6 @@ import {
   DropResult,
 } from '@hello-pangea/dnd';
 
-
 // fake data generator
 const getItems = (count: number) =>
   Array.from({ length: count }, (v, k) => k).map((k) => ({
@@ -95,37 +94,35 @@ export default class App extends Component<AppProps, AppState> {
   // But in this example everything is just done in one place for simplicity
   render() {
     return (
-
-          <DragDropContext onDragEnd={this.onDragEnd} stylesInsertionPoint={this.props.stylesRoot}>
-            <Droppable droppableId="droppable">
-              {(droppableProvided, droppableSnapshot) => (
-                <div
-                  ref={droppableProvided.innerRef}
-                  style={getListStyle(droppableSnapshot.isDraggingOver)}
-                >
-                  {this.state.items.map((item, index) => (
-                    <Draggable key={item.id} draggableId={item.id} index={index}>
-                      {(draggableProvided, draggableSnapshot) => (
-                        <div
-                          ref={draggableProvided.innerRef}
-                          {...draggableProvided.draggableProps}
-                          {...draggableProvided.dragHandleProps}
-                          style={getItemStyle(
-                            draggableSnapshot.isDragging,
-                            draggableProvided.draggableProps.style,
-                          )}
-                        >
-                          {item.content}
-                        </div>
+      <DragDropContext onDragEnd={this.onDragEnd} stylesInsertionPoint={this.props.stylesRoot}>
+        <Droppable droppableId="droppable">
+          {(droppableProvided, droppableSnapshot) => (
+            <div
+              ref={droppableProvided.innerRef}
+              style={getListStyle(droppableSnapshot.isDraggingOver)}
+            >
+              {this.state.items.map((item, index) => (
+                <Draggable key={item.id} draggableId={item.id} index={index}>
+                  {(draggableProvided, draggableSnapshot) => (
+                    <div
+                      ref={draggableProvided.innerRef}
+                      {...draggableProvided.draggableProps}
+                      {...draggableProvided.dragHandleProps}
+                      style={getItemStyle(
+                        draggableSnapshot.isDragging,
+                        draggableProvided.draggableProps.style,
                       )}
-                    </Draggable>
-                  ))}
-                  {droppableProvided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </DragDropContext>
-
+                    >
+                      {item.content}
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {droppableProvided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     );
   }
 }
