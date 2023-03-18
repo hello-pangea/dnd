@@ -120,7 +120,7 @@ specifiers:
   styled-components: 5.3.6
   stylelint: 14.16.1
   stylelint-config-prettier: 9.0.5
-  stylelint-config-recommended: 9.0.0
+  stylelint-config-recommended: 11.0.0
   stylelint-config-standard: 28.0.0
   stylelint-config-styled-components: 0.1.1
   stylelint-processor-styled-components: 1.10.0
@@ -252,7 +252,7 @@ devDependencies:
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
   stylelint: 14.16.1
   stylelint-config-prettier: 9.0.5_stylelint@14.16.1
-  stylelint-config-recommended: 9.0.0_stylelint@14.16.1
+  stylelint-config-recommended: 11.0.0_stylelint@14.16.1
   stylelint-config-standard: 28.0.0_stylelint@14.16.1
   stylelint-config-styled-components: 0.1.1
   stylelint-processor-styled-components: 1.10.0
@@ -6960,7 +6960,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -14905,6 +14905,17 @@ packages:
         optional: true
     dev: true
 
+  /promise-inflight/1.0.1_bluebird@3.7.2:
+    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
+    dev: true
+
   /promise.allsettled/1.0.6:
     resolution: {integrity: sha512-22wJUOD3zswWFqgwjNHa1965LvqTX87WPu/lreY2KSd7SVcERfuZ4GfUaOnJNnvtoIv2yXT/W00YIGMetXtFXg==}
     engines: {node: '>= 0.4'}
@@ -16827,6 +16838,14 @@ packages:
     hasBin: true
     peerDependencies:
       stylelint: '>= 11.x < 15'
+    dependencies:
+      stylelint: 14.16.1
+    dev: true
+
+  /stylelint-config-recommended/11.0.0_stylelint@14.16.1:
+    resolution: {integrity: sha512-SoGIHNI748OCZn6BxFYT83ytWoYETCINVHV3LKScVAWQQauWdvmdDqJC5YXWjpBbxg2E761Tg5aUGKLFOVhEkA==}
+    peerDependencies:
+      stylelint: ^15.3.0
     dependencies:
       stylelint: 14.16.1
     dev: true
