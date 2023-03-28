@@ -4,11 +4,15 @@ import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import strip from '@rollup/plugin-strip';
-import { terser } from 'rollup-plugin-terser';
-import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+import terser from '@rollup/plugin-terser';
 import dts from 'rollup-plugin-dts';
+import { readFileSync } from 'node:fs';
 
-import pkg from './package.json';
+// Rollup 3 reads this file as an ESModule which requires a workaround to read json files
+// See https://rollupjs.org/command-line-interface/#caveats-when-using-native-node-es-modules
+const pkg = JSON.parse(
+  readFileSync(new URL('./package.json', import.meta.url)),
+);
 
 const input = './src/index.ts';
 const extensions = ['.ts', '.tsx'];
@@ -23,14 +27,6 @@ const getBabelOptions = ({ useESModules }) => ({
   babelHelpers: 'runtime',
   plugins: [['@babel/plugin-transform-runtime', { useESModules }]],
 });
-
-const snapshotArgs =
-  process.env.SNAPSHOT === 'match'
-    ? {
-        matchSnapshot: true,
-        threshold: 1000,
-      }
-    : {};
 
 const commonjsArgs = {
   include: 'node_modules/**',
@@ -59,7 +55,6 @@ export default [
         preventAssignment: true,
         'process.env.NODE_ENV': JSON.stringify('development'),
       }),
-      sizeSnapshot(snapshotArgs),
     ],
   },
 
@@ -84,7 +79,6 @@ export default [
         preventAssignment: true,
         'process.env.NODE_ENV': JSON.stringify('production'),
       }),
-      sizeSnapshot(snapshotArgs),
       terser(),
       // Useful for debugging: you can see what code is dropped
       // terser({
@@ -121,7 +115,6 @@ export default [
       json(),
       resolve({ extensions }),
       babel(getBabelOptions({ useESModules: true })),
-      sizeSnapshot(snapshotArgs),
     ],
   },
 
