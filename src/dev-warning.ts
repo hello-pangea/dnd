@@ -36,7 +36,7 @@ export function log(type: 'error' | 'warn', message: string): void {
   }
 
   // manual opt out of warnings
-  if (typeof window !== 'undefined' && window[isDisabledFlag]) {
+  if (typeof window !== 'undefined' && window[isDisabledFlag as any]) {
     return;
   }
 
