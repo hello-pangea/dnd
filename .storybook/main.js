@@ -8,6 +8,10 @@ module.exports = {
   },
   core: {
     disableTelemetry: true,
+    builder: 'webpack5',
+  },
+  reactOptions: {
+    strictMode: true,
   },
   stories: [
     '../stories/**/*.stories.mdx',
@@ -27,18 +31,7 @@ module.exports = {
         (singleEntry) => !singleEntry.includes('/webpack-hot-middleware/'),
       );
     }
+
     return config;
-  },
-  framework: {
-    name: '@storybook/react-webpack5',
-    options: {
-      strictMode: true,
-    },
-  },
-  features: {
-    storyStoreV7: false, // 👈 Opt out of on-demand story loading
-  },
-  docs: {
-    autodocs: false,
   },
 };
