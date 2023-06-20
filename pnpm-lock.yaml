@@ -29,8 +29,8 @@ dependencies:
 
 devDependencies:
   '@atlaskit/css-reset':
-    specifier: 6.3.20
-    version: 6.3.20(react@18.2.0)
+    specifier: 6.5.2
+    version: 6.5.2(react@18.2.0)
   '@atlaskit/theme':
     specifier: 12.2.8
     version: 12.2.8(react@18.2.0)
@@ -409,13 +409,19 @@ packages:
       '@babel/runtime': 7.21.0
     dev: true
 
-  /@atlaskit/css-reset@6.3.20(react@18.2.0):
-    resolution: {integrity: sha512-KBhiuRbSbDhtJbv/6QksLSSYpfo9z3a3YhsuXAkTATmco3woLZYNoRpwYI3lF0xDQUc+2JNlAv+lIpqqnkEkZg==}
+  /@atlaskit/codemod-utils@4.2.3:
+    resolution: {integrity: sha512-ar5vFYakSfbpKziSyi0cE1sFt48gWrwixjgo5VdN8DiL/Tf0fMiscMNvAPe4cFnagTV6scXHyUc0NPArGqL0PQ==}
+    dependencies:
+      '@babel/runtime': 7.21.0
+    dev: true
+
+  /@atlaskit/css-reset@6.5.2(react@18.2.0):
+    resolution: {integrity: sha512-vEmd4YFhyfTMLiweGrsO3+sk0XiOUFA4VfW95vMpPIKfwzrHOOSOWhnA7mBluocdszWRv5kjtTMwuFbZwH3Gdg==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
-      '@atlaskit/theme': 12.2.8(react@18.2.0)
-      '@atlaskit/tokens': 1.1.0(react@18.2.0)
+      '@atlaskit/theme': 12.5.4(react@18.2.0)
+      '@atlaskit/tokens': 1.8.0(react@18.2.0)
       '@babel/runtime': 7.21.0
       fbjs: 3.0.4
       react: 18.2.0
@@ -434,6 +440,22 @@ packages:
       react: 18.2.0
     dev: true
 
+  /@atlaskit/ds-lib@2.2.3(react@18.2.0):
+    resolution: {integrity: sha512-e+qn7miSyHDgMHP2zpHwDufalPKzRiaof9hd5WIskVs0BQpTR1bO2w7YkjMy5cMbYrQ+QYM64eiEv1SaDLCuIQ==}
+    peerDependencies:
+      react: ^16.8.0
+    dependencies:
+      '@babel/runtime': 7.21.0
+      bind-event-listener: 2.1.1
+      react: 18.2.0
+    dev: true
+
+  /@atlaskit/platform-feature-flags@0.2.3:
+    resolution: {integrity: sha512-85UhGRxLRsqZjNisFTIaVapzm+WOafuOIqrppI2DqUUiu1HHsAlkU73EQGhNesBJupMwod6Al8eBI4rAmNOgkw==}
+    dependencies:
+      '@babel/runtime': 7.21.0
+    dev: true
+
   /@atlaskit/theme@12.2.8(react@18.2.0):
     resolution: {integrity: sha512-Y+ugqribyjqUdIPHOWjj4jqWXIt8ruZADaxz0qqvwmGz0MbOJ7Vi9VO9TCtMGOldJm38IbualFLh95HAqSmzOg==}
     peerDependencies:
@@ -448,12 +470,42 @@ packages:
       - supports-color
     dev: true
 
+  /@atlaskit/theme@12.5.4(react@18.2.0):
+    resolution: {integrity: sha512-ukn8YOZJFXYx2DHvQ/AXSBqeidSa83R4H5NMerSqMqB24wGCRJ1HrK9zuKtT/ZMtRed0c7+Adk4Hn+ab3YL61w==}
+    peerDependencies:
+      react: ^16.8.0
+    dependencies:
+      '@atlaskit/codemod-utils': 4.2.3
+      '@atlaskit/ds-lib': 2.2.3(react@18.2.0)
+      '@atlaskit/tokens': 1.8.0(react@18.2.0)
+      '@babel/runtime': 7.21.0
+      react: 18.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@atlaskit/tokens@1.1.0(react@18.2.0):
     resolution: {integrity: sha512-EOxcNV1VNr1o90eEIOTUfBzcsxiaWB2JDf8ytdFiI20BoeKbWkfJqeP6V3CkcmN9IwQ5M5fjK5PBq1FlAxDRXg==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
       '@atlaskit/ds-lib': 2.1.1(react@18.2.0)
+      '@babel/runtime': 7.21.0
+      '@babel/traverse': 7.21.2
+      '@babel/types': 7.21.2
+      bind-event-listener: 2.1.1
+      react: 18.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@atlaskit/tokens@1.8.0(react@18.2.0):
+    resolution: {integrity: sha512-Rqe6Xlgd0+sucbKYbngpCl+TTRiD71/cJD1MgBNxbYvShbLVjQOLoUkXjdkkaWjHLMolWcIsmabSqXbCNUokJA==}
+    peerDependencies:
+      react: ^16.8.0
+    dependencies:
+      '@atlaskit/ds-lib': 2.2.3(react@18.2.0)
+      '@atlaskit/platform-feature-flags': 0.2.3
       '@babel/runtime': 7.21.0
       '@babel/traverse': 7.21.2
       '@babel/types': 7.21.2
@@ -692,7 +744,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/template': 7.20.7
-      '@babel/types': 7.21.0
+      '@babel/types': 7.21.2
     dev: true
 
   /@babel/helper-function-name@7.21.0:
@@ -707,7 +759,7 @@ packages:
     resolution: {integrity: sha512-UlJQPkFqFULIcyW5sbzgbkxn2FKRgwWiRexcuaR8RNJRy8+LLveqPjwZV/bwrLZCN0eUHD/x8D0heK1ozuoo6Q==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.21.0
+      '@babel/types': 7.21.2
     dev: true
 
   /@babel/helper-member-expression-to-functions@7.18.9:
