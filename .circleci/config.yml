@@ -8,7 +8,7 @@ commands:
     steps:
       - run:
           name: Install pnpm
-          command: corepack enable
+          command: sudo corepack enable
 
       - run:
           name: Setup pnpm store path
