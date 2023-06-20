@@ -236,8 +236,8 @@ devDependencies:
     specifier: 19.0.4
     version: 19.0.4(eslint-plugin-import@2.27.5)(eslint-plugin-jsx-a11y@6.7.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.32.2)(eslint@8.34.0)
   eslint-config-prettier:
-    specifier: 8.6.0
-    version: 8.6.0(eslint@8.34.0)
+    specifier: 8.8.0
+    version: 8.8.0(eslint@8.34.0)
   eslint-import-resolver-typescript:
     specifier: 3.5.3
     version: 3.5.3(eslint-plugin-import@2.27.5)(eslint@8.34.0)
@@ -261,7 +261,7 @@ devDependencies:
     version: 11.1.0(eslint@8.34.0)
   eslint-plugin-prettier:
     specifier: 4.2.1
-    version: 4.2.1(eslint-config-prettier@8.6.0)(eslint@8.34.0)(prettier@2.8.4)
+    version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.34.0)(prettier@2.8.4)
   eslint-plugin-react:
     specifier: 7.32.2
     version: 7.32.2(eslint@8.34.0)
@@ -9168,8 +9168,8 @@ packages:
       object.entries: 1.1.5
     dev: true
 
-  /eslint-config-prettier@8.6.0(eslint@8.34.0):
-    resolution: {integrity: sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==}
+  /eslint-config-prettier@8.8.0(eslint@8.34.0):
+    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -9360,7 +9360,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.6.0)(eslint@8.34.0)(prettier@2.8.4):
+  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.34.0)(prettier@2.8.4):
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -9372,7 +9372,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.34.0
-      eslint-config-prettier: 8.6.0(eslint@8.34.0)
+      eslint-config-prettier: 8.8.0(eslint@8.34.0)
       prettier: 2.8.4
       prettier-linter-helpers: 1.0.0
     dev: true
