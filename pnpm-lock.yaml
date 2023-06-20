@@ -293,8 +293,8 @@ devDependencies:
     specifier: 29.4.3
     version: 29.4.3
   jest-junit:
-    specifier: 15.0.0
-    version: 15.0.0
+    specifier: 16.0.0
+    version: 16.0.0
   jest-watch-typeahead:
     specifier: 2.2.2
     version: 2.2.2(jest@29.4.3)
@@ -12282,8 +12282,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /jest-junit@15.0.0:
-    resolution: {integrity: sha512-Z5sVX0Ag3HZdMUnD5DFlG+1gciIFSy7yIVPhOdGUi8YJaI9iLvvBb530gtQL2CHmv0JJeiwRZenr0VrSR7frvg==}
+  /jest-junit@16.0.0:
+    resolution: {integrity: sha512-A94mmw6NfJab4Fg/BlvVOUXzXgF0XIH6EmTgJ5NDPp4xoKq0Kr7sErb+4Xs9nZvu58pJojz5RFGpqnZYJTrRfQ==}
     engines: {node: '>=10.12.0'}
     dependencies:
       mkdirp: 1.0.4
