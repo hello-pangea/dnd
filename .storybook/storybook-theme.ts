@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming';
+import { create } from '@storybook/theming/create';
 import logo from './compressed-logo-rfd.svg';
 
 const brandTitle = `
@@ -19,6 +19,6 @@ const brandTitle = `
 
 export default create({
   base: 'light',
-  brandTitle,
+  brandTitle: 'Pangea Dnd',
   brandUrl: 'https://github.com/hello-pangea/dnd',
 });
