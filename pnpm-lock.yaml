@@ -185,8 +185,8 @@ devDependencies:
     specifier: 7.1.25
     version: 7.1.25
   '@types/react-virtualized':
-    specifier: 9.21.21
-    version: 9.21.21
+    specifier: 9.21.22
+    version: 9.21.22
   '@types/react-window':
     specifier: 1.8.5
     version: 1.8.5
@@ -335,8 +335,8 @@ devDependencies:
     specifier: npm:react-dom@17.0.2
     version: /react-dom@17.0.2(react@18.2.0)
   react-virtualized:
-    specifier: 9.22.3
-    version: 9.22.3(react-dom@18.2.0)(react@18.2.0)
+    specifier: 9.22.5
+    version: 9.22.5(react-dom@18.2.0)(react@18.2.0)
   react-window:
     specifier: 1.8.8
     version: 1.8.8(react-dom@18.2.0)(react@18.2.0)
@@ -5304,11 +5304,11 @@ packages:
       redux: 4.2.0
     dev: true
 
-  /@types/react-virtualized@9.21.21:
-    resolution: {integrity: sha512-Exx6I7p4Qn+BBA1SRyj/UwQlZ0I0Pq7g7uhAp0QQ4JWzZunqEqNBGTmCmMmS/3N9wFgAGWuBD16ap7k8Y14VPA==}
+  /@types/react-virtualized@9.21.22:
+    resolution: {integrity: sha512-YRifyCKnBG84+J/Hny0f3bo8BRrcNT74CvsAVpQpZcS83fdC7lP7RfzwL2ND8/ihhpnDFL1IbxJ9MpQNaKUDuQ==}
     dependencies:
       '@types/prop-types': 15.7.5
-      '@types/react': 17.0.48
+      '@types/react': 18.0.28
     dev: true
 
   /@types/react-window@1.8.5:
@@ -15458,11 +15458,11 @@ packages:
       refractor: 3.6.0
     dev: true
 
-  /react-virtualized@9.22.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-MKovKMxWTcwPSxE1kK1HcheQTWfuCxAuBoSTf2gwyMM21NdX/PXUhnoP8Uc5dRKd+nKm8v41R36OellhdCpkrw==}
+  /react-virtualized@9.22.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-YqQMRzlVANBv1L/7r63OHa2b0ZsAaDp1UhVNEdUaXI8A5u6hTpA5NYtUueLH2rFuY/27mTGIBl7ZhqFKzw18YQ==}
     peerDependencies:
-      react: ^15.3.0 || ^16.0.0-alpha
-      react-dom: ^15.3.0 || ^16.0.0-alpha
+      react: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0
+      react-dom: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0
     dependencies:
       '@babel/runtime': 7.21.0
       clsx: 1.2.1
