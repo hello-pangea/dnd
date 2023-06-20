@@ -7,7 +7,7 @@ const storybook = childProcess.spawn(process.execPath, [
   path.join('node_modules', 'cross-env', 'src', 'bin', 'cross-env-shell.js'),
   'DISABLE_HMR=true',
   'USE_PRODUCTION_BUILD=true',
-  path.join('node_modules', '.bin', 'start-storybook'),
+  path.join('node_modules', '.bin', 'storybook dev'),
   '--ci',
   '-p',
   `${ports.storybook}`,
