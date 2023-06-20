@@ -193,7 +193,7 @@
     "rollup": "3.17.2",
     "rollup-plugin-dts": "5.2.0",
     "seedrandom": "3.0.5",
-    "styled-components": "5.3.6",
+    "styled-components": "5.3.11",
     "stylelint": "14.16.1",
     "stylelint-config-prettier": "9.0.5",
     "stylelint-config-recommended": "9.0.0",
