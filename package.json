@@ -173,7 +173,7 @@
     "jest-environment-jsdom": "29.4.3",
     "jest-junit": "15.0.0",
     "jest-watch-typeahead": "2.2.2",
-    "jsdom": "21.1.0",
+    "jsdom": "22.1.0",
     "lighthouse": "10.0.1",
     "markdown-it": "13.0.1",
     "memory-fs": "0.5.0",
