@@ -287,8 +287,8 @@ devDependencies:
     specifier: 29.4.3
     version: 29.4.3(@types/node@18.14.1)(ts-node@10.9.1)
   jest-axe:
-    specifier: 7.0.0
-    version: 7.0.0
+    specifier: 7.0.1
+    version: 7.0.1
   jest-environment-jsdom:
     specifier: 29.4.3
     version: 29.4.3
@@ -12044,8 +12044,8 @@ packages:
       iterate-iterator: 1.0.2
     dev: true
 
-  /jest-axe@7.0.0:
-    resolution: {integrity: sha512-y+TH+GGH7zOYABWv5IrtGx4ove1dYcVg9Nv9pJZcqKQ+2goJCkAYoHAqergPaV/y9hh1Q9vZykjSXC/2U0Mjyg==}
+  /jest-axe@7.0.1:
+    resolution: {integrity: sha512-1JoEla6gL4rcsTxEWm+VBcWMwOhP3f9w4dH7/YW3H41nU08Dds3gUFqxgdAq/pzBNPpauC3QPr/BuO+0W8eamg==}
     engines: {node: '>= 14.0.0'}
     dependencies:
       axe-core: 4.5.1
