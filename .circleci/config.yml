@@ -4,14 +4,11 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.1
 
 commands:
-  # TODO: Find a better to setup pnpm. We could use
-  #       an image which have pnpm alreay setup on it.
-  #       See: https://github.com/CircleCI-Public/cimg-node/issues/216
   pnpm:
     steps:
       - run:
           name: Install pnpm
-          command: curl -f https://get.pnpm.io/v6.js | sudo node - add --global pnpm
+          command: sudo corepack enable
 
       - run:
           name: Setup pnpm store path
@@ -20,7 +17,7 @@ commands:
 jobs:
   install:
     docker:
-      - image: cimg/node:16.17.0-browsers
+      - image: cimg/node:18.16.0-browsers
     working_directory: ~/repo
     environment:
       - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
@@ -49,7 +46,7 @@ jobs:
 
   validate:
     docker:
-      - image: cimg/node:16.17.0-browsers
+      - image: cimg/node:18.16.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -65,7 +62,7 @@ jobs:
 
   test-unit:
     docker:
-      - image: cimg/node:16.17.0-browsers
+      - image: cimg/node:18.16.0-browsers
     working_directory: ~/repo
     resource_class: medium+
     parameters:
@@ -91,7 +88,7 @@ jobs:
 
   test-bundle:
     docker:
-      - image: cimg/node:16.17.0-browsers
+      - image: cimg/node:18.16.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -107,7 +104,7 @@ jobs:
 
   build:
     docker:
-      - image: cimg/node:16.17.0-browsers
+      - image: cimg/node:18.16.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -128,7 +125,7 @@ jobs:
 
   test-browser:
     docker:
-      - image: cimg/node:16.17.0-browsers
+      - image: cimg/node:18.16.0-browsers
     working_directory: ~/repo
     environment:
       - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
@@ -157,7 +154,7 @@ jobs:
 
   test-a11y:
     docker:
-      - image: cimg/node:16.17.0-browsers
+      - image: cimg/node:18.16.0-browsers
     working_directory: ~/repo
     steps:
       - browser-tools/install-chrome
