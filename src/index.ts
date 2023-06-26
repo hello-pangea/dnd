@@ -10,6 +10,7 @@ export type {
   DraggableLocation,
   DroppableId,
   DropResult,
+  FluidDragActions,
   Id,
   MovementMode,
   OnBeforeCaptureResponder,
