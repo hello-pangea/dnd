@@ -1,5 +1,58 @@
 
 
+## [16.3.0](https://github.com/hello-pangea/dnd/compare/v16.2.0...v16.3.0) (2023-06-30)
+
+
+### Others 🔧
+
+* **deps:** update browser-tools orb to v1.4.1 ([#455](https://github.com/hello-pangea/dnd/issues/455)) ([04500ad](https://github.com/hello-pangea/dnd/commit/04500ad74146ed3d14239ba35fe4929ac09c65b6))
+* **deps:** update Node.js to v18.14.2 ([#501](https://github.com/hello-pangea/dnd/issues/501)) ([00d2fd2](https://github.com/hello-pangea/dnd/commit/00d2fd24ef9db1c62274d89da213b711efbacdde))
+* **dev-deps:** update @testing-library/dom and @testing-library/react ([#496](https://github.com/hello-pangea/dnd/issues/496)) ([003c2ad](https://github.com/hello-pangea/dnd/commit/003c2add68b8bb584cd3007037fe99fe9fd96d78))
+* **dev-deps:** update babel monorepo ([#342](https://github.com/hello-pangea/dnd/issues/342)) ([a9ff35a](https://github.com/hello-pangea/dnd/commit/a9ff35ac730a4cb3f2d793186214ca0b31e870ef))
+* **dev-deps:** update babel monorepo to v7.21.0 ([#498](https://github.com/hello-pangea/dnd/issues/498)) ([0eee236](https://github.com/hello-pangea/dnd/commit/0eee236b929f6e61ce14dcb7c82b57e16854a792))
+* **dev-deps:** update commitlint monorepo to v17.4.4 ([#478](https://github.com/hello-pangea/dnd/issues/478)) ([f187a45](https://github.com/hello-pangea/dnd/commit/f187a45930e16adc0b842924fd2997f8e976eaf4))
+* **dev-deps:** update dependency @babel/plugin-transform-modules-commonjs to v7.21.2 ([#505](https://github.com/hello-pangea/dnd/issues/505)) ([0fc140d](https://github.com/hello-pangea/dnd/commit/0fc140d6f507ef7a6939bd8c31301a422d1191f6))
+* **dev-deps:** update dependency @release-it/conventional-changelog to v5.1.1 ([#460](https://github.com/hello-pangea/dnd/issues/460)) ([8242844](https://github.com/hello-pangea/dnd/commit/82428441975bc4a0d8c18d2615ef479e6ab9e993))
+* **dev-deps:** update dependency @types/jest-axe to v3.5.5 ([#461](https://github.com/hello-pangea/dnd/issues/461)) ([5bec3da](https://github.com/hello-pangea/dnd/commit/5bec3da9dd2a35b6e29753524dfc5d6a19964e5b))
+* **dev-deps:** update dependency @types/node to v18.14.0 ([#480](https://github.com/hello-pangea/dnd/issues/480)) ([9df7490](https://github.com/hello-pangea/dnd/commit/9df7490fa7ea99241abfe4d4db26fd32d3205aff))
+* **dev-deps:** update dependency @types/react to v18.0.28 ([#462](https://github.com/hello-pangea/dnd/issues/462)) ([d8d152f](https://github.com/hello-pangea/dnd/commit/d8d152f9ff83422ec664bd0cf005dcbd8e43e8fe))
+* **dev-deps:** update dependency @types/react-dom to v18.0.11 ([#463](https://github.com/hello-pangea/dnd/issues/463)) ([cc53a44](https://github.com/hello-pangea/dnd/commit/cc53a44a7a2da4c152f2c4318c52210a080ebbc8))
+* **dev-deps:** update dependency @types/react-redux to v7.1.25 ([#464](https://github.com/hello-pangea/dnd/issues/464)) ([3054303](https://github.com/hello-pangea/dnd/commit/3054303fac53355a6aaa5114a4b1abcfba90c016))
+* **dev-deps:** update dependency @types/seedrandom to v3.0.4 ([#465](https://github.com/hello-pangea/dnd/issues/465)) ([0731ab8](https://github.com/hello-pangea/dnd/commit/0731ab86b9f983611ff3a2d5f9ddbf6fcc1ded77))
+* **dev-deps:** update dependency babel-loader to v9 ([#481](https://github.com/hello-pangea/dnd/issues/481)) ([8c04386](https://github.com/hello-pangea/dnd/commit/8c04386646583dedb9021786077289c857502a86))
+* **dev-deps:** update dependency babel-plugin-module-resolver to v5 ([#482](https://github.com/hello-pangea/dnd/issues/482)) ([cb21f96](https://github.com/hello-pangea/dnd/commit/cb21f96f13848fe4549c1109d920b46e803f8731))
+* **dev-deps:** update dependency csstype to v3.1.1 ([#466](https://github.com/hello-pangea/dnd/issues/466)) ([561cd39](https://github.com/hello-pangea/dnd/commit/561cd3982eb3da445d2d1c433233408a2675945f))
+* **dev-deps:** update dependency dotenv to v16.0.3 ([#467](https://github.com/hello-pangea/dnd/issues/467)) ([342ed8f](https://github.com/hello-pangea/dnd/commit/342ed8f61232eca21646c83ee612943f26b9d534))
+* **dev-deps:** update dependency eslint-import-resolver-typescript to v3.5.3 ([#406](https://github.com/hello-pangea/dnd/issues/406)) ([38ae667](https://github.com/hello-pangea/dnd/commit/38ae6670afada47c4eaa114e09d9aa36dd9175bc))
+* **dev-deps:** update dependency eslint-plugin-jest to v27 ([#484](https://github.com/hello-pangea/dnd/issues/484)) ([348b284](https://github.com/hello-pangea/dnd/commit/348b284c6ce2ff5f67c7e4c30e7f814fe9f63c98))
+* **dev-deps:** update dependency eslint-plugin-storybook to v0.6.10 ([#468](https://github.com/hello-pangea/dnd/issues/468)) ([ec67e0c](https://github.com/hello-pangea/dnd/commit/ec67e0c6264f978b10ee38a4d5341b14def5b1bb))
+* **dev-deps:** update dependency eslint-plugin-storybook to v0.6.11 ([#502](https://github.com/hello-pangea/dnd/issues/502)) ([b9325ec](https://github.com/hello-pangea/dnd/commit/b9325ec0556c71264621f91f4bc50c79a896f7d3))
+* **dev-deps:** update dependency express to v4.18.2 ([#470](https://github.com/hello-pangea/dnd/issues/470)) ([33d6735](https://github.com/hello-pangea/dnd/commit/33d6735d7dcb1dcdda46f34934b83b07a6899a43))
+* **dev-deps:** update dependency fast-glob to v3.2.12 ([#471](https://github.com/hello-pangea/dnd/issues/471)) ([d67fd1d](https://github.com/hello-pangea/dnd/commit/d67fd1d437ee987a8a1b7aeffb55b1b0995998c0))
+* **dev-deps:** update dependency fs-extra to v11 ([#485](https://github.com/hello-pangea/dnd/issues/485)) ([66eb723](https://github.com/hello-pangea/dnd/commit/66eb72350a39891b521c22cff6d2e1f830b87089))
+* **dev-deps:** update dependency jest-axe to v7 ([#486](https://github.com/hello-pangea/dnd/issues/486)) ([86ca590](https://github.com/hello-pangea/dnd/commit/86ca590d2e999864fdc50613c6a76e12f707b576))
+* **dev-deps:** update dependency jest-junit to v15 ([#487](https://github.com/hello-pangea/dnd/issues/487)) ([94fc663](https://github.com/hello-pangea/dnd/commit/94fc66389f65683b4113ba67a882b15610260b7a))
+* **dev-deps:** update dependency jsdom to v21 ([#488](https://github.com/hello-pangea/dnd/issues/488)) ([8616595](https://github.com/hello-pangea/dnd/commit/86165951ec31d3e14533cab2582595cbb14610a8))
+* **dev-deps:** update dependency lighthouse to v10 ([#489](https://github.com/hello-pangea/dnd/issues/489)) ([ad38190](https://github.com/hello-pangea/dnd/commit/ad3819087cd875dc28279e4737d1f56895fe727d))
+* **dev-deps:** update dependency rimraf to v4 ([#490](https://github.com/hello-pangea/dnd/issues/490)) ([9084641](https://github.com/hello-pangea/dnd/commit/9084641c12f7f5ea87b9cb38792f187b76107394))
+* **dev-deps:** update dependency rollup to v3.17.1 ([#479](https://github.com/hello-pangea/dnd/issues/479)) ([a442673](https://github.com/hello-pangea/dnd/commit/a44267327744d93462b83fccff0fec62c588a51e))
+* **dev-deps:** update dependency rollup to v3.17.2 ([#497](https://github.com/hello-pangea/dnd/issues/497)) ([f909ea1](https://github.com/hello-pangea/dnd/commit/f909ea19bafc478fe54110bdaabd5eb620381ff6))
+* **dev-deps:** update dependency wait-on to v7 ([#494](https://github.com/hello-pangea/dnd/issues/494)) ([400970b](https://github.com/hello-pangea/dnd/commit/400970b8bcd40f46c39be19758fb912591f0595f))
+* **dev-deps:** update dev-deps minor versions ([#472](https://github.com/hello-pangea/dnd/issues/472)) ([fee62aa](https://github.com/hello-pangea/dnd/commit/fee62aa2e35ffa5c2a47de1289fcd464c5963a52))
+* **dev-deps:** update to nodejs 18 ([#469](https://github.com/hello-pangea/dnd/issues/469)) ([32b0ea1](https://github.com/hello-pangea/dnd/commit/32b0ea17dfaea19684648ab20bf7266757d96b21))
+* **dev-deps:** update to rollup 3 ([#456](https://github.com/hello-pangea/dnd/issues/456)) ([a00d7af](https://github.com/hello-pangea/dnd/commit/a00d7af6f22fa49e1e285b4f685067ecaa3c92d9))
+* **dev-deps:** update typescript-eslint monorepo to v5.52.0 ([#327](https://github.com/hello-pangea/dnd/issues/327)) ([5f60642](https://github.com/hello-pangea/dnd/commit/5f6064293cd962e3075825cd7fe91b010ff596a8))
+* **dev-deps:** update typescript-eslint monorepo to v5.53.0 ([#499](https://github.com/hello-pangea/dnd/issues/499)) ([c698e1f](https://github.com/hello-pangea/dnd/commit/c698e1fb9dea449f057d19e1dde2eb0a734e7c09))
+* **dev-deps:** use webpack 5 to build storybook ([#473](https://github.com/hello-pangea/dnd/issues/473)) ([d37268e](https://github.com/hello-pangea/dnd/commit/d37268e60ad89480820cfb2e181f56b5fe245ed6))
+* update deps ([#573](https://github.com/hello-pangea/dnd/issues/573)) ([06d31c2](https://github.com/hello-pangea/dnd/commit/06d31c21c337d4b419cc57f0e0f05c0a7740fc00))
+* update test suite ([#571](https://github.com/hello-pangea/dnd/issues/571)) ([41e9d20](https://github.com/hello-pangea/dnd/commit/41e9d20ba5d5d9ac25fa4532356e9c1cacb2e724))
+
+
+### Features 🔥
+
+* **react:** support future React version by dropping defaultProps on functional component ([#579](https://github.com/hello-pangea/dnd/issues/579)) ([521a125](https://github.com/hello-pangea/dnd/commit/521a1257edad2a1b8e9083ca49f281fcc85f36f9)), closes [#450](https://github.com/hello-pangea/dnd/issues/450)
+* **type:** export FluidDragActions ([#577](https://github.com/hello-pangea/dnd/issues/577)) ([cde24b2](https://github.com/hello-pangea/dnd/commit/cde24b2efa0be6dbf40a62120c2161189534473f))
+
 ## [16.2.0](https://github.com/hello-pangea/dnd/compare/v16.1.0...v16.2.0) (2022-11-27)
 
 
