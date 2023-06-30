@@ -33,6 +33,40 @@ import isDragging from '../../state/is-dragging';
 import StoreContext from '../context/store-context';
 import whatIsDraggedOverFromResult from '../../state/droppable/what-is-dragged-over-from-result';
 
+function getBody(): HTMLElement {
+  invariant(document.body, 'document.body is not ready');
+  return document.body;
+}
+
+const defaultProps: DefaultProps = {
+  mode: 'standard',
+  type: 'DEFAULT',
+  direction: 'vertical',
+  isDropDisabled: false,
+  isCombineEnabled: false,
+  ignoreContainerClipping: false,
+  renderClone: null,
+  getContainerForClone: getBody,
+};
+
+const attachDefaultPropsToOwnProps = (ownProps: InternalOwnProps) => {
+  // We need to assign default props manually because upcoming React version will stop supporting
+  // defaultProps on functional components.
+  // see: https://github.com/facebook/react/pull/25699
+  let mergedProps = { ...ownProps };
+  let defaultPropKey: keyof typeof defaultProps;
+  for (defaultPropKey in defaultProps) {
+    if (ownProps[defaultPropKey] === undefined) {
+      mergedProps = {
+        ...mergedProps,
+        [defaultPropKey]: defaultProps[defaultPropKey],
+      };
+    }
+  }
+
+  return mergedProps;
+};
+
 const isMatchingType = (type: TypeId, critical: Critical): boolean =>
   type === critical.droppable.type;
 
@@ -138,10 +172,12 @@ export const makeMapStateToProps = (): Selector => {
   const selector = (state: State, ownProps: InternalOwnProps): MapProps => {
     // not checking if item is disabled as we need the home list to display a placeholder
 
-    const id: DroppableId = ownProps.droppableId;
-    const type: TypeId = ownProps.type;
-    const isEnabled = !ownProps.isDropDisabled;
-    const renderClone: DraggableChildrenFn | null = ownProps.renderClone;
+    const ownPropsWithDefaultProps = attachDefaultPropsToOwnProps(ownProps);
+    const id: DroppableId = ownPropsWithDefaultProps.droppableId;
+    const type: TypeId = ownPropsWithDefaultProps.type;
+    const isEnabled = !ownPropsWithDefaultProps.isDropDisabled;
+    const renderClone: DraggableChildrenFn | null =
+      ownPropsWithDefaultProps.renderClone;
 
     if (isDragging(state)) {
       const critical: Critical = state.critical;
@@ -228,22 +264,6 @@ const mapDispatchToProps: DispatchProps = {
   updateViewportMaxScroll: updateViewportMaxScrollAction,
 };
 
-function getBody(): HTMLElement {
-  invariant(document.body, 'document.body is not ready');
-  return document.body;
-}
-
-const defaultProps: DefaultProps = {
-  mode: 'standard',
-  type: 'DEFAULT',
-  direction: 'vertical',
-  isDropDisabled: false,
-  isCombineEnabled: false,
-  ignoreContainerClipping: false,
-  renderClone: null,
-  getContainerForClone: getBody,
-};
-
 // Abstract class allows to specify props and defaults to component.
 // All other ways give any or do not let add default props.
 // eslint-disable-next-line
@@ -261,8 +281,20 @@ const ConnectedDroppable = connect(
   makeMapStateToProps,
   // no dispatch props for droppable
   mapDispatchToProps,
-  // mergeProps - using default
-  null as any,
+  // We need to assign default props manually because upcoming React version will stop supporting
+  // defaultProps on functional components.
+  // see: https://github.com/facebook/react/pull/25699
+  (
+    stateProps: MapProps,
+    dispatchProps: DispatchProps,
+    ownProps: InternalOwnProps,
+  ) => {
+    return {
+      ...attachDefaultPropsToOwnProps(ownProps),
+      ...stateProps,
+      ...dispatchProps,
+    };
+  },
   {
     // Ensuring our context does not clash with consumers
     context: StoreContext as any,
@@ -273,7 +305,5 @@ const ConnectedDroppable = connect(
   },
   // FIXME: Typings are really complexe
 )(Droppable) as unknown as FunctionComponent<DroppableProps>;
-
-ConnectedDroppable.defaultProps = defaultProps;
 
 export default ConnectedDroppable;
