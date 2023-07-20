@@ -269,8 +269,8 @@ devDependencies:
     specifier: 4.6.0
     version: 4.6.0(eslint@8.43.0)
   eslint-plugin-storybook:
-    specifier: 0.6.12
-    version: 0.6.12(eslint@8.43.0)(typescript@4.9.5)
+    specifier: 0.6.13
+    version: 0.6.13(eslint@8.43.0)(typescript@4.9.5)
   express:
     specifier: 4.18.2
     version: 4.18.2
@@ -9405,8 +9405,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-storybook@0.6.12(eslint@8.43.0)(typescript@4.9.5):
-    resolution: {integrity: sha512-XbIvrq6hNVG6rpdBr+eBw63QhOMLpZneQVSooEDow8aQCWGCk/5vqtap1yxpVydNfSxi3S/3mBBRLQqKUqQRww==}
+  /eslint-plugin-storybook@0.6.13(eslint@8.43.0)(typescript@4.9.5):
+    resolution: {integrity: sha512-smd+CS0WH1jBqUEJ3znGS7DU4ayBE9z6lkQAK2yrSUv1+rq8BT/tiI5C/rKE7rmiqiAfojtNYZRhzo5HrulccQ==}
     engines: {node: 12.x || 14.x || >= 16}
     peerDependencies:
       eslint: '>=6'
