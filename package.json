@@ -96,9 +96,9 @@
     "@babel/preset-env": "7.22.5",
     "@babel/preset-react": "7.22.5",
     "@babel/preset-typescript": "7.22.5",
-    "@commitlint/cli": "17.6.6",
-    "@commitlint/config-conventional": "17.6.6",
-    "@commitlint/cz-commitlint": "17.5.0",
+    "@commitlint/cli": "17.6.7",
+    "@commitlint/config-conventional": "17.6.7",
+    "@commitlint/cz-commitlint": "17.6.7",
     "@emotion/babel-preset-css-prop": "11.11.0",
     "@emotion/eslint-plugin": "11.11.0",
     "@emotion/react": "11.11.1",
@@ -202,7 +202,7 @@
     "stylelint-processor-styled-components": "1.10.0",
     "typescript": "4.9.5",
     "wait-on": "7.0.1",
-    "webpack": "5.88.1"
+    "webpack": "5.88.2"
   },
   "peerDependencies": {
     "react": "^16.8.5 || ^17.0.0 || ^18.0.0",
