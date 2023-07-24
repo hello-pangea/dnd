@@ -32,8 +32,8 @@ devDependencies:
     specifier: 6.5.2
     version: 6.5.2(react@18.2.0)
   '@atlaskit/theme':
-    specifier: 12.5.4
-    version: 12.5.4(react@18.2.0)
+    specifier: 12.5.5
+    version: 12.5.5(react@18.2.0)
   '@babel/core':
     specifier: 7.22.5
     version: 7.22.5
@@ -414,7 +414,7 @@ packages:
     peerDependencies:
       react: ^16.8.0
     dependencies:
-      '@atlaskit/theme': 12.5.4(react@18.2.0)
+      '@atlaskit/theme': 12.5.5(react@18.2.0)
       '@atlaskit/tokens': 1.9.1(react@18.2.0)
       '@babel/runtime': 7.22.5
       fbjs: 3.0.5
@@ -440,15 +440,31 @@ packages:
       '@babel/runtime': 7.22.5
     dev: true
 
-  /@atlaskit/theme@12.5.4(react@18.2.0):
-    resolution: {integrity: sha512-ukn8YOZJFXYx2DHvQ/AXSBqeidSa83R4H5NMerSqMqB24wGCRJ1HrK9zuKtT/ZMtRed0c7+Adk4Hn+ab3YL61w==}
+  /@atlaskit/theme@12.5.5(react@18.2.0):
+    resolution: {integrity: sha512-VbZTKDme4OYEvzC1m4kgqhPLW2NC/H6fd03JI/xFktIbYtA1SRq3fdj8Rbr6xbD7IujxaZoS54hPyJ/0VSr6dQ==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
       '@atlaskit/ds-lib': 2.2.3(react@18.2.0)
-      '@atlaskit/tokens': 1.9.1(react@18.2.0)
+      '@atlaskit/tokens': 1.13.1(react@18.2.0)
       '@babel/runtime': 7.22.5
+      react: 18.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@atlaskit/tokens@1.13.1(react@18.2.0):
+    resolution: {integrity: sha512-Q6sAMbX5kQMNPOt71deN2pICf1hNlthScT0r1cHA9uPngVkhWmImDOkhoZdfvF7fhbjyHCrtcfyJF/O2xNvPKQ==}
+    peerDependencies:
+      react: ^16.8.0
+    dependencies:
+      '@atlaskit/ds-lib': 2.2.3(react@18.2.0)
+      '@atlaskit/platform-feature-flags': 0.2.4
+      '@babel/runtime': 7.22.5
+      '@babel/traverse': 7.22.5(supports-color@5.5.0)
+      '@babel/types': 7.22.5
+      bind-event-listener: 2.1.1
       react: 18.2.0
     transitivePeerDependencies:
       - supports-color
