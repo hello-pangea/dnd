@@ -1,5 +1,5 @@
 import React from 'react';
-import { hydrateRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import { invariant } from '../../../../src/invariant';
 import { resetServerContext } from '../../../../src';
@@ -43,5 +43,5 @@ it('should support hydrating a server side rendered application', () => {
   el.innerHTML = serverHTML;
   getBodyElement().appendChild(el);
 
-  expect(() => hydrateRoot(el, <App />)).not.toThrow();
+  expect(() => ReactDOM.hydrate(<App />, el)).not.toThrow();
 });

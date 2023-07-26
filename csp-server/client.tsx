@@ -1,5 +1,5 @@
 import React from 'react';
-import { hydrateRoot } from 'react-dom/client';
+import { hydrate } from 'react-dom';
 import App from './app';
 
 const root = document.getElementById('root');
@@ -12,5 +12,5 @@ if (cspEl) {
 }
 
 if (root) {
-  hydrateRoot(root, <App nonce={nonce} />);
+  hydrate(<App nonce={nonce} />, root);
 }
