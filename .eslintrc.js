@@ -152,6 +152,8 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     // Allowing the non function setState approach
     'react/no-access-state-in-setstate': 'off',
+    // Causes error suggesting we replace `hydrate` with `hydrateRoot`, which would break tests with React 16 and 17
+    'react/no-deprecated': 'off',
     // Opting out of this
     'react/destructuring-assignment': 'off',
     // Adding 'skipShapeProps' as the rule has issues with correctly handling PropTypes.shape
