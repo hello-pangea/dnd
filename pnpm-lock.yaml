@@ -29,8 +29,8 @@ dependencies:
 
 devDependencies:
   '@atlaskit/css-reset':
-    specifier: 6.5.3
-    version: 6.5.3(react@18.2.0)
+    specifier: 6.5.4
+    version: 6.5.4(react@18.2.0)
   '@atlaskit/theme':
     specifier: 12.5.5
     version: 12.5.5(react@18.2.0)
@@ -414,8 +414,8 @@ packages:
       '@babel/runtime': 7.22.6
     dev: true
 
-  /@atlaskit/css-reset@6.5.3(react@18.2.0):
-    resolution: {integrity: sha512-XrdF/iaDwTfjPbRZB6REqyNewO2+Z6wtsLsAqDlGYWctDZxBOnPO9uh5L+hA4lLdG8QY9E7Asm8ZCiOfRPbmTg==}
+  /@atlaskit/css-reset@6.5.4(react@18.2.0):
+    resolution: {integrity: sha512-7pocTfknaZaF4k9AYYoUFGjC1XMqBH3PMG5TaB93nnvib2TXeDJ486t78qBYVu9372CMYmrIkdPpOJG1Wgu3ww==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
