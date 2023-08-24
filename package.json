@@ -168,7 +168,7 @@
     "fast-glob": "3.3.1",
     "fs-extra": "11.1.1",
     "husky": "8.0.3",
-    "jest": "29.6.2",
+    "jest": "29.6.4",
     "jest-axe": "8.0.0",
     "jest-environment-jsdom": "29.6.2",
     "jest-junit": "16.0.0",
