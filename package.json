@@ -170,7 +170,7 @@
     "husky": "8.0.3",
     "jest": "29.6.2",
     "jest-axe": "8.0.0",
-    "jest-environment-jsdom": "29.6.2",
+    "jest-environment-jsdom": "29.6.4",
     "jest-junit": "16.0.0",
     "jest-watch-typeahead": "2.2.2",
     "jsdom": "22.1.0",
