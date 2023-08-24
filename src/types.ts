@@ -140,6 +140,7 @@ export interface DroppableDimension {
   axis: Axis;
   isEnabled: boolean;
   isCombineEnabled: boolean;
+  isCombineAllowedForItem?: (combineWith: DraggableDescriptor) => boolean;
   // relative to the current viewport
   client: BoxModel;
   // relative to the whole page

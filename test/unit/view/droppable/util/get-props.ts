@@ -14,6 +14,7 @@ export const homeOwnProps: Required<DroppableProps> = {
   mode: preset.home.descriptor.mode,
   isDropDisabled: false,
   isCombineEnabled: false,
+  isCombineAllowedForItem: () => true,
   direction: preset.home.axis.direction,
   ignoreContainerClipping: false,
   children: () => null,

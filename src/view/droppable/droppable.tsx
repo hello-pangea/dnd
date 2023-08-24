@@ -41,6 +41,7 @@ const Droppable: FunctionComponent<Props> = (props) => {
     ignoreContainerClipping,
     isDropDisabled,
     isCombineEnabled,
+    isCombineAllowedForItem,
     // map props
     snapshot,
     useClone,
@@ -86,6 +87,7 @@ const Droppable: FunctionComponent<Props> = (props) => {
     direction,
     isDropDisabled,
     isCombineEnabled,
+    isCombineAllowedForItem,
     ignoreContainerClipping,
     getDroppableRef,
   });

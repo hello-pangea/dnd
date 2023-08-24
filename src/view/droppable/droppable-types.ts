@@ -9,6 +9,7 @@ import type {
   ContextId,
   DraggableRubric,
   DroppableMode,
+  DraggableDescriptor,
 } from '../../types';
 import type { DraggableChildrenFn } from '../draggable/draggable-types';
 import { updateViewportMaxScroll } from '../../state/action-creators';
@@ -62,6 +63,9 @@ export interface DefaultProps {
   getContainerForClone: () => HTMLElement;
   ignoreContainerClipping: boolean;
   isCombineEnabled: boolean;
+  isCombineAllowedForItem:
+    | ((combineWith: DraggableDescriptor) => boolean)
+    | undefined;
   isDropDisabled: boolean;
   mode: DroppableMode;
   type: TypeId;

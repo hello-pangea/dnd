@@ -20,6 +20,7 @@ import type {
   TypeId,
   DroppableDimension,
   DroppableDescriptor,
+  DraggableDescriptor,
   Direction,
   ScrollOptions,
   DroppableMode,
@@ -41,6 +42,7 @@ interface Props {
   direction: Direction;
   isDropDisabled: boolean;
   isCombineEnabled: boolean;
+  isCombineAllowedForItem?: (combineWith: DraggableDescriptor) => boolean;
   ignoreContainerClipping: boolean;
   getDroppableRef: () => HTMLElement | null;
 }
@@ -150,6 +152,7 @@ export default function useDroppablePublisher(args: Props) {
         direction: previous.direction,
         isDropDisabled: previous.isDropDisabled,
         isCombineEnabled: previous.isCombineEnabled,
+        isCombineAllowedForItem: previous.isCombineAllowedForItem,
         shouldClipSubject: !previous.ignoreContainerClipping,
       });
 

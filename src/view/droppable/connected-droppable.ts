@@ -44,6 +44,7 @@ const defaultProps: DefaultProps = {
   direction: 'vertical',
   isDropDisabled: false,
   isCombineEnabled: false,
+  isCombineAllowedForItem: undefined,
   ignoreContainerClipping: false,
   renderClone: null,
   getContainerForClone: getBody,

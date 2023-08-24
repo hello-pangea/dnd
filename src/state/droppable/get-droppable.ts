@@ -3,6 +3,7 @@ import type {
   Axis,
   DroppableDimension,
   DroppableDescriptor,
+  DraggableDescriptor,
   Scrollable,
   DroppableSubject,
   ScrollSize,
@@ -24,6 +25,7 @@ interface Args {
   descriptor: DroppableDescriptor;
   isEnabled: boolean;
   isCombineEnabled: boolean;
+  isCombineAllowedForItem?: (descriptor: DraggableDescriptor) => boolean;
   isFixedOnPage: boolean;
   direction: 'vertical' | 'horizontal';
   client: BoxModel;
@@ -36,6 +38,7 @@ export default ({
   descriptor,
   isEnabled,
   isCombineEnabled,
+  isCombineAllowedForItem,
   isFixedOnPage,
   direction,
   client,
@@ -87,6 +90,7 @@ export default ({
   const dimension: DroppableDimension = {
     descriptor,
     isCombineEnabled,
+    isCombineAllowedForItem,
     isFixedOnPage,
     axis,
     isEnabled,

@@ -11,6 +11,7 @@ import type {
   ScrollOptions,
   DroppableId,
   DroppableDescriptor,
+  DraggableDescriptor,
   TypeId,
 } from '../../../../../src/types';
 import createRef from '../../../../util/create-ref';
@@ -111,6 +112,7 @@ interface ScrollableItemProps {
   isScrollable?: boolean;
   isDropDisabled?: boolean;
   isCombineEnabled?: boolean;
+  isCombineAllowedForItem?: (combineWith: DraggableDescriptor) => boolean;
   droppableId?: DroppableId;
 }
 
@@ -129,6 +131,7 @@ export function ScrollableItem(props: ScrollableItemProps) {
     ignoreContainerClipping: false,
     getDroppableRef: droppableRef.getRef,
     isCombineEnabled: props.isCombineEnabled || false,
+    isCombineAllowedForItem: props.isCombineAllowedForItem || undefined,
   });
 
   return (
