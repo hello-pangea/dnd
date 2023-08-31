@@ -236,8 +236,8 @@ devDependencies:
     specifier: 19.0.4
     version: 19.0.4(eslint-plugin-import@2.27.5)(eslint-plugin-jsx-a11y@6.7.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.33.0)(eslint@8.45.0)
   eslint-config-prettier:
-    specifier: 8.9.0
-    version: 8.9.0(eslint@8.45.0)
+    specifier: 8.10.0
+    version: 8.10.0(eslint@8.45.0)
   eslint-import-resolver-typescript:
     specifier: 3.5.5
     version: 3.5.5(@typescript-eslint/parser@5.62.0)(eslint-plugin-import@2.27.5)(eslint@8.45.0)
@@ -261,7 +261,7 @@ devDependencies:
     version: 11.1.0(eslint@8.45.0)
   eslint-plugin-prettier:
     specifier: 4.2.1
-    version: 4.2.1(eslint-config-prettier@8.9.0)(eslint@8.45.0)(prettier@2.8.8)
+    version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.45.0)(prettier@2.8.8)
   eslint-plugin-react:
     specifier: 7.33.0
     version: 7.33.0(eslint@8.45.0)
@@ -9184,8 +9184,8 @@ packages:
       object.entries: 1.1.6
     dev: true
 
-  /eslint-config-prettier@8.9.0(eslint@8.45.0):
-    resolution: {integrity: sha512-+sbni7NfVXnOpnRadUA8S28AUlsZt9GjgFvABIRL9Hkn8KqNzOp+7Lw4QWtrwn20KzU3wqu1QoOj2m+7rKRqkA==}
+  /eslint-config-prettier@8.10.0(eslint@8.45.0):
+    resolution: {integrity: sha512-SM8AMJdeQqRYT9O9zguiruQZaN7+z+E4eAP9oiLNGKMtomwaB1E9dcgUD6ZAn/eQAb52USbvezbiljfZUhbJcg==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -9380,7 +9380,7 @@ packages:
       semver: 6.3.1
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.9.0)(eslint@8.45.0)(prettier@2.8.8):
+  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.10.0)(eslint@8.45.0)(prettier@2.8.8):
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -9392,7 +9392,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.45.0
-      eslint-config-prettier: 8.9.0(eslint@8.45.0)
+      eslint-config-prettier: 8.10.0(eslint@8.45.0)
       prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
     dev: true
@@ -12278,7 +12278,7 @@ packages:
       chalk: 4.1.2
       diff-sequences: 29.4.3
       jest-get-type: 29.4.3
-      pretty-format: 29.6.2
+      pretty-format: 29.6.3
     dev: true
 
   /jest-diff@29.6.4:
@@ -12431,7 +12431,7 @@ packages:
       chalk: 4.1.2
       jest-diff: 29.6.2
       jest-get-type: 29.4.3
-      pretty-format: 29.6.2
+      pretty-format: 29.6.3
     dev: true
 
   /jest-matcher-utils@29.6.4:
@@ -12454,7 +12454,7 @@ packages:
       chalk: 4.1.2
       graceful-fs: 4.2.11
       micromatch: 4.0.5
-      pretty-format: 29.6.2
+      pretty-format: 29.6.3
       slash: 3.0.0
       stack-utils: 2.0.6
     dev: true
@@ -14756,6 +14756,7 @@ packages:
 
   /path-dirname@1.0.2:
     resolution: {integrity: sha512-ALzNPpyNq9AqXMBjeymIjFDAkAFH06mHJH/cSBHAgU0s4vfpBn6b2nf8tiRLvagKD8RbTpq2FKTBg7cl9l3c7Q==}
+    requiresBuild: true
     dev: true
 
   /path-exists@2.1.0:
