@@ -38,7 +38,7 @@ function List(props) {
         </div>
       )}
     >
-      {provided => (
+      {(provided) => (
         <div ref={provided.innerRef} {...provided.droppableProps}>
           {items.map((item) => (
             <Draggable draggableId={item.id} index={item.index}>
@@ -78,10 +78,7 @@ function List(props) {
   const renderItem = getRenderItem(items);
 
   return (
-    <Droppable
-      droppableId="droppable"
-      renderClone={renderItem}
-    >
+    <Droppable droppableId="droppable" renderClone={renderItem}>
       {(provided, snapshot) => (
         <div ref={provided.innerRef} {...provided.droppableProps}>
           {items.map((item) => (
@@ -101,7 +98,7 @@ function List(props) {
 This function is called to get a clone to be rendered while dragging.
 
 ```ts
-renderClone: DraggableChildrenFn | null
+renderClone: DraggableChildrenFn | null;
 ```
 
 ```ts

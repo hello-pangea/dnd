@@ -143,7 +143,7 @@ interface DraggableProps {
   style?: DraggableStyle;
   // used for shared global styles
   'data-rfd-draggable-context-id': ContextId;
-  'data-rfd-draggable-id': DraggableId;// used to know when a transition ends
+  'data-rfd-draggable-id': DraggableId; // used to know when a transition ends
   onTransitionEnd?: TransitionEventHandler;
 }
 ```

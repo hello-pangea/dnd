@@ -114,8 +114,8 @@ export default class TaskApp extends Component<unknown, State> {
     announce(`
       You have dropped the task.
       It has moved from position ${result.source.index + 1} to ${
-      destination.index + 1
-    }
+        destination.index + 1
+      }
     `);
   };
 

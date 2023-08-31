@@ -267,6 +267,8 @@ module.exports = {
           },
         ],
 
+        '@typescript-eslint/no-explicit-any': 'warn',
+
         '@typescript-eslint/consistent-type-definitions': [
           'error',
           'interface',
