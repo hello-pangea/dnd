@@ -26,17 +26,17 @@ import type { ReactNode } from 'react';
 
 interface Props {
   // required
-  droppableId: DroppableId,
-  children: (DroppableProvided, DroppableStateSnapshot) => ReactNode,
+  droppableId: DroppableId;
+  children: (DroppableProvided, DroppableStateSnapshot) => ReactNode;
   // optional
-  mode?: DroppableMode,
-  type?: TypeId,
-  isDropDisabled?: boolean,
-  isCombineEnabled?: boolean,
-  direction?: Direction,
-  renderClone?: DraggableChildrenFn | null,
-  ignoreContainerClipping?: boolean,
-  getContainerForClone?: () => HTMLElement,
+  mode?: DroppableMode;
+  type?: TypeId;
+  isDropDisabled?: boolean;
+  isCombineEnabled?: boolean;
+  direction?: Direction;
+  renderClone?: DraggableChildrenFn | null;
+  ignoreContainerClipping?: boolean;
+  getContainerForClone?: () => HTMLElement;
 }
 
 type DroppableMode = 'standard' | 'virtual';

@@ -36,8 +36,7 @@ export default function useFocusMarshal(contextId: ContextId): FocusMarshal {
         delete entries[id];
       }
     };
-  },
-  []);
+  }, []);
 
   const tryGiveFocus = useCallback(
     function tryGiveFocus(tryGiveFocusTo: DraggableId) {
@@ -60,8 +59,7 @@ export default function useFocusMarshal(contextId: ContextId): FocusMarshal {
     if (recordRef.current === previous) {
       recordRef.current = redirectTo;
     }
-  },
-  []);
+  }, []);
 
   const tryRestoreFocusRecorded = useCallback(
     function tryRestoreFocusRecorded() {

@@ -1,10 +1,10 @@
 # Tables
 
-| Benefits of using `<table>`                      | Provider                 |
-| ------------------------------------------------ | ------------------------ |
-| Clean way of displaying tabular data             | Browser                  |
-| Great browser support                            | Browser                  |
-| Can copy paste the table into other applications | Browser                  |
+| Benefits of using `<table>`                      | Provider               |
+| ------------------------------------------------ | ---------------------- |
+| Clean way of displaying tabular data             | Browser                |
+| Great browser support                            | Browser                |
+| Can copy paste the table into other applications | Browser                |
 | Can reorder items in the table!                  | `@hello-pangea/dnd` 😎 |
 
 `@hello-pangea/dnd` requires no additional wrapping elements to create `<Draggable />` and `<Droppable />` components. Therefore it is possible to have a `<table>` that has valid HTML as well as supporting drag and drop.

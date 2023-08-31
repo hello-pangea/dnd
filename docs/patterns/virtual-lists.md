@@ -39,7 +39,9 @@ Please raise a pull request if you would like to add examples for other virtuali
 - [List](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-virtualized--window-list) with [`WindowScroller`](https://github.com/bvaughn/react-virtualized/blob/master/docs/WindowScroller.md) ([source](/stories/src/virtual/react-virtualized/window-list.jsx))
 
 ### [`react-virtuoso`](https://github.com/petyosi/react-virtuoso)
+
 React Virtuoso comes with automatic item measurement out of the box.
+
 - [List with source](https://virtuoso.dev/react-beautiful-dnd/)
 - [Basic list on `codesandbox.io`](https://codesandbox.io/s/react-virutoso-with-react-beautiful-dnd-e6vmq)
 

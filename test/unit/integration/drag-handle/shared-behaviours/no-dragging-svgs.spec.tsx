@@ -16,20 +16,19 @@ forEachSensor((control: Control) => {
   it('should not start a drag from an SVG', () => {
     const renderItem =
       (item: Item) =>
-      (provided: DraggableProvided, snapshot: DraggableStateSnapshot) =>
-        (
-          <div
-            {...provided.draggableProps}
-            ref={provided.innerRef}
-            data-is-dragging={snapshot.isDragging}
-            data-testid={`draggable-${item.id}`}
-          >
-            <svg
-              {...provided.dragHandleProps}
-              data-testid={`handle-${item.id}`}
-            />
-          </div>
-        );
+      (provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
+        <div
+          {...provided.draggableProps}
+          ref={provided.innerRef}
+          data-is-dragging={snapshot.isDragging}
+          data-testid={`draggable-${item.id}`}
+        >
+          <svg
+            {...provided.dragHandleProps}
+            data-testid={`handle-${item.id}`}
+          />
+        </div>
+      );
 
     const spyable = { render };
     const renderSpy = jest.spyOn(spyable, 'render');
@@ -56,18 +55,17 @@ forEachSensor((control: Control) => {
   it('should allow an SVG within a draggable', () => {
     const renderItem =
       (item: Item) =>
-      (provided: DraggableProvided, snapshot: DraggableStateSnapshot) =>
-        (
-          <div
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
-            data-is-dragging={snapshot.isDragging}
-            data-testid={`draggable-${item.id}`}
-          >
-            <svg data-testid={`svg-${item.id}`} />
-          </div>
-        );
+      (provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
+        <div
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+          data-is-dragging={snapshot.isDragging}
+          data-testid={`draggable-${item.id}`}
+        >
+          <svg data-testid={`svg-${item.id}`} />
+        </div>
+      );
     const { getByTestId } = render(<App renderItem={renderItem} />);
     const draggable = getByTestId('draggable-0');
     const startFrom = getByTestId('svg-0');

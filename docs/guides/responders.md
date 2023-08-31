@@ -118,7 +118,7 @@ interface DraggableRubric {
 
 interface DragStart extends DraggableRubric {
   mode: MovementMode;
-};
+}
 
 interface DraggableLocation {
   droppableId: DroppableId;

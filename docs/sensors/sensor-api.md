@@ -17,7 +17,7 @@ These are some examples to show off what is possible with the Sensor API. They a
 
 (Please be sure to use prefix `rbd-`)
 
-|                                                                 Voice 🗣                                                                  |                                                              Webcam 📷                                                               |                                                                  Thought 🧠                                                                  |
+|                                                                 Voice 🗣                                                                 |                                                              Webcam 📷                                                               |                                                                  Thought 🧠                                                                  |
 | :--------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: |
 |           ![voice sensor](https://user-images.githubusercontent.com/2182637/66467095-87dc4380-eacf-11e9-9e2e-7ae1a59bfddf.gif)           |        ![webcam sensor](https://user-images.githubusercontent.com/2182637/66466837-1603fa00-eacf-11e9-8c15-5ed324c8916f.gif)         |                    ![thought sensor](https://raw.githubusercontent.com/charliegerard/rbd-thought-sensor/master/demo.gif)                     |
 | [`rbd-voice-sensor`](https://github.com/danieldelcore/rbd-voice-sensor)<br>created by [@danieldelcore](https://github.com/danieldelcore) | [`rbd-webcam-sensor`](https://github.com/kangweichan/rbd-webcam-sensor)<br>created by [@kangweichan](https://github.com/kangweichan) | [`rbd-thought-sensor`](https://github.com/charliegerard/rbd-thought-sensor)<br>created by [@charliegerard](https://github.com/charliegerard) |
@@ -142,7 +142,8 @@ interface DraggableOptions {
 ```ts
 type TryGetLock = (
   draggableId: DraggableId,
-  forceStop?: () => void, options?: TryGetLockOptions,
+  forceStop?: () => void,
+  options?: TryGetLockOptions,
 ) => PreDragActions | null;
 ```
 

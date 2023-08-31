@@ -30,7 +30,7 @@ export const withImpact = (
   ({
     ...current,
     impact,
-  } as any);
+  }) as any;
 
 export const move = (
   previous: IsDraggingState,
