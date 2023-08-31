@@ -260,8 +260,8 @@ devDependencies:
     specifier: 11.1.0
     version: 11.1.0(eslint@8.45.0)
   eslint-plugin-prettier:
-    specifier: 4.2.1
-    version: 4.2.1(eslint-config-prettier@8.9.0)(eslint@8.45.0)(prettier@2.8.8)
+    specifier: 5.0.0
+    version: 5.0.0(eslint-config-prettier@8.9.0)(eslint@8.45.0)(prettier@2.8.8)
   eslint-plugin-react:
     specifier: 7.33.0
     version: 7.33.0(eslint@8.45.0)
@@ -9380,14 +9380,17 @@ packages:
       semver: 6.3.1
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.9.0)(eslint@8.45.0)(prettier@2.8.8):
-    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
-    engines: {node: '>=12.0.0'}
+  /eslint-plugin-prettier@5.0.0(eslint-config-prettier@8.9.0)(eslint@8.45.0)(prettier@2.8.8):
+    resolution: {integrity: sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==}
+    engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      eslint: '>=7.28.0'
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
       eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
+      prettier: '>=3.0.0'
     peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
       eslint-config-prettier:
         optional: true
     dependencies:
@@ -9395,6 +9398,7 @@ packages:
       eslint-config-prettier: 8.9.0(eslint@8.45.0)
       prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
+      synckit: 0.8.5
     dev: true
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.45.0):
@@ -12278,7 +12282,7 @@ packages:
       chalk: 4.1.2
       diff-sequences: 29.4.3
       jest-get-type: 29.4.3
-      pretty-format: 29.6.2
+      pretty-format: 29.6.3
     dev: true
 
   /jest-diff@29.6.4:
@@ -12431,7 +12435,7 @@ packages:
       chalk: 4.1.2
       jest-diff: 29.6.2
       jest-get-type: 29.4.3
-      pretty-format: 29.6.2
+      pretty-format: 29.6.3
     dev: true
 
   /jest-matcher-utils@29.6.4:
@@ -12454,7 +12458,7 @@ packages:
       chalk: 4.1.2
       graceful-fs: 4.2.11
       micromatch: 4.0.5
-      pretty-format: 29.6.2
+      pretty-format: 29.6.3
       slash: 3.0.0
       stack-utils: 2.0.6
     dev: true
