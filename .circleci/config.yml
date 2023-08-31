@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.4.3
+  browser-tools: circleci/browser-tools@1.4.4
 
 commands:
   pnpm:
@@ -130,7 +130,9 @@ jobs:
     environment:
       - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
     steps:
-      - browser-tools/install-chrome
+      # TODO: remove fixed version once this issue is fixed: https://github.com/CircleCI-Public/browser-tools-orb/issues/90
+      - browser-tools/install-browser-tools:
+          chrome-version: 116.0.5845.96
       - browser-tools/install-chromedriver
       - checkout
       - pnpm
@@ -157,7 +159,9 @@ jobs:
       - image: cimg/node:18.17.0-browsers
     working_directory: ~/repo
     steps:
-      - browser-tools/install-chrome
+      # TODO: remove fixed version once this issue is fixed: https://github.com/CircleCI-Public/browser-tools-orb/issues/90
+      - browser-tools/install-browser-tools:
+          chrome-version: 116.0.5845.96
       - browser-tools/install-chromedriver
       - checkout
       - pnpm
