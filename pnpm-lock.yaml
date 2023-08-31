@@ -164,8 +164,8 @@ devDependencies:
     specifier: 3.5.5
     version: 3.5.5
   '@types/jsdom':
-    specifier: 21.1.1
-    version: 21.1.1
+    specifier: 21.1.2
+    version: 21.1.2
   '@types/markdown-it':
     specifier: 12.2.3
     version: 12.2.3
@@ -5147,8 +5147,8 @@ packages:
       parse5: 7.1.2
     dev: true
 
-  /@types/jsdom@21.1.1:
-    resolution: {integrity: sha512-cZFuoVLtzKP3gmq9eNosUL1R50U+USkbLtUQ1bYVgl/lKp0FZM7Cq4aIHAL8oIvQ17uSHi7jXPtfDOdjPwBE7A==}
+  /@types/jsdom@21.1.2:
+    resolution: {integrity: sha512-bGj+7TaCkOwkJfx7HtS9p22Ij0A2aKMuz8a1+owpkxa1wU/HUBy/WAXhdv90uDdVI9rSjGvUrXmLSeA9VP3JeA==}
     dependencies:
       '@types/node': 18.17.1
       '@types/tough-cookie': 4.0.2
@@ -12278,7 +12278,7 @@ packages:
       chalk: 4.1.2
       diff-sequences: 29.4.3
       jest-get-type: 29.4.3
-      pretty-format: 29.6.2
+      pretty-format: 29.6.3
     dev: true
 
   /jest-diff@29.6.4:
