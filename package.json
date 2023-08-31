@@ -132,7 +132,7 @@
     "@types/markdown-it": "12.2.3",
     "@types/node": "18.17.1",
     "@types/raf-schd": "4.0.1",
-    "@types/react": "18.2.17",
+    "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@types/react-redux": "7.1.25",
     "@types/react-virtualized": "9.21.22",
