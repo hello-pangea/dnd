@@ -29,9 +29,9 @@ jobs:
       - restore_cache:
           keys:
             # Restore cached node_modules
-            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
+            - v17-dependencies-{{ checksum "pnpm-lock.yaml" }}
             # fallback to using the latest cache if no exact match is found
-            - v16-dependencies-
+            - v17-dependencies-
 
       - run:
           name: Install Dependencies
@@ -42,7 +42,7 @@ jobs:
           paths:
             - .pnpm-store
             - node_modules
-          key: v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
+          key: v17-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
   validate:
     docker:
@@ -54,7 +54,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
+            - v17-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Lint + Typecheck
@@ -74,7 +74,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
+            - v17-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Jest Suite
@@ -96,7 +96,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
+            - v17-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Check Bundle Size
@@ -112,7 +112,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
+            - v17-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Build asset
@@ -142,7 +142,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
+            - v17-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: 'Run cypress'
@@ -171,7 +171,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v16-dependencies-{{ checksum "pnpm-lock.yaml" }}
+            - v17-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
       - run:
           name: Accessibility Audit
