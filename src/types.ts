@@ -150,6 +150,8 @@ export interface DroppableDimension {
   frame: Scrollable | null;
   // what is visible through the frame
   subject: DroppableSubject;
+  // z index of the droppable
+  zIndex: CSSStyleDeclaration['zIndex'];
 }
 export interface DraggableLocation {
   droppableId: DroppableId;
