@@ -146,6 +146,26 @@ export default function getDroppableOver({
     return candidates[0].descriptor.id;
   }
 
+  // Use the candidate that exclusively has the highest zIndex
+  const maxZIndex = Math.max(
+    // Only account for numerically set zIndex
+    ...candidates
+      .filter(
+        (candidate) =>
+          candidate.zIndex !== undefined &&
+          !Number.isNaN(parseInt(candidate.zIndex, 10)),
+      )
+      .map((candidate) => parseInt(candidate.zIndex!, 10)),
+  );
+  const candidatesOfMaxZIndex = candidates.filter(
+    (candidate) =>
+      candidate.zIndex !== undefined &&
+      parseInt(candidate.zIndex, 10) === maxZIndex,
+  );
+  if (candidatesOfMaxZIndex.length === 1) {
+    return candidatesOfMaxZIndex[0].descriptor.id;
+  }
+
   // Multiple options returned
   // Should only occur with really large items
   // Going to use fallback: distance from home
