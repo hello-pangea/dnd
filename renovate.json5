@@ -14,8 +14,16 @@
     {
       matchManagers: ["npm"],
       matchDepTypes: ["devDependencies"],
-      rangeStrategy: "pin",
+      matchUpdateTypes: ["major"],
       commitMessagePrefix: "chore(dev-deps):",
+    },
+    {
+      groupName: "all non-major development dependencies",
+      groupSlug: "all-dev-minor-patch",
+      matchManagers: ["npm"],
+      matchDepTypes: ["devDependencies"],
+      matchUpdateTypes: ["minor", "patch"],
+      matchPackagePatterns: ["*"],
     },
     {
       matchManagers: ["npm"],
