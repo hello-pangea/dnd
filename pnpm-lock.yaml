@@ -242,8 +242,8 @@ devDependencies:
     specifier: 3.6.0
     version: 3.6.0(@typescript-eslint/parser@6.5.0)(eslint-plugin-import@2.28.1)(eslint@8.48.0)
   eslint-plugin-cypress:
-    specifier: 2.14.0
-    version: 2.14.0(eslint@8.48.0)
+    specifier: 2.15.1
+    version: 2.15.1(eslint@8.48.0)
   eslint-plugin-es5:
     specifier: 1.5.0
     version: 1.5.0(eslint@8.48.0)
@@ -9530,8 +9530,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-cypress@2.14.0(eslint@8.48.0):
-    resolution: {integrity: sha512-eW6tv7iIg7xujleAJX4Ujm649Bf5jweqa4ObPEIuueYRyLZt7qXGWhCY/n4bfeFW/j6nQZwbIBHKZt6EKcL/cg==}
+  /eslint-plugin-cypress@2.15.1(eslint@8.48.0):
+    resolution: {integrity: sha512-eLHLWP5Q+I4j2AWepYq0PgFEei9/s5LvjuSqWrxurkg1YZ8ltxdvMNmdSf0drnsNo57CTgYY/NIHHLRSWejR7w==}
     peerDependencies:
       eslint: '>= 3.2.1'
     dependencies:
