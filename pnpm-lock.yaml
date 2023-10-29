@@ -173,8 +173,8 @@ devDependencies:
     specifier: 18.17.12
     version: 18.17.12
   '@types/raf-schd':
-    specifier: 4.0.1
-    version: 4.0.1
+    specifier: 4.0.2
+    version: 4.0.2
   '@types/react':
     specifier: 18.2.21
     version: 18.2.21
@@ -5376,8 +5376,8 @@ packages:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
     dev: true
 
-  /@types/raf-schd@4.0.1:
-    resolution: {integrity: sha512-Ha+EnKHFIh9EKW0/XZJPUd3EGDFisEvauaBd4VVCRPKeOqUxNEc9TodiY2Zhk33XCgzJucoFEcaoNcBAPHTQ2A==}
+  /@types/raf-schd@4.0.2:
+    resolution: {integrity: sha512-k1dDjiyGY0Aitn1Syguvg0eSFviQVFkndjdJMGZ/cPp27wepP+oBmmfz0AYLMEkHlGmBCEylelH4+pUCJ9aiZg==}
     dev: true
 
   /@types/range-parser@1.2.4:
@@ -14502,6 +14502,7 @@ packages:
   /normalize-path@2.1.1:
     resolution: {integrity: sha512-3pKJwH184Xo/lnH6oyP1q2pMd7HcypqqmRs91/6/i2CGtWwIKGCkOOMTm/zXbgTEWHw1uNpNi/igc3ePOYHb6w==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dependencies:
       remove-trailing-separator: 1.1.0
     dev: true
@@ -16456,6 +16457,7 @@ packages:
 
   /remove-trailing-separator@1.1.0:
     resolution: {integrity: sha512-/hS+Y0u3aOfIETiaiirUFwDBDzmXPvO+jAfKTitUngIPzdKc6Z0LoFjM/CK5PL4C+eKwHohlHAb6H0VFfmmUsw==}
+    requiresBuild: true
     dev: true
 
   /renderkid@2.0.7:
