@@ -191,8 +191,8 @@ devDependencies:
     specifier: 1.8.7
     version: 1.8.7
   '@types/seedrandom':
-    specifier: 3.0.5
-    version: 3.0.5
+    specifier: 3.0.7
+    version: 3.0.7
   '@types/testing-library__jest-dom':
     specifier: 5.14.9
     version: 5.14.9
@@ -5439,8 +5439,8 @@ packages:
   /@types/scheduler@0.16.3:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
 
-  /@types/seedrandom@3.0.5:
-    resolution: {integrity: sha512-kopEpYpFQvQdYsZkZVwht/0THHmTFFYXDaqV/lM45eweJ8kcGVDgZHs0RVTolSq55UPZNmjhKc9r7UvLu/mQQg==}
+  /@types/seedrandom@3.0.7:
+    resolution: {integrity: sha512-2kwVU6ijXQblfsC8uqhBxslJC2wJfgTE1hINNkj29TL37fc8Uli5Ew43xTv2tShH3FeoKv8jkH2WgeVLd5QWzA==}
     dev: true
 
   /@types/semver@7.5.0:
