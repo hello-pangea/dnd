@@ -164,8 +164,8 @@ devDependencies:
     specifier: 3.5.5
     version: 3.5.5
   '@types/jsdom':
-    specifier: 21.1.2
-    version: 21.1.2
+    specifier: 21.1.4
+    version: 21.1.4
   '@types/markdown-it':
     specifier: 13.0.1
     version: 13.0.1
@@ -5263,8 +5263,8 @@ packages:
       parse5: 7.1.2
     dev: true
 
-  /@types/jsdom@21.1.2:
-    resolution: {integrity: sha512-bGj+7TaCkOwkJfx7HtS9p22Ij0A2aKMuz8a1+owpkxa1wU/HUBy/WAXhdv90uDdVI9rSjGvUrXmLSeA9VP3JeA==}
+  /@types/jsdom@21.1.4:
+    resolution: {integrity: sha512-NzAMLEV0KQ4cBaDx3Ls8VfJUElyDUm1xrtYRmcMK0gF8L5xYbujFVaQlJ50yinQ/d47j2rEP1XUzkiYrw4YRFA==}
     dependencies:
       '@types/node': 18.17.12
       '@types/tough-cookie': 4.0.2
