@@ -182,8 +182,8 @@ devDependencies:
     specifier: 18.2.7
     version: 18.2.7
   '@types/react-redux':
-    specifier: 7.1.26
-    version: 7.1.26
+    specifier: 7.1.28
+    version: 7.1.28
   '@types/react-virtualized':
     specifier: 9.21.22
     version: 9.21.22
@@ -5395,8 +5395,8 @@ packages:
     dependencies:
       '@types/react': 18.2.21
 
-  /@types/react-redux@7.1.26:
-    resolution: {integrity: sha512-UKPo7Cm7rswYU6PH6CmTNCRv5NYF3HrgKuHEYTK8g/3czYLrUux50gQ2pkxc9c7ZpQZi+PNhgmI8oNIRoiVIxg==}
+  /@types/react-redux@7.1.28:
+    resolution: {integrity: sha512-EQr7cChVzVUuqbA+J8ArWK1H0hLAHKOs21SIMrskKZ3nHNeE+LFYA+IsoZGhVOT8Ktjn3M20v4rnZKN3fLbypw==}
     dependencies:
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.2.21
@@ -15110,6 +15110,7 @@ packages:
 
   /path-dirname@1.0.2:
     resolution: {integrity: sha512-ALzNPpyNq9AqXMBjeymIjFDAkAFH06mHJH/cSBHAgU0s4vfpBn6b2nf8tiRLvagKD8RbTpq2FKTBg7cl9l3c7Q==}
+    requiresBuild: true
     dev: true
 
   /path-exists@2.1.0:
