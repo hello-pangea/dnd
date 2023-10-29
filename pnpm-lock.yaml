@@ -107,8 +107,8 @@ devDependencies:
     specifier: 15.1.0
     version: 15.1.0(rollup@3.27.0)
   '@rollup/plugin-replace':
-    specifier: 5.0.2
-    version: 5.0.2(rollup@3.27.0)
+    specifier: 5.0.4
+    version: 5.0.4(rollup@3.27.0)
   '@rollup/plugin-strip':
     specifier: 3.0.2
     version: 3.0.2(rollup@3.27.0)
@@ -3456,17 +3456,17 @@ packages:
       rollup: 3.27.0
     dev: true
 
-  /@rollup/plugin-replace@5.0.2(rollup@3.27.0):
-    resolution: {integrity: sha512-M9YXNekv/C/iHHK+cvORzfRYfPbq0RDD8r0G+bMiTXjNGKulPnCT9O3Ss46WfhI6ZOCgApOP7xAdmCQJ+U2LAA==}
+  /@rollup/plugin-replace@5.0.4(rollup@3.27.0):
+    resolution: {integrity: sha512-E2hmRnlh09K8HGT0rOnnri9OTh+BILGr7NVJGB30S4E3cLRn3J0xjdiyOZ74adPs4NiAMgrjUMGAZNJDBgsdmQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
     peerDependenciesMeta:
       rollup:
         optional: true
     dependencies:
       '@rollup/pluginutils': 5.0.2(rollup@3.27.0)
-      magic-string: 0.27.0
+      magic-string: 0.30.5
       rollup: 3.27.0
     dev: true
 
@@ -13786,6 +13786,13 @@ packages:
 
   /magic-string@0.30.1:
     resolution: {integrity: sha512-mbVKXPmS0z0G4XqFDCTllmDQ6coZzn94aMlb0o/A4HEHJCKcanlDZwYJgwnkmgD3jyWhUgj9VsPrfd972yPffA==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.15
+    dev: true
+
+  /magic-string@0.30.5:
+    resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
