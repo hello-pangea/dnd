@@ -104,8 +104,8 @@ devDependencies:
     specifier: 6.0.0
     version: 6.0.0(rollup@3.27.0)
   '@rollup/plugin-node-resolve':
-    specifier: 15.1.0
-    version: 15.1.0(rollup@3.27.0)
+    specifier: 15.2.3
+    version: 15.2.3(rollup@3.27.0)
   '@rollup/plugin-replace':
     specifier: 5.0.2
     version: 5.0.2(rollup@3.27.0)
@@ -3438,11 +3438,11 @@ packages:
       rollup: 3.27.0
     dev: true
 
-  /@rollup/plugin-node-resolve@15.1.0(rollup@3.27.0):
-    resolution: {integrity: sha512-xeZHCgsiZ9pzYVgAo9580eCGqwh/XCEUM9q6iQfGNocjgkufHAqC3exA+45URvhiYV8sBF9RlBai650eNs7AsA==}
+  /@rollup/plugin-node-resolve@15.2.3(rollup@3.27.0):
+    resolution: {integrity: sha512-j/lym8nf5E21LwBT4Df1VD6hRO2L2iwUeUmP7litikRsVp1H6NWx20NEp0Y7su+7XGc476GnXXc4kFeZNGmaSQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^2.78.0||^3.0.0
+      rollup: ^2.78.0||^3.0.0||^4.0.0
     peerDependenciesMeta:
       rollup:
         optional: true
@@ -16583,7 +16583,7 @@ packages:
     resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
     hasBin: true
     dependencies:
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
