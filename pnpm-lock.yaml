@@ -29,8 +29,8 @@ dependencies:
 
 devDependencies:
   '@atlaskit/css-reset':
-    specifier: 6.5.4
-    version: 6.5.4(react@18.2.0)
+    specifier: 6.6.1
+    version: 6.6.1(react@18.2.0)
   '@atlaskit/theme':
     specifier: 12.6.2
     version: 12.6.2(react@18.2.0)
@@ -408,13 +408,13 @@ packages:
       '@babel/runtime': 7.22.6
     dev: true
 
-  /@atlaskit/css-reset@6.5.4(react@18.2.0):
-    resolution: {integrity: sha512-7pocTfknaZaF4k9AYYoUFGjC1XMqBH3PMG5TaB93nnvib2TXeDJ486t78qBYVu9372CMYmrIkdPpOJG1Wgu3ww==}
+  /@atlaskit/css-reset@6.6.1(react@18.2.0):
+    resolution: {integrity: sha512-rVCUjdUhqywl0FcvCEeQCe/OrG0R5Vu9BHRbgQvBit8RKO77niWize3hg4fOT8YLKBr1OKMD1KtfzsaSc1cLDA==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
       '@atlaskit/theme': 12.6.2(react@18.2.0)
-      '@atlaskit/tokens': 1.13.1(react@18.2.0)
+      '@atlaskit/tokens': 1.28.0(react@18.2.0)
       '@babel/runtime': 7.22.6
       fbjs: 3.0.5
       react: 18.2.0
@@ -448,22 +448,6 @@ packages:
       '@atlaskit/ds-lib': 2.2.3(react@18.2.0)
       '@atlaskit/tokens': 1.28.0(react@18.2.0)
       '@babel/runtime': 7.22.6
-      react: 18.2.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@atlaskit/tokens@1.13.1(react@18.2.0):
-    resolution: {integrity: sha512-Q6sAMbX5kQMNPOt71deN2pICf1hNlthScT0r1cHA9uPngVkhWmImDOkhoZdfvF7fhbjyHCrtcfyJF/O2xNvPKQ==}
-    peerDependencies:
-      react: ^16.8.0
-    dependencies:
-      '@atlaskit/ds-lib': 2.2.3(react@18.2.0)
-      '@atlaskit/platform-feature-flags': 0.2.4
-      '@babel/runtime': 7.22.6
-      '@babel/traverse': 7.22.8(supports-color@5.5.0)
-      '@babel/types': 7.22.5
-      bind-event-listener: 2.1.1
       react: 18.2.0
     transitivePeerDependencies:
       - supports-color
@@ -5088,7 +5072,7 @@ packages:
     resolution: {integrity: sha512-aACu/U/omhdk15O4Nfb+fHgH/z3QsfQzpnvRZhYhThms83ZnAOZz7zZAWO7mn2yyNQaA4xTO8GLK3uqFU4bYYw==}
     dependencies:
       '@babel/parser': 7.22.7
-      '@babel/types': 7.22.5
+      '@babel/types': 7.22.11
       '@types/babel__generator': 7.6.4
       '@types/babel__template': 7.4.1
       '@types/babel__traverse': 7.20.1
