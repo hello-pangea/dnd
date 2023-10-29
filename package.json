@@ -111,7 +111,7 @@
     "@rollup/plugin-node-resolve": "15.1.0",
     "@rollup/plugin-replace": "5.0.2",
     "@rollup/plugin-strip": "3.0.2",
-    "@rollup/plugin-terser": "0.4.3",
+    "@rollup/plugin-terser": "0.4.4",
     "@storybook/addon-docs": "6.5.16",
     "@storybook/addon-essentials": "6.5.16",
     "@storybook/addon-storysource": "6.5.16",

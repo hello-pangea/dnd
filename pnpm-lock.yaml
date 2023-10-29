@@ -113,8 +113,8 @@ devDependencies:
     specifier: 3.0.2
     version: 3.0.2(rollup@3.27.0)
   '@rollup/plugin-terser':
-    specifier: 0.4.3
-    version: 0.4.3(rollup@3.27.0)
+    specifier: 0.4.4
+    version: 0.4.4(rollup@3.27.0)
   '@storybook/addon-docs':
     specifier: 6.5.16
     version: 6.5.16(@babel/core@7.22.11)(eslint@8.48.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)(webpack@5.88.2)
@@ -3485,11 +3485,11 @@ packages:
       rollup: 3.27.0
     dev: true
 
-  /@rollup/plugin-terser@0.4.3(rollup@3.27.0):
-    resolution: {integrity: sha512-EF0oejTMtkyhrkwCdg0HJ0IpkcaVg1MMSf2olHb2Jp+1mnLM04OhjpJWGma4HobiDTF0WCyViWuvadyE9ch2XA==}
+  /@rollup/plugin-terser@0.4.4(rollup@3.27.0):
+    resolution: {integrity: sha512-XHeJC5Bgvs8LfukDwWZp7yeqin6ns8RTl2B9avbejt6tZqsqvVoWI7ZTQrcNsfKEDWBTnTxM8nMDkO2IFFbd0A==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^2.x || ^3.x
+      rollup: ^2.0.0||^3.0.0||^4.0.0
     peerDependenciesMeta:
       rollup:
         optional: true
