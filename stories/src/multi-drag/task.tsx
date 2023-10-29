@@ -88,9 +88,9 @@ const Container = styled.div<ContainerProps>`
     border-color: ${colors.G200};
   }
 `;
-/* stylelint-disable block-no-empty */
+
 const Content = styled.div``;
-/* stylelint-enable */
+
 const size = 30;
 
 const SelectionCount = styled.div`
