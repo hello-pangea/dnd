@@ -110,7 +110,7 @@
     "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@rollup/plugin-replace": "5.0.2",
-    "@rollup/plugin-strip": "3.0.2",
+    "@rollup/plugin-strip": "3.0.4",
     "@rollup/plugin-terser": "0.4.3",
     "@storybook/addon-docs": "6.5.16",
     "@storybook/addon-essentials": "6.5.16",
