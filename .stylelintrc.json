@@ -1,21 +1,14 @@
 {
-  "processors": [
-    [
-      "stylelint-processor-styled-components",
-      {
-        "moduleName": "@emotion/styled"
-      }
-    ]
-  ],
+  "customSyntax": "postcss-styled-syntax",
   "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-styled-components",
-    "stylelint-config-prettier"
+    "stylelint-config-standard"
   ],
   "rules": {
-    "declaration-empty-line-before": null,
-    "comment-empty-line-before": null,
     "block-no-empty": null,
+    "comment-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "no-empty-source": null,
+    "declaration-block-no-redundant-longhand-properties": null,
     "value-keyword-case": null
   }
 }

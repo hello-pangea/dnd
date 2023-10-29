@@ -67,10 +67,7 @@ const ScrollContainer = styled.div`
   max-height: ${scrollContainerHeight}px;
 `;
 
-/* stylelint-disable block-no-empty */
 const Container = styled.div``;
-
-/* stylelint-enable */
 
 interface Props {
   listId?: string;
