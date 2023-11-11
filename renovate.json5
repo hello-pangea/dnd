@@ -7,6 +7,10 @@
 
   packageRules: [
     {
+      matchCategories: ["ci"],
+      commitMessagePrefix: "ci:",
+    },
+    {
       matchManagers: ["npm"],
       matchDepTypes: ["dependencies"],
       rangeStrategy: "bump",
@@ -24,6 +28,7 @@
       matchDepTypes: ["devDependencies"],
       matchUpdateTypes: ["minor", "patch"],
       matchPackagePatterns: ["*"],
+      commitMessagePrefix: "chore(dev-deps):",
     },
     {
       matchManagers: ["npm"],
