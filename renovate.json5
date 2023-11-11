@@ -1,6 +1,9 @@
 {
   extends: ["config:base", ":prConcurrentLimitNone"],
 
+  timezone: "America/New_York",
+  schedule: ["before 6am"],
+
   commitMessageAction: "update",
   commitMessagePrefix: "chore(deps):",
   labels: ["dependencies"],
