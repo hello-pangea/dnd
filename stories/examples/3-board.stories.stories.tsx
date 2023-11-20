@@ -22,6 +22,9 @@ storiesOf('Examples/board', module)
   .add('with combining', () => (
     <Board initial={authorQuoteMap} isCombineEnabled />
   ))
+  .add('with combine only', () => (
+    <Board initial={authorQuoteMap} isCombineEnabled isCombineOnly />
+  ))
   .add('with combining and cloning', () => (
-    <Board initial={authorQuoteMap} isCombineEnabled useClone />
+    <Board initial={authorQuoteMap} isCombineEnabled useClone isCombineOnly />
   ));

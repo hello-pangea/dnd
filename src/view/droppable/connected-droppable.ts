@@ -44,6 +44,7 @@ const defaultProps: DefaultProps = {
   direction: 'vertical',
   isDropDisabled: false,
   isCombineEnabled: false,
+  isCombineOnly: false,
   ignoreContainerClipping: false,
   renderClone: null,
   getContainerForClone: getBody,
@@ -123,9 +124,9 @@ export const makeMapStateToProps = (): Selector => {
       if (isHome) {
         const useClone: UseClone | null = renderClone
           ? {
-              render: renderClone,
-              dragging: getDraggableRubric(dragging.descriptor),
-            }
+            render: renderClone,
+            dragging: getDraggableRubric(dragging.descriptor),
+          }
           : null;
 
         const snapshot: DroppableStateSnapshot = {

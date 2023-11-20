@@ -78,6 +78,7 @@ interface Props {
   scrollContainerStyle?: CSSProperties;
   isDropDisabled?: boolean;
   isCombineEnabled?: boolean;
+  isCombineOnly?: boolean;
   style?: CSSProperties;
   // may not be provided - and might be null
   ignoreContainerClipping?: boolean;
@@ -141,6 +142,7 @@ export default function QuoteList(props: Props): ReactElement {
     scrollContainerStyle,
     isDropDisabled,
     isCombineEnabled,
+    isCombineOnly,
     listId = 'LIST',
     listType,
     style,
@@ -156,6 +158,7 @@ export default function QuoteList(props: Props): ReactElement {
       ignoreContainerClipping={ignoreContainerClipping}
       isDropDisabled={isDropDisabled}
       isCombineEnabled={isCombineEnabled}
+      isCombineOnly={isCombineOnly}
       renderClone={
         useClone
           ? (provided, snapshot, descriptor) => (

@@ -25,7 +25,7 @@ export default ({
   insideDestination,
   previousImpact,
 }: Args): DragImpact | null => {
-  if (!destination.isCombineEnabled) {
+  if (!destination.isCombineEnabled && !destination.isCombineOnly) {
     return null;
   }
 

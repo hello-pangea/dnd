@@ -5,6 +5,7 @@ import type {
   UpdateDroppableScrollActionCreator,
   UpdateDroppableIsEnabledActionCreator,
   UpdateDroppableIsCombineEnabledActionCreator,
+  UpdateDroppableIsCombineOnlyArgs,
 } from '../action-creators';
 import type {
   DroppableId,
@@ -28,6 +29,7 @@ export interface DimensionMarshal {
     id: DroppableId,
     isEnabled: boolean,
   ) => void;
+  updateDroppableIsCombineOnly: (id: DroppableId, isEnabled: boolean) => void;
   updateDroppableScroll: (id: DroppableId, newScroll: Position) => void;
   scrollDroppable: (id: DroppableId, change: Position) => void;
   // Entry
@@ -41,4 +43,5 @@ export interface Callbacks {
   updateDroppableScroll: UpdateDroppableScrollActionCreator;
   updateDroppableIsEnabled: UpdateDroppableIsEnabledActionCreator;
   updateDroppableIsCombineEnabled: UpdateDroppableIsCombineEnabledActionCreator;
+  updateDroppableIsCombineOnly: UpdateDroppableIsCombineOnlyArgs;
 }
