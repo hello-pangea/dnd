@@ -1,5 +1,12 @@
 
 
+## [16.5.0](https://github.com/hello-pangea/dnd/compare/v16.4.0...v16.5.0) (2023-12-06)
+
+
+### Build System 🏗
+
+* only support major browser versions released in the last year ([68f8b92](https://github.com/hello-pangea/dnd/commit/68f8b9274cb89aa05e13eebdcec8ec54432673d5))
+
 ## [16.4.0](https://github.com/hello-pangea/dnd/compare/v16.3.0...v16.4.0) (2023-12-06)
 
 
