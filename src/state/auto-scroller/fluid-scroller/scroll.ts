@@ -33,7 +33,33 @@ export default ({
   const draggable: DraggableDimension =
     state.dimensions.draggables[state.critical.draggable.id];
   const subject: Rect = draggable.page.marginBox;
-  // 1. Can we scroll the viewport?
+
+  // 1. Can we scroll droppable?
+
+  const droppable: DroppableDimension | null = getBestScrollableDroppable({
+    center,
+    destination: whatIsDraggedOver(state.impact),
+    droppables: state.dimensions.droppables,
+  });
+
+  if (droppable) {
+    const change: Position | null = getDroppableScrollChange({
+      dragStartTime,
+      droppable,
+      subject,
+      center,
+      shouldUseTimeDampening,
+      getAutoScrollerOptions,
+    });
+
+    if (change) {
+      scrollDroppable(droppable.descriptor.id, change);
+      return;
+    }
+  }
+
+  // 2. Can we scroll the viewport?
+
   if (state.isWindowScrollAllowed) {
     const viewport: Viewport = state.viewport;
     const change: Position | null = getWindowScrollChange({
@@ -47,30 +73,6 @@ export default ({
 
     if (change) {
       scrollWindow(change);
-      return;
     }
-  }
-
-  const droppable: DroppableDimension | null = getBestScrollableDroppable({
-    center,
-    destination: whatIsDraggedOver(state.impact),
-    droppables: state.dimensions.droppables,
-  });
-
-  if (!droppable) {
-    return;
-  }
-
-  const change: Position | null = getDroppableScrollChange({
-    dragStartTime,
-    droppable,
-    subject,
-    center,
-    shouldUseTimeDampening,
-    getAutoScrollerOptions,
-  });
-
-  if (change) {
-    scrollDroppable(droppable.descriptor.id, change);
   }
 };
