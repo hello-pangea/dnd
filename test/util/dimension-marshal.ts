@@ -8,18 +8,28 @@ import type {
   PublishWhileDraggingArgs,
   UpdateDroppableScrollAction,
   UpdateDroppableScrollArgs,
+  UpdateDroppableLocationAction,
+  UpdateDroppableLocationArgs,
+  UpdateDroppableIsCombineOnlyAction,
+  UpdateDroppableIsCombineOnlyArgs,
   UpdateDroppableIsEnabledAction,
   UpdateDroppableIsEnabledArgs,
   UpdateDroppableIsCombineEnabledAction,
   UpdateDroppableIsCombineEnabledArgs,
 } from '../../src/state/action-creators';
-import type { DroppableId, LiftRequest } from '../../src/types';
+import type {
+  DroppableDimension,
+  DroppableId,
+  LiftRequest,
+} from '../../src/types';
 import {
   collectionStarting,
   publishWhileDragging,
   updateDroppableScroll,
   updateDroppableIsEnabled,
   updateDroppableIsCombineEnabled,
+  updateDroppableLocation,
+  updateDroppableIsCombineOnly,
 } from '../../src/state/action-creators';
 import type {
   DimensionMarshal,
@@ -37,8 +47,10 @@ export const createMarshal = (
       publishWhileDragging,
       collectionStarting,
       updateDroppableScroll,
+      updateDroppableLocation,
       updateDroppableIsEnabled,
       updateDroppableIsCombineEnabled,
+      updateDroppableIsCombineOnly,
     },
     // Redux types are not optimal. They should pass the Action to the Dispatch, but
     // instead they directly use the Dispatch which end up to be Dispatch<AnyAction>.
@@ -61,6 +73,14 @@ export const createMarshal = (
 
 export const getMarshalStub = () => ({
   updateDroppableScroll: jest.fn<void, [id: string, newScroll: Position]>(),
+  updateDroppableLocation: jest.fn<
+    void,
+    [id: string, droppableData: DroppableDimension]
+  >(),
+  updateDroppableIsCombineOnly: jest.fn<
+    void,
+    [id: string, isCombineOnly: boolean]
+  >(),
   updateDroppableIsEnabled: jest.fn<
     void,
     [id: DroppableId, isEnabled: boolean]
@@ -95,6 +115,14 @@ export const getCallbacksStub = () => ({
     UpdateDroppableScrollAction,
     [UpdateDroppableScrollArgs]
   >(updateDroppableScroll),
+  updateDroppableLocation: jest.fn<
+    UpdateDroppableLocationAction,
+    [UpdateDroppableLocationArgs]
+  >(updateDroppableLocation),
+  updateDroppableIsCombineOnly: jest.fn<
+    UpdateDroppableIsCombineOnlyAction,
+    [UpdateDroppableIsCombineOnlyArgs]
+  >(updateDroppableIsCombineOnly),
   updateDroppableIsEnabled: jest.fn<
     UpdateDroppableIsEnabledAction,
     [UpdateDroppableIsEnabledArgs]

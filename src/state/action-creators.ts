@@ -9,6 +9,7 @@ import type {
   DimensionMap,
   DropReason,
   Published,
+  DroppableDimension,
 } from '../types';
 
 export interface BeforeInitialCaptureArgs {
@@ -119,6 +120,26 @@ export const updateDroppableScroll = (
   payload: args,
 });
 
+export interface UpdateDroppableLocationArgs {
+  id: DroppableId;
+  droppableData: DroppableDimension;
+}
+
+export interface UpdateDroppableLocationAction {
+  type: 'UPDATE_DROPPABLE_LOCATION';
+  payload: UpdateDroppableLocationArgs;
+}
+
+export type UpdateDroppableLocationActionCreator =
+  typeof updateDroppableLocation;
+
+export const updateDroppableLocation = (
+  args: UpdateDroppableLocationArgs,
+): UpdateDroppableLocationAction => ({
+  type: 'UPDATE_DROPPABLE_LOCATION',
+  payload: args,
+});
+
 export interface UpdateDroppableIsEnabledArgs {
   id: DroppableId;
   isEnabled: boolean;
@@ -159,15 +180,18 @@ export const updateDroppableIsCombineEnabled = (
   payload: args,
 });
 
-export type UpdateDroppableIsCombineOnlyArgs = {
-  id: DroppableId,
-  isCombineOnly: boolean,
-};
+export interface UpdateDroppableIsCombineOnlyArgs {
+  id: DroppableId;
+  isCombineOnly: boolean;
+}
 
-export type UpdateDroppableIsCombineOnlyAction = {
-  type: 'UPDATE_DROPPABLE_IS_COMBINE_ONLY',
-  payload: UpdateDroppableIsCombineOnlyArgs,
-};
+export interface UpdateDroppableIsCombineOnlyAction {
+  type: 'UPDATE_DROPPABLE_IS_COMBINE_ONLY';
+  payload: UpdateDroppableIsCombineOnlyArgs;
+}
+
+export type UpdateDroppableIsCombineOnlyCreator =
+  typeof updateDroppableIsCombineOnly;
 
 export const updateDroppableIsCombineOnly = (
   args: UpdateDroppableIsCombineOnlyArgs,
@@ -374,6 +398,7 @@ export type Action =
   | PublishWhileDraggingAction
   | CollectionStartingAction
   | UpdateDroppableScrollAction
+  | UpdateDroppableLocationAction
   | UpdateDroppableIsEnabledAction
   | UpdateDroppableIsCombineEnabledAction
   | UpdateDroppableIsCombineOnlyAction

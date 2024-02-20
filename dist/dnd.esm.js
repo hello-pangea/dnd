@@ -2347,6 +2347,18 @@ var reducer = ((state = idle$2, action) => {
     const scrolled = scrollDroppable(target, newScroll);
     return postDroppableChange(state, scrolled, false);
   }
+  if (action.type === 'UPDATE_DROPPABLE_LOCATION') {
+    !isMovementAllowed(state) ? process.env.NODE_ENV !== "production" ? invariant(false, `${action.type} not permitted in phase ${state.phase}`) : invariant(false) : void 0;
+    const {
+      id,
+      droppableData
+    } = action.payload;
+    const updated = {
+      ...state.dimensions.droppables[id],
+      ...droppableData
+    };
+    return postDroppableChange(state, updated, true);
+  }
   if (action.type === 'UPDATE_DROPPABLE_IS_ENABLED') {
     if (state.phase === 'DROP_PENDING') {
       return state;
@@ -2527,6 +2539,10 @@ const collectionStarting = () => ({
 });
 const updateDroppableScroll = args => ({
   type: 'UPDATE_DROPPABLE_SCROLL',
+  payload: args
+});
+const updateDroppableLocation = args => ({
+  type: 'UPDATE_DROPPABLE_LOCATION',
   payload: args
 });
 const updateDroppableIsEnabled = args => ({
@@ -3599,6 +3615,16 @@ var createDimensionMarshal = ((registry, callbacks) => {
       newScroll
     });
   };
+  const updateDroppableLocation = (id, droppableData) => {
+    if (!collection) {
+      return;
+    }
+    !registry.droppable.exists(id) ? process.env.NODE_ENV !== "production" ? invariant(false, `Cannot update the scroll on Droppable ${id} as it is not registered`) : invariant(false) : void 0;
+    callbacks.updateDroppableLocation({
+      id,
+      droppableData
+    });
+  };
   const scrollDroppable = (id, change) => {
     if (!collection) {
       return;
@@ -3654,6 +3680,7 @@ var createDimensionMarshal = ((registry, callbacks) => {
     updateDroppableIsCombineOnly,
     scrollDroppable,
     updateDroppableScroll,
+    updateDroppableLocation,
     startPublishing,
     stopPublishing
   };
@@ -6064,6 +6091,7 @@ function App(props) {
   const marshalCallbacks = useMemo(() => bindActionCreators({
     publishWhileDragging,
     updateDroppableScroll,
+    updateDroppableLocation,
     updateDroppableIsEnabled,
     updateDroppableIsCombineEnabled,
     updateDroppableIsCombineOnly,
@@ -6965,6 +6993,27 @@ function useDroppablePublisher(args) {
     }
     scheduleScrollUpdate();
   }, [scheduleScrollUpdate, updateScroll]);
+  const onWindowScroll = useCallback(() => {
+    if (!whileDraggingRef.current) return;
+    const windowScroll = getWindowScroll();
+    const previous = previousRef.current;
+    const ref = previous.getDroppableRef();
+    !ref ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot collect without a droppable ref') : invariant(false) : void 0;
+    const env = getEnv(ref);
+    const dimension = getDimension({
+      ref,
+      descriptor,
+      env,
+      windowScroll,
+      direction: previous.direction,
+      isDropDisabled: previous.isDropDisabled,
+      isCombineEnabled: previous.isCombineEnabled,
+      isCombineOnly: previous.isCombineOnly,
+      shouldClipSubject: !previous.ignoreContainerClipping
+    });
+    marshal.updateDroppableLocation(descriptor.id, dimension);
+  }, [marshal, descriptor, previousRef]);
+  const onWindowScrollScheduled = useMemo(() => rafSchd(onWindowScroll), [onWindowScroll]);
   const getDimensionAndWatchScroll = useCallback((windowScroll, options) => {
     !!whileDraggingRef.current ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot collect a droppable while a drag is occurring') : invariant(false) : void 0;
     const previous = previousRef.current;
@@ -6990,6 +7039,9 @@ function useDroppablePublisher(args) {
       shouldClipSubject: !previous.ignoreContainerClipping
     });
     const scrollable = env.closestScrollable;
+    if (env.isFixedOnPage && scrollable) {
+      window.addEventListener('scroll', onWindowScrollScheduled);
+    }
     if (scrollable) {
       scrollable.setAttribute(scrollContainer.contextId, appContext.contextId);
       scrollable.addEventListener('scroll', onClosestScroll, getListenerOptions(dragging.scrollOptions));
@@ -6998,7 +7050,7 @@ function useDroppablePublisher(args) {
       }
     }
     return dimension;
-  }, [appContext.contextId, descriptor, onClosestScroll, previousRef]);
+  }, [appContext.contextId, descriptor, onClosestScroll, previousRef, onWindowScrollScheduled]);
   const getScrollWhileDragging = useCallback(() => {
     const dragging = whileDraggingRef.current;
     const closest = getClosestScrollableFromDrag(dragging);
@@ -7016,7 +7068,8 @@ function useDroppablePublisher(args) {
     scheduleScrollUpdate.cancel();
     closest.removeAttribute(scrollContainer.contextId);
     closest.removeEventListener('scroll', onClosestScroll, getListenerOptions(dragging.scrollOptions));
-  }, [onClosestScroll, scheduleScrollUpdate]);
+    window.removeEventListener('scroll', onWindowScrollScheduled);
+  }, [onClosestScroll, scheduleScrollUpdate, onWindowScrollScheduled]);
   const scroll = useCallback(change => {
     const dragging = whileDraggingRef.current;
     !dragging ? process.env.NODE_ENV !== "production" ? invariant(false, 'Cannot scroll when there is no drag') : invariant(false) : void 0;

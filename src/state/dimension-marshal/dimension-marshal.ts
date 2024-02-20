@@ -22,6 +22,7 @@ import type {
   LiftRequest,
   Critical,
   DraggableDescriptor,
+  DroppableDimension,
 } from '../../types';
 import { warning } from '../../dev-warning';
 
@@ -137,6 +138,23 @@ export default (registry: Registry, callbacks: Callbacks) => {
     callbacks.updateDroppableScroll({ id, newScroll });
   };
 
+  const updateDroppableLocation = (
+    id: DroppableId,
+    droppableData: DroppableDimension,
+  ) => {
+    // no need to update the application state if a collection is not occurring
+    if (!collection) {
+      return;
+    }
+
+    invariant(
+      registry.droppable.exists(id),
+      `Cannot update the scroll on Droppable ${id} as it is not registered`,
+    );
+
+    callbacks.updateDroppableLocation({ id, droppableData });
+  };
+
   const scrollDroppable = (id: DroppableId, change: Position) => {
     if (!collection) {
       return;
@@ -224,6 +242,7 @@ export default (registry: Registry, callbacks: Callbacks) => {
     updateDroppableIsCombineOnly,
     scrollDroppable,
     updateDroppableScroll,
+    updateDroppableLocation,
 
     // Entry
     startPublishing,

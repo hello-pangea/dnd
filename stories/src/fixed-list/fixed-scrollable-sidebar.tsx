@@ -113,7 +113,11 @@ class MoreContent extends React.Component<ListProps> {
             ref={droppableProvided.innerRef}
           >
             {this.props.quotes.map((quote: Quote, index: number) => (
-              <Draggable draggableId={quote.id} index={index} key={quote.id}>
+              <Draggable
+                draggableId={`amazing-${quote.id}`}
+                index={index}
+                key={quote.id}
+              >
                 {(
                   draggableProvided: DraggableProvided,
                   draggableSnapshot: DraggableStateSnapshot,

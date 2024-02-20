@@ -36,6 +36,7 @@ import {
   move,
   publishWhileDragging,
   updateDroppableScroll,
+  updateDroppableLocation,
   updateDroppableIsEnabled,
   updateDroppableIsCombineEnabled,
   updateDroppableIsCombineOnly,
@@ -157,6 +158,7 @@ export default function App(props: Props) {
         {
           publishWhileDragging,
           updateDroppableScroll,
+          updateDroppableLocation,
           updateDroppableIsEnabled,
           updateDroppableIsCombineEnabled,
           updateDroppableIsCombineOnly,

@@ -23,7 +23,6 @@ import moveInDirection from './move-in-direction';
 import { add, isEqual, origin } from './position';
 import scrollViewport from './scroll-viewport';
 import isMovementAllowed from './is-movement-allowed';
-import { toDroppableList } from './dimension-structures';
 import update from './post-reducer/when-moving/update';
 import refreshSnap from './post-reducer/when-moving/refresh-snap';
 import getLiftEffect from './get-lift-effect';
@@ -228,6 +227,21 @@ export default (state: State = idle, action: Action): State => {
 
     const scrolled: DroppableDimension = scrollDroppable(target, newScroll);
     return postDroppableChange(state, scrolled, false);
+  }
+
+  if (action.type === 'UPDATE_DROPPABLE_LOCATION') {
+    invariant(
+      isMovementAllowed(state),
+      `${action.type} not permitted in phase ${state.phase}`,
+    );
+
+    const { id, droppableData } = action.payload;
+
+    const updated: DroppableDimension = {
+      ...state.dimensions.droppables[id],
+      ...droppableData,
+    };
+    return postDroppableChange(state, updated, true);
   }
 
   if (action.type === 'UPDATE_DROPPABLE_IS_ENABLED') {
