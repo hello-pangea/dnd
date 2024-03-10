@@ -75,7 +75,7 @@ devDependencies:
     version: 19.0.3
   '@commitlint/cz-commitlint':
     specifier: 19.0.3
-    version: 19.0.3(@types/node@20.11.25)(commitizen@4.3.0)(inquirer@9.2.11)(typescript@4.9.5)
+    version: 19.0.3(@types/node@20.11.25)(commitizen@4.3.0)(inquirer@9.2.14)(typescript@4.9.5)
   '@emotion/babel-preset-css-prop':
     specifier: 11.11.0
     version: 11.11.0(@babel/core@7.24.0)
@@ -356,8 +356,8 @@ devDependencies:
     specifier: 3.29.4
     version: 3.29.4
   rollup-plugin-dts:
-    specifier: 5.3.1
-    version: 5.3.1(rollup@3.29.4)(typescript@4.9.5)
+    specifier: 6.1.0
+    version: 6.1.0(rollup@3.29.4)(typescript@4.9.5)
   seedrandom:
     specifier: 3.0.5
     version: 3.0.5
@@ -2142,7 +2142,7 @@ packages:
       ajv: 8.12.0
     dev: true
 
-  /@commitlint/cz-commitlint@19.0.3(@types/node@20.11.25)(commitizen@4.3.0)(inquirer@9.2.11)(typescript@4.9.5):
+  /@commitlint/cz-commitlint@19.0.3(@types/node@20.11.25)(commitizen@4.3.0)(inquirer@9.2.14)(typescript@4.9.5):
     resolution: {integrity: sha512-DarzAFzoE5dAiEgVikE7odwSglfvxN1GfCg+R/nwsCZKNS3j7dzEy85NQMmQ6C5y2YmbQAjZ0/nM47W8gRzkzw==}
     engines: {node: '>=v18'}
     peerDependencies:
@@ -2154,7 +2154,7 @@ packages:
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
       commitizen: 4.3.0(@types/node@20.11.25)(typescript@4.9.5)
-      inquirer: 9.2.11
+      inquirer: 9.2.14
       lodash.isplainobject: 4.0.6
       word-wrap: 1.2.5
     transitivePeerDependencies:
@@ -9304,11 +9304,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /escape-string-regexp@5.0.0:
-    resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
-    engines: {node: '>=12'}
-    dev: true
-
   /escodegen@2.1.0:
     resolution: {integrity: sha512-2NlIDTwUWJN0mRPQOdtQBzbUHvdGY2P1VXSyU83Q3xKxM7WHX2Ql8dKq782Q9TgQUNOLEzEYu9bzLNj1q88I5w==}
     engines: {node: '>=6.0'}
@@ -10140,14 +10135,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       escape-string-regexp: 1.0.5
-    dev: true
-
-  /figures@5.0.0:
-    resolution: {integrity: sha512-ej8ksPF4x6e5wvK9yevct0UCXh8TTFlWGVLlgjZuoBH1HwjIfKE/IdL5mq89sFA7zELi1VhKpmtDnrs7zWyeyg==}
-    engines: {node: '>=14'}
-    dependencies:
-      escape-string-regexp: 5.0.0
-      is-unicode-supported: 1.3.0
     dev: true
 
   /file-entry-cache@6.0.1:
@@ -11636,27 +11623,6 @@ packages:
       strip-ansi: 6.0.1
       through: 2.3.8
       wrap-ansi: 7.0.0
-    dev: true
-
-  /inquirer@9.2.11:
-    resolution: {integrity: sha512-B2LafrnnhbRzCWfAdOXisUzL89Kg8cVJlYmhqoi3flSiV/TveO+nsXwgKr9h9PIo+J1hz7nBSk6gegRIMBBf7g==}
-    engines: {node: '>=14.18.0'}
-    dependencies:
-      '@ljharb/through': 2.3.13
-      ansi-escapes: 4.3.2
-      chalk: 5.3.0
-      cli-cursor: 3.1.0
-      cli-width: 4.1.0
-      external-editor: 3.1.0
-      figures: 5.0.0
-      lodash: 4.17.21
-      mute-stream: 1.0.0
-      ora: 5.4.1
-      run-async: 3.0.0
-      rxjs: 7.8.1
-      string-width: 4.2.3
-      strip-ansi: 6.0.1
-      wrap-ansi: 6.2.0
     dev: true
 
   /inquirer@9.2.14:
@@ -16413,12 +16379,12 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
-  /rollup-plugin-dts@5.3.1(rollup@3.29.4)(typescript@4.9.5):
-    resolution: {integrity: sha512-gusMi+Z4gY/JaEQeXnB0RUdU82h1kF0WYzCWgVmV4p3hWXqelaKuCvcJawfeg+EKn2T1Ie+YWF2OiN1/L8bTVg==}
-    engines: {node: '>=v14.21.3'}
+  /rollup-plugin-dts@6.1.0(rollup@3.29.4)(typescript@4.9.5):
+    resolution: {integrity: sha512-ijSCPICkRMDKDLBK9torss07+8dl9UpY9z1N/zTeA1cIqdzMlpkV3MOOC7zukyvQfDyxa1s3Dl2+DeiP/G6DOw==}
+    engines: {node: '>=16'}
     peerDependencies:
-      rollup: ^3.0
-      typescript: ^4.1 || ^5.0
+      rollup: ^3.29.4 || ^4
+      typescript: ^4.5 || ^5.0
     dependencies:
       magic-string: 0.30.8
       rollup: 3.29.4
