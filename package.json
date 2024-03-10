@@ -191,7 +191,7 @@
     "release-it": "17.1.1",
     "require-from-string": "2.0.2",
     "rimraf": "5.0.5",
-    "rollup": "3.29.4",
+    "rollup": "4.12.1",
     "rollup-plugin-dts": "6.1.0",
     "seedrandom": "3.0.5",
     "styled-components": "5.3.11",
