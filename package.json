@@ -188,7 +188,7 @@
     "react-dom-17": "npm:react-dom@17.0.2",
     "react-virtualized": "9.22.5",
     "react-window": "1.8.10",
-    "release-it": "16.3.0",
+    "release-it": "17.1.1",
     "require-from-string": "2.0.2",
     "rimraf": "5.0.5",
     "rollup": "3.29.4",
