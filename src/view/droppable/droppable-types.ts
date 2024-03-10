@@ -62,6 +62,7 @@ export interface DefaultProps {
   getContainerForClone: () => HTMLElement;
   ignoreContainerClipping: boolean;
   isCombineEnabled: boolean;
+  isCombineOnly: boolean;
   isDropDisabled: boolean;
   mode: DroppableMode;
   type: TypeId;

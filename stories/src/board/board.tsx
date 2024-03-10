@@ -35,6 +35,7 @@ interface Props {
   initial: QuoteMap;
   withScrollableColumns?: boolean;
   isCombineEnabled?: boolean;
+  isCombineOnly?: boolean;
   containerHeight?: string;
   useClone?: boolean;
   applyGlobalStyles?: boolean;
@@ -50,6 +51,7 @@ export default class Board extends Component<Props, State> {
   /* eslint-disable react/sort-comp */
   static defaultProps = {
     isCombineEnabled: false,
+    isCombineOnly: false,
     applyGlobalStyles: true,
   };
 
@@ -127,6 +129,7 @@ export default class Board extends Component<Props, State> {
       containerHeight,
       useClone,
       isCombineEnabled,
+      isCombineOnly,
       withScrollableColumns,
       applyGlobalStyles,
     } = this.props;
@@ -138,6 +141,7 @@ export default class Board extends Component<Props, State> {
         direction="horizontal"
         ignoreContainerClipping={Boolean(containerHeight)}
         isCombineEnabled={isCombineEnabled}
+        isCombineOnly={isCombineOnly}
       >
         {(provided: DroppableProvided) => (
           <Container ref={provided.innerRef} {...provided.droppableProps}>
@@ -149,6 +153,7 @@ export default class Board extends Component<Props, State> {
                 quotes={columns[key]}
                 isScrollable={withScrollableColumns}
                 isCombineEnabled={isCombineEnabled}
+                isCombineOnly={isCombineOnly}
                 useClone={useClone}
               />
             ))}

@@ -36,8 +36,10 @@ import {
   move,
   publishWhileDragging,
   updateDroppableScroll,
+  updateDroppableLocation,
   updateDroppableIsEnabled,
   updateDroppableIsCombineEnabled,
+  updateDroppableIsCombineOnly,
   collectionStarting,
   flush,
 } from '../../state/action-creators';
@@ -156,8 +158,10 @@ export default function App(props: Props) {
         {
           publishWhileDragging,
           updateDroppableScroll,
+          updateDroppableLocation,
           updateDroppableIsEnabled,
           updateDroppableIsCombineEnabled,
+          updateDroppableIsCombineOnly,
           collectionStarting,
         },
         lazyDispatch as Dispatch,

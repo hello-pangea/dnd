@@ -23,7 +23,6 @@ import moveInDirection from './move-in-direction';
 import { add, isEqual, origin } from './position';
 import scrollViewport from './scroll-viewport';
 import isMovementAllowed from './is-movement-allowed';
-import { toDroppableList } from './dimension-structures';
 import update from './post-reducer/when-moving/update';
 import refreshSnap from './post-reducer/when-moving/refresh-snap';
 import getLiftEffect from './get-lift-effect';
@@ -105,11 +104,13 @@ export default (state: State = idle, action: Action): State => {
       },
     };
 
+    const isWindowScrollAllowed: boolean = true;
+    /*
     // Can only auto scroll the window if every list is not fixed on the page
     const isWindowScrollAllowed: boolean = toDroppableList(
       dimensions.droppables,
     ).every((item: DroppableDimension) => !item.isFixedOnPage);
-
+    */
     const { impact, afterCritical } = getLiftEffect({
       draggable,
       home,
@@ -228,6 +229,21 @@ export default (state: State = idle, action: Action): State => {
     return postDroppableChange(state, scrolled, false);
   }
 
+  if (action.type === 'UPDATE_DROPPABLE_LOCATION') {
+    invariant(
+      isMovementAllowed(state),
+      `${action.type} not permitted in phase ${state.phase}`,
+    );
+
+    const { id, droppableData } = action.payload;
+
+    const updated: DroppableDimension = {
+      ...state.dimensions.droppables[id],
+      ...droppableData,
+    };
+    return postDroppableChange(state, updated, true);
+  }
+
   if (action.type === 'UPDATE_DROPPABLE_IS_ENABLED') {
     // Things are locked at this point
     if (state.phase === 'DROP_PENDING') {
@@ -289,6 +305,39 @@ export default (state: State = idle, action: Action): State => {
     const updated: DroppableDimension = {
       ...target,
       isCombineEnabled,
+    };
+
+    return postDroppableChange(state, updated, true);
+  }
+
+  if (action.type === 'UPDATE_DROPPABLE_IS_COMBINE_ONLY') {
+    // Things are locked at this point
+    if (state.phase === 'DROP_PENDING') {
+      return state;
+    }
+
+    invariant(
+      isMovementAllowed(state),
+      `Attempting to move in an unsupported phase ${state.phase}`,
+    );
+
+    const { id, isCombineOnly } = action.payload;
+    const target: DroppableDimension | null = state.dimensions.droppables[id];
+
+    invariant(
+      target,
+      `Cannot find Droppable[id: ${id}] to toggle its isCombineOnly state`,
+    );
+
+    invariant(
+      target.isCombineOnly !== isCombineOnly,
+      `Trying to set droppable isCombineOnly to ${String(isCombineOnly)}
+      but it is already ${String(target.isCombineOnly)}`,
+    );
+
+    const updated: DroppableDimension = {
+      ...target,
+      isCombineOnly,
     };
 
     return postDroppableChange(state, updated, true);

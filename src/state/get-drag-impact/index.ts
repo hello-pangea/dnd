@@ -70,6 +70,19 @@ export default ({
   );
 
   // checking combine first so we combine before any reordering
+  if (destination.isCombineOnly) {
+    return (
+      getCombineImpact({
+        pageBorderBoxWithDroppableScroll,
+        draggable,
+        previousImpact,
+        destination,
+        insideDestination,
+        afterCritical,
+      }) || noImpact
+    );
+  }
+
   return (
     getCombineImpact({
       pageBorderBoxWithDroppableScroll,

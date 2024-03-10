@@ -33,6 +33,7 @@ import useRequiredContext from '../use-required-context';
 import usePreviousRef from '../use-previous-ref';
 import useLayoutEffect from '../use-isomorphic-layout-effect';
 import useUniqueId from '../use-unique-id';
+import getWindowScroll from '../window/get-window-scroll';
 
 interface Props {
   droppableId: DroppableId;
@@ -41,6 +42,7 @@ interface Props {
   direction: Direction;
   isDropDisabled: boolean;
   isCombineEnabled: boolean;
+  isCombineOnly: boolean;
   ignoreContainerClipping: boolean;
   getDroppableRef: () => HTMLElement | null;
 }
@@ -122,6 +124,35 @@ export default function useDroppablePublisher(args: Props) {
     scheduleScrollUpdate();
   }, [scheduleScrollUpdate, updateScroll]);
 
+  const onWindowScroll = useCallback(() => {
+    if (!whileDraggingRef.current) return;
+    const windowScroll = getWindowScroll();
+
+    const previous: Props = previousRef.current;
+    const ref: HTMLElement | null = previous.getDroppableRef();
+    invariant(ref, 'Cannot collect without a droppable ref');
+    const env: Env = getEnv(ref);
+
+    const dimension: DroppableDimension = getDimension({
+      ref,
+      descriptor,
+      env,
+      windowScroll,
+      direction: previous.direction,
+      isDropDisabled: previous.isDropDisabled,
+      isCombineEnabled: previous.isCombineEnabled,
+      isCombineOnly: previous.isCombineOnly,
+      shouldClipSubject: !previous.ignoreContainerClipping,
+    });
+
+    marshal.updateDroppableLocation(descriptor.id, dimension);
+  }, [marshal, descriptor, previousRef]);
+
+  const onWindowScrollScheduled = useMemo(
+    () => rafSchedule(onWindowScroll),
+    [onWindowScroll],
+  );
+
   const getDimensionAndWatchScroll = useCallback(
     (windowScroll: Position, options: ScrollOptions) => {
       invariant(
@@ -150,10 +181,16 @@ export default function useDroppablePublisher(args: Props) {
         direction: previous.direction,
         isDropDisabled: previous.isDropDisabled,
         isCombineEnabled: previous.isCombineEnabled,
+        isCombineOnly: previous.isCombineOnly,
         shouldClipSubject: !previous.ignoreContainerClipping,
       });
 
       const scrollable: Element | null = env.closestScrollable;
+
+      // start monitoring body scroll if element is fixed to offset the position
+      if (env.isFixedOnPage && scrollable) {
+        window.addEventListener('scroll', onWindowScrollScheduled);
+      }
 
       if (scrollable) {
         scrollable.setAttribute(
@@ -175,7 +212,13 @@ export default function useDroppablePublisher(args: Props) {
 
       return dimension;
     },
-    [appContext.contextId, descriptor, onClosestScroll, previousRef],
+    [
+      appContext.contextId,
+      descriptor,
+      onClosestScroll,
+      previousRef,
+      onWindowScrollScheduled,
+    ],
   );
 
   const getScrollWhileDragging = useCallback((): Position => {
@@ -185,7 +228,6 @@ export default function useDroppablePublisher(args: Props) {
       dragging && closest,
       'Can only recollect Droppable client for Droppables that have a scroll container',
     );
-
     return getScroll(closest);
   }, []);
 
@@ -211,7 +253,9 @@ export default function useDroppablePublisher(args: Props) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       getListenerOptions(dragging.scrollOptions) as any,
     );
-  }, [onClosestScroll, scheduleScrollUpdate]);
+
+    window.removeEventListener('scroll', onWindowScrollScheduled);
+  }, [onClosestScroll, scheduleScrollUpdate, onWindowScrollScheduled]);
 
   const scroll = useCallback((change: Position) => {
     // arrange
@@ -285,4 +329,16 @@ export default function useDroppablePublisher(args: Props) {
       args.isCombineEnabled,
     );
   }, [args.isCombineEnabled, marshal]);
+
+  // update is combine only with the marshal
+  // only need to update when there is a drag
+  useLayoutEffect(() => {
+    if (!whileDraggingRef.current) {
+      return;
+    }
+    marshal.updateDroppableIsCombineOnly(
+      publishedDescriptorRef.current.id,
+      args.isCombineOnly,
+    );
+  }, [args.isCombineOnly, marshal]);
 }

@@ -109,6 +109,7 @@ export const makeScrollable = (droppable: DroppableDimension, amount = 20) => {
     page: newPage,
     isCombineEnabled: droppable.isCombineEnabled,
     isFixedOnPage: droppable.isFixedOnPage,
+    isCombineOnly: droppable.isCombineOnly,
     closest: {
       // using old dimensions for frame
       client: droppable.client,

@@ -5,6 +5,8 @@ import type {
   UpdateDroppableScrollActionCreator,
   UpdateDroppableIsEnabledActionCreator,
   UpdateDroppableIsCombineEnabledActionCreator,
+  UpdateDroppableLocationActionCreator,
+  UpdateDroppableIsCombineOnlyCreator,
 } from '../action-creators';
 import type {
   DroppableId,
@@ -12,6 +14,7 @@ import type {
   DimensionMap,
   LiftRequest,
   Viewport,
+  DroppableDimension,
 } from '../../types';
 
 export interface StartPublishingResult {
@@ -28,7 +31,12 @@ export interface DimensionMarshal {
     id: DroppableId,
     isEnabled: boolean,
   ) => void;
+  updateDroppableIsCombineOnly: (id: DroppableId, isEnabled: boolean) => void;
   updateDroppableScroll: (id: DroppableId, newScroll: Position) => void;
+  updateDroppableLocation: (
+    id: DroppableId,
+    droppableData: DroppableDimension,
+  ) => void;
   scrollDroppable: (id: DroppableId, change: Position) => void;
   // Entry
   startPublishing: (request: LiftRequest) => StartPublishingResult;
@@ -39,6 +47,8 @@ export interface Callbacks {
   collectionStarting: CollectionStartingActionCreator;
   publishWhileDragging: PublishWhileDraggingActionCreator;
   updateDroppableScroll: UpdateDroppableScrollActionCreator;
+  updateDroppableLocation: UpdateDroppableLocationActionCreator;
   updateDroppableIsEnabled: UpdateDroppableIsEnabledActionCreator;
   updateDroppableIsCombineEnabled: UpdateDroppableIsCombineEnabledActionCreator;
+  updateDroppableIsCombineOnly: UpdateDroppableIsCombineOnlyCreator;
 }

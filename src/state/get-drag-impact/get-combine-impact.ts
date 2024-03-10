@@ -33,7 +33,7 @@ export default ({
   insideDestination,
   afterCritical,
 }: Args): DragImpact | null => {
-  if (!destination.isCombineEnabled) {
+  if (!destination.isCombineEnabled && !destination.isCombineOnly) {
     return null;
   }
   const axis: Axis = destination.axis;
@@ -55,7 +55,10 @@ export default ({
     const id: DraggableId = child.descriptor.id;
     const childRect: Rect = child.page.borderBox;
     const childSize: number = childRect[axis.size];
-    const threshold: number = childSize / combineThresholdDivisor;
+    let threshold: number = childSize / combineThresholdDivisor;
+    if (destination.isCombineOnly) {
+      threshold = 0;
+    }
 
     const didStartAfterCritical: boolean = getDidStartAfterCritical(
       id,

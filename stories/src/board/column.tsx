@@ -42,6 +42,7 @@ interface Props {
   index: number;
   isScrollable?: boolean;
   isCombineEnabled?: boolean;
+  isCombineOnly?: boolean;
   useClone?: boolean;
 }
 
@@ -71,6 +72,7 @@ export default class Column extends Component<Props> {
               quotes={quotes}
               internalScroll={this.props.isScrollable}
               isCombineEnabled={Boolean(this.props.isCombineEnabled)}
+              isCombineOnly={Boolean(this.props.isCombineOnly)}
               useClone={Boolean(this.props.useClone)}
             />
           </Container>
