@@ -356,8 +356,8 @@ devDependencies:
     specifier: 3.29.4
     version: 3.29.4
   rollup-plugin-dts:
-    specifier: 5.3.1
-    version: 5.3.1(rollup@3.29.4)(typescript@4.9.5)
+    specifier: 6.1.0
+    version: 6.1.0(rollup@3.29.4)(typescript@4.9.5)
   seedrandom:
     specifier: 3.0.5
     version: 3.0.5
@@ -16379,12 +16379,12 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
-  /rollup-plugin-dts@5.3.1(rollup@3.29.4)(typescript@4.9.5):
-    resolution: {integrity: sha512-gusMi+Z4gY/JaEQeXnB0RUdU82h1kF0WYzCWgVmV4p3hWXqelaKuCvcJawfeg+EKn2T1Ie+YWF2OiN1/L8bTVg==}
-    engines: {node: '>=v14.21.3'}
+  /rollup-plugin-dts@6.1.0(rollup@3.29.4)(typescript@4.9.5):
+    resolution: {integrity: sha512-ijSCPICkRMDKDLBK9torss07+8dl9UpY9z1N/zTeA1cIqdzMlpkV3MOOC7zukyvQfDyxa1s3Dl2+DeiP/G6DOw==}
+    engines: {node: '>=16'}
     peerDependencies:
-      rollup: ^3.0
-      typescript: ^4.1 || ^5.0
+      rollup: ^3.29.4 || ^4
+      typescript: ^4.5 || ^5.0
     dependencies:
       magic-string: 0.30.8
       rollup: 3.29.4
