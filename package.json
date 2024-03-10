@@ -175,7 +175,7 @@
     "jest-watch-typeahead": "2.2.2",
     "jsdom": "23.2.0",
     "lighthouse": "10.4.0",
-    "markdown-it": "13.0.2",
+    "markdown-it": "14.0.0",
     "memory-fs": "0.5.0",
     "postcss-styled-syntax": "0.6.4",
     "prettier": "3.2.5",
