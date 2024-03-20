@@ -74,7 +74,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@babel/runtime": "^7.24.0",
+    "@babel/runtime": "^7.24.1",
     "css-box-model": "^1.2.1",
     "memoize-one": "^6.0.0",
     "raf-schd": "^4.0.3",
