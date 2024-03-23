@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 // import { Draggable, Droppable, DragDropContext } from '../../src/';
 
 class App extends React.Component {
@@ -8,6 +7,11 @@ class App extends React.Component {
   }
 }
 
-storiesOf('Examples/Troubleshoot example', module).add('debug example', () => (
-  <App />
-));
+export default {
+  title: 'Examples/Troubleshoot example',
+};
+
+export const DebugExample = {
+  render: () => <App />,
+  name: 'debug example',
+};

@@ -1,8 +1,11 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import InteractiveElementsApp from '../src/interactive-elements/interactive-elements-app';
 
-storiesOf('Examples/nested interative elements', module).add(
-  'stress test',
-  () => <InteractiveElementsApp />,
-);
+export default {
+  title: 'Examples/nested interative elements',
+};
+
+export const StressTest = {
+  render: () => <InteractiveElementsApp />,
+  name: 'stress test',
+};

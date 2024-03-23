@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import QuoteApp from '../src/multiple-vertical/quote-app';
 import { getQuotes } from '../src/data';
 
@@ -16,6 +15,11 @@ const generateQuoteMap = () => ({
   kappa: getQuotes(5),
 });
 
-storiesOf('Examples/multiple vertical lists', module).add('stress test', () => (
-  <QuoteApp initial={generateQuoteMap()} />
-));
+export default {
+  title: 'Examples/multiple vertical lists',
+};
+
+export const StressTest = {
+  render: () => <QuoteApp initial={generateQuoteMap()} />,
+  name: 'stress test',
+};

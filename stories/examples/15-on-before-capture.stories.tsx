@@ -1,7 +1,11 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import AddingThings from '../src/on-before-capture/adding-things';
+import OnBeforeCaptureAddingThings from '../src/on-before-capture/adding-things';
 
-storiesOf('Examples/onBeforeCapture', module).add('adding things', () => (
-  <AddingThings />
-));
+export default {
+  title: 'Examples/onBeforeCapture',
+};
+
+export const AddingThings = {
+  render: () => <OnBeforeCaptureAddingThings />,
+  name: 'adding things',
+};

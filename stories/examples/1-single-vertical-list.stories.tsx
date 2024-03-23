@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
 import QuoteApp from '../src/vertical/quote-app';
 import { getQuotes } from '../src/data';
@@ -26,16 +25,30 @@ const Title = styled.h4`
   margin-bottom: ${grid}px;
 `;
 
-storiesOf('Examples/single vertical list', module)
-  .add('basic', () => <QuoteApp initial={generateData.small()} />)
-  .add('large data set', () => <QuoteApp initial={generateData.large()} />, {
+export default {
+  title: 'Examples/single vertical list',
+};
+
+export const Basic = {
+  render: () => <QuoteApp initial={generateData.small()} />,
+  name: 'basic',
+};
+
+export const LargeDataSet = {
+  render: () => <QuoteApp initial={generateData.large()} />,
+  name: 'large data set',
+
+  parameters: {
     chromatic: {
       // This is to make sure we do not reach
       // the 25,000,000px limit of the snapshot.
       viewports: [320],
     },
-  })
-  .add('Droppable is a scroll container', () => (
+  },
+};
+
+export const DroppableIsAScrollContainer = {
+  render: () => (
     <QuoteApp
       initial={generateData.medium()}
       listStyle={{
@@ -44,8 +57,13 @@ storiesOf('Examples/single vertical list', module)
         position: 'relative',
       }}
     />
-  ))
-  .add('window scrolling and a Droppable scroll container', () => (
+  ),
+
+  name: 'Droppable is a scroll container',
+};
+
+export const WindowScrollingAndADroppableScrollContainer = {
+  render: () => (
     <QuoteApp
       initial={generateData.medium()}
       listStyle={{
@@ -54,13 +72,24 @@ storiesOf('Examples/single vertical list', module)
         position: 'relative',
       }}
     />
-  ))
-  .add('within a larger scroll container', () => (
+  ),
+
+  name: 'window scrolling and a Droppable scroll container',
+};
+
+export const WithinALargerScrollContainer = {
+  render: () => (
     <ScrollContainer>
       <Title>List is within a larger scroll container</Title>
       <QuoteApp initial={generateData.medium()} />
     </ScrollContainer>
-  ))
-  .add('with combine enabled', () => (
-    <QuoteApp initial={generateData.small()} isCombineEnabled />
-  ));
+  ),
+
+  name: 'within a larger scroll container',
+};
+
+export const WithCombineEnabled = {
+  render: () => <QuoteApp initial={generateData.small()} isCombineEnabled />,
+
+  name: 'with combine enabled',
+};
