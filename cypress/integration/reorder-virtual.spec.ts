@@ -12,7 +12,7 @@ describe('reorder: virtual', () => {
 
     cy.get(getHandleSelector()).first().as('item');
 
-    cy.get('@item').invoke('attr', 'data-testid').as('item-id');
+    cy.get('@item').invoke('attr', 'data-testid').as('item-id', { type: 'static' });
 
     cy.get('@item')
       .invoke('attr', 'data-index')
