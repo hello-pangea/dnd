@@ -29,11 +29,11 @@ dependencies:
 
 devDependencies:
   '@atlaskit/css-reset':
-    specifier: 6.6.2
-    version: 6.6.2(react@18.2.0)
+    specifier: 6.7.1
+    version: 6.7.1(react@18.2.0)
   '@atlaskit/theme':
-    specifier: 12.6.4
-    version: 12.6.4(react@18.2.0)
+    specifier: 12.6.6
+    version: 12.6.6(react@18.2.0)
   '@babel/core':
     specifier: 7.24.0
     version: 7.24.0
@@ -411,13 +411,13 @@ packages:
       '@babel/runtime': 7.24.1
     dev: true
 
-  /@atlaskit/css-reset@6.6.2(react@18.2.0):
-    resolution: {integrity: sha512-UfLXRmSN2Bbg9LDfMpMB3lYOorCs491Y4AcPCsOPMUcg7clLoVOUBY9+gHHR9rxfx7XC2oXIt9TP/UgOSzv7aQ==}
+  /@atlaskit/css-reset@6.7.1(react@18.2.0):
+    resolution: {integrity: sha512-Sb07C13/NfBCbduk03ytiQkyn48SJ7Epj1rVB/5Z3NB9aeHZrWIKJjajKbwpJmBq0f3apKn9LMhhm+QKodzeOw==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
-      '@atlaskit/theme': 12.6.4(react@18.2.0)
-      '@atlaskit/tokens': 1.39.1(react@18.2.0)
+      '@atlaskit/theme': 12.6.6(react@18.2.0)
+      '@atlaskit/tokens': 1.42.1(react@18.2.0)
       '@babel/runtime': 7.24.1
       fbjs: 3.0.5
       react: 18.2.0
@@ -442,22 +442,22 @@ packages:
       '@babel/runtime': 7.24.1
     dev: true
 
-  /@atlaskit/theme@12.6.4(react@18.2.0):
-    resolution: {integrity: sha512-ellfZGqUiUMvCu+PnHCO20x7cqFG5fiL6h+eweHtXv/QbZlRsbD+IKJFxCnQuy4wP9BRMeNypr6QBMxYGzFVUg==}
+  /@atlaskit/theme@12.6.6(react@18.2.0):
+    resolution: {integrity: sha512-VOej3rTorDjeN42yyeIhXrQBQ/eN6nHcEGp7d6sDx8Sgj6WR/Fa23m19HdcEePL4tBJZH53yvDoc2ObuBbIdeQ==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
       '@atlaskit/ds-lib': 2.2.4(react@18.2.0)
-      '@atlaskit/tokens': 1.39.1(react@18.2.0)
+      '@atlaskit/tokens': 1.42.1(react@18.2.0)
       '@babel/runtime': 7.24.1
       react: 18.2.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@atlaskit/tokens@1.39.1(react@18.2.0):
-    resolution: {integrity: sha512-sU5HpX1ys2MsDfJdTSrJFI24IcKcuxJEPuu9GLyyfXE5NV/H3SgKHqzLhTaZbWfqXuhtxPP+qkUmaWkdaRUHTQ==}
+  /@atlaskit/tokens@1.42.1(react@18.2.0):
+    resolution: {integrity: sha512-P2JNxcwQGjeYDBF03kkQpJ3UPMIC20VN3VAotMIyPU4M3Z8HVvoBgGoKis3ahG0s3tNnph6R3hsw9snRAyGJsQ==}
     peerDependencies:
       react: ^16.8.0
     dependencies:
