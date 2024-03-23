@@ -121,6 +121,7 @@ export const quotes: Quote[] = [
 let idCount: number;
 let predictableMathRandom: seedrandom.PRNG;
 
+// FIXME: This doesn't work well with StrictMode
 export const resetData = (seed: string) => {
   idCount = 1;
   predictableMathRandom = seedrandom(seed);

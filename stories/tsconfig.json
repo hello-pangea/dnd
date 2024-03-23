@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "compilerOptions": {
     "baseUrl": ".",
-    "types": ["@emotion/react/types/css-prop", "csstype"],
+    "types": ["csstype"],
     "paths": {
       "@hello-pangea/dnd": ["../src/index.ts"]
     }

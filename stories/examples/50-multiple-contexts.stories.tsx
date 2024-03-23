@@ -1,14 +1,18 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import MultipleContexts from '../src/programmatic/multiple-contexts';
 
-storiesOf('Examples/Multiple contexts', module).add(
-  'with multiple contexts',
-  () => <MultipleContexts />,
-  {
+export default {
+  title: 'Examples/Multiple contexts',
+};
+
+export const WithMultipleContexts = {
+  render: () => <MultipleContexts />,
+  name: 'with multiple contexts',
+
+  parameters: {
     // disables Chromatic's snapshotting, because
     // the snapshot will always be different due to
     // the programmatic dragging
     chromatic: { disableSnapshot: true },
   },
-);
+};

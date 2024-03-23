@@ -1,5 +1,4 @@
 import React, { ChangeEvent, ReactElement } from 'react';
-import { css } from '@emotion/react';
 import { colors } from '@atlaskit/theme';
 import { grid, borderRadius } from '../constants';
 
@@ -28,29 +27,29 @@ export default function QuoteCountChooser(props: Props): ReactElement {
 
   return (
     <div
-      css={css`
-        background-color: ${colors.N0};
-        padding: ${grid}px;
-        border-radius: ${borderRadius}px;
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        margin-left: ${grid}px;
-      `}
+      style={{
+        backgroundColor: `${colors.N0}`,
+        padding: `${grid}px`,
+        borderRadius: `${borderRadius}px`,
+        width: `200px`,
+        display: `flex`,
+        flexDirection: `column`,
+        marginLeft: `${grid}px`,
+      }}
     >
       <h4
-        css={css`
-          margin-bottom: ${grid}px;
-        `}
+        style={{
+          marginBottom: `${grid}px`,
+        }}
       >
         <code>{props.library}</code>
       </h4>
       <select
         onChange={onChange}
         value={props.count}
-        css={css`
-          font-size: 16px;
-        `}
+        style={{
+          fontSize: '16px',
+        }}
       >
         {options.map((option: Option) => (
           <option key={option.name} value={option.value}>

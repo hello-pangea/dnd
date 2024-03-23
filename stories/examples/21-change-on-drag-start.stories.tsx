@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import {
   DragDropContext,
   Droppable,
@@ -148,7 +147,11 @@ class App extends React.Component<unknown, State> {
   }
 }
 
-storiesOf('Examples/onDragStart', module).add(
-  'toggle isDropDisabled onDragStart',
-  () => <App />,
-);
+export default {
+  title: 'Examples/onDragStart',
+};
+
+export const ToggleIsDropDisabledOnDragStart = {
+  render: () => <App />,
+  name: 'toggle isDropDisabled onDragStart',
+};

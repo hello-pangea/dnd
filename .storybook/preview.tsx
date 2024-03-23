@@ -1,6 +1,6 @@
 import '@atlaskit/css-reset';
 
-import { DecoratorFn } from '@storybook/react';
+import { Preview } from '@storybook/react';
 import React from 'react';
 import { resetData } from '../stories/src/data';
 import GlobalStyles from './custom-decorators/global-styles';
@@ -8,21 +8,28 @@ import welcomeMessage from './welcome-message';
 
 welcomeMessage();
 
-export const decorators: DecoratorFn[] = [
-  (story, { id }: { id: string }) => {
-    resetData(id);
+const preview: Preview = {
+  decorators: [
+    (Story, { id }) => {
+      resetData(id);
 
-    return story({ key: id });
-  },
-  (story) => <GlobalStyles>{story()}</GlobalStyles>,
-];
+      return <Story key={id} />;
+    },
+    (Story) => (
+      <GlobalStyles>
+        <Story />
+      </GlobalStyles>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
 
-export const parameters = {
-  layout: 'fullscreen',
-
-  options: {
-    storySort: {
-      order: ['Welcome', 'Examples'],
+    options: {
+      storySort: {
+        order: ['Welcome', 'Examples'],
+      },
     },
   },
 };
+
+export default preview;

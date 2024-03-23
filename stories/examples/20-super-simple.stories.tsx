@@ -1,15 +1,30 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import Simple from '../src/simple/simple';
-import SimpleWithScroll from '../src/simple/simple-scrollable';
-import WithMixedSpacing from '../src/simple/simple-mixed-spacing';
+import WithSimpleScroll from '../src/simple/simple-scrollable';
+import WithSimpleMixedSpacing from '../src/simple/simple-mixed-spacing';
 
-storiesOf('Examples/Super simple', module)
-  .add('vertical list', () => <Simple />)
-  .add('vertical list with scroll (overflow: auto)', () => (
-    <SimpleWithScroll overflow="auto" />
-  ))
-  .add('vertical list with scroll (overflow: scroll)', () => (
-    <SimpleWithScroll overflow="scroll" />
-  ))
-  .add('with mixed spacing', () => <WithMixedSpacing />);
+export default {
+  title: 'Examples/Super simple',
+};
+
+export const VerticalList = {
+  render: () => <Simple />,
+  name: 'vertical list',
+};
+
+export const VerticalListWithScrollOverflowAuto = {
+  render: () => <WithSimpleScroll overflow="auto" />,
+
+  name: 'vertical list with scroll (overflow: auto)',
+};
+
+export const VerticalListWithScrollOverflowScroll = {
+  render: () => <WithSimpleScroll overflow="scroll" />,
+
+  name: 'vertical list with scroll (overflow: scroll)',
+};
+
+export const WithMixedSpacing = {
+  render: () => <WithSimpleMixedSpacing />,
+  name: 'with mixed spacing',
+};

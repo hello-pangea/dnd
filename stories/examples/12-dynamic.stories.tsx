@@ -1,8 +1,17 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import WithControls from '../src/dynamic/with-controls';
-import LazyLoading from '../src/dynamic/lazy-loading';
+import DynamicWithControls from '../src/dynamic/with-controls';
+import DynamicLazyLoading from '../src/dynamic/lazy-loading';
 
-storiesOf('Examples/Dynamic changes during a drag (v11 only)', module)
-  .add('With controls', () => <WithControls />)
-  .add('Lazy loading', () => <LazyLoading />);
+export default {
+  title: 'Examples/Dynamic changes during a drag (v11 only)',
+};
+
+export const WithControls = {
+  render: () => <DynamicWithControls />,
+  name: 'With controls',
+};
+
+export const LazyLoading = {
+  render: () => <DynamicLazyLoading />,
+  name: 'Lazy loading',
+};
