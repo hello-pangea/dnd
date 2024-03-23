@@ -44,7 +44,7 @@
   "scripts": {
     "commit": "cz",
     "chromatic": "chromatic --project-token=f92123f238de",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "release-it",
     "release:test": "release-it --dry-run",
     "test:accessibility": "lighthouse http://localhost:9002/iframe.html?id=examples-single-vertical-list--basic --no-enable-error-reporting --config-path=lighthouse.config.js --chrome-flags='--headless' --output=json --output=html --output-path=./test-reports/lighthouse/a11y.json && node a11y-audit-parse.js",
@@ -167,7 +167,7 @@
     "express": "4.19.1",
     "fast-glob": "3.3.2",
     "fs-extra": "11.2.0",
-    "husky": "8.0.3",
+    "husky": "9.0.11",
     "jest": "29.7.0",
     "jest-axe": "8.0.0",
     "jest-environment-jsdom": "29.7.0",
