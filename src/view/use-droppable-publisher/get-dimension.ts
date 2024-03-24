@@ -6,6 +6,7 @@ import type { Env } from './get-env';
 import type {
   DroppableDimension,
   DroppableDescriptor,
+  DraggableDescriptor,
   Direction,
   ScrollSize,
 } from '../../types';
@@ -78,6 +79,7 @@ interface Args {
   direction: Direction;
   isDropDisabled: boolean;
   isCombineEnabled: boolean;
+  isCombineAllowedForItem?: (combineWith: DraggableDescriptor) => boolean;
   shouldClipSubject: boolean;
 }
 
@@ -89,6 +91,7 @@ export default ({
   direction,
   isDropDisabled,
   isCombineEnabled,
+  isCombineAllowedForItem,
   shouldClipSubject,
 }: Args): DroppableDimension => {
   const closestScrollable: Element | null = env.closestScrollable;
@@ -119,6 +122,7 @@ export default ({
     descriptor,
     isEnabled: !isDropDisabled,
     isCombineEnabled,
+    isCombineAllowedForItem,
     isFixedOnPage: env.isFixedOnPage,
     direction,
     client,

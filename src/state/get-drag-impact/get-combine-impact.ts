@@ -105,7 +105,11 @@ export default ({
     );
   });
 
-  if (!combineWith) {
+  if (
+    !combineWith ||
+    (destination.isCombineAllowedForItem &&
+      !destination.isCombineAllowedForItem(combineWith.descriptor))
+  ) {
     return null;
   }
 
