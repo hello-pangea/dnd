@@ -30,6 +30,7 @@ interface Args {
   // is null when in a fixed container
   page: BoxModel;
   closest?: Closest | null;
+  zIndex?: CSSStyleDeclaration['zIndex'];
 }
 
 export default ({
@@ -41,6 +42,7 @@ export default ({
   client,
   page,
   closest,
+  zIndex,
 }: Args): DroppableDimension => {
   const frame: Scrollable | null = (() => {
     if (!closest) {
@@ -94,6 +96,7 @@ export default ({
     page,
     frame,
     subject,
+    zIndex,
   };
 
   return dimension;
