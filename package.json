@@ -120,7 +120,7 @@
     "@storybook/react-webpack5": "8.0.4",
     "@storybook/theming": "8.0.4",
     "@swc/core": "1.4.8",
-    "@testing-library/dom": "9.3.4",
+    "@testing-library/dom": "10.0.0",
     "@testing-library/jest-dom": "6.4.2",
     "@testing-library/react": "14.2.2",
     "@testing-library/react-16-17": "npm:@testing-library/react@12.1.5",
