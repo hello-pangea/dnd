@@ -129,7 +129,7 @@
     "@types/jest": "29.5.12",
     "@types/jest-axe": "3.5.9",
     "@types/jsdom": "21.1.6",
-    "@types/markdown-it": "13.0.7",
+    "@types/markdown-it": "14.1.1",
     "@types/node": "20.11.30",
     "@types/raf-schd": "4.0.3",
     "@types/react": "18.2.69",
