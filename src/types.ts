@@ -1,28 +1,28 @@
 import type { BoxModel, Rect, Position } from 'css-box-model';
 
-export type Id = string;
-export type DraggableId = Id;
-export type DroppableId = Id;
-export type TypeId = Id;
-export type ContextId = Id;
-export type ElementId = Id;
+export type Id<TId extends string = string> = TId;
+export type DraggableId<TId extends string = string> = Id<TId>;
+export type DroppableId<TId extends string = string> = Id<TId>;
+export type TypeId<TId extends string = string> = Id<TId>;
+export type ContextId<TId extends string = string> = Id<TId>;
+export type ElementId<TId extends string = string> = Id<TId>;
 
 export type DroppableMode = 'standard' | 'virtual';
 
-export interface DroppableDescriptor {
-  id: DroppableId;
-  type: TypeId;
+export interface DroppableDescriptor<TId extends string = string> {
+  id: DroppableId<TId>;
+  type: TypeId<TId>;
   mode: DroppableMode;
 }
 
-export interface DraggableDescriptor {
-  id: DraggableId;
+export interface DraggableDescriptor<TId extends string = string> {
+  id: DraggableId<TId>;
   index: number;
   // Inherited from Droppable
-  droppableId: DroppableId;
+  droppableId: DroppableId<TId>;
   // This is technically redundant but it avoids
   // needing to look up a parent droppable just to get its type
-  type: TypeId;
+  type: TypeId<TId>;
 }
 
 export interface DraggableOptions {
@@ -86,8 +86,8 @@ export interface Placeholder {
   display: string;
 }
 
-export interface DraggableDimension {
-  descriptor: DraggableDescriptor;
+export interface DraggableDimension<TId extends string = string> {
+  descriptor: DraggableDescriptor<TId>;
   // the placeholder for the draggable
   placeholder: Placeholder;
   // relative to the viewport when the drag started
@@ -135,8 +135,8 @@ export interface DroppableSubject {
   active: Rect | null;
 }
 
-export interface DroppableDimension {
-  descriptor: DroppableDescriptor;
+export interface DroppableDimension<TId extends string = string> {
+  descriptor: DroppableDescriptor<TId>;
   axis: Axis;
   isEnabled: boolean;
   isCombineEnabled: boolean;
@@ -151,34 +151,34 @@ export interface DroppableDimension {
   // what is visible through the frame
   subject: DroppableSubject;
 }
-export interface DraggableLocation {
-  droppableId: DroppableId;
+export interface DraggableLocation<TId extends string = string> {
+  droppableId: DroppableId<TId>;
   index: number;
 }
 
-export type DraggableIdMap = {
-  [id in DraggableId]: true;
+export type DraggableIdMap<TId extends string = string> = {
+  [id in DraggableId<TId>]: true;
 };
 
-export type DroppableIdMap = {
-  [id in DroppableId]: true;
+export type DroppableIdMap<TId extends string = string> = {
+  [id in DroppableId<TId>]: true;
 };
 
-export type DraggableDimensionMap = {
-  [key in DraggableId]: DraggableDimension;
+export type DraggableDimensionMap<TId extends string = string> = {
+  [key in DraggableId<TId>]: DraggableDimension<TId>;
 };
 
-export type DroppableDimensionMap = {
-  [key in DroppableId]: DroppableDimension;
+export type DroppableDimensionMap<TId extends string = string> = {
+  [key in DroppableId<TId>]: DroppableDimension<TId>;
 };
 
-export interface Displacement {
-  draggableId: DraggableId;
+export interface Displacement<TId extends string = string> {
+  draggableId: DraggableId<TId>;
   shouldAnimate: boolean;
 }
 
-export type DisplacementMap = {
-  [key in DraggableId]: Displacement;
+export type DisplacementMap<TId extends string = string> = {
+  [key in DraggableId<TId>]: Displacement<TId>;
 };
 
 export interface DisplacedBy {
@@ -186,36 +186,38 @@ export interface DisplacedBy {
   point: Position;
 }
 
-export interface Combine {
-  draggableId: DraggableId;
-  droppableId: DroppableId;
+export interface Combine<TId extends string = string> {
+  draggableId: DraggableId<TId>;
+  droppableId: DroppableId<TId>;
 }
 
-export interface DisplacementGroups {
-  all: DraggableId[];
-  visible: DisplacementMap;
-  invisible: DraggableIdMap;
+export interface DisplacementGroups<TId extends string = string> {
+  all: DraggableId<TId>[];
+  visible: DisplacementMap<TId>;
+  invisible: DraggableIdMap<TId>;
 }
 
-export interface ReorderImpact {
+export interface ReorderImpact<TId extends string = string> {
   type: 'REORDER';
-  destination: DraggableLocation;
+  destination: DraggableLocation<TId>;
 }
 
-export interface CombineImpact {
+export interface CombineImpact<TId extends string = string> {
   type: 'COMBINE';
-  combine: Combine;
+  combine: Combine<TId>;
 }
 
-export type ImpactLocation = ReorderImpact | CombineImpact;
+export type ImpactLocation<TId extends string = string> =
+  | ReorderImpact<TId>
+  | CombineImpact<TId>;
 
-export interface Displaced {
-  forwards: DisplacementGroups;
-  backwards: DisplacementGroups;
+export interface Displaced<TId extends string = string> {
+  forwards: DisplacementGroups<TId>;
+  backwards: DisplacementGroups<TId>;
 }
 
-export interface DragImpact {
-  displaced: DisplacementGroups;
+export interface DragImpact<TId extends string = string> {
+  displaced: DisplacementGroups<TId>;
   displacedBy: DisplacedBy;
   at: ImpactLocation | null;
 }
@@ -248,36 +250,39 @@ export interface DragPositions {
   page: PagePositions;
 }
 
-export interface DraggableRubric {
-  draggableId: DraggableId;
-  type: TypeId;
-  source: DraggableLocation;
+export interface DraggableRubric<TId extends string = string> {
+  draggableId: DraggableId<TId>;
+  type: TypeId<TId>;
+  source: DraggableLocation<TId>;
 }
 
 // Published in onBeforeCapture
 // We cannot give more information as things might change in the
 // onBeforeCapture responder!
-export interface BeforeCapture {
-  draggableId: DraggableId;
+export interface BeforeCapture<TId extends string = string> {
+  draggableId: DraggableId<TId>;
   mode: MovementMode;
 }
 
 // published when a drag starts
-export interface DragStart extends DraggableRubric {
+export interface DragStart<TId extends string = string>
+  extends DraggableRubric<TId> {
   mode: MovementMode;
 }
 
-export interface DragUpdate extends DragStart {
+export interface DragUpdate<TId extends string = string>
+  extends DragStart<TId> {
   // may not have any destination (drag to nowhere)
-  destination: DraggableLocation | null;
+  destination: DraggableLocation<TId> | null;
   // populated when a draggable is dragging over another in combine mode
-  combine: Combine | null;
+  combine: Combine<TId> | null;
 }
 
 export type DropReason = 'DROP' | 'CANCEL';
 
 // published when a drag finishes
-export interface DropResult extends DragUpdate {
+export interface DropResult<TId extends string = string>
+  extends DragUpdate<TId> {
   reason: DropReason;
 }
 
@@ -291,14 +296,14 @@ export interface ScrollOptions {
 // confusion the request is just an id which is looked up
 // in the dimension-marshal post-flush
 // Not including droppableId as it might change in a drop flush
-export interface LiftRequest {
-  draggableId: DraggableId;
+export interface LiftRequest<TId extends string = string> {
+  draggableId: DraggableId<TId>;
   scrollOptions: ScrollOptions;
 }
 
-export interface Critical {
-  draggable: DraggableDescriptor;
-  droppable: DroppableDescriptor;
+export interface Critical<TId extends string = string> {
+  draggable: DraggableDescriptor<TId>;
+  droppable: DroppableDescriptor<TId>;
 }
 
 export interface Viewport {
@@ -307,53 +312,53 @@ export interface Viewport {
   scroll: ScrollDetails;
 }
 
-export interface LiftEffect {
+export interface LiftEffect<TId extends string = string> {
   inVirtualList: boolean;
-  effected: DraggableIdMap;
+  effected: DraggableIdMap<TId>;
   displacedBy: DisplacedBy;
 }
 
-export interface DimensionMap {
-  draggables: DraggableDimensionMap;
-  droppables: DroppableDimensionMap;
+export interface DimensionMap<TId extends string = string> {
+  draggables: DraggableDimensionMap<TId>;
+  droppables: DroppableDimensionMap<TId>;
 }
 
-export interface DroppablePublish {
-  droppableId: DroppableId;
+export interface DroppablePublish<TId extends string = string> {
+  droppableId: DroppableId<TId>;
   scroll: Position;
 }
 
-export interface Published {
-  additions: DraggableDimension[];
-  removals: DraggableId[];
-  modified: DroppablePublish[];
+export interface Published<TId extends string = string> {
+  additions: DraggableDimension<TId>[];
+  removals: DraggableId<TId>[];
+  modified: DroppablePublish<TId>[];
 }
 
-export interface CompletedDrag {
-  critical: Critical;
-  result: DropResult;
-  impact: DragImpact;
-  afterCritical: LiftEffect;
+export interface CompletedDrag<TId extends string = string> {
+  critical: Critical<TId>;
+  result: DropResult<TId>;
+  impact: DragImpact<TId>;
+  afterCritical: LiftEffect<TId>;
 }
 
-export interface IdleState {
+export interface IdleState<TId extends string = string> {
   phase: 'IDLE';
-  completed: CompletedDrag | null;
+  completed: CompletedDrag<TId> | null;
   shouldFlush: boolean;
 }
 
-interface BaseState {
+interface BaseState<TId extends string = string> {
   phase: unknown;
   isDragging: true;
-  critical: Critical;
+  critical: Critical<TId>;
   movementMode: MovementMode;
-  dimensions: DimensionMap;
+  dimensions: DimensionMap<TId>;
   initial: DragPositions;
   current: DragPositions;
-  impact: DragImpact;
+  impact: DragImpact<TId>;
   viewport: Viewport;
-  afterCritical: LiftEffect;
-  onLiftImpact: DragImpact;
+  afterCritical: LiftEffect<TId>;
+  onLiftImpact: DragImpact<TId>;
   // when there is a fixed list we want to opt out of this behaviour
   isWindowScrollAllowed: boolean;
   // if we need to jump the scroll (keyboard dragging)
@@ -361,7 +366,8 @@ interface BaseState {
   // whether or not draggable movements should be animated
   forceShouldAnimate: boolean | null;
 }
-export interface DraggingState extends BaseState {
+export interface DraggingState<TId extends string = string>
+  extends BaseState<TId> {
   phase: 'DRAGGING';
 }
 
@@ -370,7 +376,8 @@ export interface DraggingState extends BaseState {
 // If a drop occurs during this phase, it must wait until it is
 // completed before continuing with the drop
 // TODO: rename to BulkCollectingState
-export interface CollectingState extends BaseState {
+export interface CollectingState<TId extends string = string>
+  extends BaseState<TId> {
   phase: 'COLLECTING';
 }
 
@@ -378,30 +385,33 @@ export interface CollectingState extends BaseState {
 // wait for the collection to finish before performing the drop.
 // This is to ensure that everything has the correct index after
 // a drop
-export interface DropPendingState extends BaseState {
+export interface DropPendingState<TId extends string = string>
+  extends BaseState<TId> {
   phase: 'DROP_PENDING';
   isWaiting: boolean;
   reason: DropReason;
 }
 
 // An optional phase for animating the drop / cancel if it is needed
-export interface DropAnimatingState {
+export interface DropAnimatingState<TId extends string = string> {
   phase: 'DROP_ANIMATING';
-  completed: CompletedDrag;
+  completed: CompletedDrag<TId>;
   newHomeClientOffset: Position;
   dropDuration: number;
   // We still need to render placeholders and fix the dimensions of the dragging item
-  dimensions: DimensionMap;
+  dimensions: DimensionMap<TId>;
 }
 
-export type State =
-  | IdleState
-  | DraggingState
-  | CollectingState
-  | DropPendingState
-  | DropAnimatingState;
+export type State<TId extends string = string> =
+  | IdleState<TId>
+  | DraggingState<TId>
+  | CollectingState<TId>
+  | DropPendingState<TId>
+  | DropAnimatingState<TId>;
 
-export type StateWhenUpdatesAllowed = DraggingState | CollectingState;
+export type StateWhenUpdatesAllowed<TId extends string = string> =
+  | DraggingState<TId>
+  | CollectingState<TId>;
 
 export type Announce = (message: string) => void;
 
@@ -411,32 +421,36 @@ export interface ResponderProvided {
   announce: Announce;
 }
 
-export type OnBeforeCaptureResponder = (before: BeforeCapture) => void;
+export type OnBeforeCaptureResponder<TId extends string = string> = (
+  before: BeforeCapture<TId>,
+) => void;
 
-export type OnBeforeDragStartResponder = (start: DragStart) => void;
+export type OnBeforeDragStartResponder<TId extends string = string> = (
+  start: DragStart<TId>,
+) => void;
 
-export type OnDragStartResponder = (
-  start: DragStart,
+export type OnDragStartResponder<TId extends string = string> = (
+  start: DragStart<TId>,
   provided: ResponderProvided,
 ) => void;
 
-export type OnDragUpdateResponder = (
-  update: DragUpdate,
+export type OnDragUpdateResponder<TId extends string = string> = (
+  update: DragUpdate<TId>,
   provided: ResponderProvided,
 ) => void;
 
-export type OnDragEndResponder = (
-  result: DropResult,
+export type OnDragEndResponder<TId extends string = string> = (
+  result: DropResult<TId>,
   provided: ResponderProvided,
 ) => void;
 
-export interface Responders {
-  onBeforeCapture?: OnBeforeCaptureResponder;
-  onBeforeDragStart?: OnBeforeDragStartResponder;
-  onDragStart?: OnDragStartResponder;
-  onDragUpdate?: OnDragUpdateResponder;
+export interface Responders<TId extends string = string> {
+  onBeforeCapture?: OnBeforeCaptureResponder<TId>;
+  onBeforeDragStart?: OnBeforeDragStartResponder<TId>;
+  onDragStart?: OnDragStartResponder<TId>;
+  onDragUpdate?: OnDragUpdateResponder<TId>;
   // always required
-  onDragEnd: OnDragEndResponder;
+  onDragEnd: OnDragEndResponder<TId>;
 }
 
 // Sensors
@@ -478,19 +492,19 @@ export interface TryGetLockOptions {
   sourceEvent?: Event;
 }
 
-export type TryGetLock = (
-  draggableId: DraggableId,
+export type TryGetLock<TId extends string = string> = (
+  draggableId: DraggableId<TId>,
   forceStop?: () => void,
   options?: TryGetLockOptions,
 ) => PreDragActions | null;
 
-export interface SensorAPI {
-  tryGetLock: TryGetLock;
-  canGetLock: (id: DraggableId) => boolean;
+export interface SensorAPI<TId extends string = string> {
+  tryGetLock: TryGetLock<TId>;
+  canGetLock: (id: DraggableId<TId>) => boolean;
   isLockClaimed: () => boolean;
   tryReleaseLock: () => void;
-  findClosestDraggableId: (event: Event) => DraggableId | null;
-  findOptionsForDraggable: (id: DraggableId) => DraggableOptions | null;
+  findClosestDraggableId: (event: Event) => DraggableId<TId> | null;
+  findOptionsForDraggable: (id: DraggableId<TId>) => DraggableOptions | null;
 }
 
-export type Sensor = (api: SensorAPI) => void;
+export type Sensor<TId extends string = string> = (api: SensorAPI<TId>) => void;
