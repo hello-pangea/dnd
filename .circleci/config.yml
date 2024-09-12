@@ -4,45 +4,34 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.8
 
 commands:
-  pnpm:
+  pnpm_setup:
     steps:
       - run:
-          name: Install pnpm
-          command: sudo corepack enable
-
+          name: Install pnpm package manager
+          command: |
+            sudo corepack enable
+            pnpm config set store-dir ~/repo/.pnpm-store
+      - restore_cache:
+          name: Restore pnpm package cache
+          keys:
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
-          name: Setup pnpm store path
-          command: pnpm config set store-dir ~/repo/.pnpm-store
+          name: Install Dependencies
+          command: pnpm install --frozen-lockfile
 
 jobs:
   install:
     docker:
       - image: cimg/node:20.11.1-browsers
     working_directory: ~/repo
-    environment:
-      - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
     steps:
-      # Fetch Code
       - checkout
-      - pnpm
-
-      - restore_cache:
-          keys:
-            # Restore cached node_modules
-            - v19-dependencies-{{ checksum "pnpm-lock.yaml" }}
-            # fallback to using the latest cache if no exact match is found
-            - v19-dependencies-
-
-      - run:
-          name: Install Dependencies
-          command: pnpm install --frozen-lockfile
-
-      # Save the node_modules cache
+      - pnpm_setup
       - save_cache:
+          name: Save pnpm package cache
+          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - .pnpm-store
-            - node_modules
-          key: v19-dependencies-{{ checksum "pnpm-lock.yaml" }}
 
   validate:
     docker:
@@ -50,12 +39,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - pnpm
-
-      - restore_cache:
-          keys:
-            - v19-dependencies-{{ checksum "pnpm-lock.yaml" }}
-
+      - pnpm_setup
       - run:
           name: Lint + Typecheck
           command: pnpm validate
@@ -70,12 +54,7 @@ jobs:
         type: string
     steps:
       - checkout
-      - pnpm
-
-      - restore_cache:
-          keys:
-            - v19-dependencies-{{ checksum "pnpm-lock.yaml" }}
-
+      - pnpm_setup
       - run:
           name: Jest Suite
           command: pnpm test
@@ -92,12 +71,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - pnpm
-
-      - restore_cache:
-          keys:
-            - v19-dependencies-{{ checksum "pnpm-lock.yaml" }}
-
+      - pnpm_setup
       - run:
           name: Check Bundle Size
           command: pnpm run bundle-size:check
@@ -108,16 +82,10 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - pnpm
-
-      - restore_cache:
-          keys:
-            - v19-dependencies-{{ checksum "pnpm-lock.yaml" }}
-
+      - pnpm_setup
       - run:
           name: Build asset
           command: pnpm build
-
       - persist_to_workspace:
           root: dist
           paths:
@@ -128,25 +96,20 @@ jobs:
       - image: cimg/node:20.11.1-browsers
     working_directory: ~/repo
     environment:
-      - CYPRESS_CACHE_FOLDER: '~/repo/node_modules/.cache/Cypress'
+      CYPRESS_CACHE_FOLDER: ~/repo/.cache/Cypress
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - checkout
-      - pnpm
-
+      - pnpm_setup
+      - run:
+          name: Make sure cypress binary is installed
+          command: pnpm cypress install
       - attach_workspace:
           at: ~/repo/dist
-
-      - restore_cache:
-          keys:
-            - v19-dependencies-{{ checksum "pnpm-lock.yaml" }}
-
       - run:
           name: 'Run cypress'
           command: node browser-test-harness.js browser
-
-      # store videos and screenshots (if any) as CI artifacts
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -160,22 +123,14 @@ jobs:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - checkout
-      - pnpm
-
+      - pnpm_setup
       - attach_workspace:
           at: ~/repo/dist
-
-      - restore_cache:
-          keys:
-            - v19-dependencies-{{ checksum "pnpm-lock.yaml" }}
-
       - run:
           name: Accessibility Audit
           command: node browser-test-harness.js accessibility
-
       - store_artifacts:
           path: test-reports/lighthouse
-
       - store_test_results:
           path: test-reports/lighthouse
 
