@@ -16,8 +16,8 @@ import type { DimensionMarshal } from './dimension-marshal/dimension-marshal-typ
 import type { FocusMarshal } from '../view/use-focus-marshal/focus-marshal-types';
 import type { StyleMarshal } from '../view/use-style-marshal/style-marshal-types';
 import type { AutoScroller } from './auto-scroller/auto-scroller-types';
-import type { Responders, Announce } from '../types';
-import type { Store } from './store-types';
+import type { Responders, Announce, State } from '../types';
+import type { Store, Dispatch } from './store-types';
 
 // For more config
 // See: https://github.com/reduxjs/redux-devtools/blob/main/packages/redux-devtools-extension/src/index.ts#L3
@@ -66,7 +66,7 @@ export default ({
   createStore(
     reducer,
     composeEnhancers(
-      applyMiddleware(
+      applyMiddleware<Dispatch, State>(
         // ## Debug middleware
 
         // > uncomment to use
@@ -80,7 +80,6 @@ export default ({
         // require('../debug/middleware/action-timing-average').default(200),
 
         // ## Application middleware
-
         // Style updates do not cause more actions. It is important to update styles
         // before responders are called: specifically the onDragEnd responder. We need to clear
         // the transition styles off the elements before a reorder to prevent strange

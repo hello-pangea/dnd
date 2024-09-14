@@ -12,7 +12,12 @@ import type {
   DraggableDimension,
 } from '../../../types';
 import type { Middleware } from '../../store-types';
-import { animateDrop, completeDrop, dropPending } from '../../action-creators';
+import {
+  animateDrop,
+  completeDrop,
+  dropPending,
+  guard,
+} from '../../action-creators';
 import type { AnimateDropArgs } from '../../action-creators';
 import { isEqual } from '../../position';
 import getDropDuration from './get-drop-duration';
@@ -25,7 +30,7 @@ const dropMiddleware: Middleware =
   ({ getState, dispatch }) =>
   (next) =>
   (action) => {
-    if (action.type !== 'DROP') {
+    if (!guard(action, 'DROP')) {
       next(action);
       return;
     }

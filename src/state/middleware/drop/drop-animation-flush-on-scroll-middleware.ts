@@ -1,4 +1,4 @@
-import { dropAnimationFinished } from '../../action-creators';
+import { dropAnimationFinished, guard } from '../../action-creators';
 import type { State } from '../../../types';
 import type { Middleware } from '../../store-types';
 import type { EventBinding } from '../../../view/event-bindings/event-types';
@@ -22,16 +22,16 @@ const dropAnimationFlushOnScrollMiddleware: Middleware = (store) => {
 
   return (next) => (action) => {
     if (
-      action.type === 'FLUSH' ||
-      action.type === 'DROP_COMPLETE' ||
-      action.type === 'DROP_ANIMATION_FINISHED'
+      guard(action, 'FLUSH') ||
+      guard(action, 'DROP_COMPLETE') ||
+      guard(action, 'DROP_ANIMATION_FINISHED')
     ) {
       clear();
     }
 
     next(action);
 
-    if (action.type !== 'DROP_ANIMATE') {
+    if (!guard(action, 'DROP_ANIMATE')) {
       return;
     }
 

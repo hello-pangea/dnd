@@ -20,7 +20,7 @@ import {
   getCompletedArgs,
 } from '../../../../util/preset-action-args';
 
-function getToDropAnimation(mock: jest.Mock<unknown, [Action]>): Store {
+function getToDropAnimation(mock: jest.Mock<unknown, [unknown]>): Store {
   const store: Store = createStore(
     passThroughMiddleware(mock),
     // will convert the drop into a drop animate

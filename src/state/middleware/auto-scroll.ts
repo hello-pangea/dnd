@@ -1,32 +1,25 @@
 import { invariant } from '../../invariant';
 import type { AutoScroller } from '../auto-scroller/auto-scroller-types';
-import type {
-  Action,
-  Middleware,
-  DropCompleteAction,
-  DropAnimateAction,
-  FlushAction,
-} from '../store-types';
+import type { Middleware } from '../store-types';
+import { guard } from '../action-creators';
 import type { State } from '../../types';
 
-const shouldStop = (
-  action: Action,
-): action is DropCompleteAction | DropAnimateAction | FlushAction =>
-  action.type === 'DROP_COMPLETE' ||
-  action.type === 'DROP_ANIMATE' ||
-  action.type === 'FLUSH';
+const shouldStop = (action: unknown) =>
+  guard(action, 'DROP_COMPLETE') ||
+  guard(action, 'DROP_ANIMATE') ||
+  guard(action, 'FLUSH');
 
 export default (autoScroller: AutoScroller): Middleware =>
   (store) =>
   (next) =>
-  (action: Action) => {
+  (action) => {
     if (shouldStop(action)) {
       autoScroller.stop();
       next(action);
       return;
     }
 
-    if (action.type === 'INITIAL_PUBLISH') {
+    if (guard(action, 'INITIAL_PUBLISH')) {
       // letting the action go first to hydrate the state
       next(action);
       const state: State = store.getState();
