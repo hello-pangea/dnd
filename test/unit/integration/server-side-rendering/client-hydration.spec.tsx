@@ -1,17 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
+import { hydrateRoot } from 'react-dom/client';
 import { invariant } from '../../../../src/invariant';
-import { resetServerContext } from '../../../../src';
 import App from '../util/app';
 import { noop } from '../../../../src/empty';
 import getBodyElement from '../../../../src/view/get-body-element';
-import invokeOnReactVersion from '../../../util/invoke-on-react-version';
-
-beforeEach(() => {
-  // Reset server context between tests to prevent state being shared between them
-  invokeOnReactVersion(['16', '17'], resetServerContext);
-});
 
 // Checking that the browser globals are available in this test file
 invariant(
@@ -26,7 +19,6 @@ it('should support hydrating a server side rendered application', () => {
   // on the server
   const error = jest.spyOn(console, 'error').mockImplementation(noop);
 
-  invokeOnReactVersion(['16', '17'], resetServerContext);
   const serverHTML: string = ReactDOMServer.renderToString(<App />);
 
   error.mock.calls.forEach((call) => {
@@ -36,12 +28,9 @@ it('should support hydrating a server side rendered application', () => {
   });
   error.mockRestore();
 
-  // would be done client side
-  // would have a fresh server context on the client
-  invokeOnReactVersion(['16', '17'], resetServerContext);
   const el = document.createElement('div');
   el.innerHTML = serverHTML;
   getBodyElement().appendChild(el);
 
-  expect(() => ReactDOM.hydrate(<App />, el)).not.toThrow();
+  expect(() => hydrateRoot(el, <App />)).not.toThrow();
 });

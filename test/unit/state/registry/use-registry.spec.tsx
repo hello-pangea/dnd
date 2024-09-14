@@ -5,7 +5,6 @@ import type { DraggableId } from '../../../../src/types';
 import { invariant } from '../../../../src/invariant';
 import { getPreset } from '../../../util/dimension';
 import { getDraggableEntry } from '../../../util/registry';
-import getReactMajorVersion from '../../../util/get-react-major-version';
 import useRegistry from '../../../../src/state/registry/use-registry';
 
 const preset = getPreset();
@@ -34,16 +33,6 @@ it('should remove any registrations', () => {
   expect(registry.draggable.exists(id)).toBe(true);
 
   unmount();
-
-  // only for react 16 and 17
-  if (['16', '17'].includes(getReactMajorVersion())) {
-    // still available after a unmount
-    // eslint-disable-next-line jest/no-conditional-expect
-    expect(registry.draggable.exists(id)).toBe(true);
-
-    // cleared after frame
-    requestAnimationFrame.step();
-  }
 
   // registry cleared
   expect(registry.draggable.exists(id)).toBe(false);

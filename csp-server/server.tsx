@@ -1,10 +1,8 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { resetServerContext } from '@hello-pangea/dnd';
 import { resolve } from 'path';
 import App from './app';
-import invokeOnReactVersion from '../test/util/invoke-on-react-version';
 
 let count = 0;
 function getNonce(): string {
@@ -12,8 +10,6 @@ function getNonce(): string {
 }
 
 function renderHtml(policy?: string, nonce?: string) {
-  invokeOnReactVersion(['16', '17'], resetServerContext);
-
   let meta = '';
   if (nonce) {
     meta += `<meta id="csp-nonce" property="csp-nonce" content="${nonce}" />`;

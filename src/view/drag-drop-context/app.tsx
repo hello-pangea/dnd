@@ -80,15 +80,8 @@ const createResponders = (props: Props): Responders => ({
       }
     };
 
-    if (React.version.startsWith('16') || React.version.startsWith('17')) {
-      // we can directly invoke the following method
-      // because prior to react 18 state are not batched
-      onBeforeCapureCallback();
-    } else {
-      // we must prevent automatic batching when using
-      // react 18 and above by calling flushSync
-      flushSync(onBeforeCapureCallback);
-    }
+    // we must prevent automatic batching when using by calling flushSync
+    flushSync(onBeforeCapureCallback);
   },
   onBeforeDragStart: props.onBeforeDragStart,
   onDragStart: props.onDragStart,
