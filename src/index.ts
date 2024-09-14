@@ -62,6 +62,3 @@ export {
   useTouchSensor,
   useKeyboardSensor,
 } from './view/use-sensor-marshal';
-
-// Utils
-export { resetServerContext } from './view/drag-drop-context';

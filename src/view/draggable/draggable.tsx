@@ -127,15 +127,8 @@ const Draggable: React.FunctionComponent<Props> = (props) => {
         return;
       }
 
-      if (React.version.startsWith('16') || React.version.startsWith('17')) {
-        // we can directly invoke the following method
-        // because prior to react 18 state are not batched
-        dropAnimationFinishedAction();
-      } else {
-        // we must prevent automatic batching when using
-        // react 18 and above by calling flushSync
-        flushSync(dropAnimationFinishedAction);
-      }
+      // we must prevent automatic batching when using by calling flushSync
+      flushSync(dropAnimationFinishedAction);
     },
     [dropAnimationFinishedAction, mapped],
   );
