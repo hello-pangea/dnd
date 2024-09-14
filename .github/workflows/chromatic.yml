@@ -22,9 +22,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         with:
-          version: 8
           run_install: |
             - args: [--frozen-lockfile]
 
