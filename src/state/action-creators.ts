@@ -11,6 +11,22 @@ import type {
   Published,
 } from '../types';
 
+type ActionTypes = Action['type'];
+
+type ExtractAction<TActionType extends ActionTypes> = Extract<
+  Action,
+  { type: TActionType }
+>;
+
+export function guard<TActionType extends ActionTypes>(
+  action: unknown,
+  predicate: TActionType,
+): action is ExtractAction<TActionType> {
+  return (
+    action instanceof Object && 'type' in action && action.type === predicate
+  );
+}
+
 export interface BeforeInitialCaptureArgs {
   draggableId: DraggableId;
   movementMode: MovementMode;

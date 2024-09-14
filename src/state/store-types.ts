@@ -60,5 +60,7 @@ export interface MiddlewareStore {
   getState(): State;
 }
 export interface Middleware {
-  (api: MiddlewareStore): (next: Dispatch) => (action: Action) => unknown;
+  (
+    api: MiddlewareStore,
+  ): (next: (action: unknown) => unknown) => (action: unknown) => unknown;
 }

@@ -1,20 +1,21 @@
-import type { Action, Dispatch } from '../store-types';
+import { guard } from '../action-creators';
+import type { Middleware } from '../store-types';
 import type { StyleMarshal } from '../../view/use-style-marshal/style-marshal-types';
 
-export default (marshal: StyleMarshal) =>
+export default (marshal: StyleMarshal): Middleware =>
   () =>
-  (next: Dispatch) =>
-  (action: Action): any => {
-    if (action.type === 'INITIAL_PUBLISH') {
+  (next) =>
+  (action) => {
+    if (guard(action, 'INITIAL_PUBLISH')) {
       marshal.dragging();
     }
 
-    if (action.type === 'DROP_ANIMATE') {
+    if (guard(action, 'DROP_ANIMATE')) {
       marshal.dropping(action.payload.completed.result.reason);
     }
 
     // this will clear any styles immediately before a reorder
-    if (action.type === 'FLUSH' || action.type === 'DROP_COMPLETE') {
+    if (guard(action, 'FLUSH') || guard(action, 'DROP_COMPLETE')) {
       marshal.resting();
     }
 

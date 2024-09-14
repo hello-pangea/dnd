@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useMemo } from 'use-memo-one';
 import type { Registry } from './registry-types';
 import createRegistry from './create-registry';

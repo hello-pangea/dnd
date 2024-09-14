@@ -1,17 +1,18 @@
-import type { Action, Dispatch } from '../store-types';
+import { guard } from '../action-creators';
+import type { Middleware } from '../store-types';
 import type { DimensionMarshal } from '../dimension-marshal/dimension-marshal-types';
 
-export default (marshal: DimensionMarshal) =>
+export default (marshal: DimensionMarshal): Middleware =>
   () =>
-  (next: Dispatch) =>
-  (action: Action): any => {
+  (next) =>
+  (action) => {
     // Not stopping a collection on a 'DROP' as we want a collection to continue
     if (
       // drag is finished
-      action.type === 'DROP_COMPLETE' ||
-      action.type === 'FLUSH' ||
+      guard(action, 'DROP_COMPLETE') ||
+      guard(action, 'FLUSH') ||
       // no longer accepting changes once the drop has started
-      action.type === 'DROP_ANIMATE'
+      guard(action, 'DROP_ANIMATE')
     ) {
       marshal.stopPublishing();
     }

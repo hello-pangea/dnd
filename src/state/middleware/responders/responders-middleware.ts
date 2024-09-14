@@ -7,6 +7,7 @@ import type {
   Announce,
 } from '../../../types';
 import type { Middleware } from '../../store-types';
+import { guard } from '../../action-creators';
 
 export default (
   getResponders: () => Responders,
@@ -18,7 +19,7 @@ export default (
   );
 
   return (store) => (next) => (action) => {
-    if (action.type === 'BEFORE_INITIAL_CAPTURE') {
+    if (guard(action, 'BEFORE_INITIAL_CAPTURE')) {
       publisher.beforeCapture(
         action.payload.draggableId,
         action.payload.movementMode,
@@ -26,7 +27,7 @@ export default (
       return;
     }
 
-    if (action.type === 'INITIAL_PUBLISH') {
+    if (guard(action, 'INITIAL_PUBLISH')) {
       const critical: Critical = action.payload.critical;
       publisher.beforeStart(critical, action.payload.movementMode);
       next(action);
@@ -35,7 +36,7 @@ export default (
     }
 
     // Drag end
-    if (action.type === 'DROP_COMPLETE') {
+    if (guard(action, 'DROP_COMPLETE')) {
       // it is important that we use the result and not the last impact
       // the last impact might be different to the result for visual reasons
       const result: DropResult = action.payload.completed.result;
@@ -51,7 +52,7 @@ export default (
 
     // Drag state resetting - need to check if
     // we should fire a onDragEnd responder
-    if (action.type === 'FLUSH') {
+    if (guard(action, 'FLUSH')) {
       publisher.abort();
       return;
     }

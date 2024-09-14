@@ -1,13 +1,9 @@
-import type {
-  Action,
-  Dispatch,
-  Middleware,
-} from '../../../../../src/state/store-types';
+import type { Middleware } from '../../../../../src/state/store-types';
 
 const passThroughMiddleware = (
-  mock: jest.Mock<unknown, [Action]>,
+  mock: jest.Mock<unknown, [unknown]>,
 ): Middleware => {
-  const result: Middleware = () => (next: Dispatch) => (action: Action) => {
+  const result: Middleware = () => (next) => (action) => {
     mock(action);
     next(action);
   };

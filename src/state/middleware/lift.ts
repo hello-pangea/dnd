@@ -7,6 +7,7 @@ import {
   initialPublish,
   flush,
   beforeInitialCapture,
+  guard,
 } from '../action-creators';
 import validateDimensions from './util/validate-dimensions';
 
@@ -14,7 +15,7 @@ export default (marshal: DimensionMarshal): Middleware =>
   ({ getState, dispatch }) =>
   (next) =>
   (action) => {
-    if (action.type !== 'LIFT') {
+    if (!guard(action, 'LIFT')) {
       next(action);
       return;
     }
