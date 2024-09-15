@@ -169,7 +169,7 @@
     "jest-junit": "16.0.0",
     "jest-watch-typeahead": "2.2.2",
     "jsdom": "25.0.0",
-    "lighthouse": "11.7.1",
+    "lighthouse": "12.2.1",
     "markdown-it": "14.1.0",
     "memory-fs": "0.5.0",
     "postcss-styled-syntax": "0.6.4",
