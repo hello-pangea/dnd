@@ -15,6 +15,7 @@ const exceptions: string[] = [
   'CONTRIBUTING.md',
   'ISSUE_TEMPLATE.md',
   'README.md',
+  'SECURITY.md',
 ];
 
 it('should have every prettier target following the file name convention', async () => {
