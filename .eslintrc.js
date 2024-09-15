@@ -196,9 +196,9 @@ module.exports = {
       },
     },
 
-    // NodeJS files
+    // NodeJS files (CommonJS)
     {
-      extends: ['plugin:node/recommended'],
+      extends: ['plugin:n/recommended-script'],
       files: [
         '**/*.eslintrc.js',
         '.stylelintrc.js',
@@ -214,8 +214,9 @@ module.exports = {
       ],
     },
 
+    // NodeJS files (ES Modules)
     {
-      extends: ['plugin:node/recommended-module'],
+      extends: ['plugin:n/recommended-module'],
       parserOptions: {
         project: './tsconfig.json',
         ecmaVersion: 2020,
@@ -226,14 +227,6 @@ module.exports = {
         es6: false,
       },
       files: ['rollup.config.js'],
-      rules: {
-        'node/no-unsupported-features/es-syntax': [
-          'error',
-          {
-            ignores: ['modules'],
-          },
-        ],
-      },
     },
 
     // Typescript files
