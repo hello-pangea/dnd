@@ -3,7 +3,7 @@
  */
 import fg from 'fast-glob';
 import * as fs from 'fs-extra';
-import type Token from 'markdown-it/lib/token';
+import type { Token } from 'markdown-it';
 import getProcessor from 'markdown-it';
 
 const markdown = getProcessor();
