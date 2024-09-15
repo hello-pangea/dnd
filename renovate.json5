@@ -25,12 +25,21 @@
       commitMessagePrefix: "chore(dev-deps):",
     },
     {
-      groupName: "all non-major development dependencies",
+      groupName: "bump all non-major development dependencies",
       groupSlug: "all-dev-minor-patch",
       matchManagers: ["npm"],
       matchDepTypes: ["devDependencies"],
       matchUpdateTypes: ["minor", "patch"],
       matchPackagePatterns: ["*"],
+      commitMessagePrefix: "chore(dev-deps):",
+    },
+    {
+      groupName: "bump eslint dependencies",
+      groupSlug: "all-eslint-major",
+      matchManagers: ["npm"],
+      matchDepTypes: ["devDependencies"],
+      matchUpdateTypes: ["major"],
+      packagePatterns: [".*eslint.*"],
       commitMessagePrefix: "chore(dev-deps):",
     },
     {
