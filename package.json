@@ -190,7 +190,7 @@
     "stylelint": "16.9.0",
     "stylelint-config-recommended": "14.0.1",
     "stylelint-config-standard": "36.0.1",
-    "ts-node": "^10.9.2",
+    "ts-node": "10.9.2",
     "typescript": "5.6.2",
     "wait-on": "8.0.1",
     "webpack": "5.94.0"
