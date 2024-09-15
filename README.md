@@ -29,6 +29,16 @@
 - [Unopinionated styling](/docs/guides/preset-styles.md)
 - No creation of additional wrapper dom nodes - flexbox and focus management friendly!
 
+## Star History
+
+<a href="https://star-history.com/#hello-pangea/dnd&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hello-pangea/dnd&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hello-pangea/dnd&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hello-pangea/dnd&type=Date" />
+ </picture>
+</a>
+
 ## Get started 👩‍🏫
 
 Alex Reardon has created [a free course on `egghead.io` 🥚](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) (using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)) to help you get started with `@hello-pangea/dnd` as quickly as possible.
