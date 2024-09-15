@@ -247,8 +247,8 @@ importers:
         specifier: 2.30.0
         version: 2.30.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.6.2))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.0)
       eslint-plugin-jest:
-        specifier: 27.9.0
-        version: 27.9.0(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(jest@29.7.0(@types/node@20.16.5)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.26)(@types/node@20.16.5)(typescript@5.6.2)))(typescript@5.6.2)
+        specifier: 28.8.3
+        version: 28.8.3(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(jest@29.7.0(@types/node@20.16.5)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.26)(@types/node@20.16.5)(typescript@5.6.2)))(typescript@5.6.2)
       eslint-plugin-jsx-a11y:
         specifier: 6.10.0
         version: 6.10.0(eslint@8.57.0)
@@ -3896,12 +3896,12 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-jest@27.9.0:
-    resolution: {integrity: sha512-QIT7FH7fNmd9n4se7FFKHbsLKGQiw885Ds6Y/sxKgCZ6natwCsXdgPOADnYVxN2QrRweF0FZWbJ6S7Rsn7llug==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+  eslint-plugin-jest@28.8.3:
+    resolution: {integrity: sha512-HIQ3t9hASLKm2IhIOqnu+ifw7uLZkIlR7RYNv7fMcEi/p0CIiJmfriStQS2LDkgtY4nyLbIZAD+JL347Yc2ETQ==}
+    engines: {node: ^16.10.0 || ^18.12.0 || >=20.0.0}
     peerDependencies:
-      '@typescript-eslint/eslint-plugin': ^5.0.0 || ^6.0.0 || ^7.0.0
-      eslint: ^7.0.0 || ^8.0.0
+      '@typescript-eslint/eslint-plugin': ^6.0.0 || ^7.0.0 || ^8.0.0
+      eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
       jest: '*'
     peerDependenciesMeta:
       '@typescript-eslint/eslint-plugin':
@@ -11750,9 +11750,9 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-jest@27.9.0(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(jest@29.7.0(@types/node@20.16.5)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.26)(@types/node@20.16.5)(typescript@5.6.2)))(typescript@5.6.2):
+  eslint-plugin-jest@28.8.3(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(jest@29.7.0(@types/node@20.16.5)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.26)(@types/node@20.16.5)(typescript@5.6.2)))(typescript@5.6.2):
     dependencies:
-      '@typescript-eslint/utils': 5.62.0(eslint@8.57.0)(typescript@5.6.2)
+      '@typescript-eslint/utils': 7.18.0(eslint@8.57.0)(typescript@5.6.2)
       eslint: 8.57.0
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2)
