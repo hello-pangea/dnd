@@ -74,7 +74,7 @@ waitOn({
     });
 
     child.on('exit', (code) => {
-      // eslint-disable-next-line no-process-exit
+      // eslint-disable-next-line n/no-process-exit
       process.exit(code);
     });
   })
