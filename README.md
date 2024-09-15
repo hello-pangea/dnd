@@ -58,7 +58,7 @@ Alex Reardon has created [a free course on `egghead.io` 🥚](https://egghead.io
 - 🌲 Tree support through the [`@atlaskit/tree`](https://atlaskit.atlassian.com/packages/confluence/tree) package
 - A `<Droppable />` list can be a scroll container (without a scrollable parent) or be the child of a scroll container (that also does not have a scrollable parent)
 - Independent nested lists - a list can be a child of another list, but you cannot drag items from the parent list into a child list
-- Server side rendering (SSR) compatible - see [resetServerContext()](/docs/api/reset-server-context.md)
+- Server side rendering (SSR) compatible
 - Plays well with [nested interactive elements](/docs/api/draggable.md#interactive-child-elements-within-a-draggable-) by default
 
 ## Motivation 🤔
@@ -100,7 +100,6 @@ There are a lot of libraries out there that allow for drag and drop interactions
 - [`<DragDropContext />`](/docs/api/drag-drop-context.md) - _Wraps the part of your application you want to have drag and drop enabled for_
 - [`<Droppable />`](/docs/api/droppable.md) - _An area that can be dropped into. Contains `<Draggable />`s_
 - [`<Draggable />`](/docs/api/draggable.md) - _What can be dragged around_
-- [`resetServerContext()`](/docs/api/reset-server-context.md) - _Utility for server side rendering (SSR)_
 
 ### Guides 🗺
 
