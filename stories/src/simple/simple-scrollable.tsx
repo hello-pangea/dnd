@@ -58,6 +58,7 @@ const getListStyle = (isDraggingOver: boolean, overflow?: string) => ({
 
 interface AppProps {
   overflow?: string;
+  stylesRoot?: HTMLElement | null;
 }
 
 interface Item {
@@ -103,7 +104,7 @@ export default class App extends Component<AppProps, AppState> {
   // But in this example everything is just done in one place for simplicity
   render() {
     return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
+      <DragDropContext onDragEnd={this.onDragEnd} stylesInsertionPoint={this.props.stylesRoot}>
         <Droppable droppableId="droppable">
           {(droppableProvided, droppableSnapshot) => (
             <div
