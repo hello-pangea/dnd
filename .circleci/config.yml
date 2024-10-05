@@ -22,7 +22,7 @@ commands:
 jobs:
   install:
     docker:
-      - image: cimg/node:20.17.0-browsers
+      - image: cimg/node:20.18.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -35,7 +35,7 @@ jobs:
 
   validate:
     docker:
-      - image: cimg/node:20.17.0-browsers
+      - image: cimg/node:20.18.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -46,7 +46,7 @@ jobs:
 
   test-unit:
     docker:
-      - image: cimg/node:20.17.0-browsers
+      - image: cimg/node:20.18.0-browsers
     working_directory: ~/repo
     resource_class: medium+
     steps:
@@ -63,7 +63,7 @@ jobs:
 
   test-bundle:
     docker:
-      - image: cimg/node:20.17.0-browsers
+      - image: cimg/node:20.18.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -74,7 +74,7 @@ jobs:
 
   build:
     docker:
-      - image: cimg/node:20.17.0-browsers
+      - image: cimg/node:20.18.0-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -89,7 +89,7 @@ jobs:
 
   test-browser:
     docker:
-      - image: cimg/node:20.17.0-browsers
+      - image: cimg/node:20.18.0-browsers
     working_directory: ~/repo
     environment:
       CYPRESS_CACHE_FOLDER: ~/repo/.cache/Cypress
@@ -113,7 +113,7 @@ jobs:
 
   test-a11y:
     docker:
-      - image: cimg/node:20.17.0-browsers
+      - image: cimg/node:20.18.0-browsers
     working_directory: ~/repo
     steps:
       - browser-tools/install-chrome
