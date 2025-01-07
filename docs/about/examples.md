@@ -17,10 +17,10 @@ See how beautiful it is for yourself!
 
 We have created some basic examples on `codesandbox` for you to play with directly:
 
-- [Simple vertical list](https://codesandbox.io/s/k260nyxq9v)
-- [Simple horizontal list](https://codesandbox.io/s/mmrp44okvj)
-- [Using with function components](https://codesandbox.io/s/zqwz5n5p9x)
-- [Simple DnD between two lists](https://codesandbox.io/s/ql08j35j3q) - _Community made_
-- [Simple DnD between a dynamic number of lists (with function components) and ability to delete items](https://codesandbox.io/s/-w5szl) - _Community made_
+- [Simple vertical list](https://codesandbox.io/p/sandbox/vertical-list-9wc6yh)
+- [Simple horizontal list](https://codesandbox.io/p/sandbox/horizontal-list-xk6zh4)
+- [Using with function components](https://codesandbox.io/p/sandbox/using-react-beautiful-dnd-with-hooks-cntgm5)
+- [Simple DnD between two lists](https://codesandbox.io/p/sandbox/vertical-list-with-multiple-drop-targets-tjmxxf) - _Community made_
+- [Simple DnD between a dynamic number of lists (with function components) and ability to delete items](https://codesandbox.io/p/sandbox/react-drag-and-drop-react-beautiful-dnd-c7q4r5) - _Community made_
 
 [← Back to documentation](/README.md#documentation-)
