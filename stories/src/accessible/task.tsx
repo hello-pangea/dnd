@@ -1,6 +1,5 @@
 import React, { Component, ReactElement } from 'react';
 import ReactDOM from 'react-dom';
-import memoizeOne from 'memoize-one';
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
 import { Draggable } from '@hello-pangea/dnd';
@@ -8,6 +7,7 @@ import type {
   DraggableProvided,
   DraggableStateSnapshot,
 } from '@hello-pangea/dnd';
+import { memoizeOne } from '../../../src/memoize-one';
 import { invariant } from '../../../src/invariant';
 import type { Task as TaskType } from '../types';
 import { grid, borderRadius } from '../constants';

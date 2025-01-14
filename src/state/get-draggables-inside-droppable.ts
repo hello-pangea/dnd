@@ -1,4 +1,4 @@
-import memoizeOne from 'memoize-one';
+import { memoizeOne } from '../memoize-one';
 import { toDraggableList } from './dimension-structures';
 import type {
   DraggableDimension,

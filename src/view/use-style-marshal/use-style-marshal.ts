@@ -1,6 +1,6 @@
 import { useRef, MutableRefObject } from 'react';
-import memoizeOne from 'memoize-one';
 import { useMemo, useCallback } from 'use-memo-one';
+import { memoizeOne } from '../../memoize-one';
 import { invariant } from '../../invariant';
 import type { StyleMarshal } from './style-marshal-types';
 import type { ContextId, DropReason } from '../../types';

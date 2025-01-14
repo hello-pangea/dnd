@@ -1,5 +1,5 @@
-import memoizeOne from 'memoize-one';
 import type { Position } from 'css-box-model';
+import { memoizeOne } from '../../../memoize-one';
 import type {
   DroppableDimension,
   DroppableDimensionMap,

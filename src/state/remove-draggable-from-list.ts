@@ -1,4 +1,4 @@
-import memoizeOne from 'memoize-one';
+import { memoizeOne } from '../memoize-one';
 import type { DraggableDimension } from '../types';
 
 export default memoizeOne(

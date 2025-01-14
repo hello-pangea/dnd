@@ -1,7 +1,7 @@
 import type { Position } from 'css-box-model';
-import memoizeOne from 'memoize-one';
 import type { FunctionComponent } from 'react';
 import { connect } from 'react-redux';
+import { memoizeOne } from '../../memoize-one';
 import Draggable from './draggable';
 import isDragging from '../../state/is-dragging';
 import { origin, negate } from '../../state/position';

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import memoizeOne from 'memoize-one';
 import { FunctionComponent } from 'react';
+import { memoizeOne } from '../../memoize-one';
 import { invariant } from '../../invariant';
 import type {
   State,
