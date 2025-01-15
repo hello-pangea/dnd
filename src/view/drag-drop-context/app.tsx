@@ -3,7 +3,7 @@ import { flushSync } from 'react-dom';
 import type { ReactNode, MutableRefObject } from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Provider } from 'react-redux';
-import { useMemo, useCallback } from 'use-memo-one';
+import { useMemo, useCallback } from '../../use-memo-one';
 import { invariant } from '../../invariant';
 import createStore from '../../state/create-store';
 import createDimensionMarshal from '../../state/dimension-marshal/dimension-marshal';

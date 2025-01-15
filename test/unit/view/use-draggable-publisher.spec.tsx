@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React, { useRef, useCallback } from 'react';
 import type { Spacing, Rect } from 'css-box-model';
-import { useMemo } from 'use-memo-one';
+import { useMemo } from '../../../src/use-memo-one';
 import { invariant } from '../../../src/invariant';
 import useDraggablePublisher from '../../../src/view/use-draggable-publisher';
 import {

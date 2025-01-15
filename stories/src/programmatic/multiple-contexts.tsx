@@ -2,7 +2,6 @@
 /* eslint-disable no-await-in-loop */
 import React, { useState, useEffect, ReactElement } from 'react';
 import styled from '@emotion/styled';
-import { useCallback } from 'use-memo-one';
 import type {
   DropResult,
   PreDragActions,
@@ -11,6 +10,7 @@ import type {
   SensorAPI,
 } from '@hello-pangea/dnd';
 import { DragDropContext } from '@hello-pangea/dnd';
+import { useCallback } from '../../../src/use-memo-one';
 import type { Quote } from '../types';
 import { quotes as initial } from '../data';
 import QuoteList from '../primatives/quote-list';

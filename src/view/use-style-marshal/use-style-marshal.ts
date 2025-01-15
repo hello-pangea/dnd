@@ -1,5 +1,5 @@
 import { useRef, MutableRefObject } from 'react';
-import { useMemo, useCallback } from 'use-memo-one';
+import { useMemo, useCallback } from '../../use-memo-one';
 import { memoizeOne } from '../../memoize-one';
 import { invariant } from '../../invariant';
 import type { StyleMarshal } from './style-marshal-types';

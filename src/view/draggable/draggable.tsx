@@ -1,6 +1,6 @@
 import React, { useRef, DragEvent, TransitionEvent } from 'react';
 import { flushSync } from 'react-dom';
-import { useMemo, useCallback } from 'use-memo-one';
+import { useMemo, useCallback } from '../../use-memo-one';
 import type { DraggableRubric, DraggableDescriptor } from '../../types';
 import getStyle from './get-style';
 import useDraggablePublisher from '../use-draggable-publisher/use-draggable-publisher';
