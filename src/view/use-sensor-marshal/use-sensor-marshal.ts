@@ -1,7 +1,7 @@
 import rafSchd from 'raf-schd';
 import { useState } from 'react';
-import { useCallback, useMemo } from 'use-memo-one';
 import type { Position } from 'css-box-model';
+import { useCallback, useMemo } from '../../use-memo-one';
 import { invariant } from '../../invariant';
 import type {
   ContextId,

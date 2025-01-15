@@ -1,9 +1,9 @@
 import { colors } from '@atlaskit/theme';
 import styled from '@emotion/styled';
 import React, { ReactElement, useState } from 'react';
-import { useMemo } from 'use-memo-one';
 import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
 import type { DropResult } from '@hello-pangea/dnd';
+import { useMemo } from '../../../src/use-memo-one';
 import type { Quote } from '../types';
 import { grid } from '../constants';
 import { authorQuoteMap } from '../data';

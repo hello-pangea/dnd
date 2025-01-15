@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
-import { useMemo, useCallback } from 'use-memo-one';
 import React, { useRef, useContext, FunctionComponent } from 'react';
 import type { ReactNode } from 'react';
+import { useMemo, useCallback } from '../../use-memo-one';
 import { invariant } from '../../invariant';
 import type { DraggableId } from '../../types';
 import type { Props, DroppableProvided } from './droppable-types';

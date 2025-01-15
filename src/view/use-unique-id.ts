@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMemo } from 'use-memo-one';
+import { useMemo } from '../use-memo-one';
 import type { Id } from '../types';
 
 interface Options {

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, FunctionComponent } from 'react';
-import { useCallback } from 'use-memo-one';
 import type { Spacing } from 'css-box-model';
+import { useCallback } from '../../use-memo-one';
 import type {
   Placeholder as PlaceholderType,
   InOutAnimationMode,

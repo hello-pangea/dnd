@@ -115,14 +115,7 @@ module.exports = {
             name: 'react',
             importNames: ['useMemo', 'useCallback'],
             message:
-              '`useMemo` and `useCallback` are subject to cache busting. Please use `useMemoOne`',
-          },
-          // Forcing use aliased imports from useMemoOne
-          {
-            name: 'use-memo-one',
-            importNames: ['useMemoOne', 'useCallbackOne'],
-            message:
-              'use-memo-one exports `useMemo` and `useCallback` which work nicer with `eslint-plugin-react-hooks`',
+              '`useMemo` and `useCallback` are subject to cache busting. Please use methods from `src/use-memo-one.ts`',
           },
           // Disabling using of useLayoutEffect from react
           {
