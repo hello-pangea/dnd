@@ -9,7 +9,113 @@
 
 `@hello-pangea/dnd` requires no additional wrapping elements to create `<Draggable />` and `<Droppable />` components. Therefore it is possible to have a `<table>` that has valid HTML as well as supporting drag and drop.
 
-> We have not found a way to achieve semantic reordering of table columns at this stage. This is because there is no one element that represents a table column - rather, a column is a result of cell placements within repeating rows. As such as cannot wrap a `<Draggable />` around a 'column' in order to make it draggable. PR's to this guide are welcome if you find a working approach!
+## Reordering Table Columns
+
+Here is a simple example demonstrating how to use drag-and-drop functionality to reorder table columns.
+
+```tsx
+import React, { useState } from 'react';
+import { DragDropContext, DragStart, DragUpdate, Draggable, DropResult, Droppable } from '@hello-pangea/dnd';
+
+const Table = ({ dataSource, columns: _columns, style, hideHeader }) => {
+    const [userColumns, setUserColumns] = useState(_columns.map(c => c.key.toString()));
+
+    const notFoundIsMaxInt = (index: number) => index === -1 ? Number.MAX_SAFE_INTEGER : index;
+    const columns = _columns.slice().sort((a, b) => notFoundIsMaxInt(userColumns.indexOf(a.key.toString())) - notFoundIsMaxInt(userColumns.indexOf(b.key.toString())));
+
+    const [draggableId, setDraggableId] = useState<string | undefined>();
+
+    const onDragStart = (result: DragStart) => {
+        setDraggableId(result.draggableId);
+    }
+
+    const onDragUpdate = (result: DragUpdate) => {
+        if (!draggableId || !result.destination) return;
+
+        const fromIndex = columns.findIndex(c => c.key.toString() === draggableId);
+        const toIndex = result.destination.index;
+
+        if (fromIndex === -1 || toIndex === -1) return;
+
+        const newColumns = [...userColumns];
+        const [movedColumn] = newColumns.splice(fromIndex, 1);
+        newColumns.splice(toIndex, 0, movedColumn);
+
+        setUserColumns(newColumns);
+    }
+
+    const onDragEnd = (result: DropResult) => {
+        setDraggableId(undefined);
+    };
+
+    return (
+        <table style={style} className="generic-table">
+            {!hideHeader && (
+                <thead>
+                    <DragDropContext
+                        onDragStart={onDragStart}
+                        onDragEnd={onDragEnd}
+                        onDragUpdate={onDragUpdate}
+                    >
+                        <Droppable droppableId="droppable-columns" direction="horizontal">
+                            {(droppableProvided) => (
+                                <tr ref={droppableProvided.innerRef}>
+                                    {columns.map((column, index) => (
+                                        <Draggable
+                                            key={column.key.toString()}
+                                            draggableId={column.key.toString()}
+                                            index={index}
+                                        >
+                                            {(provided, snapshot) => (
+                                                <th
+                                                    ref={provided.innerRef}
+                                                    {...provided.draggableProps}
+                                                    {...provided.dragHandleProps}
+                                                    style={{
+                                                        width: column.width,
+                                                        ...(snapshot.isDragging ? provided.draggableProps.style : {}),
+                                                        ...(column.thStyle ?? {}),
+                                                    }}
+                                                >
+                                                    {column.title}
+                                                </th>
+                                            )}
+                                        </Draggable>
+                                    ))}
+                                    {droppableProvided.placeholder}
+                                </tr>
+                            )}
+                        </Droppable>
+                    </DragDropContext>
+                </thead>
+            )}
+            <tbody>
+                {dataSource.map((record, rowIndex) => (
+                    <tr key={rowIndex}>
+                        {columns.map(column => (
+                            <td key={column.key.toString()}>{record[column.dataIndex]}</td>
+                        ))}
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    );
+};
+
+export default Table;
+```
+
+### How it works
+
+The column definitions are stored in the `_columns` prop. We then store the order of the columns in the `userColumns` state. When a column is dragged, we update the `userColumns` state to reflect the new order. This causes the table to re-render with the new column order.
+
+### Pros
+
+It is a simple and clean way to reorder columns in a table and provides immediate visual feedback to the user on how the columns will look when dropped.
+
+### Cons
+
+The columns do not move in an animated fashion, snapping to their new position immediately.
 
 ## Strategies
 
