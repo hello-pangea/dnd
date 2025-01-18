@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import { hydrateRoot } from 'react-dom/client';
 import { invariant } from '../../../../src/invariant';
 import App from '../util/app';
@@ -19,7 +19,7 @@ it('should support hydrating a server side rendered application', () => {
   // on the server
   const error = jest.spyOn(console, 'error').mockImplementation(noop);
 
-  const serverHTML: string = ReactDOMServer.renderToString(<App />);
+  const serverHTML: string = renderToString(<App />);
 
   error.mock.calls.forEach((call) => {
     expect(
