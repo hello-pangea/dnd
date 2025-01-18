@@ -28,8 +28,8 @@ importers:
         specifier: 6.11.2
         version: 6.11.2(@types/react@18.3.18)(react@18.3.1)
       '@atlaskit/theme':
-        specifier: 13.1.0
-        version: 13.1.0(@types/react@18.3.18)(react@18.3.1)
+        specifier: 14.0.5
+        version: 14.0.5(@types/react@18.3.18)(react@18.3.1)
       '@babel/core':
         specifier: 7.26.0
         version: 7.26.0
@@ -396,18 +396,18 @@ packages:
   '@atlaskit/platform-feature-flags@0.3.0':
     resolution: {integrity: sha512-/0u5fFJ0Rw2j4M5wzsXgaHO6Ey12oekPCDTRvmmAIp4GO9T2Swbl80bavLAPSOmSHMhHTSuvRxiJveZXfQ21IQ==}
 
-  '@atlaskit/theme@13.1.0':
-    resolution: {integrity: sha512-9HWU2Wf5DX1+OQKmqAeZqUPAe2BgNhyYhIlkQm2Vo8RxzvI0BDWyjafEro4MdUK8ZYqSfegd9wgk7qzIUF9ZaQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-
-  '@atlaskit/theme@14.0.3':
-    resolution: {integrity: sha512-ZUJzeGxX8tzjb482vZbVvsTVeKiOfs+M6Y7qoIAB9xquO03a1hbkK/j9NCGm1lU/VTAbjl0eQ2vq3J+wTE4ibQ==}
+  '@atlaskit/theme@14.0.5':
+    resolution: {integrity: sha512-zUWgCUa/weXNDixiBOETRSgG+X3wMrfwtDFmFdP+KYZ9B5Xj20Eyil0Jbi3VpB95rvATM0Ax0CWlUVPR3L2JDA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   '@atlaskit/tokens@2.5.0':
     resolution: {integrity: sha512-o7c3NRnoOC7zpjQS9dRD0sm9CJuBN20iXZSUVoY/yzDA2jPZ8Xtlt0X8WwpxjFHk+AswQFU3CZTn+5D9YFEufg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@atlaskit/tokens@3.1.0':
+    resolution: {integrity: sha512-oaLLeQnWYOOtOMOa/fomTdnUs/DFysmStW7PQKozHtot05roLCnoPJ56ZHXwZLZLc8WifloQaBBpwanren3Asg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
@@ -7679,7 +7679,7 @@ snapshots:
 
   '@atlaskit/css-reset@6.11.2(@types/react@18.3.18)(react@18.3.1)':
     dependencies:
-      '@atlaskit/theme': 14.0.3(@types/react@18.3.18)(react@18.3.1)
+      '@atlaskit/theme': 14.0.5(@types/react@18.3.18)(react@18.3.1)
       '@atlaskit/tokens': 2.5.0(@types/react@18.3.18)(react@18.3.1)
       '@babel/runtime': 7.25.6
       react: 18.3.1
@@ -7701,22 +7701,11 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
 
-  '@atlaskit/theme@13.1.0(@types/react@18.3.18)(react@18.3.1)':
+  '@atlaskit/theme@14.0.5(@types/react@18.3.18)(react@18.3.1)':
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
       '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@18.3.1)
-      '@atlaskit/tokens': 2.5.0(@types/react@18.3.18)(react@18.3.1)
-      '@babel/runtime': 7.25.6
-      react: 18.3.1
-    transitivePeerDependencies:
-      - '@types/react'
-      - supports-color
-
-  '@atlaskit/theme@14.0.3(@types/react@18.3.18)(react@18.3.1)':
-    dependencies:
-      '@atlaskit/codemod-utils': 4.2.3
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@18.3.1)
-      '@atlaskit/tokens': 2.5.0(@types/react@18.3.18)(react@18.3.1)
+      '@atlaskit/tokens': 3.1.0(@types/react@18.3.18)(react@18.3.1)
       '@babel/runtime': 7.25.6
       react: 18.3.1
     transitivePeerDependencies:
@@ -7730,6 +7719,19 @@ snapshots:
       '@babel/runtime': 7.25.6
       '@babel/traverse': 7.25.6
       '@babel/types': 7.25.6
+      bind-event-listener: 3.0.0
+      react: 18.3.1
+    transitivePeerDependencies:
+      - '@types/react'
+      - supports-color
+
+  '@atlaskit/tokens@3.1.0(@types/react@18.3.18)(react@18.3.1)':
+    dependencies:
+      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@18.3.1)
+      '@atlaskit/platform-feature-flags': 0.3.0
+      '@babel/runtime': 7.25.6
+      '@babel/traverse': 7.26.4
+      '@babel/types': 7.26.3
       bind-event-listener: 3.0.0
       react: 18.3.1
     transitivePeerDependencies:
@@ -7786,7 +7788,7 @@ snapshots:
 
   '@babel/generator@7.25.6':
     dependencies:
-      '@babel/types': 7.25.6
+      '@babel/types': 7.26.3
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 2.5.2
@@ -7801,7 +7803,7 @@ snapshots:
 
   '@babel/helper-annotate-as-pure@7.24.7':
     dependencies:
-      '@babel/types': 7.25.6
+      '@babel/types': 7.26.3
 
   '@babel/helper-annotate-as-pure@7.25.9':
     dependencies:
@@ -8596,7 +8598,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.24.7
       '@babel/parser': 7.25.6
-      '@babel/types': 7.25.6
+      '@babel/types': 7.26.3
 
   '@babel/template@7.25.9':
     dependencies:
@@ -13707,7 +13709,7 @@ snapshots:
       '@babel/generator': 7.25.6
       '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.26.0)
       '@babel/plugin-syntax-typescript': 7.25.4(@babel/core@7.26.0)
-      '@babel/types': 7.25.6
+      '@babel/types': 7.26.3
       '@jest/expect-utils': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
