@@ -19,7 +19,7 @@ There are drawbacks with using virtual lists. They stem from the fact that with 
 
 ## Support
 
-`@hello-pangea/dnd` is designed to work with existing virtual list solutions and does not have it's own virtual list abstraction. There is no official "virtual list" specification or implementation for the web. Different virtual list libraries achieve windowing through various techniques. So we cannot guarentee that `@hello-pangea/dnd` will work with every virtual list library. We have created examples for `react-window` and `react-virtualized` which are the two most popular virtual list libraries for `react`.
+`@hello-pangea/dnd` is designed to work with existing virtual list solutions and does not have it's own virtual list abstraction. There is no official "virtual list" specification or implementation for the web. Different virtual list libraries achieve windowing through various techniques. So we cannot guarentee that `@hello-pangea/dnd` will work with every virtual list library. We have created examples for `react-window` is a popular virtual list libraries for `react`.
 
 ## Premade examples 🎁
 
@@ -31,12 +31,6 @@ Please raise a pull request if you would like to add examples for other virtuali
 - [Board](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-window--board) ([source](/stories/src/virtual/react-window/board.jsx))
 - [Basic list on `codesandbox.io`](https://codesandbox.io/s/simple-virtual-list-dark-c6wqc)
 - [Basic board on `codesandbox.io`](https://codesandbox.io/s/simple-virtual-list-board-vgvzt)
-
-### [`react-virtualized`](https://github.com/bvaughn/react-virtualized)
-
-- [List](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-virtualized--list) ([source](/stories/src/virtual/react-virtualized/list.jsx))
-- [Board](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-virtualized--board) ([source](/stories/src/virtual/react-virtualized/board.jsx))
-- [List](https://dnd.hellopangea.com/?path=/story/examples-virtual-react-virtualized--window-list) with [`WindowScroller`](https://github.com/bvaughn/react-virtualized/blob/master/docs/WindowScroller.md) ([source](/stories/src/virtual/react-virtualized/window-list.jsx))
 
 ### [`react-virtuoso`](https://github.com/petyosi/react-virtuoso)
 
