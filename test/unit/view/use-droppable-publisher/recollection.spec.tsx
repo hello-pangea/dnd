@@ -52,6 +52,7 @@ const expected: DroppableDimension = getDroppableDimension({
     scroll: { x: 0, y: 0 },
     shouldClipSubject: true,
   },
+  zIndex: '',
 });
 
 it('should recollect scroll if requested', () => {

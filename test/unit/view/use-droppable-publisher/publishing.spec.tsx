@@ -46,6 +46,7 @@ it('should publish the dimensions of the target', () => {
     padding,
     border,
     windowScroll: { x: 0, y: 0 },
+    zIndex: '',
   });
   const { container } = render(
     <WithAppContext registry={registry}>
@@ -95,6 +96,7 @@ it('should consider the window scroll when calculating dimensions', () => {
     padding,
     border,
     windowScroll,
+    zIndex: '',
   });
 
   const { container } = render(
@@ -133,6 +135,7 @@ describe('no closest scrollable', () => {
       margin,
       padding,
       windowScroll: preset.windowScroll,
+      zIndex: '',
     });
     const { container } = render(
       <WithAppContext registry={registry}>
@@ -187,6 +190,7 @@ describe('droppable is scrollable', () => {
         scroll: { x: 0, y: 0 },
         shouldClipSubject: true,
       },
+      zIndex: '',
     });
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
@@ -250,6 +254,7 @@ describe('droppable is scrollable', () => {
         shouldClipSubject: true,
       },
       windowScroll: preset.windowScroll,
+      zIndex: '',
     });
 
     const registry: Registry = createRegistry();
@@ -310,6 +315,7 @@ describe('parent of droppable is scrollable', () => {
         shouldClipSubject: true,
       },
       windowScroll: preset.windowScroll,
+      zIndex: '',
     });
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
@@ -371,6 +377,7 @@ describe('both droppable and parent is scrollable', () => {
         shouldClipSubject: true,
       },
       windowScroll: preset.windowScroll,
+      zIndex: '',
     });
     const registry: Registry = createRegistry();
     const registerSpy = jest.spyOn(registry.droppable, 'register');
@@ -461,6 +468,7 @@ it('should capture the initial scroll of the closest scrollable', () => {
       shouldClipSubject: true,
     },
     windowScroll: preset.windowScroll,
+    zIndex: '',
   });
 
   // pull the get dimension function out
@@ -521,6 +529,7 @@ it('should indicate if subject clipping is permitted based on the ignoreContaine
       shouldClipSubject: false,
     },
     windowScroll: preset.windowScroll,
+    zIndex: '',
   });
 
   // pull the get dimension function out
