@@ -6,10 +6,13 @@ beforeEach(() => {
   expect.hasAssertions();
 });
 
-if (typeof document !== 'undefined') {
+export default async () => {
+  if (typeof document === 'undefined') {
+    return;
+  }
+
   // Simply importing this package will throw an error if document is not defined
-  // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
-  const { cleanup, fireEvent } = require('@testing-library/react');
+  const { cleanup, fireEvent } = await import('@testing-library/react');
 
   // unmount any components mounted with react-testing-library
   beforeAll(cleanup);
@@ -19,6 +22,4 @@ if (typeof document !== 'undefined') {
     // this cleans it up before every test
     fireEvent.click(window);
   });
-}
-
-export default {};
+};
