@@ -48,5 +48,11 @@
       rangeStrategy: "widen",
       commitMessagePrefix: "chore(peer-deps):",
     },
+    
+    // to support previous react version
+    {
+      "matchPackageNames": ["react-18", "react-dom-18"],
+      "allowedVersions": "<19.0.0",
+    },
   ],
 }
