@@ -184,7 +184,7 @@
     "release-it": "17.11.0",
     "require-from-string": "2.0.2",
     "rimraf": "6.0.1",
-    "rollup": "4.21.3",
+    "rollup": "4.22.4",
     "rollup-plugin-dts": "6.1.1",
     "seedrandom": "3.0.5",
     "storybook": "8.5.2",
