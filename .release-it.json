@@ -16,11 +16,6 @@
         "name": "conventionalcommits",
         "types": [
           {
-            "type": "chore",
-            "section": "Others 🔧",
-            "hidden": false
-          },
-          {
             "type": "revert",
             "section": "Reverts ◀",
             "hidden": false
@@ -36,13 +31,23 @@
             "hidden": false
           },
           {
-            "type": "improvement",
-            "section": "Feature Improvements 🛠",
+            "type": "chore",
+            "section": "Others 🔧",
             "hidden": false
           },
           {
             "type": "docs",
             "section": "Docs 📃",
+            "hidden": false
+          },
+          {
+            "type": "improvement",
+            "section": "Feature Improvements 🛠",
+            "hidden": false
+          },
+          {
+            "type": "perf",
+            "section": "Performance Improvements 🏎",
             "hidden": false
           },
           {
@@ -53,11 +58,6 @@
           {
             "type": "refactor",
             "section": "Code Refactoring 🖌",
-            "hidden": false
-          },
-          {
-            "type": "perf",
-            "section": "Performance Improvements 🏎",
             "hidden": false
           },
           {
