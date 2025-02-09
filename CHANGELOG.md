@@ -1,4 +1,16 @@
+# Changelog
 
+## 18.0.0 (2025-02-09)
+
+* chore(deps-dev): bump rollup from 4.21.3 to 4.22.4 ([57218b7](https://github.com/hello-pangea/dnd/commit/57218b7))
+* chore(deps): bump @babel/runtime ([6bedd4a](https://github.com/hello-pangea/dnd/commit/6bedd4a))
+* chore(dev-deps): bump cross-spawn from 7.0.3 to 7.0.6 ([b47954b](https://github.com/hello-pangea/dnd/commit/b47954b))
+* chore(dev-deps): bump nanoid from 3.3.7 to 3.3.8 ([4f632b4](https://github.com/hello-pangea/dnd/commit/4f632b4))
+* chore(dev-deps): update bump all non-major development dependencies ([3d07f1c](https://github.com/hello-pangea/dnd/commit/3d07f1c))
+* chore(dev-deps): update dependency @release-it/conventional-changelog to v10 ([3a4091f](https://github.com/hello-pangea/dnd/commit/3a4091f))
+* chore(dev-deps): update dependency release-it to v18 ([99f32ed](https://github.com/hello-pangea/dnd/commit/99f32ed))
+* chore(dev-deps): update pnpm to v10 ([cb2c0c8](https://github.com/hello-pangea/dnd/commit/cb2c0c8))
+* ci: always install latest corepack version ([dec1d12](https://github.com/hello-pangea/dnd/commit/dec1d12))
 
 ## [18.0.0-beta.0](https://github.com/hello-pangea/dnd/compare/v17.0.0...v18.0.0-beta.0) (2025-01-22)
 
@@ -575,7 +587,7 @@ hello-pangea. You should install @hello-pangea/dnd package instead.
 * **dev-deps:** update actions/checkout action to v3 ([#236](https://github.com/react-forked/dnd/issues/236)) ([6b9c79c](https://github.com/react-forked/dnd/commit/6b9c79cbacf41bc2e525c31de87ee6f2aad93c47))
 * **github actions:** update actions/setup-node action to v3 ([#262](https://github.com/react-forked/dnd/issues/262)) ([fe21b16](https://github.com/react-forked/dnd/commit/fe21b163998a153d2c312b8c02dc25984b7084ce))
 * **image:** update Node.js to v16.14.2 ([#255](https://github.com/react-forked/dnd/issues/255)) ([1b16c35](https://github.com/react-forked/dnd/commit/1b16c357a5b73a263e9f51504b2e620c98070c16))
-* **netlify:** make sure it uses pnpm ([#260](https://github.com/react-forked/dnd/issues/260)) ([b8e284c](https://github.com/react-forked/dnd/commit/b8e284c1b9c9d8831da54ed2a3591b25cac07d70))# Changelog
+* **netlify:** make sure it uses pnpm ([#260](https://github.com/react-forked/dnd/issues/260)) ([b8e284c](https://github.com/react-forked/dnd/commit/b8e284c1b9c9d8831da54ed2a3591b25cac07d70))
 
 This project adheres to [Semantic Versioning 2.0](http://semver.org/).
 All release notes and upgrade notes can be found on our [Github Releases](https://github.com/react-forked/dnd/releases) page.
