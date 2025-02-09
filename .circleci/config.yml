@@ -9,7 +9,11 @@ commands:
       - run:
           name: Install pnpm package manager
           command: |
+            echo "Before: corepack version => $(corepack --version || echo 'not installed')"
+            sudo npm install -g corepack@latest
+            echo "After : corepack version => $(corepack --version)"
             sudo corepack enable
+            pnpm --version
             pnpm config set store-dir ~/repo/.pnpm-store
       - restore_cache:
           name: Restore pnpm package cache
