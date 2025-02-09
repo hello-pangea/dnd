@@ -1,5 +1,10 @@
 # Changelog
 
+## <small>18.0.1 (2025-02-09)</small>
+
+* chore: update release-it configuration ([1afeefe](https://github.com/hello-pangea/dnd/commit/1afeefe))
+* chore(dev-deps): update bump all non-major development dependencies ([604b93d](https://github.com/hello-pangea/dnd/commit/604b93d))
+
 ## 18.0.0 (2025-02-09)
 
 * chore(deps-dev): bump rollup from 4.21.3 to 4.22.4 ([57218b7](https://github.com/hello-pangea/dnd/commit/57218b7))
