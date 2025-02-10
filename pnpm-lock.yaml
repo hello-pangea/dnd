@@ -28,8 +28,8 @@ importers:
         specifier: 6.11.5
         version: 6.11.5(@types/react@18.3.18)(react@19.0.0)
       '@atlaskit/theme':
-        specifier: 13.1.0
-        version: 13.1.0(@types/react@18.3.18)(react@19.0.0)
+        specifier: 15.0.0
+        version: 15.0.0(@types/react@18.3.18)(react@19.0.0)
       '@babel/core':
         specifier: 7.26.8
         version: 7.26.8
@@ -386,6 +386,11 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
+  '@atlaskit/atlassian-context@0.1.0':
+    resolution: {integrity: sha512-zOr9jvTanWCgdebRSwsqnh823fL7M1TFQHMh2G9ECLMk97Ju1J6MPquoE1A/8PsTvT0cujgy29puP/EBv5Fb9g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.2.0
+
   '@atlaskit/codemod-utils@4.2.3':
     resolution: {integrity: sha512-ar5vFYakSfbpKziSyi0cE1sFt48gWrwixjgo5VdN8DiL/Tf0fMiscMNvAPe4cFnagTV6scXHyUc0NPArGqL0PQ==}
 
@@ -399,16 +404,27 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
-  '@atlaskit/platform-feature-flags@0.3.0':
-    resolution: {integrity: sha512-/0u5fFJ0Rw2j4M5wzsXgaHO6Ey12oekPCDTRvmmAIp4GO9T2Swbl80bavLAPSOmSHMhHTSuvRxiJveZXfQ21IQ==}
-
-  '@atlaskit/theme@13.1.0':
-    resolution: {integrity: sha512-9HWU2Wf5DX1+OQKmqAeZqUPAe2BgNhyYhIlkQm2Vo8RxzvI0BDWyjafEro4MdUK8ZYqSfegd9wgk7qzIUF9ZaQ==}
+  '@atlaskit/ds-lib@3.5.1':
+    resolution: {integrity: sha512-8olLZ+Oj+7GWAuT3zTQ24dyPjAS9TfzuFGT6cBbuLyWgUIT2jFaF1OecuJS3yAksx8DiBcKoPaR2dIbF0u34sg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
+  '@atlaskit/feature-gate-js-client@4.23.4':
+    resolution: {integrity: sha512-gmbRHlzzVGkvR2iJ1TwUtK/fn+tcY2hVnYPHFanyRJaFUbtJYxMaEHISMVf5ogS6O5M1ic1YCB8o/y4Rzo7zDw==}
+
+  '@atlaskit/platform-feature-flags@0.3.0':
+    resolution: {integrity: sha512-/0u5fFJ0Rw2j4M5wzsXgaHO6Ey12oekPCDTRvmmAIp4GO9T2Swbl80bavLAPSOmSHMhHTSuvRxiJveZXfQ21IQ==}
+
+  '@atlaskit/platform-feature-flags@1.0.0':
+    resolution: {integrity: sha512-J6ggqjqSOyikLIrn3BkGU3NPpB9m8wwTyl2MpymD7JIrEjuRKznVDAp/F0xMKdn56vUXgZPxB7JNurdEOGYDXg==}
+
   '@atlaskit/theme@14.0.3':
     resolution: {integrity: sha512-ZUJzeGxX8tzjb482vZbVvsTVeKiOfs+M6Y7qoIAB9xquO03a1hbkK/j9NCGm1lU/VTAbjl0eQ2vq3J+wTE4ibQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@atlaskit/theme@15.0.0':
+    resolution: {integrity: sha512-VpN/5QF2hsuYqYyUCllcAE/mD6Qcaae3oekzqsfLRkr01lVK42b8jLXwgchUiLxmuT2lclFdBLfcX5gesQjbiw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
@@ -419,6 +435,11 @@ packages:
 
   '@atlaskit/tokens@3.2.0':
     resolution: {integrity: sha512-zOKf/5wvU9TlDkM5qmrPoROTtPrP3OMrzZ5AszWeA/YPRCAbgsR2aVr239wE6m/C0ZReQk5fOKIlogxJlugRnw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@atlaskit/tokens@3.3.1':
+    resolution: {integrity: sha512-vdaE0zeCeYvOz2OW+mJUkiFrD4BR2jm06p4RCH+OKF8HpjL73lA0FFDc8TLDBfYx4TaO+Q5v2nf07rtpLWB67w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
@@ -4229,6 +4250,9 @@ packages:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
 
+  eventemitter2@4.1.2:
+    resolution: {integrity: sha512-erx0niBaTi8B7ywjGAcg8ilGNRl/xs/o4MO2ZMpRlpZ62mYzjGTBlOpxxRIrPQqBs9mbXkEux6aR+Sc5vQ/wUw==}
+
   eventemitter2@6.4.7:
     resolution: {integrity: sha512-tYUSVOGeQPKt/eC1ABfhHy5Xd96N3oIijJvN3O9+TsC28T5V9yX9oEfEK5faP0EFSNVOG97qtAS68GBrQB2hDg==}
 
@@ -6943,6 +6967,10 @@ packages:
     resolution: {integrity: sha512-XlkWvfIm6RmsWtNJx+uqtKLS8eqFbxUg0ZzLXqY0caEy9l7hruX8IpiDnjsLavoBgqCCR71TqWO8MaXYheJ3RQ==}
     engines: {node: '>=10'}
 
+  statsig-js-lite@1.6.0:
+    resolution: {integrity: sha512-P9jw0YnpqZwfVs5wwdfKpN6PND2bO+Hur7/ImJOqZne74ZebLXxyoyybz/5xj010kjtYDuzufyMmhUCAxa+oqg==}
+    deprecated: Support for this package ends Jan 31 '25. Upgrade to the faster and smaller @statsig/js-client - see docs.statsig.com/js-migration
+
   statuses@2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
@@ -7789,6 +7817,11 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@atlaskit/atlassian-context@0.1.0(react@19.0.0)':
+    dependencies:
+      '@babel/runtime': 7.26.7
+      react: 19.0.0
+
   '@atlaskit/codemod-utils@4.2.3':
     dependencies:
       '@babel/runtime': 7.26.7
@@ -7813,11 +7846,37 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
+  '@atlaskit/ds-lib@3.5.1(@types/react@18.3.18)(react@19.0.0)':
+    dependencies:
+      '@atlaskit/platform-feature-flags': 1.0.0(react@19.0.0)
+      '@babel/runtime': 7.26.7
+      bind-event-listener: 3.0.0
+      react: 19.0.0
+      react-uid: 2.3.3(@types/react@18.3.18)(react@19.0.0)
+    transitivePeerDependencies:
+      - '@types/react'
+
+  '@atlaskit/feature-gate-js-client@4.23.4(react@19.0.0)':
+    dependencies:
+      '@atlaskit/atlassian-context': 0.1.0(react@19.0.0)
+      '@babel/runtime': 7.26.7
+      eventemitter2: 4.1.2
+      statsig-js-lite: 1.6.0
+    transitivePeerDependencies:
+      - react
+
   '@atlaskit/platform-feature-flags@0.3.0':
     dependencies:
       '@babel/runtime': 7.26.7
 
-  '@atlaskit/theme@13.1.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/platform-feature-flags@1.0.0(react@19.0.0)':
+    dependencies:
+      '@atlaskit/feature-gate-js-client': 4.23.4(react@19.0.0)
+      '@babel/runtime': 7.26.7
+    transitivePeerDependencies:
+      - react
+
+  '@atlaskit/theme@14.0.3(@types/react@18.3.18)(react@19.0.0)':
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
       '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
@@ -7828,11 +7887,11 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/theme@14.0.3(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/theme@15.0.0(@types/react@18.3.18)(react@19.0.0)':
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
-      '@atlaskit/tokens': 2.5.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.5.1(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/tokens': 3.3.1(@types/react@18.3.18)(react@19.0.0)
       '@babel/runtime': 7.26.7
       react: 19.0.0
     transitivePeerDependencies:
@@ -7859,6 +7918,19 @@ snapshots:
       '@babel/runtime': 7.25.6
       '@babel/traverse': 7.26.7
       '@babel/types': 7.26.7
+      bind-event-listener: 3.0.0
+      react: 19.0.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - supports-color
+
+  '@atlaskit/tokens@3.3.1(@types/react@18.3.18)(react@19.0.0)':
+    dependencies:
+      '@atlaskit/ds-lib': 3.5.1(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/platform-feature-flags': 1.0.0(react@19.0.0)
+      '@babel/runtime': 7.26.7
+      '@babel/traverse': 7.26.8
+      '@babel/types': 7.26.8
       bind-event-listener: 3.0.0
       react: 19.0.0
     transitivePeerDependencies:
@@ -7913,7 +7985,7 @@ snapshots:
   '@babel/generator@7.26.5':
     dependencies:
       '@babel/parser': 7.26.7
-      '@babel/types': 7.26.7
+      '@babel/types': 7.26.8
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 3.1.0
@@ -8053,7 +8125,7 @@ snapshots:
     dependencies:
       '@babel/template': 7.25.9
       '@babel/traverse': 7.26.8
-      '@babel/types': 7.26.7
+      '@babel/types': 7.26.8
     transitivePeerDependencies:
       - supports-color
 
@@ -12496,6 +12568,8 @@ snapshots:
 
   etag@1.8.1: {}
 
+  eventemitter2@4.1.2: {}
+
   eventemitter2@6.4.7: {}
 
   events@3.3.0: {}
@@ -13950,7 +14024,7 @@ snapshots:
       '@babel/generator': 7.26.5
       '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.26.8)
       '@babel/plugin-syntax-typescript': 7.25.4(@babel/core@7.26.8)
-      '@babel/types': 7.26.7
+      '@babel/types': 7.26.8
       '@jest/expect-utils': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
@@ -15697,6 +15771,8 @@ snapshots:
   stack-utils@2.0.6:
     dependencies:
       escape-string-regexp: 2.0.0
+
+  statsig-js-lite@1.6.0: {}
 
   statuses@2.0.1: {}
 
