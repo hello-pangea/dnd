@@ -124,6 +124,7 @@ export default ({
     client,
     page,
     closest,
+    zIndex: window.getComputedStyle(ref).zIndex,
   });
 
   return dimension;

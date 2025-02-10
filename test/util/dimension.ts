@@ -225,6 +225,7 @@ interface GetDroppableArgs {
   isEnabled?: boolean;
   isFixedOnPage?: boolean;
   isCombineEnabled?: boolean;
+  zIndex?: CSSStyleDeclaration['zIndex'];
 }
 
 export const getDroppableDimension = ({
@@ -235,6 +236,7 @@ export const getDroppableDimension = ({
   border,
   windowScroll = origin,
   closest,
+  zIndex,
   isEnabled = true,
   direction = 'vertical',
   isFixedOnPage = false,
@@ -282,6 +284,7 @@ export const getDroppableDimension = ({
     closest: closestScrollable,
     isCombineEnabled,
     isFixedOnPage,
+    zIndex,
   });
 };
 
