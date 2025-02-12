@@ -3,6 +3,7 @@ import * as attributes from '../data-attributes';
 import isElement from '../is-type-of-element/is-element';
 import isHtmlElement from '../is-type-of-element/is-html-element';
 import closest from './closest';
+import { getEventTarget } from '../../query-selector-all';
 import { warning } from '../../dev-warning';
 
 function getSelector(contextId: ContextId): string {
@@ -13,7 +14,7 @@ function findClosestDragHandleFromEvent(
   contextId: ContextId,
   event: Event,
 ): Element | null {
-  const target = event.target;
+  const target = getEventTarget(event);
 
   if (!isElement(target)) {
     warning('event.target must be a Element');

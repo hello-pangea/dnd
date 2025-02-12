@@ -39,6 +39,7 @@ interface Props extends Responders {
 - `sensors`: Used to pass in your own `sensor`s for a `<DragDropContext />`. See our [sensor api documentation](/docs/sensors/sensor-api.md)
 - `enableDefaultSensors`: Whether or not the default sensors ([mouse](/docs/sensors/mouse.md), [keyboard](/docs/sensors/keyboard.md), and [touch](/docs/sensors/touch.md)) are enabled. You can also import them separately as `useMouseSensor`, `useKeyboardSensor`, or `useTouchSensor` and reuse just some of them via `sensors` prop. See our [sensor api documentation](/docs/sensors/sensor-api.md)
 - `autoScrollerOptions`: An object whose several (optional) properties allow the user to configure the auto-scroll behavior. A simple example is `{ disabled: true }`, which turns off auto scrolling entirely for that `<DragDropContext />`. See our [Auto scrolling documentation](/docs/guides/auto-scrolling.md)
+- `stylesInsertionPoint`: Specify the DOM node where to append styles. This is useful when used inside shadowRoots like web components. If not specified it will use document's head.
 
 > See our [type guide](/docs/guides/types.md) for more details
 

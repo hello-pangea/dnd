@@ -1,3 +1,4 @@
+import { getEventTarget } from '../../query-selector-all';
 import isHtmlElement from '../is-type-of-element/is-html-element';
 
 export type InteractiveTagNames = typeof interactiveTagNames;
@@ -57,7 +58,7 @@ export default function isEventInInteractiveElement(
   draggable: Element,
   event: Event,
 ): boolean {
-  const target = event.target;
+  const target = getEventTarget(event);
 
   if (!isHtmlElement(target)) {
     return false;

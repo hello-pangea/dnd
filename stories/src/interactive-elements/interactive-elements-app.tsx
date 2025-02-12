@@ -165,13 +165,17 @@ const Status = styled.strong<StatusProps>`
   color: ${({ isEnabled }) => (isEnabled ? colors.B200 : colors.P100)};
 `;
 
+interface Props {
+  stylesRoot?: HTMLElement | null;
+}
+
 interface State {
   canDragInteractiveElements: boolean;
   items: ItemType[];
 }
 
 export default class InteractiveElementsApp extends React.Component<
-  unknown,
+  Props,
   State
 > {
   state: State = {
@@ -209,7 +213,7 @@ export default class InteractiveElementsApp extends React.Component<
     const { canDragInteractiveElements } = this.state;
 
     return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
+      <DragDropContext onDragEnd={this.onDragEnd} stylesInsertionPoint={this.props.stylesRoot}>
         <Container>
           <Droppable droppableId="droppable">
             {(droppableProvided: DroppableProvided) => (
