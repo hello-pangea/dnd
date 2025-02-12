@@ -111,7 +111,7 @@
     "@storybook/addon-docs": "8.5.3",
     "@storybook/addon-essentials": "8.5.3",
     "@storybook/addon-storysource": "8.5.3",
-    "@storybook/addon-webpack5-compiler-swc": "1.0.6",
+    "@storybook/addon-webpack5-compiler-swc": "2.1.0",
     "@storybook/manager-api": "8.5.3",
     "@storybook/react": "8.5.3",
     "@storybook/react-webpack5": "8.5.3",
