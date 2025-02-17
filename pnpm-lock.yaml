@@ -19,17 +19,17 @@ importers:
         version: 4.0.3
       react-redux:
         specifier: ^9.2.0
-        version: 9.2.0(@types/react@18.3.18)(react@19.0.0)(redux@5.0.1)
+        version: 9.2.0(@types/react@19.0.10)(react@19.0.0)(redux@5.0.1)
       redux:
         specifier: ^5.0.1
         version: 5.0.1
     devDependencies:
       '@atlaskit/css-reset':
         specifier: 6.11.5
-        version: 6.11.5(@types/react@18.3.18)(react@19.0.0)
+        version: 6.11.5(@types/react@19.0.10)(react@19.0.0)
       '@atlaskit/theme':
         specifier: 13.1.0
-        version: 13.1.0(@types/react@18.3.18)(react@19.0.0)
+        version: 13.1.0(@types/react@19.0.10)(react@19.0.0)
       '@babel/core':
         specifier: 7.26.8
         version: 7.26.8
@@ -77,10 +77,10 @@ importers:
         version: 11.12.0(eslint@8.57.1)(typescript@5.7.3)
       '@emotion/react':
         specifier: 11.14.0
-        version: 11.14.0(@types/react@18.3.18)(react@19.0.0)
+        version: 11.14.0(@types/react@19.0.10)(react@19.0.0)
       '@emotion/styled':
         specifier: 11.14.0
-        version: 11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@19.0.0))(@types/react@18.3.18)(react@19.0.0)
+        version: 11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0)
       '@jest/environment':
         specifier: 29.7.0
         version: 29.7.0
@@ -110,10 +110,10 @@ importers:
         version: 0.4.4(rollup@4.34.6)
       '@storybook/addon-docs':
         specifier: 8.5.3
-        version: 8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))
+        version: 8.5.3(@types/react@19.0.10)(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-essentials':
         specifier: 8.5.3
-        version: 8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))
+        version: 8.5.3(@types/react@19.0.10)(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-storysource':
         specifier: 8.5.3
         version: 8.5.3(storybook@8.5.3(prettier@3.5.0))
@@ -143,7 +143,7 @@ importers:
         version: 6.6.3
       '@testing-library/react':
         specifier: 16.2.0
-        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/express':
         specifier: 4.17.21
         version: 4.17.21
@@ -172,11 +172,11 @@ importers:
         specifier: 4.0.3
         version: 4.0.3
       '@types/react':
-        specifier: 18.3.18
-        version: 18.3.18
+        specifier: 19.0.10
+        version: 19.0.10
       '@types/react-dom':
-        specifier: 18.3.5
-        version: 18.3.5(@types/react@18.3.18)
+        specifier: 19.0.4
+        version: 19.0.4(@types/react@19.0.10)
       '@types/react-window':
         specifier: 1.8.8
         version: 1.8.8
@@ -316,14 +316,14 @@ importers:
         specifier: 19.0.0
         version: 19.0.0
       react-18:
-        specifier: npm:react@18.3.1
-        version: react@18.3.1
+        specifier: npm:react@19.0.0
+        version: react@19.0.0
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
       react-dom-18:
-        specifier: npm:react-dom@18.3.1
-        version: react-dom@18.3.1(react@19.0.0)
+        specifier: npm:react-dom@19.0.0
+        version: react-dom@19.0.0(react@19.0.0)
       react-window:
         specifier: 1.8.11
         version: 1.8.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -2465,9 +2465,6 @@ packages:
   '@types/parse-path@7.0.3':
     resolution: {integrity: sha512-LriObC2+KYZD3FzCrgWGv/qufdUy4eXrxcLgQMfYXgPbLIecKIsVBaQgUPmxSSLcjmYbDTQbMgr6qr6l/eb7Bg==}
 
-  '@types/prop-types@15.7.11':
-    resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
-
   '@types/qs@6.9.12':
     resolution: {integrity: sha512-bZcOkJ6uWrL0Qb2NAWKa7TBU+mJHPzhx9jjLL1KHF+XpzEcR7EXHvjbHlGtR/IsP1vyPrehuS6XqkmaePy//mg==}
 
@@ -2477,16 +2474,16 @@ packages:
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
 
-  '@types/react-dom@18.3.5':
-    resolution: {integrity: sha512-P4t6saawp+b/dFrUr2cvkVsfvPguwsxtH6dNIYRllMsefqFzkZk5UIjzyDOv5g1dXIPdG4Sp1yCR4Z6RCUsG/Q==}
+  '@types/react-dom@19.0.4':
+    resolution: {integrity: sha512-4fSQ8vWFkg+TGhePfUzVmat3eC14TXYSsiiDSLI0dVLsrm9gZFABjPy/Qu6TKgl1tq1Bu1yDsuQgY3A3DOjCcg==}
     peerDependencies:
-      '@types/react': ^18.0.0
+      '@types/react': ^19.0.0
 
   '@types/react-window@1.8.8':
     resolution: {integrity: sha512-8Ls660bHR1AUA2kuRvVG9D/4XpRC6wjAaPT9dil7Ckc76eP9TKWZwwmgfq8Q1LANX3QNDnoU4Zp48A3w+zK69Q==}
 
-  '@types/react@18.3.18':
-    resolution: {integrity: sha512-t4yC+vtgnkYjNSKlFx1jkAhH8LgTo2N/7Qvi83kdEaUtMDiwpbLAktKDaAMlRcJ5eSxZkH74eEGt1ky31d7kfQ==}
+  '@types/react@19.0.10':
+    resolution: {integrity: sha512-JuRQ9KXLEjaUNjTWpzuR231Z2WpIwczOkBEIvbHNCzQefFIT0L8IqE6NV6ULLyC1SI/i234JnDoMkfg+RjQj2g==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -7793,23 +7790,23 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.7
 
-  '@atlaskit/css-reset@6.11.5(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/css-reset@6.11.5(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@atlaskit/theme': 14.0.3(@types/react@18.3.18)(react@19.0.0)
-      '@atlaskit/tokens': 3.2.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/theme': 14.0.3(@types/react@19.0.10)(react@19.0.0)
+      '@atlaskit/tokens': 3.2.0(@types/react@19.0.10)(react@19.0.0)
       '@babel/runtime': 7.26.7
       react: 19.0.0
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/ds-lib@3.3.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/ds-lib@3.3.0(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
       '@atlaskit/platform-feature-flags': 0.3.0
       '@babel/runtime': 7.26.7
       bind-event-listener: 3.0.0
       react: 19.0.0
-      react-uid: 2.3.3(@types/react@18.3.18)(react@19.0.0)
+      react-uid: 2.3.3(@types/react@19.0.10)(react@19.0.0)
     transitivePeerDependencies:
       - '@types/react'
 
@@ -7817,31 +7814,31 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.7
 
-  '@atlaskit/theme@13.1.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/theme@13.1.0(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
-      '@atlaskit/tokens': 2.5.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.3.0(@types/react@19.0.10)(react@19.0.0)
+      '@atlaskit/tokens': 2.5.0(@types/react@19.0.10)(react@19.0.0)
       '@babel/runtime': 7.26.7
       react: 19.0.0
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/theme@14.0.3(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/theme@14.0.3(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
-      '@atlaskit/tokens': 2.5.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.3.0(@types/react@19.0.10)(react@19.0.0)
+      '@atlaskit/tokens': 2.5.0(@types/react@19.0.10)(react@19.0.0)
       '@babel/runtime': 7.26.7
       react: 19.0.0
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/tokens@2.5.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/tokens@2.5.0(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.3.0(@types/react@19.0.10)(react@19.0.0)
       '@atlaskit/platform-feature-flags': 0.3.0
       '@babel/runtime': 7.26.7
       '@babel/traverse': 7.26.7
@@ -7852,9 +7849,9 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/tokens@3.2.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/tokens@3.2.0(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.3.0(@types/react@19.0.10)(react@19.0.0)
       '@atlaskit/platform-feature-flags': 0.3.0
       '@babel/runtime': 7.25.6
       '@babel/traverse': 7.26.7
@@ -8980,7 +8977,7 @@ snapshots:
 
   '@emotion/memoize@0.9.0': {}
 
-  '@emotion/react@11.14.0(@types/react@18.3.18)(react@19.0.0)':
+  '@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.26.7
       '@emotion/babel-plugin': 11.13.5
@@ -8992,7 +8989,7 @@ snapshots:
       hoist-non-react-statics: 3.3.2
       react: 19.0.0
     optionalDependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
     transitivePeerDependencies:
       - supports-color
 
@@ -9006,18 +9003,18 @@ snapshots:
 
   '@emotion/sheet@1.4.0': {}
 
-  '@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@19.0.0))(@types/react@18.3.18)(react@19.0.0)':
+  '@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0))(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.26.7
       '@emotion/babel-plugin': 11.13.5
       '@emotion/is-prop-valid': 1.3.0
-      '@emotion/react': 11.14.0(@types/react@18.3.18)(react@19.0.0)
+      '@emotion/react': 11.14.0(@types/react@19.0.10)(react@19.0.0)
       '@emotion/serialize': 1.3.3
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.0.0)
       '@emotion/utils': 1.4.2
       react: 19.0.0
     optionalDependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
     transitivePeerDependencies:
       - supports-color
 
@@ -9492,10 +9489,10 @@ snapshots:
     dependencies:
       buffer: 6.0.3
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.18)(react@18.3.1)':
+  '@mdx-js/react@3.0.1(@types/react@19.0.10)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.12
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
       react: 18.3.1
 
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
@@ -9837,9 +9834,9 @@ snapshots:
       storybook: 8.5.3(prettier@3.5.0)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))':
+  '@storybook/addon-docs@8.5.3(@types/react@19.0.10)(storybook@8.5.3(prettier@3.5.0))':
     dependencies:
-      '@mdx-js/react': 3.0.1(@types/react@18.3.18)(react@18.3.1)
+      '@mdx-js/react': 3.0.1(@types/react@19.0.10)(react@18.3.1)
       '@storybook/blocks': 8.5.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.3(prettier@3.5.0))
       '@storybook/csf-plugin': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/react-dom-shim': 8.5.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.3(prettier@3.5.0))
@@ -9850,12 +9847,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))':
+  '@storybook/addon-essentials@8.5.3(@types/react@19.0.10)(storybook@8.5.3(prettier@3.5.0))':
     dependencies:
       '@storybook/addon-actions': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-backgrounds': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-controls': 8.5.3(storybook@8.5.3(prettier@3.5.0))
-      '@storybook/addon-docs': 8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))
+      '@storybook/addon-docs': 8.5.3(@types/react@19.0.10)(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-highlight': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-measure': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-outline': 8.5.3(storybook@8.5.3(prettier@3.5.0))
@@ -10180,15 +10177,15 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/react@16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@testing-library/react@16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.26.7
       '@testing-library/dom': 10.4.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
     optionalDependencies:
-      '@types/react': 18.3.18
-      '@types/react-dom': 18.3.5(@types/react@18.3.18)
+      '@types/react': 19.0.10
+      '@types/react-dom': 19.0.4(@types/react@19.0.10)
 
   '@tootallnate/once@2.0.0': {}
 
@@ -10352,25 +10349,22 @@ snapshots:
 
   '@types/parse-path@7.0.3': {}
 
-  '@types/prop-types@15.7.11': {}
-
   '@types/qs@6.9.12': {}
 
   '@types/raf-schd@4.0.3': {}
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@18.3.5(@types/react@18.3.18)':
+  '@types/react-dom@19.0.4(@types/react@19.0.10)':
     dependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
 
   '@types/react-window@1.8.8':
     dependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
 
-  '@types/react@18.3.18':
+  '@types/react@19.0.10':
     dependencies:
-      '@types/prop-types': 15.7.11
       csstype: 3.1.3
 
   '@types/resolve@1.20.2': {}
@@ -15106,12 +15100,6 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-dom@18.3.1(react@19.0.0):
-    dependencies:
-      loose-envify: 1.4.0
-      react: 19.0.0
-      scheduler: 0.23.2
-
   react-dom@19.0.0(react@19.0.0):
     dependencies:
       react: 19.0.0
@@ -15123,21 +15111,21 @@ snapshots:
 
   react-is@18.2.0: {}
 
-  react-redux@9.2.0(@types/react@18.3.18)(react@19.0.0)(redux@5.0.1):
+  react-redux@9.2.0(@types/react@19.0.10)(react@19.0.0)(redux@5.0.1):
     dependencies:
       '@types/use-sync-external-store': 0.0.6
       react: 19.0.0
       use-sync-external-store: 1.4.0(react@19.0.0)
     optionalDependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
       redux: 5.0.1
 
-  react-uid@2.3.3(@types/react@18.3.18)(react@19.0.0):
+  react-uid@2.3.3(@types/react@19.0.10)(react@19.0.0):
     dependencies:
       react: 19.0.0
       tslib: 2.6.2
     optionalDependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
 
   react-window@1.8.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
