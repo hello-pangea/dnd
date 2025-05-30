@@ -22,6 +22,7 @@ export interface DragDropContextProps extends Responders {
    * Customize auto scroller
    */
   autoScrollerOptions?: PartialAutoScrollerOptions;
+  targetWindow?: Window;
 }
 
 export default function DragDropContext(props: DragDropContextProps) {
@@ -47,6 +48,7 @@ export default function DragDropContext(props: DragDropContextProps) {
           onDragUpdate={props.onDragUpdate}
           onDragEnd={props.onDragEnd}
           autoScrollerOptions={props.autoScrollerOptions}
+          targetWindow={props.targetWindow}
         >
           {props.children}
         </App>

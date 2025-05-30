@@ -150,6 +150,7 @@ interface TryStartArgs {
   draggableId: DraggableId;
   forceSensorStop: (() => void) | null;
   sourceEvent: Event | null;
+  doc?: Document;
 }
 
 function tryStart({
@@ -160,6 +161,7 @@ function tryStart({
   draggableId,
   forceSensorStop,
   sourceEvent,
+  doc
 }: TryStartArgs): PreDragActions | null {
   const shouldStart: boolean = canStart({
     lockAPI,
@@ -173,10 +175,12 @@ function tryStart({
   }
 
   const entry: DraggableEntry = registry.draggable.getById(draggableId);
-  const el: HTMLElement | null = findDraggable(contextId, entry.descriptor.id);
+  const el: HTMLElement | null = findDraggable(contextId, entry.descriptor.id, doc);
 
   if (!el) {
-    warning(`Unable to find draggable element with id: ${draggableId}`);
+    if (doc) {
+      warning(`Unable to find draggable element with id: ${draggableId} in provided document`);
+    }
     return null;
   }
 
@@ -372,6 +376,10 @@ export default function useSensorMarshal({
   customSensors,
   enableDefaultSensors,
 }: SensorMarshalArgs): void {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return;
+  }
+
   const useSensors: Sensor[] = [
     ...(enableDefaultSensors ? defaultSensors : []),
     ...(customSensors || []),
@@ -424,9 +432,11 @@ export default function useSensorMarshal({
     (
       draggableId: DraggableId,
       forceStop?: () => void,
-      options?: TryGetLockOptions,
-    ): PreDragActions | null =>
-      tryStart({
+      options?: TryGetLockOptions & { targetDocument?: Document }
+    ): PreDragActions | null =>{
+      const docToSearch = options?.targetDocument || (typeof document !== 'undefined' ? document : undefined);
+      
+      return tryStart({
         lockAPI,
         registry,
         contextId,
@@ -434,8 +444,10 @@ export default function useSensorMarshal({
         draggableId,
         forceSensorStop: forceStop || null,
         sourceEvent:
-          options && options.sourceEvent ? options.sourceEvent : null,
-      }),
+          options?.sourceEvent || null,
+        doc: docToSearch
+      });
+    },
     [contextId, lockAPI, registry, store],
   );
 
