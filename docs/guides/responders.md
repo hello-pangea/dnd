@@ -179,7 +179,7 @@ interface Combine {
 This function is _extremely_ important and has an critical role to play in the application lifecycle. **This function must result in the _synchronous_ reordering of a list of `Draggables`**
 
 ```ts
-type OragEndResponder = (
+type DragEndResponder = (
   result: DropResult,
   provided: ResponderProvided,
 ) => unknown;
