@@ -187,7 +187,7 @@
     "rollup": "4.34.6",
     "rollup-plugin-dts": "6.1.1",
     "seedrandom": "3.0.5",
-    "storybook": "8.5.3",
+    "storybook": "8.6.15",
     "styled-components": "6.1.15",
     "stylelint": "16.14.1",
     "stylelint-config-recommended": "14.0.1",
