@@ -358,8 +358,8 @@ importers:
         specifier: 14.0.1
         version: 14.0.1(stylelint@16.14.1(typescript@5.7.3))
       stylelint-config-standard:
-        specifier: 36.0.1
-        version: 36.0.1(stylelint@16.14.1(typescript@5.7.3))
+        specifier: 39.0.1
+        version: 39.0.1(stylelint@16.14.1(typescript@5.7.3))
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@swc/core@1.10.15)(@types/node@22.13.1)(typescript@5.7.3)
@@ -7085,11 +7085,17 @@ packages:
     peerDependencies:
       stylelint: ^16.1.0
 
-  stylelint-config-standard@36.0.1:
-    resolution: {integrity: sha512-8aX8mTzJ6cuO8mmD5yon61CWuIM4UD8Q5aBcWKGSf6kg+EC3uhB+iOywpTK4ca6ZL7B49en8yanOFtUW0qNzyw==}
+  stylelint-config-recommended@17.0.0:
+    resolution: {integrity: sha512-WaMSdEiPfZTSFVoYmJbxorJfA610O0tlYuU2aEwY33UQhSPgFbClrVJYWvy3jGJx+XW37O+LyNLiZOEXhKhJmA==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
-      stylelint: ^16.1.0
+      stylelint: ^16.23.0
+
+  stylelint-config-standard@39.0.1:
+    resolution: {integrity: sha512-b7Fja59EYHRNOTa3aXiuWnhUWXFU2Nfg6h61bLfAb5GS5fX3LMUD0U5t4S8N/4tpHQg3Acs2UVPR9jy2l1g/3A==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: ^16.23.0
 
   stylelint@16.14.1:
     resolution: {integrity: sha512-oqCL7AC3786oTax35T/nuLL8p2C3k/8rHKAooezrPGRvUX0wX+qqs5kMWh5YYT4PHQgVDobHT4tw55WgpYG6Sw==}
@@ -7187,8 +7193,8 @@ packages:
   third-party-web@0.26.2:
     resolution: {integrity: sha512-taJ0Us0lKoYBqcbccMuDElSUPOxmBfwlHe1OkHQ3KFf+RwovvBHdXhbFk9XJVQE2vHzxbTwvwg5GFsT9hbDokQ==}
 
-  third-party-web@0.26.5:
-    resolution: {integrity: sha512-tDuKQJUTfjvi9Fcrs1s6YAQAB9mzhTSbBZMfNgtWNmJlHuoFeXO6dzBFdGeCWRvYL50jQGK0jPsBZYxqZQJ2SA==}
+  third-party-web@0.29.0:
+    resolution: {integrity: sha512-nBDSJw5B7Sl1YfsATG2XkW5qgUPODbJhXw++BKygi9w6O/NKS98/uY/nR/DxDq2axEjL6halHW1v+jhm/j1DBQ==}
 
   throttleit@1.0.1:
     resolution: {integrity: sha512-vDZpf9Chs9mAdfY046mcPt8fg5QSZr37hEH4TXYBnDF+izxgrbRGUAAaBvIk/fJm9aOFCGFd1EsNg5AZCbnQCQ==}
@@ -7583,10 +7589,12 @@ packages:
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
@@ -9586,7 +9594,7 @@ snapshots:
 
   '@paulirish/trace_engine@0.0.39':
     dependencies:
-      third-party-web: 0.26.5
+      third-party-web: 0.29.0
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -15872,10 +15880,14 @@ snapshots:
     dependencies:
       stylelint: 16.14.1(typescript@5.7.3)
 
-  stylelint-config-standard@36.0.1(stylelint@16.14.1(typescript@5.7.3)):
+  stylelint-config-recommended@17.0.0(stylelint@16.14.1(typescript@5.7.3)):
     dependencies:
       stylelint: 16.14.1(typescript@5.7.3)
-      stylelint-config-recommended: 14.0.1(stylelint@16.14.1(typescript@5.7.3))
+
+  stylelint-config-standard@39.0.1(stylelint@16.14.1(typescript@5.7.3)):
+    dependencies:
+      stylelint: 16.14.1(typescript@5.7.3)
+      stylelint-config-recommended: 17.0.0(stylelint@16.14.1(typescript@5.7.3))
 
   stylelint@16.14.1(typescript@5.7.3):
     dependencies:
@@ -16014,7 +16026,7 @@ snapshots:
 
   third-party-web@0.26.2: {}
 
-  third-party-web@0.26.5: {}
+  third-party-web@0.29.0: {}
 
   throttleit@1.0.1: {}
 
