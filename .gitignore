@@ -1,6 +1,6 @@
 # editors
-.idea
-.vscode
+.idea/
+.vscode/
 
 # library
 node_modules/
