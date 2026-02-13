@@ -181,7 +181,7 @@
     "react-dom": "19.0.0",
     "react-dom-18": "npm:react-dom@18.3.1",
     "react-window": "1.8.11",
-    "release-it": "18.1.2",
+    "release-it": "19.2.4",
     "require-from-string": "2.0.2",
     "rimraf": "6.0.1",
     "rollup": "4.34.6",
