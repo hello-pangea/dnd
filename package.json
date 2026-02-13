@@ -73,7 +73,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@babel/runtime": "^7.26.7",
+    "@babel/runtime": "^7.28.6",
     "css-box-model": "^1.2.1",
     "raf-schd": "^4.0.3",
     "react-redux": "^9.2.0",
