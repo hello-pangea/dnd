@@ -22,6 +22,8 @@ export interface DragDropContextProps extends Responders {
    * Customize auto scroller
    */
   autoScrollerOptions?: PartialAutoScrollerOptions;
+    // Allows customizing the element to add the stylesheets to e.g. when being used in a ShadowRoot
+  stylesInsertionPoint?: HTMLElement | null,
 }
 
 export default function DragDropContext(props: DragDropContextProps) {
@@ -47,6 +49,7 @@ export default function DragDropContext(props: DragDropContextProps) {
           onDragUpdate={props.onDragUpdate}
           onDragEnd={props.onDragEnd}
           autoScrollerOptions={props.autoScrollerOptions}
+          stylesInsertionPoint={props.stylesInsertionPoint}
         >
           {props.children}
         </App>

@@ -70,6 +70,7 @@ export interface Props extends Responders {
   // options to exert more control over autoScroll
   // eslint-disable-next-line react/no-unused-prop-types
   autoScrollerOptions?: PartialAutoScrollerOptions;
+  stylesInsertionPoint?: HTMLElement|null;
 }
 
 const createResponders = (props: Props): Responders => ({
@@ -134,7 +135,7 @@ export default function App(props: Props) {
     contextId,
     text: dragHandleUsageInstructions,
   });
-  const styleMarshal: StyleMarshal = useStyleMarshal(contextId, nonce);
+  const styleMarshal: StyleMarshal = useStyleMarshal(contextId, nonce, props.stylesInsertionPoint);
 
   const lazyDispatch: (a: Action) => void = useCallback(
     (action: Action): void => {

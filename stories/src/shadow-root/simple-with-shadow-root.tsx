@@ -6,7 +6,6 @@ import {
   DraggableStyle,
   DropResult,
 } from '@hello-pangea/dnd';
-import { ShadowRootContext } from '../shadow-root/inside-shadow-root';
 
 // fake data generator
 const getItems = (count: number) =>
@@ -28,41 +27,56 @@ const reorder = <TList extends unknown[]>(
   return result;
 };
 
-const withAssortedSpacing = () => ({
-  // margin
-  marginTop: 10,
-  // not allowing margin collapsing
-  // marginBottom: 20,
-  marginLeft: 30,
-  marginRight: 40,
-  // padding
-  paddingTop: 10,
-  paddingBottom: 20,
-  paddingLeft: 30,
-  paddingRight: 40,
-  // border
-  borderStyle: 'solid',
-  borderColor: 'purple',
-  borderTopWidth: 2,
-  borderBottomWidth: 4,
-  borderLeftWidth: 6,
-  borderRightWidth: 8,
-});
+const grid = 8;
 
 const getItemStyle = (
   isDragging: boolean,
   draggableStyle: DraggableStyle = {},
 ) => ({
+  display: 'block',
   // some basic styles to make the items look a bit nicer
   userSelect: 'none' as const,
-  ...withAssortedSpacing(),
+  padding: grid * 2,
+  margin: `0 0 ${grid}px 0`,
 
   // change background colour if dragging
-  background: isDragging ? 'lightgreen' : 'pink',
+  background: isDragging ? 'lightgreen' : 'red',
 
   // styles we need to apply on draggables
   ...draggableStyle,
 });
+
+const getListStyle = (isDraggingOver: boolean) => ({
+  background: isDraggingOver ? 'lightblue' : 'grey',
+  padding: grid,
+  width: 250,
+});
+
+class SomeCustomElement extends HTMLElement {
+  childComponent;
+  
+  constructor() {
+    super();
+    const root = this.attachShadow({ mode: 'open' });
+    this.childComponent = document.createElement('div');
+    root.appendChild(this.childComponent);
+  }
+  
+  connectedCallback() {
+    this.childComponent.textContent = this.getAttribute('content');
+  }
+}
+
+customElements.define('some-custom-element', SomeCustomElement);
+
+declare global {
+  module JSX {
+    interface IntrinsicElements {
+      // TODO... any
+      "some-custom-element": any
+    }
+  }
+}
 
 interface AppProps {
   stylesRoot?: HTMLElement | null;
@@ -109,22 +123,15 @@ export default class App extends Component<AppProps, AppState> {
     return (
       <DragDropContext onDragEnd={this.onDragEnd} stylesInsertionPoint={this.props.stylesRoot}>
         <Droppable droppableId="droppable">
-          {(droppableProvided) => (
+          {(droppableProvided, droppableSnapshot) => (
             <div
               ref={droppableProvided.innerRef}
-              style={{
-                width: 250,
-                background: 'lightblue',
-
-                ...withAssortedSpacing(),
-                // no margin collapsing
-                marginTop: 0,
-              }}
+              style={getListStyle(droppableSnapshot.isDraggingOver)}
             >
               {this.state.items.map((item, index) => (
                 <Draggable key={item.id} draggableId={item.id} index={index}>
                   {(draggableProvided, draggableSnapshot) => (
-                    <div
+                    <some-custom-element
                       ref={draggableProvided.innerRef}
                       {...draggableProvided.draggableProps}
                       {...draggableProvided.dragHandleProps}
@@ -134,7 +141,7 @@ export default class App extends Component<AppProps, AppState> {
                       )}
                     >
                       {item.content}
-                    </div>
+                    </some-custom-element>
                   )}
                 </Draggable>
               ))}
