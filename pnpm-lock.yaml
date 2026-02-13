@@ -19,17 +19,17 @@ importers:
         version: 4.0.3
       react-redux:
         specifier: ^9.2.0
-        version: 9.2.0(@types/react@18.3.18)(react@19.0.0)(redux@5.0.1)
+        version: 9.2.0(@types/react@19.2.14)(react@19.0.0)(redux@5.0.1)
       redux:
         specifier: ^5.0.1
         version: 5.0.1
     devDependencies:
       '@atlaskit/css-reset':
         specifier: 6.11.5
-        version: 6.11.5(@types/react@18.3.18)(react@19.0.0)
+        version: 6.11.5(@types/react@19.2.14)(react@19.0.0)
       '@atlaskit/theme':
         specifier: 13.1.0
-        version: 13.1.0(@types/react@18.3.18)(react@19.0.0)
+        version: 13.1.0(@types/react@19.2.14)(react@19.0.0)
       '@babel/core':
         specifier: 7.26.8
         version: 7.26.8
@@ -77,10 +77,10 @@ importers:
         version: 11.12.0(eslint@8.57.1)(typescript@5.7.3)
       '@emotion/react':
         specifier: 11.14.0
-        version: 11.14.0(@types/react@18.3.18)(react@19.0.0)
+        version: 11.14.0(@types/react@19.2.14)(react@19.0.0)
       '@emotion/styled':
         specifier: 11.14.0
-        version: 11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@19.0.0))(@types/react@18.3.18)(react@19.0.0)
+        version: 11.14.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)
       '@jest/environment':
         specifier: 29.7.0
         version: 29.7.0
@@ -110,10 +110,10 @@ importers:
         version: 0.4.4(rollup@4.34.6)
       '@storybook/addon-docs':
         specifier: 8.5.3
-        version: 8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))
+        version: 8.5.3(@types/react@19.2.14)(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-essentials':
         specifier: 8.5.3
-        version: 8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))
+        version: 8.5.3(@types/react@19.2.14)(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-storysource':
         specifier: 8.5.3
         version: 8.5.3(storybook@8.5.3(prettier@3.5.0))
@@ -143,7 +143,7 @@ importers:
         version: 6.6.3
       '@testing-library/react':
         specifier: 16.2.0
-        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/express':
         specifier: 4.17.21
         version: 4.17.21
@@ -172,11 +172,11 @@ importers:
         specifier: 4.0.3
         version: 4.0.3
       '@types/react':
-        specifier: 18.3.18
-        version: 18.3.18
+        specifier: 19.2.14
+        version: 19.2.14
       '@types/react-dom':
-        specifier: 18.3.5
-        version: 18.3.5(@types/react@18.3.18)
+        specifier: 19.2.3
+        version: 19.2.3(@types/react@19.2.14)
       '@types/react-window':
         specifier: 1.8.8
         version: 1.8.8
@@ -316,14 +316,14 @@ importers:
         specifier: 19.0.0
         version: 19.0.0
       react-18:
-        specifier: npm:react@18.3.1
-        version: react@18.3.1
+        specifier: npm:react@19.2.4
+        version: react@19.2.4
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
       react-dom-18:
-        specifier: npm:react-dom@18.3.1
-        version: react-dom@18.3.1(react@19.0.0)
+        specifier: npm:react-dom@19.2.4
+        version: react-dom@19.2.4(react@19.0.0)
       react-window:
         specifier: 1.8.11
         version: 1.8.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -2465,9 +2465,6 @@ packages:
   '@types/parse-path@7.0.3':
     resolution: {integrity: sha512-LriObC2+KYZD3FzCrgWGv/qufdUy4eXrxcLgQMfYXgPbLIecKIsVBaQgUPmxSSLcjmYbDTQbMgr6qr6l/eb7Bg==}
 
-  '@types/prop-types@15.7.11':
-    resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
-
   '@types/qs@6.9.12':
     resolution: {integrity: sha512-bZcOkJ6uWrL0Qb2NAWKa7TBU+mJHPzhx9jjLL1KHF+XpzEcR7EXHvjbHlGtR/IsP1vyPrehuS6XqkmaePy//mg==}
 
@@ -2477,16 +2474,16 @@ packages:
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
 
-  '@types/react-dom@18.3.5':
-    resolution: {integrity: sha512-P4t6saawp+b/dFrUr2cvkVsfvPguwsxtH6dNIYRllMsefqFzkZk5UIjzyDOv5g1dXIPdG4Sp1yCR4Z6RCUsG/Q==}
+  '@types/react-dom@19.2.3':
+    resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
     peerDependencies:
-      '@types/react': ^18.0.0
+      '@types/react': ^19.2.0
 
   '@types/react-window@1.8.8':
     resolution: {integrity: sha512-8Ls660bHR1AUA2kuRvVG9D/4XpRC6wjAaPT9dil7Ckc76eP9TKWZwwmgfq8Q1LANX3QNDnoU4Zp48A3w+zK69Q==}
 
-  '@types/react@18.3.18':
-    resolution: {integrity: sha512-t4yC+vtgnkYjNSKlFx1jkAhH8LgTo2N/7Qvi83kdEaUtMDiwpbLAktKDaAMlRcJ5eSxZkH74eEGt1ky31d7kfQ==}
+  '@types/react@19.2.14':
+    resolution: {integrity: sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -3613,6 +3610,9 @@ packages:
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
+  csstype@3.2.3:
+    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
+
   cypress@13.17.0:
     resolution: {integrity: sha512-5xWkaPurwkIljojFidhw8lFScyxhtiFHl/i/3zov+1Z5CmY4t9tjIdvSXfu82Y3w7wt0uR9KkucbhkVvJZLQSA==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
@@ -4582,20 +4582,22 @@ packages:
   glob@11.0.0:
     resolution: {integrity: sha512-9UiX/Bl6J2yaBbxKoEBRm4Cipxgok8kQYcOPEhScPwebu2I0HoQOuYdIO6S3hLuWoZgpDpwQZMzTFxgpkyT76g==}
     engines: {node: 20 || >=22}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   glob@9.3.5:
     resolution: {integrity: sha512-e1LleDykUz2Iu+MTYdkSsuWX8lvAjAcs0Xef0lNIu0S2wOAzuTxCJtcd9S3cijlwYF18EsU3rzb8jPVobxDh9Q==}
     engines: {node: '>=16 || 14 >=14.17'}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -6471,6 +6473,11 @@ packages:
     peerDependencies:
       react: ^19.0.0
 
+  react-dom@19.2.4:
+    resolution: {integrity: sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==}
+    peerDependencies:
+      react: ^19.2.4
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -6515,6 +6522,10 @@ packages:
 
   react@19.0.0:
     resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
+    engines: {node: '>=0.10.0'}
+
+  react@19.2.4:
+    resolution: {integrity: sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ==}
     engines: {node: '>=0.10.0'}
 
   read-package-up@11.0.0:
@@ -6759,6 +6770,9 @@ packages:
 
   scheduler@0.25.0:
     resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
+
+  scheduler@0.27.0:
+    resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
 
   schema-utils@3.3.0:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
@@ -7187,8 +7201,8 @@ packages:
   third-party-web@0.26.2:
     resolution: {integrity: sha512-taJ0Us0lKoYBqcbccMuDElSUPOxmBfwlHe1OkHQ3KFf+RwovvBHdXhbFk9XJVQE2vHzxbTwvwg5GFsT9hbDokQ==}
 
-  third-party-web@0.26.5:
-    resolution: {integrity: sha512-tDuKQJUTfjvi9Fcrs1s6YAQAB9mzhTSbBZMfNgtWNmJlHuoFeXO6dzBFdGeCWRvYL50jQGK0jPsBZYxqZQJ2SA==}
+  third-party-web@0.29.0:
+    resolution: {integrity: sha512-nBDSJw5B7Sl1YfsATG2XkW5qgUPODbJhXw++BKygi9w6O/NKS98/uY/nR/DxDq2axEjL6halHW1v+jhm/j1DBQ==}
 
   throttleit@1.0.1:
     resolution: {integrity: sha512-vDZpf9Chs9mAdfY046mcPt8fg5QSZr37hEH4TXYBnDF+izxgrbRGUAAaBvIk/fJm9aOFCGFd1EsNg5AZCbnQCQ==}
@@ -7583,10 +7597,12 @@ packages:
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
@@ -7793,23 +7809,23 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.7
 
-  '@atlaskit/css-reset@6.11.5(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/css-reset@6.11.5(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
-      '@atlaskit/theme': 14.0.3(@types/react@18.3.18)(react@19.0.0)
-      '@atlaskit/tokens': 3.2.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/theme': 14.0.3(@types/react@19.2.14)(react@19.0.0)
+      '@atlaskit/tokens': 3.2.0(@types/react@19.2.14)(react@19.0.0)
       '@babel/runtime': 7.26.7
       react: 19.0.0
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/ds-lib@3.3.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/ds-lib@3.3.0(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@atlaskit/platform-feature-flags': 0.3.0
       '@babel/runtime': 7.26.7
       bind-event-listener: 3.0.0
       react: 19.0.0
-      react-uid: 2.3.3(@types/react@18.3.18)(react@19.0.0)
+      react-uid: 2.3.3(@types/react@19.2.14)(react@19.0.0)
     transitivePeerDependencies:
       - '@types/react'
 
@@ -7817,31 +7833,31 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.7
 
-  '@atlaskit/theme@13.1.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/theme@13.1.0(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
-      '@atlaskit/tokens': 2.5.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.3.0(@types/react@19.2.14)(react@19.0.0)
+      '@atlaskit/tokens': 2.5.0(@types/react@19.2.14)(react@19.0.0)
       '@babel/runtime': 7.26.7
       react: 19.0.0
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/theme@14.0.3(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/theme@14.0.3(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@atlaskit/codemod-utils': 4.2.3
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
-      '@atlaskit/tokens': 2.5.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.3.0(@types/react@19.2.14)(react@19.0.0)
+      '@atlaskit/tokens': 2.5.0(@types/react@19.2.14)(react@19.0.0)
       '@babel/runtime': 7.26.7
       react: 19.0.0
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/tokens@2.5.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/tokens@2.5.0(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.3.0(@types/react@19.2.14)(react@19.0.0)
       '@atlaskit/platform-feature-flags': 0.3.0
       '@babel/runtime': 7.26.7
       '@babel/traverse': 7.26.7
@@ -7852,9 +7868,9 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@atlaskit/tokens@3.2.0(@types/react@18.3.18)(react@19.0.0)':
+  '@atlaskit/tokens@3.2.0(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
-      '@atlaskit/ds-lib': 3.3.0(@types/react@18.3.18)(react@19.0.0)
+      '@atlaskit/ds-lib': 3.3.0(@types/react@19.2.14)(react@19.0.0)
       '@atlaskit/platform-feature-flags': 0.3.0
       '@babel/runtime': 7.25.6
       '@babel/traverse': 7.26.7
@@ -8980,7 +8996,7 @@ snapshots:
 
   '@emotion/memoize@0.9.0': {}
 
-  '@emotion/react@11.14.0(@types/react@18.3.18)(react@19.0.0)':
+  '@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.26.7
       '@emotion/babel-plugin': 11.13.5
@@ -8992,7 +9008,7 @@ snapshots:
       hoist-non-react-statics: 3.3.2
       react: 19.0.0
     optionalDependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.2.14
     transitivePeerDependencies:
       - supports-color
 
@@ -9006,18 +9022,18 @@ snapshots:
 
   '@emotion/sheet@1.4.0': {}
 
-  '@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@19.0.0))(@types/react@18.3.18)(react@19.0.0)':
+  '@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.0.0))(@types/react@19.2.14)(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.26.7
       '@emotion/babel-plugin': 11.13.5
       '@emotion/is-prop-valid': 1.3.0
-      '@emotion/react': 11.14.0(@types/react@18.3.18)(react@19.0.0)
+      '@emotion/react': 11.14.0(@types/react@19.2.14)(react@19.0.0)
       '@emotion/serialize': 1.3.3
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.0.0)
       '@emotion/utils': 1.4.2
       react: 19.0.0
     optionalDependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.2.14
     transitivePeerDependencies:
       - supports-color
 
@@ -9492,10 +9508,10 @@ snapshots:
     dependencies:
       buffer: 6.0.3
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.18)(react@18.3.1)':
+  '@mdx-js/react@3.0.1(@types/react@19.2.14)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.12
-      '@types/react': 18.3.18
+      '@types/react': 19.2.14
       react: 18.3.1
 
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
@@ -9586,7 +9602,7 @@ snapshots:
 
   '@paulirish/trace_engine@0.0.39':
     dependencies:
-      third-party-web: 0.26.5
+      third-party-web: 0.29.0
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -9837,9 +9853,9 @@ snapshots:
       storybook: 8.5.3(prettier@3.5.0)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))':
+  '@storybook/addon-docs@8.5.3(@types/react@19.2.14)(storybook@8.5.3(prettier@3.5.0))':
     dependencies:
-      '@mdx-js/react': 3.0.1(@types/react@18.3.18)(react@18.3.1)
+      '@mdx-js/react': 3.0.1(@types/react@19.2.14)(react@18.3.1)
       '@storybook/blocks': 8.5.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.3(prettier@3.5.0))
       '@storybook/csf-plugin': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/react-dom-shim': 8.5.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.3(prettier@3.5.0))
@@ -9850,12 +9866,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))':
+  '@storybook/addon-essentials@8.5.3(@types/react@19.2.14)(storybook@8.5.3(prettier@3.5.0))':
     dependencies:
       '@storybook/addon-actions': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-backgrounds': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-controls': 8.5.3(storybook@8.5.3(prettier@3.5.0))
-      '@storybook/addon-docs': 8.5.3(@types/react@18.3.18)(storybook@8.5.3(prettier@3.5.0))
+      '@storybook/addon-docs': 8.5.3(@types/react@19.2.14)(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-highlight': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-measure': 8.5.3(storybook@8.5.3(prettier@3.5.0))
       '@storybook/addon-outline': 8.5.3(storybook@8.5.3(prettier@3.5.0))
@@ -10180,15 +10196,15 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/react@16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@testing-library/react@16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.26.7
       '@testing-library/dom': 10.4.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
     optionalDependencies:
-      '@types/react': 18.3.18
-      '@types/react-dom': 18.3.5(@types/react@18.3.18)
+      '@types/react': 19.2.14
+      '@types/react-dom': 19.2.3(@types/react@19.2.14)
 
   '@tootallnate/once@2.0.0': {}
 
@@ -10352,26 +10368,23 @@ snapshots:
 
   '@types/parse-path@7.0.3': {}
 
-  '@types/prop-types@15.7.11': {}
-
   '@types/qs@6.9.12': {}
 
   '@types/raf-schd@4.0.3': {}
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@18.3.5(@types/react@18.3.18)':
+  '@types/react-dom@19.2.3(@types/react@19.2.14)':
     dependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.2.14
 
   '@types/react-window@1.8.8':
     dependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.2.14
 
-  '@types/react@18.3.18':
+  '@types/react@19.2.14':
     dependencies:
-      '@types/prop-types': 15.7.11
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   '@types/resolve@1.20.2': {}
 
@@ -11664,6 +11677,8 @@ snapshots:
       rrweb-cssom: 0.7.1
 
   csstype@3.1.3: {}
+
+  csstype@3.2.3: {}
 
   cypress@13.17.0:
     dependencies:
@@ -15106,16 +15121,15 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-dom@18.3.1(react@19.0.0):
-    dependencies:
-      loose-envify: 1.4.0
-      react: 19.0.0
-      scheduler: 0.23.2
-
   react-dom@19.0.0(react@19.0.0):
     dependencies:
       react: 19.0.0
       scheduler: 0.25.0
+
+  react-dom@19.2.4(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      scheduler: 0.27.0
 
   react-is@16.13.1: {}
 
@@ -15123,21 +15137,21 @@ snapshots:
 
   react-is@18.2.0: {}
 
-  react-redux@9.2.0(@types/react@18.3.18)(react@19.0.0)(redux@5.0.1):
+  react-redux@9.2.0(@types/react@19.2.14)(react@19.0.0)(redux@5.0.1):
     dependencies:
       '@types/use-sync-external-store': 0.0.6
       react: 19.0.0
       use-sync-external-store: 1.4.0(react@19.0.0)
     optionalDependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.2.14
       redux: 5.0.1
 
-  react-uid@2.3.3(@types/react@18.3.18)(react@19.0.0):
+  react-uid@2.3.3(@types/react@19.2.14)(react@19.0.0):
     dependencies:
       react: 19.0.0
       tslib: 2.6.2
     optionalDependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.2.14
 
   react-window@1.8.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
@@ -15151,6 +15165,8 @@ snapshots:
       loose-envify: 1.4.0
 
   react@19.0.0: {}
+
+  react@19.2.4: {}
 
   read-package-up@11.0.0:
     dependencies:
@@ -15473,6 +15489,8 @@ snapshots:
       loose-envify: 1.4.0
 
   scheduler@0.25.0: {}
+
+  scheduler@0.27.0: {}
 
   schema-utils@3.3.0:
     dependencies:
@@ -16014,7 +16032,7 @@ snapshots:
 
   third-party-web@0.26.2: {}
 
-  third-party-web@0.26.5: {}
+  third-party-web@0.29.0: {}
 
   throttleit@1.0.1: {}
 
