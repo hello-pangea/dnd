@@ -169,7 +169,7 @@
     "jest-junit": "16.0.0",
     "jest-watch-typeahead": "2.2.2",
     "jsdom": "25.0.1",
-    "lighthouse": "12.3.0",
+    "lighthouse": "13.0.3",
     "lodash.isequal": "4.5.0",
     "markdown-it": "14.1.0",
     "memory-fs": "0.5.0",
