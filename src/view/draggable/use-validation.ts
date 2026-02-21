@@ -43,8 +43,13 @@ export function useValidation(
     // Only running check when enabled.
     // When not enabled there is no drag handle props
     if (props.isEnabled) {
+      const draggableElement = getRef();
+      // If the draggable element exists, use its ownerDocument.
+      // Otherwise, (e.g. SSR or ref not yet set) pass undefined to findDragHandle.
+      const docToSearchIn = draggableElement ? draggableElement.ownerDocument : undefined;
+
       invariant(
-        findDragHandle(contextId, id),
+        findDragHandle(contextId, id, docToSearchIn),
         `${prefix(id)} Unable to find drag handle`,
       );
     }

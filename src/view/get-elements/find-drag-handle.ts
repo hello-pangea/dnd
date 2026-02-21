@@ -7,13 +7,16 @@ import isHtmlElement from '../is-type-of-element/is-html-element';
 export default function findDragHandle(
   contextId: ContextId,
   draggableId: DraggableId,
+  doc?: Document,
 ): HTMLElement | null {
-  // cannot create a selector with the draggable id as it might not be a valid attribute selector
+  if (!doc) {
+    return null;
+  }
   const selector = `[${dragHandleAttr.contextId}="${contextId}"]`;
-  const possible = querySelectorAll(document, selector);
+  const possible = querySelectorAll(doc, selector);
 
   if (!possible.length) {
-    warning(`Unable to find any drag handles in the context "${contextId}"`);
+    warning(`Unable to find any drag handles with contextId "${contextId}" in the provided document`);
     return null;
   }
 
@@ -23,7 +26,7 @@ export default function findDragHandle(
 
   if (!handle) {
     warning(
-      `Unable to find drag handle with id "${draggableId}" as no handle with a matching id was found`,
+      `Unable to find drag handle with draggableId "${draggableId}" (contextId "${contextId}") in the provided document`,
     );
     return null;
   }
