@@ -189,7 +189,7 @@
     "seedrandom": "3.0.5",
     "storybook": "8.5.3",
     "styled-components": "6.1.15",
-    "stylelint": "16.14.1",
+    "stylelint": "17.4.0",
     "stylelint-config-recommended": "14.0.1",
     "stylelint-config-standard": "36.0.1",
     "ts-node": "10.9.2",
