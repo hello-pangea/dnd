@@ -205,5 +205,5 @@
   "jest-junit": {
     "output": "test-reports/junit/js-test-results.xml"
   },
-  "packageManager": "pnpm@10.2.1"
+  "packageManager": "pnpm@10.30.3"
 }
