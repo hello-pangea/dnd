@@ -127,7 +127,7 @@
     "@types/jsdom": "21.1.7",
     "@types/lodash.isequal": "4.5.8",
     "@types/markdown-it": "14.1.2",
-    "@types/node": "22.13.1",
+    "@types/node": "24.11.0",
     "@types/raf-schd": "4.0.3",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
