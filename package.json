@@ -171,7 +171,7 @@
     "jsdom": "25.0.1",
     "lighthouse": "12.3.0",
     "lodash.isequal": "4.5.0",
-    "markdown-it": "14.1.0",
+    "markdown-it": "14.1.1",
     "memory-fs": "0.5.0",
     "postcss-styled-syntax": "0.7.1",
     "prettier": "3.5.0",
