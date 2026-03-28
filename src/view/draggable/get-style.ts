@@ -1,6 +1,7 @@
 import type { BoxModel } from 'css-box-model';
 import { combine, transforms, transitions } from '../../animation';
 import type { DraggableDimension } from '../../types';
+import getViewport from '../window/get-viewport';
 import type {
   DraggingStyle,
   NotDraggingStyle,
@@ -52,7 +53,18 @@ const getShouldDraggingAnimate = (dragging: DraggingMapProps): boolean => {
 function getDraggingStyle(dragging: DraggingMapProps): DraggingStyle {
   const dimension: DraggableDimension = dragging.dimension;
   const box: BoxModel = dimension.client;
-  const { offset, combineWith, dropping } = dragging;
+  let { offset, combineWith, dropping } = dragging;
+
+  if (dragging.restrictToWindowEdges) {
+    const viewport = getViewport();
+    const maxX: number = viewport.width - dimension.borderBox.width;
+    const maxY: number = viewport.height - dimension.borderBox.height;
+
+    offset = {
+      x: Math.max(0, Math.min(offset.x, maxX)),
+      y: Math.max(0, Math.min(offset.y, maxY)),
+    };
+  }
 
   const isCombining = Boolean(combineWith);
 
