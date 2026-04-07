@@ -458,4 +458,41 @@ It is possible for your `<Draggable />` to contain interactive elements. By defa
 
 You can opt out of this behavior by adding the `disableInteractiveElementBlocking` prop to a `<Draggable />`. However, it is questionable as to whether you should be doing so because it will render the interactive element unusable. If you need to _conditionally_ block dragging from interactive elements you can add the `disableInteractiveElementBlocking` prop to opt out of the default blocking and monkey patch the `dragHandleProps (DragHandleProps)` event handlers to disable dragging as required.
 
+⚠️ **Important: Avoid using interactive elements as drag handles**
+
+By default, drag interactions are blocked on interactive elements such as `<button>`, `<input>`, `<textarea>`, etc.
+
+❌ Incorrect example (interactive drag handle)
+```ts
+<Draggable draggableId={row._id} index={index}>
+  {(provided, snapshot) => (
+    <div
+      ref={provided.innerRef}
+      {...provided.draggableProps}
+      className={`wb-repeater-row ${
+        snapshot.isDragging ? "wb-repeater-row-dragging" : ""
+      }`}
+    >
+      <button
+        {...provided.dragHandleProps}
+        className="wb-repeater-row-drag-handle"
+      >
+        <GripDotSvg />
+      </button>
+    </div>
+  )}
+</Draggable>
+```
+
+Using an interactive element as a drag handle without setting `disableInteractiveElementBlocking` may result in:
+
+- Drag not starting
+- Inconsistent or intermittent drag behavior
+- Issues after component re-renders
+
+**Recommended approach:**
+
+- Use a non-interactive element (e.g. `<div>` or `<span>`) as the drag handle
+- Do not use interactive elements like `<button>` as drag handles
+
 [← Back to documentation](/README.md#documentation-)
