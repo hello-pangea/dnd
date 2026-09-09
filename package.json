@@ -167,7 +167,7 @@
     "jest-axe": "9.0.0",
     "jest-environment-jsdom": "29.7.0",
     "jest-junit": "16.0.0",
-    "jest-watch-typeahead": "2.2.2",
+    "jest-watch-typeahead": "3.0.1",
     "jsdom": "25.0.1",
     "lighthouse": "12.3.0",
     "lodash.isequal": "4.5.0",
